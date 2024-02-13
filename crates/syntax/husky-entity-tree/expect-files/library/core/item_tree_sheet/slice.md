@@ -7,18 +7,11 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::slice::Slice`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -38,18 +31,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::slice::Slice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 78,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -61,18 +47,11 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 79,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -92,18 +71,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 79,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2891,53 +2863,21 @@ EntityTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `core::slice`,
-                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemSynNodePathId(
+                        Id {
+                            value: 122,
+                        },
+                    ),
                 ),
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 122,
+                            },
+                        ),
                     ),
                     ast_idx: 11,
                     impl_token: ImplToken {
@@ -2957,47 +2897,21 @@ EntityTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::slice`,
-                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                },
-                            ),
-                        ),
-                    },
+                    ItemSynNodePathId(
+                        Id {
+                            value: 123,
+                        },
+                    ),
                 ),
             ),
             ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 123,
+                            },
+                        ),
                     ),
                     ast_idx: 14,
                     impl_token: ImplToken {
@@ -3027,53 +2941,21 @@ EntityTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `core::slice`,
-                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemSynNodePathId(
+                        Id {
+                            value: 124,
+                        },
+                    ),
                 ),
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 124,
+                            },
+                        ),
                     ),
                     ast_idx: 15,
                     impl_token: ImplToken {

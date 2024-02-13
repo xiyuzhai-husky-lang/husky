@@ -8,26 +8,11 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::Submodule(
-                                            SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `syntax_errors::ast`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `syntax_errors`,
@@ -44,26 +29,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `syntax_errors::ast`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                             ),
                         ),
                         ident: `ast`,
@@ -75,26 +45,11 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::Submodule(
-                                            SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `syntax_errors::uses`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `syntax_errors`,
@@ -111,26 +66,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `syntax_errors::uses`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                         ident: `uses`,
@@ -200,18 +140,11 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -233,18 +166,11 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -274,53 +200,21 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `syntax_errors::ast`,
-                                                                ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 129,
+                                },
+                            ),
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `syntax_errors::ast`,
-                                                                    ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 129,
+                                    },
+                                ),
                             ),
                             ast_idx: 4,
                             impl_token: ImplToken {

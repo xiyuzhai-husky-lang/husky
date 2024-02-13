@@ -7,18 +7,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -46,18 +39,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -71,18 +57,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -110,18 +89,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -135,18 +107,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 28,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -174,18 +139,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -199,20 +157,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 29,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -242,20 +191,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -269,20 +209,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Fugitive(
-                                            FugitiveSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -312,20 +243,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Fugitive(
-                                        FugitiveSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),

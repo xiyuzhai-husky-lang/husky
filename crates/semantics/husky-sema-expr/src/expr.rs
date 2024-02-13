@@ -37,8 +37,9 @@ use husky_fly_term::{
 };
 use husky_opr::*;
 use husky_regional_token::{
-    ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
-    LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken, RegionalTokenIdx,
+    BlockRcurlRegionalToken, ColonColonRegionalToken, EmptyHtmlKetRegionalToken,
+    IdentRegionalToken, LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken,
+    RegionalTokenIdx,
 };
 use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
@@ -274,6 +275,11 @@ pub enum SemaExprData {
     },
     Unreachable {
         regional_token_idx: RegionalTokenIdx,
+    },
+    NestedBlock {
+        lcurl_regional_token_idx: RegionalTokenIdx,
+        stmts: SemaStmtIdxRange,
+        rcurl_regional_token: BlockRcurlRegionalToken,
     },
 }
 
@@ -1096,6 +1102,22 @@ impl<'a> SemaExprEngine<'a> {
                     block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),
                 )
             }
+            SynExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => {
+                let (stmts, block_ty) =
+                    self.build_sema_block_with_its_ty_returned(stmts, expr_ty_expectation.clone());
+                (
+                    Ok(SemaExprData::NestedBlock {
+                        lcurl_regional_token_idx,
+                        stmts,
+                        rcurl_regional_token,
+                    }),
+                    block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),
+                )
+            }
             SynExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
@@ -1167,11 +1189,6 @@ impl<'a> SemaExprEngine<'a> {
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),
             ),
-            SynExprData::NestedBlock {
-                lcurl_regional_token_idx,
-                stmts,
-                rcurl_regional_token,
-            } => todo!(),
         }
     }
 

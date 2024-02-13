@@ -7,18 +7,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 82,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -38,18 +31,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
                         ),
                     ),
                 ),

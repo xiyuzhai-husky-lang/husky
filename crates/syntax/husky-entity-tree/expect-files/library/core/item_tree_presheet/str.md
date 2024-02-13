@@ -7,18 +7,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::str::str`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 79,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -38,18 +31,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::str::str`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 79,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -61,18 +47,11 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::str::StringLiteral`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 80,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -92,18 +71,11 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::str::StringLiteral`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 80,
+                                },
+                            ),
                         ),
                     ),
                 ),

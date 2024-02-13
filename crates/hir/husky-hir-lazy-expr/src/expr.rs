@@ -463,6 +463,11 @@ impl ToHirLazy for SemaExprIdx {
                 items: _,
                 rbox_regional_token_idx: _,
             } => todo!(),
+            SemaExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)
     }

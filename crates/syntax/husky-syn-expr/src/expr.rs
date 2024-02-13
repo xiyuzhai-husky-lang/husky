@@ -180,7 +180,7 @@ pub enum SynExprData {
     NestedBlock {
         lcurl_regional_token_idx: RegionalTokenIdx,
         stmts: SynStmtIdxRange,
-        rcurl_regional_token: InlineLcurlRegionalToken,
+        rcurl_regional_token: BlockRcurlRegionalToken,
     },
     // todo: handle container
     EmptyHtmlTag {

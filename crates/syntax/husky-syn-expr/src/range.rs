@@ -387,11 +387,14 @@ impl<'a> SynExprRangeCalculator<'a> {
                 SynExprError::Original(error) => error.regional_token_idx_range(),
                 SynExprError::Derived(_) => todo!(),
             },
-            SynExprData::NestedBlock {
+            &SynExprData::NestedBlock {
                 lcurl_regional_token_idx,
-                stmts,
                 rcurl_regional_token,
-            } => todo!(),
+                ..
+            } => RegionalTokenIdxRange::new_closed(
+                lcurl_regional_token_idx,
+                rcurl_regional_token.regional_token_idx(),
+            ),
         }
     }
 

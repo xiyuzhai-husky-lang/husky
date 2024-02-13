@@ -561,9 +561,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::AssocFn(
                 TypeAssocFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeAssocFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -604,7 +608,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -665,7 +671,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -878,9 +886,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -908,7 +920,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -948,7 +962,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1141,9 +1157,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1183,7 +1203,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1234,7 +1256,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1511,9 +1535,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1541,7 +1569,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1581,7 +1611,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1762,7 +1794,9 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1833,9 +1867,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1875,7 +1913,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -1926,7 +1966,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -1964,7 +2006,9 @@
                                                 self_contract: Pure,
                                                 ident: `to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2008,7 +2052,9 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2157,9 +2203,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2187,7 +2237,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2227,7 +2279,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -2420,9 +2474,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2462,7 +2520,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2513,7 +2573,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -2790,9 +2852,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2820,7 +2886,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -2860,7 +2928,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -3041,7 +3111,9 @@
                                                 self_contract: Pure,
                                                 ident: `sqrt`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3112,9 +3184,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3154,7 +3230,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3205,7 +3283,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -3444,9 +3524,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3486,7 +3570,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3537,7 +3623,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -3776,9 +3864,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3818,7 +3910,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -3869,7 +3963,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -3928,7 +4024,9 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3972,7 +4070,9 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4156,7 +4256,9 @@
                                                 self_contract: Pure,
                                                 ident: `sgnx`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4202,7 +4304,9 @@
                                                 self_contract: Pure,
                                                 ident: `acos`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4420,9 +4524,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4462,7 +4570,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -4513,7 +4623,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -4551,7 +4663,9 @@
                                                 self_contract: Pure,
                                                 ident: `cross`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4595,7 +4709,9 @@
                                                 self_contract: Pure,
                                                 ident: `sgnx`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4672,9 +4788,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4725,7 +4845,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -4786,7 +4908,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -4811,7 +4935,9 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4881,7 +5007,9 @@
                                                 self_contract: Pure,
                                                 ident: `norm`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4964,7 +5092,9 @@
                                                 self_contract: Pure,
                                                 ident: `dot`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5070,7 +5200,9 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5246,7 +5378,9 @@
                                                 self_contract: Pure,
                                                 ident: `rotation_direction_to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5317,7 +5451,9 @@
                                                 self_contract: Pure,
                                                 ident: `acos`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5695,9 +5831,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5737,7 +5877,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -5788,7 +5930,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -6373,9 +6517,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6415,7 +6563,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -6466,7 +6616,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -6789,9 +6941,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6831,7 +6987,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -6882,7 +7040,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -6962,7 +7122,9 @@
                                                 self_contract: Pure,
                                                 ident: `relative_range`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7074,7 +7236,9 @@
                                                 self_contract: Pure,
                                                 ident: `relative_range`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7225,9 +7389,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7267,7 +7435,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -7318,7 +7488,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -7398,7 +7570,9 @@
                                                 self_contract: Pure,
                                                 ident: `relative_point`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7510,7 +7684,9 @@
                                                 self_contract: Pure,
                                                 ident: `relative_point`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -7661,9 +7837,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7691,7 +7871,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -7731,7 +7913,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -7862,9 +8046,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7892,7 +8080,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -7932,7 +8122,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8063,9 +8255,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8093,7 +8289,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -8133,7 +8331,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8264,9 +8464,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8294,7 +8498,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -8334,7 +8540,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8537,9 +8745,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8567,7 +8779,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -8607,7 +8821,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8738,9 +8954,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8768,7 +8988,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -8808,7 +9030,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -8939,9 +9163,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8969,7 +9197,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -9009,7 +9239,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
@@ -9140,9 +9372,13 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                    path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                        Fn,
+                    )`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -9170,7 +9406,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -9210,7 +9448,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
+                                            TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),

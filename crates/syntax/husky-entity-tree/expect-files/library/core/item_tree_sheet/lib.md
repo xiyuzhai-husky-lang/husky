@@ -6,26 +6,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::array`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 1,
@@ -40,26 +25,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::array`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 ),
                 ident: `array`,
@@ -69,26 +39,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::basic`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 2,
@@ -103,26 +58,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::basic`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 ),
                 ident: `basic`,
@@ -132,26 +72,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::clone`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 3,
@@ -166,26 +91,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::clone`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
                 ),
                 ident: `clone`,
@@ -195,26 +105,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::cmp`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 4,
@@ -229,26 +124,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::cmp`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
                 ),
                 ident: `cmp`,
@@ -258,26 +138,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::default`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 5,
@@ -292,26 +157,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::default`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
                 ),
                 ident: `default`,
@@ -321,26 +171,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::fmt`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 6,
@@ -355,26 +190,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::fmt`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
                 ),
                 ident: `fmt`,
@@ -384,26 +204,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::logic`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 7,
@@ -418,26 +223,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::logic`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     ),
                 ),
                 ident: `logic`,
@@ -447,26 +237,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::marker`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 8,
@@ -481,26 +256,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::marker`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 8,
+                            },
+                        ),
                     ),
                 ),
                 ident: `marker`,
@@ -510,26 +270,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::mem`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 9,
@@ -544,26 +289,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::mem`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 9,
+                            },
+                        ),
                     ),
                 ),
                 ident: `mem`,
@@ -573,26 +303,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::num`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 10,
@@ -607,26 +322,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::num`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 10,
+                            },
+                        ),
                     ),
                 ),
                 ident: `num`,
@@ -636,26 +336,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::ops`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 11,
@@ -670,26 +355,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::ops`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 11,
+                            },
+                        ),
                     ),
                 ),
                 ident: `ops`,
@@ -699,26 +369,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::option`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 12,
@@ -733,26 +388,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::option`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 12,
+                            },
+                        ),
                     ),
                 ),
                 ident: `option`,
@@ -762,26 +402,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::prelude`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 13,
@@ -796,26 +421,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::prelude`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 13,
+                            },
+                        ),
                     ),
                 ),
                 ident: `prelude`,
@@ -825,26 +435,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::raw_bits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 14,
@@ -859,26 +454,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::raw_bits`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 14,
+                            },
+                        ),
                     ),
                 ),
                 ident: `raw_bits`,
@@ -888,26 +468,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::result`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 15,
@@ -922,26 +487,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::result`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 15,
+                            },
+                        ),
                     ),
                 ),
                 ident: `result`,
@@ -951,26 +501,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::vec`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 16,
@@ -985,26 +520,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::vec`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 16,
+                            },
+                        ),
                     ),
                 ),
                 ident: `vec`,
@@ -1014,26 +534,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::slice`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 17,
@@ -1048,26 +553,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::slice`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 17,
+                            },
+                        ),
                     ),
                 ),
                 ident: `slice`,
@@ -1077,26 +567,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::str`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 18,
@@ -1111,26 +586,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::str`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 18,
+                            },
+                        ),
                     ),
                 ),
                 ident: `str`,
@@ -1140,26 +600,11 @@ EntityTreeSheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Submodule(
-                                    SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `core::visual`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 19,
@@ -1174,26 +619,11 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Submodule(
-                                SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `core::visual`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 19,
+                            },
+                        ),
                     ),
                 ),
                 ident: `visual`,

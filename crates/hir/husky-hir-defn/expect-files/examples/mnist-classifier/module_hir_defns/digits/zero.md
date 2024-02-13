@@ -65,9 +65,13 @@
         MajorItemHirDefn::Fugitive(
             FugitiveHirDefn::FunctionFn(
                 FunctionFnHirDefn {
-                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                    path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                        Fn,
+                    )`),
                     hir_decl: FunctionMajorFnHirDecl {
-                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                            Fn,
+                        )`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -117,7 +121,9 @@
                             path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                            Fn,
+                                        )`),
                                     ),
                                 ),
                             ),
@@ -162,7 +168,9 @@
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 ),
