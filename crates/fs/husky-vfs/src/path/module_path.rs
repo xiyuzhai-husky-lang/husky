@@ -1,6 +1,8 @@
 pub mod ancestry;
 pub mod relative_path;
 
+use crate::snippet::Snippet;
+
 use super::*;
 pub use ancestry::*;
 use salsa::DisplayWithDb;
@@ -24,11 +26,22 @@ impl ModulePath {
         Ok(slf)
     }
 
+    pub fn new_snippet(snippet: Snippet, db: &::salsa::Db) -> Self {
+        Self::new_inner(db, ModulePathData::Snippet { snippet })
+    }
+
     pub fn is_root(self, db: &::salsa::Db) -> bool {
         match self.data(db) {
             ModulePathData::Root(_) => true,
             ModulePathData::Child { .. } => false,
             ModulePathData::Snippet { .. } => false,
+        }
+    }
+
+    pub fn root_module_path(self, db: &::salsa::Db) -> Self {
+        match self.data(db) {
+            ModulePathData::Root(_) | ModulePathData::Snippet { .. } => self,
+            ModulePathData::Child { .. } => self.module_ancestry(db).root_module_path(),
         }
     }
 }
@@ -125,10 +138,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
             ModulePathData::Child { parent: _, ident } => ident,
-            ModulePathData::Snippet {
-                ident,
-                disambiguator,
-            } => ident,
+            ModulePathData::Snippet { snippet } => snippet.ident(db),
         }
     }
 
@@ -198,7 +208,7 @@ fn module_path_partial_ord_works() {
 pub enum ModulePathData {
     Root(CratePath),
     Child { parent: ModulePath, ident: Ident },
-    Snippet { ident: Ident, disambiguator: u32 },
+    Snippet { snippet: Snippet },
 }
 
 impl ModulePath {
@@ -226,10 +236,7 @@ impl ModulePath {
                 f.write_str("::")?;
                 f.write_str(ident.data(db))
             }
-            ModulePathData::Snippet {
-                ident,
-                disambiguator,
-            } => f.write_str(ident.data(db)),
+            ModulePathData::Snippet { snippet } => f.write_str(snippet.ident(db).data(db)),
         }
     }
 }

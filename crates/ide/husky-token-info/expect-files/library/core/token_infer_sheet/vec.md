@@ -96,18 +96,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 77,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -221,24 +214,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 234,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -276,24 +264,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 235,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -349,24 +332,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 236,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -425,24 +403,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 237,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -501,24 +474,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 238,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -577,24 +545,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 239,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -663,24 +626,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 240,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -818,24 +776,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 241,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),

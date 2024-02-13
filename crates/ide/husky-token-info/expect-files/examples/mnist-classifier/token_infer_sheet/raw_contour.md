@@ -195,18 +195,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -380,45 +373,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::AssocItem(
-                                                                    AssocItemPathData::TraitForTypeItem(
-                                                                        TraitForTypeItemPathData {
-                                                                            impl_block: TraitForTypeImplBlock {
-                                                                                data: TraitForTypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    ),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            },
-                                                                            ident: `visualize`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 404,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TraitForTypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -522,18 +489,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 300,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -627,18 +587,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 301,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1481,18 +1434,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 302,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1613,18 +1559,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 303,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2299,24 +2238,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 304,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -2744,18 +2678,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2784,24 +2711,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -2949,24 +2871,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -3110,24 +3027,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -3275,24 +3187,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -3449,14 +3356,18 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -3537,14 +3448,18 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -4306,24 +4221,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -4653,24 +4563,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -4862,14 +4767,18 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -4950,14 +4859,18 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -6350,18 +6263,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -6464,24 +6370,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -6882,24 +6783,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -7864,14 +7760,18 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -8283,14 +8183,18 @@ Ok(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -8405,14 +8309,18 @@ Ok(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -8718,14 +8626,18 @@ Ok(
                         7,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),

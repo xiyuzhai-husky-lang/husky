@@ -73,18 +73,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -209,24 +202,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocFunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 386,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                AssocFunctionFn,
+                                AssocRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -452,24 +440,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 387,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -588,24 +571,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 388,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -814,24 +792,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 389,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -970,24 +943,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 390,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -1111,18 +1079,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1226,18 +1187,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 28,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1362,24 +1316,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 369,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -1499,24 +1448,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 370,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -1725,24 +1669,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 371,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -1881,24 +1820,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -2068,24 +2002,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 373,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -2255,24 +2184,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 374,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -2557,24 +2481,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 375,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -2697,24 +2616,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 376,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3224,18 +3138,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 29,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -3359,24 +3266,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 392,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3791,24 +3693,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 393,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3996,18 +3893,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 30,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -4133,24 +4023,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 380,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4384,24 +4269,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 381,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4635,24 +4515,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 382,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4721,24 +4596,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 383,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4807,24 +4677,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 384,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4893,24 +4758,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 385,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -4980,18 +4840,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 31,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -5115,24 +4968,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 344,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -5201,24 +5049,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 345,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -5287,24 +5130,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 346,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -5373,24 +5211,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 347,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),

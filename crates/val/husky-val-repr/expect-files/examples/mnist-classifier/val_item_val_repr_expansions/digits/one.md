@@ -229,8 +229,10 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -334,7 +336,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -476,8 +480,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorFn {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        Fn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -532,8 +538,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorFn {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        Fn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -823,8 +831,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -929,7 +939,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -2081,8 +2093,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorFn {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        Fn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2271,8 +2285,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorFn {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                data: LinkageData::MajorRitchieEager {
+                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        Fn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2377,9 +2393,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -2462,8 +2480,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -2568,7 +2588,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -3160,9 +3182,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -3378,9 +3402,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -3705,9 +3731,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -4004,8 +4032,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -4125,7 +4155,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -4652,9 +4684,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -4737,8 +4771,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -4848,7 +4884,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -5088,9 +5126,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -5306,9 +5346,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -5792,9 +5834,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -6033,9 +6077,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -6086,9 +6132,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -6664,9 +6712,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -6749,8 +6799,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -6865,7 +6917,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -6920,9 +6974,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -6973,9 +7029,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -7026,9 +7084,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -7133,9 +7193,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -7319,8 +7381,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -7430,7 +7494,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -8236,9 +8302,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -8321,8 +8389,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -8437,7 +8507,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -8902,9 +8974,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -9064,9 +9138,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -9401,9 +9477,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
@@ -9642,9 +9720,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -9695,9 +9775,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -9802,9 +9884,11 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MethodFn {
+                                data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
-                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                        TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -9941,8 +10025,10 @@
                         ),
                         opn: ValOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorGn {
-                                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                data: LinkageData::MajorRitchieLazy {
+                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [
                                             (
@@ -10052,7 +10138,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -11911,7 +11999,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),

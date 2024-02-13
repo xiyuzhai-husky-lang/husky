@@ -18,6 +18,12 @@ TokenSheetData {
         TokenData::Ident(
             `defn`,
         ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `expr`,
+        ),
     ],
     token_verses: TokenVerses {
         main_sequence: MainTokenVerseSequence {
@@ -42,6 +48,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             5,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            7,
                         ),
                     ),
                     indent: 0,

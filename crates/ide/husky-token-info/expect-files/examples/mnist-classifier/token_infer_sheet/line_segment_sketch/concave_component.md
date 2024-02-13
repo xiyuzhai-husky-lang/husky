@@ -311,18 +311,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 43,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -505,45 +498,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::AssocItem(
-                                                                    AssocItemPathData::TraitForTypeItem(
-                                                                        TraitForTypeItemPathData {
-                                                                            impl_block: TraitForTypeImplBlock {
-                                                                                data: TraitForTypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                    ),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            },
-                                                                            ident: `visualize`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            },
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 394,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TraitForTypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -635,18 +602,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 332,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -708,18 +668,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 333,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -818,18 +771,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 334,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1347,18 +1293,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1774,18 +1713,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 336,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2696,18 +2628,11 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 337,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2814,24 +2739,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 338,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3026,24 +2946,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 339,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3139,24 +3054,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 340,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3252,24 +3162,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 341,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3342,24 +3247,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 342,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3444,24 +3344,19 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 343,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         AssocItem {
                             assoc_item_kind: TypeItem(
-                                MethodFn,
+                                MethodRitchie(
+                                    Fn,
+                                ),
                             ),
                         },
                     ),
@@ -3547,24 +3442,19 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 44,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
                         MajorItem {
                             module_item_kind: Fugitive(
-                                FunctionFn,
+                                Ritchie(
+                                    Fn,
+                                ),
                             ),
                             connection: Connected,
                         },
@@ -3852,14 +3742,18 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
@@ -4079,14 +3973,18 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`),
                             ),
                         ),
                     ),

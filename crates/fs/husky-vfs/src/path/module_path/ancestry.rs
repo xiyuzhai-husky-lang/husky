@@ -12,6 +12,10 @@ impl ModuleAncestry {
         self.crate_path
     }
 
+    pub fn root_module_path(&self) -> ModulePath {
+        self.module_paths[0]
+    }
+
     pub(crate) fn contains(&self, module_path: ModulePath) -> bool {
         self.module_paths.contains(&module_path)
     }
@@ -24,12 +28,12 @@ pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> Modu
             crate_path,
             module_paths: vec![module_path],
         },
+        ModulePathData::Snippet { .. } => todo!(),
         ModulePathData::Child { parent, ident: _ } => {
             let mut ancestry = module_ancestry(db, parent).clone();
             ancestry.module_paths.push(module_path);
             ancestry
         }
-        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
 

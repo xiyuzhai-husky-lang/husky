@@ -1,49 +1,12 @@
 TokenSheetData {
     tokens: [
         TokenData::Keyword(
-            Keyword::Use,
-        ),
-        TokenData::Keyword(
-            Keyword::Pronoun(
-                Crate,
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Binary(
-                    SynBinaryOpr::ScopeResolution,
-                ),
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Star,
-            ),
-        ),
-        TokenData::Keyword(
-            Keyword::Pub,
-        ),
-        TokenData::Keyword(
-            Keyword::Trait,
-        ),
-        TokenData::Ident(
-            `Default`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Colon,
-            ),
-        ),
-        TokenData::Keyword(
-            Keyword::Static,
-        ),
-        TokenData::Keyword(
             Keyword::Fugitive(
                 Fn,
             ),
         ),
         TokenData::Ident(
-            `default`,
+            `nested`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -61,19 +24,41 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Binary(
-                    SynBinaryOpr::CurryType,
-                ),
+                PunctuationMapped::Colon,
             ),
         ),
         TokenData::Keyword(
-            Keyword::Pronoun(
-                SelfType,
+            Keyword::Stmt(
+                Let,
+            ),
+        ),
+        TokenData::Ident(
+            `t`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Semicolon,
+                PunctuationMapped::Bra(
+                    Delimiter::BlockCurl,
+                ),
+            ),
+        ),
+        TokenData::Literal(
+            LiteralTokenData::Integer(
+                UnspecifiedRegular(
+                    1,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Ket(
+                    Delimiter::BlockCurl,
+                ),
             ),
         ),
     ],
@@ -91,21 +76,32 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            5,
-                        ),
-                    ),
-                    indent: 0,
-                },
-                TokenVerseData {
-                    start: TokenVerseStart(
-                        TokenIdx(
-                            9,
+                            6,
                         ),
                     ),
                     indent: 4,
                 },
             ],
         },
-        nested_sequences: [],
+        nested_sequences: [
+            NestedTokenVerseSequence {
+                lcurl: TokenIdx(
+                    9,
+                ),
+                verses_data: [
+                    TokenVerseData {
+                        start: TokenVerseStart(
+                            TokenIdx(
+                                10,
+                            ),
+                        ),
+                        indent: 8,
+                    },
+                ],
+                end: TokenIdx(
+                    11,
+                ),
+            },
+        ],
     },
 }

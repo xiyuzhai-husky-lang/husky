@@ -9,26 +9,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::connected_component`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -43,26 +28,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::raw_contour`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -77,26 +47,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::geom2d`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -111,26 +66,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -145,26 +85,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::fermi`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -179,26 +104,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -213,26 +123,11 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Submodule(
-                                        SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::major`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
                             ),
                         ),
                         Module,
@@ -622,18 +517,11 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemSynNodePathId(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),

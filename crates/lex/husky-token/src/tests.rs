@@ -20,7 +20,11 @@ pub(crate) struct DB;
 fn tokenize_snippet_debug(snippet: &str) -> String {
     let db = DB::default();
     let db = &*db;
-    let snippet = Snippet::new(db, snippet.to_owned());
+    let snippet = Snippet::new(
+        db,
+        Ident::from_ref(db, "tokenize_snippet_debug").unwrap(),
+        snippet.to_owned(),
+    );
     format!("{:#?}", db.snippet_token_sheet_data(snippet).debug(db))
 }
 
