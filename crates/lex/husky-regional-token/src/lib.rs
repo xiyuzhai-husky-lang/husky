@@ -53,6 +53,7 @@ pub struct RegionalTokenVerseIdx {
     ///
     /// Some(_) if the verse is nested
     lcurl: Option<RegionalTokenIdx>,
+    /// if `lcurl` is `Some(_)`, this is equal to raw of `TokenVerseIdx`
     raw: ShiftedU32,
 }
 
@@ -62,18 +63,26 @@ impl RegionalTokenVerseIdx {
         regional_token_verse_idx_base: RegionalTokenVerseIdxBase,
         regional_token_idx_base: RegionalTokenIdxBase,
     ) -> Self {
-        let index = token_verse_idx.index() - regional_token_verse_idx_base.index();
+        let lcurl = token_verse_idx
+            .lcurl()
+            .map(|lcurl| RegionalTokenIdx::from_token_idx(lcurl, regional_token_idx_base));
+        let index = match lcurl {
+            Some(_) => token_verse_idx.index(), // nested verse sequence is contained entirely in one region
+            None => token_verse_idx.index() - regional_token_verse_idx_base.index(),
+        };
         debug_assert!(index <= u32::MAX as usize);
         Self {
-            lcurl: token_verse_idx
-                .lcurl()
-                .map(|lcurl| RegionalTokenIdx::from_token_idx(lcurl, regional_token_idx_base)),
+            lcurl,
             raw: index.into(),
         }
     }
 
     pub fn index(self) -> usize {
         self.raw.into()
+    }
+
+    pub fn lcurl(self) -> Option<RegionalTokenIdx> {
+        self.lcurl
     }
 }
 

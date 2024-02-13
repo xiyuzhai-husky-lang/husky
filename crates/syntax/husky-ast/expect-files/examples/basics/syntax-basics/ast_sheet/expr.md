@@ -57,7 +57,7 @@ AstSheet {
                     ),
                 },
             },
-            Ast::Err {
+            Ast::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: Some(
                         TokenIdx(
@@ -68,9 +68,7 @@ AstSheet {
                         1,
                     ),
                 },
-                error: AstError::Original(
-                    OriginalAstError::ExcessiveIndent,
-                ),
+                body: None,
             },
         ],
     },
@@ -96,6 +94,9 @@ AstSheet {
         ),
         ArenaIdxRange(
             2..3,
+        ),
+        ArenaIdxRange(
+            3..3,
         ),
         ArenaIdxRange(
             3..4,
