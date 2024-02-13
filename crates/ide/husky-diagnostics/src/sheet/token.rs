@@ -49,6 +49,7 @@ impl Diagnose for (&TextRange, &TokenDataError) {
             TokenDataError::InvalidLabel => format!("Syntax Error: InvalidLabel"),
             TokenDataError::NewLineAfterSingleQuote => todo!(),
             TokenDataError::NoNegativeForLiteral(_) => todo!(),
+            TokenDataError::MissingLcurl => todo!(),
         }
     }
 
