@@ -74,9 +74,9 @@ impl Punctuation {
     /// `[`
     pub const LBOX: Self = Self(PunctuationMapped::Bra(Delimiter::Box));
     /// `{`
-    pub const NESTED_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::NestedCurl));
-    /// `{`
     pub const INLINE_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::InlineCurl));
+    /// `{`
+    pub const BLOCK_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::BlockCurl));
     /// `<`
     pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
     /// `::<`
@@ -86,9 +86,9 @@ impl Punctuation {
     /// `]`
     pub const RBOX: Self = Self(PunctuationMapped::Ket(Delimiter::Box));
     /// `}`
-    pub const NESTED_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::NestedCurl));
-    /// `}`
     pub const INLINE_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::InlineCurl));
+    /// `}`
+    pub const BLOCK_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::BlockCurl));
     /// `>`
     pub const RA_OR_GT: Self = Self(PunctuationMapped::RaOrGt);
     /// `|`

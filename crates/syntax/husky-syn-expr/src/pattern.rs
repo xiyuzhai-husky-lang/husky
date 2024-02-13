@@ -213,7 +213,7 @@ where
                     }),
                     DisambiguatedTokenData::SelfType(_) => todo!(),
                     DisambiguatedTokenData::SelfValue(_) => todo!(),
-                    DisambiguatedTokenData::Bra(_, _) => todo!(),
+                    DisambiguatedTokenData::LeftDelimiter(_, _) => todo!(),
                     _ => None,
                 }
             }

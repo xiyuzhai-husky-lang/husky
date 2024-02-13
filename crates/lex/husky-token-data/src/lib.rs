@@ -37,10 +37,10 @@ pub enum TokenData {
 impl TokenData {
     pub const VERTICAL: Self = TokenData::Punctuation(Punctuation::VERTICAL);
     pub const EQ: Self = TokenData::Punctuation(Punctuation::EQ);
+    pub const BLOCK_LCURL: Self = TokenData::Punctuation(Punctuation::BLOCK_LCURL);
     pub const INLINE_LCURL: Self = TokenData::Punctuation(Punctuation::INLINE_LCURL);
-    pub const NESTED_LCURL: Self = TokenData::Punctuation(Punctuation::NESTED_LCURL);
+    pub const BLOCK_RCURL: Self = TokenData::Punctuation(Punctuation::BLOCK_RCURL);
     pub const INLINE_RCURL: Self = TokenData::Punctuation(Punctuation::INLINE_RCURL);
-    pub const NESTED_RCURL: Self = TokenData::Punctuation(Punctuation::NESTED_RCURL);
 
     // overridable given more information
     pub fn default_token_class(self) -> TokenClass {
