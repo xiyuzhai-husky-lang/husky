@@ -40,10 +40,10 @@ impl DeriveAttrSynNodeDecl {
             .expect("should be guaranteed")
             .expect("should be guaranteed");
         let lpar_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectLeftBracketInDerive);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive);
         let trais = parser.try_parse();
         let rpar_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectRightBracketInDerive);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectRightDelimiterInDerive);
         Self::new_inner(
             db,
             syn_node_path,

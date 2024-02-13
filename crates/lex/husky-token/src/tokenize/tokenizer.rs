@@ -1,9 +1,11 @@
+use crate::indent::INDENT_INCR;
+
 use super::*;
 use husky_text_protocol::position::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex ::salsa::Db,
-    tokens: Vec<TokenData>,
+    token_datas: Vec<TokenData>,
     token_ranges: Vec<TextRange>,
     line: TextLine,
     comments: Vec<Comment>,
@@ -20,7 +22,7 @@ impl<'token> Tokenizer<'token> {
     pub fn new(db: &'token ::salsa::Db) -> Self {
         Self {
             db,
-            tokens: vec![],
+            token_datas: vec![],
             token_ranges: vec![],
             line: Default::default(),
             comments: vec![],
@@ -28,33 +30,34 @@ impl<'token> Tokenizer<'token> {
     }
 
     pub fn finish(self) -> RangedTokenSheet {
-        RangedTokenSheet::new(self.db, self.tokens, self.token_ranges, self.comments)
+        RangedTokenSheet::new(self.db, self.token_datas, self.token_ranges, self.comments)
     }
 
-    pub(crate) fn push_tokens(&mut self, iter: impl Iterator<Item = RangedPretoken>) {
-        for token in iter {
-            match self.resolve_token(token) {
+    pub(crate) fn push_tokens(&mut self, pretoken_iter: impl Iterator<Item = RangedPretoken>) {
+        for pretoken in pretoken_iter {
+            match self.resolve_token(pretoken) {
                 TokenizerAction::Push((token, token_range)) => {
-                    self.tokens.push(token);
+                    self.token_datas.push(token);
                     self.token_ranges.push(token_range)
                 }
                 TokenizerAction::ReplaceLast((token, token_range)) => {
-                    *self.tokens.last_mut().unwrap() = token;
+                    *self.token_datas.last_mut().unwrap() = token;
                     *self.token_ranges.last_mut().unwrap() = token_range
                 }
                 TokenizerAction::NewLine => self.line = self.line.to_next_line(),
-                TokenizerAction::Comment(range) => {
-                    self.comments
-                        .push(Comment::new(CommentKind::Todo, self.tokens.len(), range))
-                }
+                TokenizerAction::Comment(range) => self.comments.push(Comment::new(
+                    CommentKind::Todo,
+                    self.token_datas.len(),
+                    range,
+                )),
             }
         }
     }
 
     fn resolve_token(&self, ranged_pretoken: RangedPretoken) -> TokenizerAction {
-        match ranged_pretoken.token {
+        match ranged_pretoken.pretoken {
             Pretoken::Certain(kind) => TokenizerAction::Push((kind, ranged_pretoken.range)),
-            Pretoken::Literal(lit) => match self.tokens.last() {
+            Pretoken::Literal(lit) => match self.token_datas.last() {
                 Some(TokenData::Punctuation(Punctuation::MINUS)) => {
                     let token_data = match lit.negative(self.db) {
                         Some(lit) => TokenData::Literal(lit),
@@ -76,7 +79,7 @@ impl<'token> Tokenizer<'token> {
                     TokenizerAction::Push((token, ranged_pretoken.range))
                 }
                 AmbiguousPretoken::For => match self.last_token_in_unfinished_line() {
-                    Some(_token) => TokenizerAction::Push((
+                    Some(_) => TokenizerAction::Push((
                         TokenData::Keyword(ConnectionKeyword::For.into()),
                         ranged_pretoken.range,
                     )),
@@ -85,6 +88,37 @@ impl<'token> Tokenizer<'token> {
                         ranged_pretoken.range,
                     )),
                 },
+                AmbiguousPretoken::Lcurl => {
+                    let token = match self.last_token_in_unfinished_line() {
+                        None | Some(TokenData::EQ | TokenData::VERTICAL) => TokenData::NESTED_LCURL,
+                        _ => TokenData::INLINE_LCURL,
+                    };
+                    TokenizerAction::Push((token, ranged_pretoken.range))
+                }
+                AmbiguousPretoken::Rcurl => {
+                    let token = match self.last_token_in_unfinished_line() {
+                        None => TokenData::INLINE_RCURL,
+                        _ => {
+                            debug_assert_eq!(self.token_datas.len(), self.token_ranges.len());
+                            for i in (0..self.token_datas.len()).into_iter().rev() {
+                                let token_range = self.token_ranges[i];
+                                if token_range.start.col <= ranged_pretoken.range.start.col {
+                                    break;
+                                } else if token_range.start.col.0
+                                    == ranged_pretoken.range.start.col.0 + INDENT_INCR
+                                {
+                                    match self.token_datas[i - 1] {
+                                        TokenData::NESTED_LCURL => todo!(),
+                                        TokenData::INLINE_LCURL => todo!(),
+                                        _ => (),
+                                    }
+                                }
+                            }
+                            TokenData::INLINE_LCURL
+                        }
+                    };
+                    TokenizerAction::Push((token, ranged_pretoken.range))
+                }
             },
             Pretoken::Comment => TokenizerAction::Comment(ranged_pretoken.range),
             Pretoken::Err(e) => TokenizerAction::Push((TokenData::Error(e), ranged_pretoken.range)),
@@ -98,9 +132,9 @@ impl<'token> Tokenizer<'token> {
         }
     }
 
-    fn last_token_in_unfinished_line(&self) -> Option<&TokenData> {
+    fn last_token_in_unfinished_line(&self) -> Option<TokenData> {
         if self.token_ranges.last()?.start.line >= self.line {
-            self.tokens.last()
+            self.token_datas.last().copied()
         } else {
             None
         }

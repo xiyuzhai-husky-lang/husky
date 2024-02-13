@@ -16,13 +16,8 @@ impl<'a> SemaExprEngine<'a> {
             ExpectEqsFunctionType::new(final_destination),
         );
         let Some(function_ty_outcome) = function_ty_outcome else {
-            let argument_sema_expr_idx =
-                self.build_sema_expr(argument_syn_expr_idx, ExpectAnyDerived);
             return (
-                Ok(SemaExprData::FunctionApplication {
-                    function_sema_expr_idx,
-                    argument_sema_expr_idx,
-                }),
+                Err(DerivedSemaExprDataError::ExplicitApplicationFunctionTypeNotInferred.into()),
                 Err(DerivedSemaExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into()),
             );
         };

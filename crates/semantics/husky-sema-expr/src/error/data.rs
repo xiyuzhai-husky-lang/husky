@@ -56,6 +56,8 @@ pub enum DerivedSemaExprDataError {
     },
     #[error("SynPatternError")]
     SynPatternError,
+    #[error("ExplicitApplicationFunctionTypeNotInferred")]
+    ExplicitApplicationFunctionTypeNotInferred,
 }
 
 impl From<&SynExprError> for SemaExprDataError {

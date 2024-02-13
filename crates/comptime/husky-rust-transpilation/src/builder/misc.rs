@@ -131,7 +131,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn derive(&mut self, trais: &[TraitPath]) {
         self.on_fresh_line(|builder| {
             builder.write_str("#[derive");
-            builder.bracketed_comma_list(RustBracket::Par, trais);
+            builder.bracketed_comma_list(RustDelimiter::Par, trais);
             builder.write_str("]\n")
         })
     }
@@ -185,7 +185,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn vec_ty(&mut self, element_ty: LinType) {
         self.result += "Vec";
-        self.bracketed(RustBracket::Angle, |builder| {
+        self.bracketed(RustDelimiter::Angle, |builder| {
             element_ty.transpile_to_rust(builder)
         })
     }

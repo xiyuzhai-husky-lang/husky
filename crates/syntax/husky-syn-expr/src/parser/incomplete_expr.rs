@@ -5,6 +5,7 @@ pub(super) use self::call_list::*;
 pub(super) use self::comma_list::*;
 
 use super::*;
+use husky_token_data::delimiter::Delimiter;
 use parsec::TryParseOptionFromStream;
 use smallvec::SmallVec;
 
@@ -26,7 +27,7 @@ pub(super) enum IncompleteSynExpr {
     CommaList {
         opr: IncompleteCommaListOpr,
         // todo: move this into opr
-        bra: SynBracket,
+        bra: Delimiter,
         // todo: move this into opr
         bra_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
@@ -70,7 +71,7 @@ where
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SynExprParser<'a, C>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_option::<LcurlRegionalToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<InlineLcurlRegionalToken>()? {
             Ok(Some(SynHtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalSynExprError::HtmlTodo)?,

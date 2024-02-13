@@ -93,7 +93,7 @@ impl<'a> DeclParser<'a> {
                 )
                 .into()
             }
-            Some(TokenData::Punctuation(Punctuation::LCURL)) => {
+            Some(TokenData::Punctuation(Punctuation::INLINE_LCURL)) => {
                 let field_comma_list = parser.try_parse();
                 let rcurl = parser.try_parse();
                 TypePropsVariantSynNodeDecl::new(

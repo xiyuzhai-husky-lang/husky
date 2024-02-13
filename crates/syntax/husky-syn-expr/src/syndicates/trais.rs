@@ -1,5 +1,6 @@
 use super::*;
 use husky_opr::BinaryClosedOpr;
+use husky_token_data::delimiter::Delimiter;
 use smallvec::smallvec;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -17,8 +18,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitsSyndicate
     ) -> SynExprResult<Option<Self>> {
         if let Some(colon_regional_token) = parser.try_parse_option::<ColonRegionalToken>()? {
             let traits_syn_expr_idx = parser.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(
-                    SynBracket::TurboFish,
+                Some(ExprEnvironment::WithinDelimiteredParameterList(
+                    Delimiter::TurboFish,
                 )),
                 None,
                 OriginalSynExprError::ExpectedTraits,

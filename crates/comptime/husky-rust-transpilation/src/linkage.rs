@@ -49,7 +49,8 @@ use {}::*;
     builder.on_fresh_semicolon_paragraph(|builder| {
         builder.rustfmt_skip();
         builder.macro_name(RustMacroName::LinkageImpls);
-        builder.bracketed_multiline_comma_list(RustBracket::Box, package_linkages(db, package_path))
+        builder
+            .bracketed_multiline_comma_list(RustDelimiter::Box, package_linkages(db, package_path))
     });
     builder_base.finish()
 }
@@ -133,7 +134,7 @@ impl TranspileToRustWith<()> for Linkage {
                 }),
             LinkageData::VecConstructor { element_ty } => {
                 builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                    builder.bracketed(RustBracket::Vertical, |builder| {
+                    builder.bracketed(RustDelimiter::Vertical, |builder| {
                         builder.v();
                         builder.punctuation(RustPunctuation::Colon);
                         builder.vec_ty(element_ty)
@@ -170,7 +171,7 @@ fn turbo_fish_instantiation<E>(
 ) {
     if !instantiation.is_empty() {
         builder.bracketed_comma_list(
-            RustBracket::TurboFish,
+            RustDelimiter::TurboFish,
             instantiation.iter().map(|&(_, res)| match res {
                 LinTermSymbolResolution::Explicit(arg) => arg,
                 LinTermSymbolResolution::SelfLifetime => todo!(),
@@ -199,13 +200,13 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
         .unwrap()
         .linkage_instantiate(lin_instantiation, db);
         let ident = path.ident(db).unwrap();
-        builder.bracketed(RustBracket::Angle, |builder| {
+        builder.bracketed(RustDelimiter::Angle, |builder| {
             match self_ty {
                 LinType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
                     Left(PreludeTypePath::VEC) => match ident.data(db) {
                         "first" | "last" => {
                             builder.bracketed_comma_list(
-                                RustBracket::Box,
+                                RustDelimiter::Box,
                                 self_ty.template_arguments(db),
                             );
                             return;
@@ -215,7 +216,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     Left(PreludeTypePath::CYCLIC_SLICE) => {
                         builder.cyclic_slice_leashed_ty();
                         builder.bracketed_comma_list(
-                            RustBracket::Angle,
+                            RustDelimiter::Angle,
                             self_ty.template_arguments(db),
                         );
                         return;
@@ -265,7 +266,7 @@ impl<E> TranspileToRustWith<E> for LinkageTrait {
         self.trai_path(db).transpile_to_rust(builder);
         let template_arguments = self.template_arguments(db);
         if !template_arguments.is_empty() {
-            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+            builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
         }
     }
 }
@@ -287,7 +288,7 @@ impl<E> TranspileToRustWith<E> for LinTypePathLeading {
                 self.ty_path(db).transpile_to_rust(builder);
                 let template_arguments = self.template_arguments(db);
                 if !template_arguments.is_empty() {
-                    builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                    builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
                 }
             }
         }
@@ -310,7 +311,7 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.keyword(RustKeyword::Fn);
-        builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
+        builder.bracketed_comma_list(RustDelimiter::Par, self.parameters(db).iter());
         builder.punctuation(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)
     }
@@ -347,7 +348,7 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, lin_instantiation) = self;
         let db = builder.db;
-        builder.bracketed(RustBracket::Angle, |builder| {
+        builder.bracketed(RustDelimiter::Angle, |builder| {
             let trait_for_type_impl_block_eth_template =
                 path.impl_block(db).eth_template(db).unwrap();
             let self_ty = HirType::from_eth(trait_for_type_impl_block_eth_template.self_ty(db), db)

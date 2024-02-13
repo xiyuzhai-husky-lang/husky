@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_kind::{ritchie::RitchieItemKind, EntityKind, MajorFugitiveKind, MajorItemKind};
 use husky_opr::*;
+use husky_token_data::delimiter::Delimiter;
 use std::ops::ControlFlow;
 
 pub type TokenDisambiguationResult<T> = ControlFlow<(), T>;
@@ -109,14 +110,13 @@ where
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
                             } => DisambiguatedTokenData::Bra(
                                 regional_token_idx,
-                                SynBracket::TurboFish,
+                                Delimiter::TurboFish,
                             ),
                             BaseEntityPath::Some(item_path) => {
                                 match item_path.item_kind(self.db()) {
                                     EntityKind::Module => todo!(),
                                     EntityKind::MajorItem {
-                                        module_item_kind,
-                                        connection: _,
+                                        module_item_kind, ..
                                     } => match module_item_kind {
                                         MajorItemKind::Fugitive(
                                             MajorFugitiveKind::Val | MajorFugitiveKind::Const,
@@ -128,10 +128,10 @@ where
                                         | MajorItemKind::Fugitive(_)
                                         | MajorItemKind::Trait => DisambiguatedTokenData::Bra(
                                             regional_token_idx,
-                                            SynBracket::TurboFish,
+                                            Delimiter::TurboFish,
                                         ),
                                     },
-                                    EntityKind::AssocItem { assoc_item_kind: _ } => todo!(),
+                                    EntityKind::AssocItem { .. } => todo!(),
                                     EntityKind::TypeVariant => todo!(),
                                     EntityKind::ImplBlock => todo!(),
                                     EntityKind::Attr => todo!(),
@@ -144,15 +144,15 @@ where
                         }
                     }
                     TopExprRef::None => {
-                        DisambiguatedTokenData::Bra(regional_token_idx, SynBracket::HtmlAngle)
+                        DisambiguatedTokenData::Bra(regional_token_idx, Delimiter::HtmlAngle)
                     }
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
-                    (Some(SynBracket::TurboFish), _) => {
-                        DisambiguatedTokenData::Ket(regional_token_idx, SynBracket::TurboFish)
+                    (Some(Delimiter::TurboFish), _) => {
+                        DisambiguatedTokenData::Ket(regional_token_idx, Delimiter::TurboFish)
                     }
-                    (None, Some(SynBracket::TurboFish)) => {
+                    (None, Some(Delimiter::TurboFish)) => {
                         return TokenDisambiguationResult::Break(())
                     }
                     _ => DisambiguatedTokenData::SynBinaryOpr(
@@ -219,16 +219,16 @@ where
                 }
                 PunctuationMapped::Vertical => match self.last_incomplete_expr() {
                     Some(IncompleteSynExpr::CommaList {
-                        bra: SynBracket::Vertical,
+                        bra: Delimiter::Vertical,
                         ..
-                    }) => DisambiguatedTokenData::Ket(regional_token_idx, SynBracket::Vertical),
+                    }) => DisambiguatedTokenData::Ket(regional_token_idx, Delimiter::Vertical),
                     _ => match self.complete_expr().is_some() {
                         true => DisambiguatedTokenData::SynBinaryOpr(
                             regional_token_idx,
                             SynBinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
                         false => {
-                            DisambiguatedTokenData::Bra(regional_token_idx, SynBracket::Vertical)
+                            DisambiguatedTokenData::Bra(regional_token_idx, Delimiter::Vertical)
                         }
                     },
                 },
@@ -271,11 +271,12 @@ where
                 PunctuationMapped::Eq => match self.env() {
                     Some(env) => match env {
                         ExprEnvironment::TypeBeforeEq
-                        | ExprEnvironment::WithinBracketedParameterList(_) => match self.last_bra()
-                        {
-                            Some(_) => todo!(),
-                            None => return TokenDisambiguationResult::Break(()),
-                        },
+                        | ExprEnvironment::WithinDelimiteredParameterList(_) => {
+                            match self.last_bra() {
+                                Some(_) => todo!(),
+                                None => return TokenDisambiguationResult::Break(()),
+                            }
+                        }
                         ExprEnvironment::Condition(_) => todo!(),
                     },
                     None => DisambiguatedTokenData::SynBinaryOpr(
@@ -444,8 +445,8 @@ pub(crate) enum DisambiguatedTokenData {
     SynBinaryOpr(RegionalTokenIdx, SynBinaryOpr),
     SynPrefixOpr(RegionalTokenIdx, SynPrefixOpr),
     SynSuffixOpr(RegionalTokenIdx, SynSuffixOpr),
-    Bra(RegionalTokenIdx, SynBracket),
-    Ket(RegionalTokenIdx, SynBracket),
+    Bra(RegionalTokenIdx, Delimiter),
+    Ket(RegionalTokenIdx, Delimiter),
     Dot(RegionalTokenIdx),
     Comma(RegionalTokenIdx),
     Be(RegionalTokenIdx),

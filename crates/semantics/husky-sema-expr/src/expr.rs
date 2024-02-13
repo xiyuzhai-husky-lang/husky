@@ -201,7 +201,7 @@ pub enum SemaExprData {
         at_regional_token_idx: RegionalTokenIdx,
         place_label_regional_token: Option<PlaceLabelRegionalToken>,
     },
-    Bracketed {
+    Delimitered {
         lpar_regional_token_idx: RegionalTokenIdx,
         item: SemaExprIdx,
         rpar_regional_token_idx: RegionalTokenIdx,
@@ -902,7 +902,7 @@ impl<'a> SemaExprEngine<'a> {
                 argument_expr_idx,
                 expr_ty_expectation.final_destination(self),
             ),
-            SynExprData::Bracketed {
+            SynExprData::Delimitered {
                 lpar_regional_token_idx,
                 item,
                 rpar_regional_token_idx,
@@ -910,13 +910,13 @@ impl<'a> SemaExprEngine<'a> {
                 let (item, infer_new_expr_ty) =
                     self.build_sema_expr_with_ty(item, expr_ty_expectation.clone());
                 (
-                    Ok(SemaExprData::Bracketed {
+                    Ok(SemaExprData::Delimitered {
                         lpar_regional_token_idx,
                         item,
                         rpar_regional_token_idx,
                     }),
                     infer_new_expr_ty
-                        .ok_or(DerivedSemaExprTypeError::BracketedItemTypeError.into()),
+                        .ok_or(DerivedSemaExprTypeError::DelimiteredItemTypeError.into()),
                 )
             }
             SynExprData::At {

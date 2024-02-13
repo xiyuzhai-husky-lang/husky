@@ -112,9 +112,33 @@ define_specific_punctuation_token!(LboxToken, LBOX, lbox_token_works, "[");
 
 define_specific_punctuation_token!(RboxToken, RBOX, rbox_token_works, "]");
 
-define_specific_punctuation_token!(LcurlToken, LCURL, lcurl_token_works, "{");
+define_specific_punctuation_token!(
+    InlineLcurlToken,
+    INLINE_LCURL,
+    inline_lcurl_token_works,
+    "{"
+);
 
-define_specific_punctuation_token!(RcurlToken, RCURL, rcurl_token_works, "}");
+define_specific_punctuation_token!(
+    NestedLcurlToken,
+    NESTED_LCURL,
+    nested_lcurl_token_works,
+    "{"
+);
+
+define_specific_punctuation_token!(
+    InlineRcurlToken,
+    INLINE_RCURL,
+    inline_rcurl_token_works,
+    "}"
+);
+
+define_specific_punctuation_token!(
+    NestedRcurlToken,
+    NESTED_RCURL,
+    nested_rcurl_token_works,
+    "}"
+);
 
 define_specific_punctuation_token!(LaOrLtToken, LA_OR_LT, la_or_lt_token_works, "<");
 

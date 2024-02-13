@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub(in crate::parser) enum IncompleteCommaListOpr {
-    UnitOrBracketedOrNewTuple,
+    UnitOrDelimiteredOrNewTuple,
     Index {
         owner: SynExprIdx,
     },

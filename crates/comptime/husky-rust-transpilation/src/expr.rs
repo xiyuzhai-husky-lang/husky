@@ -79,7 +79,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
             }
         }
         if !site.rust_precedence_range.include(precedence) {
-            builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
+            builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                 site.transpile_hir_eager_expr_to_rust(data, precedence, builder)
             })
         } else {
@@ -152,7 +152,7 @@ impl HirEagerExprSite {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)) => {
                         if let MajorFugitiveKind::Val = path.major_fugitive_kind(db) {
-                            builder.bracketed(RustBracket::Par, |_| ())
+                            builder.bracketed(RustDelimiter::Par, |_| ())
                         }
                     }
                     PrincipalEntityPath::TypeVariant(_) => (),
@@ -172,7 +172,7 @@ impl HirEagerExprSite {
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.rem_eulid();
-                    builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
+                    builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                         (ropd, self.any_precedence()).transpile_to_rust(builder)
                     })
                 }
@@ -184,7 +184,7 @@ impl HirEagerExprSite {
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.pow();
-                    builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
+                    builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                         (ropd, self.any_precedence()).transpile_to_rust(builder)
                     })
                 }
@@ -217,7 +217,7 @@ impl HirEagerExprSite {
                 opd_hir_expr_idx,
             } => {
                 match opr {
-                    HirPrefixOpr::NotInt => builder.bracketed(RustBracket::Par, |builder| {
+                    HirPrefixOpr::NotInt => builder.bracketed(RustDelimiter::Par, |builder| {
                         (
                             opd_hir_expr_idx,
                             self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::EqComparison)),
@@ -248,7 +248,7 @@ impl HirEagerExprSite {
                 ref instantiation,
             } => {
                 builder.macro_name(RustMacroName::Unveil);
-                builder.bracketed(RustBracket::Par, |builder| {
+                builder.bracketed(RustDelimiter::Par, |builder| {
                     return_ty.transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
                     (opd_hir_expr_idx, geq(self)).transpile_to_rust(builder);
@@ -264,7 +264,7 @@ impl HirEagerExprSite {
                         })
                         .collect();
                     builder
-                        .bracketed_comma_list_with_last_comma(RustBracket::Par, runtime_constants)
+                        .bracketed_comma_list_with_last_comma(RustDelimiter::Par, runtime_constants)
                 })
             }
             HirEagerExprData::Unwrap { opd_hir_expr_idx } => {
@@ -278,7 +278,7 @@ impl HirEagerExprSite {
             } => {
                 builder.ty_constructor_linkage(path);
                 builder.bracketed_comma_list(
-                    RustBracket::Par,
+                    RustDelimiter::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
@@ -289,7 +289,7 @@ impl HirEagerExprSite {
             } => {
                 path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
-                    RustBracket::Par,
+                    RustDelimiter::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
@@ -300,7 +300,7 @@ impl HirEagerExprSite {
             } => {
                 path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
-                    RustBracket::Par,
+                    RustDelimiter::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
@@ -311,7 +311,7 @@ impl HirEagerExprSite {
             } => {
                 path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
-                    RustBracket::Par,
+                    RustDelimiter::Par,
                     item_groups.iter().map(|item_group| (item_group, self)),
                 )
             }
@@ -340,7 +340,7 @@ impl HirEagerExprSite {
                 (owner_hir_expr_idx, geq(self)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 ident.transpile_to_rust(builder);
-                builder.bracketed(RustBracket::Par, |_| ())
+                builder.bracketed(RustDelimiter::Par, |_| ())
             }
             HirEagerExprData::MethodFnCall {
                 self_argument,
@@ -382,11 +382,11 @@ impl HirEagerExprSite {
                 }
                 match path.ident(db).unwrap().data(db) {
                     // ad hoc, should use path menu instead
-                    "visualize" => builder.bracketed(RustBracket::Par, |builder| {
+                    "visualize" => builder.bracketed(RustDelimiter::Par, |builder| {
                         builder.visual_synchrotron_argument()
                     }),
                     _ => builder.bracketed_comma_list(
-                        RustBracket::Par,
+                        RustDelimiter::Par,
                         item_groups.iter().map(|item_group| (item_group, self)),
                     ),
                 }
@@ -408,7 +408,7 @@ impl HirEagerExprSite {
                     ),
                 )
                     .transpile_to_rust(builder);
-                builder.bracketed(RustBracket::Box, |builder| {
+                builder.bracketed(RustDelimiter::Box, |builder| {
                     (
                         items[0],
                         self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
@@ -421,7 +421,7 @@ impl HirEagerExprSite {
             HirEagerExprData::NewList { ref items, .. } => {
                 builder.macro_name(RustMacroName::Vec);
                 builder.bracketed_comma_list(
-                    RustBracket::Box,
+                    RustDelimiter::Box,
                     items
                         .iter()
                         .copied()
@@ -435,7 +435,7 @@ impl HirEagerExprSite {
             } => {
                 let macro_name = RustMacroName::HtmlTag(function_ident);
                 builder.macro_name(macro_name);
-                builder.bracketed_heterogeneous_list_with(RustBracket::Par, |builder| {
+                builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                     builder.heterogeneous_comma_list_items(arguments.iter());
                     builder.heterogeneous_comma_list_item_with(|builder| {
                         builder.visual_synchrotron_argument()
@@ -444,11 +444,11 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::Todo => {
                 builder.macro_name(RustMacroName::Todo);
-                builder.bracketed(RustBracket::Par, |_| ())
+                builder.bracketed(RustDelimiter::Par, |_| ())
             }
             HirEagerExprData::Unreachable => {
                 builder.macro_name(RustMacroName::Unreachable);
-                builder.bracketed(RustBracket::Par, |_| ())
+                builder.bracketed(RustDelimiter::Par, |_| ())
             }
             HirEagerExprData::AssocFn { assoc_item_path } => {
                 assoc_item_path.transpile_to_rust(builder)

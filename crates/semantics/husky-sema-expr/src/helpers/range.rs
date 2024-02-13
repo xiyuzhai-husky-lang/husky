@@ -430,7 +430,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 rpar_regional_token_idx,
                 ..
             }
-            | SemaExprData::Bracketed {
+            | SemaExprData::Delimitered {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
                 ..

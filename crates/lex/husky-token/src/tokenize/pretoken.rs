@@ -8,10 +8,9 @@ use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
 
 use husky_coword::{is_char_valid_ident_first_char, Label};
 
-
 pub(crate) struct RangedPretoken {
     pub(crate) range: TextRange,
-    pub(crate) token: Pretoken,
+    pub(crate) pretoken: Pretoken,
 }
 
 #[enum_class::from_variants]
@@ -23,6 +22,11 @@ pub(crate) enum Pretoken {
     Ambiguous(AmbiguousPretoken),
     Comment,
     Err(TokenDataError),
+}
+
+impl Pretoken {
+    pub const LCURL: Self = Pretoken::Ambiguous(AmbiguousPretoken::Lcurl);
+    pub const RCURL: Self = Pretoken::Ambiguous(AmbiguousPretoken::Rcurl);
 }
 
 impl From<IntegerLikeLiteralTokenData> for Pretoken {
@@ -47,6 +51,8 @@ impl From<EndKeyword> for Pretoken {
 pub enum AmbiguousPretoken {
     SubOrMinus,
     For,
+    Lcurl,
+    Rcurl,
 }
 
 impl AmbiguousPretoken {
@@ -54,6 +60,8 @@ impl AmbiguousPretoken {
         match self {
             AmbiguousPretoken::SubOrMinus => "-",
             AmbiguousPretoken::For => "for",
+            AmbiguousPretoken::Lcurl => "{",
+            AmbiguousPretoken::Rcurl => "}",
         }
     }
 }
@@ -137,7 +145,7 @@ impl<'a, 'b> PretokenStream<'a, 'b> {
 }
 
 impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
-    fn next_token_variant(&mut self) -> Option<Pretoken> {
+    fn next_pretoken(&mut self) -> Option<Pretoken> {
         let c = self.char_iter.next()?;
         assert_ne!(c, ' ');
         match c {
@@ -458,10 +466,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '(' => Punctuation::LPAR,
                 '[' => Punctuation::LBOX,
-                '{' => Punctuation::LCURL,
+                '{' => match self.peek_char() {
+                    Some('\n') | None => return Some(Pretoken::LCURL),
+                    _ => Punctuation::INLINE_LCURL,
+                },
                 ')' => Punctuation::RPAR,
                 ']' => Punctuation::RBOX,
-                '}' => Punctuation::RCURL,
+                '}' => return Some(Pretoken::RCURL),
                 ',' => Punctuation::COMMA,
                 '@' => match self.peek_char() {
                     Some('=') => self.turn_peek_into_next(Punctuation::AT_EQ),
@@ -593,10 +604,10 @@ impl<'token_line, 'lex: 'token_line> Iterator for PretokenStream<'token_line, 'l
             }
             _ => {
                 let start = self.char_iter.current_position();
-                let variant = self.next_token_variant()?;
+                let pretoken = self.next_pretoken()?;
                 Some(RangedPretoken {
                     range: (start..self.char_iter.current_position()).into(),
-                    token: variant,
+                    pretoken,
                 })
             }
         }

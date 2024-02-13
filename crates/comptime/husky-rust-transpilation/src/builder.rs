@@ -197,7 +197,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         f(self)
     }
 
-    pub(crate) fn bracketed(&mut self, bracket: RustBracket, f: impl FnOnce(&mut Self)) {
+    pub(crate) fn bracketed(&mut self, bracket: RustDelimiter, f: impl FnOnce(&mut Self)) {
         self.write_str(bracket.bra_code());
         f(self);
         self.write_str(bracket.ket_code());
@@ -205,13 +205,13 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_heterogeneous_list_with(
         &mut self,
-        bracket: RustBracket,
+        delimiter: RustDelimiter,
         f: impl FnOnce(&mut Self),
     ) {
         let is_list_start = std::mem::replace(&mut self.is_list_start, Some(true));
-        self.write_str(bracket.bra_code());
+        self.write_str(delimiter.bra_code());
         f(self);
-        self.write_str(bracket.ket_code());
+        self.write_str(delimiter.ket_code());
         self.is_list_start = is_list_start
     }
 
@@ -265,7 +265,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustBracket,
+        bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
@@ -275,7 +275,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_comma_list_with_last_comma<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustBracket,
+        bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
@@ -312,7 +312,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustBracket,
+        bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
@@ -329,7 +329,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_multiline_comma_list_without_last_comma<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustBracket,
+        bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
@@ -351,7 +351,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn bracketed_multiline_list<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustBracket,
+        bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());

@@ -6,15 +6,15 @@ pub enum SynHtmlArgumentExpr {
     Expanded {
         property_ident: IdentRegionalToken,
         eq: EqRegionalToken,
-        lcurl: LcurlRegionalToken,
+        lcurl: InlineLcurlRegionalToken,
         expr: SynExprIdx,
-        rcurl: RcurlRegionalToken,
+        rcurl: InlineRcurlRegionalToken,
     },
     Shortened {
-        lcurl: LcurlRegionalToken,
+        lcurl: InlineLcurlRegionalToken,
         property_ident: IdentRegionalToken,
         // todo: add SymbolIdx
-        rcurl: RcurlRegionalToken,
+        rcurl: InlineRcurlRegionalToken,
     },
 }
 

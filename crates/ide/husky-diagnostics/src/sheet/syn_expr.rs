@@ -176,10 +176,10 @@ impl Diagnose for OriginalSynExprError {
 
     fn message(&self, _db: &Self::Context<'_>) -> String {
         match self {
-            OriginalSynExprError::MismatchingBracket { .. } => {
+            OriginalSynExprError::MismatchingDelimiter { .. } => {
                 format!("Syntax Error: mismatching bracket")
             }
-            OriginalSynExprError::ExpectedRightAngleBracket { .. } => {
+            OriginalSynExprError::ExpectedRightAngleDelimiter { .. } => {
                 format!("Syntax Error: expected `>`")
             }
             OriginalSynExprError::ExpectedRightCurlyBrace(_) => {
@@ -307,7 +307,7 @@ impl Diagnose for OriginalSynExprError {
             OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(_) => {
                 format!("Syntax Error: ExpectedFunctionIdentAfterOpeningHtmlBra")
             }
-            OriginalSynExprError::UnexpectedLeftCurlyBrace(_) => {
+            OriginalSynExprError::UnexpectedInlineLcurl(_) => {
                 format!("Syntax Error: UnexpectedLeftCurlyBrace")
             }
             OriginalSynExprError::ExpectedTraits(_) => todo!(),

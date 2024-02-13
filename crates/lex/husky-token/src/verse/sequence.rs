@@ -41,14 +41,14 @@ impl MainTokenVerseSequence {
 /// ```
 // #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct NestedTokenVerseSequence {
+pub struct InlineTokenVerseSequence {
     lcurl: TokenIdx,
     verses_data: Vec<TokenVerseData>,
     end: TokenIdx,
 }
 
 /// # getters
-impl NestedTokenVerseSequence {
+impl InlineTokenVerseSequence {
     pub fn lcurl(&self) -> TokenIdx {
         self.lcurl
     }
@@ -62,7 +62,7 @@ impl NestedTokenVerseSequence {
     }
 }
 
-impl AsVecMapEntry for NestedTokenVerseSequence {
+impl AsVecMapEntry for InlineTokenVerseSequence {
     type K = TokenIdx;
 
     fn key_ref(&self) -> &Self::K {

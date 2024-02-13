@@ -163,7 +163,6 @@ impl<'a> HirEagerExprBuilder<'a> {
         pattern_expr_idx_range
     }
 
-    #[cfg(test)]
     pub(crate) fn path(&self) -> String {
         use salsa::DebugWithDb;
 

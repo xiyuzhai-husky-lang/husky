@@ -258,7 +258,7 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::MethodFnCall { .. } => todo!(),
             SemaExprData::MethodGnCall { .. } => todo!(),
             SemaExprData::TemplateInstantiation { .. } => todo!(),
-            SemaExprData::Bracketed {
+            SemaExprData::Delimitered {
                 lpar_regional_token_idx,
                 item,
                 rpar_regional_token_idx,

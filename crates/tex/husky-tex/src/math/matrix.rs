@@ -353,7 +353,7 @@ pub enum Delimiter {
     Paren,
     /// Delimit with brackets.
     #[string("[")]
-    Bracket,
+    Delimiter,
     /// Delimit with curly braces.
     #[string("{")]
     Brace,
@@ -370,7 +370,7 @@ impl Delimiter {
     fn open(self) -> char {
         match self {
             Self::Paren => '(',
-            Self::Bracket => '[',
+            Self::Delimiter => '[',
             Self::Brace => '{',
             Self::Bar => '|',
             Self::DoubleBar => '‖',
@@ -381,7 +381,7 @@ impl Delimiter {
     fn close(self) -> char {
         match self {
             Self::Paren => ')',
-            Self::Bracket => ']',
+            Self::Delimiter => ']',
             Self::Brace => '}',
             Self::Bar => '|',
             Self::DoubleBar => '‖',

@@ -1,11 +1,10 @@
 use super::*;
-
-use husky_syn_opr::SynBracket;
+use husky_token_data::delimiter::Delimiter;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExprEnvironment {
     TypeBeforeEq,
-    WithinBracketedParameterList(SynBracket),
+    WithinDelimiteredParameterList(Delimiter),
     Condition(RegionalTokenIdxRangeEnd),
 }
 
@@ -32,9 +31,9 @@ where
     pub(super) fn env(&self) -> Option<ExprEnvironment> {
         self.env_stack.0.last().copied()
     }
-    pub(super) fn env_bra(&self) -> Option<SynBracket> {
+    pub(super) fn env_bra(&self) -> Option<Delimiter> {
         match self.env()? {
-            ExprEnvironment::WithinBracketedParameterList(bra) => Some(bra),
+            ExprEnvironment::WithinDelimiteredParameterList(bra) => Some(bra),
             ExprEnvironment::TypeBeforeEq => None,
             ExprEnvironment::Condition(_) => None,
         }

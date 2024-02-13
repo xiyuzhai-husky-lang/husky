@@ -161,7 +161,7 @@ impl<E> TranspileToRustWith<E> for TraitItemPath {
 impl<E> TranspileToRustWith<E> for TraitForTypeItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
-        builder.bracketed(RustBracket::Angle, |builder| {
+        builder.bracketed(RustDelimiter::Angle, |builder| {
             match self.impl_block(db).ty_sketch(db) {
                 TypeSketch::DeriveAny => builder.todo(),
                 TypeSketch::Path(path) => path.transpile_to_rust(builder),

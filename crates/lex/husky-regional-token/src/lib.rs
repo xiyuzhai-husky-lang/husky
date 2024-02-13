@@ -20,10 +20,9 @@ pub use self::verse::*;
 #[cfg(test)]
 use crate::tests::*;
 use husky_coword::Ident;
-use husky_opr::Bracket;
 use husky_token::verse::{idx::TokenVerseIdx, start::TokenVerseStart};
 use husky_token::*;
-use husky_token_data::*;
+use husky_token_data::{delimiter::Delimiter, *};
 #[cfg(test)]
 use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};
@@ -263,7 +262,7 @@ impl<'a> RegionalTokenStream<'a> {
         }
     }
 
-    pub fn peek_next_bra(&mut self) -> Option<Bracket> {
+    pub fn peek_next_bra(&mut self) -> Option<Delimiter> {
         if self.next_relative.index() < self.tokens.len() {
             match self.tokens[self.next_relative.index()] {
                 TokenData::Punctuation(_punct) => todo!(),

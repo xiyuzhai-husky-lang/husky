@@ -112,16 +112,30 @@ define_specific_punctuation_regional_token!(
 );
 
 define_specific_punctuation_regional_token!(
-    LcurlRegionalToken,
-    LCURL,
-    regional_lcurl_token_works,
+    NestedLcurlRegionalToken,
+    NESTED_LCURL,
+    regional_nested_lcurl_token_works,
     "{"
 );
 
 define_specific_punctuation_regional_token!(
-    RcurlRegionalToken,
-    RCURL,
-    regional_rcurl_token_works,
+    InlineLcurlRegionalToken,
+    INLINE_LCURL,
+    regional_inline_lcurl_token_works,
+    "{"
+);
+
+define_specific_punctuation_regional_token!(
+    NestedRcurlRegionalToken,
+    NESTED_RCURL,
+    regional_nested_rcurl_token_works,
+    "}"
+);
+
+define_specific_punctuation_regional_token!(
+    InlineRcurlRegionalToken,
+    INLINE_RCURL,
+    regional_inline_rcurl_token_works,
     "}"
 );
 

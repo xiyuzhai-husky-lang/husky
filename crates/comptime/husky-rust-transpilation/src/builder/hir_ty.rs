@@ -19,7 +19,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                     Left(PreludeTypePath::ARRAY) => {
                         debug_assert_eq!(template_arguments.len(), 2);
-                        builder.bracketed(RustBracket::Box, |builder| {
+                        builder.bracketed(RustDelimiter::Box, |builder| {
                             template_arguments[1].transpile_to_rust(builder);
                             builder.punctuation(RustPunctuation::SemicolonInArray);
                             template_arguments[0].transpile_to_rust(builder);
@@ -27,7 +27,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                     Left(PreludeTypePath::SLICE) => {
                         debug_assert_eq!(template_arguments.len(), 1);
-                        builder.bracketed(RustBracket::Box, |builder| {
+                        builder.bracketed(RustDelimiter::Box, |builder| {
                             template_arguments[0].transpile_to_rust(builder)
                         })
                     }
@@ -39,14 +39,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     {
                         debug_assert_eq!(template_arguments.len(), 1);
                         builder.cyclic_slice_leashed_ty();
-                        builder.bracketed(RustBracket::Angle, |builder| {
+                        builder.bracketed(RustDelimiter::Angle, |builder| {
                             inner_ty.template_arguments(db)[0].transpile_to_rust(builder)
                         })
                     }
                     _ => {
                         path_leading_hir_ty.ty_path(db).transpile_to_rust(builder);
                         if !template_arguments.is_empty() {
-                            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                            builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
                         }
                     }
                 }
@@ -63,7 +63,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         builder.word(self.ritchie_ty_kind(db).code());
-        builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
+        builder.bracketed_comma_list(RustDelimiter::Par, self.parameters(db).iter());
         builder.punctuation(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)
     }
@@ -75,7 +75,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTrait {
         self.trai_path(db).transpile_to_rust(builder);
         let template_arguments = self.template_arguments(db);
         if !template_arguments.is_empty() {
-            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+            builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
         }
     }
 }

@@ -42,7 +42,7 @@ impl TranspileToRustWith for EnumHirDefn {
             hir_decl.template_parameters(db).transpile_to_rust(builder);
         });
         builder.bracketed_multiline_comma_list(
-            RustBracket::MultilineCurl,
+            RustDelimiter::MultilineCurl,
             hir_decl
                 .path(db)
                 .ty_variant_paths(db)
@@ -72,7 +72,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
             builder.keyword(RustKeyword::Struct);
             hir_decl.path(db).ident(db).transpile_to_rust(builder);
             hir_decl.template_parameters(db).transpile_to_rust(builder);
-            builder.bracketed_multiline_comma_list(RustBracket::MultilineCurl, fields);
+            builder.bracketed_multiline_comma_list(RustDelimiter::MultilineCurl, fields);
             builder.on_fresh_paragraph(|builder| {
                 builder.keyword(RustKeyword::Impl);
                 hir_decl.path(db).ident(db).transpile_to_rust(builder);
@@ -83,7 +83,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
                         builder.keyword(RustKeyword::Fn);
                         builder.ty_constructor_ident();
                         builder.bracketed_comma_list(
-                            RustBracket::Par,
+                            RustDelimiter::Par,
                             fields
                                 .iter()
                                 .filter_map(|&field| match field.initialization {
@@ -113,7 +113,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
                             builder.on_fresh_line(|builder| {
                                 builder.self_ty();
                                 builder.bracketed_multiline_comma_list(
-                                    RustBracket::Curl,
+                                    RustDelimiter::Curl,
                                     fields.iter().map(|field| field.ident()),
                                 )
                             })
@@ -157,7 +157,7 @@ impl TranspileToRustWith for TupleStructHirDefn {
                 builder.keyword(RustKeyword::Struct);
                 hir_decl.path(db).ident(db).transpile_to_rust(builder);
                 hir_decl.template_parameters(db).transpile_to_rust(builder);
-                builder.bracketed_comma_list(RustBracket::Par, hir_decl.fields(db))
+                builder.bracketed_comma_list(RustDelimiter::Par, hir_decl.fields(db))
             })
         })
     }

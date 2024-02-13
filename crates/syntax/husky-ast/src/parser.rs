@@ -4,14 +4,10 @@ mod stmt;
 mod uses;
 mod utils;
 
-use self::indent::Indent;
 use crate::*;
 use husky_entity_path::DisconnectedConnectionRegistry;
-
-use husky_token::*;
-
+use husky_token::{indent::Indent, *};
 use parsec::{HasStreamState, IsStreamParser};
-
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
@@ -55,7 +51,7 @@ impl<'a> AstParser<'a> {
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_normal_ast_children::<MajorItems>();
         let mut nested_top_level_asts = vec![];
-        for seq in self.token_sheet.token_verses().nested_sequences().iter() {
+        for seq in self.token_sheet.token_verses().inline_sequences().iter() {
             nested_top_level_asts.push(todo!())
         }
         AstSheet::new(

@@ -112,7 +112,7 @@ pub enum DerivedSemaExprTypeError {
     #[error("type error {0}")]
     TypeError(#[from] EthTermError),
     #[error("bracketed item type error")]
-    BracketedItemTypeError,
+    DelimiteredItemTypeError,
     #[error("current symbol type error")]
     CurrentSynSymbolTypeError,
     #[error("inherited symbol type error")]

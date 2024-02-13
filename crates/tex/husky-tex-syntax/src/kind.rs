@@ -79,9 +79,9 @@ pub enum TexSyntaxKind {
     /// A right curly brace, terminating a code block: `}`.
     RightBrace,
     /// A left square bracket, starting a content block: `[`.
-    LeftBracket,
+    LeftDelimiter,
     /// A right square bracket, terminating a content block: `]`.
-    RightBracket,
+    RightDelimiter,
     /// A left round parenthesis, starting a grouped expression, collection,
     /// argument or parameter list: `(`.
     LeftParen,
@@ -272,10 +272,10 @@ impl TexSyntaxKind {
     pub fn is_grouping(self) -> bool {
         matches!(
             self,
-            Self::LeftBracket
+            Self::LeftDelimiter
                 | Self::LeftBrace
                 | Self::LeftParen
-                | Self::RightBracket
+                | Self::RightDelimiter
                 | Self::RightBrace
                 | Self::RightParen
         )
@@ -285,7 +285,11 @@ impl TexSyntaxKind {
     pub fn is_terminator(self) -> bool {
         matches!(
             self,
-            Self::Eof | Self::Semicolon | Self::RightBrace | Self::RightParen | Self::RightBracket
+            Self::Eof
+                | Self::Semicolon
+                | Self::RightBrace
+                | Self::RightParen
+                | Self::RightDelimiter
         )
     }
 
@@ -384,8 +388,8 @@ impl TexSyntaxKind {
             Self::Hash => "hash",
             Self::LeftBrace => "opening brace",
             Self::RightBrace => "closing brace",
-            Self::LeftBracket => "opening bracket",
-            Self::RightBracket => "closing bracket",
+            Self::LeftDelimiter => "opening bracket",
+            Self::RightDelimiter => "closing bracket",
             Self::LeftParen => "opening paren",
             Self::RightParen => "closing paren",
             Self::Comma => "comma",
