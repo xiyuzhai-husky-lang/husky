@@ -3,7 +3,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -11,7 +13,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -112,7 +116,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -133,7 +139,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -203,7 +211,9 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -211,7 +221,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -515,7 +527,7 @@
                         },
                         SemaExprEntry {
                             data_result: Ok(
-                                SemaExprData::Bracketed {
+                                SemaExprData::Delimitered {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
@@ -1627,7 +1639,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1635,7 +1649,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1791,7 +1807,9 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                            FugitivePath(`quick_sort::partition`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -1799,7 +1817,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -2149,7 +2169,9 @@
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -2157,7 +2179,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -2583,7 +2607,9 @@
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -2591,7 +2617,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4900,7 +4928,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -4908,7 +4938,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                        FugitivePath(`quick_sort::partition`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -7464,7 +7496,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: BorrowMut,
@@ -7508,7 +7542,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -7977,7 +8013,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: BorrowMut,
@@ -8021,7 +8059,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -11518,7 +11558,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -11526,7 +11568,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -13192,7 +13236,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -13200,7 +13246,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

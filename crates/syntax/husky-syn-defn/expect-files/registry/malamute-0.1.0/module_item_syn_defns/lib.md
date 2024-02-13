@@ -26,7 +26,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    Gn,
+                )`),
             ),
         ),
         None,
@@ -67,7 +69,9 @@
                                         },
                                     },
                                     ident: `default`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -91,24 +95,11 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId {
-                                                                    data: ItemSynNodePathData::ImplBlock(
-                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                                            TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::default::Default`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
+                                                                ItemSynNodePathId(
+                                                                    Id {
+                                                                        value: 130,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -367,39 +358,11 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssocItem(
-                                                            AssocItemSynNodePathData::TraitForTypeItem(
-                                                                TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssocItem(
-                                                                                    AssocItemPathData::TraitForTypeItem(
-                                                                                        TraitForTypeItemPathData {
-                                                                                            impl_block: TraitForTypeImplBlock {
-                                                                                                data: TraitForTypeImplBlockPathData {
-                                                                                                    module_path: `malamute`,
-                                                                                                    trai_path: TraitPath(`core::default::Default`),
-                                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                                    ),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            },
-                                                                                            ident: `default`,
-                                                                                            item_kind: AssocFunctionFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 133,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -485,39 +448,11 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssocItem(
-                                                AssocItemSynNodePathData::TraitForTypeItem(
-                                                    TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssocItem(
-                                                                        AssocItemPathData::TraitForTypeItem(
-                                                                            TraitForTypeItemPathData {
-                                                                                impl_block: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::default::Default`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                                ident: `default`,
-                                                                                item_kind: AssocFunctionFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 133,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -746,7 +681,9 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -770,24 +707,11 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId {
-                                                                    data: ItemSynNodePathData::ImplBlock(
-                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                                            TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::Class`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
+                                                                ItemSynNodePathId(
+                                                                    Id {
+                                                                        value: 131,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -1125,39 +1049,11 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssocItem(
-                                                            AssocItemSynNodePathData::TraitForTypeItem(
-                                                                TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssocItem(
-                                                                                    AssocItemPathData::TraitForTypeItem(
-                                                                                        TraitForTypeItemPathData {
-                                                                                            impl_block: TraitForTypeImplBlock {
-                                                                                                data: TraitForTypeImplBlockPathData {
-                                                                                                    module_path: `malamute`,
-                                                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`malamute::Class`, `Enum`),
-                                                                                                    ),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            },
-                                                                                            ident: `unveil`,
-                                                                                            item_kind: AssocFunctionFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 135,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1446,39 +1342,11 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssocItem(
-                                                AssocItemSynNodePathData::TraitForTypeItem(
-                                                    TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssocItem(
-                                                                        AssocItemPathData::TraitForTypeItem(
-                                                                            TraitForTypeItemPathData {
-                                                                                impl_block: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::Class`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                                ident: `unveil`,
-                                                                                item_kind: AssocFunctionFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 135,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2245,7 +2113,9 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -2269,24 +2139,11 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId {
-                                                                    data: ItemSynNodePathData::ImplBlock(
-                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
-                                                                            TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
+                                                                ItemSynNodePathId(
+                                                                    Id {
+                                                                        value: 132,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -2658,39 +2515,11 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::AssocItem(
-                                                            AssocItemSynNodePathData::TraitForTypeItem(
-                                                                TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssocItem(
-                                                                                    AssocItemPathData::TraitForTypeItem(
-                                                                                        TraitForTypeItemPathData {
-                                                                                            impl_block: TraitForTypeImplBlock {
-                                                                                                data: TraitForTypeImplBlockPathData {
-                                                                                                    module_path: `malamute`,
-                                                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                                    ),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            },
-                                                                                            ident: `unveil`,
-                                                                                            item_kind: AssocFunctionFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 137,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -2979,39 +2808,11 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::AssocItem(
-                                                AssocItemSynNodePathData::TraitForTypeItem(
-                                                    TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssocItem(
-                                                                        AssocItemPathData::TraitForTypeItem(
-                                                                            TraitForTypeItemPathData {
-                                                                                impl_block: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `malamute`,
-                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                                        ty_sketch: TypeSketch::Path(
-                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                                        ),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
-                                                                                ident: `unveil`,
-                                                                                item_kind: AssocFunctionFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 137,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),

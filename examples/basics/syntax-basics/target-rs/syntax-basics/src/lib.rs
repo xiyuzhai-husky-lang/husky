@@ -7,8 +7,10 @@ ad_hoc_task_dependency::init_crate!();
 pub mod ast;
 pub mod uses;
 pub mod defn;
+pub mod expr;
 
 pub use self::ast::*;
 pub use self::uses::*;
 pub use self::defn::*;
+pub use self::expr::*;
 

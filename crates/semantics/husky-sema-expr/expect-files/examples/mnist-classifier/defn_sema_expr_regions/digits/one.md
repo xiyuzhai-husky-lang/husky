@@ -24,7 +24,9 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -32,7 +34,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -116,7 +120,9 @@
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -124,7 +130,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                                    FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -160,7 +168,9 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -168,7 +178,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                                    FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -204,7 +216,9 @@
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -212,7 +226,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                                    FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -889,7 +905,9 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -897,7 +915,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -1388,7 +1408,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -1423,7 +1445,9 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -1431,7 +1455,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -1891,7 +1917,9 @@
                                     path_expr_idx: 6,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -1899,7 +1927,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -2323,7 +2353,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -4214,7 +4246,9 @@
                                     path_expr_idx: 21,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -4222,7 +4256,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4479,7 +4515,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -4500,7 +4538,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -4783,7 +4823,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -5561,7 +5603,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -5582,7 +5626,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -5810,7 +5856,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -5831,7 +5879,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -6152,7 +6202,9 @@
                                     path_expr_idx: 27,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -6160,7 +6212,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -6333,7 +6387,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -6366,7 +6422,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -7111,7 +7169,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -7146,7 +7206,9 @@
                                     path_expr_idx: 32,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -7154,7 +7216,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -7892,7 +7956,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -7913,7 +7979,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -8209,7 +8277,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -8498,7 +8568,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -8519,7 +8591,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -8747,7 +8821,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -8768,7 +8844,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -9268,7 +9346,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -9289,7 +9369,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -9552,7 +9634,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -9573,7 +9657,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -9853,7 +9939,9 @@
                                     path_expr_idx: 36,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -9861,7 +9949,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10427,7 +10517,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -10448,7 +10540,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -10763,7 +10857,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -10798,7 +10894,9 @@
                                     path_expr_idx: 37,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10806,7 +10904,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10953,7 +11053,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -10974,7 +11076,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -11609,7 +11713,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -11732,7 +11838,9 @@
                                     path_expr_idx: 39,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11740,7 +11848,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -12804,7 +12914,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -12825,7 +12937,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
+                                                            TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -13140,7 +13254,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -13617,7 +13733,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -13638,7 +13756,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -13819,7 +13939,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -13840,7 +13962,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -14201,7 +14325,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -14222,7 +14348,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                                                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -14485,7 +14613,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -14506,7 +14636,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -14556,7 +14688,9 @@
                                     path_expr_idx: 43,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -14564,7 +14698,9 @@
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
                                                 MajorItemPath::Fugitive(
-                                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                        Gn,
+                                                    )`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -15173,7 +15309,9 @@
                                                             },
                                                         },
                                                         ident: `unveil`,
-                                                        item_kind: AssocFunctionFn,
+                                                        item_kind: AssocRitchie(
+                                                            Fn,
+                                                        ),
                                                     },
                                                 ),
                                             ),
@@ -30374,7 +30512,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -30382,7 +30522,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -30471,7 +30613,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -30492,7 +30636,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -31506,7 +31652,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -31514,7 +31662,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -31603,7 +31753,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -31624,7 +31776,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -31980,7 +32134,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -32001,7 +32157,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -32752,7 +32910,9 @@
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -32760,7 +32920,9 @@
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -32849,7 +33011,9 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                    TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieRegularParameter {
                                                     contract: Pure,
@@ -32870,7 +33034,9 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
+                                                            TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
                                                         ),
                                                     ),
                                                     env: MethodFn {

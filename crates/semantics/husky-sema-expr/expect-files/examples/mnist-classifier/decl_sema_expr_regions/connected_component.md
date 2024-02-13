@@ -1005,7 +1005,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1013,7 +1015,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1591,7 +1595,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1599,7 +1605,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1953,7 +1961,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1961,7 +1971,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2640,7 +2652,9 @@
                                             },
                                         },
                                         ident: `visualize`,
-                                        item_kind: MethodFn,
+                                        item_kind: MethodRitchie(
+                                            Fn,
+                                        ),
                                     },
                                 ),
                             ),
@@ -2669,7 +2683,9 @@
                                                 },
                                             },
                                             ident: `visualize`,
-                                            item_kind: MethodFn,
+                                            item_kind: MethodRitchie(
+                                                Fn,
+                                            ),
                                         },
                                     ),
                                 ),
@@ -4396,7 +4412,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -4404,7 +4422,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -4656,7 +4676,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                    TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -4664,7 +4686,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                        TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

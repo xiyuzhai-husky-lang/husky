@@ -1,4 +1,5 @@
 pub(crate) use husky_vfs::*;
+use salsa::DebugWithDb;
 
 use crate::*;
 use husky_corgi_config::CorgiConfigJar;
@@ -35,14 +36,14 @@ pub(crate) struct DB;
 pub(crate) fn t<'a>(
     db: &'a ::salsa::Db,
     input: &str,
-) -> (&'a SynExprRegionData, Option<SynExprIdx>) {
+) -> (salsa::DebugWith<'a>, Option<SynExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
     let snippet = Snippet::new(db, input.to_owned());
     let (expr_region, expr_idx) = parse_expr_from_snippet(db, path_menu.core_library(), snippet)
         .as_ref()
         .unwrap();
-    (expr_region.data(db), *expr_idx)
+    (expr_region.data(db).debug_with(db), *expr_idx)
 }
 
 #[test]

@@ -36,9 +36,11 @@ pub(crate) fn module_virtual_path(
                     parent: _,
                     ident: _,
                 } => parent_module_path.data(db).with_extension(""),
+                ModulePathData::Snippet { .. } => unreachable!(),
             };
             VirtualPath::try_new(db, &dir.join(ident.data(db)).with_extension("hsy"))
         }
+        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
 

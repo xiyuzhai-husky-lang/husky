@@ -3,18 +3,11 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
                 FugitiveSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Fugitive(
-                                FugitiveSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
+                    ItemSynNodePathId(
+                        Id {
+                            value: 46,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -31,18 +24,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 46,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -293,18 +279,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -492,7 +471,7 @@
                                     ),
                                     ropd: 14,
                                 },
-                                SynExprData::Bracketed {
+                                SynExprData::Delimitered {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
@@ -704,7 +683,7 @@
                                     ),
                                     ropd: 32,
                                 },
-                                SynExprData::Bracketed {
+                                SynExprData::Delimitered {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         72,
                                     ),

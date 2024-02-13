@@ -12,7 +12,7 @@ pub fn parse_expr_from_snippet(
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Snippet(crate_path.root_module_path(db)),
+        SynNodeRegionPath::Snippet(crate_path.root_module_path(db), snippet),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

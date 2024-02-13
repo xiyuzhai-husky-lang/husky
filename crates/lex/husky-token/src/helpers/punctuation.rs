@@ -119,7 +119,7 @@ define_specific_punctuation_token!(
     "{"
 );
 
-define_specific_punctuation_token!(BlockLcurlToken, BLOCK_LCURL, nested_lcurl_token_works, "{");
+define_specific_punctuation_token!(BlockLcurlToken, NESTED_LCURL, nested_lcurl_token_works, "{");
 
 define_specific_punctuation_token!(
     InlineRcurlToken,
@@ -128,7 +128,7 @@ define_specific_punctuation_token!(
     "}"
 );
 
-define_specific_punctuation_token!(BlockRcurlToken, BLOCK_RCURL, nested_rcurl_token_works, "}");
+define_specific_punctuation_token!(BlockRcurlToken, NESTED_RCURL, nested_rcurl_token_works, "}");
 
 define_specific_punctuation_token!(LaOrLtToken, LA_OR_LT, la_or_lt_token_works, "<");
 

@@ -83,6 +83,7 @@ pub enum TokenInfoData {
     Unreachable,
     SemaPrefixTypeOpr,
     CallPar,
+    NestedBlockCurl,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -145,6 +146,7 @@ impl TokenInfoData {
             TokenInfoData::Unreachable => TokenClass::Unreachable,
             TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
             TokenInfoData::CallPar => TokenClass::Punctuation,
+            TokenInfoData::NestedBlockCurl => TokenClass::Punctuation,
         }
     }
 }

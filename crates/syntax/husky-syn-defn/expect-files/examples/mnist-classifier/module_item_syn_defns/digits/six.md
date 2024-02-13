@@ -18,18 +18,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 68,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -113,18 +106,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 68,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -136,7 +122,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -156,7 +144,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -219,7 +209,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -249,7 +241,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -329,18 +323,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 69,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -424,18 +411,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 69,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -447,7 +427,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -467,7 +449,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -477,7 +461,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                                                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                                    Fn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -548,7 +534,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -578,7 +566,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -593,7 +583,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                                Fn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -673,18 +665,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 70,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -869,18 +854,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 70,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1104,7 +1082,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -1541,7 +1521,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -1714,7 +1696,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -1964,7 +1948,9 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -2599,7 +2585,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -2729,7 +2717,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -2807,7 +2797,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -2948,7 +2940,9 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                                Gn,
+                                            )`),
                                         ),
                                     ),
                                 },
@@ -4337,7 +4331,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -4353,18 +4349,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 71,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4550,18 +4539,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 71,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4842,7 +4824,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -4858,18 +4842,11 @@
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 72,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5055,18 +5032,11 @@
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemSynNodePathId(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5210,7 +5180,7 @@
                                     ),
                                     ropd: 11,
                                 },
-                                SynExprData::Bracketed {
+                                SynExprData::Delimitered {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),

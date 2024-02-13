@@ -10,6 +10,7 @@ use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_regional_token::*;
 use husky_token::TokenIdx;
+use salsa::DebugWithDb;
 
 /// Tokra region is for representing tokens and asts in a relative way.
 /// Previously, the source code is lexed into tokens and then divided into crude asts.
@@ -49,7 +50,10 @@ impl SynNodeRegionPath {
 
     pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
         Some(match self {
-            SynNodeRegionPath::Snippet(_) => todo!(),
+            SynNodeRegionPath::Snippet(module_path) => {
+                // ad hoc
+                return None;
+            }
             SynNodeRegionPath::Decl(slf) => slf.decl_tokra_region(db).data(db).into(),
             SynNodeRegionPath::Defn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
         })

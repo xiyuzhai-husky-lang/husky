@@ -12,4 +12,19 @@
             },
         },
     ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Fugitive(
+                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                        Fn,
+                    )`),
+                ),
+                instantiation: JavInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
 ]

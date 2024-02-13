@@ -10,7 +10,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFn {
+        data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
@@ -28,7 +28,9 @@
                                         },
                                     },
                                     ident: `default`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -44,7 +46,7 @@
         },
     },
     Linkage {
-        data: LinkageData::AssocFn {
+        data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
                     ItemPathId {
@@ -62,7 +64,9 @@
                                         },
                                     },
                                     ident: `unveil`,
-                                    item_kind: AssocFunctionFn,
+                                    item_kind: AssocRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -95,7 +99,9 @@
                                     },
                                 },
                                 ident: `unveil`,
-                                item_kind: AssocFunctionFn,
+                                item_kind: AssocRitchie(
+                                    Fn,
+                                ),
                             },
                         ),
                     ),

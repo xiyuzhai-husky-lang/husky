@@ -28,6 +28,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(_) => true,
             ModulePathData::Child { .. } => false,
+            ModulePathData::Snippet { .. } => false,
         }
     }
 }
@@ -86,6 +87,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(_) => None,
             ModulePathData::Child { parent, .. } => Some(parent),
+            ModulePathData::Snippet { .. } => None,
         }
     }
 
@@ -123,6 +125,10 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
             ModulePathData::Child { parent: _, ident } => ident,
+            ModulePathData::Snippet {
+                ident,
+                disambiguator,
+            } => ident,
         }
     }
 
@@ -192,6 +198,7 @@ fn module_path_partial_ord_works() {
 pub enum ModulePathData {
     Root(CratePath),
     Child { parent: ModulePath, ident: Ident },
+    Snippet { ident: Ident, disambiguator: u32 },
 }
 
 impl ModulePath {
@@ -219,6 +226,10 @@ impl ModulePath {
                 f.write_str("::")?;
                 f.write_str(ident.data(db))
             }
+            ModulePathData::Snippet {
+                ident,
+                disambiguator,
+            } => f.write_str(ident.data(db)),
         }
     }
 }

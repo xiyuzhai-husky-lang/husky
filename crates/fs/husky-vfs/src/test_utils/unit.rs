@@ -113,6 +113,7 @@ impl VfsTestUnit for ModulePath {
                     determine_expect_file_aux_path(db, parent, package_expect_files_dir, config)
                         .join(ident.data(db))
                 }
+                ModulePathData::Snippet { .. } => unreachable!(),
             }
         }
         let aux_path = determine_expect_file_aux_path(db, *self, package_expect_files_dir, config);
@@ -131,6 +132,7 @@ impl VfsTestUnit for ModulePath {
             ModulePathData::Child { .. } => {
                 aux_path.with_extension(config.expect_file_extension().str())
             }
+            ModulePathData::Snippet { .. } => unreachable!(),
         }
     }
 
@@ -158,6 +160,7 @@ impl VfsTestUnit for ModulePath {
                     config,
                 )
                 .join(ident.data(db)),
+                ModulePathData::Snippet { .. } => unreachable!(),
             }
         }
         let aux_path = determine_adversarial_aux_path(
@@ -181,6 +184,7 @@ impl VfsTestUnit for ModulePath {
             ModulePathData::Child { .. } => aux_path
                 .with_extension(adversarial_kind.as_str())
                 .with_extension(ADVERSARIAL_EXTENSION),
+            ModulePathData::Snippet { .. } => unreachable!(),
         })
     }
 

@@ -542,7 +542,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -550,7 +552,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                        TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -714,7 +718,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -722,7 +728,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                        TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2054,7 +2062,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2062,7 +2072,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
+                        TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2226,7 +2238,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2234,7 +2248,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2398,7 +2414,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2406,7 +2424,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2570,7 +2590,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2578,7 +2600,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2900,7 +2924,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2908,7 +2934,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
+                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

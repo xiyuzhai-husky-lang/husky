@@ -155,7 +155,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -163,7 +165,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -563,7 +567,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -571,7 +577,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -971,7 +979,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -979,7 +989,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

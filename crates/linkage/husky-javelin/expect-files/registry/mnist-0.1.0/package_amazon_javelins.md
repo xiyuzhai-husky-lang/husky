@@ -29,7 +29,9 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocFunctionFn`),
+                    TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -80,7 +82,9 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TypeItem(
-                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocFunctionFn`),
+                    TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

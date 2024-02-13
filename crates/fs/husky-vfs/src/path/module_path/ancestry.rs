@@ -29,6 +29,7 @@ pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> Modu
             ancestry.module_paths.push(module_path);
             ancestry
         }
+        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
 

@@ -66,7 +66,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -92,7 +94,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -126,7 +130,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -210,7 +216,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                Gn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

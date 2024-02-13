@@ -75,7 +75,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -114,7 +116,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -176,7 +180,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -238,7 +244,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(

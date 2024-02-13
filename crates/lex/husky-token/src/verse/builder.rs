@@ -153,7 +153,7 @@ impl<'a> TokenVersesBuilder<'a> {
                             TokenData::Punctuation(
                                 Punctuation::RPAR
                                 | Punctuation::RBOX
-                                | Punctuation::BLOCK_LCURL
+                                | Punctuation::NESTED_LCURL
                                 | Punctuation::INLINE_RCURL
                                 | Punctuation::RA_OR_GT,
                             ) => Continue,

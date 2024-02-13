@@ -37,8 +37,8 @@ use husky_fly_term::{
 };
 use husky_opr::*;
 use husky_regional_token::{
-    BlockRcurlRegionalToken, ColonColonRegionalToken, EmptyHtmlKetRegionalToken,
-    IdentRegionalToken, LightArrowRegionalToken, LparRegionalToken, PlaceLabelRegionalToken,
+    ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
+    LightArrowRegionalToken, LparRegionalToken, NestedRcurlRegionalToken, PlaceLabelRegionalToken,
     RegionalTokenIdx,
 };
 use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
@@ -279,7 +279,7 @@ pub enum SemaExprData {
     NestedBlock {
         lcurl_regional_token_idx: RegionalTokenIdx,
         stmts: SemaStmtIdxRange,
-        rcurl_regional_token: BlockRcurlRegionalToken,
+        rcurl_regional_token: NestedRcurlRegionalToken,
     },
 }
 

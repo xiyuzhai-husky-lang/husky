@@ -22,18 +22,11 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 73,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -139,18 +132,11 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 74,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -338,14 +324,18 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Fn(
                         MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -375,18 +365,11 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 75,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -575,14 +558,18 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Fn(
                         MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -612,18 +599,11 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 76,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -812,14 +792,18 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
                     FugitiveSynDecl::Fn(
                         MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                                Fn,
+                            )`),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -849,18 +833,11 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Fugitive(
-                                                                FugitiveSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 77,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
