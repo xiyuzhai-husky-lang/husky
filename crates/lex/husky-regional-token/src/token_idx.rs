@@ -18,7 +18,7 @@ impl RegionalTokenIdx {
         unsafe { Self(NonZeroU32::new_unchecked((index + 1) as u32)) }
     }
 
-    pub(crate) fn from_token_idx(
+    pub fn from_token_idx(
         token_idx: TokenIdx,
         regional_token_idx_base: RegionalTokenIdxBase,
     ) -> RegionalTokenIdx {

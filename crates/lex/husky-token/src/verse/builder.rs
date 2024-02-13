@@ -1,11 +1,11 @@
 use super::*;
 
 pub(super) struct TokenVersesBuilder<'a> {
-    tokens_data: &'a [TokenData],
+    tokens: &'a [TokenData],
     token_ranges: &'a [TextRange],
     line_starts: &'a [usize],
     main_sequence: MainTokenVerseSequence,
-    inline_sequences: VecMap<InlineTokenVerseSequence>,
+    nested_sequences: VecMap<NestedTokenVerseSequence>,
 }
 
 impl<'a> TokenVersesBuilder<'a> {
@@ -15,11 +15,11 @@ impl<'a> TokenVersesBuilder<'a> {
         line_starts: &'a [usize],
     ) -> Self {
         Self {
-            tokens_data,
+            tokens: tokens_data,
             token_ranges,
             line_starts,
             main_sequence: Default::default(),
-            inline_sequences: Default::default(),
+            nested_sequences: Default::default(),
         }
     }
 
@@ -29,11 +29,11 @@ impl<'a> TokenVersesBuilder<'a> {
     }
 
     fn build_main_sequence(&mut self) {
-        let token_verses_data = self.build_token_verses_data(&mut 0, 0);
+        let token_verses_data = self.build_token_verse_datas(&mut 0, 0);
         self.main_sequence = MainTokenVerseSequence::new(token_verses_data)
     }
 
-    pub(crate) fn build_token_verses_data(
+    pub(crate) fn build_token_verse_datas(
         &mut self,
         i: &mut usize,
         indent0: u32,
@@ -46,7 +46,7 @@ impl<'a> TokenVersesBuilder<'a> {
         }
 
         let Self {
-            tokens_data,
+            tokens: tokens_data,
             token_ranges,
             line_starts,
             ..
@@ -100,7 +100,17 @@ impl<'a> TokenVersesBuilder<'a> {
                                     },
                                 };
                                 if nested {
-                                    self.build_token_verses_data(&mut j, line1_indent);
+                                    let verse_datas =
+                                        self.build_token_verse_datas(&mut j, line1_indent);
+                                    let end =
+                                        line_starts.get(j).copied().unwrap_or(self.tokens.len());
+                                    self.nested_sequences
+                                        .insert_new(NestedTokenVerseSequence::new(
+                                            TokenIdx::from_index(line1_start - 1),
+                                            verse_datas,
+                                            TokenIdx::from_index(end),
+                                        ))
+                                        .unwrap();
                                     Continue
                                 } else {
                                     Continue
@@ -118,7 +128,7 @@ impl<'a> TokenVersesBuilder<'a> {
                                     },
                                 };
                                 if nested {
-                                    self.build_token_verses_data(&mut j, line1_indent);
+                                    self.build_token_verse_datas(&mut j, line1_indent);
                                     Continue
                                 } else {
                                     Continue
@@ -179,7 +189,7 @@ impl<'a> TokenVersesBuilder<'a> {
     fn finish(self) -> TokenVerses {
         TokenVerses {
             main_sequence: self.main_sequence,
-            inline_sequences: self.inline_sequences,
+            nested_sequences: self.nested_sequences,
         }
     }
 }

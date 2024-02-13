@@ -14,7 +14,7 @@ pub(crate) struct AstParser<'a> {
     db: &'a ::salsa::Db,
     module_path: ModulePath,
     token_sheet: &'a TokenSheetData,
-    token_verses: TokenVerseIter<'a>,
+    token_verse_iter: TokenVerseIter<'a>,
     indent: Indent,
     ast_arena: AstArena,
     disambiguator_registry: DisconnectedConnectionRegistry,
@@ -25,11 +25,11 @@ impl<'a> HasStreamState for AstParser<'a> {
     type State = TokenVerseIdx;
 
     fn save_state(&self) -> Self::State {
-        self.token_verses.state()
+        self.token_verse_iter.state()
     }
 
     fn rollback(&mut self, state: Self::State) {
-        self.token_verses.rollback(state)
+        self.token_verse_iter.rollback(state)
     }
 }
 
@@ -40,7 +40,7 @@ impl<'a> AstParser<'a> {
             db,
             module_path,
             token_sheet,
-            token_verses: token_sheet.main_token_verse_iter(),
+            token_verse_iter: token_sheet.main_token_verse_iter(),
             indent: Default::default(),
             ast_arena: Default::default(),
             disambiguator_registry: Default::default(),
@@ -51,8 +51,13 @@ impl<'a> AstParser<'a> {
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_normal_ast_children::<MajorItems>();
         let mut nested_top_level_asts = vec![];
-        for seq in self.token_sheet.token_verses().inline_sequences().iter() {
-            nested_top_level_asts.push(todo!())
+        for seq in self.token_sheet.token_verses().nested_sequences().iter() {
+            // todo: refactor such that token_verse_iter is pub(crate)
+            self.token_verse_iter = seq.token_verse_iter(self.token_sheet.tokens());
+            nested_top_level_asts.push((
+                seq.lcurl(),
+                self.parse_normal_ast_children::<FugitiveBody>(),
+            ))
         }
         AstSheet::new(
             self.ast_arena,
@@ -89,7 +94,7 @@ impl<'a> AstParser<'a> {
 
     fn parse_ast<C: IsAstChildren>(&mut self) -> Option<Ast> {
         let (token_verse_idx, token_verse, fst, snd) = self
-            .token_verses
+            .token_verse_iter
             .next_token_verse_of_no_less_indent_with_its_first_two_tokens(self.indent())?;
         if token_verse.indent() > self.indent() {
             return Some(Ast::Err {

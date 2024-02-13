@@ -45,12 +45,12 @@ impl<'a> AstParser<'a> {
     fn alloc_elif_stmts(&mut self) -> AstIdxRange {
         let mut elif_stmts = vec![];
         while let Some((idx, _token_verse, first_noncomment_token)) = self
-            .token_verses
+            .token_verse_iter
             .peek_token_verse_of_exact_indent_with_its_first_token(self.indent())
         {
             match first_noncomment_token {
                 TokenData::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
-                    self.token_verses.next();
+                    self.token_verse_iter.next();
                     elif_stmts.push(self.parse_stmt(idx))
                 }
                 _ => break,
@@ -61,11 +61,11 @@ impl<'a> AstParser<'a> {
 
     fn alloc_else_stmt(&mut self) -> Option<AstIdx> {
         let (idx, _token_verse, first_noncomment_token) = self
-            .token_verses
+            .token_verse_iter
             .peek_token_verse_of_exact_indent_with_its_first_token(self.indent())?;
         match first_noncomment_token {
             TokenData::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
-                self.token_verses.next();
+                self.token_verse_iter.next();
                 Some(self.alloc_stmt(idx))
             }
             _ => None,
@@ -104,12 +104,12 @@ impl<'a> AstParser<'a> {
     fn parse_case_stmts(&mut self) -> AstIdxRange {
         let mut verticals = vec![];
         while let Some((idx, _token_verse, first)) = self
-            .token_verses
+            .token_verse_iter
             .peek_token_verse_of_exact_indent_with_its_first_token(self.indent())
         {
             match first {
                 TokenData::Punctuation(Punctuation::VERTICAL) => {
-                    self.token_verses.next();
+                    self.token_verse_iter.next();
                     verticals.push(self.parse_stmt(idx))
                 }
                 _ => break,

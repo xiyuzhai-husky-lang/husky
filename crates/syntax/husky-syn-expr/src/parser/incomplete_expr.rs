@@ -10,7 +10,7 @@ use parsec::TryParseOptionFromStream;
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(super) enum IncompleteSynExpr {
+pub(super) enum IncompleteSynExprData {
     Binary {
         lopd: SynExprData,
         punctuation: SynBinaryOpr,
@@ -95,18 +95,18 @@ where
     }
 }
 
-impl IncompleteSynExpr {
+impl IncompleteSynExprData {
     pub(super) fn precedence(&self) -> Precedence {
         match self {
-            IncompleteSynExpr::Binary { punctuation, .. } => punctuation.precedence(),
-            IncompleteSynExpr::Prefix { .. } => Precedence::Prefix,
-            IncompleteSynExpr::CommaList { .. } | IncompleteSynExpr::CallList { .. } => {
+            IncompleteSynExprData::Binary { punctuation, .. } => punctuation.precedence(),
+            IncompleteSynExprData::Prefix { .. } => Precedence::Prefix,
+            IncompleteSynExprData::CommaList { .. } | IncompleteSynExprData::CallList { .. } => {
                 Precedence::List
             }
-            IncompleteSynExpr::LambdaHead { .. } => Precedence::LambdaHead,
-            IncompleteSynExpr::Application { .. } => Precedence::Application,
-            IncompleteSynExpr::Ritchie { .. } => Precedence::Curry,
-            IncompleteSynExpr::KeyedArgument { .. } => Precedence::KeyedArgument,
+            IncompleteSynExprData::LambdaHead { .. } => Precedence::LambdaHead,
+            IncompleteSynExprData::Application { .. } => Precedence::Application,
+            IncompleteSynExprData::Ritchie { .. } => Precedence::Curry,
+            IncompleteSynExprData::KeyedArgument { .. } => Precedence::KeyedArgument,
         }
     }
 }

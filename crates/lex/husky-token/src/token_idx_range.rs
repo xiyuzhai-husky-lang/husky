@@ -100,6 +100,10 @@ impl TokenIdxRange {
     pub fn join(self, other: TokenIdxRange) -> Self {
         self.to(other.end())
     }
+
+    pub fn contains(self, token_idx: TokenIdx) -> bool {
+        self.start.token_idx() <= token_idx && token_idx < self.end.token_idx()
+    }
 }
 
 impl std::fmt::Debug for TokenIdxRange {

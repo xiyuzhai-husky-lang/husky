@@ -15,17 +15,17 @@ use super::*;
 /// in the above `c + d` would be the finished expression, `a +`, `b *` and `(c + d` would be unfinished expressions.
 #[derive(Default, Debug)]
 pub(crate) struct ExprStack {
-    incomplete_exprs: Vec<(IncompleteSynExpr, Precedence)>,
+    incomplete_exprs: Vec<(IncompleteSynExprData, Precedence)>,
     complete_expr: Option<SynExprData>,
 }
 
 pub(super) enum TopSynExpr {
-    Unfinished(IncompleteSynExpr),
+    Unfinished(IncompleteSynExprData),
     Finished(SynExprData),
 }
 
 pub(super) enum TopExprRef<'a> {
-    Incomplete(&'a IncompleteSynExpr),
+    Incomplete(&'a IncompleteSynExprData),
     Finished(&'a SynExprData),
     None,
 }
@@ -36,8 +36,8 @@ impl From<SynExprData> for TopSynExpr {
     }
 }
 
-impl From<IncompleteSynExpr> for TopSynExpr {
-    fn from(v: IncompleteSynExpr) -> Self {
+impl From<IncompleteSynExprData> for TopSynExpr {
+    fn from(v: IncompleteSynExprData) -> Self {
         Self::Unfinished(v)
     }
 }
@@ -112,10 +112,11 @@ impl SynExprData {
             }
             SynExprData::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExprData::FunctionCall { .. } => BaseEntityPath::None,
-            SynExprData::Ritchie { .. } => BaseEntityPath::None,
-            SynExprData::Sorry { .. } => BaseEntityPath::None,
-            SynExprData::Todo { .. } => BaseEntityPath::None,
-            SynExprData::Unreachable { .. } => BaseEntityPath::None,
+            SynExprData::Ritchie { .. }
+            | SynExprData::Sorry { .. }
+            | SynExprData::Todo { .. }
+            | SynExprData::Unreachable { .. }
+            | SynExprData::NestedBlock { .. } => BaseEntityPath::None,
         }
     }
 }
@@ -128,15 +129,15 @@ where
         self.stack.complete_expr.as_ref()
     }
 
-    pub(super) fn incomplete_exprs(&self) -> &[(IncompleteSynExpr, Precedence)] {
+    pub(super) fn incomplete_exprs(&self) -> &[(IncompleteSynExprData, Precedence)] {
         &self.stack.incomplete_exprs
     }
 
-    pub(super) fn take_last_incomplete_expr(&mut self) -> Option<IncompleteSynExpr> {
+    pub(super) fn take_last_incomplete_expr(&mut self) -> Option<IncompleteSynExprData> {
         self.stack.incomplete_exprs.pop().map(|(expr, _)| expr)
     }
 
-    fn push_unfinished_expr(&mut self, incomplete_expr: IncompleteSynExpr) {
+    fn push_unfinished_expr(&mut self, incomplete_expr: IncompleteSynExprData) {
         assert!(self.stack.complete_expr.is_none());
         let precedence = incomplete_expr.precedence();
         self.stack
@@ -144,11 +145,11 @@ where
             .push((incomplete_expr, precedence))
     }
 
-    pub(super) fn last_incomplete_expr(&self) -> Option<&IncompleteSynExpr> {
+    pub(super) fn last_incomplete_expr(&self) -> Option<&IncompleteSynExprData> {
         self.stack.incomplete_exprs.last().map(|(opr, _)| opr)
     }
 
-    pub(super) fn last_incomplete_expr_mut(&mut self) -> Option<&mut IncompleteSynExpr> {
+    pub(super) fn last_incomplete_expr_mut(&mut self) -> Option<&mut IncompleteSynExprData> {
         self.stack.incomplete_exprs.last_mut().map(|(opr, _)| opr)
     }
 
@@ -162,7 +163,7 @@ where
             self.reduce(Precedence::Application)
         };
         if let Some(function) = self.take_complete_expr() {
-            self.push_unfinished_expr(IncompleteSynExpr::Application { function });
+            self.push_unfinished_expr(IncompleteSynExprData::Application { function });
         }
         match top_expr {
             TopSynExpr::Unfinished(unfinished_expr) => self.push_unfinished_expr(unfinished_expr),
@@ -192,7 +193,7 @@ where
 
     fn reduce_aux(
         &mut self,
-        f: impl Fn(&mut Self, Option<SynExprData>, IncompleteSynExpr) -> TopSynExpr,
+        f: impl Fn(&mut Self, Option<SynExprData>, IncompleteSynExprData) -> TopSynExpr,
     ) {
         let complete_expr = self.take_complete_expr();
         let Some((incomplete_expr, _)) = self.stack.incomplete_exprs.pop() else {
@@ -212,7 +213,7 @@ where
                 break;
             }
             match self.stack.incomplete_exprs.pop().unwrap().0 {
-                IncompleteSynExpr::Binary {
+                IncompleteSynExprData::Binary {
                     lopd,
                     punctuation,
                     punctuation_regional_token_idx,
@@ -235,7 +236,7 @@ where
                         ),
                     })
                 }
-                IncompleteSynExpr::Application { function } => {
+                IncompleteSynExprData::Application { function } => {
                     let argument = self.take_complete_expr().expect("");
                     let function = self.context_mut().alloc_expr(function);
                     let argument = self.context_mut().alloc_expr(argument);
@@ -244,7 +245,7 @@ where
                         argument_expr_idx: argument,
                     })
                 }
-                IncompleteSynExpr::Prefix {
+                IncompleteSynExprData::Prefix {
                     punctuation,
                     punctuation_regional_token_idx,
                 } => {
@@ -264,7 +265,7 @@ where
                         ),
                     })
                 }
-                IncompleteSynExpr::CommaList {
+                IncompleteSynExprData::CommaList {
                     bra_regional_token_idx,
                     ..
                 } => {
@@ -275,11 +276,11 @@ where
                         .into(),
                     ))
                 }
-                IncompleteSynExpr::LambdaHead { .. } => todo!(),
-                IncompleteSynExpr::CallList { .. } => {
+                IncompleteSynExprData::LambdaHead { .. } => todo!(),
+                IncompleteSynExprData::CallList { .. } => {
                     todo!()
                 }
-                IncompleteSynExpr::Ritchie {
+                IncompleteSynExprData::Ritchie {
                     ritchie_kind_regional_token_idx,
                     ritchie_kind,
                     lpar_token,
@@ -304,7 +305,7 @@ where
                         ),
                     })
                 }
-                IncompleteSynExpr::KeyedArgument {
+                IncompleteSynExprData::KeyedArgument {
                     key_regional_token_idx,
                     key,
                     eq_token: _,
@@ -315,7 +316,7 @@ where
                         };
                         let argument_expr_idx = this.context_mut().alloc_expr(argument_expr);
                         match incomplete_expr {
-                            IncompleteSynExpr::CommaList {
+                            IncompleteSynExprData::CommaList {
                                 opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                                 bra: _,
                                 bra_regional_token_idx,
@@ -332,7 +333,7 @@ where
                                     )
                                     .into(),
                                 );
-                                IncompleteSynExpr::CallList {
+                                IncompleteSynExprData::CallList {
                                     opr: IncompleteCallListOpr::FunctionCall {
                                         function,
                                         generic_arguments: /* ad hoc */ None,
@@ -342,7 +343,7 @@ where
                                 }
                                 .into()
                             }
-                            IncompleteSynExpr::CommaList {
+                            IncompleteSynExprData::CommaList {
                                 opr:
                                     IncompleteCommaListOpr::MethodApplicationOrCall {
                                         self_expr: _,
@@ -354,7 +355,7 @@ where
                                 bra_regional_token_idx: _,
                                 items: _,
                             } => todo!(),
-                            IncompleteSynExpr::CallList { .. } => todo!(),
+                            IncompleteSynExprData::CallList { .. } => todo!(),
                             _ => unreachable!(),
                         }
                     })
@@ -382,13 +383,13 @@ where
     pub(super) fn last_bra(&self) -> Option<Delimiter> {
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                IncompleteSynExpr::CommaList {
+                IncompleteSynExprData::CommaList {
                     opr: _,
                     bra,
                     bra_regional_token_idx: _,
                     items: _,
                 } => return Some(*bra),
-                IncompleteSynExpr::CallList { .. } => return Some(Delimiter::Par),
+                IncompleteSynExprData::CallList { .. } => return Some(Delimiter::Par),
                 _ => (),
             }
         }
@@ -399,7 +400,7 @@ where
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                IncompleteSynExpr::CommaList { bra, .. } => {
+                IncompleteSynExprData::CommaList { bra, .. } => {
                     bras.push(*bra);
                     if bras.len() >= 2 {
                         return bras;

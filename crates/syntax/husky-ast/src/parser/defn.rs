@@ -118,8 +118,8 @@ impl<'a> AstParser<'a> {
         let mut ty_variants = vec![];
         let registry = &mut TypeVariantRegistry::new_u8();
         loop {
-            let state = self.token_verses.state();
-            let Some((token_verse_idx, _)) = self.token_verses.next() else {
+            let state = self.token_verse_iter.state();
+            let Some((token_verse_idx, _)) = self.token_verse_iter.next() else {
                 break;
             };
             // todo: change the api of `self.token_verses.next()`
@@ -131,7 +131,7 @@ impl<'a> AstParser<'a> {
                     .token_verse_token_stream(token_verse_idx, None),
             );
             let Ok(Some(vertical_token)) = aux_parser.try_parse_option::<VerticalToken>() else {
-                self.token_verses.rollback(state);
+                self.token_verse_iter.rollback(state);
                 break;
             };
             ty_variants.push(

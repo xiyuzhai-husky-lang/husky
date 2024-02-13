@@ -5,6 +5,7 @@ pub use self::root::*;
 pub use self::stmt::*;
 
 use crate::*;
+use husky_entity_tree::helpers::tokra_region::TokraRegionDataRef;
 use husky_vfs::ModulePath;
 
 pub struct SynExprContext<'a> {
@@ -22,6 +23,7 @@ pub struct SynExprContext<'a> {
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
+    tokra_region_data: TokraRegionDataRef<'a>,
 }
 
 pub trait IsSynExprContext<'a>:
@@ -35,15 +37,33 @@ impl<'a, 'b> IsSynExprContext<'a> for &'b mut SynExprContext<'a> {}
 
 impl<'a> SynExprContext<'a> {
     pub fn new(
+        syn_node_path: ItemSynNodePath,
+        decl_expr_region: SynExprRegion,
+        allow_self_type: AllowSelfType,
+        allow_self_value: AllowSelfValue,
+        db: &'a ::salsa::Db,
+    ) -> Option<Self> {
+        let module_path = syn_node_path.module_path(db);
+        Self::new2(
+            db,
+            SynNodeRegionPath::Defn(syn_node_path),
+            db.module_symbol_context(module_path).unwrap(),
+            Some(decl_expr_region),
+            allow_self_type,
+            allow_self_value,
+        )
+    }
+
+    pub fn new2(
         db: &'a ::salsa::Db,
         path: SynNodeRegionPath,
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
-    ) -> Self {
+    ) -> Option<Self> {
         let module_path = path.module_path(db);
-        Self {
+        Some(Self {
             db,
             path,
             module_path,
@@ -63,7 +83,8 @@ impl<'a> SynExprContext<'a> {
             syn_expr_roots: vec![],
             has_self_lifetime: false,
             has_self_place: false,
-        }
+            tokra_region_data: path.tokra_region_data_ref(db)?,
+        })
     }
 
     pub fn finish(self) -> SynExprRegion {
@@ -82,7 +103,18 @@ impl<'a> SynExprContext<'a> {
         )
     }
 
-    pub fn expr_parser(
+    pub(crate) fn token_verse_expr_parser<'b>(
+        &'b mut self,
+        token_verse_idx: RegionalTokenVerseIdx,
+    ) -> SynExprParser<'a, &'b mut SynExprContext<'a>>
+    where
+        'a: 'b,
+    {
+        let token_stream = self.token_verse_token_stream(token_verse_idx);
+        SynExprParser::new(self, None, token_stream)
+    }
+
+    pub fn token_stream_expr_parser(
         self,
         env: Option<ExprEnvironment>,
         token_stream: RegionalTokenStream<'a>,
@@ -181,5 +213,9 @@ impl<'a> SynExprContext<'a> {
 
     pub fn syn_principal_entity_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
         &self.syn_principal_entity_path_expr_arena
+    }
+
+    pub(crate) fn tokra_region_data(&self) -> TokraRegionDataRef<'a> {
+        self.tokra_region_data
     }
 }

@@ -16,6 +16,8 @@ pub struct DefnTokraRegion {
     token_verse_starts: Vec<RegionalTokenVerseStart>,
     #[return_ref]
     ast_token_idx_ranges: Vec<RegionalTokenIdxRange>,
+    #[return_ref]
+    inline_blocks: Vec<(RegionalTokenIdx, ArenaIdxRange<DefnAst>)>,
 }
 
 impl DefnTokraRegion {
@@ -26,7 +28,7 @@ impl DefnTokraRegion {
             root_body: self.root_body(db),
             ast_token_idx_ranges: self.ast_token_idx_ranges(db),
             token_verse_starts: self.token_verse_starts(db),
-            nested: &(),
+            nested_blocks: self.inline_blocks(db),
         }
     }
 
@@ -42,7 +44,7 @@ pub struct DefnTokraRegionDataRef<'a> {
     root_body: DefnAstIdxRange,
     token_verse_starts: &'a [RegionalTokenVerseStart],
     ast_token_idx_ranges: &'a [RegionalTokenIdxRange],
-    nested: &'a (),
+    nested_blocks: &'a [(RegionalTokenIdx, DefnAstIdxRange)],
 }
 
 impl<'a> DefnTokraRegionDataRef<'a> {
@@ -77,6 +79,17 @@ impl<'a> DefnTokraRegionDataRef<'a> {
 
     pub fn ast_arena(self) -> DefnAstArenaRef<'a> {
         self.ast_arena
+    }
+
+    pub fn nested_block(&self, lcurl_regional_token_idx: RegionalTokenIdx) -> DefnAstIdxRange {
+        self.nested_blocks
+            .iter()
+            .copied()
+            .find_map(|(lcurl_regional_token_idx1, defn_ast_idx_range)| {
+                (lcurl_regional_token_idx == lcurl_regional_token_idx1)
+                    .then_some(defn_ast_idx_range)
+            })
+            .unwrap()
     }
 }
 
@@ -223,7 +236,22 @@ impl<'a> DefnTokraRegionBuilder<'a> {
 
     fn build(mut self) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
         let root_body = self.build_asts(self.root_body);
-        self.finish(root_body)
+        let asts_token_idx_range = self
+            .ast_token_idx_range_sheet
+            .asts_token_idx_range(self.root_body);
+        let nested_asts: Vec<_> = self
+            .ast_sheet
+            .nested_top_level_asts()
+            .iter()
+            .copied()
+            .filter_map(|(token_idx, ast_idx_range)| {
+                asts_token_idx_range.contains(token_idx).then_some((
+                    RegionalTokenIdx::from_token_idx(token_idx, self.regional_token_idx_base),
+                    self.build_asts(ast_idx_range),
+                ))
+            })
+            .collect();
+        self.finish(root_body, nested_asts)
     }
 
     fn build_asts(&mut self, ast_idx_range: AstIdxRange) -> DefnAstIdxRange {
@@ -259,8 +287,13 @@ impl<'a> DefnTokraRegionBuilder<'a> {
         match self.ast_sheet[ast_idx] {
             Ast::Err {
                 token_verse_idx: _,
-                error: _,
-            } => Some(DefnAst::Err),
+                ref error,
+            } => {
+                use husky_print_utils::p;
+                p!(error);
+                todo!();
+                Some(DefnAst::Err)
+            }
             Ast::BasicStmtOrBranch {
                 token_verse_idx,
                 body,
@@ -311,7 +344,11 @@ impl<'a> DefnTokraRegionBuilder<'a> {
         Some(regional_ast_idx)
     }
 
-    fn finish(self, root_body: DefnAstIdxRange) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
+    fn finish(
+        self,
+        root_body: DefnAstIdxRange,
+        nested_asts: Vec<(RegionalTokenIdx, DefnAstIdxRange)>,
+    ) -> (DefnTokraRegion, DefnTokraRegionSourceMap) {
         // todo: nested??
         let regional_token_verse_starts = (self.regional_token_verse_idx_base.index()..)
             .into_iter()
@@ -342,6 +379,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
                 root_body,
                 regional_token_verse_starts,
                 self.regional_token_idx_range_map,
+                nested_asts,
             ),
             DefnTokraRegionSourceMap::new(
                 self.db,

@@ -1,11 +1,11 @@
 use crate::*;
-use husky_entity_tree::{helpers::tokra_region::DeclTokraRegionData, *};
+use husky_entity_tree::{helpers::tokra_region::DeclTokraRegionDataRef, *};
 
 pub(crate) struct DeclParser<'a> {
     db: &'a ::salsa::Db,
     syn_node_path: ItemSynNodePath,
     module_symbol_context: ModuleSymbolContext<'a>,
-    tokra_region_data: DeclTokraRegionData<'a>,
+    tokra_region_data: DeclTokraRegionDataRef<'a>,
 }
 
 impl<'a> DeclParser<'a> {
@@ -30,7 +30,7 @@ impl<'a> DeclParser<'a> {
         allow_self_value: AllowSelfValue,
         env: Option<ExprEnvironment>,
     ) -> SynDeclExprParser<'a> {
-        SynExprContext::new(
+        SynExprContext::new2(
             self.db,
             SynNodeRegionPath::Decl(self.syn_node_path.into()),
             self.module_symbol_context,
@@ -38,7 +38,8 @@ impl<'a> DeclParser<'a> {
             allow_self_type,
             allow_self_value,
         )
-        .expr_parser(env, self.tokra_region_data.regional_token_stream())
+        .unwrap()
+        .token_stream_expr_parser(env, self.tokra_region_data.regional_token_stream())
     }
 
     #[inline(always)]
