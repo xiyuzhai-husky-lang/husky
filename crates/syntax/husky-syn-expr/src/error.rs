@@ -1,5 +1,5 @@
 use crate::*;
-use husky_syn_opr::SynBracket;
+use husky_token_data::delimiter::Delimiter;
 use original_error::OriginalError;
 use thiserror::Error;
 
@@ -23,7 +23,7 @@ impl From<TokenDataError> for SynExprError {
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
-    ExpectedRightAngleBracket {
+    ExpectedRightAngleDelimiter {
         langle_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected `}}`")]
@@ -36,7 +36,7 @@ pub enum OriginalSynExprError {
     ExpectedRpar(RegionalTokenStreamState),
     #[error("no matching bracket")]
     NoMatchingBra {
-        ket: SynBracket,
+        ket: Delimiter,
         ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected item before `,`")]
@@ -82,10 +82,10 @@ pub enum OriginalSynExprError {
     #[error("expected constant implicit parameter type")]
     ExpectedConstantImplicitParameterType(RegionalTokenStreamState),
     #[error("mismatching bracket")]
-    MismatchingBracket {
-        bra: SynBracket,
+    MismatchingDelimiter {
+        bra: Delimiter,
         bra_regional_token_idx: RegionalTokenIdx,
-        ket: SynBracket,
+        ket: Delimiter,
         ket_regional_token_idx: RegionalTokenIdx,
     },
     #[error("expected let variables type")]
@@ -157,7 +157,7 @@ pub enum OriginalSynExprError {
     #[error("HtmlTodo")]
     HtmlTodo(RegionalTokenStreamState),
     #[error("UnexpectedLeftCurlyBrace")]
-    UnexpectedLeftCurlyBrace(RegionalTokenIdx),
+    UnexpectedInlineLcurl(RegionalTokenIdx),
     #[error("ExpectedTypeAfterLightArrow")]
     ExpectedTypeAfterLightArrow {
         light_arrow_token: LightArrowRegionalToken,
@@ -205,11 +205,11 @@ impl OriginalSynExprError {
                     false => RegionalTokenIdxRange::new_single(regional_token_idx),
                 }
             }
-            OriginalSynExprError::MismatchingBracket {
+            OriginalSynExprError::MismatchingDelimiter {
                 ket_regional_token_idx: regional_token_idx,
                 ..
             }
-            | OriginalSynExprError::ExpectedRightAngleBracket {
+            | OriginalSynExprError::ExpectedRightAngleDelimiter {
                 langle_regional_token_idx: regional_token_idx,
             }
             | OriginalSynExprError::NoMatchingBra {
@@ -261,7 +261,7 @@ impl OriginalSynExprError {
             | OriginalSynExprError::ExpectedExprBeforeDot {
                 dot_regional_token_idx: regional_token_idx,
             }
-            | OriginalSynExprError::UnexpectedLeftCurlyBrace(regional_token_idx) => {
+            | OriginalSynExprError::UnexpectedInlineLcurl(regional_token_idx) => {
                 RegionalTokenIdxRange::new_single(*regional_token_idx)
             }
             OriginalSynExprError::ExpectedBlock(_) => todo!(),

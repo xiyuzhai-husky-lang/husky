@@ -545,7 +545,7 @@ impl<'a> DecTermEngine<'a> {
                 0 => Ok(self.dec_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
-            SynExprData::Bracketed { item, .. } => self.infer_new_expr_term(item),
+            SynExprData::Delimitered { item, .. } => self.infer_new_expr_term(item),
             SynExprData::Block { stmts: _ } => todo!(),
             SynExprData::IndexOrCompositionWithList { .. } => todo!(),
             SynExprData::Err(ref e) => Err(DerivedDecTermError2::ExprError.into()),

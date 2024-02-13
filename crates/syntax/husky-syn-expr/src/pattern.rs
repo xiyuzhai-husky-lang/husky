@@ -176,7 +176,7 @@ where
                                             rpar,
                                         })
                                     } else if let Some(_) =
-                                        parser.try_parse_option::<LcurlRegionalToken>()?
+                                        parser.try_parse_option::<InlineLcurlRegionalToken>()?
                                     {
                                         todo!("struct variant");
                                     } else {

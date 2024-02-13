@@ -139,7 +139,7 @@ pub enum SynExprData {
         lpar_regional_token_idx: RegionalTokenIdx,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    Bracketed {
+    Delimitered {
         lpar_regional_token_idx: RegionalTokenIdx,
         item: SynExprIdx,
         rpar_regional_token_idx: RegionalTokenIdx,

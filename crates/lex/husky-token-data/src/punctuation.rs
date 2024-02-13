@@ -4,7 +4,9 @@ use crate::*;
 //     Bracket, SynSuffixOpr,
 // };
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
-use husky_syn_opr::{SynBinaryOpr, SynBracket, SynSuffixOpr};
+use husky_syn_opr::{SynBinaryOpr, SynSuffixOpr};
+
+use self::delimiter::Delimiter;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -68,21 +70,25 @@ impl Punctuation {
     /// `;`
     pub const SEMICOLON: Self = Self(PunctuationMapped::Semicolon);
     /// `(`
-    pub const LPAR: Self = Self(PunctuationMapped::Bra(SynBracket::Par));
+    pub const LPAR: Self = Self(PunctuationMapped::Bra(Delimiter::Par));
     /// `[`
-    pub const LBOX: Self = Self(PunctuationMapped::Bra(SynBracket::Box));
+    pub const LBOX: Self = Self(PunctuationMapped::Bra(Delimiter::Box));
     /// `{`
-    pub const LCURL: Self = Self(PunctuationMapped::Bra(SynBracket::Curl));
+    pub const NESTED_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::NestedCurl));
+    /// `{`
+    pub const INLINE_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::InlineCurl));
     /// `<`
     pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
     /// `::<`
     pub const COLON_COLON_LA: Self = Self(PunctuationMapped::ColonColonLa);
     /// `)`
-    pub const RPAR: Self = Self(PunctuationMapped::Ket(SynBracket::Par));
+    pub const RPAR: Self = Self(PunctuationMapped::Ket(Delimiter::Par));
     /// `]`
-    pub const RBOX: Self = Self(PunctuationMapped::Ket(SynBracket::Box));
+    pub const RBOX: Self = Self(PunctuationMapped::Ket(Delimiter::Box));
     /// `}`
-    pub const RCURL: Self = Self(PunctuationMapped::Ket(SynBracket::Curl));
+    pub const NESTED_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::NestedCurl));
+    /// `}`
+    pub const INLINE_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::InlineCurl));
     /// `>`
     pub const RA_OR_GT: Self = Self(PunctuationMapped::RaOrGt);
     /// `|`
@@ -209,8 +215,8 @@ impl std::fmt::Display for Punctuation {
 pub enum PunctuationMapped {
     // predetermined
     Binary(SynBinaryOpr),
-    Bra(SynBracket),
-    Ket(SynBracket),
+    Bra(Delimiter),
+    Ket(Delimiter),
     Suffix(SynSuffixOpr),
     /// `=`
     ///
@@ -292,16 +298,15 @@ impl PunctuationMapped {
             PunctuationMapped::Star => "*",
             PunctuationMapped::Sheba => "#",
             PunctuationMapped::Eq => "=",
-            PunctuationMapped::Tilde => "~",
             PunctuationMapped::ForAll => "∀",
             PunctuationMapped::Exists => "∃",
             PunctuationMapped::HeavyArrow => "=>",
         }
     }
 
-    pub fn opt_bra(self) -> Option<SynBracket> {
+    pub fn opt_bra(self) -> Option<Delimiter> {
         match self {
-            PunctuationMapped::LaOrLt => Some(SynBracket::TurboFish),
+            PunctuationMapped::LaOrLt => Some(Delimiter::TurboFish),
             PunctuationMapped::Bra(bracket) => Some(bracket),
             _ => None,
         }

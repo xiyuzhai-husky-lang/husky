@@ -2,6 +2,7 @@
 #![feature(const_trait_impl)]
 mod db;
 mod helpers;
+pub mod indent;
 mod sheet;
 mod snippet;
 mod stream;
@@ -11,7 +12,6 @@ pub mod test_utils;
 mod tests;
 mod token_idx;
 mod token_idx_range;
-// mod token;
 mod token_visibility;
 mod tokenize;
 pub mod verse;

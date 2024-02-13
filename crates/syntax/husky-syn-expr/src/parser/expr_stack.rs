@@ -1,3 +1,5 @@
+use husky_token_data::delimiter::Delimiter;
+
 use crate::SynKeyedCallListItem;
 
 use super::*;
@@ -87,7 +89,7 @@ impl SynExprData {
             SynExprData::Unit { .. } => BaseEntityPath::None,
             SynExprData::NewTuple { .. } => todo!(),
             SynExprData::List { .. } => BaseEntityPath::None,
-            SynExprData::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
+            SynExprData::Delimitered { item, .. } => arena[item].base_item_path(db, arena),
             SynExprData::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
                     SynExprError::Original(OriginalSynExprError::UnrecognizedIdent {
@@ -377,7 +379,7 @@ where
             .map(|expr| self.context_mut().alloc_expr(expr))
     }
 
-    pub(super) fn last_bra(&self) -> Option<SynBracket> {
+    pub(super) fn last_bra(&self) -> Option<Delimiter> {
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
                 IncompleteSynExpr::CommaList {
@@ -386,14 +388,14 @@ where
                     bra_regional_token_idx: _,
                     items: _,
                 } => return Some(*bra),
-                IncompleteSynExpr::CallList { .. } => return Some(SynBracket::Par),
+                IncompleteSynExpr::CallList { .. } => return Some(Delimiter::Par),
                 _ => (),
             }
         }
         None
     }
 
-    pub(super) fn last_two_bras(&self) -> Vec<SynBracket> {
+    pub(super) fn last_two_bras(&self) -> Vec<Delimiter> {
         let mut bras = vec![];
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {

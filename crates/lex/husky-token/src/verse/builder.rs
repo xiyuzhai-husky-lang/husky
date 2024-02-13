@@ -5,7 +5,7 @@ pub(super) struct TokenVersesBuilder<'a> {
     token_ranges: &'a [TextRange],
     line_starts: &'a [usize],
     main_sequence: MainTokenVerseSequence,
-    nested_sequences: VecMap<NestedTokenVerseSequence>,
+    inline_sequences: VecMap<InlineTokenVerseSequence>,
 }
 
 impl<'a> TokenVersesBuilder<'a> {
@@ -19,7 +19,7 @@ impl<'a> TokenVersesBuilder<'a> {
             token_ranges,
             line_starts,
             main_sequence: Default::default(),
-            nested_sequences: Default::default(),
+            inline_sequences: Default::default(),
         }
     }
 
@@ -88,7 +88,25 @@ impl<'a> TokenVersesBuilder<'a> {
                             | TokenData::Punctuation(Punctuation::EQ)
                             | TokenData::Punctuation(Punctuation::HEAVY_ARROW)
                             | TokenData::Punctuation(Punctuation::COLON) => Break,
-                            TokenData::LCURL => {
+                            TokenData::NESTED_LCURL => {
+                                let prev_line_len = line1_start - line_starts[j - 1];
+                                let nested = match prev_line_len {
+                                    0 => unreachable!(),
+                                    1 => true,
+                                    _ => match tokens_data[line1_start - 2] {
+                                        // `| {` or `= {`
+                                        TokenData::VERTICAL | TokenData::EQ => true,
+                                        _ => false,
+                                    },
+                                };
+                                if nested {
+                                    self.build_token_verses_data(&mut j, line1_indent);
+                                    Continue
+                                } else {
+                                    Continue
+                                }
+                            }
+                            TokenData::INLINE_LCURL => {
                                 let prev_line_len = line1_start - line_starts[j - 1];
                                 let nested = match prev_line_len {
                                     0 => unreachable!(),
@@ -125,7 +143,8 @@ impl<'a> TokenVersesBuilder<'a> {
                             TokenData::Punctuation(
                                 Punctuation::RPAR
                                 | Punctuation::RBOX
-                                | Punctuation::RCURL
+                                | Punctuation::NESTED_LCURL
+                                | Punctuation::INLINE_RCURL
                                 | Punctuation::RA_OR_GT,
                             ) => Continue,
                             TokenData::Punctuation(Punctuation::VERTICAL) => match state {
@@ -160,7 +179,7 @@ impl<'a> TokenVersesBuilder<'a> {
     fn finish(self) -> TokenVerses {
         TokenVerses {
             main_sequence: self.main_sequence,
-            nested_sequences: self.nested_sequences,
+            inline_sequences: self.inline_sequences,
         }
     }
 }

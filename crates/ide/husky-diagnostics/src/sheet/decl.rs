@@ -50,7 +50,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedRcurl(_) => {
                 format!("Syntax Error: expect `}}`",)
             }
-            OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+            OriginalSynNodeDeclError::ExpectedRightAngleDelimiterForImplicitParameterDeclList {
                 ..
             } => {
                 format!("Syntax Error: expect `>` for implicit parameter declaration list",)
@@ -77,8 +77,8 @@ impl Diagnose for OriginalSynNodeDeclError {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
             OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
         }
     }
@@ -94,7 +94,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             | OriginalSynNodeDeclError::ExpectedCurry(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedEolColon(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedRcurl(regional_token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+            | OriginalSynNodeDeclError::ExpectedRightAngleDelimiterForImplicitParameterDeclList {
                 regional_token_stream_state,
                 ..
             }
@@ -114,8 +114,8 @@ impl Diagnose for OriginalSynNodeDeclError {
                 regional_token_stream_state,
             ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
             OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectLeftBracketInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectRightBracketInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
         }
     }

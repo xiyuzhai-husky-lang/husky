@@ -1,5 +1,5 @@
 use super::*;
-use husky_regional_token::{CommaRegionalToken, RcurlRegionalToken};
+use husky_regional_token::{CommaRegionalToken, InlineRcurlRegionalToken};
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
@@ -18,7 +18,7 @@ pub struct TypePropsVariantSynNodeDecl {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypePropsVariantRcurlRegionalToken(RcurlRegionalToken);
+pub struct TypePropsVariantRcurlRegionalToken(InlineRcurlRegionalToken);
 
 impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantRcurlRegionalToken {
     type Error = SynNodeDeclError;

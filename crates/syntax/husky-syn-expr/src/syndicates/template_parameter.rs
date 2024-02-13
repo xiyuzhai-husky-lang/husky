@@ -1,4 +1,5 @@
 use husky_regional_token::IdentRegionalToken;
+use husky_token_data::delimiter::Delimiter;
 use parsec::HasStreamState;
 
 use crate::syndicates::trais::TraitsSyndicate;
@@ -132,8 +133,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(
-                    SynBracket::TurboFish,
+                Some(ExprEnvironment::WithinDelimiteredParameterList(
+                    Delimiter::TurboFish,
                 )),
                 SynExprRootKind::ConstantImplicitParameterType,
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,

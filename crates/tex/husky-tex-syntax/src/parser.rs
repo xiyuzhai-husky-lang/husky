@@ -40,8 +40,8 @@ fn markup(
     let mut nesting: usize = 0;
     while !p.eof() {
         match p.current() {
-            TexSyntaxKind::LeftBracket => nesting += 1,
-            TexSyntaxKind::RightBracket if nesting > 0 => nesting -= 1,
+            TexSyntaxKind::LeftDelimiter => nesting += 1,
+            TexSyntaxKind::RightDelimiter if nesting > 0 => nesting -= 1,
             _ if stop(p) => break,
             _ => {}
         }
@@ -74,8 +74,8 @@ pub(super) fn reparse_markup(
     let mut p = Parser::new(text, range.start, LexMode::TexMarkup);
     while !p.eof() && p.current_start() < range.end {
         match p.current() {
-            TexSyntaxKind::LeftBracket => *nesting += 1,
-            TexSyntaxKind::RightBracket if *nesting > 0 => *nesting -= 1,
+            TexSyntaxKind::LeftDelimiter => *nesting += 1,
+            TexSyntaxKind::RightDelimiter if *nesting > 0 => *nesting -= 1,
             _ if stop(p.current()) => break,
             _ => {}
         }
@@ -124,8 +124,8 @@ fn markup_expr(p: &mut Parser, at_start: &mut bool) {
         TexSyntaxKind::RefMarker => reference(p),
         TexSyntaxKind::Dollar => equation(p),
 
-        TexSyntaxKind::LeftBracket
-        | TexSyntaxKind::RightBracket
+        TexSyntaxKind::LeftDelimiter
+        | TexSyntaxKind::RightDelimiter
         | TexSyntaxKind::HeadingMarker
         | TexSyntaxKind::ListMarker
         | TexSyntaxKind::EnumMarker
@@ -144,7 +144,7 @@ fn strong(p: &mut Parser) {
     markup(p, false, 0, |p| {
         p.at(TexSyntaxKind::Star)
             || p.at(TexSyntaxKind::Parbreak)
-            || p.at(TexSyntaxKind::RightBracket)
+            || p.at(TexSyntaxKind::RightDelimiter)
     });
     p.expect_closing_delimiter(m, TexSyntaxKind::Star);
     p.wrap(m, TexSyntaxKind::Strong);
@@ -156,7 +156,7 @@ fn emph(p: &mut Parser) {
     markup(p, false, 0, |p| {
         p.at(TexSyntaxKind::Underscore)
             || p.at(TexSyntaxKind::Parbreak)
-            || p.at(TexSyntaxKind::RightBracket)
+            || p.at(TexSyntaxKind::RightDelimiter)
     });
     p.expect_closing_delimiter(m, TexSyntaxKind::Underscore);
     p.wrap(m, TexSyntaxKind::Emph);
@@ -168,7 +168,7 @@ fn heading(p: &mut Parser) {
     whitespace_line(p);
     markup(p, false, usize::MAX, |p| {
         p.at(TexSyntaxKind::Label)
-            || p.at(TexSyntaxKind::RightBracket)
+            || p.at(TexSyntaxKind::RightDelimiter)
             || (p.at(TexSyntaxKind::Space) && p.lexer.clone().next() == TexSyntaxKind::Label)
     });
     p.wrap(m, TexSyntaxKind::Heading);
@@ -179,7 +179,9 @@ fn list_item(p: &mut Parser) {
     let min_indent = p.column(p.current_start()) + 1;
     p.assert(TexSyntaxKind::ListMarker);
     whitespace_line(p);
-    markup(p, false, min_indent, |p| p.at(TexSyntaxKind::RightBracket));
+    markup(p, false, min_indent, |p| {
+        p.at(TexSyntaxKind::RightDelimiter)
+    });
     p.wrap(m, TexSyntaxKind::ListItem);
 }
 
@@ -188,7 +190,9 @@ fn enum_item(p: &mut Parser) {
     let min_indent = p.column(p.current_start()) + 1;
     p.assert(TexSyntaxKind::EnumMarker);
     whitespace_line(p);
-    markup(p, false, min_indent, |p| p.at(TexSyntaxKind::RightBracket));
+    markup(p, false, min_indent, |p| {
+        p.at(TexSyntaxKind::RightDelimiter)
+    });
     p.wrap(m, TexSyntaxKind::EnumItem);
 }
 
@@ -198,18 +202,20 @@ fn term_item(p: &mut Parser) {
     let min_indent = p.column(p.prev_end());
     whitespace_line(p);
     markup(p, false, usize::MAX, |p| {
-        p.at(TexSyntaxKind::Colon) || p.at(TexSyntaxKind::RightBracket)
+        p.at(TexSyntaxKind::Colon) || p.at(TexSyntaxKind::RightDelimiter)
     });
     p.expect(TexSyntaxKind::Colon);
     whitespace_line(p);
-    markup(p, false, min_indent, |p| p.at(TexSyntaxKind::RightBracket));
+    markup(p, false, min_indent, |p| {
+        p.at(TexSyntaxKind::RightDelimiter)
+    });
     p.wrap(m, TexSyntaxKind::TermItem);
 }
 
 fn reference(p: &mut Parser) {
     let m = p.marker();
     p.assert(TexSyntaxKind::RefMarker);
-    if p.directly_at(TexSyntaxKind::LeftBracket) {
+    if p.directly_at(TexSyntaxKind::LeftDelimiter) {
         content_block(p);
     }
     p.wrap(m, TexSyntaxKind::Ref);
@@ -626,7 +632,7 @@ fn embedded_code_expr(p: &mut Parser) {
     let semi =
         (stmt || p.directly_at(TexSyntaxKind::Semicolon)) && p.eat_if(TexSyntaxKind::Semicolon);
 
-    if stmt && !semi && !p.eof() && !p.at(TexSyntaxKind::RightBracket) {
+    if stmt && !semi && !p.eof() && !p.at(TexSyntaxKind::RightDelimiter) {
         p.expected("semicolon or line break");
     }
 
@@ -645,7 +651,7 @@ fn code_expr_prec(p: &mut Parser, atomic: bool, min_prec: usize, allow_destructu
     }
 
     loop {
-        if p.directly_at(TexSyntaxKind::LeftParen) || p.directly_at(TexSyntaxKind::LeftBracket) {
+        if p.directly_at(TexSyntaxKind::LeftParen) || p.directly_at(TexSyntaxKind::LeftDelimiter) {
             args(p);
             p.wrap(m, TexSyntaxKind::FuncCall);
             continue;
@@ -721,7 +727,7 @@ fn code_primary(p: &mut Parser, atomic: bool, allow_destructuring: bool) {
         }
 
         TexSyntaxKind::LeftBrace => code_block(p),
-        TexSyntaxKind::LeftBracket => content_block(p),
+        TexSyntaxKind::LeftDelimiter => content_block(p),
         TexSyntaxKind::LeftParen => with_paren(p, allow_destructuring),
         TexSyntaxKind::Dollar => equation(p),
         TexSyntaxKind::Let => let_binding(p),
@@ -752,7 +758,7 @@ fn code_primary(p: &mut Parser, atomic: bool, allow_destructuring: bool) {
 
 fn block(p: &mut Parser) {
     match p.current() {
-        TexSyntaxKind::LeftBracket => content_block(p),
+        TexSyntaxKind::LeftDelimiter => content_block(p),
         TexSyntaxKind::LeftBrace => code_block(p),
         _ => p.expected("block"),
     }
@@ -760,7 +766,7 @@ fn block(p: &mut Parser) {
 
 pub(super) fn reparse_block(text: &str, range: Range<usize>) -> Option<TexSyntaxNode> {
     let mut p = Parser::new(text, range.start, LexMode::Code);
-    assert!(p.at(TexSyntaxKind::LeftBracket) || p.at(TexSyntaxKind::LeftBrace));
+    assert!(p.at(TexSyntaxKind::LeftDelimiter) || p.at(TexSyntaxKind::LeftBrace));
     block(&mut p);
     (p.balanced && p.prev_end() == range.end).then(|| p.finish().into_iter().next().unwrap())
 }
@@ -772,7 +778,7 @@ fn code_block(p: &mut Parser) {
     p.assert(TexSyntaxKind::LeftBrace);
     code(p, |p| {
         p.at(TexSyntaxKind::RightBrace)
-            || p.at(TexSyntaxKind::RightBracket)
+            || p.at(TexSyntaxKind::RightDelimiter)
             || p.at(TexSyntaxKind::RightParen)
     });
     p.expect_closing_delimiter(m, TexSyntaxKind::RightBrace);
@@ -784,9 +790,9 @@ fn code_block(p: &mut Parser) {
 fn content_block(p: &mut Parser) {
     let m = p.marker();
     p.enter(LexMode::TexMarkup);
-    p.assert(TexSyntaxKind::LeftBracket);
-    markup(p, true, 0, |p| p.at(TexSyntaxKind::RightBracket));
-    p.expect_closing_delimiter(m, TexSyntaxKind::RightBracket);
+    p.assert(TexSyntaxKind::LeftDelimiter);
+    markup(p, true, 0, |p| p.at(TexSyntaxKind::RightDelimiter));
+    p.expect_closing_delimiter(m, TexSyntaxKind::RightDelimiter);
     p.exit();
     p.wrap(m, TexSyntaxKind::ContentBlock);
 }
@@ -961,7 +967,7 @@ fn item(p: &mut Parser, keyed: bool) -> TexSyntaxKind {
 }
 
 fn args(p: &mut Parser) {
-    if !p.at(TexSyntaxKind::LeftParen) && !p.at(TexSyntaxKind::LeftBracket) {
+    if !p.at(TexSyntaxKind::LeftParen) && !p.at(TexSyntaxKind::LeftDelimiter) {
         p.expected("argument list");
     }
 
@@ -971,7 +977,7 @@ fn args(p: &mut Parser) {
         validate_args_at(p, m);
     }
 
-    while p.directly_at(TexSyntaxKind::LeftBracket) {
+    while p.directly_at(TexSyntaxKind::LeftDelimiter) {
         content_block(p);
     }
 

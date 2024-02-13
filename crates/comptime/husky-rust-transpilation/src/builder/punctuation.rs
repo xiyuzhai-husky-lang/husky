@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RustPunctuation {
-    Bra(RustBracket),
-    Ket(RustBracket),
+    Bra(RustDelimiter),
+    Ket(RustDelimiter),
     Assign,
     Colon,
     Dot,
@@ -27,7 +27,7 @@ pub enum RustPunctuation {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) enum RustBracket {
+pub(crate) enum RustDelimiter {
     Par,           // Parentheses ()
     Box,           // Box brackets []
     TurboFish,     // Turbofish ::<>
@@ -37,28 +37,28 @@ pub(crate) enum RustBracket {
     Vertical,      // Vertical bars ||
 }
 
-impl RustBracket {
+impl RustDelimiter {
     pub(crate) fn bra_code(self) -> &'static str {
         match self {
-            RustBracket::Par => "(",
-            RustBracket::Box => "[",
-            RustBracket::TurboFish => "::<",
-            RustBracket::Angle => "<",
-            RustBracket::Curl => "{",
-            RustBracket::MultilineCurl => " {",
-            RustBracket::Vertical => "|",
+            RustDelimiter::Par => "(",
+            RustDelimiter::Box => "[",
+            RustDelimiter::TurboFish => "::<",
+            RustDelimiter::Angle => "<",
+            RustDelimiter::Curl => "{",
+            RustDelimiter::MultilineCurl => " {",
+            RustDelimiter::Vertical => "|",
         }
     }
 
     pub(crate) fn ket_code(self) -> &'static str {
         match self {
-            RustBracket::Par => ")",
-            RustBracket::Box => "]",
-            RustBracket::TurboFish => ">",
-            RustBracket::Angle => ">",
-            RustBracket::Curl => "}",
-            RustBracket::MultilineCurl => "}",
-            RustBracket::Vertical => "|",
+            RustDelimiter::Par => ")",
+            RustDelimiter::Box => "]",
+            RustDelimiter::TurboFish => ">",
+            RustDelimiter::Angle => ">",
+            RustDelimiter::Curl => "}",
+            RustDelimiter::MultilineCurl => "}",
+            RustDelimiter::Vertical => "|",
         }
     }
 }
@@ -92,7 +92,6 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(s)
     }
 }
-
 
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr};
 

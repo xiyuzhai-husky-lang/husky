@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use husky_token_data::delimiter::Delimiter;
 use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[salsa::debug_with_db]
@@ -70,8 +71,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                 .collect::<Vec<_>>();
             let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty_expr_idx = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(
-                    SynBracket::Par,
+                Some(ExprEnvironment::WithinDelimiteredParameterList(
+                    Delimiter::Par,
                 )),
                 SynExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,
@@ -96,8 +97,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                     todo!()
                 } else {
                     Right(ctx.parse_expr_expected2(
-                        Some(ExprEnvironment::WithinBracketedParameterList(
-                            SynBracket::Par,
+                        Some(ExprEnvironment::WithinDelimiteredParameterList(
+                            Delimiter::Par,
                         )),
                         SynExprRootKind::ExplicitParameterDefaultValue {
                             ty_syn_expr_idx: ty_expr_idx,
@@ -141,8 +142,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
             );
             let colon = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracketedParameterList(
-                    SynBracket::Par,
+                Some(ExprEnvironment::WithinDelimiteredParameterList(
+                    Delimiter::Par,
                 )),
                 SynExprRootKind::ExplicitParameterType,
                 OriginalSynExprError::ExpectedParameterType,

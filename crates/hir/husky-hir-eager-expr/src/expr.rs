@@ -266,7 +266,11 @@ impl ToHirEager for SemaExprIdx {
             } => HirEagerExprData::Unwrap {
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
-            SemaExprData::FunctionApplication { .. } => unreachable!(),
+            SemaExprData::FunctionApplication { .. } => {
+                use husky_print_utils::p;
+                p!(builder.path());
+                unreachable!()
+            }
             SemaExprData::FunctionRitchieCall {
                 function_sema_expr_idx,
                 ref template_arguments,
@@ -395,7 +399,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::TemplateInstantiation { .. } => todo!(),
             SemaExprData::At { .. } => todo!(),
             SemaExprData::Unit { .. } => HirEagerExprData::Literal(Literal::Unit(())),
-            SemaExprData::Bracketed { item, .. } => return item.to_hir_eager(builder),
+            SemaExprData::Delimitered { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {
                 owner_sema_expr_idx,

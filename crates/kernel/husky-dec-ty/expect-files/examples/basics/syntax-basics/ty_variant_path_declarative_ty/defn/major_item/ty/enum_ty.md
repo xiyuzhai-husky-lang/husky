@@ -34,8 +34,10 @@
                         ),
                     },
                 ),
-                Ok(
-                    DecTerm(`fn((core::num::i32) -> syntax_basics::defn::major_item::ty::enum_ty::A`),
+                Err(
+                    DeclarativeTypeError::Derived(
+                        DerivedDeclarativeTypeError::SignatureError,
+                    ),
                 ),
             ),
             (
@@ -52,8 +54,10 @@
                         ),
                     },
                 ),
-                Ok(
-                    DecTerm(`fn((core::num::i32, core::num::f32) -> syntax_basics::defn::major_item::ty::enum_ty::A`),
+                Err(
+                    DeclarativeTypeError::Derived(
+                        DerivedDeclarativeTypeError::SignatureError,
+                    ),
                 ),
             ),
             (

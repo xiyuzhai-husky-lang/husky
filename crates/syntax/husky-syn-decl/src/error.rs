@@ -55,7 +55,7 @@ pub enum OriginalSynNodeDeclError {
     #[error("expect `}}`")]
     ExpectedRcurl(RegionalTokenStreamState),
     #[error("expect `>` for implicit parameters")]
-    ExpectedRightAngleBracketForImplicitParameterDeclList {
+    ExpectedRightAngleDelimiterForImplicitParameterDeclList {
         langle_regional_token_idx: RegionalTokenIdx,
         regional_token_stream_state: RegionalTokenStreamState,
     },
@@ -78,9 +78,9 @@ pub enum OriginalSynNodeDeclError {
     #[error("expected `=` for associated type")]
     ExpectedEqForAssocType(RegionalTokenStreamState),
     #[error("expected `(` for derive")]
-    ExpectLeftBracketInDerive(RegionalTokenStreamState),
+    ExpectLeftDelimiterInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]
-    ExpectRightBracketInDerive(RegionalTokenStreamState),
+    ExpectRightDelimiterInDerive(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalSynNodeDeclError {

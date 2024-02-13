@@ -179,8 +179,8 @@ pub fn highlight(node: &LinkedNode) -> Option<Tag> {
         TexSyntaxKind::Hash => highlight_hash(node),
         TexSyntaxKind::LeftBrace => Some(Tag::Punctuation),
         TexSyntaxKind::RightBrace => Some(Tag::Punctuation),
-        TexSyntaxKind::LeftBracket => Some(Tag::Punctuation),
-        TexSyntaxKind::RightBracket => Some(Tag::Punctuation),
+        TexSyntaxKind::LeftDelimiter => Some(Tag::Punctuation),
+        TexSyntaxKind::RightDelimiter => Some(Tag::Punctuation),
         TexSyntaxKind::LeftParen => Some(Tag::Punctuation),
         TexSyntaxKind::RightParen => Some(Tag::Punctuation),
         TexSyntaxKind::Comma => Some(Tag::Punctuation),
@@ -298,7 +298,7 @@ fn highlight_ident(node: &LinkedNode) -> Option<Tag> {
                     next.parent_kind(),
                     Some(TexSyntaxKind::Args | TexSyntaxKind::Params)
                 ))
-                || (next.kind() == TexSyntaxKind::LeftBracket
+                || (next.kind() == TexSyntaxKind::LeftDelimiter
                     && next.parent_kind() == Some(TexSyntaxKind::ContentBlock)))
         {
             return Some(Tag::Function);

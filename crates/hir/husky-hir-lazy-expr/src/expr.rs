@@ -398,7 +398,7 @@ impl ToHirLazy for SemaExprIdx {
             } => todo!(),
             SemaExprData::At { .. } => unreachable!("this is a type"),
             SemaExprData::Unit { .. } => HirLazyExprData::Literal(().into()),
-            SemaExprData::Bracketed { item, .. } => return item.to_hir_lazy(builder),
+            SemaExprData::Delimitered { item, .. } => return item.to_hir_lazy(builder),
             SemaExprData::NewTuple {
                 lpar_regional_token_idx: _,
                 items: _,

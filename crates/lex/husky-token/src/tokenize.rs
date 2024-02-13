@@ -13,8 +13,8 @@ use husky_text_protocol::char_iter::TextCharIter;
 
 // must be used inside tracked context
 pub(crate) fn tokenize<'a>(db: &::salsa::Db, input: &str) -> RangedTokenSheet {
-    let raw_token_iter = PretokenStream::new(db, TextCharIter::new(input));
+    let pretoken_iter = PretokenStream::new(db, TextCharIter::new(input));
     let mut tokenizer = Tokenizer::new(db);
-    tokenizer.push_tokens(raw_token_iter);
+    tokenizer.push_tokens(pretoken_iter);
     tokenizer.finish()
 }

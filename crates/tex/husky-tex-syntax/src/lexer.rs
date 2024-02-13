@@ -171,8 +171,8 @@ impl Lexer<'_> {
             '_' if !self.in_word() => TexSyntaxKind::Underscore,
 
             '#' => TexSyntaxKind::Hash,
-            '[' => TexSyntaxKind::LeftBracket,
-            ']' => TexSyntaxKind::RightBracket,
+            '[' => TexSyntaxKind::LeftDelimiter,
+            ']' => TexSyntaxKind::RightDelimiter,
             '\'' => TexSyntaxKind::SmartQuote,
             '"' => TexSyntaxKind::SmartQuote,
             '$' => TexSyntaxKind::Dollar,
@@ -471,8 +471,8 @@ impl Lexer<'_> {
 
             '{' => TexSyntaxKind::LeftBrace,
             '}' => TexSyntaxKind::RightBrace,
-            '[' => TexSyntaxKind::LeftBracket,
-            ']' => TexSyntaxKind::RightBracket,
+            '[' => TexSyntaxKind::LeftDelimiter,
+            ']' => TexSyntaxKind::RightDelimiter,
             '(' => TexSyntaxKind::LeftParen,
             ')' => TexSyntaxKind::RightParen,
             '$' => TexSyntaxKind::Dollar,

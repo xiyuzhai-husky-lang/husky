@@ -47,7 +47,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplatePara
             commas,
             decl_list_result,
             rangle: ctx.try_parse_expected(|regional_token_stream_state| {
-                OriginalSynNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+                OriginalSynNodeDeclError::ExpectedRightAngleDelimiterForImplicitParameterDeclList {
                     langle_regional_token_idx: langle.regional_token_idx(),
                     regional_token_stream_state,
                 }

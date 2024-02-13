@@ -318,7 +318,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 rpar_regional_token_idx,
                 ..
             }
-            | SynExprData::Bracketed {
+            | SynExprData::Delimitered {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
                 ..

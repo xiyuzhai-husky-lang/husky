@@ -308,7 +308,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::TemplateInstantiation { .. }
             | SemaExprData::NewTuple { .. }
             | SemaExprData::NewList { .. }
-            | SemaExprData::Bracketed { .. }
+            | SemaExprData::Delimitered { .. }
             | SemaExprData::Block { .. }
             | SemaExprData::Be { .. } => (),
             SemaExprData::FunctionApplication { .. } => (),

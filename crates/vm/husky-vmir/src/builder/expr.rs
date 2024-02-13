@@ -120,7 +120,7 @@ impl<'a, 'b> VmirBlockBuilder<'a, 'b> {
         //             expr.clone(),
         //         ))
         //     }
-        //     EagerExprVariant::Bracketed(ref expr) => {
+        //     EagerExprVariant::Delimitered(ref expr) => {
         //         self.compile_eager_expr(expr, output_stack_idx, discard)
         //     }
         //     EagerExprVariant::Opn {

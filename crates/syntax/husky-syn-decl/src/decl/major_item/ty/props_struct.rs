@@ -1,5 +1,7 @@
 use super::*;
-use husky_regional_token::{CommaRegionalToken, LcurlRegionalToken, RcurlRegionalToken};
+use husky_regional_token::{
+    CommaRegionalToken, InlineLcurlRegionalToken, InlineRcurlRegionalToken,
+};
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -36,7 +38,7 @@ impl PropsStructTypeSynNodeDecl {
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructLcurlRegionalToken(LcurlRegionalToken);
+pub struct PropsStructLcurlRegionalToken(InlineLcurlRegionalToken);
 
 impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructLcurlRegionalToken {
     type Error = SynNodeDeclError;
@@ -50,7 +52,7 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructLcurlRegionalT
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct PropsStructRcurlRegionalToken(RcurlRegionalToken);
+pub struct PropsStructRcurlRegionalToken(InlineRcurlRegionalToken);
 
 impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructRcurlRegionalToken {
     type Error = SynNodeDeclError;

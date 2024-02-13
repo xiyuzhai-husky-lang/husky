@@ -2,6 +2,7 @@ use crate::SynRegularOrVariadicCallListItem;
 
 use super::*;
 use husky_print_utils::p;
+use husky_token_data::delimiter::Delimiter;
 use parsec::{parse_consecutive_vec_map, IsStreamParser};
 use smallvec::smallvec;
 
@@ -103,7 +104,7 @@ where
         }
     }
 
-    fn accept_list_end(&mut self, ket: SynBracket, ket_regional_token_idx: RegionalTokenIdx) {
+    fn accept_list_end(&mut self, ket: Delimiter, ket_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::ListItem);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
@@ -124,7 +125,7 @@ where
                         ))
                     }
                     match opr {
-                        IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
+                        IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple => match items.last() {
                             None => SynExprData::Unit {
                                 lpar_regional_token_idx: bra_regional_token_idx,
                                 rpar_regional_token_idx: ket_regional_token_idx,
@@ -133,7 +134,7 @@ where
                                 if items.len() == 1
                                     && last_item.comma_regional_token_idx().is_none()
                                 {
-                                    SynExprData::Bracketed {
+                                    SynExprData::Delimitered {
                                         lpar_regional_token_idx: bra_regional_token_idx,
                                         item: last_item.syn_expr_idx(),
                                         rpar_regional_token_idx: ket_regional_token_idx,
@@ -306,7 +307,7 @@ where
                                 ident_token,
                                 generic_arguments: None,
                             },
-                            bra: SynBracket::Par,
+                            bra: Delimiter::Par,
                             bra_regional_token_idx: lpar.regional_token_idx(),
                             items: smallvec![],
                         }
@@ -318,7 +319,7 @@ where
                                     dot_regional_token_idx,
                                     ident_token,
                                 },
-                                bra: SynBracket::TurboFish,
+                                bra: Delimiter::TurboFish,
                                 bra_regional_token_idx: langle.regional_token_idx(),
                                 items: smallvec![],
                             }
@@ -417,7 +418,7 @@ where
         let end = match self.env() {
             Some(env) => match env {
                 ExprEnvironment::TypeBeforeEq => todo!(),
-                ExprEnvironment::WithinBracketedParameterList(_) => todo!(),
+                ExprEnvironment::WithinDelimiteredParameterList(_) => todo!(),
                 ExprEnvironment::Condition(end) => end,
             },
             None => todo!(),
@@ -478,12 +479,12 @@ where
         }
     }
 
-    fn accept_list_start(&mut self, bra: SynBracket, bra_regional_token_idx: RegionalTokenIdx) {
+    fn accept_list_start(&mut self, bra: Delimiter, bra_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Application);
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
             let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {
-                SynBracket::Par => match finished_expr {
+                Delimiter::Par => match finished_expr {
                     Some(function) => IncompleteSynExpr::CommaList {
                         opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                         bra,
@@ -492,14 +493,14 @@ where
                     }
                     .into(),
                     None => IncompleteSynExpr::CommaList {
-                        opr: IncompleteCommaListOpr::UnitOrBracketedOrNewTuple,
+                        opr: IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple,
                         bra,
                         bra_regional_token_idx,
                         items: smallvec![],
                     }
                     .into(),
                 },
-                SynBracket::Box => IncompleteSynExpr::CommaList {
+                Delimiter::Box => IncompleteSynExpr::CommaList {
                     opr: match finished_expr {
                         Some(finished_expr) => IncompleteCommaListOpr::Index {
                             owner: finished_expr,
@@ -511,7 +512,7 @@ where
                     items: smallvec![],
                 }
                 .into(),
-                SynBracket::TurboFish => match finished_expr {
+                Delimiter::TurboFish => match finished_expr {
                     Some(template) => IncompleteSynExpr::CommaList {
                         opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,
@@ -521,12 +522,13 @@ where
                     .into(),
                     None => todo!(),
                 },
-                SynBracket::Curl => SynExprData::Err(
-                    OriginalSynExprError::UnexpectedLeftCurlyBrace(bra_regional_token_idx).into(),
+                Delimiter::NestedCurl => todo!(),
+                Delimiter::InlineCurl => SynExprData::Err(
+                    OriginalSynExprError::UnexpectedInlineLcurl(bra_regional_token_idx).into(),
                 )
                 .into(),
-                SynBracket::Vertical => todo!(),
-                SynBracket::HtmlAngle => {
+                Delimiter::Vertical => todo!(),
+                Delimiter::HtmlAngle => {
                     let function_ident = match parser.try_parse_expected(
                         OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
                     ) {
@@ -566,7 +568,7 @@ where
                         ritchie_kind,
                         lpar_token,
                     },
-                    bra: SynBracket::Par,
+                    bra: Delimiter::Par,
                     bra_regional_token_idx: lpar_token.regional_token_idx(),
                     items: smallvec![],
                 }

@@ -55,6 +55,6 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn macro_call(&mut self, macro_name: RustMacroName, f: impl FnOnce(&mut Self)) {
         self.macro_name(macro_name);
-        self.bracketed(RustBracket::Par, f)
+        self.bracketed(RustDelimiter::Par, f)
     }
 }
