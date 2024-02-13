@@ -502,6 +502,7 @@ AstSheet {
     top_level_asts: ArenaIdxRange(
         28..34,
     ),
+    nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
             1..1,

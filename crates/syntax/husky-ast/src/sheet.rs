@@ -1,5 +1,9 @@
-use self::range::{ast_token_idx_range_sheet, AstTokenIdxRangeSheet};
-use crate::*;
+use crate::{
+    range::{ast_token_idx_range_sheet, AstTokenIdxRangeSheet},
+    *,
+};
+use husky_token::TokenIdx;
+use vec_like::VecPairMap;
 
 pub trait HasAstSheet: Copy {
     fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;
@@ -26,6 +30,7 @@ pub(crate) fn ast_sheet(db: &::salsa::Db, module_path: ModulePath) -> AstSheet {
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,
+    nested_top_level_asts: Vec<(TokenVerseIdx, TokenIdx, AstIdxRange)>,
     // a list of siblings indices
     // list index has nothing to do with ast idx
     siblings: Vec<AstIdxRange>,
@@ -43,10 +48,12 @@ impl AstSheet {
     pub(crate) fn new(
         ast_arena: AstArena,
         top_level_asts: AstIdxRange,
+        nested_top_level_asts: Vec<(TokenVerseIdx, TokenIdx, AstIdxRange)>,
         siblings: Vec<AstIdxRange>,
     ) -> Self {
         Self {
             ast_arena,
+            nested_top_level_asts,
             top_level_asts,
             siblings,
         }
