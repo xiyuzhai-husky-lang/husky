@@ -22,7 +22,7 @@ use husky_token::TokenIdx;
 pub enum TokraRegionData<'a> {
     Snippet(SnippetTokraRegionData<'a>),
     Decl(DeclTokraRegionData<'a>),
-    Defn(DefnTokraRegionData<'a>),
+    Defn(DefnTokraRegionDataRef<'a>),
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {

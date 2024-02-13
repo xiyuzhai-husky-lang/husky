@@ -12,11 +12,11 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralTokenData),
     PrincipalEntityPath {
-        path_expr_idx: SynPrincipalEntityPathExprIdx,
+        path_expr_idx: PrincipalEntityPathSynExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
     AssocItem {
-        parent_expr_idx: SynPrincipalEntityPathExprIdx,
+        parent_expr_idx: PrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,

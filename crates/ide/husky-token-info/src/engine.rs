@@ -11,7 +11,7 @@ use husky_sema_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };
 use husky_syn_expr::{
-    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathExprIdx},
+    entity_path::{PrincipalEntityPathSynExprIdx, SynPrincipalEntityPathExpr},
     *,
 };
 
@@ -448,7 +448,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_item_path_expr(
         &mut self,
-        item_path_expr_idx: SynPrincipalEntityPathExprIdx,
+        item_path_expr_idx: PrincipalEntityPathSynExprIdx,
         item_path_expr: &SynPrincipalEntityPathExpr,
     ) {
         match item_path_expr {

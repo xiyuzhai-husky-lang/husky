@@ -10,6 +10,7 @@ thiserror.workspace = true
 enum-class.workspace = true
 parsec.workspace = true
 salsa.workspace = true
+shifted-unsigned-int.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
