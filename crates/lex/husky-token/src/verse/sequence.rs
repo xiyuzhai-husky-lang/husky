@@ -39,7 +39,7 @@ impl MainTokenVerseSequence {
 ///     <nested_token_verse>
 /// }
 /// ```
-// #[salsa::debug_with_db]
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct NestedTokenVerseSequence {
     lcurl: TokenIdx,
@@ -64,7 +64,7 @@ impl NestedTokenVerseSequence {
         self.lcurl
     }
 
-    pub(crate) fn verses_data(&self) -> &[TokenVerseData] {
+    pub fn verses_data(&self) -> &[TokenVerseData] {
         &self.verses_data
     }
 
