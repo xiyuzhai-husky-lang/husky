@@ -4,18 +4,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Add`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 56,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -23,18 +16,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Add`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -78,18 +64,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Add`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -173,18 +152,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::AddAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 57,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -192,18 +164,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::AddAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 57,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -247,18 +212,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::AddAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 57,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -342,18 +300,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitAnd`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 58,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -361,18 +312,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitAnd`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 58,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -416,18 +360,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitAnd`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 58,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -511,18 +448,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitAndAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 59,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -530,18 +460,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitAndAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 59,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -585,18 +508,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitAndAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 59,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -680,18 +596,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitOr`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 60,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -699,18 +608,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitOr`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 60,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -754,18 +656,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitOr`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 60,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -849,18 +744,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitOrAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 61,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -868,18 +756,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitOrAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 61,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -923,18 +804,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitOrAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 61,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1018,18 +892,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitXor`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 62,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1037,18 +904,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitXor`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 62,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -1092,18 +952,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitXor`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1187,18 +1040,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::BitXorAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 63,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1206,18 +1052,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::BitXorAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 63,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -1261,18 +1100,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::BitXorAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1356,18 +1188,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Div`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 64,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1375,18 +1200,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Div`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 64,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -1430,18 +1248,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Div`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 64,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1525,18 +1336,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::DivAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 65,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1544,18 +1348,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::DivAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 65,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -1599,18 +1396,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::DivAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 65,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1694,18 +1484,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::IntIndex`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 66,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1713,18 +1496,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::IntIndex`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 66,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             None,
@@ -1736,18 +1512,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::IntIndex`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 66,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1802,18 +1571,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Mul`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 67,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1821,18 +1583,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Mul`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 67,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -1876,18 +1631,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Mul`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 67,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1971,18 +1719,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::MulAssign`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 68,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -1990,18 +1731,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::MulAssign`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 68,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -2045,18 +1779,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::MulAssign`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 68,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2140,18 +1867,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Neg`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 69,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -2159,18 +1879,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Neg`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 69,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             None,
@@ -2182,18 +1895,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Neg`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2248,18 +1954,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Not`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 70,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -2267,18 +1966,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Not`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 70,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             None,
@@ -2290,18 +1982,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Not`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 70,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2356,18 +2041,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Sub`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 71,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -2375,18 +2053,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Sub`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 71,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -2430,18 +2101,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Sub`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 71,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2525,18 +2189,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
                     TraitSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Trait(
-                                    TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::ops::Unveil`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 72,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -2544,18 +2201,11 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Trait(
-                                        TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::ops::Unveil`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 72,
+                                },
+                            ),
                         ),
                         template_parameter_decl_list: Ok(
                             Some(
@@ -2599,18 +2249,11 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId {
-                                                    data: ItemSynNodePathData::MajorItem(
-                                                        MajorItemSynNodePathData::Trait(
-                                                            TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::ops::Unveil`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemSynNodePathId(
+                                                    Id {
+                                                        value: 72,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2694,18 +2337,11 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemSynNodePathId(
+                            Id {
+                                value: 73,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -2714,18 +2350,11 @@ SynNodeDeclSheet {
                     TypeSynNodeDecl::Enum(
                         EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemSynNodePathId(
+                                    Id {
+                                        value: 73,
+                                    },
+                                ),
                             ),
                             template_parameter_decl_list: Ok(
                                 Some(
@@ -2788,18 +2417,11 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Type(
-                                                                TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemSynNodePathId(
+                                                        Id {
+                                                            value: 73,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),

@@ -36,7 +36,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -70,7 +72,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -87,7 +91,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -123,7 +129,9 @@
                                                     },
                                                 },
                                                 ident: `clone`,
-                                                item_kind: MethodFn,
+                                                item_kind: MethodRitchie(
+                                                    Fn,
+                                                ),
                                             },
                                         ),
                                     ),
@@ -156,7 +164,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -243,7 +253,9 @@
                                         },
                                     },
                                     ident: `visualize`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -316,7 +328,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -379,7 +393,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -429,7 +445,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -503,7 +521,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -537,7 +557,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -641,7 +663,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodFn`),
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -658,7 +682,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodFn`),
+                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(

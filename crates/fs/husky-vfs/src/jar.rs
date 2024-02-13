@@ -212,6 +212,7 @@ impl VfsDb for Db {
                             "main" | "lib" => match parent.data(db) {
                                 ModulePathData::Root(_) => false,
                                 ModulePathData::Child { .. } => true,
+                                ModulePathData::Snippet { .. } => unreachable!(),
                             },
                             _ => true,
                         };

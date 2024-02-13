@@ -75,7 +75,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                Gn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -191,7 +193,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
+                            TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -225,7 +229,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
+                            TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -273,7 +279,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -290,7 +298,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -307,7 +317,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(

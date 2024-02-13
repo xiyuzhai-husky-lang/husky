@@ -2,7 +2,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -36,7 +38,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
+                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -72,7 +76,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -111,7 +117,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -145,7 +153,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                            FugitivePath(`quick_sort::partition`, `Ritchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -179,7 +189,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -218,7 +230,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                FugitivePath(`quick_sort::partition`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -252,7 +266,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
+                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -299,7 +315,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -326,7 +344,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(

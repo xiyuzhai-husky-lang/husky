@@ -1,7 +1,9 @@
 [
     Linkage {
-        data: LinkageData::MajorFn {
-            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+        data: LinkageData::MajorRitchieEager {
+            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                Fn,
+            )`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -9,8 +11,10 @@
         },
     },
     Linkage {
-        data: LinkageData::MajorFn {
-            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+        data: LinkageData::MajorRitchieEager {
+            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                Fn,
+            )`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,

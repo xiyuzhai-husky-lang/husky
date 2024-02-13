@@ -1,6 +1,30 @@
 use crate::*;
 
 macro_rules! define_specific_punctuation_regional_token {
+    ($ty: ident, $punc: ident) => {
+        #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+        #[salsa::debug_with_db]
+        pub struct $ty(pub(crate) RegionalTokenIdx);
+
+        impl $ty {
+            pub fn regional_token_idx(self) -> RegionalTokenIdx {
+                self.0
+            }
+        }
+
+        impl<'a, Context> parsec::TryParseOptionFromStream<Context> for $ty
+        where
+            Context: RegionalTokenStreamParser<'a>,
+        {
+            type Error = TokenDataError;
+
+            fn try_parse_option_from_stream_without_guaranteed_rollback(
+                ctx: &mut Context,
+            ) -> TokenDataResult<Option<Self>> {
+                parse_regional_specific_punctuation_from(ctx, Punctuation::$punc, $ty)
+            }
+        }
+    };
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
         #[salsa::debug_with_db]
@@ -111,33 +135,13 @@ define_specific_punctuation_regional_token!(
     "]"
 );
 
-define_specific_punctuation_regional_token!(
-    BlockLcurlRegionalToken,
-    BLOCK_LCURL,
-    regional_nested_lcurl_token_works,
-    "{"
-);
+define_specific_punctuation_regional_token!(NestedLcurlRegionalToken, NESTED_LCURL);
 
-define_specific_punctuation_regional_token!(
-    InlineLcurlRegionalToken,
-    INLINE_LCURL,
-    regional_inline_lcurl_token_works,
-    "{"
-);
+define_specific_punctuation_regional_token!(InlineLcurlRegionalToken, INLINE_LCURL);
 
-define_specific_punctuation_regional_token!(
-    BlockRcurlRegionalToken,
-    BLOCK_RCURL,
-    regional_nested_rcurl_token_works,
-    "}"
-);
+define_specific_punctuation_regional_token!(NestedRcurlRegionalToken, NESTED_RCURL);
 
-define_specific_punctuation_regional_token!(
-    InlineRcurlRegionalToken,
-    INLINE_RCURL,
-    regional_inline_rcurl_token_works,
-    "}"
-);
+define_specific_punctuation_regional_token!(InlineRcurlRegionalToken, INLINE_RCURL);
 
 define_specific_punctuation_regional_token!(
     LaOrLtRegionalToken,

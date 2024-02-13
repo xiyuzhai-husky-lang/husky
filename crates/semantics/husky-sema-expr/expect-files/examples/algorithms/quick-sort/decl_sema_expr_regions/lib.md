@@ -3,7 +3,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -11,7 +13,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -451,7 +455,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -459,7 +465,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1107,7 +1115,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1115,7 +1125,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                        FugitivePath(`quick_sort::partition`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1850,7 +1862,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1858,7 +1872,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -1911,7 +1927,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -1919,7 +1937,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

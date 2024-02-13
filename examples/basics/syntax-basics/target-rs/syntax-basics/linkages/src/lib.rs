@@ -5,4 +5,5 @@ use syntax_basics::*;
 
 #[rustfmt::skip]
 linkage_impls![
+    fn_linkage_impl!(syntax_basics::expr::nested),
 ];

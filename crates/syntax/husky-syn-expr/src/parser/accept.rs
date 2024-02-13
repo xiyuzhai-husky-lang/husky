@@ -494,7 +494,7 @@ where
             tokra_region.nested_block_ast_idx_range_and_end(lcurl_regional_token_idx);
         let stmts = self.context_mut().parse_stmts(asts);
         self.token_stream.set_state(nested_block_end);
-        let syn_expr_data = match self.try_parse_expected::<BlockRcurlRegionalToken, _>(
+        let syn_expr_data = match self.try_parse_expected::<NestedRcurlRegionalToken, _>(
             OriginalSynExprError::ExpectedBlockRcurl,
         ) {
             Ok(rcurl_regional_token) => SynExprData::NestedBlock {

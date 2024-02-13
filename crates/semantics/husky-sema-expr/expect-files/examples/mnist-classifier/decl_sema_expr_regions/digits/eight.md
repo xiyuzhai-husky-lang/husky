@@ -690,7 +690,9 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -698,7 +700,9 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                        FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

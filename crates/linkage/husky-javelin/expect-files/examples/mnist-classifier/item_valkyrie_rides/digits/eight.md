@@ -79,7 +79,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -92,7 +94,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
+                            TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

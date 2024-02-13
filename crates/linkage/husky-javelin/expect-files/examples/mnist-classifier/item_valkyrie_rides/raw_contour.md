@@ -36,7 +36,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -53,7 +55,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -70,7 +74,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -87,7 +93,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -104,7 +112,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -121,7 +131,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -155,7 +167,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -168,7 +182,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -207,7 +223,9 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -238,7 +256,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -286,7 +306,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -326,7 +348,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -366,7 +390,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -453,7 +479,9 @@
                                         },
                                     },
                                     ident: `visualize`,
-                                    item_kind: MethodFn,
+                                    item_kind: MethodRitchie(
+                                        Fn,
+                                    ),
                                 },
                             ),
                         ),
@@ -526,7 +554,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -587,7 +617,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -626,7 +658,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
+                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Some(
@@ -639,7 +673,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeItem(
-                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
+                            TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

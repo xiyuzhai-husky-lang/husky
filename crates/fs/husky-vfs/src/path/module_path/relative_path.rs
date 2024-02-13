@@ -18,6 +18,7 @@ fn module_relative_path(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
             CrateKind::Example => todo!(),
         },
         ModulePathData::Child { .. } => module_relative_stem(db, module_path).with_extension("rs"),
+        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
 
@@ -28,6 +29,7 @@ fn module_relative_stem(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
         ModulePathData::Child { parent, ident } => {
             module_relative_stem(db, parent).join(ident.data(db))
         }
+        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
 
