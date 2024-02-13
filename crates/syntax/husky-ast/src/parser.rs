@@ -54,7 +54,16 @@ impl<'a> AstParser<'a> {
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_normal_ast_children::<MajorItems>();
-        AstSheet::new(self.ast_arena, top_level_asts, self.siblings)
+        let mut nested_top_level_asts = vec![];
+        for seq in self.token_sheet.token_verses().nested_sequences().iter() {
+            nested_top_level_asts.push(todo!())
+        }
+        AstSheet::new(
+            self.ast_arena,
+            top_level_asts,
+            nested_top_level_asts,
+            self.siblings,
+        )
     }
 
     pub(crate) fn parse_normal_ast_children_indented<C: IsAstChildren>(
@@ -66,7 +75,6 @@ impl<'a> AstParser<'a> {
 
     fn parse_normal_ast_children<C: IsAstChildren>(&mut self) -> AstIdxRange {
         let mut asts: Vec<Ast> = vec![];
-        let _token_verse_indices: Vec<TokenVerseIdx> = vec![];
         while let Some(ast) = self.parse_ast::<C>() {
             asts.push(ast)
         }

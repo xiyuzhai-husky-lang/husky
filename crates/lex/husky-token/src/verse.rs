@@ -86,6 +86,13 @@ impl TokenVerses {
 
 /// # getters
 impl TokenVerses {
+    pub fn get(&self, idx: TokenVerseIdx) -> Option<&TokenVerseData> {
+        match idx.lcurl() {
+            Some(lcurl) => self.nested_sequences[lcurl].verses_data().get(idx.index()),
+            None => self.main_sequence.verses_data().get(idx.index()),
+        }
+    }
+
     pub fn main_sequence(&self) -> &MainTokenVerseSequence {
         &self.main_sequence
     }
@@ -94,11 +101,8 @@ impl TokenVerses {
         self.main_sequence.token_verse_iter(tokens)
     }
 
-    pub fn get(&self, idx: TokenVerseIdx) -> Option<&TokenVerseData> {
-        match idx.lcurl() {
-            Some(lcurl) => self.nested_sequences[lcurl].verses_data().get(idx.index()),
-            None => self.main_sequence.verses_data().get(idx.index()),
-        }
+    pub fn nested_sequences(&self) -> &VecMap<NestedTokenVerseSequence> {
+        &self.nested_sequences
     }
 
     pub fn token_verse_idx(&self, token_idx: TokenIdx) -> TokenVerseIdx {
