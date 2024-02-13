@@ -67,13 +67,13 @@ where
             },
             TokenData::Ident(ident) => match self.top_expr() {
                 TopExprRef::Incomplete(
-                    IncompleteSynExpr::CommaList {
+                    IncompleteSynExprData::CommaList {
                         opr:
                             IncompleteCommaListOpr::FunctionApplicationOrCall { .. }
                             | IncompleteCommaListOpr::MethodApplicationOrCall { .. },
                         ..
                     }
-                    | IncompleteSynExpr::CallList { .. },
+                    | IncompleteSynExprData::CallList { .. },
                 ) => match self.try_parse_err_as_none::<EqRegionalToken>() {
                     Some(eq_token) => DisambiguatedTokenData::IncompleteKeywordArgument {
                         regional_token_idx,
@@ -183,7 +183,7 @@ where
                 }
                 PunctuationMapped::Dot => DisambiguatedTokenData::Dot(regional_token_idx),
                 PunctuationMapped::Colon => match self.last_incomplete_expr() {
-                    Some(IncompleteSynExpr::CommaList {
+                    Some(IncompleteSynExprData::CommaList {
                         opr: IncompleteCommaListOpr::BoxList { .. },
                         items,
                         ..
@@ -214,8 +214,8 @@ where
                     self.reduce(Precedence::ListItem);
                     match self.last_incomplete_expr() {
                         Some(expr) => match expr {
-                            IncompleteSynExpr::CommaList { .. }
-                            | IncompleteSynExpr::CallList { .. } => {
+                            IncompleteSynExprData::CommaList { .. }
+                            | IncompleteSynExprData::CallList { .. } => {
                                 DisambiguatedTokenData::Comma(regional_token_idx)
                             }
                             _ => return TokenDisambiguationResult::Break(()),
@@ -224,7 +224,7 @@ where
                     }
                 }
                 PunctuationMapped::Vertical => match self.last_incomplete_expr() {
-                    Some(IncompleteSynExpr::CommaList {
+                    Some(IncompleteSynExprData::CommaList {
                         bra: Delimiter::Vertical,
                         ..
                     }) => DisambiguatedTokenData::RightDelimiter(
@@ -347,7 +347,7 @@ where
     ) -> DisambiguatedTokenData {
         if let Some(opn) = self.last_incomplete_expr() {
             match opn {
-                IncompleteSynExpr::Binary {
+                IncompleteSynExprData::Binary {
                     punctuation: SynBinaryOpr::ScopeResolution,
                     lopd,
                     ..

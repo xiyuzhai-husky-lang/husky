@@ -9,7 +9,7 @@ pub struct SynCaseBranch {
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
 
-impl<'a> SynStmtContext<'a> {
+impl<'a> SynExprContext<'a> {
     pub(super) fn parse_case_branches(
         &mut self,
         case_branches: DefnAstIdxRange,
@@ -30,7 +30,7 @@ impl<'a> SynStmtContext<'a> {
                     .defn_tokra_region_data()
                     .ast_token_idx_range(if_branch)
                     .end();
-                let mut parser = self.expr_parser(regional_token_verse_idx);
+                let mut parser = self.token_verse_expr_parser(regional_token_verse_idx);
                 let vertical_token = parser
                     .try_parse_option()
                     .expect("guaranteed by ast")

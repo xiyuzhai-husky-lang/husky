@@ -9,7 +9,7 @@ pub mod start;
 use self::{builder::*, idx::TokenVerseIdx};
 use self::{iter::TokenVerseIter, start::*};
 use crate::{
-    verse::sequence::{InlineTokenVerseSequence, MainTokenVerseSequence},
+    verse::sequence::{MainTokenVerseSequence, NestedTokenVerseSequence},
     *,
 };
 use shifted_unsigned_int::ShiftedU32;
@@ -74,7 +74,7 @@ impl<'a> TokenVerse<'a> {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenVerses {
     main_sequence: MainTokenVerseSequence,
-    inline_sequences: VecMap<InlineTokenVerseSequence>,
+    nested_sequences: VecMap<NestedTokenVerseSequence>,
 }
 
 /// # constructor
@@ -89,7 +89,7 @@ impl TokenVerses {
 impl TokenVerses {
     pub fn get(&self, idx: TokenVerseIdx) -> Option<&TokenVerseData> {
         match idx.lcurl() {
-            Some(lcurl) => self.inline_sequences[lcurl].verses_data().get(idx.index()),
+            Some(lcurl) => self.nested_sequences[lcurl].verses_data().get(idx.index()),
             None => self.main_sequence.verses_data().get(idx.index()),
         }
     }
@@ -102,8 +102,8 @@ impl TokenVerses {
         self.main_sequence.token_verse_iter(tokens)
     }
 
-    pub fn inline_sequences(&self) -> &VecMap<InlineTokenVerseSequence> {
-        &self.inline_sequences
+    pub fn nested_sequences(&self) -> &VecMap<NestedTokenVerseSequence> {
+        &self.nested_sequences
     }
 
     pub fn token_verse_idx(&self, token_idx: TokenIdx) -> TokenVerseIdx {
@@ -119,7 +119,7 @@ impl TokenVerses {
         };
         // mutable because it might be overriden by searching in nested token verses
         let mut token_verse_idx = TokenVerseIdx::new(None, t(self.main_sequence.verses_data()));
-        for nested_sequence in self.inline_sequences.iter() {
+        for nested_sequence in self.nested_sequences.iter() {
             let verses_data = nested_sequence.verses_data();
             if token_idx < nested_sequence.end() && token_idx >= verses_data[0].start().token_idx()
             {
@@ -138,19 +138,17 @@ impl TokenVerses {
         token_verse_idx: TokenVerseIdx,
         tokens_len: usize,
     ) -> TokenIdxRange {
-        match token_verse_idx.lcurl() {
-            None => {
-                let verses_data = self.main_sequence.verses_data();
-                let token_verse_index = token_verse_idx.index();
-                let start = verses_data[token_verse_index].start().index();
-                let end = verses_data
-                    .get(token_verse_index + 1)
-                    .map(|end| end.start().index())
-                    .unwrap_or(tokens_len);
-                TokenIdxRange::from_indices(start, end)
-            }
-            Some(_) => todo!(),
-        }
+        let verses_data = match token_verse_idx.lcurl() {
+            None => self.main_sequence.verses_data(),
+            Some(lcurl) => self.nested_sequences[lcurl].verses_data(),
+        };
+        let token_verse_index = token_verse_idx.index();
+        let start = verses_data[token_verse_index].start().index();
+        let end = verses_data
+            .get(token_verse_index + 1)
+            .map(|end| end.start().index())
+            .unwrap_or(tokens_len);
+        TokenIdxRange::from_indices(start, end)
     }
 }
 

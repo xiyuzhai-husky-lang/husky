@@ -1,6 +1,7 @@
 use crate::SynRegularOrVariadicCallListItem;
 
 use super::*;
+use husky_entity_tree::helpers::tokra_region::TokraRegionDataRef;
 use husky_print_utils::p;
 use husky_token_data::delimiter::Delimiter;
 use parsec::{parse_consecutive_vec_map, IsStreamParser};
@@ -75,10 +76,10 @@ where
                 self.accept_suffix_opr(opr, regional_token_idx)
             }
             DisambiguatedTokenData::LeftDelimiter(regional_token_idx, Delimiter::BlockCurl) => {
-                todo!()
+                self.accept_block_lcurl(regional_token_idx)
             }
-            DisambiguatedTokenData::RightDelimiter(regional_token_idx, Delimiter::BlockCurl) => {
-                todo!()
+            DisambiguatedTokenData::RightDelimiter(_, Delimiter::BlockCurl) => {
+                unreachable!()
             }
             DisambiguatedTokenData::LeftDelimiter(regional_token_idx, bra) => {
                 self.accept_list_start(bra, regional_token_idx)
@@ -114,7 +115,7 @@ where
         self.reduce(Precedence::ListItem);
         let last_incomplete_expr = self.take_last_incomplete_expr().unwrap();
         match last_incomplete_expr {
-            IncompleteSynExpr::CommaList {
+            IncompleteSynExprData::CommaList {
                 opr,
                 bra,
                 bra_regional_token_idx,
@@ -225,7 +226,7 @@ where
                             ritchie_kind,
                             lpar_token,
                         } => match this.try_parse_option::<LightArrowRegionalToken>() {
-                            Ok(Some(light_arrow_token)) => IncompleteSynExpr::Ritchie {
+                            Ok(Some(light_arrow_token)) => IncompleteSynExprData::Ritchie {
                                 ritchie_kind_regional_token_idx,
                                 ritchie_kind,
                                 lpar_token,
@@ -240,7 +241,7 @@ where
                     }
                 })
             }
-            IncompleteSynExpr::CallList {
+            IncompleteSynExprData::CallList {
                 opr,
                 lpar_regional_token_idx,
                 items,
@@ -276,7 +277,7 @@ where
         prefix_regional_token_idx: RegionalTokenIdx,
     ) {
         self.push_top_syn_expr(
-            IncompleteSynExpr::Prefix {
+            IncompleteSynExprData::Prefix {
                 punctuation: prefix,
                 punctuation_regional_token_idx: prefix_regional_token_idx,
             }
@@ -306,7 +307,7 @@ where
                 let self_expr = this.context_mut().alloc_expr(self_expr);
                 match this.try_parse_option::<IdentRegionalToken>() {
                     Ok(Some(ident_token)) => match this.try_parse_option::<LparRegionalToken>() {
-                        Ok(Some(lpar)) => IncompleteSynExpr::CommaList {
+                        Ok(Some(lpar)) => IncompleteSynExprData::CommaList {
                             opr: IncompleteCommaListOpr::MethodApplicationOrCall {
                                 self_expr,
                                 dot_regional_token_idx,
@@ -319,7 +320,7 @@ where
                         }
                         .into(),
                         Ok(None) => match this.try_parse_option::<ColonColonLaRegionalToken>() {
-                            Ok(Some(langle)) => IncompleteSynExpr::CommaList {
+                            Ok(Some(langle)) => IncompleteSynExprData::CommaList {
                                 opr: IncompleteCommaListOpr::MethodInstantiation {
                                     self_expr,
                                     dot_regional_token_idx,
@@ -368,7 +369,7 @@ where
                 let item = self.context_mut().alloc_expr(item);
                 match self.last_incomplete_expr_mut() {
                     Some(expr) => match expr {
-                        IncompleteSynExpr::CommaList {
+                        IncompleteSynExprData::CommaList {
                             opr: _,
                             bra: _,
                             bra_regional_token_idx: _,
@@ -376,7 +377,7 @@ where
                         } => {
                             items.push(SynCommaListItem::new(item, Some(comma_regional_token_idx)))
                         }
-                        IncompleteSynExpr::CallList { items, .. } => items.push(
+                        IncompleteSynExprData::CallList { items, .. } => items.push(
                             SynRegularOrVariadicCallListItem::new(
                                 item,
                                 CallListSeparator::Comma(comma_regional_token_idx),
@@ -390,13 +391,13 @@ where
             }
             None => match self.last_incomplete_expr_mut() {
                 Some(expr) => match expr {
-                    IncompleteSynExpr::CommaList {
+                    IncompleteSynExprData::CommaList {
                         opr: _,
                         bra: _,
                         bra_regional_token_idx: _,
                         items: _,
                     } => todo!(),
-                    IncompleteSynExpr::CallList { items, .. } => match items.last_mut() {
+                    IncompleteSynExprData::CallList { items, .. } => match items.last_mut() {
                         Some(last_item) => match last_item.separator() {
                             CallListSeparator::None => last_item
                                 .set_separator(CallListSeparator::Comma(comma_regional_token_idx)),
@@ -449,7 +450,7 @@ where
             }
             .into(),
         ));
-        let unfinished_expr = IncompleteSynExpr::Binary {
+        let unfinished_expr = IncompleteSynExprData::Binary {
             lopd,
             punctuation: binary,
             punctuation_regional_token_idx: binary_regional_token_idx,
@@ -462,7 +463,7 @@ where
         assert!(self.complete_expr().is_none());
         let unfinished_expr = self.take_last_incomplete_expr().unwrap();
         match unfinished_expr {
-            IncompleteSynExpr::CommaList {
+            IncompleteSynExprData::CommaList {
                 opr: IncompleteCommaListOpr::BoxList,
                 bra,
                 bra_regional_token_idx,
@@ -470,7 +471,7 @@ where
             } => {
                 assert!(items.is_empty());
                 self.push_top_syn_expr(
-                    IncompleteSynExpr::CommaList {
+                    IncompleteSynExprData::CommaList {
                         opr: IncompleteCommaListOpr::BoxColonList {
                             colon_regional_token_idx,
                         },
@@ -485,20 +486,35 @@ where
         }
     }
 
+    fn accept_block_lcurl(&mut self, lcurl_regional_token_idx: RegionalTokenIdx) {
+        let TokraRegionDataRef::Defn(tokra_region) = self.context().tokra_region_data() else {
+            unreachable!()
+        };
+        let asts = tokra_region.nested_block(lcurl_regional_token_idx);
+        let stmts = self.context_mut().parse_stmts(asts);
+        let rcurl_regional_token = todo!();
+        let syn_expr_data = SynExprData::NestedBlock {
+            lcurl_regional_token_idx,
+            stmts,
+            rcurl_regional_token,
+        };
+        self.push_top_syn_expr(syn_expr_data.into())
+    }
+
     fn accept_list_start(&mut self, bra: Delimiter, bra_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Application);
         self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
             let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
             match bra {
                 Delimiter::Par => match finished_expr {
-                    Some(function) => IncompleteSynExpr::CommaList {
+                    Some(function) => IncompleteSynExprData::CommaList {
                         opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
                         bra,
                         bra_regional_token_idx,
                         items: smallvec![],
                     }
                     .into(),
-                    None => IncompleteSynExpr::CommaList {
+                    None => IncompleteSynExprData::CommaList {
                         opr: IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple,
                         bra,
                         bra_regional_token_idx,
@@ -506,7 +522,7 @@ where
                     }
                     .into(),
                 },
-                Delimiter::Box => IncompleteSynExpr::CommaList {
+                Delimiter::Box => IncompleteSynExprData::CommaList {
                     opr: match finished_expr {
                         Some(finished_expr) => IncompleteCommaListOpr::Index {
                             owner: finished_expr,
@@ -519,7 +535,7 @@ where
                 }
                 .into(),
                 Delimiter::TurboFish => match finished_expr {
-                    Some(template) => IncompleteSynExpr::CommaList {
+                    Some(template) => IncompleteSynExprData::CommaList {
                         opr: IncompleteCommaListOpr::TemplateInstantiation { template },
                         bra,
                         bra_regional_token_idx,
@@ -568,7 +584,7 @@ where
     ) {
         match self.try_parse_option::<LparRegionalToken>() {
             Ok(Some(lpar_token)) => self.push_top_syn_expr(
-                IncompleteSynExpr::CommaList {
+                IncompleteSynExprData::CommaList {
                     opr: IncompleteCommaListOpr::RitchieArguments {
                         ritchie_kind_regional_token_idx,
                         ritchie_kind,
@@ -592,7 +608,7 @@ where
         eq_token: EqRegionalToken,
     ) {
         self.push_top_syn_expr(
-            IncompleteSynExpr::KeyedArgument {
+            IncompleteSynExprData::KeyedArgument {
                 key_regional_token_idx,
                 key,
                 eq_token,

@@ -1167,6 +1167,11 @@ impl<'a> SemaExprEngine<'a> {
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),
             ),
+            SynExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => todo!(),
         }
     }
 

@@ -57,12 +57,36 @@ AstSheet {
                     ),
                 },
             },
+            Ast::Err {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: Some(
+                        TokenIdx(
+                            9,
+                        ),
+                    ),
+                    raw: ShiftedU32(
+                        1,
+                    ),
+                },
+                error: AstError::Original(
+                    OriginalAstError::ExcessiveIndent,
+                ),
+            },
         ],
     },
     top_level_asts: ArenaIdxRange(
         2..3,
     ),
-    nested_top_level_asts: [],
+    nested_top_level_asts: [
+        (
+            TokenIdx(
+                9,
+            ),
+            ArenaIdxRange(
+                3..4,
+            ),
+        ),
+    ],
     siblings: [
         ArenaIdxRange(
             1..1,
@@ -72,6 +96,9 @@ AstSheet {
         ),
         ArenaIdxRange(
             2..3,
+        ),
+        ArenaIdxRange(
+            3..4,
         ),
     ],
 }

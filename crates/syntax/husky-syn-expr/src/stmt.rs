@@ -91,7 +91,7 @@ pub type SynStmtIdx = ArenaIdx<SynStmtData>;
 pub type SynStmtIdxRange = ArenaIdxRange<SynStmtData>;
 pub type SynStmtMap<V> = ArenaMap<SynStmtData, V>;
 
-impl<'a> SynStmtContext<'a> {
+impl<'a> SynExprContext<'a> {
     pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> SynStmtIdxRange {
         let block_end = self.fugitive_body_end(body);
         let stmts = body
@@ -132,7 +132,7 @@ impl<'a> SynStmtContext<'a> {
                 case_branches,
                 ..
             } => {
-                let mut parser = self.expr_parser(regional_token_verse_idx);
+                let mut parser = self.token_verse_expr_parser(regional_token_verse_idx);
                 SynStmtData::Match {
                     match_token: parser.try_parse_option().unwrap().unwrap(),
                     match_expr: parser.parse_expr_expected(
@@ -144,7 +144,7 @@ impl<'a> SynStmtContext<'a> {
                     case_branches: self.parse_case_branches(case_branches),
                 }
             }
-            DefnAst::Err { .. } => todo!(),
+            DefnAst::Err => todo!(),
         }
     }
 
@@ -154,7 +154,7 @@ impl<'a> SynStmtContext<'a> {
         block_end: RegionalTokenIdxRangeEnd,
         body: Option<DefnAstIdxRange>,
     ) -> SynStmtData {
-        let mut parser = self.expr_parser(token_verse_idx);
+        let mut parser = self.token_verse_expr_parser(token_verse_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
             Ok(Some(basic_stmt_keyword_token)) => match basic_stmt_keyword_token {
                 BasicStmtKeywordRegionalToken::Let(let_token) => SynStmtData::Let {

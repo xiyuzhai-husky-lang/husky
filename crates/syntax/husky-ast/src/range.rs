@@ -40,8 +40,14 @@ fn ast_range_sheet_works() {
 impl std::ops::Index<AstIdx> for AstTokenIdxRangeSheet {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: AstIdx) -> &Self::Output {
-        &self.ast_token_idx_ranges[index.index()]
+    fn index(&self, idx: AstIdx) -> &Self::Output {
+        &self.ast_token_idx_ranges[idx.index()]
+    }
+}
+
+impl AstTokenIdxRangeSheet {
+    pub fn asts_token_idx_range(&self, idx_range: AstIdxRange) -> TokenIdxRange {
+        self[idx_range.start()].join(self[idx_range.end() - 1])
     }
 }
 

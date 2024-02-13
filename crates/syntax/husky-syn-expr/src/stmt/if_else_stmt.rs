@@ -66,7 +66,7 @@ impl SynElseBranch {
     }
 }
 
-impl<'a> SynStmtContext<'a> {
+impl<'a> SynExprContext<'a> {
     pub(super) fn parse_if_branch(&mut self, if_branch: DefnAstIdx) -> SynIfBranch {
         match self.asts()[if_branch] {
             DefnAst::BasicStmtOrBranch {
@@ -75,7 +75,7 @@ impl<'a> SynStmtContext<'a> {
             } => {
                 let body_end =
                     self.fugitive_body_end(body.expect("should be checked in `husky_ast`"));
-                let mut parser = self.expr_parser(token_verse_idx);
+                let mut parser = self.token_verse_expr_parser(token_verse_idx);
                 SynIfBranch {
                     if_token: parser.try_parse_option().unwrap().unwrap(),
                     condition: parser.parse_expr_expected(
@@ -108,7 +108,7 @@ impl<'a> SynStmtContext<'a> {
             } => {
                 let body = body.expect("should be checked in `husky_ast`");
                 let body_end = self.fugitive_body_end(body);
-                let mut parser = self.expr_parser(token_verse_idx);
+                let mut parser = self.token_verse_expr_parser(token_verse_idx);
                 SynElifBranch {
                     elif_token: parser.try_parse_option().unwrap().unwrap(),
                     condition: parser.parse_expr_expected(
@@ -132,7 +132,7 @@ impl<'a> SynStmtContext<'a> {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => {
-                let mut parser = self.expr_parser(token_verse_idx);
+                let mut parser = self.token_verse_expr_parser(token_verse_idx);
                 Some(SynElseBranch {
                     else_token: parser.try_parse_option().unwrap().unwrap(),
                     eol_colon_token: parser

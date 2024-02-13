@@ -18,21 +18,22 @@ use husky_token::TokenIdx;
 /// is collected as Tokra Region
 ///
 ///
+#[derive(Debug, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum TokraRegionData<'a> {
-    Snippet(SnippetTokraRegionData<'a>),
-    Decl(DeclTokraRegionData<'a>),
+pub enum TokraRegionDataRef<'a> {
+    Snippet(SnippetTokraRegionDataRef<'a>),
+    Decl(DeclTokraRegionDataRef<'a>),
     Defn(DefnTokraRegionDataRef<'a>),
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
     type Output = TokenData;
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
         match self {
-            TokraRegionData::Snippet(token_region) => &token_region[index],
-            TokraRegionData::Decl(token_region) => &token_region[index],
-            TokraRegionData::Defn(token_region) => &token_region[index],
+            TokraRegionDataRef::Snippet(token_region) => &token_region[index],
+            TokraRegionDataRef::Decl(token_region) => &token_region[index],
+            TokraRegionDataRef::Defn(token_region) => &token_region[index],
         }
     }
 }
@@ -44,6 +45,14 @@ impl SynNodeRegionPath {
             SynNodeRegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
             SynNodeRegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
         }
+    }
+
+    pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
+        Some(match self {
+            SynNodeRegionPath::Snippet(_) => todo!(),
+            SynNodeRegionPath::Decl(slf) => slf.decl_tokra_region(db).data(db).into(),
+            SynNodeRegionPath::Defn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
+        })
     }
 }
 

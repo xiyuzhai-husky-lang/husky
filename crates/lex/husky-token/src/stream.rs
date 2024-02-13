@@ -1,6 +1,6 @@
 use crate::{
     verse::{idx::TokenVerseIdx, start::TokenVerseStart, TokenVerseRelativeTokenIndex},
-    TokenIdx, TokenSheetData, *,
+    TokenIdx, TokenSheetData,
 };
 use husky_token_data::{Punctuation, TokenData};
 #[cfg(test)]
@@ -144,6 +144,8 @@ impl<'a> TokenStream<'a> {
 
 #[test]
 fn next_indexed_works() {
+    use crate::*;
+
     let db = DB::default();
     let db = &*db;
     let token_sheet_data = db.snippet_token_sheet_data(Snippet::new(

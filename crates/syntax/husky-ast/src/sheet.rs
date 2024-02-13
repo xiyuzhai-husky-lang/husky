@@ -3,7 +3,6 @@ use crate::{
     *,
 };
 use husky_token::TokenIdx;
-use vec_like::VecPairMap;
 
 pub trait HasAstSheet: Copy {
     fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;
@@ -30,7 +29,7 @@ pub(crate) fn ast_sheet(db: &::salsa::Db, module_path: ModulePath) -> AstSheet {
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,
-    nested_top_level_asts: Vec<(TokenVerseIdx, TokenIdx, AstIdxRange)>,
+    nested_top_level_asts: Vec<(TokenIdx, AstIdxRange)>,
     // a list of siblings indices
     // list index has nothing to do with ast idx
     siblings: Vec<AstIdxRange>,
@@ -48,7 +47,7 @@ impl AstSheet {
     pub(crate) fn new(
         ast_arena: AstArena,
         top_level_asts: AstIdxRange,
-        nested_top_level_asts: Vec<(TokenVerseIdx, TokenIdx, AstIdxRange)>,
+        nested_top_level_asts: Vec<(TokenIdx, AstIdxRange)>,
         siblings: Vec<AstIdxRange>,
     ) -> Self {
         Self {
@@ -85,6 +84,10 @@ impl AstSheet {
             .iter()
             .enumerate()
             .map(|(i, ast)| (self.top_level_asts.start() + i, ast))
+    }
+
+    pub fn nested_top_level_asts<'a>(&'a self) -> &'a [(TokenIdx, AstIdxRange)] {
+        &self.nested_top_level_asts
     }
 
     pub fn siblings(&self) -> &[AstIdxRange] {

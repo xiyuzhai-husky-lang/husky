@@ -6,11 +6,12 @@ pub struct SnippetTokraRegion {
     tokens: Vec<TokenData>,
 }
 
-pub struct SnippetTokraRegionData<'a> {
+#[derive(Debug, Clone, Copy)]
+pub struct SnippetTokraRegionDataRef<'a> {
     tokens: &'a [TokenData],
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for SnippetTokraRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for SnippetTokraRegionDataRef<'a> {
     type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {

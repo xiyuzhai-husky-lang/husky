@@ -12,14 +12,14 @@ pub struct DeclTokraRegion {
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct DeclTokraRegionData<'a> {
+pub struct DeclTokraRegionDataRef<'a> {
     saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     tokens_data: &'a [TokenData],
 }
 
 impl DeclTokraRegion {
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DeclTokraRegionData<'a> {
-        DeclTokraRegionData {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DeclTokraRegionDataRef<'a> {
+        DeclTokraRegionDataRef {
             tokens_data: self.tokens_data(db),
             saved_regional_token_stream_state: self.saved_regional_token_stream_state(db),
         }
@@ -30,7 +30,7 @@ impl DeclTokraRegion {
     }
 }
 
-impl<'a> DeclTokraRegionData<'a> {
+impl<'a> DeclTokraRegionDataRef<'a> {
     pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
         RegionalTokenStream::new_decl_regional_token_stream(
             self.tokens_data,
@@ -39,7 +39,7 @@ impl<'a> DeclTokraRegionData<'a> {
     }
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionData<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionDataRef<'a> {
     type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {

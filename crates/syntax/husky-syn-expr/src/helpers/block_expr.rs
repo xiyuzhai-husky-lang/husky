@@ -7,7 +7,7 @@ pub fn parse_defn_block_expr(
     allow_self_value: AllowSelfValue,
     db: &::salsa::Db,
 ) -> Option<(SynExprIdx, SynExprRegion)> {
-    let mut stmt_context = SynStmtContext::new(
+    let mut stmt_context = SynExprContext::new(
         syn_node_path,
         decl_expr_region,
         allow_self_type,

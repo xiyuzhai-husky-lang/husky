@@ -166,7 +166,7 @@ impl SynForextParticulars {
     }
 }
 
-impl<'a> SynStmtContext<'a> {
+impl<'a> SynExprContext<'a> {
     pub(super) fn parse_for_loop_stmt(
         &mut self,
         _token_verse_idx: RegionalTokenVerseIdx,
