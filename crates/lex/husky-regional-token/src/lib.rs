@@ -28,6 +28,7 @@ use parsec::TryParseOptionFromStream;
 use parsec::{HasStreamState, IsStreamParser};
 use shifted_unsigned_int::ShiftedU32;
 use std::num::NonZeroU32;
+use verse::{start::RegionalTokenVerseStart, token_index::RegionalTokenVerseRelativeTokenIndex};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct RegionalTokenVerseIdxBase(u32);
