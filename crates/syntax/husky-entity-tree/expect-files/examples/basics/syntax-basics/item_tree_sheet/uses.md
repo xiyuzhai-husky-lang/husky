@@ -98,6 +98,37 @@ EntityTreeSheet {
                     },
                 ),
             },
+            EntitySymbolEntry {
+                ident: `expr`,
+                visibility: Scope::PubUnder(
+                    `syntax_basics::uses`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `syntax_basics::expr`,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        },
+                        path: PrincipalEntityPath::Module(
+                            `syntax_basics::expr`,
+                        ),
+                        visibility: Scope::PubUnder(
+                            `syntax_basics::uses`,
+                        ),
+                        ast_idx: 1,
+                        use_expr_idx: 1,
+                    },
+                ),
+            },
         ],
     ),
     impl_block_syn_node_table: [],
@@ -143,7 +174,7 @@ EntityTreeSheet {
                     `syntax_basics::uses`,
                 ),
                 progress: Ok(
-                    3,
+                    4,
                 ),
             },
         ],

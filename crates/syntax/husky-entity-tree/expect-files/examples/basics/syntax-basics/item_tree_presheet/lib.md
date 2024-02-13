@@ -203,6 +203,73 @@ EntityTreePresheet {
                     `syntax_basics`,
                 ),
             },
+            ItemNodeEntry {
+                node: ItemSynNode::Submodule(
+                    SubmoduleSynNode {
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `syntax_basics::expr`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        visibility: Scope::PubUnder(
+                            `syntax_basics`,
+                        ),
+                        ast_idx: 4,
+                        ident_token: IdentToken {
+                            ident: `expr`,
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::Submodule(
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `syntax_basics::expr`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                ),
+                ident: `expr`,
+                visibility: Scope::PubUnder(
+                    `syntax_basics`,
+                ),
+            },
         ],
     },
     once_use_rules: OnceUseRules(
