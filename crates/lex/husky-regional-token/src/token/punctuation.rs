@@ -112,8 +112,8 @@ define_specific_punctuation_regional_token!(
 );
 
 define_specific_punctuation_regional_token!(
-    NestedLcurlRegionalToken,
-    NESTED_LCURL,
+    BlockLcurlRegionalToken,
+    BLOCK_LCURL,
     regional_nested_lcurl_token_works,
     "{"
 );
@@ -126,8 +126,8 @@ define_specific_punctuation_regional_token!(
 );
 
 define_specific_punctuation_regional_token!(
-    NestedRcurlRegionalToken,
-    NESTED_RCURL,
+    BlockRcurlRegionalToken,
+    BLOCK_RCURL,
     regional_nested_rcurl_token_works,
     "}"
 );

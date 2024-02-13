@@ -89,13 +89,15 @@ where
                 PunctuationMapped::Binary(binary) => {
                     DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, binary)
                 }
-                PunctuationMapped::Bra(bra) => DisambiguatedTokenData::Bra(regional_token_idx, bra),
+                PunctuationMapped::Bra(bra) => {
+                    DisambiguatedTokenData::LeftDelimiter(regional_token_idx, bra)
+                }
                 PunctuationMapped::Ket(ket) => match self.last_bra() {
                     Some(bra) => {
                         if bra != ket {
                             todo!()
                         }
-                        DisambiguatedTokenData::Ket(regional_token_idx, ket)
+                        DisambiguatedTokenData::RightDelimiter(regional_token_idx, ket)
                     }
                     None => return TokenDisambiguationResult::Break(()),
                 },
@@ -108,7 +110,7 @@ where
                         match expr.base_item_path(self.db(), &self.context().syn_expr_arena()) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
-                            } => DisambiguatedTokenData::Bra(
+                            } => DisambiguatedTokenData::LeftDelimiter(
                                 regional_token_idx,
                                 Delimiter::TurboFish,
                             ),
@@ -126,10 +128,12 @@ where
                                         ),
                                         MajorItemKind::Type(_)
                                         | MajorItemKind::Fugitive(_)
-                                        | MajorItemKind::Trait => DisambiguatedTokenData::Bra(
-                                            regional_token_idx,
-                                            Delimiter::TurboFish,
-                                        ),
+                                        | MajorItemKind::Trait => {
+                                            DisambiguatedTokenData::LeftDelimiter(
+                                                regional_token_idx,
+                                                Delimiter::TurboFish,
+                                            )
+                                        }
                                     },
                                     EntityKind::AssocItem { .. } => todo!(),
                                     EntityKind::TypeVariant => todo!(),
@@ -143,15 +147,17 @@ where
                             ),
                         }
                     }
-                    TopExprRef::None => {
-                        DisambiguatedTokenData::Bra(regional_token_idx, Delimiter::HtmlAngle)
-                    }
+                    TopExprRef::None => DisambiguatedTokenData::LeftDelimiter(
+                        regional_token_idx,
+                        Delimiter::HtmlAngle,
+                    ),
                 },
                 PunctuationMapped::ColonColonLa => todo!(),
                 PunctuationMapped::RaOrGt => match (self.last_bra(), self.env_bra()) {
-                    (Some(Delimiter::TurboFish), _) => {
-                        DisambiguatedTokenData::Ket(regional_token_idx, Delimiter::TurboFish)
-                    }
+                    (Some(Delimiter::TurboFish), _) => DisambiguatedTokenData::RightDelimiter(
+                        regional_token_idx,
+                        Delimiter::TurboFish,
+                    ),
                     (None, Some(Delimiter::TurboFish)) => {
                         return TokenDisambiguationResult::Break(())
                     }
@@ -221,15 +227,19 @@ where
                     Some(IncompleteSynExpr::CommaList {
                         bra: Delimiter::Vertical,
                         ..
-                    }) => DisambiguatedTokenData::Ket(regional_token_idx, Delimiter::Vertical),
+                    }) => DisambiguatedTokenData::RightDelimiter(
+                        regional_token_idx,
+                        Delimiter::Vertical,
+                    ),
                     _ => match self.complete_expr().is_some() {
                         true => DisambiguatedTokenData::SynBinaryOpr(
                             regional_token_idx,
                             SynBinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
-                        false => {
-                            DisambiguatedTokenData::Bra(regional_token_idx, Delimiter::Vertical)
-                        }
+                        false => DisambiguatedTokenData::LeftDelimiter(
+                            regional_token_idx,
+                            Delimiter::Vertical,
+                        ),
                     },
                 },
                 PunctuationMapped::DoubleExclamation => todo!(),
@@ -445,8 +455,8 @@ pub(crate) enum DisambiguatedTokenData {
     SynBinaryOpr(RegionalTokenIdx, SynBinaryOpr),
     SynPrefixOpr(RegionalTokenIdx, SynPrefixOpr),
     SynSuffixOpr(RegionalTokenIdx, SynSuffixOpr),
-    Bra(RegionalTokenIdx, Delimiter),
-    Ket(RegionalTokenIdx, Delimiter),
+    LeftDelimiter(RegionalTokenIdx, Delimiter),
+    RightDelimiter(RegionalTokenIdx, Delimiter),
     Dot(RegionalTokenIdx),
     Comma(RegionalTokenIdx),
     Be(RegionalTokenIdx),

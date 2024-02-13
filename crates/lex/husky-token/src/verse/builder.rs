@@ -88,7 +88,7 @@ impl<'a> TokenVersesBuilder<'a> {
                             | TokenData::Punctuation(Punctuation::EQ)
                             | TokenData::Punctuation(Punctuation::HEAVY_ARROW)
                             | TokenData::Punctuation(Punctuation::COLON) => Break,
-                            TokenData::NESTED_LCURL => {
+                            TokenData::BLOCK_LCURL => {
                                 let prev_line_len = line1_start - line_starts[j - 1];
                                 let nested = match prev_line_len {
                                     0 => unreachable!(),
@@ -143,7 +143,7 @@ impl<'a> TokenVersesBuilder<'a> {
                             TokenData::Punctuation(
                                 Punctuation::RPAR
                                 | Punctuation::RBOX
-                                | Punctuation::NESTED_LCURL
+                                | Punctuation::BLOCK_LCURL
                                 | Punctuation::INLINE_RCURL
                                 | Punctuation::RA_OR_GT,
                             ) => Continue,

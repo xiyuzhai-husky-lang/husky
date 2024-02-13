@@ -33,6 +33,8 @@ pub enum TokenDataError {
     InvalidLabel,
     #[error("NoNegativeForLiteral")]
     NoNegativeForLiteral(LiteralTokenData),
+    #[error("MissingLcurl")]
+    MissingLcurl,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

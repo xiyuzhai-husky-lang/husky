@@ -25,7 +25,7 @@ pub(crate) enum Pretoken {
 }
 
 impl Pretoken {
-    pub const LCURL: Self = Pretoken::Ambiguous(AmbiguousPretoken::Lcurl);
+    pub const AMBIGUOUS_LCURL: Self = Pretoken::Ambiguous(AmbiguousPretoken::Lcurl);
     pub const RCURL: Self = Pretoken::Ambiguous(AmbiguousPretoken::Rcurl);
 }
 
@@ -467,7 +467,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 '(' => Punctuation::LPAR,
                 '[' => Punctuation::LBOX,
                 '{' => match self.peek_char() {
-                    Some('\n') | None => return Some(Pretoken::LCURL),
+                    Some('\n') | None => return Some(Pretoken::AMBIGUOUS_LCURL),
                     _ => Punctuation::INLINE_LCURL,
                 },
                 ')' => Punctuation::RPAR,
