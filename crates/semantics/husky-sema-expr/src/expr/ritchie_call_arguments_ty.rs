@@ -45,7 +45,7 @@ mod matcher {
     #[salsa::debug_with_db]
     #[derive(Debug, PartialEq, Eq)]
     pub enum SemaRitchieParameterArgumentMatch {
-        Regular(FlyRitchieRegularParameter, SemaRegularCallListItem),
+        Regular(FlyRitchieSimpleParameter, SemaRegularCallListItem),
         Variadic(
             FlyRitchieVariadicParameter,
             // use vec to save enum size

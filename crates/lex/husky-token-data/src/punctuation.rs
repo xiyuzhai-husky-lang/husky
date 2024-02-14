@@ -33,7 +33,7 @@ impl Punctuation {
             PunctuationMapped::Shr => Convexity::Concave,
             PunctuationMapped::DeriveAssign => Convexity::Concave,
             PunctuationMapped::Minus => Convexity::Concave,
-            PunctuationMapped::DoubleVertical => Convexity::Concave,
+            PunctuationMapped::VertVert => Convexity::Concave,
             PunctuationMapped::Tilde => Convexity::Concave,
             PunctuationMapped::Dot => Convexity::Concave,
             PunctuationMapped::Colon => Convexity::Any,
@@ -71,30 +71,30 @@ impl Punctuation {
     pub const SEMICOLON: Self = Self(PunctuationMapped::Semicolon);
     /// `(`
     pub const LPAR: Self = Self(PunctuationMapped::Bra(Delimiter::Par));
-    /// `[`
-    pub const LBOX: Self = Self(PunctuationMapped::Bra(Delimiter::Box));
-    /// `{`
-    pub const INLINE_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::InlineCurl));
-    /// `{`
-    pub const NESTED_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::BlockCurl));
-    /// `<`
-    pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
-    /// `::<`
-    pub const COLON_COLON_LA: Self = Self(PunctuationMapped::ColonColonLa);
     /// `)`
     pub const RPAR: Self = Self(PunctuationMapped::Ket(Delimiter::Par));
+    /// `[`
+    pub const LBOX: Self = Self(PunctuationMapped::Bra(Delimiter::Box));
     /// `]`
     pub const RBOX: Self = Self(PunctuationMapped::Ket(Delimiter::Box));
+    /// `{`
+    pub const INLINE_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::InlineCurl));
     /// `}`
     pub const INLINE_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::InlineCurl));
+    /// `{`
+    pub const NESTED_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::BlockCurl));
     /// `}`
     pub const NESTED_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::BlockCurl));
+    /// `<`
+    pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
     /// `>`
     pub const RA_OR_GT: Self = Self(PunctuationMapped::RaOrGt);
+    /// `::<`
+    pub const COLON_COLON_LA: Self = Self(PunctuationMapped::ColonColonLa);
     /// `|`
-    pub const VERTICAL: Self = Self(PunctuationMapped::Vertical);
+    pub const VERT: Self = Self(PunctuationMapped::Vertical);
     /// `||`
-    pub const DOUBLE_VERTICAL: Self = Self(PunctuationMapped::DoubleVertical);
+    pub const VERT_VERT: Self = Self(PunctuationMapped::VertVert);
     /// `..`
     pub const DOT_DOT: Self = Self(PunctuationMapped::DotDot);
     /// `...`
@@ -233,7 +233,7 @@ pub enum PunctuationMapped {
     Shr,
     DeriveAssign,      // :=
     Minus,             // -
-    DoubleVertical,    // ||
+    VertVert,          // ||
     Dot,               // `.`
     DotDot,            // `..`
     DotDotDot,         // `...`
@@ -278,7 +278,7 @@ impl PunctuationMapped {
             PunctuationMapped::Shr => ">>",
             PunctuationMapped::DeriveAssign => ":=",
             PunctuationMapped::Minus => "-",
-            PunctuationMapped::DoubleVertical => "||",
+            PunctuationMapped::VertVert => "||",
             PunctuationMapped::Tilde => "~",
             PunctuationMapped::Dot => ".",
             PunctuationMapped::DotDot => "..",

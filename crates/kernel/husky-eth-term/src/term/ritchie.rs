@@ -116,7 +116,7 @@ impl EtherealRitchieParameter {
     pub fn from_dec(param: DeclarativeRitchieParameter, db: &::salsa::Db) -> EthTermResult<Self> {
         Ok(match param {
             DeclarativeRitchieParameter::Regular(param) => {
-                EthRitchieRegularParameter::from_dec(db, param)?.into()
+                EthRitchieSimpleParameter::from_dec(db, param)?.into()
             }
             DeclarativeRitchieParameter::Variadic(param) => {
                 EtherealRitchieVariadicParameter::from_dec(db, param)?.into()
@@ -159,7 +159,7 @@ impl salsa::DisplayWithDb for EthRitchie {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum EtherealRitchieParameter {
-    Regular(EthRitchieRegularParameter),
+    Regular(EthRitchieSimpleParameter),
     Variadic(EtherealRitchieVariadicParameter),
     Keyed(EtherealRitchieKeyedParameter),
 }

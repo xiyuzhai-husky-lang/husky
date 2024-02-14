@@ -90,7 +90,7 @@ where
                 struct_field_wrapper,
             } => {
                 debug_assert_eq!(val_argument_reprs.len(), 1);
-                let ValArgumentReprInterface::Ordinary(owner) = val_argument_reprs[0] else {
+                let ValArgumentReprInterface::Simple(owner) = val_argument_reprs[0] else {
                     unreachable!()
                 };
                 let owner = ctx.eval_val_repr_interface(owner)?;

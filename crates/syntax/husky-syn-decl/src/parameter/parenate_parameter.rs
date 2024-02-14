@@ -1,7 +1,7 @@
 use super::*;
 use parsec::parse_separated_small_list2;
 
-pub(crate) type ParenateSynParametersData = SmallVec<[ParenateSynParameterData; 2]>;
+pub(crate) type ParenateSynParametersData = SmallVec<[ParenateParameterSyndicate; 2]>;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Getters)]

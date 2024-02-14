@@ -24,7 +24,7 @@ pub(crate) struct AstParser<'a> {
 impl<'a> HasStreamState for AstParser<'a> {
     type State = TokenVerseIdx;
 
-    fn save_state(&self) -> Self::State {
+    fn state(&self) -> Self::State {
         self.token_verse_iter.state()
     }
 

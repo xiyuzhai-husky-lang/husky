@@ -278,7 +278,7 @@ fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplBlock
     while let Some(token) = token_stream.next() {
         match token {
             TokenData::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
-                return Ok(token_stream.save_state().next_token_idx() - 1)
+                return Ok(token_stream.state().next_token_idx() - 1)
             }
             TokenData::Error(e) => return Err(e.clone().into()),
             _ => continue,

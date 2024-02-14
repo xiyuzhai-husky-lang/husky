@@ -484,9 +484,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     _ => Punctuation::AMBERSAND,
                 },
                 '|' => match self.peek_char() {
-                    Some('|') => self.turn_peek_into_next(Punctuation::DOUBLE_VERTICAL),
+                    Some('|') => self.turn_peek_into_next(Punctuation::VERT_VERT),
                     Some('=') => self.turn_peek_into_next(Punctuation::BIT_OR_ASSIGN),
-                    _ => Punctuation::VERTICAL,
+                    _ => Punctuation::VERT,
                 },
                 '~' => Punctuation::TILDE,
                 '.' => match self.peek_char() {

@@ -16,7 +16,7 @@ pub struct Val {
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum ValArgument {
-    Ordinary(Val),
+    Simple(Val),
     Keyed(Option<Val>),
     Variadic(Vec<Val>),
     Branch {

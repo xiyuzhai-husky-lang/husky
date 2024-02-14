@@ -16,7 +16,7 @@ use husky_hir_decl::parameter::{
 };
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
-use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieRegularParameter};
+use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieSimpleParameter};
 use husky_manifest::HasPackageManifest;
 use husky_vfs::ModulePathData;
 
@@ -183,7 +183,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         match self {
-            HirEagerParenateParameter::Ordinary {
+            HirEagerParenateParameter::Simple {
                 pattern_expr_idx,
                 contract,
                 ty,
@@ -222,14 +222,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerParenateParameters {
 impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            HirRitchieParameter::Ordinary(param) => param.transpile_to_rust(builder),
+            HirRitchieParameter::Simple(param) => param.transpile_to_rust(builder),
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieRegularParameter {
+impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieSimpleParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.ty().transpile_to_rust(builder)
     }

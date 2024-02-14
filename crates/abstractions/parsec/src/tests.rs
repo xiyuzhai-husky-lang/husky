@@ -30,7 +30,7 @@ impl<'a> std::ops::DerefMut for CharStream<'a> {
 impl<'a> HasStreamState for CharStream<'a> {
     type State = Chars<'a>;
 
-    fn save_state(&self) -> Self::State {
+    fn state(&self) -> Self::State {
         self.iter.clone()
     }
 

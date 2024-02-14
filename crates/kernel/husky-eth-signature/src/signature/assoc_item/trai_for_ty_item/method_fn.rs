@@ -1,5 +1,5 @@
 use super::*;
-use husky_eth_term::term::ritchie::{EthRitchieRegularParameter, EtherealRitchieParameter};
+use husky_eth_term::term::ritchie::{EthRitchieSimpleParameter, EtherealRitchieParameter};
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeMethodFnEthTemplate {
@@ -7,7 +7,7 @@ pub struct TraitForTypeMethodFnEthTemplate {
     pub self_ty: EthTerm,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
-    pub self_value_parameter: EthRitchieRegularParameter,
+    pub self_value_parameter: EthRitchieSimpleParameter,
     #[return_ref]
     pub parenate_parameters: EtherealParenateParameters,
     pub return_ty: EthTerm,
@@ -23,7 +23,7 @@ impl TraitForTypeMethodFnEthTemplate {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_sig_tmpl.template_parameters(db))?;
         let self_value_parameter =
-            EthRitchieRegularParameter::from_dec(db, dec_sig_tmpl.self_value_parameter(db))?;
+            EthRitchieSimpleParameter::from_dec(db, dec_sig_tmpl.self_value_parameter(db))?;
         let parenate_parameters =
             EtherealParenateParameters::from_dec(db, dec_sig_tmpl.parenate_parameters(db))?;
         let return_ty = EthTerm::ty_from_dec(db, dec_sig_tmpl.return_ty(db))?;
@@ -96,7 +96,7 @@ fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature
 pub struct TraitForTypeMethodFnEtherealSignature {
     pub path: TraitForTypeItemPath,
     pub instantiation: EthInstantiation,
-    pub self_value_parameter: EthRitchieRegularParameter,
+    pub self_value_parameter: EthRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
     pub return_ty: EthTerm,
 }

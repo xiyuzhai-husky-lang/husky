@@ -44,7 +44,7 @@ impl DecRitchie {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum DeclarativeRitchieParameter {
-    Regular(DeclarativeRitchieRegularParameter),
+    Regular(DeclarativeRitchieSimpleParameter),
     Variadic(DeclarativeRitchieVariadicParameter),
     Keyed(DeclarativeRitchieKeyedParameter),
 }

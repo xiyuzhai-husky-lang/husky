@@ -64,7 +64,7 @@ fn trai_method_fn_hir_defn_dependencies(
     builder.add_item_path(hir_decl.path(db).trai_path(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
-            HirEagerParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
+            HirEagerParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
             HirEagerParenateParameter::Keyed => todo!(),
             HirEagerParenateParameter::Variadic => todo!(),
         }

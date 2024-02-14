@@ -38,11 +38,6 @@ pub(super) enum IncompleteSynExprData {
         lpar_regional_token_idx: RegionalTokenIdx,
         items: SmallVec<[SynCallListItem; 4]>,
     },
-    LambdaHead {
-        // todo: use SmallVec
-        // inputs: Vec<(RangedIdent, Option<SynExprIdx>)>,
-        // start: TextPosition,
-    },
     Application {
         function: SynExprData,
     },
@@ -103,7 +98,6 @@ impl IncompleteSynExprData {
             IncompleteSynExprData::CommaList { .. } | IncompleteSynExprData::CallList { .. } => {
                 Precedence::List
             }
-            IncompleteSynExprData::LambdaHead { .. } => Precedence::LambdaHead,
             IncompleteSynExprData::Application { .. } => Precedence::Application,
             IncompleteSynExprData::Ritchie { .. } => Precedence::Curry,
             IncompleteSynExprData::KeyedArgument { .. } => Precedence::KeyedArgument,

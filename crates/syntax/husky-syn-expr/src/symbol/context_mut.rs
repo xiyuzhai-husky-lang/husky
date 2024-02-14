@@ -4,19 +4,19 @@ use super::*;
 
 pub struct SynSymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
-    symbol_region: SynSymbolRegionData,
+    variable_region: VariableRegionData,
 }
 
 impl<'a> SynSymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_symbol_region: Option<&SynSymbolRegionData>,
+        parent_symbol_region: Option<&VariableRegionData>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_region: SynSymbolRegionData::new(
+            variable_region: VariableRegionData::new(
                 parent_symbol_region,
                 allow_self_type,
                 allow_self_value,
@@ -31,7 +31,7 @@ impl<'a> SynSymbolContextMut<'a> {
         token_idx: RegionalTokenIdx,
         ident: Ident,
     ) -> Option<Symbol> {
-        self.symbol_region.resolve_ident(token_idx, ident).or(self
+        self.variable_region.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
             .resolve_ident(db, reference_module_path, token_idx, ident)
             .map(|e| Symbol::PrincipalEntity(e.principal_entity_path(db))))
@@ -60,7 +60,7 @@ impl<'a> SynSymbolContextMut<'a> {
                 principal_item_path_expr_arena,
                 stmt_arena,
                 pattern_expr_region,
-                self.symbol_region,
+                self.variable_region,
                 syn_pattern_expr_roots,
                 syn_expr_roots,
                 has_self_lifetime,
@@ -74,7 +74,7 @@ impl<'a> SynSymbolContextMut<'a> {
         variable: CurrentSynSymbol,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdx {
-        self.symbol_region.define_symbol(variable, ty_constraint)
+        self.variable_region.define_symbol(variable, ty_constraint)
     }
 
     pub(crate) fn define_symbols(
@@ -82,10 +82,20 @@ impl<'a> SynSymbolContextMut<'a> {
         variables: impl IntoIterator<Item = CurrentSynSymbol>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
-        self.symbol_region.define_symbols(variables, ty_constraint)
+        self.variable_region
+            .define_symbols(variables, ty_constraint)
     }
 
-    pub(crate) fn symbol_region(&self) -> &SynSymbolRegionData {
-        &self.symbol_region
+    pub(crate) fn symbol_region(&self) -> &VariableRegionData {
+        &self.variable_region
+    }
+
+    pub(crate) fn set_lambda_variable_access_end(
+        &mut self,
+        var: CurrentSynSymbolIdx,
+        access_end: RegionalTokenIdxRangeEnd,
+    ) {
+        self.variable_region
+            .set_lambda_variable_access_end(var, access_end)
     }
 }

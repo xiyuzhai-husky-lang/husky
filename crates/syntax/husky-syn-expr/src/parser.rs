@@ -3,7 +3,7 @@ mod debug;
 mod disambiguate_token;
 mod env;
 mod expr_stack;
-mod incomplete_expr;
+pub(crate) mod incomplete_expr;
 
 pub use self::env::*;
 
@@ -109,7 +109,7 @@ where
         env: Option<ExprEnvironment>,
         err: impl FnOnce(RegionalTokenStreamState) -> E,
     ) -> Result<SynExprIdx, E::Error> {
-        let state = self.save_state();
+        let state = self.state();
         if let Some(env) = env {
             self.env_stack.set(env);
         }
@@ -141,7 +141,7 @@ where
         expr_root_kind: impl Into<Option<SynExprRootKind>>,
         err: impl FnOnce(RegionalTokenStreamState) -> OriginalSynExprError,
     ) -> SynExprIdx {
-        let state = self.save_state();
+        let state = self.state();
         if let Some(env) = env {
             self.env_stack.set(env);
         }

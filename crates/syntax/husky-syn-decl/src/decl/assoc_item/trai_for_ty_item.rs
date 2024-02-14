@@ -154,7 +154,7 @@ impl TraitForTypeItemSynDecl {
     pub fn parenate_parameters<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> Option<&'a [ParenateSynParameterData]> {
+    ) -> Option<&'a [ParenateParameterSyndicate]> {
         match self {
             TraitForTypeItemSynDecl::AssocFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TraitForTypeItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),

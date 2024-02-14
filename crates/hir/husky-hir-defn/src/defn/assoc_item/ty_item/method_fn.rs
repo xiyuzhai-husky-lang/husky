@@ -54,7 +54,7 @@ fn ty_method_fn_hir_defn_dependencies(
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
-            HirEagerParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
+            HirEagerParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
             HirEagerParenateParameter::Keyed => todo!(),
             HirEagerParenateParameter::Variadic => todo!(),
         }

@@ -164,7 +164,7 @@ impl<'a> parsec::HasStreamState for TokenStream<'a> {
     // next_relative
     type State = TokenStreamState;
 
-    fn save_state(&self) -> Self::State {
+    fn state(&self) -> Self::State {
         TokenStreamState {
             next_token_idx: self.next_relative.token_idx(self.base),
             drained: self.next_relative.index() >= self.tokens.len(),

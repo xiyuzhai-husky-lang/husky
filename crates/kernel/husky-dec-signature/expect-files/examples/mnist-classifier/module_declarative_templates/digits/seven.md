@@ -46,7 +46,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
                                                 DecApplication(
@@ -119,7 +119,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
                                                 DecApplication(
@@ -164,7 +164,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
                                                 DecApplication(

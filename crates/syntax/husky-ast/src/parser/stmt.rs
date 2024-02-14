@@ -108,7 +108,7 @@ impl<'a> AstParser<'a> {
             .peek_token_verse_of_exact_indent_with_its_first_token(self.indent())
         {
             match first {
-                TokenData::Punctuation(Punctuation::VERTICAL) => {
+                TokenData::Punctuation(Punctuation::VERT) => {
                     self.token_verse_iter.next();
                     verticals.push(self.parse_stmt(idx))
                 }

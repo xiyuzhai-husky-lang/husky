@@ -1189,6 +1189,7 @@ impl<'a> SemaExprEngine<'a> {
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),
             ),
+            SynExprData::Lambda { .. } => todo!(),
         }
     }
 

@@ -509,78 +509,86 @@ where
 
     fn accept_list_start(&mut self, bra: Delimiter, bra_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Application);
-        self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
-            let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
-            match bra {
-                Delimiter::Par => match finished_expr {
-                    Some(function) => IncompleteSynExprData::CommaList {
-                        opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
-                        bra,
-                        bra_regional_token_idx,
-                        items: smallvec![],
-                    }
-                    .into(),
-                    None => IncompleteSynExprData::CommaList {
-                        opr: IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple,
-                        bra,
-                        bra_regional_token_idx,
-                        items: smallvec![],
-                    }
-                    .into(),
-                },
-                Delimiter::Box => IncompleteSynExprData::CommaList {
-                    opr: match finished_expr {
-                        Some(finished_expr) => IncompleteCommaListOpr::Index {
-                            owner: finished_expr,
-                        },
-                        None => IncompleteCommaListOpr::BoxList,
-                    },
-                    bra,
-                    bra_regional_token_idx,
-                    items: smallvec![],
-                }
-                .into(),
-                Delimiter::TurboFish => match finished_expr {
-                    Some(template) => IncompleteSynExprData::CommaList {
-                        opr: IncompleteCommaListOpr::TemplateInstantiation { template },
-                        bra,
-                        bra_regional_token_idx,
-                        items: smallvec![],
-                    }
-                    .into(),
-                    None => todo!(),
-                },
-                Delimiter::BlockCurl => todo!(),
-                Delimiter::InlineCurl => SynExprData::Err(
-                    OriginalSynExprError::UnexpectedInlineLcurl(bra_regional_token_idx).into(),
-                )
-                .into(),
-                Delimiter::Vertical => todo!(),
-                Delimiter::HtmlAngle => {
-                    let function_ident = match parser.try_parse_expected(
-                        OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
-                    ) {
-                        Ok(function_ident) => function_ident,
-                        Err(e) => return SynExprData::Err(e).into(),
-                    };
-                    let arguments = match parse_consecutive_vec_map(parser) {
-                        Ok(arguments) => arguments,
-                        Err(e) => return SynExprData::Err(e).into(),
-                    };
-                    match parser.try_parse_option::<EmptyHtmlKetRegionalToken>() {
-                        Ok(Some(empty_html_ket)) => SynExprData::EmptyHtmlTag {
-                            empty_html_bra_idx: bra_regional_token_idx,
-                            function_ident,
-                            arguments,
-                            empty_html_ket,
+        if bra == Delimiter::Vertical {
+            let lvert = bra_regional_token_idx;
+            let lambda = self.parse_lambda(bra_regional_token_idx);
+            self.push_top_syn_expr(lambda.into())
+        } else {
+            self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
+                let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
+                match bra {
+                    Delimiter::Par => match finished_expr {
+                        Some(function) => IncompleteSynExprData::CommaList {
+                            opr: IncompleteCommaListOpr::FunctionApplicationOrCall { function },
+                            bra,
+                            bra_regional_token_idx,
+                            items: smallvec![],
                         }
                         .into(),
-                        Ok(None) => todo!(),
-                        Err(_) => todo!(),
+                        None => IncompleteSynExprData::CommaList {
+                            opr: IncompleteCommaListOpr::UnitOrDelimiteredOrNewTuple,
+                            bra,
+                            bra_regional_token_idx,
+                            items: smallvec![],
+                        }
+                        .into(),
+                    },
+                    Delimiter::Box => IncompleteSynExprData::CommaList {
+                        opr: match finished_expr {
+                            Some(finished_expr) => IncompleteCommaListOpr::Index {
+                                owner: finished_expr,
+                            },
+                            None => IncompleteCommaListOpr::BoxList,
+                        },
+                        bra,
+                        bra_regional_token_idx,
+                        items: smallvec![],
+                    }
+                    .into(),
+                    Delimiter::TurboFish => match finished_expr {
+                        Some(template) => IncompleteSynExprData::CommaList {
+                            opr: IncompleteCommaListOpr::TemplateInstantiation { template },
+                            bra,
+                            bra_regional_token_idx,
+                            items: smallvec![],
+                        }
+                        .into(),
+                        None => todo!(),
+                    },
+                    Delimiter::BlockCurl => todo!(),
+                    Delimiter::InlineCurl => SynExprData::Err(
+                        OriginalSynExprError::UnexpectedInlineLcurl(bra_regional_token_idx).into(),
+                    )
+                    .into(),
+                    Delimiter::Vertical => {
+                        unreachable!("Handled already")
+                    }
+                    Delimiter::HtmlAngle => {
+                        let function_ident = match parser.try_parse_expected(
+                            OriginalSynExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
+                        ) {
+                            Ok(function_ident) => function_ident,
+                            Err(e) => return SynExprData::Err(e).into(),
+                        };
+                        let arguments = match parse_consecutive_vec_map(parser) {
+                            Ok(arguments) => arguments,
+                            Err(e) => return SynExprData::Err(e).into(),
+                        };
+                        match parser.try_parse_option::<EmptyHtmlKetRegionalToken>() {
+                            Ok(Some(empty_html_ket)) => SynExprData::EmptyHtmlTag {
+                                empty_html_bra_idx: bra_regional_token_idx,
+                                function_ident,
+                                arguments,
+                                empty_html_ket,
+                            }
+                            .into(),
+                            Ok(None) => todo!(),
+                            Err(_) => todo!(),
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
     }
 
     fn accept_ritchie(

@@ -292,7 +292,7 @@ where
     }
 }
 
-// parenate
+/// # parenate
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ParenateSynPatternExprRoot {
@@ -322,6 +322,41 @@ where
             return Ok(None);
         };
         Ok(Some(ParenateSynPatternExprRoot {
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }))
+    }
+}
+
+/// # lambda
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct LambdaSynPatternExprRoot {
+    syn_pattern_expr_idx: SynPatternExprIdx,
+}
+
+impl LambdaSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+        self.syn_pattern_expr_idx
+    }
+}
+
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LambdaSynPatternExprRoot
+where
+    C: IsSynExprContext<'a>,
+{
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynExprParser<'a, C>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(root) = sp
+            .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
+                SynPatternExprRootKind::Lambda,
+            )?
+        else {
+            return Ok(None);
+        };
+        Ok(Some(LambdaSynPatternExprRoot {
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }))
     }

@@ -1,7 +1,7 @@
 use husky_eth_term::term::{
     curry::EthCurry,
     ritchie::{
-        EthRitchie, EthRitchieRegularParameter, EtherealRitchieKeyedParameter,
+        EthRitchie, EthRitchieSimpleParameter, EtherealRitchieKeyedParameter,
         EtherealRitchieVariadicParameter,
     },
 };
@@ -237,7 +237,7 @@ impl HolTerms {
                         };
                         match param {
                             FlyRitchieParameter::Regular(param) => {
-                                EthRitchieRegularParameter::new(param.contract(), ty).into()
+                                EthRitchieSimpleParameter::new(param.contract(), ty).into()
                             }
                             FlyRitchieParameter::Variadic(param) => {
                                 EtherealRitchieVariadicParameter::new(param.contract(), ty).into()

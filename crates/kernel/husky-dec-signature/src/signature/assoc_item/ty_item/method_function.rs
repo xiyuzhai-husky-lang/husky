@@ -6,7 +6,7 @@ pub struct TypeMethodFunctionDecTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
-    pub self_value_parameter: DeclarativeRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeRitchieSimpleParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DecTerm,
@@ -23,7 +23,7 @@ impl TypeMethodFunctionDecTemplate {
         let syn_expr_region = decl.syn_expr_region(db);
         let expr_region_data = syn_expr_region.data(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
-        let self_value_parameter = DeclarativeRitchieRegularParameter::new(
+        let self_value_parameter = DeclarativeRitchieSimpleParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
                 None => TermContract::Pure,

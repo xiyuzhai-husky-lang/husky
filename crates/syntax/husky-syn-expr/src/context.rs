@@ -218,4 +218,13 @@ impl<'a> SynExprContext<'a> {
     pub(crate) fn tokra_region_data(&self) -> TokraRegionDataRef<'a> {
         self.tokra_region_data
     }
+
+    pub(crate) fn set_lambda_variable_access_end(
+        &mut self,
+        var: CurrentSynSymbolIdx,
+        access_end: RegionalTokenIdxRangeEnd,
+    ) {
+        self.syn_symbol_context
+            .set_lambda_variable_access_end(var, access_end)
+    }
 }

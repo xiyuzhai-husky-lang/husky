@@ -1,15 +1,11 @@
 use super::*;
 use crate::coersion::HirEagerCoersion;
-use husky_hir_ty::ritchie::HirRitchieRegularParameter;
+use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum HirEagerRitchieParameterArgumentMatch {
-    Regular(
-        HirRitchieRegularParameter,
-        HirEagerExprIdx,
-        HirEagerCoersion,
-    ),
+    Regular(HirRitchieSimpleParameter, HirEagerExprIdx, HirEagerCoersion),
     Variadic,
     Keyed,
 }
@@ -31,7 +27,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         match pam {
             SemaRitchieParameterArgumentMatch::Regular(param, item) => {
                 HirEagerRitchieParameterArgumentMatch::Regular(
-                    HirRitchieRegularParameter::from_fly(param, self.db(), self.fly_terms()),
+                    HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
                     item.argument_sema_expr_idx().to_hir_eager(self),
                     item.coersion_outcome
                         .as_ref()

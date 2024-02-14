@@ -102,9 +102,11 @@ impl<'a> HirEagerExprBuilder<'a> {
                 SynPatternExprRootKind::Parenate => {
                     self.new_pattern_expr(syn_pattern_expr_root);
                 }
+                // already covered when building expr roots
                 SynPatternExprRootKind::Let
                 | SynPatternExprRootKind::Case
-                | SynPatternExprRootKind::Be => continue,
+                | SynPatternExprRootKind::Be
+                | SynPatternExprRootKind::Lambda => continue,
             }
         }
         self.finish()

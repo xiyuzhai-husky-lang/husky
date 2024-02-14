@@ -110,6 +110,10 @@ impl RegionalTokenIdxRangeEnd {
         Self(regional_token_idx + 1)
     }
 
+    pub fn new_lambda_variables_access_end(state: RegionalTokenStreamState) -> Self {
+        Self(state.next_regional_token_idx)
+    }
+
     pub fn regional_token_idx(self) -> RegionalTokenIdx {
         self.0
     }

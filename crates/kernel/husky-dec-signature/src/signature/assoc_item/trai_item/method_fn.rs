@@ -4,7 +4,7 @@ use crate::*;
 pub struct TraitMethodFnDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
-    // todo: add field `pub self_value_parameter: DeclarativeRitchieRegularParameter`,
+    // todo: add field `pub self_value_parameter: DeclarativeRitchieSimpleParameter`,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DecTerm,

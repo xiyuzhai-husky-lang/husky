@@ -28,7 +28,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
                                             ty: Application(
                                                 DecApplication(
@@ -87,7 +87,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
                                             ty: Application(
                                                 DecApplication(
@@ -99,7 +99,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -115,7 +115,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -178,7 +178,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
                                             ty: Application(
                                                 DecApplication(
@@ -190,7 +190,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -206,7 +206,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(

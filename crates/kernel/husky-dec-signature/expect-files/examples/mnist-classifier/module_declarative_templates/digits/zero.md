@@ -46,7 +46,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
                                                 DecApplication(

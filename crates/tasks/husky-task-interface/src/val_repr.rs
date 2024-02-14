@@ -32,7 +32,7 @@ pub struct ValRuntimeConstantInterface(ShiftedU32);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ValArgumentReprInterface {
-    Ordinary(ValReprInterface),
+    Simple(ValReprInterface),
     Keyed(Option<ValReprInterface>),
     Variadic(SmallVec<[ValReprInterface; 4]>),
     Branch {

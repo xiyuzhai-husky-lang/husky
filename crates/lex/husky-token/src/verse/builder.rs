@@ -67,7 +67,7 @@ impl<'a> TokenVersesBuilder<'a> {
                 TokenData::Keyword(Keyword::Stmt(StmtKeyword::Match)) => {
                     TokenVerseProductionState::Match
                 }
-                TokenData::Punctuation(Punctuation::VERTICAL) => match state {
+                TokenData::Punctuation(Punctuation::VERT) => match state {
                     TokenVerseProductionState::None => TokenVerseProductionState::None,
                     TokenVerseProductionState::Match | TokenVerseProductionState::MatchVertical => {
                         TokenVerseProductionState::MatchVertical
@@ -157,7 +157,7 @@ impl<'a> TokenVersesBuilder<'a> {
                                 | Punctuation::INLINE_RCURL
                                 | Punctuation::RA_OR_GT,
                             ) => Continue,
-                            TokenData::Punctuation(Punctuation::VERTICAL) => match state {
+                            TokenData::Punctuation(Punctuation::VERT) => match state {
                                 TokenVerseProductionState::None
                                 | TokenVerseProductionState::Match => Break,
                                 TokenVerseProductionState::MatchVertical => {

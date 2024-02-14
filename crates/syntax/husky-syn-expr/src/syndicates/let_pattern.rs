@@ -16,14 +16,14 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<LetPatternSynSyndicate> {
-        let state = self.save_state();
+        let state = self.state();
         let Some(syn_pattern_expr_root) = self.try_parse_option::<LetSynPatternExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
             .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_expr_idx());
-        let access_start = self.save_state().next_regional_token_idx();
+        let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {

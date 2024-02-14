@@ -1,5 +1,6 @@
 pub mod be_pattern;
 pub mod case_pattern;
+pub mod lambda_parameter;
 pub mod let_pattern;
 pub mod parenate_parameter;
 pub mod props_field;

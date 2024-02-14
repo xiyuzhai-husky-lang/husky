@@ -30,6 +30,15 @@ pub(super) enum TopExprRef<'a> {
     None,
 }
 
+impl From<SynExprResult<SynExprData>> for TopSynExpr {
+    fn from(result: SynExprResult<SynExprData>) -> Self {
+        Self::Finished(match result {
+            Ok(data) => data,
+            Err(e) => SynExprData::Err(e),
+        })
+    }
+}
+
 impl From<SynExprData> for TopSynExpr {
     fn from(v: SynExprData) -> Self {
         Self::Finished(v)
@@ -117,6 +126,7 @@ impl SynExprData {
             | SynExprData::Todo { .. }
             | SynExprData::Unreachable { .. }
             | SynExprData::NestedBlock { .. } => BaseEntityPath::None,
+            SynExprData::Lambda { .. } => BaseEntityPath::None,
         }
     }
 }
@@ -276,7 +286,6 @@ where
                         .into(),
                     ))
                 }
-                IncompleteSynExprData::LambdaHead { .. } => todo!(),
                 IncompleteSynExprData::CallList { .. } => {
                     todo!()
                 }

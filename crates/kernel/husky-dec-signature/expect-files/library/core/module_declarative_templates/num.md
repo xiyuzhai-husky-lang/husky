@@ -366,7 +366,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -446,7 +446,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -463,7 +463,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -592,7 +592,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -609,7 +609,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -730,7 +730,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -810,7 +810,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -827,7 +827,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -956,7 +956,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -973,7 +973,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -1094,7 +1094,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1174,7 +1174,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1191,7 +1191,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -1271,7 +1271,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1288,7 +1288,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -1417,7 +1417,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1434,7 +1434,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -1555,7 +1555,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1684,7 +1684,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1701,7 +1701,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -1822,7 +1822,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1951,7 +1951,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -1968,7 +1968,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -2089,7 +2089,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2218,7 +2218,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2235,7 +2235,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -2356,7 +2356,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2485,7 +2485,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2502,7 +2502,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -2623,7 +2623,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2752,7 +2752,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -2769,7 +2769,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -2890,7 +2890,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3019,7 +3019,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3036,7 +3036,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -3157,7 +3157,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3286,7 +3286,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3303,7 +3303,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -3424,7 +3424,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3553,7 +3553,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3570,7 +3570,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -3691,7 +3691,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3820,7 +3820,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -3837,7 +3837,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -3958,7 +3958,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4038,7 +4038,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4118,7 +4118,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4135,7 +4135,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -4215,7 +4215,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4232,7 +4232,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -4312,7 +4312,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4392,7 +4392,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4472,7 +4472,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4552,7 +4552,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4681,7 +4681,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4698,7 +4698,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(
@@ -4819,7 +4819,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -4899,7 +4899,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -5028,7 +5028,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -5045,7 +5045,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
                                                 Type(

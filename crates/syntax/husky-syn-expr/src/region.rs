@@ -17,7 +17,7 @@ pub struct SynExprRegionData {
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
-    symbol_region: SynSymbolRegionData,
+    symbol_region: VariableRegionData,
     syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
@@ -33,7 +33,7 @@ impl SynExprRegionData {
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
         pattern_expr_region: SynPatternExprRegion,
-        symbol_region: SynSymbolRegionData,
+        symbol_region: VariableRegionData,
         syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
         syn_expr_roots: Vec<SynExprRoot>,
         has_self_lifetime: bool,
@@ -46,7 +46,7 @@ impl SynExprRegionData {
                 .filter_map(
                     |(current_syn_symbol_idx, current_syn_symbol)| match *current_syn_symbol.data()
                     {
-                        CurrentSynSymbolData::ParenateRegularParameter {
+                        CurrentSynSymbolData::SimpleParenateParameter {
                             pattern_symbol_idx,
                             ..
                         }
@@ -112,7 +112,7 @@ impl SynExprRegionData {
         &self.pattern_expr_region
     }
 
-    pub fn symbol_region(&self) -> &SynSymbolRegionData {
+    pub fn symbol_region(&self) -> &VariableRegionData {
         &self.symbol_region
     }
 

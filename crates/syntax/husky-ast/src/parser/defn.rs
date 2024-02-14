@@ -148,7 +148,7 @@ impl<'a> AstParser<'a> {
                         ),
                         vertical_token,
                         ident_token,
-                        saved_stream_state: aux_parser.save_state(),
+                        saved_stream_state: aux_parser.state(),
                     },
                     Err(error) => Ast::Err {
                         token_verse_idx,

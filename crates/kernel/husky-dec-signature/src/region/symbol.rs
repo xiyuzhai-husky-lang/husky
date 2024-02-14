@@ -199,7 +199,7 @@ impl DecSvarRegion {
         db: &::salsa::Db,
         toolchain: Toolchain,
         region_path: SynNodeRegionPath,
-        symbol_region: &SynSymbolRegionData,
+        symbol_region: &VariableRegionData,
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty.is_none() {
             self.self_ty = match region_path {

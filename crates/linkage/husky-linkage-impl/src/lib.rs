@@ -115,7 +115,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
                     $({
                         let argument = arguments.next().unwrap();
                         match *argument {
-                            ValArgumentReprInterface::Ordinary(val_repr_interface) => {
+                            ValArgumentReprInterface::Simple(val_repr_interface) => {
                                 <$input as FromValue>::from_value_temp(
                                     ctx.eval_val_repr_interface(val_repr_interface)?,
                                     (value_stands)
@@ -240,7 +240,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 arguments: &[ValArgumentReprInterface],
             ) -> StandardLinkageImplValControlFlow<Self::FnOutput> {
                 debug_assert_eq!(arguments.len(), 2);
-                let ValArgumentReprInterface::Ordinary(target) = arguments[0] else {
+                let ValArgumentReprInterface::Simple(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")
                 };
                 let ValArgumentReprInterface::RuntimeConstants(

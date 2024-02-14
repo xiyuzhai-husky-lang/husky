@@ -72,7 +72,7 @@ impl<'a> BasicAuxAstParser<'a> {
     }
 
     pub(super) fn finish_with_saved_stream_state(self) -> TokenStreamState {
-        self.token_iter.save_state()
+        self.token_iter.state()
     }
 
     // todo: where to put this?

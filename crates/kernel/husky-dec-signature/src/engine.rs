@@ -181,7 +181,7 @@ impl<'a> DecTermEngine<'a> {
                             name,
                         )
                 }
-                SyndicateTypeConstraint::OrdinaryParenateParameter {
+                SyndicateTypeConstraint::SimpleParenateParameter {
                     syn_pattern_root,
                     ty_expr_idx: ty,
                 } => self.init_current_syn_symbol_signatures_in_parenate_parameter(
@@ -189,6 +189,10 @@ impl<'a> DecTermEngine<'a> {
                     *ty,
                     *symbols,
                 ),
+                SyndicateTypeConstraint::SimpleLambdaParameter {
+                    syn_pattern_root,
+                    ty_expr_idx,
+                } => todo!(),
                 SyndicateTypeConstraint::FieldVariable {
                     ident_token,
                     ty_expr_idx,
@@ -267,7 +271,7 @@ impl<'a> DecTermEngine<'a> {
     ) {
         let current_syn_symbol = &self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx];
         match *current_syn_symbol.data() {
-            CurrentSynSymbolData::ParenateRegularParameter {
+            CurrentSynSymbolData::SimpleParenateParameter {
                 ident,
                 pattern_symbol_idx,
             } => {
@@ -582,7 +586,7 @@ impl<'a> DecTermEngine<'a> {
                     .into_iter()
                     .map(|parameter_ty_item| {
                         // todo: support variadic, and keyed??
-                        Ok(DeclarativeRitchieRegularParameter::new(
+                        Ok(DeclarativeRitchieSimpleParameter::new(
                             // todo: handle &mut !!
                             TermContract::Pure,
                             self.infer_new_expr_term(parameter_ty_item.syn_expr_idx())?,
@@ -599,11 +603,8 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::Sorry { .. } => todo!(),
             SynExprData::Todo { .. } => todo!(),
             SynExprData::Unreachable { .. } => todo!(),
-            SynExprData::NestedBlock {
-                lcurl_regional_token_idx,
-                stmts,
-                rcurl_regional_token,
-            } => todo!(),
+            SynExprData::NestedBlock { .. } => todo!(),
+            SynExprData::Lambda { .. } => todo!(),
         }
     }
 }
