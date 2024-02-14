@@ -171,6 +171,14 @@ pub enum OriginalSynExprError {
     },
     #[error("ExpectedBlockRcurl")]
     ExpectedBlockRcurl(RegionalTokenStreamState),
+    #[error("ExpectedRvertForLambda")]
+    ExpectedRvertForLambda(RegionalTokenStreamState),
+    #[error("ExpectedEqTokenAfterReturnTypeForLambda")]
+    ExpectedEqTokenAfterReturnTypeForLambda(RegionalTokenStreamState),
+    #[error("ExpectedReturnTypeAfterLightArrowForLambda")]
+    ExpectedReturnTypeAfterLightArrowForLambda(RegionalTokenStreamState),
+    #[error("ExpectedBodyExprForLambda")]
+    ExpectedBodyExprForLambda(RegionalTokenStreamState),
 }
 
 impl OriginalSynExprError {
@@ -272,6 +280,10 @@ impl OriginalSynExprError {
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree { .. } => todo!(),
             OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
+            OriginalSynExprError::ExpectedRvertForLambda(_) => todo!(),
+            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForLambda(_) => todo!(),
+            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForLambda(_) => todo!(),
+            OriginalSynExprError::ExpectedBodyExprForLambda(_) => todo!(),
         }
     }
 }

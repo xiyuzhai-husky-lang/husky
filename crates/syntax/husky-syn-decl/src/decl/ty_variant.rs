@@ -78,7 +78,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
             None,
         );
-        let state = parser.save_state();
+        let state = parser.state();
         match parser.next() {
             Some(TokenData::Punctuation(Punctuation::LPAR)) => {
                 let fields = parser.try_parse();

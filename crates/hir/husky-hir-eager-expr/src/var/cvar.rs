@@ -5,7 +5,7 @@ use husky_fly_term::FlyTermBase;
 use husky_hir_ty::HirTemplateVar;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
-    CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, SynSymbolRegionData,
+    CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, VariableRegionData,
 };
 
 #[salsa::debug_with_db]
@@ -56,7 +56,7 @@ impl HirEagerComptimeSvarEntry {
 impl HirEagerComptimeSvarRegionData {
     pub(crate) fn from_sema(
         sema_expr_region_data: &SemaExprRegionData,
-        syn_symobl_region_data: &SynSymbolRegionData,
+        syn_symobl_region_data: &VariableRegionData,
         db: &::salsa::Db,
     ) -> Self {
         let mut arena = HirEagerComptimeSvarArena::default();
@@ -130,11 +130,11 @@ impl HirEagerComptimeSvarRegionData {
                             CurrentSynSymbolData::SelfValue {
                                 symbol_modifier_keyword_group: _,
                             } => todo!(),
-                            CurrentSynSymbolData::ParenateRegularParameter {
+                            CurrentSynSymbolData::SimpleParenateParameter {
                                 ident: _,
                                 pattern_symbol_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::ParenateVariadicParameter {
+                            CurrentSynSymbolData::VariadicParenateParameter {
                                 symbol_modifier_keyword_group: _,
                                 ident_token: _,
                             } => todo!(),
@@ -156,6 +156,10 @@ impl HirEagerComptimeSvarRegionData {
                             CurrentSynSymbolData::LoopVariable {
                                 ident: _,
                                 expr_idx: _,
+                            } => todo!(),
+                            CurrentSynSymbolData::SimpleLambdaParameter {
+                                ident,
+                                pattern_symbol_idx,
                             } => todo!(),
                         },
                     };

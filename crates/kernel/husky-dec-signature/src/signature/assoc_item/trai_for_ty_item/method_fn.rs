@@ -5,7 +5,7 @@ pub struct TraitForTypeMethodFnDecTemplate {
     pub self_ty: DecTerm,
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
-    pub self_value_parameter: DeclarativeRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeRitchieSimpleParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DecTerm,
@@ -22,7 +22,7 @@ impl TraitForTypeMethodFnDecTemplate {
             .dec_template(db)?
             .self_ty(db)
             .term();
-        let self_value_parameter = DeclarativeRitchieRegularParameter::new(
+        let self_value_parameter = DeclarativeRitchieSimpleParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
                 None => TermContract::Pure,

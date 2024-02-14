@@ -122,6 +122,13 @@ define_specific_punctuation_regional_token!(
 );
 
 define_specific_punctuation_regional_token!(
+    RvertRegionalToken,
+    VERT,
+    rvert_regional_token_works,
+    "|"
+);
+
+define_specific_punctuation_regional_token!(
     LboxRegionalToken,
     LBOX,
     regional_lbox_token_works,
@@ -173,7 +180,7 @@ define_specific_punctuation_regional_token!(
 
 define_specific_punctuation_regional_token!(
     VerticalRegionalToken,
-    VERTICAL,
+    VERT,
     vertical_regional_token_works,
     "|"
 );

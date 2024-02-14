@@ -100,7 +100,7 @@ where
             match parser.try_parse_option::<Element>() {
                 Ok(Some(element)) => {
                     elements.push(element);
-                    saved_state = Some(parser.save_state());
+                    saved_state = Some(parser.state());
                     let Some(separator) = parser.try_parse_option::<Separator>()? else {
                         break;
                     };
@@ -207,7 +207,7 @@ where
     let mut elements = vec![];
     let mut separators = vec![];
     let result = loop {
-        let state = ctx.save_state();
+        let state = ctx.state();
         match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
@@ -256,7 +256,7 @@ where
     let mut elements = smallvec![];
     let mut separators = smallvec![];
     let result = loop {
-        let state = ctx.save_state();
+        let state = ctx.state();
         match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);

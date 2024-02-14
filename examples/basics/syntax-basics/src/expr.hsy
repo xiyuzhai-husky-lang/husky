@@ -2,3 +2,11 @@ fn nested():
     let t = {
         1
     }
+
+fn lambda_inline():
+    let t = |x: i32| x + 1
+
+fn lambda_nested():
+    let t = |x: i32| {
+        x + 1
+    }

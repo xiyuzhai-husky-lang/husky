@@ -1,9 +1,9 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::{
-    EthRitchie, EthRitchieRegularParameter, EtherealRitchieParameter,
+    EthRitchie, EthRitchieSimpleParameter, EtherealRitchieParameter,
 };
-use husky_fly_term::FlyRitchieRegularParameter;
+use husky_fly_term::FlyRitchieSimpleParameter;
 use husky_term_prelude::TermContract;
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]
@@ -63,7 +63,7 @@ impl std::ops::Deref for HirRitchieParameters {
 #[enum_class::from_variants]
 #[salsa::debug_with_db]
 pub enum HirRitchieParameter {
-    Ordinary(HirRitchieRegularParameter),
+    Simple(HirRitchieSimpleParameter),
     Variadic(HirRitchieVariadicParameter),
     Keyed(HirRitchieKeyedParameter),
 }
@@ -77,8 +77,8 @@ impl HirRitchieParameter {
         }
     }
 
-    pub fn from_eth_regular(param: EthRitchieRegularParameter, db: &::salsa::Db) -> Self {
-        HirRitchieRegularParameter {
+    pub fn from_eth_regular(param: EthRitchieSimpleParameter, db: &::salsa::Db) -> Self {
+        HirRitchieSimpleParameter {
             contract: HirEagerContract::from_term(param.contract()),
             ty: HirType::from_eth(param.ty(), db).unwrap(),
         }
@@ -89,7 +89,7 @@ impl HirRitchieParameter {
 #[salsa::debug_with_db]
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct HirRitchieRegularParameter {
+pub struct HirRitchieSimpleParameter {
     pub contract: HirEagerContract,
     pub ty: HirType,
 }
@@ -119,7 +119,7 @@ impl HirEagerContract {
     }
 }
 
-impl HirRitchieRegularParameter {
+impl HirRitchieSimpleParameter {
     pub fn contract(&self) -> HirEagerContract {
         self.contract
     }
@@ -129,7 +129,7 @@ impl HirRitchieRegularParameter {
     }
 
     pub fn from_fly(
-        param: &FlyRitchieRegularParameter,
+        param: &FlyRitchieSimpleParameter,
         db: &::salsa::Db,
         fly_terms: &FlyTerms,
     ) -> Self {

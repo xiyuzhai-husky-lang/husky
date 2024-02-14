@@ -48,7 +48,7 @@ impl EnumTupleVariantDecTemplate {
                 .iter()
                 .copied()
                 .map(|field: EnumTupleVariantFieldDecTemplate| {
-                    DeclarativeRitchieRegularParameter::new(TermContract::Move, field.ty).into()
+                    DeclarativeRitchieSimpleParameter::new(TermContract::Move, field.ty).into()
                 })
                 .collect(),
             return_ty,

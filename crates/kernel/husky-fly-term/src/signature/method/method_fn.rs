@@ -6,7 +6,7 @@ use husky_regional_token::IdentRegionalToken;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFlySignature {
     pub path: AssocItemPath,
-    pub self_value_parameter: FlyRitchieRegularParameter,
+    pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     pub return_ty: FlyTerm,
     pub instantiation: FlyInstantiation,

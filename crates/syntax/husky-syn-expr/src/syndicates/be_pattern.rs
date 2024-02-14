@@ -17,14 +17,14 @@ where
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BePatternSynSyndicate> {
-        let state = self.save_state();
+        let state = self.state();
         let Some(pattern_expr_root) = self.try_parse_option::<BeSynPatternExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
             .pattern_expr_symbols(pattern_expr_root.syn_pattern_expr_idx());
-        let access_start = self.save_state().next_regional_token_idx();
+        let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {

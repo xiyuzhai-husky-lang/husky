@@ -143,7 +143,7 @@ impl TraitItemSynDecl {
     pub fn parenate_parameters<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> Option<&'a [ParenateSynParameterData]> {
+    ) -> Option<&'a [ParenateParameterSyndicate]> {
         match self {
             TraitItemSynDecl::AssocFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TraitItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),

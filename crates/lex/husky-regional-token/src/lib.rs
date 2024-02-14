@@ -129,7 +129,7 @@ pub struct RegionalTokenStream<'a> {
 impl<'a> HasStreamState for RegionalTokenStream<'a> {
     type State = RegionalTokenStreamState;
 
-    fn save_state(&self) -> Self::State {
+    fn state(&self) -> Self::State {
         RegionalTokenStreamState {
             next_regional_token_idx: self.next_relative.regional_token_idx(self.start),
             drained: self.next_relative.index() >= self.tokens.len(),

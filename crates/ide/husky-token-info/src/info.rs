@@ -99,7 +99,7 @@ impl TokenInfoData {
                 CurrentSynSymbolKind::LetVariable { .. }
                 | CurrentSynSymbolKind::BeVariable { .. }
                 | CurrentSynSymbolKind::CaseVariable { .. } => TokenClass::Variable,
-                CurrentSynSymbolKind::ParenateRegularParameter { .. } => TokenClass::Parameter,
+                CurrentSynSymbolKind::ParenateSimpleParameter { .. } => TokenClass::Parameter,
                 CurrentSynSymbolKind::LoopVariable(_) => TokenClass::LoopVariable,
                 CurrentSynSymbolKind::TemplateParameter { .. } => TokenClass::ImplicitParameter,
                 CurrentSynSymbolKind::ParenateVariadicParameter { .. } => TokenClass::Parameter,

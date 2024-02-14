@@ -5,7 +5,7 @@ use husky_syn_expr::SynVariadicParameterVariant;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLazyParenateParameter {
     SelfValue,
-    Ordinary {
+    Simple {
         pattern_expr_idx: HirLazyPatternExprIdx,
         ty: HirType,
     },
@@ -42,19 +42,19 @@ impl HirLazyParenateParameter {
     }
 
     pub(crate) fn from_syn(
-        syndicate: &ParenateSynParameterData,
+        syndicate: &ParenateParameterSyndicate,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match *syndicate {
-            ParenateSynParameterData::Ordinary {
+            ParenateParameterSyndicate::Simple {
                 syn_pattern_root,
                 ty,
                 ..
-            } => HirLazyParenateParameter::Ordinary {
+            } => HirLazyParenateParameter::Simple {
                 pattern_expr_idx: builder.hir_lazy_pattern_expr_idx(syn_pattern_root),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateSynParameterData::Variadic {
+            ParenateParameterSyndicate::Variadic {
                 ref variadic_variant,
                 ty,
                 ..
@@ -62,7 +62,7 @@ impl HirLazyParenateParameter {
                 variant: variadic_variant.into(),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateSynParameterData::Keyed {
+            ParenateParameterSyndicate::Keyed {
                 ident_token, ty, ..
             } => HirLazyParenateParameter::Keyed {
                 ident: ident_token.ident(),
@@ -85,7 +85,7 @@ impl std::ops::Deref for HirLazyParenateParameters {
 
 impl HirLazyParenateParameters {
     pub(crate) fn from_syn(
-        syndicates: &[ParenateSynParameterData],
+        syndicates: &[ParenateParameterSyndicate],
         builder: &HirDeclBuilder,
     ) -> Self {
         Self(

@@ -1,7 +1,7 @@
 use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
-use husky_hir_ty::ritchie::HirRitchieRegularParameter;
+use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
 use husky_place::PlaceIdx;
 use vec_like::SmallVecPairMap;
 
@@ -66,7 +66,7 @@ impl HirEagerExprSite {
 
     pub(crate) fn regular_call_item(
         &self,
-        param: HirRitchieRegularParameter,
+        param: HirRitchieSimpleParameter,
         coersion: HirEagerCoersion,
         db: &::salsa::Db,
     ) -> Self {

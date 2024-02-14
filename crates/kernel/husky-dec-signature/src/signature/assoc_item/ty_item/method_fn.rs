@@ -12,7 +12,7 @@ pub struct TypeMethodFnDecTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
-    pub self_value_parameter: DeclarativeRitchieRegularParameter,
+    pub self_value_parameter: DeclarativeRitchieSimpleParameter,
     #[return_ref]
     pub parenate_parameters: DeclarativeParenateParameters,
     pub return_ty: DecTerm,
@@ -35,7 +35,7 @@ impl TypeMethodFnDecTemplate {
             }
             None => TermContract::Pure,
         };
-        let self_value_parameter = DeclarativeRitchieRegularParameter::new(contract, self_ty);
+        let self_value_parameter = DeclarativeRitchieSimpleParameter::new(contract, self_ty);
         let dec_term_menu = db.dec_term_menu(syn_expr_region.toolchain(db)).unwrap();
         let template_parameters = DecTemplateParameters::from_decl(
             decl.template_parameters(db),

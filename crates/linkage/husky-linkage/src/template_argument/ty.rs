@@ -90,7 +90,7 @@ impl LinkageRitchieParameter {
         db: &salsa::Db,
     ) -> Self {
         match param {
-            HirRitchieParameter::Ordinary(param) => Self {
+            HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
                 parameter_ty: LinType::from_hir(param.ty(), lin_instantiation, db),
             },

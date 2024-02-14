@@ -64,7 +64,7 @@ impl FlyTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum FlyRitchieParameter {
-    Regular(FlyRitchieRegularParameter),
+    Regular(FlyRitchieSimpleParameter),
     Variadic(FlyRitchieVariadicParameter),
     Keyed(FlyRitchieKeyedParameter),
 }

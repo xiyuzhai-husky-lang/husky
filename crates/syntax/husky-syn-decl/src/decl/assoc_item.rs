@@ -86,7 +86,7 @@ impl AssocItemSynDecl {
     pub fn parenate_parameters<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> Option<&'a [ParenateSynParameterData]> {
+    ) -> Option<&'a [ParenateParameterSyndicate]> {
         match self {
             AssocItemSynDecl::TypeItem(syn_decl) => syn_decl.parenate_parameters(db),
             AssocItemSynDecl::TraitItem(syn_decl) => syn_decl.parenate_parameters(db),

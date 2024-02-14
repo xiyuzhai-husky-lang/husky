@@ -177,7 +177,7 @@ where
                 PunctuationMapped::Minus => {
                     DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, SynPrefixOpr::Minus)
                 }
-                PunctuationMapped::DoubleVertical => todo!(),
+                PunctuationMapped::VertVert => todo!(),
                 PunctuationMapped::Tilde => {
                     DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, SynPrefixOpr::Tilde)
                 }

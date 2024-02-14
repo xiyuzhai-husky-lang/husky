@@ -15,7 +15,7 @@ use tests::*;
 
 pub trait HasStreamState {
     type State;
-    fn save_state(&self) -> Self::State;
+    fn state(&self) -> Self::State;
     fn rollback(&mut self, state: Self::State);
 }
 
@@ -32,8 +32,8 @@ where
 {
     type State = <<Wrapper as std::ops::Deref>::Target as HasStreamState>::State;
 
-    fn save_state(&self) -> Self::State {
-        self.deref().save_state()
+    fn state(&self) -> Self::State {
+        self.deref().state()
     }
 
     fn rollback(&mut self, state: Self::State) {
@@ -127,7 +127,7 @@ where
     where
         E::Error: From<<T as TryParseOptionFromStream<Self>>::Error>,
     {
-        let saved_state = self.save_state();
+        let saved_state = self.state();
         match T::try_parse_from_stream_with_rollback_when_no_error(self)? {
             Some(output) => Ok(output),
             None => Err(f(saved_state).into()),
@@ -143,7 +143,7 @@ where
     where
         E::Error: From<<T as TryParseOptionFromStreamWithContext<Self>>::Error>,
     {
-        let saved_state = self.save_state();
+        let saved_state = self.state();
         match T::parse_from_with_rollback_when_no_error(self, ctx)? {
             Some(output) => Ok(output),
             None => Err(f(saved_state).into()),

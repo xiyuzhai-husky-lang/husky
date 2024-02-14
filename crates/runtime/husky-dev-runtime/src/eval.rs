@@ -84,13 +84,13 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Require => {
                 let arguments: &[_] = val_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
-                let ValArgumentRepr::Ordinary(condition) = arguments[0] else {
+                let ValArgumentRepr::Simple(condition) = arguments[0] else {
                     unreachable!()
                 };
                 if self.eval_val_repr(condition)?.to_bool() {
                     ValControlFlow::Continue(().into())
                 } else {
-                    let ValArgumentRepr::Ordinary(default) = arguments[1] else {
+                    let ValArgumentRepr::Simple(default) = arguments[1] else {
                         unreachable!()
                     };
                     ValControlFlow::Return(self.eval_val_repr(default)?)
@@ -99,7 +99,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Assert => {
                 let arguments: &[_] = val_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 1);
-                let ValArgumentRepr::Ordinary(condition) = arguments[0] else {
+                let ValArgumentRepr::Simple(condition) = arguments[0] else {
                     unreachable!()
                 };
                 if !self.eval_val_repr(condition)?.to_bool() {
@@ -162,10 +162,10 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Binary(opr) => {
                 let arguments: &[_] = val_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
-                let ValArgumentRepr::Ordinary(lopd) = arguments[0] else {
+                let ValArgumentRepr::Simple(lopd) = arguments[0] else {
                     unreachable!()
                 };
-                let ValArgumentRepr::Ordinary(ropd) = arguments[1] else {
+                let ValArgumentRepr::Simple(ropd) = arguments[1] else {
                     unreachable!()
                 };
                 match opr {
@@ -240,7 +240,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             ValOpn::Be { pattern_data } => {
                 let arguments: &[_] = val_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 1);
-                let ValArgumentRepr::Ordinary(src) = arguments[0] else {
+                let ValArgumentRepr::Simple(src) = arguments[0] else {
                     unreachable!()
                 };
                 let src = self.eval_val_repr(src)?;
@@ -267,11 +267,11 @@ impl<Task: IsTask> DevRuntime<Task> {
                 // ad hoc
                 let arguments: &[_] = val_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
-                let ValArgumentRepr::Ordinary(owner) = arguments[0] else {
+                let ValArgumentRepr::Simple(owner) = arguments[0] else {
                     unreachable!()
                 };
                 let owner = self.eval_val_repr(owner)?;
-                let ValArgumentRepr::Ordinary(index) = arguments[1] else {
+                let ValArgumentRepr::Simple(index) = arguments[1] else {
                     unreachable!()
                 };
                 let index = self.eval_val_repr(index)?.to_usize();
@@ -311,7 +311,7 @@ impl<Task: IsTask> DevRuntime<Task> {
         val_argument_repr: &ValArgumentRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         match *val_argument_repr {
-            ValArgumentRepr::Ordinary(val_repr) => self.eval_val_repr(val_repr),
+            ValArgumentRepr::Simple(val_repr) => self.eval_val_repr(val_repr),
             ValArgumentRepr::Keyed(_) => todo!(),
             ValArgumentRepr::Variadic(_) => todo!(),
             ValArgumentRepr::Branch {

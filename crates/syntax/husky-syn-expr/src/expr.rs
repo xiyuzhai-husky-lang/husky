@@ -1,11 +1,13 @@
 mod html;
+mod lambda;
 mod list_item;
 
 pub use self::html::*;
 pub use self::list_item::*;
 
-use crate::*;
+use crate::{lambda_parameter::LambdaParameterSyndicate, *};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use parsec::PunctuatedSmallList;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -100,6 +102,21 @@ pub enum SynExprData {
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
         return_ty_syn_expr_idx: Option<SynExprIdx>,
+    },
+    Lambda {
+        ritchie_kind_regional_token_idx: Option<RegionalTokenIdx>,
+        lvert_regional_token_idx: RegionalTokenIdx,
+        parameters: PunctuatedSmallList<
+            LambdaParameterSyndicate,
+            CommaRegionalToken,
+            SynExprError,
+            true,
+            3,
+        >,
+        rvert_regional_token: RparRegionalToken,
+        /// in husky, `=` is needed after lambda return type to disambiguate `{`
+        return_ty: Option<(LightArrowRegionalToken, SynExprIdx, EqRegionalToken)>,
+        body: SynExprIdx,
     },
     FunctionCall {
         function: SynExprIdx,

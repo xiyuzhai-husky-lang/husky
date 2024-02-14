@@ -512,7 +512,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | CurrentSynSymbolKind::CaseVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::ParenateRegularParameter {
+            | CurrentSynSymbolKind::ParenateSimpleParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
                 SynPatternSymbol::Atom(pattern_expr_idx) => {

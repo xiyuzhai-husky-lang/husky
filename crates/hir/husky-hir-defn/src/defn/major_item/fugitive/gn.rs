@@ -61,7 +61,7 @@ fn function_gn_hir_defn_dependencies(
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
             HirLazyParenateParameter::SelfValue => unreachable!(),
-            HirLazyParenateParameter::Ordinary { ty, .. } => builder.add_hir_ty(ty),
+            HirLazyParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
             HirLazyParenateParameter::Keyed { ty, .. } => builder.add_hir_ty(ty),
             HirLazyParenateParameter::Variadic { ty, .. } => builder.add_hir_ty(ty),
         }

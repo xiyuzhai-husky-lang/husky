@@ -10,7 +10,6 @@ use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_regional_token::*;
 use husky_token::TokenIdx;
-use salsa::DebugWithDb;
 
 /// Tokra region is for representing tokens and asts in a relative way.
 /// Previously, the source code is lexed into tokens and then divided into crude asts.

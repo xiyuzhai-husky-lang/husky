@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::{
     AllowSelfValue, CurrentSynSymbol, CurrentSynSymbolData, InheritedSynSymbol,
-    InheritedSynSymbolKind, SynSymbolMap, SynSymbolRegionData,
+    InheritedSynSymbolKind, SynSymbolMap, VariableRegionData,
 };
 use idx_arena::ArenaIdx;
 
@@ -43,7 +43,7 @@ pub enum HirEagerRuntimeSvarData {
 
 impl HirEagerRuntimeSvarRegionData {
     pub(crate) fn from_syn(
-        syn_symbol_region: &SynSymbolRegionData,
+        syn_symbol_region: &VariableRegionData,
     ) -> (Self, SynSymbolMap<HirEagerRvarIdx>) {
         let mut arena = HirEagerRvarArena::default();
         let self_value_variable = match syn_symbol_region.allow_self_value() {
@@ -157,11 +157,11 @@ impl HirEagerRuntimeSvarData {
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group: _,
             } => todo!(),
-            CurrentSynSymbolData::ParenateRegularParameter {
+            CurrentSynSymbolData::SimpleParenateParameter {
                 ident: _,
                 pattern_symbol_idx: _,
             } => Some(HirEagerRuntimeSvarData::ParenateParameter),
-            CurrentSynSymbolData::ParenateVariadicParameter {
+            CurrentSynSymbolData::VariadicParenateParameter {
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
             } => Some(HirEagerRuntimeSvarData::ParenateParameter),
@@ -184,6 +184,10 @@ impl HirEagerRuntimeSvarData {
                 ident: _,
                 expr_idx: _,
             } => Some(HirEagerRuntimeSvarData::LoopVariable),
+            CurrentSynSymbolData::SimpleLambdaParameter {
+                ident,
+                pattern_symbol_idx,
+            } => todo!(),
         }
     }
 }

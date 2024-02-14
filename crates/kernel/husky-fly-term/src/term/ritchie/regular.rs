@@ -1,27 +1,27 @@
 use super::*;
-use husky_eth_term::term::ritchie::EthRitchieRegularParameter;
+use husky_eth_term::term::ritchie::EthRitchieSimpleParameter;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FlyRitchieRegularParameter {
+pub struct FlyRitchieSimpleParameter {
     pub contract: TermContract,
     pub ty: FlyTerm,
 }
 
-impl FlyRitchieRegularParameter {
+impl FlyRitchieSimpleParameter {
     pub(super) fn resolve_as_ethereal(
         self,
         terms: &impl std::borrow::Borrow<HolTerms>,
-    ) -> Option<EthRitchieRegularParameter> {
-        Some(EthRitchieRegularParameter::new(
+    ) -> Option<EthRitchieSimpleParameter> {
+        Some(EthRitchieSimpleParameter::new(
             self.contract,
             self.ty.resolve_as_ethereal(terms)?,
         ))
     }
 }
 
-impl From<EthRitchieRegularParameter> for FlyRitchieRegularParameter {
-    fn from(param: EthRitchieRegularParameter) -> Self {
+impl From<EthRitchieSimpleParameter> for FlyRitchieSimpleParameter {
+    fn from(param: EthRitchieSimpleParameter) -> Self {
         Self {
             contract: param.contract(),
             ty: param.ty().into(),
@@ -29,8 +29,8 @@ impl From<EthRitchieRegularParameter> for FlyRitchieRegularParameter {
     }
 }
 
-impl FlyInstantiate for EthRitchieRegularParameter {
-    type Target = FlyRitchieRegularParameter;
+impl FlyInstantiate for EthRitchieSimpleParameter {
+    type Target = FlyRitchieSimpleParameter;
 
     fn instantiate(
         self,
@@ -38,14 +38,14 @@ impl FlyInstantiate for EthRitchieRegularParameter {
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
-        FlyRitchieRegularParameter {
+        FlyRitchieSimpleParameter {
             contract: self.contract(),
             ty: self.ty().instantiate(engine, expr_idx, instantiation),
         }
     }
 }
 
-impl FlyRitchieRegularParameter {
+impl FlyRitchieSimpleParameter {
     pub fn new(contract: TermContract, ty: FlyTerm) -> Self {
         Self { contract, ty }
     }

@@ -5,7 +5,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 pub enum HirEagerParenateParameter {
-    Ordinary {
+    Simple {
         pattern_expr_idx: HirEagerPatternExprIdx,
         contract: HirEagerContract,
         ty: HirType,
@@ -16,15 +16,15 @@ pub enum HirEagerParenateParameter {
 
 impl HirEagerParenateParameter {
     pub(crate) fn from_syn(
-        syndicate: &ParenateSynParameterData,
+        syndicate: &ParenateParameterSyndicate,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
         Some(match syndicate {
-            &ParenateSynParameterData::Ordinary {
+            &ParenateParameterSyndicate::Simple {
                 syn_pattern_root,
                 ty,
                 ..
-            } => HirEagerParenateParameter::Ordinary {
+            } => HirEagerParenateParameter::Simple {
                 pattern_expr_idx: builder.hir_eager_pattern_expr_idx(syn_pattern_root),
                 contract: HirEagerContract::from_term(
                     builder
@@ -33,7 +33,7 @@ impl HirEagerParenateParameter {
                 ),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateSynParameterData::Variadic {
+            ParenateParameterSyndicate::Variadic {
                 dot_dot_dot_token: _,
                 variadic_variant: _,
                 symbol_modifier_keyword_group: _,
@@ -42,7 +42,7 @@ impl HirEagerParenateParameter {
                 colon: _,
                 ty: _,
             } => HirEagerParenateParameter::Variadic,
-            ParenateSynParameterData::Keyed {
+            ParenateParameterSyndicate::Keyed {
                 syn_pattern_root: _,
                 symbol_modifier_keyword_group: _,
                 ident_token: _,
@@ -70,7 +70,7 @@ impl std::ops::Deref for HirEagerParenateParameters {
 
 impl HirEagerParenateParameters {
     pub(crate) fn from_syn(
-        syndicates: &[ParenateSynParameterData],
+        syndicates: &[ParenateParameterSyndicate],
         builder: &HirDeclBuilder,
     ) -> Self {
         Self(

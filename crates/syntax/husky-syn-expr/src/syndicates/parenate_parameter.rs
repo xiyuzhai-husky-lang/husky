@@ -5,8 +5,8 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ParenateSynParameterData {
-    Ordinary {
+pub enum ParenateParameterSyndicate {
+    Simple {
         syn_pattern_root: ParenateSynPatternExprRoot,
         variables: CurrentSynSymbolIdxRange,
         colon: ColonRegionalToken,
@@ -44,7 +44,7 @@ pub enum SynVariadicParameterVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynParameterData {
+impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -54,7 +54,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
@@ -62,7 +62,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::ParenateRegularParameter {
+                        CurrentSynSymbolData::SimpleParenateParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -79,7 +79,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
             );
             let variables = ctx.define_symbols(
                 variables,
-                Some(SyndicateTypeConstraint::OrdinaryParenateParameter {
+                Some(SyndicateTypeConstraint::SimpleParenateParameter {
                     syn_pattern_root,
                     ty_expr_idx,
                 }),
@@ -106,7 +106,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(ParenateSynParameterData::Keyed {
+                Ok(Some(ParenateParameterSyndicate::Keyed {
                     syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -117,7 +117,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                     default,
                 }))
             } else {
-                Ok(Some(ParenateSynParameterData::Ordinary {
+                Ok(Some(ParenateParameterSyndicate::Simple {
                     syn_pattern_root: syn_pattern_root,
                     variables,
                     colon,
@@ -125,7 +125,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                 }))
             }
         } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotRegionalToken>()? {
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let variadic_variant = ctx.try_parse()?;
             let symbol_modifier_keyword_group =
                 ctx.try_parse_option::<EphemSymbolModifierRegionalTokens>()?;
@@ -135,7 +135,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolData::ParenateVariadicParameter {
+                CurrentSynSymbolData::VariadicParenateParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },
@@ -152,7 +152,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateSynPara
                 variable,
                 Some(SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty }),
             );
-            Ok(Some(ParenateSynParameterData::Variadic {
+            Ok(Some(ParenateParameterSyndicate::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,

@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct DeclarativeRitchieRegularParameter {
+pub struct DeclarativeRitchieSimpleParameter {
     contract: TermContract,
     ty: DecTerm,
 }
 
-impl DeclarativeRitchieRegularParameter {
+impl DeclarativeRitchieSimpleParameter {
     pub fn new(contract: TermContract, ty: DecTerm) -> Self {
         Self { contract, ty }
     }

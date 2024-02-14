@@ -93,7 +93,7 @@ impl<'a> SemaExprEngine<'a> {
                 template_parameter_variant,
                 ..
             } => todo!(),
-            CurrentSynSymbolData::ParenateRegularParameter {
+            CurrentSynSymbolData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
             CurrentSynSymbolData::LetVariable {
@@ -106,12 +106,16 @@ impl<'a> SemaExprEngine<'a> {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSynSymbolData::LoopVariable { .. } => todo!(),
-            CurrentSynSymbolData::ParenateVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => todo!(),
             CurrentSynSymbolData::SelfType => todo!(),
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
             CurrentSynSymbolData::FieldVariable { ident_token } => todo!(),
+            CurrentSynSymbolData::SimpleLambdaParameter {
+                ident,
+                pattern_symbol_idx,
+            } => todo!(),
         }
     }
 

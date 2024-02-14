@@ -197,7 +197,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -546,7 +546,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(

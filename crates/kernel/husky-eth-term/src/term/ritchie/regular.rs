@@ -2,17 +2,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct EthRitchieRegularParameter {
+pub struct EthRitchieSimpleParameter {
     contract: TermContract,
     ty: EthTerm,
 }
 
-impl EthRitchieRegularParameter {
+impl EthRitchieSimpleParameter {
     pub fn from_dec(
         db: &::salsa::Db,
-        param: DeclarativeRitchieRegularParameter,
+        param: DeclarativeRitchieSimpleParameter,
     ) -> EthTermResult<Self> {
-        Ok(EthRitchieRegularParameter {
+        Ok(EthRitchieSimpleParameter {
             contract: param.contract(),
             ty: EthTerm::ty_from_dec(db, param.ty())?,
         })
@@ -26,7 +26,7 @@ impl EthRitchieRegularParameter {
     }
 }
 
-impl EthInstantiate for EthRitchieRegularParameter {
+impl EthInstantiate for EthRitchieSimpleParameter {
     type Output = Self;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self {
@@ -37,7 +37,7 @@ impl EthInstantiate for EthRitchieRegularParameter {
     }
 }
 
-impl salsa::DisplayWithDb for EthRitchieRegularParameter {
+impl salsa::DisplayWithDb for EthRitchieSimpleParameter {
     fn display_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -50,7 +50,7 @@ impl salsa::DisplayWithDb for EthRitchieRegularParameter {
     }
 }
 
-impl EthRitchieRegularParameter {
+impl EthRitchieSimpleParameter {
     pub fn new(contract: TermContract, ty: EthTerm) -> Self {
         Self { contract, ty }
     }

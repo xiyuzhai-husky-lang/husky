@@ -54,7 +54,7 @@
                                 ),
                                 params: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: Application(
                                                 DecApplication(
@@ -66,7 +66,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: Application(
                                                 DecApplication(
@@ -115,7 +115,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
                                                 DecApplication(
@@ -127,7 +127,7 @@
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
+                                        DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: ApplicationOrRitchieCall(
                                                 DecApplicationOrRitchieCall(

@@ -35,7 +35,7 @@ pub enum TokenData {
 
 #[cfg(feature = "protocol_support")]
 impl TokenData {
-    pub const VERTICAL: Self = TokenData::Punctuation(Punctuation::VERTICAL);
+    pub const VERTICAL: Self = TokenData::Punctuation(Punctuation::VERT);
     pub const EQ: Self = TokenData::Punctuation(Punctuation::EQ);
     pub const BLOCK_LCURL: Self = TokenData::Punctuation(Punctuation::NESTED_LCURL);
     pub const INLINE_LCURL: Self = TokenData::Punctuation(Punctuation::INLINE_LCURL);

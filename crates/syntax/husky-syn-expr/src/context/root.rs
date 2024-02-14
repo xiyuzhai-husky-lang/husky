@@ -96,6 +96,7 @@ pub enum SynPatternExprRootKind {
     Let,
     Case,
     Be,
+    Lambda,
 }
 
 impl SynPatternExprRoot {

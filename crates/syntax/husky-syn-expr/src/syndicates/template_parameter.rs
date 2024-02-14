@@ -58,7 +58,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentRegionalToken>()? {
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let parameter_symbol = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
@@ -85,7 +85,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelRegionalToken>()? {
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSynSymbol::new(
                     ctx.pattern_expr_region(),
@@ -106,7 +106,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 variant: TemplateParameterSyndicateVariant::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
                     [CurrentSynSymbol::new(
@@ -139,7 +139,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 SynExprRootKind::ConstantImplicitParameterType,
                 OriginalSynExprError::ExpectedConstantImplicitParameterType,
             );
-            let access_start = ctx.save_state().next_regional_token_idx();
+            let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
                     [CurrentSynSymbol::new(

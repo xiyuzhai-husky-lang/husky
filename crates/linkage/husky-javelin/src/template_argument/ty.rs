@@ -41,7 +41,7 @@ impl JavelinRitchieParameter {
         db: &salsa::Db,
     ) -> Self {
         match param {
-            HirRitchieParameter::Ordinary(param) => Self {
+            HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
                 parameter_ty: JavelinType::from_hir(param.ty, javelin_instantiation, db),
             },
