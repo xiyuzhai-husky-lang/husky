@@ -138,7 +138,7 @@ impl Symbol {
     }
 
     /// Normalize an accent to a combining one. Keep it synced with the
-    /// documenting table in accent.rs TypstAccentElem.
+    /// documenting table in accent.rs AccentTypstElem.
     pub fn combining_accent(c: char) -> Option<char> {
         Some(match c {
             '\u{0300}' | '`' => '\u{0300}',

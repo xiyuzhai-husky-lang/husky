@@ -10,7 +10,7 @@ use crate::foundations::{
     TypstValueAssignmentGroups,
 };
 use crate::introspection::{Introspector, Locator};
-use crate::math::{Accent, LrElem, TypstAccentElem};
+use crate::math::{Accent, LrElem, AccentTypstElem};
 use crate::symbols::Symbol;
 use crate::syntax::ast::{self, TypstAstNode};
 use crate::syntax::{Spanned, TypstSyntaxNode};
@@ -142,7 +142,7 @@ impl Eval for ast::FuncCall<'_> {
                     let base = args.expect("base")?;
                     let size = args.named("size")?;
                     args.finish()?;
-                    let mut accent = TypstAccentElem::new(base, Accent::new(accent));
+                    let mut accent = AccentTypstElem::new(base, Accent::new(accent));
                     if let Some(size) = size {
                         accent = accent.with_size(size);
                     }

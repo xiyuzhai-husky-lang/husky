@@ -2,7 +2,7 @@ use ttf_parser::math::{GlyphAssembly, GlyphConstruction, GlyphPart};
 use ttf_parser::LazyArray16;
 
 use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstPoint};
-use crate::math::{GlyphFragment, MathContext, Scaled, VariantFragment};
+use crate::math::{GlyphFragment, Scaled, TypstMathContext, VariantFragment};
 
 /// Maximum number of times extenders can be repeated.
 const MAX_REPEATS: usize = 1024;
@@ -11,7 +11,7 @@ impl GlyphFragment {
     /// Try to stretch a glyph to a desired height.
     pub fn stretch_vertical(
         self,
-        ctx: &MathContext,
+        ctx: &TypstMathContext,
         height: TypstAbsLength,
         short_fall: TypstAbsLength,
     ) -> VariantFragment {
@@ -21,7 +21,7 @@ impl GlyphFragment {
     /// Try to stretch a glyph to a desired width.
     pub fn stretch_horizontal(
         self,
-        ctx: &MathContext,
+        ctx: &TypstMathContext,
         width: TypstAbsLength,
         short_fall: TypstAbsLength,
     ) -> VariantFragment {
@@ -33,7 +33,7 @@ impl GlyphFragment {
 ///
 /// The resulting frame may not have the exact desired width.
 fn stretch_glyph(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     mut base: GlyphFragment,
     target: TypstAbsLength,
     short_fall: TypstAbsLength,
@@ -95,7 +95,7 @@ fn stretch_glyph(
 
 /// Assemble a glyph from parts.
 fn assemble(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     base: GlyphFragment,
     assembly: GlyphAssembly,
     min_overlap: TypstAbsLength,

@@ -2,7 +2,7 @@ use unicode_math_class::MathClass;
 
 use crate::diag::TypstSourceResult;
 use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain};
-use crate::math::{EquationTypstElem, Limits, MathContext, TypstLayoutMath};
+use crate::math::{EquationTypstElem, Limits, TypstLayoutMath, TypstMathContext};
 
 /// Forced use of a certain math class.
 ///
@@ -34,7 +34,11 @@ pub struct ClassTypstElem {
 
 impl TypstLayoutMath for TypstContentRefined<ClassTypstElem> {
     #[husky_typst_macros::time(name = "math.class", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let class = *self.class();
         let style = EquationTypstElem::set_class(Some(class)).wrap();
         let mut fragment = ctx.layout_fragment(self.body(), styles.chain(&style))?;

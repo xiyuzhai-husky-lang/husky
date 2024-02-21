@@ -2,7 +2,7 @@ use comemo::Prehashed;
 
 use crate::foundations::{func, Cast, Smart, Style, TypstContent, TypstStyleChain};
 use crate::layout::TypstAbsLength;
-use crate::math::{EquationTypstElem, MathContext};
+use crate::math::{EquationTypstElem, TypstMathContext};
 use crate::text::TextElem;
 
 /// Bold font style in math.
@@ -226,7 +226,7 @@ pub enum MathSize {
 
 impl MathSize {
     /// The scaling factor.
-    pub fn factor(self, ctx: &MathContext) -> f64 {
+    pub fn factor(self, ctx: &TypstMathContext) -> f64 {
         match self {
             Self::Display | Self::Text => 1.0,
             Self::Script => percent!(ctx, script_percent_scale_down),
@@ -248,7 +248,7 @@ pub enum MathVariant {
 }
 
 /// Get the font size scaled with the `MathSize`.
-pub fn scaled_font_size(ctx: &MathContext, styles: TypstStyleChain) -> TypstAbsLength {
+pub fn scaled_font_size(ctx: &TypstMathContext, styles: TypstStyleChain) -> TypstAbsLength {
     EquationTypstElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
 }
 

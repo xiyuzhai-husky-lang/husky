@@ -6,7 +6,7 @@ use crate::foundations::{
 };
 use crate::layout::{Length, Rel, TypstAbsLength, TypstEmLength};
 use crate::math::{
-    GlyphFragment, MathContext, MathFragment, Scaled, SpacingFragment, TypstLayoutMath,
+    GlyphFragment, MathFragment, Scaled, SpacingFragment, TypstLayoutMath, TypstMathContext,
 };
 use crate::text::TextElem;
 
@@ -39,7 +39,11 @@ pub struct LrElem {
 
 impl TypstLayoutMath for TypstContentRefined<LrElem> {
     #[husky_typst_macros::time(name = "math.lr", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let mut body = self.body();
         if let Some(elem) = body.to_packed::<LrElem>() {
             if elem.size(styles).is_auto() {
@@ -114,7 +118,11 @@ pub struct MidElem {
 
 impl TypstLayoutMath for TypstContentRefined<MidElem> {
     #[husky_typst_macros::time(name = "math.mid", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let mut fragments = ctx.layout_fragments(self.body(), styles)?;
 
         for fragment in &mut fragments {
@@ -138,7 +146,7 @@ impl TypstLayoutMath for TypstContentRefined<MidElem> {
 
 /// Scale a math fragment to a height.
 fn scale(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     fragment: &mut MathFragment,
     height: TypstAbsLength,

@@ -5,7 +5,7 @@ use crate::layout::{
 };
 use crate::math::{
     alignments, scaled_font_size, style_cramped, style_for_subscript, FrameFragment, GlyphFragment,
-    MathContext, MathRow, Scaled, TypstAlignmentResult, TypstLayoutMath,
+    MathRow, Scaled, TypstAlignmentResult, TypstLayoutMath, TypstMathContext,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::TextElem;
@@ -34,7 +34,11 @@ pub struct UnderlineElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderlineElem> {
     #[husky_typst_macros::time(name = "math.underline", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Under)
     }
 }
@@ -53,14 +57,18 @@ pub struct OverlineElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverlineElem> {
     #[husky_typst_macros::time(name = "math.overline", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Over)
     }
 }
 
 /// layout under- or overlined content
 fn layout_underoverline(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     body: &TypstContent,
     span: TypstSynSpan,
@@ -138,7 +146,11 @@ pub struct UnderbraceElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderbraceElem> {
     #[husky_typst_macros::time(name = "math.underbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -170,7 +182,11 @@ pub struct OverbraceElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverbraceElem> {
     #[husky_typst_macros::time(name = "math.overbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -202,7 +218,11 @@ pub struct UnderbracketElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderbracketElem> {
     #[husky_typst_macros::time(name = "math.underbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -234,7 +254,11 @@ pub struct OverbracketElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverbracketElem> {
     #[husky_typst_macros::time(name = "math.overbracket", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -251,7 +275,7 @@ impl TypstLayoutMath for TypstContentRefined<OverbracketElem> {
 /// Layout an over- or underbrace-like object.
 #[allow(clippy::too_many_arguments)]
 fn layout_underoverspreader(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     body: &TypstContent,
     annotation: &Option<TypstContent>,
@@ -303,7 +327,7 @@ fn layout_underoverspreader(
 /// Add a `gap` between each row and uses the baseline of the `baseline`th
 /// row for the whole frame.
 pub(super) fn stack(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     styles: TypstStyleChain,
     rows: Vec<MathRow>,
     align: FixedAlignment,

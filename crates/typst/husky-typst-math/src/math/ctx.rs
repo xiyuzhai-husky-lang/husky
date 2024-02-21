@@ -48,7 +48,7 @@ macro_rules! percent {
 }
 
 /// The context for math layout.
-pub struct MathContext<'a, 'b, 'v> {
+pub struct TypstMathContext<'a, 'b, 'v> {
     // External.
     pub engine: &'v mut TypstEngine<'b>,
     pub regions: TypstRegions<'static>,
@@ -64,7 +64,7 @@ pub struct MathContext<'a, 'b, 'v> {
     pub fragments: Vec<MathFragment>,
 }
 
-impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
+impl<'a, 'b, 'v> TypstMathContext<'a, 'b, 'v> {
     pub fn new(
         engine: &'v mut TypstEngine<'b>,
         styles: TypstStyleChain<'a>,
@@ -306,23 +306,23 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 }
 
 pub(super) trait Scaled {
-    fn scaled(self, ctx: &MathContext, font_size: TypstAbsLength) -> TypstAbsLength;
+    fn scaled(self, ctx: &TypstMathContext, font_size: TypstAbsLength) -> TypstAbsLength;
 }
 
 impl Scaled for i16 {
-    fn scaled(self, ctx: &MathContext, font_size: TypstAbsLength) -> TypstAbsLength {
+    fn scaled(self, ctx: &TypstMathContext, font_size: TypstAbsLength) -> TypstAbsLength {
         ctx.font.to_em(self).at(font_size)
     }
 }
 
 impl Scaled for u16 {
-    fn scaled(self, ctx: &MathContext, font_size: TypstAbsLength) -> TypstAbsLength {
+    fn scaled(self, ctx: &TypstMathContext, font_size: TypstAbsLength) -> TypstAbsLength {
         ctx.font.to_em(self).at(font_size)
     }
 }
 
 impl Scaled for MathValue<'_> {
-    fn scaled(self, ctx: &MathContext, font_size: TypstAbsLength) -> TypstAbsLength {
+    fn scaled(self, ctx: &TypstMathContext, font_size: TypstAbsLength) -> TypstAbsLength {
         self.value.scaled(ctx, font_size)
     }
 }

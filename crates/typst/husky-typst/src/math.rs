@@ -167,7 +167,7 @@ pub fn module() -> TypstModuleEvaluation {
     math.define_elem::<AttachTypstElem>();
     math.define_elem::<ScriptsElem>();
     math.define_elem::<LimitsElem>();
-    math.define_elem::<TypstAccentElem>();
+    math.define_elem::<AccentTypstElem>();
     math.define_elem::<UnderlineElem>();
     math.define_elem::<OverlineElem>();
     math.define_elem::<UnderbraceElem>();
@@ -175,7 +175,7 @@ pub fn module() -> TypstModuleEvaluation {
     math.define_elem::<UnderbracketElem>();
     math.define_elem::<OverbracketElem>();
     math.define_elem::<CancelLineTypstElem>();
-    math.define_elem::<FracElem>();
+    math.define_elem::<FracTypstElem>();
     math.define_elem::<BinomElem>();
     math.define_elem::<VecElem>();
     math.define_elem::<MatElem>();
@@ -217,12 +217,20 @@ pub fn module() -> TypstModuleEvaluation {
 /// Layout for math elements.
 pub trait TypstLayoutMath {
     /// Layout the element, producing fragment in the context.
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()>;
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()>;
 }
 
 impl TypstLayoutMath for TypstContent {
     #[husky_typst_macros::time(name = "math", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         // Directly layout the body of nested equations instead of handling it
         // like a normal equation so that things like this work:
         // ```

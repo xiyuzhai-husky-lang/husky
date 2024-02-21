@@ -3,11 +3,11 @@ use crate::{
     TypstStyleChain,
 };
 
-pub(crate) struct MathContext {
+pub(crate) struct TypstMathContext {
     fragments: Vec<MathFragment>,
 }
 
-impl MathContext {
+impl TypstMathContext {
     pub fn push(&mut self, fragment: impl Into<MathFragment>) {
         self.fragments.push(fragment.into());
     }
