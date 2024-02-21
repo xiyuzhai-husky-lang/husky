@@ -286,7 +286,7 @@ fn create(element: &Elem) -> Result<TokenStream> {
     let fields_impl = create_fields_impl(element);
     let repr_impl = element.cannot("Repr").then(|| create_repr_impl(element));
     let locatable_impl = element
-        .can("Locatable")
+        .can("TypstLocatable")
         .then(|| create_locatable_impl(element));
     let into_value_impl = create_into_value_impl(element);
 
@@ -793,7 +793,7 @@ fn create_construct_impl(element: &Elem) -> TokenStream {
         impl #foundations::Construct for #ident {
             fn construct(
                 engine: &mut ::husky_typst::engine::TypstEngine,
-                args: &mut #foundations::Args,
+                args: &mut #foundations::TypstArgs,
             ) -> ::husky_typst::diag::TypstSourceResult<#foundations::TypstContent> {
                 #(#setup)*
                 Ok(#foundations::TypstContent::new(Self { #(#fields),* }))
@@ -820,7 +820,7 @@ fn create_set_impl(element: &Elem) -> TokenStream {
         impl #foundations::Set for #ident {
             fn set(
                 engine: &mut ::husky_typst::engine::TypstEngine,
-                args: &mut #foundations::Args,
+                args: &mut #foundations::TypstArgs,
             ) -> ::husky_typst::diag::TypstSourceResult<#foundations::TypstStyles> {
                 let mut styles = #foundations::TypstStyles::new();
                 #(#handlers)*
@@ -1064,10 +1064,10 @@ fn create_repr_impl(element: &Elem) -> TokenStream {
     }
 }
 
-/// Creates the element's `Locatable` implementation.
+/// Creates the element's `TypstLocatable` implementation.
 fn create_locatable_impl(element: &Elem) -> TokenStream {
     let ident = &element.ident;
-    quote! { impl ::husky_typst::introspection::Locatable for #foundations::TypstContentRefined<#ident> {} }
+    quote! { impl ::husky_typst::introspection::TypstLocatable for #foundations::TypstContentRefined<#ident> {} }
 }
 
 /// Creates the element's `IntoTypstValue` implementation.

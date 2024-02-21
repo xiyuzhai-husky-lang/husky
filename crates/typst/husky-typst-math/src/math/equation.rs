@@ -8,7 +8,7 @@ use crate::foundations::{
     elem, IsTypstElem, Resolve, ShowSet, Smart, Styles, Synthesize, TypstContent,
     TypstContentRefined, TypstStyleChain,
 };
-use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
+use crate::introspection::{Count, Counter, CounterUpdate, TypstLocatable};
 use crate::layout::{
     AlignElem, Axes, FixedAlignment, LayoutMultiple, LayoutSingle, Size, TypstAbsLength,
     TypstAlignment, TypstEmLength, TypstFrame, TypstLayoutDirection, TypstPoint, TypstRegions,
@@ -47,7 +47,7 @@ use crate::IsTypstWorld;
 /// horizontally. For more details about math syntax, see the
 /// [main math page]($category/math).
 #[elem(
-    Locatable,
+    TypstLocatable,
     Synthesize,
     ShowSet,
     LayoutSingle,

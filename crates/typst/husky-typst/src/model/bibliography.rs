@@ -10,11 +10,12 @@ use crate::diag::{bail, error, At, FileError, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
-    cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, IsTypstElem,
-    Label, Reflect, Repr, Show, ShowSet, Smart, Str, Synthesize, Type, TypstContent,
-    TypstContentRefined, TypstStyleChain, TypstStyles, TypstValue, TypstValueAssignmentGroup,
+    cast, elem, ty, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, IsTypstElem, Label,
+    Reflect, Repr, Show, Smart, Str, Type, TypstArgs, TypstContent, TypstContentRefined,
+    TypstShowSet, TypstStyleChain, TypstStyles, TypstSynthesize, TypstValue,
+    TypstValueAssignmentGroup,
 };
-use crate::introspection::{Introspector, Locatable, Location};
+use crate::introspection::{Introspector, Location, TypstLocatable};
 use crate::layout::{
     BlockElem, GridCell, GridElem, HElem, TrackSizings, TypstEmLength, TypstPadElem, TypstSizing,
     VElem,
@@ -84,7 +85,7 @@ use typed_arena::Arena;
 ///
 /// #bibliography("works.bib")
 /// ```
-#[elem(Locatable, Synthesize, Show, ShowSet, LocalName)]
+#[elem(TypstLocatable, TypstSynthesize, Show, TypstShowSet, LocalName)]
 pub struct BibliographyElem {
     /// Path(s) to Hayagriva `.yml` and/or BibLaTeX `.bib` files.
     #[required]
@@ -194,7 +195,7 @@ impl BibliographyElem {
     }
 }
 
-impl Synthesize for TypstContentRefined<BibliographyElem> {
+impl TypstSynthesize for TypstContentRefined<BibliographyElem> {
     fn synthesize(
         &mut self,
         _: &mut TypstEngine,
@@ -276,7 +277,7 @@ impl Show for TypstContentRefined<BibliographyElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<BibliographyElem> {
+impl TypstShowSet for TypstContentRefined<BibliographyElem> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         const INDENT: TypstEmLength = TypstEmLength::new(1.0);
         let mut out = TypstStyles::new();
@@ -335,7 +336,7 @@ impl Bibliography {
     /// Parse the bibliography argument.
     fn parse(
         engine: &mut TypstEngine,
-        args: &mut Args,
+        args: &mut TypstArgs,
     ) -> TypstSourceResult<(BibliographyPaths, Bibliography)> {
         let Spanned { v: paths, span } =
             args.expect::<Spanned<BibliographyPaths>>("path to bibliography file")?;
@@ -447,7 +448,10 @@ pub struct CslStyle {
 
 impl CslStyle {
     /// Parse the style argument.
-    pub fn parse(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<Option<CslStyle>> {
+    pub fn parse(
+        engine: &mut TypstEngine,
+        args: &mut TypstArgs,
+    ) -> TypstSourceResult<Option<CslStyle>> {
         let Some(Spanned { v: string, span }) = args.named::<Spanned<EcoString>>("style")? else {
             return Ok(None);
         };
@@ -458,7 +462,7 @@ impl CslStyle {
     /// Parse the style argument with `Smart`.
     pub fn parse_smart(
         engine: &mut TypstEngine,
-        args: &mut Args,
+        args: &mut TypstArgs,
     ) -> TypstSourceResult<Option<Smart<CslStyle>>> {
         let Some(Spanned { v: smart, span }) = args.named::<Spanned<Smart<EcoString>>>("style")?
         else {

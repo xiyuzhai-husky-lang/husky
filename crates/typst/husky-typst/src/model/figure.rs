@@ -7,14 +7,16 @@ use ecow::EcoString;
 use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, select_where, ElementSchemaRef, IsTypstElem, Selector, Show, ShowSet, Smart,
-    Synthesize, TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles,
+    cast, elem, scope, select_where, ElementSchemaRef, IsTypstElem, Selector, Show, Smart,
+    TypstContent, TypstContentRefined, TypstShowSet, TypstStyleChain, TypstStyles, TypstSynthesize,
 };
-use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
+use crate::introspection::{
+    Counter, CounterKey, CounterUpdate, Location, TypstCount, TypstLocatable,
+};
 use crate::layout::{
     BlockElem, HAlignment, PlaceElem, TypstAlignment, TypstEmLength, TypstLength, VAlignment, VElem,
 };
-use crate::model::{Numbering, NumberingPattern, Outlinable, Refable, Supplement};
+use crate::model::{Numbering, NumberingPattern, Refable, Supplement, TypstOutlinable};
 use crate::syntax::Spanned;
 use crate::text::{Lang, Region, TextElem};
 use crate::util::NonZeroExt;
@@ -100,7 +102,14 @@ use crate::visualize::ImageElem;
 /// )
 /// ```
 #[elem(
-    scope, Locatable, Synthesize, Count, Show, ShowSet, Refable, Outlinable
+    scope,
+    TypstLocatable,
+    TypstSynthesize,
+    TypstCount,
+    Show,
+    TypstShowSet,
+    Refable,
+    TypstOutlinable
 )]
 pub struct FigureElem {
     /// The content of the figure. Often, an [image]($image).
@@ -222,7 +231,7 @@ impl FigureElem {
     type FigureCaption;
 }
 
-impl Synthesize for TypstContentRefined<FigureElem> {
+impl TypstSynthesize for TypstContentRefined<FigureElem> {
     fn synthesize(
         &mut self,
         engine: &mut TypstEngine,
@@ -338,7 +347,7 @@ impl Show for TypstContentRefined<FigureElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<FigureElem> {
+impl TypstShowSet for TypstContentRefined<FigureElem> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         // Still allows breakable figures with
         // `show figure: set block(breakable: true)`.
@@ -346,7 +355,7 @@ impl ShowSet for TypstContentRefined<FigureElem> {
     }
 }
 
-impl Count for TypstContentRefined<FigureElem> {
+impl TypstCount for TypstContentRefined<FigureElem> {
     fn update(&self) -> Option<CounterUpdate> {
         // If the figure is numbered, step the counter by one.
         // This steps the `counter(figure)` which is global to all numbered figures.
@@ -378,7 +387,7 @@ impl Refable for TypstContentRefined<FigureElem> {
     }
 }
 
-impl Outlinable for TypstContentRefined<FigureElem> {
+impl TypstOutlinable for TypstContentRefined<FigureElem> {
     fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>> {
         if !self.outlined(TypstStyleChain::default()) {
             return Ok(None);

@@ -8,7 +8,7 @@ use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Func, IsTypstElem, Repr, Selector, Show, Str,
     TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
 };
-use crate::introspection::{Introspector, Locatable, Location, Locator};
+use crate::introspection::{Introspector, Location, Locator, TypstLocatable};
 use crate::syntax::TypstSynSpan;
 use crate::IsTypstWorld;
 
@@ -374,7 +374,7 @@ cast! {
 }
 
 /// Executes a display of a state.
-#[elem(Locatable, Show)]
+#[elem(TypstLocatable, Show)]
 struct DisplayElem {
     /// The state.
     #[required]
@@ -402,7 +402,7 @@ impl Show for TypstContentRefined<DisplayElem> {
 }
 
 /// Executes a display of a state.
-#[elem(Locatable, Show)]
+#[elem(TypstLocatable, Show)]
 struct UpdateElem {
     /// The key that identifies the state.
     #[required]

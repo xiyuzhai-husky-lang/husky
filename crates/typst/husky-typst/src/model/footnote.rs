@@ -4,10 +4,10 @@ use std::str::FromStr;
 use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, IsTypstElem, Label, Show, ShowSet, Smart, TypstContent, TypstContentRefined,
-    TypstStyleChain, TypstStyles,
+    cast, elem, scope, IsTypstElem, Label, Show, Smart, TypstContent, TypstContentRefined,
+    TypstShowSet, TypstStyleChain, TypstStyles,
 };
-use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
+use crate::introspection::{Counter, CounterUpdate, Location, TypstCount, TypstLocatable};
 use crate::layout::{HElem, Ratio, TypstAbsLength, TypstEmLength, TypstLength};
 use crate::model::{Numbering, NumberingPattern, ParagraphTypstElem, TypstDestination};
 use crate::text::{SuperElem, TextElem, TextSize};
@@ -50,7 +50,7 @@ use crate::visualize::{LineElem, TypstStroke};
 /// apply to the footnote's content. See [here][issue] for more information.
 ///
 /// [issue]: https://github.com/typst/typst/issues/1467#issuecomment-1588799440
-#[elem(scope, Locatable, Show, Count)]
+#[elem(scope, TypstLocatable, Show, TypstCount)]
 pub struct FootnoteTypstElem {
     /// How to number footnotes.
     ///
@@ -141,7 +141,7 @@ impl Show for TypstContentRefined<FootnoteTypstElem> {
     }
 }
 
-impl Count for TypstContentRefined<FootnoteTypstElem> {
+impl TypstCount for TypstContentRefined<FootnoteTypstElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (!self.is_ref()).then(|| CounterUpdate::Step(NonZeroUsize::ONE))
     }
@@ -182,7 +182,7 @@ cast! {
 /// #footnote[It's down here]
 /// has red text!
 /// ```
-#[elem(name = "entry", title = "Footnote Entry", Show, ShowSet)]
+#[elem(name = "entry", title = "Footnote Entry", Show, TypstShowSet)]
 pub struct FootnoteEntry {
     /// The footnote for this entry. It's location can be used to determine
     /// the footnote counter state.
@@ -301,7 +301,7 @@ impl Show for TypstContentRefined<FootnoteEntry> {
     }
 }
 
-impl ShowSet for TypstContentRefined<FootnoteEntry> {
+impl TypstShowSet for TypstContentRefined<FootnoteEntry> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let text_size = TypstEmLength::new(0.85);
         let leading = TypstEmLength::new(0.5);

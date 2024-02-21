@@ -3,7 +3,7 @@ use ecow::EcoString;
 use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Datetime, Smart, TypstContent, TypstContentRefined,
+    cast, elem, Array, Construct, Datetime, Smart, TypstArgs, TypstContent, TypstContentRefined,
     TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
@@ -61,7 +61,7 @@ pub struct DocumentElem {
 }
 
 impl Construct for DocumentElem {
-    fn construct(_: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
+    fn construct(_: &mut TypstEngine, args: &mut TypstArgs) -> TypstSourceResult<TypstContent> {
         bail!(args.span, "can only be used in set rules")
     }
 }

@@ -20,7 +20,7 @@ use crate::foundations::{
     TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, FixedAlignment, LayoutSingle, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem,
+    Axes, FixedAlignment, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstLayoutSingle,
     TypstLength, TypstPoint, TypstRegions,
 };
 use crate::loading::Readable;
@@ -51,7 +51,7 @@ use crate::IsTypstWorld;
 /// ```
 ///
 /// [gh-svg]: https://github.com/typst/typst/issues?q=is%3Aopen+is%3Aissue+label%3Asvg
-#[elem(scope, LayoutSingle, LocalName, Figurable)]
+#[elem(scope, TypstLayoutSingle, LocalName, Figurable)]
 pub struct ImageElem {
     /// Path to an image file.
     #[required]
@@ -144,7 +144,7 @@ impl ImageElem {
     }
 }
 
-impl LayoutSingle for TypstContentRefined<ImageElem> {
+impl TypstLayoutSingle for TypstContentRefined<ImageElem> {
     #[husky_typst_macros::time(name = "image", span = self.span())]
     fn layout(
         &self,

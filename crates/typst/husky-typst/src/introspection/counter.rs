@@ -13,7 +13,7 @@ use crate::foundations::{
     IsTypstElem, Label, LocatableSelector, Repr, Selector, Show, Str, TypstContent,
     TypstContentRefined, TypstStyleChain, TypstValue,
 };
-use crate::introspection::{Introspector, Locatable, Location, Locator, TypstMeta};
+use crate::introspection::{Introspector, Location, Locator, TypstLocatable, TypstMeta};
 use crate::layout::{TypstFrame, TypstFrameItem, TypstPageElem};
 use crate::math::EquationTypstElem;
 use crate::model::{FigureElem, HeadingTypstElem, Numbering, NumberingPattern};
@@ -307,7 +307,7 @@ impl Counter {
                 }
             }
 
-            if let Some(update) = match elem.with::<dyn Count>() {
+            if let Some(update) = match elem.with::<dyn TypstCount>() {
                 Some(countable) => countable.update(),
                 None => Some(CounterUpdate::Step(NonZeroUsize::ONE)),
             } {
@@ -553,7 +553,7 @@ cast! {
 }
 
 /// Elements that have special counting behaviour.
-pub trait Count {
+pub trait TypstCount {
     /// Get the counter update for this element.
     fn update(&self) -> Option<CounterUpdate>;
 }
@@ -631,7 +631,7 @@ cast! {
 }
 
 /// Executes a display of a state.
-#[elem(Locatable, Show)]
+#[elem(TypstLocatable, Show)]
 struct DisplayElem {
     /// The counter.
     #[required]
@@ -686,7 +686,7 @@ impl Show for TypstContentRefined<DisplayElem> {
 }
 
 /// Executes an update of a counter.
-#[elem(Locatable, Show, Count)]
+#[elem(TypstLocatable, Show, TypstCount)]
 struct UpdateElem {
     /// The key that identifies the counter.
     #[required]
@@ -703,7 +703,7 @@ impl Show for TypstContentRefined<UpdateElem> {
     }
 }
 
-impl Count for TypstContentRefined<UpdateElem> {
+impl TypstCount for TypstContentRefined<UpdateElem> {
     fn update(&self) -> Option<CounterUpdate> {
         Some(self.update.clone())
     }

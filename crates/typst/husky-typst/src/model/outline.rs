@@ -4,10 +4,10 @@ use std::str::FromStr;
 use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, select_where, Func, IsTypstElem, LocatableSelector, Show, ShowSet, Smart,
-    TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles,
+    cast, elem, scope, select_where, Func, IsTypstElem, LocatableSelector, Show, Smart,
+    TypstContent, TypstContentRefined, TypstShowSet, TypstStyleChain, TypstStyles,
 };
-use crate::introspection::{Counter, CounterKey, Locatable};
+use crate::introspection::{Counter, CounterKey, TypstLocatable};
 use crate::layout::{
     BoxTypstElem, HElem, HideElem, Rel, RepeatElem, Spacing, TypstFraction, TypstLength,
 };
@@ -59,7 +59,7 @@ use crate::util::{option_eq, NonZeroExt};
 /// `title` and `indent` parameters. If desired, however, it is possible to have
 /// more control over the outline's look and style through the
 /// [`outline.entry`]($outline.entry) element.
-#[elem(scope, keywords = ["Table of Contents"], Show, ShowSet, LocalName)]
+#[elem(scope, keywords = ["Table of Contents"], Show, TypstShowSet, LocalName)]
 pub struct OutlineElem {
     /// The title of the outline.
     ///
@@ -237,7 +237,7 @@ impl Show for TypstContentRefined<OutlineElem> {
             // This is only applicable for elements with a hierarchy/level.
             while ancestors
                 .last()
-                .and_then(|ancestor| ancestor.with::<dyn Outlinable>())
+                .and_then(|ancestor| ancestor.with::<dyn TypstOutlinable>())
                 .map_or(false, |last| last.level() >= *level)
             {
                 ancestors.pop();
@@ -258,7 +258,7 @@ impl Show for TypstContentRefined<OutlineElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<OutlineElem> {
+impl TypstShowSet for TypstContentRefined<OutlineElem> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let mut out = TypstStyles::new();
         out.set(HeadingTypstElem::set_outlined(false));
@@ -308,7 +308,7 @@ impl LocalName for TypstContentRefined<OutlineElem> {
 
 /// Marks an element as being able to be outlined. This is used to implement the
 /// `#outline()` element.
-pub trait Outlinable: Refable {
+pub trait TypstOutlinable: Refable {
     /// Produce an outline item for this element.
     fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>>;
 
@@ -343,7 +343,7 @@ impl OutlineIndent {
                 // Add hidden ancestors numberings to realize the indent.
                 let mut hidden = TypstContent::empty();
                 for ancestor in ancestors {
-                    let ancestor_outlinable = ancestor.with::<dyn Outlinable>().unwrap();
+                    let ancestor_outlinable = ancestor.with::<dyn TypstOutlinable>().unwrap();
 
                     if let Some(numbering) = ancestor_outlinable.numbering() {
                         let numbers = ancestor_outlinable
@@ -479,7 +479,7 @@ impl OutlineEntry {
         elem: TypstContent,
         fill: Option<TypstContent>,
     ) -> TypstSourceResult<Option<Self>> {
-        let Some(outlinable) = elem.with::<dyn Outlinable>() else {
+        let Some(outlinable) = elem.with::<dyn TypstOutlinable>() else {
             bail!(span, "cannot outline {}", elem.func().name());
         };
 
@@ -510,7 +510,7 @@ impl Show for TypstContentRefined<OutlineEntry> {
 
         // In case a user constructs an outline entry with an arbitrary element.
         let Some(location) = elem.location() else {
-            if elem.can::<dyn Locatable>() && elem.can::<dyn Outlinable>() {
+            if elem.can::<dyn TypstLocatable>() && elem.can::<dyn TypstOutlinable>() {
                 bail!(
                     self.span(), "{} must have a location", elem.func().name();
                     hint: "try using a query or a show rule to customize the outline.entry instead",

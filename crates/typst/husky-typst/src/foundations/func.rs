@@ -8,7 +8,7 @@ use once_cell::sync::Lazy;
 use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Selector, Type,
+    cast, repr, scope, ty, CastInfo, ElementSchemaRef, IntoArgs, Selector, Type, TypstArgs,
     TypstContent, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::syntax::{ast, TypstSynSpan, TypstSyntaxNode};
@@ -143,7 +143,7 @@ enum FuncRepr {
     /// A user-defined closure.
     Closure(Arc<Prehashed<Closure>>),
     /// A nested function with pre-applied arguments.
-    With(Arc<(Func, Args)>),
+    With(Arc<(Func, TypstArgs)>),
 }
 
 impl Func {
@@ -260,7 +260,11 @@ impl Func {
 
     /// Non-generic implementation of `call`.
     #[husky_typst_macros::time(name = "func call", span = self.span())]
-    fn call_impl(&self, engine: &mut TypstEngine, mut args: Args) -> TypstSourceResult<TypstValue> {
+    fn call_impl(
+        &self,
+        engine: &mut TypstEngine,
+        mut args: TypstArgs,
+    ) -> TypstSourceResult<TypstValue> {
         match &self.repr {
             FuncRepr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
@@ -311,7 +315,7 @@ impl Func {
         self,
         /// The real arguments (the other argument is just for the docs).
         /// The docs argument cannot be called `args`.
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The arguments to apply to the function.
         #[external]
         #[variadic]
@@ -331,7 +335,7 @@ impl Func {
         self,
         /// The real arguments (the other argument is just for the docs).
         /// The docs argument cannot be called `args`.
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The fields to filter for.
         #[variadic]
         #[external]
@@ -417,7 +421,7 @@ pub trait NativeFunc {
 /// Defines a native function.
 #[derive(Debug)]
 pub struct NativeFuncData {
-    pub function: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstValue>,
+    pub function: fn(&mut TypstEngine, &mut TypstArgs) -> TypstSourceResult<TypstValue>,
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,

@@ -3,7 +3,7 @@ use crate::engine::TypstEngine;
 use crate::foundations::{
     elem, func, Func, IsTypstElem, Show, TypstContent, TypstContentRefined, TypstStyleChain,
 };
-use crate::introspection::Locatable;
+use crate::introspection::TypstLocatable;
 use crate::syntax::TypstSynSpan;
 
 /// Provides access to the location of content.
@@ -34,7 +34,7 @@ pub fn locate(
 }
 
 /// Executes a `locate` call.
-#[elem(Locatable, Show)]
+#[elem(TypstLocatable, Show)]
 struct LocateElem {
     /// The function to call with the location.
     #[required]

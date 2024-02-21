@@ -39,8 +39,8 @@ use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::TypstContentRefined;
 use crate::foundations::{
-    cast, category, elem, Args, Array, Cast, Construct, Fold, IsTypstElem, Never, PlainText, Repr,
-    Resolve, Set, Smart, TypstContent, TypstDefnKind, TypstDict, TypstStyleChain,
+    cast, category, elem, Array, Cast, Construct, Fold, IsTypstElem, Never, PlainText, Repr,
+    Resolve, Set, Smart, TypstArgs, TypstContent, TypstDefnKind, TypstDict, TypstStyleChain,
     TypstValueAssignmentGroup,
 };
 use crate::layout::TypstEmLength;
@@ -674,7 +674,10 @@ impl Repr for TextElem {
 }
 
 impl Construct for TextElem {
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
+    fn construct(
+        engine: &mut TypstEngine,
+        args: &mut TypstArgs,
+    ) -> TypstSourceResult<TypstContent> {
         // The text constructor is special: It doesn't create a text element.
         // Instead, it leaves the passed argument structurally unchanged, but
         // styles all text in it.

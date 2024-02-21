@@ -2,8 +2,8 @@ use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{elem, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Angle, Axes, LayoutSingle, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstLength,
-    TypstRegions,
+    Angle, Axes, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstLayoutSingle,
+    TypstLength, TypstRegions,
 };
 use crate::util::TypstNumeric;
 use crate::visualize::{TypstGeometry, TypstStroke};
@@ -21,7 +21,7 @@ use crate::visualize::{TypstGeometry, TypstStroke};
 ///   stroke: 2pt + maroon,
 /// )
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct LineElem {
     /// The start point of the line.
     ///
@@ -59,7 +59,7 @@ pub struct LineElem {
     pub stroke: TypstStroke,
 }
 
-impl LayoutSingle for TypstContentRefined<LineElem> {
+impl TypstLayoutSingle for TypstContentRefined<LineElem> {
     #[husky_typst_macros::time(name = "line", span = self.span())]
     fn layout(
         &self,

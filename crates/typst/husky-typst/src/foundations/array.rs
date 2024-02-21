@@ -11,8 +11,8 @@ use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::ops;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Args, Bytes, CastInfo, FromTypstValue, Func, IntoTypstValue,
-    Reflect, Repr, TypstValue, Version,
+    cast, func, repr, scope, ty, Bytes, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect,
+    Repr, TypstArgs, TypstValue, Version,
 };
 use crate::syntax::TypstSynSpan;
 
@@ -363,7 +363,7 @@ impl Array {
     pub fn range(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The start of the range (inclusive).
         #[external]
         #[default]
@@ -477,7 +477,7 @@ impl Array {
         self,
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The arrays to zip with.
         #[external]
         #[variadic]

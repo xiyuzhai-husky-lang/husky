@@ -3,12 +3,12 @@ use std::num::NonZeroUsize;
 use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, IsTypstElem, Show, ShowSet, Smart, Synthesize, TypstContent, TypstContentRefined,
-    TypstStyleChain, TypstStyles,
+    elem, IsTypstElem, Show, Smart, TypstContent, TypstContentRefined, TypstShowSet,
+    TypstStyleChain, TypstStyles, TypstSynthesize,
 };
-use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
+use crate::introspection::{Counter, CounterUpdate, TypstCount, TypstLocatable};
 use crate::layout::{BlockElem, HElem, TypstEmLength, VElem};
-use crate::model::{Numbering, Outlinable, Refable, Supplement};
+use crate::model::{Numbering, Refable, Supplement, TypstOutlinable};
 use crate::text::{FontWeight, Lang, LocalName, Region, SpaceElem, TextElem, TextSize};
 use crate::util::{option_eq, NonZeroExt};
 
@@ -44,7 +44,14 @@ use crate::util::{option_eq, NonZeroExt};
 /// one or multiple equals signs, followed by a space. The number of equals
 /// signs determines the heading's logical nesting depth.
 #[elem(
-    Locatable, Synthesize, Count, Show, ShowSet, LocalName, Refable, Outlinable
+    TypstLocatable,
+    TypstSynthesize,
+    TypstCount,
+    Show,
+    TypstShowSet,
+    LocalName,
+    Refable,
+    TypstOutlinable
 )]
 pub struct HeadingTypstElem {
     /// The logical nesting depth of the heading, starting from one.
@@ -128,7 +135,7 @@ pub struct HeadingTypstElem {
     pub body: TypstContent,
 }
 
-impl Synthesize for TypstContentRefined<HeadingTypstElem> {
+impl TypstSynthesize for TypstContentRefined<HeadingTypstElem> {
     fn synthesize(
         &mut self,
         engine: &mut TypstEngine,
@@ -170,7 +177,7 @@ impl Show for TypstContentRefined<HeadingTypstElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<HeadingTypstElem> {
+impl TypstShowSet for TypstContentRefined<HeadingTypstElem> {
     fn show_set(&self, styles: TypstStyleChain) -> TypstStyles {
         let level = (**self).level(styles).get();
         let scale = match level {
@@ -193,7 +200,7 @@ impl ShowSet for TypstContentRefined<HeadingTypstElem> {
     }
 }
 
-impl Count for TypstContentRefined<HeadingTypstElem> {
+impl TypstCount for TypstContentRefined<HeadingTypstElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (**self)
             .numbering(TypstStyleChain::default())
@@ -220,7 +227,7 @@ impl Refable for TypstContentRefined<HeadingTypstElem> {
     }
 }
 
-impl Outlinable for TypstContentRefined<HeadingTypstElem> {
+impl TypstOutlinable for TypstContentRefined<HeadingTypstElem> {
     fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>> {
         if !self.outlined(TypstStyleChain::default()) {
             return Ok(None);

@@ -80,4 +80,4 @@ impl Repr for Location {
 }
 
 /// Makes this element locatable through `engine.locate`.
-pub trait Locatable {}
+pub trait TypstLocatable {}

@@ -95,7 +95,7 @@ pub(super) fn define(global: &mut TypstValueAssignmentGroup, inputs: TypstDict) 
     global.define_type::<Array>();
     global.define_type::<TypstDict>();
     global.define_type::<Func>();
-    global.define_type::<Args>();
+    global.define_type::<TypstArgs>();
     global.define_type::<Type>();
     global.define_type::<TypstModuleEvaluation>();
     global.define_type::<Regex>();

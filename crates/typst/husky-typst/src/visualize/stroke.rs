@@ -2,8 +2,8 @@ use ecow::EcoString;
 
 use crate::diag::{StrResult, TypstSourceResult};
 use crate::foundations::{
-    cast, dict, func, scope, ty, Args, Cast, Fold, FromTypstValue, NoneTypstValue, Repr, Resolve,
-    Smart, TypstDict, TypstStyleChain, TypstValue,
+    cast, dict, func, scope, ty, Cast, Fold, FromTypstValue, NoneTypstValue, Repr, Resolve, Smart,
+    TypstArgs, TypstDict, TypstStyleChain, TypstValue,
 };
 use crate::layout::{TypstAbsLength, TypstLength};
 use crate::util::{Scalar, TypstNumeric};
@@ -100,7 +100,7 @@ impl TypstStroke {
     pub fn construct(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
 
         /// The color or gradient to use for the stroke.
         ///
@@ -187,7 +187,7 @@ impl TypstStroke {
             return Ok(stroke);
         }
 
-        fn take<T: FromTypstValue>(args: &mut Args, arg: &str) -> TypstSourceResult<Smart<T>> {
+        fn take<T: FromTypstValue>(args: &mut TypstArgs, arg: &str) -> TypstSourceResult<Smart<T>> {
             Ok(args.named::<Smart<T>>(arg)?.unwrap_or(Smart::Auto))
         }
 

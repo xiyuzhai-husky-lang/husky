@@ -8,7 +8,7 @@ use kurbo::Vec2;
 
 use crate::diag::{bail, TypstSourceResult};
 use crate::foundations::{
-    array, cast, func, scope, ty, Args, Array, Cast, Func, IntoTypstValue, Repr, Smart,
+    array, cast, func, scope, ty, Array, Cast, Func, IntoTypstValue, Repr, Smart, TypstArgs,
 };
 use crate::layout::{Angle, Axes, Quadrant, Ratio, TypstLayoutDirection};
 use crate::syntax::{Spanned, TypstSynSpan};
@@ -201,7 +201,7 @@ impl Gradient {
     #[func(title = "Linear Gradient")]
     pub fn linear(
         /// The args of this function.
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The call site of this function.
         span: TypstSynSpan,
         /// The color [stops](#stops) of the gradient.

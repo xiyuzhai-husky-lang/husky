@@ -41,19 +41,19 @@ use crate::syntax::{Spanned, TypstSynSpan};
 #[ty(scope, cast, name = "arguments")]
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct Args {
+pub struct TypstArgs {
     /// The span of the whole argument list.
     pub span: TypstSynSpan,
     /// The positional and named arguments.
-    pub items: EcoVec<Arg>,
+    pub items: EcoVec<TypstArg>,
 }
 
-impl Args {
+impl TypstArgs {
     /// Create positional arguments from a span and values.
     pub fn new<T: IntoTypstValue>(span: TypstSynSpan, values: impl IntoIterator<Item = T>) -> Self {
         let items = values
             .into_iter()
-            .map(|value| Arg {
+            .map(|value| TypstArg {
                 span,
                 name: None,
                 value: Spanned::new(value.into_value(), span),
@@ -69,7 +69,7 @@ impl Args {
 
     /// Push a positional argument.
     pub fn push(&mut self, span: TypstSynSpan, value: TypstValue) {
-        self.items.push(Arg {
+        self.items.push(TypstArg {
             span: self.span,
             name: None,
             value: Spanned::new(value, span),
@@ -92,7 +92,7 @@ impl Args {
     }
 
     /// Consume n positional arguments if possible.
-    pub fn consume(&mut self, n: usize) -> TypstSourceResult<Vec<Arg>> {
+    pub fn consume(&mut self, n: usize) -> TypstSourceResult<Vec<TypstArg>> {
         let mut list = vec![];
 
         let mut i = 0;
@@ -238,7 +238,7 @@ impl Args {
 }
 
 #[scope]
-impl Args {
+impl TypstArgs {
     /// Construct spreadable arguments in place.
     ///
     /// This function behaves like `{let args(..sink) = sink}`.
@@ -251,12 +251,12 @@ impl Args {
     pub fn construct(
         /// The real arguments (the other argument is just for the docs).
         /// The docs argument cannot be called `args`.
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The arguments to construct.
         #[external]
         #[variadic]
         arguments: Vec<TypstValue>,
-    ) -> Args {
+    ) -> TypstArgs {
         args.take()
     }
 
@@ -280,20 +280,20 @@ impl Args {
     }
 }
 
-impl Debug for Args {
+impl Debug for TypstArgs {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         f.debug_list().entries(&self.items).finish()
     }
 }
 
-impl Repr for Args {
+impl Repr for TypstArgs {
     fn repr(&self) -> EcoString {
-        let pieces = self.items.iter().map(Arg::repr).collect::<Vec<_>>();
+        let pieces = self.items.iter().map(TypstArg::repr).collect::<Vec<_>>();
         repr::pretty_array_like(&pieces, false).into()
     }
 }
 
-impl PartialEq for Args {
+impl PartialEq for TypstArgs {
     fn eq(&self, other: &Self) -> bool {
         self.to_pos() == other.to_pos() && self.to_named() == other.to_named()
     }
@@ -302,7 +302,7 @@ impl PartialEq for Args {
 /// An argument to a function call: `12` or `draw: false`.
 #[derive(Clone, Hash)]
 #[allow(clippy::derived_hash_with_manual_eq)]
-pub struct Arg {
+pub struct TypstArg {
     /// The span of the whole argument.
     pub span: TypstSynSpan,
     /// The name of the argument (`None` for positional arguments).
@@ -311,7 +311,7 @@ pub struct Arg {
     pub value: Spanned<TypstValue>,
 }
 
-impl Debug for Arg {
+impl Debug for TypstArg {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         if let Some(name) = &self.name {
             name.fmt(f)?;
@@ -323,7 +323,7 @@ impl Debug for Arg {
     }
 }
 
-impl Repr for Arg {
+impl Repr for TypstArg {
     fn repr(&self) -> EcoString {
         if let Some(name) = &self.name {
             eco_format!("{}: {}", name, self.value.v.repr())
@@ -333,7 +333,7 @@ impl Repr for Arg {
     }
 }
 
-impl PartialEq for Arg {
+impl PartialEq for TypstArg {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name && self.value.v == other.value.v
     }
@@ -343,11 +343,11 @@ impl PartialEq for Arg {
 pub trait IntoArgs {
     /// Convert into arguments, attaching the `fallback` span in case `Self`
     /// doesn't have a span.
-    fn into_args(self, fallback: TypstSynSpan) -> Args;
+    fn into_args(self, fallback: TypstSynSpan) -> TypstArgs;
 }
 
-impl IntoArgs for Args {
-    fn into_args(self, _: TypstSynSpan) -> Args {
+impl IntoArgs for TypstArgs {
+    fn into_args(self, _: TypstSynSpan) -> TypstArgs {
         self
     }
 }
@@ -357,7 +357,7 @@ where
     I: IntoIterator<Item = T>,
     T: IntoTypstValue,
 {
-    fn into_args(self, fallback: TypstSynSpan) -> Args {
-        Args::new(fallback, self)
+    fn into_args(self, fallback: TypstSynSpan) -> TypstArgs {
+        TypstArgs::new(fallback, self)
     }
 }

@@ -2,8 +2,9 @@ use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{elem, Resolve, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Angle, Axes, FixedAlignment, HAlignment, LayoutMultiple, LayoutSingle, Ratio, Rel, Size,
-    TypstAbsLength, TypstAlignment, TypstFrame, TypstLength, TypstPoint, TypstRegions, VAlignment,
+    Angle, Axes, FixedAlignment, HAlignment, LayoutMultiple, Ratio, Rel, Size, TypstAbsLength,
+    TypstAlignment, TypstFrame, TypstLayoutSingle, TypstLength, TypstPoint, TypstRegions,
+    VAlignment,
 };
 
 /// Moves content without affecting layout.
@@ -24,7 +25,7 @@ use crate::layout::{
 ///   )
 /// ))
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct MoveElem {
     /// The horizontal displacement of the content.
     pub dx: Rel<TypstLength>,
@@ -37,7 +38,7 @@ pub struct MoveElem {
     pub body: TypstContent,
 }
 
-impl LayoutSingle for TypstContentRefined<MoveElem> {
+impl TypstLayoutSingle for TypstContentRefined<MoveElem> {
     #[husky_typst_macros::time(name = "move", span = self.span())]
     fn layout(
         &self,
@@ -68,7 +69,7 @@ impl LayoutSingle for TypstContentRefined<MoveElem> {
 ///     .map(i => rotate(24deg * i)[X]),
 /// )
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct RotateElem {
     /// The amount of rotation.
     ///
@@ -115,7 +116,7 @@ pub struct RotateElem {
     pub body: TypstContent,
 }
 
-impl LayoutSingle for TypstContentRefined<RotateElem> {
+impl TypstLayoutSingle for TypstContentRefined<RotateElem> {
     #[husky_typst_macros::time(name = "rotate", span = self.span())]
     fn layout(
         &self,
@@ -157,7 +158,7 @@ impl LayoutSingle for TypstContentRefined<RotateElem> {
 /// #scale(x: -100%)[This is mirrored.]
 /// #scale(x: -100%, reflow: true)[This is mirrored.]
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct ScaleElem {
     /// The horizontal scaling factor.
     ///
@@ -203,7 +204,7 @@ pub struct ScaleElem {
     pub body: TypstContent,
 }
 
-impl LayoutSingle for TypstContentRefined<ScaleElem> {
+impl TypstLayoutSingle for TypstContentRefined<ScaleElem> {
     #[husky_typst_macros::time(name = "scale", span = self.span())]
     fn layout(
         &self,
