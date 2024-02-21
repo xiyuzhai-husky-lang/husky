@@ -20,7 +20,7 @@ members = [
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
-    "crates/tex/*",
+    "crates/typst/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*",
@@ -150,7 +150,7 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 xxhash-rust = { version = "0.8.5" }
 winapi = "0.3.9"
-# tex dependencies
+# typst dependencies
 flate2 = "1"
 fontdb = { version = "0.16", default-features = false }
 hayagriva = "0.5.1"
@@ -348,17 +348,17 @@ husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-
 husky-task = { path = "crates/tasks/husky-task" }
 husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
-# tex
-husky-tex = { path = "crates/tex/husky-tex" }
-husky-tex-cli = { path = "crates/tex/husky-tex-cli" }
-husky-tex-docs = { path = "crates/tex/husky-tex-docs" }
-husky-tex-ide = { path = "crates/tex/husky-tex-ide" }
-husky-tex-macros = { path = "crates/tex/husky-tex-macros" }
-husky-tex-pdf = { path = "crates/tex/husky-tex-pdf" }
-husky-tex-render = { path = "crates/tex/husky-tex-render" }
-husky-tex-svg = { path = "crates/tex/husky-tex-svg" }
-husky-tex-syntax = { path = "crates/tex/husky-tex-syntax" }
-husky-tex-timing = { path = "crates/tex/husky-tex-timing" }
+# typst
+husky-typst = { path = "crates/typst/husky-typst" }
+husky-typst-cli = { path = "crates/typst/husky-typst-cli" }
+husky-typst-docs = { path = "crates/typst/husky-typst-docs" }
+husky-typst-ide = { path = "crates/typst/husky-typst-ide" }
+husky-typst-macros = { path = "crates/typst/husky-typst-macros" }
+husky-typst-pdf = { path = "crates/typst/husky-typst-pdf" }
+husky-typst-render = { path = "crates/typst/husky-typst-render" }
+husky-typst-svg = { path = "crates/typst/husky-typst-svg" }
+husky-typst-syntax = { path = "crates/typst/husky-typst-syntax" }
+husky-typst-timing = { path = "crates/typst/husky-typst-timing" }
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

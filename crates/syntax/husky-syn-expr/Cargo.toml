@@ -59,7 +59,6 @@ husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-corgi-config-ast.workspace = true
-husky-syn-expr = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

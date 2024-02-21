@@ -77,7 +77,6 @@ husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
-husky-rust-transpilation = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

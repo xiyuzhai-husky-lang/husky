@@ -178,7 +178,7 @@ acs-*.bib
 *.brf
 
 # knitr
-*-concordance.tex
+*-concordance.typst
 # TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
 # *.tikz
 *-tikzDictionary
@@ -238,7 +238,7 @@ svg-inkscape/
 # sympy
 *.sout
 *.sympy
-sympy-plots-for-*.tex/
+sympy-plots-for-*.typst/
 
 # pdfcomment
 *.upa
@@ -320,7 +320,7 @@ TSWLatexianTemp*
 *.el
 
 # expex forward references with \gathertags
-*-tags.tex
+*-tags.typst
 
 # standalone packages
 *.sta

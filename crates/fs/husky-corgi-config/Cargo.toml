@@ -24,7 +24,6 @@ husky-corgi-config-ast.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
-husky-corgi-config = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]
