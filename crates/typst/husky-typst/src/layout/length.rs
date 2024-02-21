@@ -4,11 +4,11 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{At, Hint, SourceResult};
-use crate::foundations::{func, scope, ty, Fold, Repr, Resolve, StyleChain, Styles};
+use crate::diag::{At, Hint, TypstSourceResult};
+use crate::foundations::{func, scope, ty, Fold, Repr, Resolve, TypstStyleChain, TypstStyles};
 use crate::layout::{TypstAbsLength, TypstEmLength};
 use crate::syntax::TypstSynSpan;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// A size or distance, possibly expressed with contextual units.
 ///
@@ -38,16 +38,17 @@ use crate::util::Numeric;
 /// - `abs`: A length with just the absolute component of the current length
 ///   (that is, excluding the `em` component).
 /// - `em`: The amount of `em` units in this length, as a [float]($float).
+/// the actual length is equal to the sum of `abs` and `em`
 #[ty(scope, cast)]
 #[derive(Default, Copy, Clone, Eq, PartialEq, Hash)]
-pub struct Length {
+pub struct TypstLength {
     /// The absolute part.
     pub abs: TypstAbsLength,
     /// The font-relative part.
     pub em: TypstEmLength,
 }
 
-impl Length {
+impl TypstLength {
     /// The zero length.
     pub const fn zero() -> Self {
         Self {
@@ -81,7 +82,7 @@ impl Length {
     }
 
     /// Fails with an error if the length has a non-zero font-relative part.
-    fn ensure_that_em_is_zero(&self, span: TypstSynSpan, unit: &str) -> SourceResult<()> {
+    fn ensure_that_em_is_zero(&self, span: TypstSynSpan, unit: &str) -> TypstSourceResult<()> {
         if self.em == TypstEmLength::zero() {
             return Ok(());
         }
@@ -97,7 +98,7 @@ impl Length {
 }
 
 #[scope]
-impl Length {
+impl TypstLength {
     /// Converts this length to points.
     ///
     /// Fails with an error if this length has non-zero `em` units (such as
@@ -105,7 +106,7 @@ impl Length {
     /// `(5em + 2pt).abs.pt()`) to ignore the `em` component of the length (thus
     /// converting only its absolute component).
     #[func(name = "pt", title = "Points")]
-    pub fn to_pt(&self, span: TypstSynSpan) -> SourceResult<f64> {
+    pub fn to_pt(&self, span: TypstSynSpan) -> TypstSourceResult<f64> {
         self.ensure_that_em_is_zero(span, "pt")?;
         Ok(self.abs.to_pt())
     }
@@ -115,7 +116,7 @@ impl Length {
     /// Fails with an error if this length has non-zero `em` units. See the
     /// [`pt`]($length.pt) method for more details.
     #[func(name = "mm", title = "Millimeters")]
-    pub fn to_mm(&self, span: TypstSynSpan) -> SourceResult<f64> {
+    pub fn to_mm(&self, span: TypstSynSpan) -> TypstSourceResult<f64> {
         self.ensure_that_em_is_zero(span, "mm")?;
         Ok(self.abs.to_mm())
     }
@@ -125,7 +126,7 @@ impl Length {
     /// Fails with an error if this length has non-zero `em` units. See the
     /// [`pt`]($length.pt) method for more details.
     #[func(name = "cm", title = "Centimeters")]
-    pub fn to_cm(&self, span: TypstSynSpan) -> SourceResult<f64> {
+    pub fn to_cm(&self, span: TypstSynSpan) -> TypstSourceResult<f64> {
         self.ensure_that_em_is_zero(span, "cm")?;
         Ok(self.abs.to_cm())
     }
@@ -135,7 +136,7 @@ impl Length {
     /// Fails with an error if this length has non-zero `em` units. See the
     /// [`pt`]($length.pt) method for more details.
     #[func(name = "inches")]
-    pub fn to_inches(&self, span: TypstSynSpan) -> SourceResult<f64> {
+    pub fn to_inches(&self, span: TypstSynSpan) -> TypstSourceResult<f64> {
         self.ensure_that_em_is_zero(span, "inches")?;
         Ok(self.abs.to_inches())
     }
@@ -166,14 +167,14 @@ impl Length {
         /// absolute length requires knowledge of the font size. This size is
         /// provided through these styles. You can obtain the styles using
         /// the [`style`]($style) function.
-        styles: Styles,
-    ) -> Length {
-        let styles = StyleChain::new(&styles);
+        styles: TypstStyles,
+    ) -> TypstLength {
+        let styles = TypstStyleChain::new(&styles);
         self.resolve(styles).into()
     }
 }
 
-impl Debug for Length {
+impl Debug for TypstLength {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         match (self.abs.is_zero(), self.em.is_zero()) {
             (false, false) => write!(f, "{:?} + {:?}", self.abs, self.em),
@@ -183,7 +184,7 @@ impl Debug for Length {
     }
 }
 
-impl Repr for Length {
+impl Repr for TypstLength {
     fn repr(&self) -> EcoString {
         match (self.abs.is_zero(), self.em.is_zero()) {
             (false, false) => eco_format!("{} + {}", self.abs.repr(), self.em.repr()),
@@ -193,7 +194,7 @@ impl Repr for Length {
     }
 }
 
-impl Numeric for Length {
+impl TypstNumeric for TypstLength {
     fn zero() -> Self {
         Self::zero()
     }
@@ -203,7 +204,7 @@ impl Numeric for Length {
     }
 }
 
-impl PartialOrd for Length {
+impl PartialOrd for TypstLength {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         if self.em.is_zero() && other.em.is_zero() {
             self.abs.partial_cmp(&other.abs)
@@ -215,7 +216,7 @@ impl PartialOrd for Length {
     }
 }
 
-impl From<TypstAbsLength> for Length {
+impl From<TypstAbsLength> for TypstLength {
     fn from(abs: TypstAbsLength) -> Self {
         Self {
             abs,
@@ -224,7 +225,7 @@ impl From<TypstAbsLength> for Length {
     }
 }
 
-impl From<TypstEmLength> for Length {
+impl From<TypstEmLength> for TypstLength {
     fn from(em: TypstEmLength) -> Self {
         Self {
             abs: TypstAbsLength::zero(),
@@ -233,7 +234,7 @@ impl From<TypstEmLength> for Length {
     }
 }
 
-impl Neg for Length {
+impl Neg for TypstLength {
     type Output = Self;
 
     fn neg(self) -> Self::Output {
@@ -244,7 +245,7 @@ impl Neg for Length {
     }
 }
 
-impl Add for Length {
+impl Add for TypstLength {
     type Output = Self;
 
     fn add(self, rhs: Self) -> Self::Output {
@@ -255,9 +256,9 @@ impl Add for Length {
     }
 }
 
-sub_impl!(Length - Length -> Length);
+sub_impl!(TypstLength - TypstLength -> TypstLength);
 
-impl Mul<f64> for Length {
+impl Mul<f64> for TypstLength {
     type Output = Self;
 
     fn mul(self, rhs: f64) -> Self::Output {
@@ -268,15 +269,15 @@ impl Mul<f64> for Length {
     }
 }
 
-impl Mul<Length> for f64 {
-    type Output = Length;
+impl Mul<TypstLength> for f64 {
+    type Output = TypstLength;
 
-    fn mul(self, rhs: Length) -> Self::Output {
+    fn mul(self, rhs: TypstLength) -> Self::Output {
         rhs * self
     }
 }
 
-impl Div<f64> for Length {
+impl Div<f64> for TypstLength {
     type Output = Self;
 
     fn div(self, rhs: f64) -> Self::Output {
@@ -287,20 +288,20 @@ impl Div<f64> for Length {
     }
 }
 
-assign_impl!(Length += Length);
-assign_impl!(Length -= Length);
-assign_impl!(Length *= f64);
-assign_impl!(Length /= f64);
+assign_impl!(TypstLength += TypstLength);
+assign_impl!(TypstLength -= TypstLength);
+assign_impl!(TypstLength *= f64);
+assign_impl!(TypstLength /= f64);
 
-impl Resolve for Length {
+impl Resolve for TypstLength {
     type Output = TypstAbsLength;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.abs + self.em.resolve(styles)
     }
 }
 
-impl Fold for Length {
+impl Fold for TypstLength {
     fn fold(self, _: Self) -> Self {
         self
     }

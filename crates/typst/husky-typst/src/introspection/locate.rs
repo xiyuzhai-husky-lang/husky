@@ -1,7 +1,7 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, func, Func, IsTypstElem, Show, StyleChain, TypstContent, TypstContentRefined,
+    elem, func, Func, IsTypstElem, Show, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::introspection::Locatable;
 use crate::syntax::TypstSynSpan;
@@ -43,7 +43,11 @@ struct LocateElem {
 
 impl Show for TypstContentRefined<LocateElem> {
     #[husky_typst_macros::time(name = "locate", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        _: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let location = self.location().unwrap();
         Ok(self.func().call(engine, [location])?.display())
     }

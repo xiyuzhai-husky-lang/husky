@@ -1,7 +1,7 @@
 use std::ops::{Add, Div, Mul, Neg};
 
-use crate::layout::{Axes, Point, Ratio, TypstAbsLength};
-use crate::util::Numeric;
+use crate::layout::{Axes, Ratio, TypstAbsLength, TypstPoint};
+use crate::util::TypstNumeric;
 
 /// A size in 2D.
 pub type Size = Axes<TypstAbsLength>;
@@ -21,8 +21,8 @@ impl Size {
     }
 
     /// Convert to a point.
-    pub fn to_point(self) -> Point {
-        Point::new(self.x, self.y)
+    pub fn to_point(self) -> TypstPoint {
+        TypstPoint::new(self.x, self.y)
     }
 
     /// Converts to a ratio of width to height.
@@ -31,7 +31,7 @@ impl Size {
     }
 }
 
-impl Numeric for Size {
+impl TypstNumeric for Size {
     fn zero() -> Self {
         Self::zero()
     }

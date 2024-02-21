@@ -8,8 +8,8 @@ pub(super) fn render(painter: &egui::Painter, frame: &TypstFrame) {
     render_inner(painter, origin, items);
 }
 
-fn render_item(painter: &egui::Painter, origin: Pos2, position: Point, item: &TypstFrameItem) {
-    let translate_point = |point: Point| origin + vec2(to_px(point.x), to_px(point.y));
+fn render_item(painter: &egui::Painter, origin: Pos2, position: TypstPoint, item: &TypstFrameItem) {
+    let translate_point = |point: TypstPoint| origin + vec2(to_px(point.x), to_px(point.y));
     let translate_size = |size: Size| vec2(to_px(size.x), to_px(size.y));
     let translate_stroke = |stroke: Option<TypstFixedStroke>| {
         stroke.map_or(Stroke::NONE, |stroke| {
@@ -91,7 +91,7 @@ fn render_item(painter: &egui::Painter, origin: Pos2, position: Point, item: &Ty
 fn render_inner<'a>(
     painter: &egui::Painter,
     origin: Pos2,
-    items: impl Iterator<Item = &'a (Point, TypstFrameItem)>,
+    items: impl Iterator<Item = &'a (TypstPoint, TypstFrameItem)>,
 ) {
     for (position, item) in items {
         render_item(painter, origin, *position, item);

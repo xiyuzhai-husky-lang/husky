@@ -1,9 +1,10 @@
 use ecow::EcoString;
 use unicode_math_class::MathClass;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::foundations::{
-    elem, IsTypstElem, StyleChain, TypstContent, TypstContentRefined, TypstValueAssignmentGroup,
+    elem, IsTypstElem, TypstContent, TypstContentRefined, TypstStyleChain,
+    TypstValueAssignmentGroup,
 };
 use crate::layout::HElem;
 use crate::math::{upright, FrameFragment, Limits, MathContext, TypstLayoutMath, THIN};
@@ -37,7 +38,7 @@ pub struct OpElem {
 
 impl TypstLayoutMath for TypstContentRefined<OpElem> {
     #[husky_typst_macros::time(name = "math.op", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let fragment = ctx.layout_fragment(self.text(), styles)?;
         let italics = fragment.italics_correction();
         let accent_attach = fragment.accent_attach();

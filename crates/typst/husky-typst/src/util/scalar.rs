@@ -6,7 +6,7 @@ use std::ops::{
     Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Rem, RemAssign, Sub, SubAssign,
 };
 
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// A 64-bit float that implements `Eq`, `Ord` and `Hash`.
 ///
@@ -48,7 +48,7 @@ const fn is_nan(x: f64) -> bool {
     (x_bits << 1 >> (64 - 12 + 1)) == 0b0_111_1111_1111 && (x_bits << 12) != 0
 }
 
-impl Numeric for Scalar {
+impl TypstNumeric for Scalar {
     fn zero() -> Self {
         Self(0.0)
     }

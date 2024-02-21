@@ -7,15 +7,15 @@ use std::num::NonZeroUsize;
 use ecow::eco_format;
 use smallvec::{smallvec, SmallVec};
 
-use crate::diag::{SourceResult, StrResult, Trace, Tracepoint};
+use crate::diag::{StrResult, Trace, Tracepoint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Show, Smart, StyleChain, TypstContent, TypstContentRefined,
-    TypstValue,
+    cast, elem, scope, Array, Fold, Show, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstValue,
 };
 use crate::layout::{
-    AlignElem, Axes, LayoutMultiple, Length, Regions, Rel, Sides, TypstAlignment,
-    TypstLayoutFragment, TypstSizing,
+    AlignElem, Axes, LayoutMultiple, Rel, Sides, TypstAlignment, TypstLayoutFragment, TypstLength,
+    TypstRegions, TypstSizing,
 };
 use crate::syntax::TypstSynSpan;
 use crate::util::NonZeroExt;
@@ -265,7 +265,7 @@ pub struct GridElem {
     /// )
     /// ```
     #[fold]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// The contents of the grid cells.
     ///
@@ -285,9 +285,9 @@ impl LayoutMultiple for TypstContentRefined<GridElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let inset = self.inset(styles);
         let align = self.align(styles);
         let columns = self.columns(styles);
@@ -441,7 +441,7 @@ pub struct GridCell {
     align: Smart<TypstAlignment>,
 
     /// The cell's inset override.
-    inset: Smart<Sides<Option<Rel<Length>>>>,
+    inset: Smart<Sides<Option<Rel<TypstLength>>>>,
 }
 
 cast! {
@@ -462,8 +462,8 @@ impl ResolvableCell for TypstContentRefined<GridCell> {
         y: usize,
         fill: &Option<TypstPaint>,
         align: Smart<TypstAlignment>,
-        inset: Sides<Option<Rel<Length>>>,
-        styles: StyleChain,
+        inset: Sides<Option<Rel<TypstLength>>>,
+        styles: TypstStyleChain,
     ) -> Cell {
         let cell = &mut *self;
         let colspan = cell.colspan(styles);
@@ -490,15 +490,15 @@ impl ResolvableCell for TypstContentRefined<GridCell> {
         }
     }
 
-    fn x(&self, styles: StyleChain) -> Smart<usize> {
+    fn x(&self, styles: TypstStyleChain) -> Smart<usize> {
         (**self).x(styles)
     }
 
-    fn y(&self, styles: StyleChain) -> Smart<usize> {
+    fn y(&self, styles: TypstStyleChain) -> Smart<usize> {
         (**self).y(styles)
     }
 
-    fn colspan(&self, styles: StyleChain) -> NonZeroUsize {
+    fn colspan(&self, styles: TypstStyleChain) -> NonZeroUsize {
         (**self).colspan(styles)
     }
 
@@ -508,7 +508,11 @@ impl ResolvableCell for TypstContentRefined<GridCell> {
 }
 
 impl Show for TypstContentRefined<GridCell> {
-    fn show(&self, _engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         show_grid_cell(self.body().clone(), self.inset(styles), self.align(styles))
     }
 }
@@ -523,9 +527,9 @@ impl From<TypstContent> for GridCell {
 /// Function with common code to display a grid cell or table cell.
 pub fn show_grid_cell(
     mut body: TypstContent,
-    inset: Smart<Sides<Option<Rel<Length>>>>,
+    inset: Smart<Sides<Option<Rel<TypstLength>>>>,
     align: Smart<TypstAlignment>,
-) -> SourceResult<TypstContent> {
+) -> TypstSourceResult<TypstContent> {
     let inset = inset.unwrap_or_default().map(Option::unwrap_or_default);
 
     if inset != Sides::default() {

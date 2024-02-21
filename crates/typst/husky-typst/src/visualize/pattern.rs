@@ -4,12 +4,14 @@ use std::sync::Arc;
 use comemo::Prehashed;
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
-use crate::foundations::{func, repr, scope, ty, Smart, StyleChain, TypstContent};
-use crate::layout::{Axes, LayoutMultiple, Length, Regions, Size, TypstAbsLength, TypstFrame};
+use crate::foundations::{func, repr, scope, ty, Smart, TypstContent, TypstStyleChain};
+use crate::layout::{
+    Axes, LayoutMultiple, Size, TypstAbsLength, TypstFrame, TypstLength, TypstRegions,
+};
 use crate::syntax::{Spanned, TypstSynSpan};
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::RelativeTo;
 use crate::IsTypstWorld;
 
@@ -140,11 +142,11 @@ impl Pattern {
         /// The bounding box of each cell of the pattern.
         #[named]
         #[default(Spanned::new(Smart::Auto, TypstSynSpan::detached()))]
-        size: Spanned<Smart<Axes<Length>>>,
+        size: Spanned<Smart<Axes<TypstLength>>>,
         /// The spacing between cells of the pattern.
         #[named]
-        #[default(Spanned::new(Axes::splat(Length::zero()), TypstSynSpan::detached()))]
-        spacing: Spanned<Axes<Length>>,
+        #[default(Spanned::new(Axes::splat(TypstLength::zero()), TypstSynSpan::detached()))]
+        spacing: Spanned<Axes<TypstLength>>,
         /// The [relative placement](#relativeness) of the pattern.
         ///
         /// For an element placed at the root/top level of the document, the
@@ -156,7 +158,7 @@ impl Pattern {
         relative: Smart<RelativeTo>,
         /// The content of each cell of the pattern.
         body: TypstContent,
-    ) -> SourceResult<Pattern> {
+    ) -> TypstSourceResult<Pattern> {
         let size_span = size.span;
         if let Smart::Custom(size) = size.v {
             // Ensure that sizes are absolute.
@@ -190,8 +192,8 @@ impl Pattern {
         // Layout the pattern.
         let world = engine.world;
         let library = world.library();
-        let styles = StyleChain::new(&library.styles);
-        let pod = Regions::one(region, Axes::splat(false));
+        let styles = TypstStyleChain::new(&library.styles);
+        let pod = TypstRegions::one(region, Axes::splat(false));
         let mut frame = body.layout(engine, styles, pod)?.into_frame();
 
         // Set the size of the frame if the size is enforced.

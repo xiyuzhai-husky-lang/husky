@@ -8,7 +8,7 @@ use ecow::{eco_format, EcoString};
 use smallvec::SmallVec;
 use unicode_math_class::MathClass;
 
-use crate::diag::{At, SourceResult, StrResult};
+use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::foundations::{
     array, repr, IsTypstElem, Repr, Str, Type, TypstContentRefined, TypstValue,
 };
@@ -128,7 +128,7 @@ impl<T: Reflect> Reflect for StrResult<T> {
     }
 }
 
-impl<T: Reflect> Reflect for SourceResult<T> {
+impl<T: Reflect> Reflect for TypstSourceResult<T> {
     fn input() -> CastInfo {
         T::input()
     }
@@ -214,29 +214,29 @@ impl<T: IntoTypstValue + Hash + 'static> IntoTypstValue for Prehashed<T> {
     }
 }
 
-/// Cast a Rust type or result into a [`SourceResult<TypstValue>`].
+/// Cast a Rust type or result into a [`TypstSourceResult<TypstValue>`].
 ///
-/// Converts `T`, [`StrResult<T>`], or [`SourceResult<T>`] into
-/// [`SourceResult<TypstValue>`] by `Ok`-wrapping or adding span information.
+/// Converts `T`, [`StrResult<T>`], or [`TypstSourceResult<T>`] into
+/// [`TypstSourceResult<TypstValue>`] by `Ok`-wrapping or adding span information.
 pub trait IntoResult {
     /// Cast this type into a value.
-    fn into_result(self, span: TypstSynSpan) -> SourceResult<TypstValue>;
+    fn into_result(self, span: TypstSynSpan) -> TypstSourceResult<TypstValue>;
 }
 
 impl<T: IntoTypstValue> IntoResult for T {
-    fn into_result(self, _: TypstSynSpan) -> SourceResult<TypstValue> {
+    fn into_result(self, _: TypstSynSpan) -> TypstSourceResult<TypstValue> {
         Ok(self.into_value())
     }
 }
 
 impl<T: IntoTypstValue> IntoResult for StrResult<T> {
-    fn into_result(self, span: TypstSynSpan) -> SourceResult<TypstValue> {
+    fn into_result(self, span: TypstSynSpan) -> TypstSourceResult<TypstValue> {
         self.map(IntoTypstValue::into_value).at(span)
     }
 }
 
-impl<T: IntoTypstValue> IntoResult for SourceResult<T> {
-    fn into_result(self, _: TypstSynSpan) -> SourceResult<TypstValue> {
+impl<T: IntoTypstValue> IntoResult for TypstSourceResult<T> {
+    fn into_result(self, _: TypstSynSpan) -> TypstSourceResult<TypstValue> {
         self.map(IntoTypstValue::into_value)
     }
 }

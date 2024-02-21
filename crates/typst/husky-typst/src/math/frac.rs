@@ -1,6 +1,6 @@
-use crate::diag::{bail, SourceResult};
-use crate::foundations::{elem, StyleChain, TypstContent, TypstContentRefined, TypstValue};
-use crate::layout::{Point, Size, TypstEmLength, TypstFrame, TypstFrameItem};
+use crate::diag::{bail, TypstSourceResult};
+use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain, TypstValue};
+use crate::layout::{Size, TypstEmLength, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
     MathContext, Scaled, TypstLayoutMath, DELIM_SHORT_FALL,
@@ -37,7 +37,7 @@ pub struct FracElem {
 
 impl TypstLayoutMath for TypstContentRefined<FracElem> {
     #[husky_typst_macros::time(name = "math.frac", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout(
             ctx,
             styles,
@@ -78,7 +78,7 @@ pub struct BinomElem {
 
 impl TypstLayoutMath for TypstContentRefined<BinomElem> {
     #[husky_typst_macros::time(name = "math.binom", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout(ctx, styles, self.upper(), self.lower(), true, self.span())
     }
 }
@@ -86,12 +86,12 @@ impl TypstLayoutMath for TypstContentRefined<BinomElem> {
 /// Layout a fraction or binomial.
 fn layout(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     num: &TypstContent,
     denom: &[TypstContent],
     binom: bool,
     span: TypstSynSpan,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let font_size = scaled_font_size(ctx, styles);
     let short_fall = DELIM_SHORT_FALL.at(font_size);
     let axis = scaled!(ctx, styles, axis_height);
@@ -140,12 +140,12 @@ fn layout(
     let width = line_width + 2.0 * around;
     let height = num.height() + num_gap + thickness + denom_gap + denom.height();
     let size = Size::new(width, height);
-    let num_pos = Point::with_x((width - num.width()) / 2.0);
-    let line_pos = Point::new(
+    let num_pos = TypstPoint::with_x((width - num.width()) / 2.0);
+    let line_pos = TypstPoint::new(
         (width - line_width) / 2.0,
         num.height() + num_gap + thickness / 2.0,
     );
-    let denom_pos = Point::new((width - denom.width()) / 2.0, height - denom.height());
+    let denom_pos = TypstPoint::new((width - denom.width()) / 2.0, height - denom.height());
     let baseline = line_pos.y + axis;
 
     let mut frame = TypstFrame::soft(size);
@@ -167,7 +167,7 @@ fn layout(
         frame.push(
             line_pos,
             TypstFrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(line_width)).stroked(
+                TypstGeometry::Line(TypstPoint::with_x(line_width)).stroked(
                     TypstFixedStroke::from_pair(
                         TextElem::fill_in(styles).as_decoration(),
                         thickness,

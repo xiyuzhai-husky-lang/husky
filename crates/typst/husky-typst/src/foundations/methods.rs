@@ -1,6 +1,6 @@
 //! Handles special built-in methods on values.
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::foundations::{Args, Array, Str, Type, TypstDict, TypstValue};
 use crate::syntax::TypstSynSpan;
 
@@ -39,7 +39,7 @@ pub(crate) fn call_method_mut(
     method: &str,
     mut args: Args,
     span: TypstSynSpan,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let ty = value.ty();
     let missing = || Err(missing_method(ty, method)).at(span);
     let mut output = TypstValue::None;
@@ -82,7 +82,7 @@ pub(crate) fn call_method_access<'a>(
     method: &str,
     mut args: Args,
     span: TypstSynSpan,
-) -> SourceResult<&'a mut TypstValue> {
+) -> TypstSourceResult<&'a mut TypstValue> {
     let ty = value.ty();
     let missing = || Err(missing_method(ty, method)).at(span);
 

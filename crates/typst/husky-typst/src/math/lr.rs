@@ -1,10 +1,10 @@
 use unicode_math_class::MathClass;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::foundations::{
-    elem, func, IsTypstElem, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined,
+    elem, func, IsTypstElem, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
-use crate::layout::{Length, Rel, TypstAbsLength, TypstEmLength};
+use crate::layout::{Rel, TypstAbsLength, TypstEmLength, TypstLength};
 use crate::math::{
     GlyphFragment, MathContext, MathFragment, Scaled, SpacingFragment, TypstLayoutMath,
 };
@@ -20,7 +20,7 @@ pub(super) const DELIM_SHORT_FALL: TypstEmLength = TypstEmLength::new(0.1);
 #[elem(title = "Left/Right", TypstLayoutMath)]
 pub struct LrElem {
     /// The size of the brackets, relative to the height of the wrapped content.
-    pub size: Smart<Rel<Length>>,
+    pub size: Smart<Rel<TypstLength>>,
 
     /// The delimited content, including the delimiters.
     #[required]
@@ -39,7 +39,7 @@ pub struct LrElem {
 
 impl TypstLayoutMath for TypstContentRefined<LrElem> {
     #[husky_typst_macros::time(name = "math.lr", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let mut body = self.body();
         if let Some(elem) = body.to_packed::<LrElem>() {
             if elem.size(styles).is_auto() {
@@ -114,7 +114,7 @@ pub struct MidElem {
 
 impl TypstLayoutMath for TypstContentRefined<MidElem> {
     #[husky_typst_macros::time(name = "math.mid", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let mut fragments = ctx.layout_fragments(self.body(), styles)?;
 
         for fragment in &mut fragments {
@@ -139,7 +139,7 @@ impl TypstLayoutMath for TypstContentRefined<MidElem> {
 /// Scale a math fragment to a height.
 fn scale(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     fragment: &mut MathFragment,
     height: TypstAbsLength,
     apply: Option<MathClass>,
@@ -176,7 +176,7 @@ fn scale(
 pub fn floor(
     /// The size of the brackets, relative to the height of the wrapped content.
     #[named]
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
     /// The expression to floor.
     body: TypstContent,
 ) -> TypstContent {
@@ -192,7 +192,7 @@ pub fn floor(
 pub fn ceil(
     /// The size of the brackets, relative to the height of the wrapped content.
     #[named]
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
     /// The expression to ceil.
     body: TypstContent,
 ) -> TypstContent {
@@ -208,7 +208,7 @@ pub fn ceil(
 pub fn round(
     /// The size of the brackets, relative to the height of the wrapped content.
     #[named]
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
     /// The expression to round.
     body: TypstContent,
 ) -> TypstContent {
@@ -224,7 +224,7 @@ pub fn round(
 pub fn abs(
     /// The size of the brackets, relative to the height of the wrapped content.
     #[named]
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
     /// The expression to take the absolute value of.
     body: TypstContent,
 ) -> TypstContent {
@@ -240,7 +240,7 @@ pub fn abs(
 pub fn norm(
     /// The size of the brackets, relative to the height of the wrapped content.
     #[named]
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
     /// The expression to take the norm of.
     body: TypstContent,
 ) -> TypstContent {
@@ -251,7 +251,7 @@ fn delimited(
     body: TypstContent,
     left: char,
     right: char,
-    size: Option<Smart<Rel<Length>>>,
+    size: Option<Smart<Rel<TypstLength>>>,
 ) -> TypstContent {
     let span = body.span();
     let mut elem = LrElem::new(TypstContent::sequence([

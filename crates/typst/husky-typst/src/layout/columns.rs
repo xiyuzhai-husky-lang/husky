@@ -1,14 +1,16 @@
 use std::num::NonZeroUsize;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Behave, Behaviour, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{
+    elem, Behave, Behaviour, TypstContent, TypstContentRefined, TypstStyleChain,
+};
 use crate::layout::{
-    Axes, LayoutMultiple, Length, Point, Ratio, Regions, Rel, Size, TypstAbsLength, TypstFrame,
-    TypstLayoutDirection, TypstLayoutFragment,
+    Axes, LayoutMultiple, Ratio, Rel, Size, TypstAbsLength, TypstFrame, TypstLayoutDirection,
+    TypstLayoutFragment, TypstLength, TypstPoint, TypstRegions,
 };
 use crate::text::TextElem;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// Separates a region into multiple equally sized columns.
 ///
@@ -51,7 +53,7 @@ pub struct ColumnsElem {
     /// The size of the gutter space between each column.
     #[resolve]
     #[default(Ratio::new(0.04).into())]
-    pub gutter: Rel<Length>,
+    pub gutter: Rel<TypstLength>,
 
     /// The content that should be layouted into the columns.
     #[required]
@@ -63,9 +65,9 @@ impl LayoutMultiple for TypstContentRefined<ColumnsElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let body = self.body();
 
         // Separating the infinite space into infinite columns does not make
@@ -86,7 +88,7 @@ impl LayoutMultiple for TypstContentRefined<ColumnsElem> {
             .collect();
 
         // Create the pod regions.
-        let pod = Regions {
+        let pod = TypstRegions {
             size: Size::new(width, regions.size.y),
             full: regions.full,
             backlog: &backlog,
@@ -129,7 +131,7 @@ impl LayoutMultiple for TypstContentRefined<ColumnsElem> {
                     regions.size.x - cursor - width
                 };
 
-                output.push_frame(Point::with_x(x), frame);
+                output.push_frame(TypstPoint::with_x(x), frame);
                 cursor += width + gutter;
             }
 
@@ -173,7 +175,7 @@ pub struct ColbreakElem {
 
 impl Behave for TypstContentRefined<ColbreakElem> {
     fn behaviour(&self) -> Behaviour {
-        if self.weak(StyleChain::default()) {
+        if self.weak(TypstStyleChain::default()) {
             Behaviour::Weak(1)
         } else {
             Behaviour::Destructive

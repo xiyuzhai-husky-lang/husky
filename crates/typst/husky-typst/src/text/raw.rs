@@ -9,11 +9,11 @@ use syntect::highlighting as synt;
 use syntect::parsing::{SyntaxDefinition, SyntaxSet, SyntaxSetBuilder};
 use unicode_segmentation::UnicodeSegmentation;
 
-use crate::diag::{At, FileError, SourceResult, StrResult};
+use crate::diag::{At, FileError, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, elem, scope, Args, Array, Bytes, Fold, IsTypstElem, PlainText, Show, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, TypstContent, TypstContentRefined, TypstValue,
+    Synthesize, TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles, TypstValue,
 };
 use crate::layout::{BlockElem, HAlignment, TypstEmLength};
 use crate::model::Figurable;
@@ -288,7 +288,11 @@ impl RawElem {
 }
 
 impl Synthesize for TypstContentRefined<RawElem> {
-    fn synthesize(&mut self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let seq = self.highlight(styles);
         self.push_lines(seq);
         Ok(())
@@ -297,7 +301,7 @@ impl Synthesize for TypstContentRefined<RawElem> {
 
 impl TypstContentRefined<RawElem> {
     #[comemo::memoize]
-    fn highlight(&self, styles: StyleChain) -> Vec<TypstContentRefined<RawLine>> {
+    fn highlight(&self, styles: TypstStyleChain) -> Vec<TypstContentRefined<RawLine>> {
         let elem = self.as_ref();
         let span = self.span();
 
@@ -406,7 +410,11 @@ impl TypstContentRefined<RawElem> {
 
 impl Show for TypstContentRefined<RawElem> {
     #[husky_typst_macros::time(name = "raw", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let lines = self.lines().map(|v| v.as_slice()).unwrap_or_default();
 
         let mut seq = EcoVec::with_capacity((2 * lines.len()).saturating_sub(1));
@@ -433,8 +441,8 @@ impl Show for TypstContentRefined<RawElem> {
 }
 
 impl ShowSet for TypstContentRefined<RawElem> {
-    fn show_set(&self, _: StyleChain) -> Styles {
-        let mut out = Styles::new();
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
+        let mut out = TypstStyles::new();
         out.set(TextElem::set_overhang(false));
         out.set(TextElem::set_hyphenate(Hyphenate(Smart::Custom(false))));
         out.set(TextElem::set_size(TextSize(TypstEmLength::new(0.8).into())));
@@ -518,7 +526,11 @@ pub struct RawLine {
 
 impl Show for TypstContentRefined<RawLine> {
     #[husky_typst_macros::time(name = "raw.line", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, _styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        _styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self.body().clone())
     }
 }
@@ -700,7 +712,7 @@ fn load_syntaxes(paths: &SyntaxPaths, bytes: &[Bytes]) -> StrResult<Arc<SyntaxSe
 fn parse_syntaxes(
     engine: &mut TypstEngine,
     args: &mut Args,
-) -> SourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
+) -> TypstSourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
     let Some(Spanned { v: paths, span }) = args.named::<Spanned<SyntaxPaths>>("syntaxes")? else {
         return Ok((None, None));
     };
@@ -713,7 +725,7 @@ fn parse_syntaxes(
             let id = span.resolve_path(path).at(span)?;
             engine.world.file(id).at(span)
         })
-        .collect::<SourceResult<Vec<Bytes>>>()?;
+        .collect::<TypstSourceResult<Vec<Bytes>>>()?;
 
     // Check that parsing works.
     let _ = load_syntaxes(&paths, &data).at(span)?;
@@ -736,7 +748,7 @@ fn load_theme(path: &str, bytes: &Bytes) -> StrResult<Arc<synt::Theme>> {
 fn parse_theme(
     engine: &mut TypstEngine,
     args: &mut Args,
-) -> SourceResult<(Option<EcoString>, Option<Bytes>)> {
+) -> TypstSourceResult<(Option<EcoString>, Option<Bytes>)> {
     let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")? else {
         return Ok((None, None));
     };

@@ -3,8 +3,8 @@ use std::ops::Add;
 
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
-    cast, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
-    TypstValue,
+    cast, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, TypstDict,
+    TypstStyleChain, TypstValue,
 };
 use crate::layout::{Axes, Axis, Corner, Rel, Size, TypstAbsLength, TypstAlignment};
 use crate::util::Get;
@@ -247,7 +247,7 @@ where
 impl<T: Resolve> Resolve for Sides<T> {
     type Output = Sides<T::Output>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.map(|v| v.resolve(styles))
     }
 }

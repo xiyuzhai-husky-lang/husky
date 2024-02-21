@@ -1,14 +1,14 @@
-use crate::diag::SourceResult;
-use crate::foundations::{elem, StyleChain, TypstContentRefined};
+use crate::diag::TypstSourceResult;
+use crate::foundations::{elem, TypstContentRefined, TypstStyleChain};
 use crate::layout::TypstAbsLength;
 use crate::math::{MathContext, MathFragment, MathRow, TypstLayoutMath};
 
 /// A math alignment point: `&`, `&&`.
-#[elem(title = "Alignment Point", TypstLayoutMath)]
+#[elem(title = "Alignment TypstPoint", TypstLayoutMath)]
 pub struct TypstAlignPointElem {}
 
 impl TypstLayoutMath for TypstContentRefined<TypstAlignPointElem> {
-    fn layout_math(&self, ctx: &mut MathContext, _: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, _: TypstStyleChain) -> TypstSourceResult<()> {
         ctx.push(MathFragment::Align);
         Ok(())
     }

@@ -1,7 +1,7 @@
 use comemo::{Prehashed, Tracked, TrackedMut};
 use ecow::{eco_format, EcoVec};
 
-use crate::diag::{bail, error, At, HintedStrResult, SourceResult, Trace, Tracepoint};
+use crate::diag::{bail, error, At, HintedStrResult, Trace, Tracepoint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
@@ -19,7 +19,7 @@ use crate::IsTypstWorld;
 impl Eval for ast::FuncCall<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let span = self.span();
         let callee = self.callee();
         let in_math = in_math(callee);
@@ -184,7 +184,7 @@ impl Eval for ast::FuncCall<'_> {
 impl Eval for ast::Args<'_> {
     type Output = Args;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let mut items = EcoVec::with_capacity(self.items().count());
 
         for arg in self.items() {
@@ -236,7 +236,7 @@ impl Eval for ast::Args<'_> {
 impl Eval for ast::Closure<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         // Evaluate default values of named parameters.
         let mut defaults = Vec::new();
         for param in self.params().children() {
@@ -277,7 +277,7 @@ pub(crate) fn call_closure(
     locator: Tracked<Locator>,
     tracer: TrackedMut<Tracer>,
     mut args: Args,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let node = closure.node.cast::<ast::Closure>().unwrap();
 
     // Don't leak the scopes from the call site. Instead, we use the scope

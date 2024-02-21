@@ -4,7 +4,7 @@ use crate::layout::{Axes, Size, TypstAbsLength};
 
 /// A sequence of regions to layout into.
 #[derive(Copy, Clone, Hash)]
-pub struct Regions<'a> {
+pub struct TypstRegions<'a> {
     /// The remaining size of the first region.
     pub size: Size,
     /// The full height of the region for relative sizing.
@@ -24,7 +24,7 @@ pub struct Regions<'a> {
     pub root: bool,
 }
 
-impl Regions<'_> {
+impl TypstRegions<'_> {
     /// Create a new region sequence with exactly one region.
     pub fn one(size: Size, expand: Axes<bool>) -> Self {
         Self {
@@ -61,14 +61,14 @@ impl Regions<'_> {
     ///
     /// Note that since all regions must have the same width, the width returned
     /// by `f` is ignored for the backlog and the final region.
-    pub fn map<'v, F>(&self, backlog: &'v mut Vec<TypstAbsLength>, mut f: F) -> Regions<'v>
+    pub fn map<'v, F>(&self, backlog: &'v mut Vec<TypstAbsLength>, mut f: F) -> TypstRegions<'v>
     where
         F: FnMut(Size) -> Size,
     {
         let x = self.size.x;
         backlog.clear();
         backlog.extend(self.backlog.iter().map(|&y| f(Size::new(x, y)).y));
-        Regions {
+        TypstRegions {
             size: f(self.size),
             full: f(Size::new(x, self.full)).y,
             backlog,
@@ -123,9 +123,9 @@ impl Regions<'_> {
     }
 }
 
-impl Debug for Regions<'_> {
+impl Debug for TypstRegions<'_> {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-        f.write_str("Regions ")?;
+        f.write_str("TypstRegions ")?;
         let mut list = f.debug_list();
         let mut prev = self.size.y;
         list.entry(&self.size);

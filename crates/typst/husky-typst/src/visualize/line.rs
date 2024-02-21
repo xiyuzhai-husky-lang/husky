@@ -1,11 +1,11 @@
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, StyleChain, TypstContentRefined};
+use crate::foundations::{elem, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Angle, Axes, LayoutSingle, Length, Regions, Rel, Size, TypstAbsLength, TypstFrame,
-    TypstFrameItem,
+    Angle, Axes, LayoutSingle, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstLength,
+    TypstRegions,
 };
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::{TypstGeometry, TypstStroke};
 
 /// A line from one point to another.
@@ -27,16 +27,16 @@ pub struct LineElem {
     ///
     /// Must be an array of exactly two relative lengths.
     #[resolve]
-    pub start: Axes<Rel<Length>>,
+    pub start: Axes<Rel<TypstLength>>,
 
     /// The offset from `start` where the line ends.
     #[resolve]
-    pub end: Option<Axes<Rel<Length>>>,
+    pub end: Option<Axes<Rel<TypstLength>>>,
 
     /// The line's length. This is only respected if `end` is `none`.
     #[resolve]
     #[default(TypstAbsLength::pt(30.0).into())]
-    pub length: Rel<Length>,
+    pub length: Rel<TypstLength>,
 
     /// The angle at which the line points away from the origin. This is only
     /// respected if `end` is `none`.
@@ -64,9 +64,9 @@ impl LayoutSingle for TypstContentRefined<LineElem> {
     fn layout(
         &self,
         _: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         let resolve =
             |axes: Axes<Rel<TypstAbsLength>>| axes.zip_map(regions.base(), Rel::relative_to);
         let start = resolve(self.start(styles));

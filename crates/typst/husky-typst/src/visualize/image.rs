@@ -13,21 +13,21 @@ use std::sync::Arc;
 use comemo::{Prehashed, Tracked};
 use ecow::EcoString;
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, func, scope, Bytes, Cast, IsTypstElem, Resolve, Smart, StyleChain, TypstContent,
-    TypstContentRefined,
+    cast, elem, func, scope, Bytes, Cast, IsTypstElem, Resolve, Smart, TypstContent,
+    TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, FixedAlignment, LayoutSingle, Length, Point, Regions, Rel, Size, TypstAbsLength,
-    TypstFrame, TypstFrameItem,
+    Axes, FixedAlignment, LayoutSingle, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem,
+    TypstLength, TypstPoint, TypstRegions,
 };
 use crate::loading::Readable;
 use crate::model::Figurable;
 use crate::syntax::{Spanned, TypstSynSpan};
 use crate::text::{families, Lang, LocalName, Region};
-use crate::util::{option_eq, Numeric};
+use crate::util::{option_eq, TypstNumeric};
 use crate::visualize::Path;
 use crate::IsTypstWorld;
 
@@ -75,10 +75,10 @@ pub struct ImageElem {
     pub format: Smart<ImageFormat>,
 
     /// The width of the image.
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The height of the image.
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// A text describing the image.
     pub alt: Option<EcoString>,
@@ -113,10 +113,10 @@ impl ImageElem {
         format: Option<Smart<ImageFormat>>,
         /// The width of the image.
         #[named]
-        width: Option<Smart<Rel<Length>>>,
+        width: Option<Smart<Rel<TypstLength>>>,
         /// The height of the image.
         #[named]
-        height: Option<Smart<Rel<Length>>>,
+        height: Option<Smart<Rel<TypstLength>>>,
         /// A text describing the image.
         #[named]
         alt: Option<Option<EcoString>>,
@@ -149,9 +149,9 @@ impl LayoutSingle for TypstContentRefined<ImageElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         // Take the format that was explicitly defined, or parse the extension,
         // or try to detect the format.
         let data = self.data();
@@ -234,7 +234,7 @@ impl LayoutSingle for TypstContentRefined<ImageElem> {
         // process.
         let mut frame = TypstFrame::soft(fitted);
         frame.push(
-            Point::zero(),
+            TypstPoint::zero(),
             TypstFrameItem::Image(image, fitted, self.span()),
         );
         frame.resize(target, Axes::splat(FixedAlignment::Center));

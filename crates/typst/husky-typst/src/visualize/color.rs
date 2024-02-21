@@ -10,7 +10,7 @@ use palette::{
     Darken, Desaturate, FromColor, Lighten, Okhsva, OklabHue, RgbHue, Saturate, ShiftHue,
 };
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::foundations::{
     array, cast, func, repr, scope, ty, Args, Array, IntoTypstValue, Repr, Str,
     TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
@@ -239,7 +239,7 @@ impl TypstColor {
         /// If this is given, the `lightness` should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_luma()
         } else {
@@ -296,7 +296,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_oklab()
         } else {
@@ -353,7 +353,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_oklch()
         } else {
@@ -414,7 +414,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_linear_rgb()
         } else {
@@ -485,7 +485,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(string) = args.find::<Spanned<Str>>()? {
             Self::from_str(&string.v).at(string.span)?
         } else if let Some(color) = args.find::<TypstColor>()? {
@@ -546,7 +546,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_cmyk()
         } else {
@@ -605,7 +605,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_hsl()
         } else {
@@ -664,7 +664,7 @@ impl TypstColor {
         /// If this is given, the individual components should not be given.
         #[external]
         color: TypstColor,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(if let Some(color) = args.find::<TypstColor>()? {
             color.to_hsv()
         } else {
@@ -912,7 +912,7 @@ impl TypstColor {
         span: TypstSynSpan,
         /// The factor to saturate the color by.
         factor: Ratio,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(match self {
             Self::Luma(_) => {
                 bail!(
@@ -938,7 +938,7 @@ impl TypstColor {
         span: TypstSynSpan,
         /// The factor to desaturate the color by.
         factor: Ratio,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(match self {
             Self::Luma(_) => {
                 bail!(
@@ -1009,7 +1009,7 @@ impl TypstColor {
         #[named]
         #[default(ColorSpace::Oklch)]
         space: ColorSpace,
-    ) -> SourceResult<TypstColor> {
+    ) -> TypstSourceResult<TypstColor> {
         Ok(match space {
             ColorSpace::Oklch => {
                 let Self::Oklch(oklch) = self.to_oklch() else {

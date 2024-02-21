@@ -1,13 +1,13 @@
 use std::fmt::{self, Debug, Formatter};
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{cast, elem, Resolve, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{cast, elem, Resolve, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    AlignElem, Axes, Axis, FixedAlignment, LayoutMultiple, Point, Regions, Size, Spacing,
-    TypstAbsLength, TypstFraction, TypstFrame, TypstLayoutDirection, TypstLayoutFragment,
+    AlignElem, Axes, Axis, FixedAlignment, LayoutMultiple, Size, Spacing, TypstAbsLength,
+    TypstFraction, TypstFrame, TypstLayoutDirection, TypstLayoutFragment, TypstPoint, TypstRegions,
 };
-use crate::util::{Get, Numeric};
+use crate::util::{Get, TypstNumeric};
 
 /// Arranges content and spacing horizontally or vertically.
 ///
@@ -56,9 +56,9 @@ impl LayoutMultiple for TypstContentRefined<StackElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let mut layouter = StackLayouter::new(self.dir(styles), regions, styles);
 
         // Spacing to insert before the next block.
@@ -121,9 +121,9 @@ struct StackLayouter<'a> {
     /// The axis of the stacking direction.
     axis: Axis,
     /// The regions to layout children into.
-    regions: Regions<'a>,
+    regions: TypstRegions<'a>,
     /// The inherited styles.
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     /// Whether the stack itself should expand to fill the region.
     expand: Axes<bool>,
     /// The initial size of the current region before we started subtracting.
@@ -151,7 +151,11 @@ enum StackItem {
 
 impl<'a> StackLayouter<'a> {
     /// Create a new stack layouter.
-    fn new(dir: TypstLayoutDirection, mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
+    fn new(
+        dir: TypstLayoutDirection,
+        mut regions: TypstRegions<'a>,
+        styles: TypstStyleChain<'a>,
+    ) -> Self {
         let axis = dir.axis();
         let expand = regions.expand;
 
@@ -200,8 +204,8 @@ impl<'a> StackLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         block: &TypstContent,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         if self.regions.is_full() {
             self.finish_region();
         }
@@ -348,7 +352,7 @@ impl Gen<TypstAbsLength> {
     }
 
     /// Convert to a point.
-    fn to_point(self, main: Axis) -> Point {
+    fn to_point(self, main: Axis) -> TypstPoint {
         self.into_axes(main).to_point()
     }
 }

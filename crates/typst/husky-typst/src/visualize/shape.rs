@@ -1,11 +1,13 @@
 use std::f64::consts::SQRT_2;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{
+    elem, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
+};
 use crate::layout::{
-    Axes, Corner, Corners, LayoutMultiple, LayoutSingle, Length, Point, Ratio, Regions, Rel, Sides,
-    Size, TypstAbsLength, TypstFrame, TypstFrameItem,
+    Axes, Corner, Corners, LayoutMultiple, LayoutSingle, Ratio, Rel, Sides, Size, TypstAbsLength,
+    TypstFrame, TypstFrameItem, TypstLength, TypstPoint, TypstRegions,
 };
 use crate::syntax::TypstSynSpan;
 use crate::util::Get;
@@ -27,10 +29,10 @@ use crate::visualize::{Path, TypstFixedStroke, TypstPaint, TypstStroke};
 #[elem(title = "Rectangle", LayoutSingle)]
 pub struct RectElem {
     /// The rectangle's width, relative to its parent container.
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The rectangle's height, relative to its parent container.
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// How to fill the rectangle.
     ///
@@ -108,20 +110,20 @@ pub struct RectElem {
     /// ```
     #[resolve]
     #[fold]
-    pub radius: Corners<Option<Rel<Length>>>,
+    pub radius: Corners<Option<Rel<TypstLength>>>,
 
     /// How much to pad the rectangle's content.
     /// See the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
     #[default(Sides::splat(Some(TypstAbsLength::pt(5.0).into())))]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the rectangle's size without affecting the layout.
     /// See the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// The content to place into the rectangle.
     ///
@@ -136,9 +138,9 @@ impl LayoutSingle for TypstContentRefined<RectElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         layout(
             engine,
             styles,
@@ -174,20 +176,20 @@ pub struct SquareElem {
     /// The square's side length. This is mutually exclusive with `width` and
     /// `height`.
     #[external]
-    pub size: Smart<Length>,
+    pub size: Smart<TypstLength>,
 
     /// The square's width. This is mutually exclusive with `size` and `height`.
     ///
     /// In contrast to `size`, this can be relative to the parent container's
     /// width.
     #[parse(
-        let size = args.named::<Smart<Length>>("size")?.map(|s| s.map(Rel::from));
+        let size = args.named::<Smart<TypstLength>>("size")?.map(|s| s.map(Rel::from));
         match size {
             None => args.named("width")?,
             size => size,
         }
     )]
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The square's height. This is mutually exclusive with `size` and `width`.
     ///
@@ -197,7 +199,7 @@ pub struct SquareElem {
         None => args.named("height")?,
         size => size,
     })]
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// How to fill the square. See the [rectangle's documentation]($rect.fill)
     /// for more details.
@@ -213,20 +215,20 @@ pub struct SquareElem {
     /// [rectangle's documentation]($rect.radius) for more details.
     #[resolve]
     #[fold]
-    pub radius: Corners<Option<Rel<Length>>>,
+    pub radius: Corners<Option<Rel<TypstLength>>>,
 
     /// How much to pad the square's content. See the
     /// [box's documentation]($box.inset) for more details.
     #[resolve]
     #[fold]
     #[default(Sides::splat(Some(TypstAbsLength::pt(5.0).into())))]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the square's size without affecting the layout. See
     /// the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// The content to place into the square. The square expands to fit this
     /// content, keeping the 1-1 aspect ratio.
@@ -242,9 +244,9 @@ impl LayoutSingle for TypstContentRefined<SquareElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         layout(
             engine,
             styles,
@@ -279,10 +281,10 @@ impl LayoutSingle for TypstContentRefined<SquareElem> {
 #[elem(LayoutSingle)]
 pub struct EllipseElem {
     /// The ellipse's width, relative to its parent container.
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The ellipse's height, relative to its parent container.
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// How to fill the ellipse. See the [rectangle's documentation]($rect.fill)
     /// for more details.
@@ -299,13 +301,13 @@ pub struct EllipseElem {
     #[resolve]
     #[fold]
     #[default(Sides::splat(Some(TypstAbsLength::pt(5.0).into())))]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the ellipse's size without affecting the layout. See
     /// the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// The content to place into the ellipse.
     ///
@@ -320,9 +322,9 @@ impl LayoutSingle for TypstContentRefined<EllipseElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         layout(
             engine,
             styles,
@@ -359,7 +361,7 @@ pub struct CircleElem {
     /// The circle's radius. This is mutually exclusive with `width` and
     /// `height`.
     #[external]
-    pub radius: Length,
+    pub radius: TypstLength,
 
     /// The circle's width. This is mutually exclusive with `radius` and
     /// `height`.
@@ -368,14 +370,14 @@ pub struct CircleElem {
     /// width.
     #[parse(
         let size = args
-            .named::<Smart<Length>>("radius")?
+            .named::<Smart<TypstLength>>("radius")?
             .map(|s| s.map(|r| 2.0 * Rel::from(r)));
         match size {
             None => args.named("width")?,
             size => size,
         }
     )]
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The circle's height. This is mutually exclusive with `radius` and
     /// `width`.
@@ -386,7 +388,7 @@ pub struct CircleElem {
         None => args.named("height")?,
         size => size,
     })]
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// How to fill the circle. See the [rectangle's documentation]($rect.fill)
     /// for more details.
@@ -404,13 +406,13 @@ pub struct CircleElem {
     #[resolve]
     #[fold]
     #[default(Sides::splat(Some(TypstAbsLength::pt(5.0).into())))]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the circle's size without affecting the layout. See
     /// the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// The content to place into the circle. The circle expands to fit this
     /// content, keeping the 1-1 aspect ratio.
@@ -423,9 +425,9 @@ impl LayoutSingle for TypstContentRefined<CircleElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         layout(
             engine,
             styles,
@@ -447,18 +449,18 @@ impl LayoutSingle for TypstContentRefined<CircleElem> {
 #[allow(clippy::too_many_arguments)]
 fn layout(
     engine: &mut TypstEngine,
-    styles: StyleChain,
-    regions: Regions,
+    styles: TypstStyleChain,
+    regions: TypstRegions,
     kind: ShapeKind,
     body: &Option<TypstContent>,
-    sizing: Axes<Smart<Rel<Length>>>,
+    sizing: Axes<Smart<Rel<TypstLength>>>,
     fill: Option<TypstPaint>,
     stroke: Smart<Sides<Option<Option<TypstStroke<TypstAbsLength>>>>>,
     inset: Sides<Option<Rel<TypstAbsLength>>>,
     outset: Sides<Option<Rel<TypstAbsLength>>>,
     radius: Corners<Option<Rel<TypstAbsLength>>>,
     span: TypstSynSpan,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     let resolved = sizing.zip_map(regions.base(), |s, r| {
         s.map(|v| v.resolve(styles).relative_to(r))
     });
@@ -476,9 +478,9 @@ fn layout(
         // Pad the child.
         let child = child
             .clone()
-            .padded(inset.map(|side| side.map(Length::from)));
+            .padded(inset.map(|side| side.map(TypstLength::from)));
         let expand = sizing.as_ref().map(Smart::is_custom);
-        let pod = Regions::one(region, expand);
+        let pod = TypstRegions::one(region, expand);
         frame = child.layout(engine, styles, pod)?.into_frame();
 
         // Enforce correct size.
@@ -489,7 +491,7 @@ fn layout(
         if kind.is_quadratic() {
             frame.set_size(Size::splat(frame.size().max_by_side()));
             let length = frame.size().max_by_side().min(region.min_by_side());
-            let pod = Regions::one(Size::splat(length), Axes::splat(true));
+            let pod = TypstRegions::one(Size::splat(length), Axes::splat(true));
             frame = child.layout(engine, styles, pod)?.into_frame();
         }
 
@@ -523,7 +525,7 @@ fn layout(
         if kind.is_round() {
             let outset = outset.unwrap_or_default().relative_to(frame.size());
             let size = frame.size() + outset.sum_by_axis();
-            let pos = Point::new(-outset.left, -outset.top);
+            let pos = TypstPoint::new(-outset.left, -outset.top);
             let shape = ellipse(size, fill, stroke.left);
             frame.prepend(pos, TypstFrameItem::Shape(shape, span));
         } else {
@@ -580,7 +582,7 @@ pub struct TypstShape {
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub enum TypstGeometry {
     /// A line to a point (relative to its position).
-    Line(Point),
+    Line(TypstPoint),
     /// A rectangle with its origin in the topleft corner.
     Rect(Size),
     /// A bezier path.
@@ -629,7 +631,7 @@ pub(crate) fn ellipse(
     let m = 0.551784;
     let mx = m * rx;
     let my = m * ry;
-    let point = |x, y| Point::new(x + rx, y + ry);
+    let point = |x, y| TypstPoint::new(x + rx, y + ry);
 
     let mut path = Path::new();
     path.move_to(point(-rx, z));
@@ -1065,18 +1067,18 @@ struct ControlPoints {
 
 impl ControlPoints {
     /// Move and rotate the point from top-left to the required corner.
-    fn rotate(&self, point: Point) -> Point {
+    fn rotate(&self, point: TypstPoint) -> TypstPoint {
         match self.corner {
             Corner::TopLeft => point,
-            Corner::TopRight => Point {
+            Corner::TopRight => TypstPoint {
                 x: self.size.x - point.y,
                 y: point.x,
             },
-            Corner::BottomRight => Point {
+            Corner::BottomRight => TypstPoint {
                 x: self.size.x - point.x,
                 y: self.size.y - point.y,
             },
-            Corner::BottomLeft => Point {
+            Corner::BottomLeft => TypstPoint {
                 x: point.y,
                 y: self.size.y - point.x,
             },
@@ -1084,33 +1086,33 @@ impl ControlPoints {
     }
 
     /// Outside intersection of the sides.
-    pub fn outer(&self) -> Point {
-        self.rotate(Point {
+    pub fn outer(&self) -> TypstPoint {
+        self.rotate(TypstPoint {
             x: -self.stroke_before,
             y: -self.stroke_after,
         })
     }
 
     /// Center for the outer arc.
-    pub fn center_outer(&self) -> Point {
+    pub fn center_outer(&self) -> TypstPoint {
         let r = self.radius_outer();
-        self.rotate(Point {
+        self.rotate(TypstPoint {
             x: r - self.stroke_before,
             y: r - self.stroke_after,
         })
     }
 
     /// Center for the middle arc.
-    pub fn center(&self) -> Point {
+    pub fn center(&self) -> TypstPoint {
         let r = self.radius();
-        self.rotate(Point { x: r, y: r })
+        self.rotate(TypstPoint { x: r, y: r })
     }
 
     /// Center for the inner arc.
-    pub fn center_inner(&self) -> Point {
+    pub fn center_inner(&self) -> TypstPoint {
         let r = self.radius_inner();
 
-        self.rotate(Point {
+        self.rotate(TypstPoint {
             x: self.stroke_before + r,
             y: self.stroke_after + r,
         })
@@ -1132,7 +1134,7 @@ impl ControlPoints {
     }
 
     /// Middle of the corner on the outside of the stroke.
-    pub fn mid_outer(&self) -> Point {
+    pub fn mid_outer(&self) -> TypstPoint {
         let c_i = self.center_inner();
         let c_o = self.center_outer();
         let o = self.outer();
@@ -1150,7 +1152,7 @@ impl ControlPoints {
     }
 
     /// Middle of the corner in the middle of the stroke.
-    pub fn mid(&self) -> Point {
+    pub fn mid(&self) -> TypstPoint {
         let center = self.center_outer();
         let outer = self.outer();
         let diff = outer - center;
@@ -1158,7 +1160,7 @@ impl ControlPoints {
     }
 
     /// Middle of the corner on the inside of the stroke.
-    pub fn mid_inner(&self) -> Point {
+    pub fn mid_inner(&self) -> TypstPoint {
         let center = self.center_inner();
         let outer = self.outer();
         let diff = outer - center;
@@ -1180,42 +1182,42 @@ impl ControlPoints {
     }
 
     /// Start of the corner on the outside of the stroke.
-    pub fn start_outer(&self) -> Point {
-        self.rotate(Point {
+    pub fn start_outer(&self) -> TypstPoint {
+        self.rotate(TypstPoint {
             x: -self.stroke_before,
             y: self.radius_outer() - self.stroke_after,
         })
     }
 
     /// Start of the corner in the center of the stroke.
-    pub fn start(&self) -> Point {
-        self.rotate(Point::with_y(self.radius()))
+    pub fn start(&self) -> TypstPoint {
+        self.rotate(TypstPoint::with_y(self.radius()))
     }
 
     /// Start of the corner on the inside of the stroke.
-    pub fn start_inner(&self) -> Point {
-        self.rotate(Point {
+    pub fn start_inner(&self) -> TypstPoint {
+        self.rotate(TypstPoint {
             x: self.stroke_before,
             y: self.stroke_after + self.radius_inner(),
         })
     }
 
     /// End of the corner on the outside of the stroke.
-    pub fn end_outer(&self) -> Point {
-        self.rotate(Point {
+    pub fn end_outer(&self) -> TypstPoint {
+        self.rotate(TypstPoint {
             x: self.radius_outer() - self.stroke_before,
             y: -self.stroke_after,
         })
     }
 
     /// End of the corner in the center of the stroke.
-    pub fn end(&self) -> Point {
-        self.rotate(Point::with_x(self.radius()))
+    pub fn end(&self) -> TypstPoint {
+        self.rotate(TypstPoint::with_x(self.radius()))
     }
 
     /// End of the corner on the inside of the stroke.
-    pub fn end_inner(&self) -> Point {
-        self.rotate(Point {
+    pub fn end_inner(&self) -> TypstPoint {
+        self.rotate(TypstPoint {
             x: self.stroke_before + self.radius_inner(),
             y: self.stroke_after,
         })
@@ -1224,23 +1226,23 @@ impl ControlPoints {
 
 /// Helper to draw arcs with bezier curves.
 trait PathExt {
-    fn arc(&mut self, start: Point, center: Point, end: Point);
-    fn arc_move(&mut self, start: Point, center: Point, end: Point);
-    fn arc_line(&mut self, start: Point, center: Point, end: Point);
+    fn arc(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint);
+    fn arc_move(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint);
+    fn arc_line(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint);
 }
 
 impl PathExt for Path {
-    fn arc(&mut self, start: Point, center: Point, end: Point) {
+    fn arc(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint) {
         let arc = bezier_arc_control(start, center, end);
         self.cubic_to(arc[0], arc[1], end);
     }
 
-    fn arc_move(&mut self, start: Point, center: Point, end: Point) {
+    fn arc_move(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint) {
         self.move_to(start);
         self.arc(start, center, end);
     }
 
-    fn arc_line(&mut self, start: Point, center: Point, end: Point) {
+    fn arc_line(&mut self, start: TypstPoint, center: TypstPoint, end: TypstPoint) {
         self.line_to(start);
         self.arc(start, center, end);
     }
@@ -1249,7 +1251,7 @@ impl PathExt for Path {
 /// Get the control points for a bezier curve that approximates a circular arc for
 /// a start point, an end point and a center of the circle whose arc connects
 /// the two.
-fn bezier_arc_control(start: Point, center: Point, end: Point) -> [Point; 2] {
+fn bezier_arc_control(start: TypstPoint, center: TypstPoint, end: TypstPoint) -> [TypstPoint; 2] {
     // https://stackoverflow.com/a/44829356/1567835
     let a = start - center;
     let b = end - center;
@@ -1259,8 +1261,8 @@ fn bezier_arc_control(start: Point, center: Point, end: Point) -> [Point; 2] {
     let k2 = (4.0 / 3.0) * ((2.0 * q1 * q2).sqrt() - q2)
         / (a.x.to_raw() * b.y.to_raw() - a.y.to_raw() * b.x.to_raw());
 
-    let control_1 = Point::new(center.x + a.x - k2 * a.y, center.y + a.y + k2 * a.x);
-    let control_2 = Point::new(center.x + b.x + k2 * b.y, center.y + b.y - k2 * b.x);
+    let control_1 = TypstPoint::new(center.x + a.x - k2 * a.y, center.y + a.y + k2 * a.x);
+    let control_2 = TypstPoint::new(center.x + b.x + k2 * b.y, center.y + b.y - k2 * b.x);
 
     [control_1, control_2]
 }

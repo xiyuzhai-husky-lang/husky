@@ -4,14 +4,15 @@ use std::fmt::{self, Debug, Formatter};
 use std::num::NonZeroUsize;
 use std::sync::Arc;
 
-use crate::foundations::{cast, dict, StyleChain, TypstDict, TypstValue};
+use crate::foundations::{cast, dict, TypstDict, TypstStyleChain, TypstValue};
 use crate::introspection::{MetaTypstElem, TypstMeta};
 use crate::layout::{
-    Axes, Corners, FixedAlignment, Length, Point, Rel, Sides, Size, Transform, TypstAbsLength,
+    Axes, Corners, FixedAlignment, Rel, Sides, Size, Transform, TypstAbsLength, TypstLength,
+    TypstPoint,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::TypstTextItem;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::{
     ellipse, styled_rect, Path, TypstColor, TypstFixedStroke, TypstGeometry, TypstImage,
     TypstPaint, TypstShape,
@@ -26,7 +27,7 @@ pub struct TypstFrame {
     /// frame's implicit baseline is at the bottom.
     baseline: Option<TypstAbsLength>,
     /// The items composing this layout.
-    items: Arc<Vec<(Point, TypstFrameItem)>>,
+    items: Arc<Vec<(TypstPoint, TypstFrameItem)>>,
     /// The hardness of this frame.
     kind: FrameKind,
 }
@@ -133,7 +134,7 @@ impl TypstFrame {
 
     /// An iterator over the items inside this frame alongside their positions
     /// relative to the top-left of the frame.
-    pub fn items(&self) -> std::slice::Iter<'_, (Point, TypstFrameItem)> {
+    pub fn items(&self) -> std::slice::Iter<'_, (TypstPoint, TypstFrameItem)> {
         self.items.iter()
     }
 }
@@ -147,7 +148,7 @@ impl TypstFrame {
     }
 
     /// Add an item at a position in the foreground.
-    pub fn push(&mut self, pos: Point, item: TypstFrameItem) {
+    pub fn push(&mut self, pos: TypstPoint, item: TypstFrameItem) {
         Arc::make_mut(&mut self.items).push((pos, item));
     }
 
@@ -155,7 +156,7 @@ impl TypstFrame {
     ///
     /// Automatically decides whether to inline the frame or to include it as a
     /// group based on the number of items in it.
-    pub fn push_frame(&mut self, pos: Point, frame: TypstFrame) {
+    pub fn push_frame(&mut self, pos: TypstPoint, frame: TypstFrame) {
         if self.should_inline(&frame) {
             self.inline(self.layer(), pos, frame);
         } else {
@@ -165,19 +166,19 @@ impl TypstFrame {
 
     /// Add zero-sized metadata at the origin.
     pub fn push_positionless_meta(&mut self, meta: TypstMeta) {
-        self.push(Point::zero(), TypstFrameItem::Meta(meta, Size::zero()));
+        self.push(TypstPoint::zero(), TypstFrameItem::Meta(meta, Size::zero()));
     }
 
     /// Insert an item at the given layer in the frame.
     ///
     /// This panics if the layer is greater than the number of layers present.
     #[track_caller]
-    pub fn insert(&mut self, layer: usize, pos: Point, item: TypstFrameItem) {
+    pub fn insert(&mut self, layer: usize, pos: TypstPoint, item: TypstFrameItem) {
         Arc::make_mut(&mut self.items).insert(layer, (pos, item));
     }
 
     /// Add an item at a position in the background.
-    pub fn prepend(&mut self, pos: Point, item: TypstFrameItem) {
+    pub fn prepend(&mut self, pos: TypstPoint, item: TypstFrameItem) {
         self.insert(0, pos, item);
     }
 
@@ -187,13 +188,13 @@ impl TypstFrame {
     /// background.
     pub fn prepend_multiple<I>(&mut self, items: I)
     where
-        I: IntoIterator<Item = (Point, TypstFrameItem)>,
+        I: IntoIterator<Item = (TypstPoint, TypstFrameItem)>,
     {
         Arc::make_mut(&mut self.items).splice(0..0, items);
     }
 
     /// Add a frame at a position in the background.
-    pub fn prepend_frame(&mut self, pos: Point, frame: TypstFrame) {
+    pub fn prepend_frame(&mut self, pos: TypstPoint, frame: TypstFrame) {
         if self.should_inline(&frame) {
             self.inline(0, pos, frame);
         } else {
@@ -208,7 +209,7 @@ impl TypstFrame {
     }
 
     /// Inline a frame at the given layer.
-    fn inline(&mut self, layer: usize, pos: Point, frame: TypstFrame) {
+    fn inline(&mut self, layer: usize, pos: TypstPoint, frame: TypstFrame) {
         // Try to just reuse the items.
         if pos.is_zero() && self.items.is_empty() {
             self.items = frame.items;
@@ -267,7 +268,7 @@ impl TypstFrame {
     }
 
     /// Move the baseline and contents of the frame by an offset.
-    pub fn translate(&mut self, offset: Point) {
+    pub fn translate(&mut self, offset: TypstPoint) {
         if !offset.is_zero() {
             if let Some(baseline) = &mut self.baseline {
                 *baseline += offset.y;
@@ -279,7 +280,7 @@ impl TypstFrame {
     }
 
     /// Attach the metadata from this style chain to the frame.
-    pub fn meta(&mut self, styles: StyleChain, force: bool) {
+    pub fn meta(&mut self, styles: TypstStyleChain, force: bool) {
         if force || !self.is_empty() {
             self.meta_iter(MetaTypstElem::data_in(styles));
         }
@@ -294,7 +295,7 @@ impl TypstFrame {
                 hide = true;
                 None
             } else {
-                Some((Point::zero(), TypstFrameItem::Meta(meta, size)))
+                Some((TypstPoint::zero(), TypstFrameItem::Meta(meta, size)))
             }
         }));
         if hide {
@@ -317,7 +318,7 @@ impl TypstFrame {
     /// Add a background fill.
     pub fn fill(&mut self, fill: TypstPaint) {
         self.prepend(
-            Point::zero(),
+            TypstPoint::zero(),
             TypstFrameItem::Shape(
                 TypstGeometry::Rect(self.size()).filled(fill),
                 TypstSynSpan::detached(),
@@ -336,7 +337,7 @@ impl TypstFrame {
     ) {
         let outset = outset.relative_to(self.size());
         let size = self.size() + outset.sum_by_axis();
-        let pos = Point::new(-outset.left, -outset.top);
+        let pos = TypstPoint::new(-outset.left, -outset.top);
         self.prepend_multiple(
             styled_rect(size, radius, fill, stroke)
                 .into_iter()
@@ -371,7 +372,7 @@ impl TypstFrame {
         wrapper.baseline = self.baseline;
         let mut group = TypstGroupItem::new(std::mem::take(self));
         f(&mut group);
-        wrapper.push(Point::zero(), TypstFrameItem::Group(group));
+        wrapper.push(TypstPoint::zero(), TypstFrameItem::Group(group));
         *self = wrapper;
     }
 }
@@ -388,7 +389,7 @@ impl TypstFrame {
     pub fn mark_box_in_place(&mut self) {
         self.insert(
             0,
-            Point::zero(),
+            TypstPoint::zero(),
             TypstFrameItem::Shape(
                 TypstGeometry::Rect(self.size).filled(TypstColor::TEAL.with_alpha(0.5).into()),
                 TypstSynSpan::detached(),
@@ -396,9 +397,9 @@ impl TypstFrame {
         );
         self.insert(
             1,
-            Point::with_y(self.baseline()),
+            TypstPoint::with_y(self.baseline()),
             TypstFrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(self.size.x)).stroked(
+                TypstGeometry::Line(TypstPoint::with_x(self.size.x)).stroked(
                     TypstFixedStroke::from_pair(TypstColor::RED, TypstAbsLength::pt(1.0)),
                 ),
                 TypstSynSpan::detached(),
@@ -407,10 +408,10 @@ impl TypstFrame {
     }
 
     /// Add a green marker at a position for debugging.
-    pub fn mark_point(&mut self, pos: Point) {
+    pub fn mark_point(&mut self, pos: TypstPoint) {
         let radius = TypstAbsLength::pt(2.0);
         self.push(
-            pos - Point::splat(radius),
+            pos - TypstPoint::splat(radius),
             TypstFrameItem::Shape(
                 ellipse(
                     Size::splat(2.0 * radius),
@@ -425,9 +426,9 @@ impl TypstFrame {
     /// Add a green marker line at a position for debugging.
     pub fn mark_line(&mut self, y: TypstAbsLength) {
         self.push(
-            Point::with_y(y),
+            TypstPoint::with_y(y),
             TypstFrameItem::Shape(
-                TypstGeometry::Line(Point::with_x(self.size.x)).stroked(
+                TypstGeometry::Line(TypstPoint::with_x(self.size.x)).stroked(
                     TypstFixedStroke::from_pair(TypstColor::GREEN, TypstAbsLength::pt(1.0)),
                 ),
                 TypstSynSpan::detached(),
@@ -536,7 +537,7 @@ pub struct Position {
     /// The page, starting at 1.
     pub page: NonZeroUsize,
     /// The exact coordinates on the page (from the top left, as usual).
-    pub point: Point,
+    pub point: TypstPoint,
 }
 
 cast! {
@@ -544,10 +545,10 @@ cast! {
     self => TypstValue::Dict(self.into()),
     mut dict: TypstDict => {
         let page = dict.take("page")?.cast()?;
-        let x: Length = dict.take("x")?.cast()?;
-        let y: Length = dict.take("y")?.cast()?;
+        let x: TypstLength = dict.take("x")?.cast()?;
+        let y: TypstLength = dict.take("y")?.cast()?;
         dict.finish(&["page", "x", "y"])?;
-        Self { page, point: Point::new(x.abs, y.abs) }
+        Self { page, point: TypstPoint::new(x.abs, y.abs) }
     },
 }
 

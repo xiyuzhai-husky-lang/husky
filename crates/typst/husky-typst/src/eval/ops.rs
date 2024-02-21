@@ -4,19 +4,19 @@ use std::cmp::Ordering;
 
 use ecow::eco_format;
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::eval::{access_dict, Access, Eval, Vm};
 use crate::foundations::{format_str, Datetime, IntoTypstValue, Regex, Repr, TypstValue};
-use crate::layout::{Length, Rel, TypstAlignment};
+use crate::layout::{Rel, TypstAlignment, TypstLength};
 use crate::syntax::ast::{self, TypstAstNode};
 use crate::text::TextElem;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::TypstStroke;
 
 impl Eval for ast::Unary<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let value = self.expr().eval(vm)?;
         let result = match self.op() {
             ast::UnOp::Pos => pos(value),
@@ -30,7 +30,7 @@ impl Eval for ast::Unary<'_> {
 impl Eval for ast::Binary<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         match self.op() {
             ast::BinOp::Add => apply_binary(self, vm, add),
             ast::BinOp::Sub => apply_binary(self, vm, sub),
@@ -60,7 +60,7 @@ fn apply_binary(
     binary: ast::Binary,
     vm: &mut Vm,
     op: fn(TypstValue, TypstValue) -> StrResult<TypstValue>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let lhs = binary.lhs().eval(vm)?;
 
     // Short-circuit boolean operations.
@@ -79,7 +79,7 @@ fn apply_assignment(
     binary: ast::Binary,
     vm: &mut Vm,
     op: fn(TypstValue, TypstValue) -> StrResult<TypstValue>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let rhs = binary.rhs().eval(vm)?;
     let lhs = binary.lhs();
 
@@ -405,13 +405,13 @@ fn is_zero(v: &TypstValue) -> bool {
 }
 
 /// Try to divide two lengths.
-fn try_div_length(a: Length, b: Length) -> StrResult<f64> {
+fn try_div_length(a: TypstLength, b: TypstLength) -> StrResult<f64> {
     a.try_div(b)
         .ok_or_else(|| "cannot divide these two lengths".into())
 }
 
 /// Try to divide two relative lengths.
-fn try_div_relative(a: Rel<Length>, b: Rel<Length>) -> StrResult<f64> {
+fn try_div_relative(a: Rel<TypstLength>, b: Rel<TypstLength>) -> StrResult<f64> {
     a.try_div(b)
         .ok_or_else(|| "cannot divide these two relative lengths".into())
 }

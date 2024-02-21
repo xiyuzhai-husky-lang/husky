@@ -1,7 +1,7 @@
-use crate::diag::SourceResult;
-use crate::foundations::{elem, StyleChain, TypstContent, TypstContentRefined};
+use crate::diag::TypstSourceResult;
+use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    FixedAlignment, FrameItem, Point, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    FixedAlignment, FrameItem, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstPoint,
 };
 use crate::math::{
     alignments, scaled_font_size, style_cramped, style_for_subscript, FrameFragment, GlyphFragment,
@@ -34,7 +34,7 @@ pub struct UnderlineElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderlineElem> {
     #[husky_typst_macros::time(name = "math.underline", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Under)
     }
 }
@@ -53,7 +53,7 @@ pub struct OverlineElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverlineElem> {
     #[husky_typst_macros::time(name = "math.overline", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverline(ctx, styles, self.body(), self.span(), LineKind::Over)
     }
 }
@@ -61,11 +61,11 @@ impl TypstLayoutMath for TypstContentRefined<OverlineElem> {
 /// layout under- or overlined content
 fn layout_underoverline(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     body: &TypstContent,
     span: Span,
     line: LineKind,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let (extra_height, content, line_pos, content_pos, baseline, bar_height);
     match line {
         LineKind::Under => {
@@ -76,8 +76,8 @@ fn layout_underoverline(
 
             content = ctx.layout_fragment(body, styles)?;
 
-            line_pos = Point::with_y(content.height() + gap + bar_height / 2.0);
-            content_pos = Point::zero();
+            line_pos = TypstPoint::with_y(content.height() + gap + bar_height / 2.0);
+            content_pos = TypstPoint::zero();
             baseline = content.ascent()
         }
         LineKind::Over => {
@@ -89,8 +89,8 @@ fn layout_underoverline(
             let cramped = style_cramped();
             content = ctx.layout_fragment(body, styles.chain(&cramped))?;
 
-            line_pos = Point::with_y(sep + bar_height / 2.0);
-            content_pos = Point::with_y(extra_height);
+            line_pos = TypstPoint::with_y(sep + bar_height / 2.0);
+            content_pos = TypstPoint::with_y(extra_height);
             baseline = content.ascent() + extra_height;
         }
     }
@@ -106,7 +106,7 @@ fn layout_underoverline(
     frame.push(
         line_pos,
         FrameItem::Shape(
-            TypstGeometry::Line(Point::with_x(width)).stroked(TypstFixedStroke {
+            TypstGeometry::Line(TypstPoint::with_x(width)).stroked(TypstFixedStroke {
                 paint: TextElem::fill_in(styles).as_decoration(),
                 thickness: bar_height,
                 ..TypstFixedStroke::default()
@@ -138,7 +138,7 @@ pub struct UnderbraceElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderbraceElem> {
     #[husky_typst_macros::time(name = "math.underbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -170,7 +170,7 @@ pub struct OverbraceElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverbraceElem> {
     #[husky_typst_macros::time(name = "math.overbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -202,7 +202,7 @@ pub struct UnderbracketElem {
 
 impl TypstLayoutMath for TypstContentRefined<UnderbracketElem> {
     #[husky_typst_macros::time(name = "math.underbrace", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -234,7 +234,7 @@ pub struct OverbracketElem {
 
 impl TypstLayoutMath for TypstContentRefined<OverbracketElem> {
     #[husky_typst_macros::time(name = "math.overbracket", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout_underoverspreader(
             ctx,
             styles,
@@ -252,14 +252,14 @@ impl TypstLayoutMath for TypstContentRefined<OverbracketElem> {
 #[allow(clippy::too_many_arguments)]
 fn layout_underoverspreader(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     body: &TypstContent,
     annotation: &Option<TypstContent>,
     c: char,
     gap: TypstEmLength,
     reverse: bool,
     span: Span,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let font_size = scaled_font_size(ctx, styles);
     let gap = gap.at(font_size);
     let body = ctx.layout_row(body, styles)?;
@@ -304,7 +304,7 @@ fn layout_underoverspreader(
 /// row for the whole frame.
 pub(super) fn stack(
     ctx: &MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     rows: Vec<MathRow>,
     align: FixedAlignment,
     gap: TypstAbsLength,
@@ -326,7 +326,7 @@ pub(super) fn stack(
 
     for (i, row) in rows.into_iter().enumerate() {
         let x = align.position(width - row.width());
-        let pos = Point::new(x, y);
+        let pos = TypstPoint::new(x, y);
         if i == baseline {
             frame.set_baseline(y + row.baseline());
         }

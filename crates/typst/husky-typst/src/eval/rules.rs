@@ -1,15 +1,15 @@
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::eval::{Eval, Vm};
-use crate::foundations::{Func, Recipe, ShowableSelector, Styles, Transformation};
+use crate::foundations::{Func, Recipe, ShowableSelector, Transformation, TypstStyles};
 use crate::syntax::ast::{self, TypstAstNode};
 
 impl Eval for ast::SetRule<'_> {
-    type Output = Styles;
+    type Output = TypstStyles;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         if let Some(condition) = self.condition() {
             if !condition.eval(vm)?.cast::<bool>().at(condition.span())? {
-                return Ok(Styles::new());
+                return Ok(TypstStyles::new());
             }
         }
 
@@ -30,7 +30,7 @@ impl Eval for ast::SetRule<'_> {
 impl Eval for ast::ShowRule<'_> {
     type Output = Recipe;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let selector = self
             .selector()
             .map(|sel| sel.eval(vm)?.cast::<ShowableSelector>().at(sel.span()))

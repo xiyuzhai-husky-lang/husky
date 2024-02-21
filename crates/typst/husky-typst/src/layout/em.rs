@@ -4,10 +4,10 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, repr, Repr, Resolve, StyleChain, TypstValue};
+use crate::foundations::{cast, repr, Repr, Resolve, TypstStyleChain, TypstValue};
 use crate::layout::TypstAbsLength;
 use crate::text::TextElem;
-use crate::util::{Numeric, Scalar};
+use crate::util::{Scalar, TypstNumeric};
 
 /// A length that is relative to the font size.
 ///
@@ -67,7 +67,7 @@ impl TypstEmLength {
     }
 }
 
-impl Numeric for TypstEmLength {
+impl TypstNumeric for TypstEmLength {
     fn zero() -> Self {
         Self::zero()
     }
@@ -158,7 +158,7 @@ cast! {
 impl Resolve for TypstEmLength {
     type Output = TypstAbsLength;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         if self.is_zero() {
             TypstAbsLength::zero()
         } else {

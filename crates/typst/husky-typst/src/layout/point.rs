@@ -2,18 +2,18 @@ use std::fmt::{self, Debug, Formatter};
 use std::ops::{Add, Div, Mul, Neg};
 
 use crate::layout::{Axis, Size, Transform, TypstAbsLength};
-use crate::util::{Get, Numeric};
+use crate::util::{Get, TypstNumeric};
 
 /// A point in 2D.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Hash)]
-pub struct Point {
+pub struct TypstPoint {
     /// The x coordinate.
     pub x: TypstAbsLength,
     /// The y coordinate.
     pub y: TypstAbsLength,
 }
 
-impl Point {
+impl TypstPoint {
     /// The origin point.
     pub const fn zero() -> Self {
         Self {
@@ -103,7 +103,7 @@ impl Point {
     }
 }
 
-impl Numeric for Point {
+impl TypstNumeric for TypstPoint {
     fn zero() -> Self {
         Self::zero()
     }
@@ -113,7 +113,7 @@ impl Numeric for Point {
     }
 }
 
-impl Get<Axis> for Point {
+impl Get<Axis> for TypstPoint {
     type Component = TypstAbsLength;
 
     fn get_ref(&self, axis: Axis) -> &TypstAbsLength {
@@ -131,13 +131,13 @@ impl Get<Axis> for Point {
     }
 }
 
-impl Debug for Point {
+impl Debug for TypstPoint {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        write!(f, "Point({:?}, {:?})", self.x, self.y)
+        write!(f, "TypstPoint({:?}, {:?})", self.x, self.y)
     }
 }
 
-impl Neg for Point {
+impl Neg for TypstPoint {
     type Output = Self;
 
     fn neg(self) -> Self {
@@ -148,7 +148,7 @@ impl Neg for Point {
     }
 }
 
-impl Add for Point {
+impl Add for TypstPoint {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
@@ -159,9 +159,9 @@ impl Add for Point {
     }
 }
 
-sub_impl!(Point - Point -> Point);
+sub_impl!(TypstPoint - TypstPoint -> TypstPoint);
 
-impl Mul<f64> for Point {
+impl Mul<f64> for TypstPoint {
     type Output = Self;
 
     fn mul(self, other: f64) -> Self {
@@ -172,15 +172,15 @@ impl Mul<f64> for Point {
     }
 }
 
-impl Mul<Point> for f64 {
-    type Output = Point;
+impl Mul<TypstPoint> for f64 {
+    type Output = TypstPoint;
 
-    fn mul(self, other: Point) -> Point {
+    fn mul(self, other: TypstPoint) -> TypstPoint {
         other * self
     }
 }
 
-impl Div<f64> for Point {
+impl Div<f64> for TypstPoint {
     type Output = Self;
 
     fn div(self, other: f64) -> Self {
@@ -191,7 +191,7 @@ impl Div<f64> for Point {
     }
 }
 
-assign_impl!(Point += Point);
-assign_impl!(Point -= Point);
-assign_impl!(Point *= f64);
-assign_impl!(Point /= f64);
+assign_impl!(TypstPoint += TypstPoint);
+assign_impl!(TypstPoint -= TypstPoint);
+assign_impl!(TypstPoint *= f64);
+assign_impl!(TypstPoint /= f64);

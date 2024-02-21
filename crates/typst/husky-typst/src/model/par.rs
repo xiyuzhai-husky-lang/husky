@@ -2,13 +2,13 @@ use std::fmt::{self, Debug, Formatter};
 
 use comemo::Prehashed;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, IsTypstElem, Set, Smart, StyleChain, TypstContent,
-    TypstContentRefined, Unlabellable,
+    elem, Args, Cast, Construct, IsTypstElem, Set, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, Unlabellable,
 };
-use crate::layout::{Length, Size, TypstEmLength, TypstLayoutFragment};
+use crate::layout::{Size, TypstEmLength, TypstLayoutFragment, TypstLength};
 
 /// Arranges text, spacing and inline-level elements into a paragraph.
 ///
@@ -41,7 +41,7 @@ pub struct ParagraphTypstElem {
     #[resolve]
     #[ghost]
     #[default(TypstEmLength::new(0.65).into())]
-    pub leading: Length,
+    pub leading: TypstLength,
 
     /// Whether to justify text in its line.
     ///
@@ -91,12 +91,12 @@ pub struct ParagraphTypstElem {
     /// using this property (e.g. using
     /// `[#show par: set block(spacing: 0.65em)]`).
     #[ghost]
-    pub first_line_indent: Length,
+    pub first_line_indent: TypstLength,
 
     /// The indent all but the first line of a paragraph should have.
     #[ghost]
     #[resolve]
-    pub hanging_indent: Length,
+    pub hanging_indent: TypstLength,
 
     /// The contents of the paragraph.
     #[external]
@@ -110,7 +110,7 @@ pub struct ParagraphTypstElem {
 }
 
 impl Construct for ParagraphTypstElem {
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
         // The paragraph constructor is special: It doesn't create a paragraph
         // element. Instead, it just ensures that the passed content lives in a
         // separate paragraph and styles it.
@@ -130,11 +130,11 @@ impl TypstContentRefined<ParagraphTypstElem> {
     pub fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         consecutive: bool,
         region: Size,
         expand: bool,
-    ) -> SourceResult<TypstLayoutFragment> {
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         crate::layout::layout_inline(self.children(), engine, styles, consecutive, region, expand)
     }
 }

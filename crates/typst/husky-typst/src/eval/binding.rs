@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use crate::diag::{bail, At, SourceResult};
+use crate::diag::{bail, At, TypstSourceResult};
 use crate::eval::{Access, Eval, Vm};
 use crate::foundations::{Array, TypstDict, TypstValue};
 use crate::syntax::ast::{self, TypstAstNode};
@@ -8,7 +8,7 @@ use crate::syntax::ast::{self, TypstAstNode};
 impl Eval for ast::LetBinding<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let value = match self.init() {
             Some(expr) => expr.eval(vm)?,
             None => TypstValue::None,
@@ -29,7 +29,7 @@ impl Eval for ast::LetBinding<'_> {
 impl Eval for ast::DestructAssignment<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let value = self.value().eval(vm)?;
         destructure_impl(vm, self.pattern(), value, |vm, expr, value| {
             let location = expr.access(vm)?;
@@ -45,7 +45,7 @@ pub(crate) fn destructure(
     vm: &mut Vm,
     pattern: ast::Pattern,
     value: TypstValue,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     destructure_impl(vm, pattern, value, |vm, expr, value| match expr {
         ast::Expr::Ident(ident) => {
             vm.define(ident, value);
@@ -61,9 +61,9 @@ fn destructure_impl<T>(
     pattern: ast::Pattern,
     value: TypstValue,
     f: T,
-) -> SourceResult<()>
+) -> TypstSourceResult<()>
 where
-    T: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    T: Fn(&mut Vm, ast::Expr, TypstValue) -> TypstSourceResult<()>,
 {
     match pattern {
         ast::Pattern::Normal(expr) => {
@@ -85,9 +85,9 @@ fn destructure_array<F>(
     value: Array,
     f: F,
     destruct: ast::Destructuring,
-) -> SourceResult<()>
+) -> TypstSourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TypstValue) -> TypstSourceResult<()>,
 {
     let mut i = 0;
     let len = value.as_slice().len();
@@ -139,9 +139,9 @@ fn destructure_dict<F>(
     dict: TypstDict,
     f: F,
     destruct: ast::Destructuring,
-) -> SourceResult<()>
+) -> TypstSourceResult<()>
 where
-    F: Fn(&mut Vm, ast::Expr, TypstValue) -> SourceResult<()>,
+    F: Fn(&mut Vm, ast::Expr, TypstValue) -> TypstSourceResult<()>,
 {
     let mut sink = None;
     let mut used = HashSet::new();

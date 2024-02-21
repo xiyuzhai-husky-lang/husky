@@ -2,7 +2,7 @@ use std::str::FromStr;
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, StyleChain};
+use crate::foundations::{cast, TypstStyleChain};
 use crate::layout::TypstLayoutDirection;
 use crate::text::TextElem;
 
@@ -164,7 +164,7 @@ pub trait LocalName {
     fn local_name(lang: Lang, region: Option<Region>) -> &'static str;
 
     /// Gets the local name from the style chain.
-    fn local_name_in(styles: StyleChain) -> &'static str
+    fn local_name_in(styles: TypstStyleChain) -> &'static str
     where
         Self: Sized,
     {

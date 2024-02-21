@@ -3,7 +3,7 @@ use std::str::FromStr;
 use chinese_number::{ChineseCase, ChineseCountMethod, ChineseVariant, NumberToChinese};
 use ecow::{eco_format, EcoString, EcoVec};
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{cast, func, Func, Str, TypstValue};
 use crate::text::Case;
@@ -65,7 +65,7 @@ pub fn numbering(
     /// given, the last counting symbol with its prefix is repeated.
     #[variadic]
     numbers: Vec<usize>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     numbering.apply(engine, &numbers)
 }
 
@@ -80,7 +80,11 @@ pub enum Numbering {
 
 impl Numbering {
     /// Apply the pattern to the given numbers.
-    pub fn apply(&self, engine: &mut TypstEngine, numbers: &[usize]) -> SourceResult<TypstValue> {
+    pub fn apply(
+        &self,
+        engine: &mut TypstEngine,
+        numbers: &[usize],
+    ) -> TypstSourceResult<TypstValue> {
         Ok(match self {
             Self::Pattern(pattern) => TypstValue::Str(pattern.apply(numbers).into()),
             Self::Func(func) => func.call(engine, numbers.iter().copied())?,

@@ -6,17 +6,18 @@ use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::diag::{bail, error, At, FileError, SourceResult, StrResult};
+use crate::diag::{bail, error, At, FileError, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
     cast, elem, ty, Args, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, IsTypstElem,
-    Label, Reflect, Repr, Show, ShowSet, Smart, Str, StyleChain, Styles, Synthesize, Type,
-    TypstContent, TypstContentRefined, TypstValue, TypstValueAssignmentGroup,
+    Label, Reflect, Repr, Show, ShowSet, Smart, Str, Synthesize, Type, TypstContent,
+    TypstContentRefined, TypstStyleChain, TypstStyles, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::introspection::{Introspector, Locatable, Location};
 use crate::layout::{
-    BlockElem, GridCell, GridElem, HElem, PadElem, TrackSizings, TypstEmLength, TypstSizing, VElem,
+    BlockElem, GridCell, GridElem, HElem, TrackSizings, TypstEmLength, TypstPadElem, TypstSizing,
+    VElem,
 };
 use crate::model::{
     CitationForm, FootnoteTypstElem, HeadingTypstElem, LinkTypstElem, ParagraphTypstElem,
@@ -194,7 +195,11 @@ impl BibliographyElem {
 }
 
 impl Synthesize for TypstContentRefined<BibliographyElem> {
-    fn synthesize(&mut self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let elem = self.as_mut();
         elem.push_lang(TextElem::lang_in(styles));
         elem.push_region(TextElem::region_in(styles));
@@ -204,7 +209,11 @@ impl Synthesize for TypstContentRefined<BibliographyElem> {
 
 impl Show for TypstContentRefined<BibliographyElem> {
     #[husky_typst_macros::time(name = "bibliography", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         const COLUMN_GUTTER: TypstEmLength = TypstEmLength::new(0.65);
         const INDENT: TypstEmLength = TypstEmLength::new(1.5);
 
@@ -268,11 +277,11 @@ impl Show for TypstContentRefined<BibliographyElem> {
 }
 
 impl ShowSet for TypstContentRefined<BibliographyElem> {
-    fn show_set(&self, _: StyleChain) -> Styles {
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         const INDENT: TypstEmLength = TypstEmLength::new(1.0);
-        let mut out = Styles::new();
+        let mut out = TypstStyles::new();
         out.set(HeadingTypstElem::set_numbering(None));
-        out.set(PadElem::set_left(INDENT.into()));
+        out.set(TypstPadElem::set_left(INDENT.into()));
         out
     }
 }
@@ -327,7 +336,7 @@ impl Bibliography {
     fn parse(
         engine: &mut TypstEngine,
         args: &mut Args,
-    ) -> SourceResult<(BibliographyPaths, Bibliography)> {
+    ) -> TypstSourceResult<(BibliographyPaths, Bibliography)> {
         let Spanned { v: paths, span } =
             args.expect::<Spanned<BibliographyPaths>>("path to bibliography file")?;
 
@@ -339,7 +348,7 @@ impl Bibliography {
                 let id = span.resolve_path(path).at(span)?;
                 engine.world.file(id).at(span)
             })
-            .collect::<SourceResult<Vec<Bytes>>>()?;
+            .collect::<TypstSourceResult<Vec<Bytes>>>()?;
 
         // Parse.
         let bibliography = Self::load(&paths, &data).at(span)?;
@@ -438,7 +447,7 @@ pub struct CslStyle {
 
 impl CslStyle {
     /// Parse the style argument.
-    pub fn parse(engine: &mut TypstEngine, args: &mut Args) -> SourceResult<Option<CslStyle>> {
+    pub fn parse(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<Option<CslStyle>> {
         let Some(Spanned { v: string, span }) = args.named::<Spanned<EcoString>>("style")? else {
             return Ok(None);
         };
@@ -450,7 +459,7 @@ impl CslStyle {
     pub fn parse_smart(
         engine: &mut TypstEngine,
         args: &mut Args,
-    ) -> SourceResult<Option<Smart<CslStyle>>> {
+    ) -> TypstSourceResult<Option<Smart<CslStyle>>> {
         let Some(Spanned { v: smart, span }) = args.named::<Spanned<Smart<EcoString>>>("style")?
         else {
             return Ok(None);
@@ -576,7 +585,7 @@ impl Repr for CslStyle {
 /// citations to do it.
 pub(super) struct Works {
     /// Maps from the location of a citation group to its rendered content.
-    pub citations: HashMap<Location, SourceResult<TypstContent>>,
+    pub citations: HashMap<Location, TypstSourceResult<TypstContent>>,
     /// Lists all references in the bibliography, with optional prefix, or
     /// `None` if the citation style can't be used for bibliographies.
     pub references: Option<Vec<(Option<TypstContent>, TypstContent)>>,
@@ -610,7 +619,7 @@ struct Generator<'a> {
     /// bibliography driver and needed when processing hayagriva's output.
     infos: Vec<GroupInfo>,
     /// Citations with unresolved keys.
-    failures: HashMap<Location, SourceResult<TypstContent>>,
+    failures: HashMap<Location, TypstSourceResult<TypstContent>>,
 }
 
 /// Details about a group of merged citations. All citations are put into groups
@@ -660,7 +669,7 @@ impl<'a> Generator<'a> {
         static LOCALES: Lazy<Vec<citationberg::Locale>> = Lazy::new(hayagriva::archive::locales);
 
         let database = self.bibliography.bibliography();
-        let bibliography_style = self.bibliography.style(StyleChain::default());
+        let bibliography_style = self.bibliography.style(TypstStyleChain::default());
         let styles = Arena::new();
 
         // Process all citation groups.
@@ -692,7 +701,7 @@ impl<'a> Generator<'a> {
                     continue;
                 };
 
-                let supplement = child.supplement(StyleChain::default());
+                let supplement = child.supplement(TypstStyleChain::default());
                 let locator = supplement.as_ref().map(|_| {
                     SpecificLocator(
                         citationberg::taxonomy::Locator::Custom,
@@ -701,7 +710,7 @@ impl<'a> Generator<'a> {
                 });
 
                 let mut hidden = false;
-                let special_form = match child.form(StyleChain::default()) {
+                let special_form = match child.form(TypstStyleChain::default()) {
                     None => {
                         hidden = true;
                         None
@@ -733,7 +742,7 @@ impl<'a> Generator<'a> {
                 continue;
             }
 
-            let style = match first.style(StyleChain::default()) {
+            let style = match first.style(TypstStyleChain::default()) {
                 Smart::Auto => &bibliography_style.style,
                 Smart::Custom(style) => styles.alloc(style.style),
             };
@@ -764,7 +773,7 @@ impl<'a> Generator<'a> {
 
         // Add hidden items for everything if we should print the whole
         // bibliography.
-        if self.bibliography.full(StyleChain::default()) {
+        if self.bibliography.full(TypstStyleChain::default()) {
             for entry in database.map.values() {
                 driver.citation(CitationRequest::new(
                     vec![CitationItem::new(entry, None, None, true, None)],
@@ -802,7 +811,7 @@ impl<'a> Generator<'a> {
     fn display_citations(
         &mut self,
         rendered: &hayagriva::Rendered,
-    ) -> HashMap<Location, SourceResult<TypstContent>> {
+    ) -> HashMap<Location, TypstSourceResult<TypstContent>> {
         // Determine for each citation key where in the bibliography it is,
         // so that we can link there.
         let mut links = HashMap::new();
@@ -982,7 +991,7 @@ impl ElemRenderer<'_> {
                     .spanned(self.span);
             }
             Some(Display::Indent) => {
-                content = PadElem::new(content).pack().spanned(self.span);
+                content = TypstPadElem::new(content).pack().spanned(self.span);
             }
             Some(Display::LeftMargin) => {
                 *prefix.get_or_insert_with(Default::default) += content;

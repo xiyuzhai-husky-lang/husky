@@ -1,6 +1,6 @@
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Bytes, TypstValue};
 use crate::syntax::Spanned;
@@ -20,7 +20,7 @@ pub fn cbor(
     engine: &mut TypstEngine,
     /// Path to a CBOR file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -34,7 +34,7 @@ impl cbor {
     pub fn decode(
         /// cbor data.
         data: Spanned<Bytes>,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         ciborium::from_reader(data.as_slice())
             .map_err(|err| eco_format!("failed to parse CBOR ({err})"))
@@ -46,7 +46,7 @@ impl cbor {
     pub fn encode(
         /// TypstValue to be encoded.
         value: Spanned<TypstValue>,
-    ) -> SourceResult<Bytes> {
+    ) -> TypstSourceResult<Bytes> {
         let Spanned { v: value, span } = value;
         let mut res = Vec::new();
         ciborium::into_writer(&value, &mut res)

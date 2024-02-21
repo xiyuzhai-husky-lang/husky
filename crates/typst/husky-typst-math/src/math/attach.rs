@@ -1,8 +1,8 @@
 use unicode_math_class::MathClass;
 
-use crate::diag::SourceResult;
-use crate::foundations::{elem, StyleChain, TypstContent, TypstContentRefined};
-use crate::layout::{Point, Size, TypstAbsLength, TypstFrame};
+use crate::diag::TypstSourceResult;
+use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain};
+use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstPoint};
 use crate::math::{
     style_for_subscript, style_for_superscript, EquationTypstElem, FrameFragment, MathContext,
     MathFragment, MathSize, Scaled, TypstLayoutMath,
@@ -51,11 +51,11 @@ pub struct AttachTypstElem {
 
 impl TypstLayoutMath for TypstContentRefined<AttachTypstElem> {
     #[husky_typst_macros::time(name = "math.attach", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
-        type GetAttachment = fn(&AttachTypstElem, styles: StyleChain) -> Option<TypstContent>;
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+        type GetAttachment = fn(&AttachTypstElem, styles: TypstStyleChain) -> Option<TypstContent>;
 
         let layout_attachment =
-            |ctx: &mut MathContext, styles: StyleChain, getter: GetAttachment| {
+            |ctx: &mut MathContext, styles: TypstStyleChain, getter: GetAttachment| {
                 getter(self, styles)
                     .map(|elem| ctx.layout_fragment(&elem, styles))
                     .transpose()
@@ -107,7 +107,7 @@ pub struct PrimesElem {
 
 impl TypstLayoutMath for TypstContentRefined<PrimesElem> {
     #[husky_typst_macros::time(name = "math.primes", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         match *self.count() {
             count @ 1..=4 => {
                 let c = match count {
@@ -131,7 +131,7 @@ impl TypstLayoutMath for TypstContentRefined<PrimesElem> {
 
                 for i in 0..count {
                     frame.push_frame(
-                        Point::new(prime.width() * (i as f64 / 2.0), TypstAbsLength::zero()),
+                        TypstPoint::new(prime.width() * (i as f64 / 2.0), TypstAbsLength::zero()),
                         prime.clone(),
                     )
                 }
@@ -156,7 +156,7 @@ pub struct ScriptsElem {
 
 impl TypstLayoutMath for TypstContentRefined<ScriptsElem> {
     #[husky_typst_macros::time(name = "math.scripts", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let mut fragment = ctx.layout_fragment(self.body(), styles)?;
         fragment.set_limits(Limits::Never);
         ctx.push(fragment);
@@ -185,7 +185,7 @@ pub struct LimitsElem {
 
 impl TypstLayoutMath for TypstContentRefined<LimitsElem> {
     #[husky_typst_macros::time(name = "math.limits", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let limits = if self.inline(styles) {
             Limits::Always
         } else {
@@ -235,7 +235,7 @@ impl Limits {
     }
 
     /// Whether limits should be displayed in this context
-    pub fn active(&self, styles: StyleChain) -> bool {
+    pub fn active(&self, styles: TypstStyleChain) -> bool {
         match self {
             Self::Always => true,
             Self::Display => EquationTypstElem::size_in(styles) == MathSize::Display,
@@ -253,10 +253,10 @@ macro_rules! measure {
 /// Layout the attachments.
 fn layout_attachments(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     base: MathFragment,
     [tl, t, tr, bl, b, br]: [Option<MathFragment>; 6],
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let (shift_up, shift_down) =
         compute_shifts_up_and_down(ctx, styles, &base, [&tl, &tr, &bl, &br]);
 
@@ -296,7 +296,7 @@ fn layout_attachments(
     ));
     frame.set_baseline(ascent);
     frame.push_frame(
-        Point::new(
+        TypstPoint::new(
             sup_delta + pre_width_max,
             frame.ascent() - base_ascent - base_offset,
         ),
@@ -304,7 +304,7 @@ fn layout_attachments(
     );
 
     if let Some(tl) = tl {
-        let pos = Point::new(
+        let pos = TypstPoint::new(
             -pre_width_dif.min(TypstAbsLength::zero()),
             ascent - shift_up - tl.ascent(),
         );
@@ -312,7 +312,7 @@ fn layout_attachments(
     }
 
     if let Some(bl) = bl {
-        let pos = Point::new(
+        let pos = TypstPoint::new(
             pre_width_dif.max(TypstAbsLength::zero()),
             ascent + shift_down - bl.ascent(),
         );
@@ -320,7 +320,7 @@ fn layout_attachments(
     }
 
     if let Some(tr) = tr {
-        let pos = Point::new(
+        let pos = TypstPoint::new(
             sup_delta + pre_width_max + base_width,
             ascent - shift_up - tr.ascent(),
         );
@@ -328,7 +328,7 @@ fn layout_attachments(
     }
 
     if let Some(br) = br {
-        let pos = Point::new(
+        let pos = TypstPoint::new(
             sub_delta + pre_width_max + base_width,
             ascent + shift_down - br.ascent(),
         );
@@ -342,7 +342,7 @@ fn layout_attachments(
 
 fn attach_top_and_bottom(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     base: MathFragment,
     t: Option<MathFragment>,
     b: Option<MathFragment>,
@@ -369,7 +369,7 @@ fn attach_top_and_bottom(
         height += b.height() + bottom_gap;
     }
 
-    let base_pos = Point::new((width - base.width()) / 2.0, base_offset);
+    let base_pos = TypstPoint::new((width - base.width()) / 2.0, base_offset);
     let delta = base.italics_correction() / 2.0;
 
     let mut frame = TypstFrame::soft(Size::new(width, height));
@@ -377,12 +377,12 @@ fn attach_top_and_bottom(
     frame.push_frame(base_pos, base.into_frame());
 
     if let Some(t) = t {
-        let top_pos = Point::with_x((width - t.width()) / 2.0 + delta);
+        let top_pos = TypstPoint::with_x((width - t.width()) / 2.0 + delta);
         frame.push_frame(top_pos, t.into_frame());
     }
 
     if let Some(b) = b {
-        let bottom_pos = Point::new((width - b.width()) / 2.0 - delta, height - b.height());
+        let bottom_pos = TypstPoint::new((width - b.width()) / 2.0 - delta, height - b.height());
         frame.push_frame(bottom_pos, b.into_frame());
     }
 
@@ -391,7 +391,7 @@ fn attach_top_and_bottom(
 
 fn compute_shifts_up_and_down(
     ctx: &MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     base: &MathFragment,
     [tl, tr, bl, br]: [&Option<MathFragment>; 4],
 ) -> (TypstAbsLength, TypstAbsLength) {

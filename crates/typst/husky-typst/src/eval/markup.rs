@@ -1,4 +1,4 @@
-use crate::diag::{warning, SourceResult};
+use crate::diag::{warning, TypstSourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{IsTypstElem, Label, Smart, TypstContent, TypstValue, Unlabellable};
 use crate::math::EquationTypstElem;
@@ -13,7 +13,7 @@ use crate::text::{LinebreakElem, RawElem, SmartQuoteElem, SpaceElem, TextElem};
 impl Eval for ast::TypstMarkup<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         eval_markup(vm, &mut self.exprs())
     }
 }
@@ -22,7 +22,7 @@ impl Eval for ast::TypstMarkup<'_> {
 fn eval_markup<'a>(
     vm: &mut Vm,
     exprs: &mut impl Iterator<Item = ast::Expr<'a>>,
-) -> SourceResult<TypstContent> {
+) -> TypstSourceResult<TypstContent> {
     let flow = vm.flow.take();
     let mut seq = Vec::with_capacity(exprs.size_hint().1.unwrap_or_default());
 
@@ -74,7 +74,7 @@ fn eval_markup<'a>(
 impl Eval for ast::Text<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TextElem::packed(self.get().clone()))
     }
 }
@@ -82,7 +82,7 @@ impl Eval for ast::Text<'_> {
 impl Eval for ast::Space<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(SpaceElem::new().pack())
     }
 }
@@ -90,7 +90,7 @@ impl Eval for ast::Space<'_> {
 impl Eval for ast::Linebreak<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(LinebreakElem::new().pack())
     }
 }
@@ -98,7 +98,7 @@ impl Eval for ast::Linebreak<'_> {
 impl Eval for ast::Parbreak<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(ParbreakElem::new().pack())
     }
 }
@@ -106,7 +106,7 @@ impl Eval for ast::Parbreak<'_> {
 impl Eval for ast::Escape<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Symbol(Symbol::single(self.get())))
     }
 }
@@ -114,7 +114,7 @@ impl Eval for ast::Escape<'_> {
 impl Eval for ast::Shorthand<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Symbol(Symbol::single(self.get())))
     }
 }
@@ -122,7 +122,7 @@ impl Eval for ast::Shorthand<'_> {
 impl Eval for ast::SmartQuote<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(SmartQuoteElem::new().with_double(self.double()).pack())
     }
 }
@@ -130,7 +130,7 @@ impl Eval for ast::SmartQuote<'_> {
 impl Eval for ast::Strong<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let body = self.body();
         if body.exprs().next().is_none() {
             vm.engine.tracer.warn(warning!(
@@ -146,7 +146,7 @@ impl Eval for ast::Strong<'_> {
 impl Eval for ast::Emph<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let body = self.body();
         if body.exprs().next().is_none() {
             vm.engine.tracer.warn(warning!(
@@ -162,7 +162,7 @@ impl Eval for ast::Emph<'_> {
 impl Eval for ast::Raw<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         let mut elem = RawElem::new(self.text()).with_block(self.block());
         if let Some(lang) = self.lang() {
             elem.push_lang(Some(lang.into()));
@@ -174,7 +174,7 @@ impl Eval for ast::Raw<'_> {
 impl Eval for ast::Link<'_> {
     type Output = TypstContent;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(LinkTypstElem::from_url(self.get().clone()).pack())
     }
 }
@@ -182,7 +182,7 @@ impl Eval for ast::Link<'_> {
 impl Eval for ast::Label<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Label(Label::new(self.get())))
     }
 }
@@ -190,7 +190,7 @@ impl Eval for ast::Label<'_> {
 impl Eval for ast::Ref<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let target = Label::new(self.target());
         let mut elem = RefElem::new(target);
         if let Some(supplement) = self.supplement() {
@@ -205,7 +205,7 @@ impl Eval for ast::Ref<'_> {
 impl Eval for ast::Heading<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let level = self.level();
         let body = self.body().eval(vm)?;
         Ok(HeadingTypstElem::new(body).with_level(level).pack())
@@ -215,7 +215,7 @@ impl Eval for ast::Heading<'_> {
 impl Eval for ast::ListItem<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(ListItem::new(self.body().eval(vm)?).pack())
     }
 }
@@ -223,7 +223,7 @@ impl Eval for ast::ListItem<'_> {
 impl Eval for ast::EnumItem<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let body = self.body().eval(vm)?;
         let mut elem = EnumItem::new(body);
         if let Some(number) = self.number() {
@@ -236,7 +236,7 @@ impl Eval for ast::EnumItem<'_> {
 impl Eval for ast::TermItem<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let term = self.term().eval(vm)?;
         let description = self.description().eval(vm)?;
         Ok(TermItem::new(term, description).pack())
@@ -246,7 +246,7 @@ impl Eval for ast::TermItem<'_> {
 impl Eval for ast::Equation<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let body = self.body().eval(vm)?;
         let block = self.block();
         Ok(EquationTypstElem::new(body).with_block(block).pack())

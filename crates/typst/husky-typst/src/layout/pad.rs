@@ -1,8 +1,9 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Resolve, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{elem, Resolve, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    LayoutMultiple, Length, Point, Regions, Rel, Sides, Size, TypstAbsLength, TypstLayoutFragment,
+    LayoutMultiple, Rel, Sides, Size, TypstAbsLength, TypstLayoutFragment, TypstLength, TypstPoint,
+    TypstRegions,
 };
 
 /// Adds spacing around content.
@@ -19,7 +20,7 @@ use crate::layout::{
 ///  measured in words per minute._
 /// ```
 #[elem(title = "Padding", LayoutMultiple)]
-pub struct PadElem {
+pub struct TypstPadElem {
     /// The padding at the left side.
     #[parse(
         let all = args.named("rest")?.or(args.find()?);
@@ -27,47 +28,47 @@ pub struct PadElem {
         let y = args.named("y")?.or(all);
         args.named("left")?.or(x)
     )]
-    pub left: Rel<Length>,
+    pub left: Rel<TypstLength>,
 
     /// The padding at the top side.
     #[parse(args.named("top")?.or(y))]
-    pub top: Rel<Length>,
+    pub top: Rel<TypstLength>,
 
     /// The padding at the right side.
     #[parse(args.named("right")?.or(x))]
-    pub right: Rel<Length>,
+    pub right: Rel<TypstLength>,
 
     /// The padding at the bottom side.
     #[parse(args.named("bottom")?.or(y))]
-    pub bottom: Rel<Length>,
+    pub bottom: Rel<TypstLength>,
 
     /// The horizontal padding. Both `left` and `right` take precedence over
     /// this.
     #[external]
-    pub x: Rel<Length>,
+    pub x: Rel<TypstLength>,
 
     /// The vertical padding. Both `top` and `bottom` take precedence over this.
     #[external]
-    pub y: Rel<Length>,
+    pub y: Rel<TypstLength>,
 
     /// The padding for all sides. All other parameters take precedence over
     /// this.
     #[external]
-    pub rest: Rel<Length>,
+    pub rest: Rel<TypstLength>,
 
     /// The content to pad at the sides.
     #[required]
     pub body: TypstContent,
 }
 
-impl LayoutMultiple for TypstContentRefined<PadElem> {
+impl LayoutMultiple for TypstContentRefined<TypstPadElem> {
     #[husky_typst_macros::time(name = "pad", span = self.span())]
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let sides = Sides::new(
             self.left(styles),
             self.top(styles),
@@ -86,7 +87,7 @@ impl LayoutMultiple for TypstContentRefined<PadElem> {
             // yields the frame's size.
             let padded = grow(frame.size(), padding);
             let padding = padding.relative_to(padded);
-            let offset = Point::new(padding.left, padding.top);
+            let offset = TypstPoint::new(padding.left, padding.top);
 
             // Grow the frame and translate everything in the frame inwards.
             frame.set_size(padded);

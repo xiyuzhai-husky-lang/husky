@@ -1,6 +1,6 @@
 use ecow::EcoString;
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, Cast};
 use crate::loading::Readable;
@@ -34,7 +34,7 @@ pub fn read(
     #[named]
     #[default(Some(Encoding::Utf8))]
     encoding: Option<Encoding>,
-) -> SourceResult<Readable> {
+) -> TypstSourceResult<Readable> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;

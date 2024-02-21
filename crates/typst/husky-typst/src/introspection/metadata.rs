@@ -1,7 +1,7 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, Behave, Behaviour, Show, StyleChain, TypstContent, TypstContentRefined, TypstValue,
+    elem, Behave, Behaviour, Show, TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
 };
 use crate::introspection::Locatable;
 
@@ -33,7 +33,11 @@ pub struct MetadataElem {
 }
 
 impl Show for TypstContentRefined<MetadataElem> {
-    fn show(&self, _: &mut TypstEngine, _styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        _styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(TypstContent::empty())
     }
 }

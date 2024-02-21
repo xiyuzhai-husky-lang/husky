@@ -2,7 +2,9 @@
 
 use std::borrow::Cow;
 
-use crate::foundations::{Behave, Behaviour, StyleChain, StyleVec, StyleVecBuilder, TypstContent};
+use crate::foundations::{
+    Behave, Behaviour, StyleVec, StyleVecBuilder, TypstContent, TypstStyleChain,
+};
 
 /// A wrapper around a [`StyleVecBuilder`] that allows elements to interact.
 #[derive(Debug)]
@@ -12,7 +14,7 @@ pub struct BehavedBuilder<'a> {
     /// Staged weak and ignorant elements that we can't yet commit to the
     /// builder. The option is `Some(_)` for weak elements and `None` for
     /// ignorant elements.
-    staged: Vec<(Cow<'a, TypstContent>, Behaviour, StyleChain<'a>)>,
+    staged: Vec<(Cow<'a, TypstContent>, Behaviour, TypstStyleChain<'a>)>,
     /// What the last non-ignorant item was.
     last: Behaviour,
 }
@@ -43,7 +45,7 @@ impl<'a> BehavedBuilder<'a> {
     }
 
     /// Push an item into the sequence.
-    pub fn push(&mut self, elem: Cow<'a, TypstContent>, styles: StyleChain<'a>) {
+    pub fn push(&mut self, elem: Cow<'a, TypstContent>, styles: TypstStyleChain<'a>) {
         let interaction = elem
             .with::<dyn Behave>()
             .map_or(Behaviour::Supportive, Behave::behaviour);
@@ -84,7 +86,7 @@ impl<'a> BehavedBuilder<'a> {
     }
 
     /// Return the finish style vec and the common prefix chain.
-    pub fn finish(mut self) -> (StyleVec<Cow<'a, TypstContent>>, StyleChain<'a>) {
+    pub fn finish(mut self) -> (StyleVec<Cow<'a, TypstContent>>, TypstStyleChain<'a>) {
         self.flush(false);
         self.builder.finish()
     }

@@ -4,7 +4,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::diag::StrResult;
 use crate::foundations::{IntoTypstValue, Type, TypstValue, Version};
-use crate::layout::{Length, Rel, TypstAlignment};
+use crate::layout::{Rel, TypstAlignment, TypstLength};
 use crate::visualize::TypstStroke;
 
 /// Try to access a field on a value.
@@ -75,7 +75,7 @@ fn missing_field(ty: Type, field: &str) -> EcoString {
 pub fn fields_on(ty: Type) -> &'static [&'static str] {
     if ty == Type::of::<Version>() {
         &Version::COMPONENTS
-    } else if ty == Type::of::<Length>() {
+    } else if ty == Type::of::<TypstLength>() {
         &["em", "abs"]
     } else if ty == Type::of::<Rel>() {
         &["ratio", "length"]

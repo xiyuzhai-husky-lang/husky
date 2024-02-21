@@ -10,11 +10,12 @@ use ttf_parser::GlyphId;
 use unicode_math_class::MathClass;
 use unicode_segmentation::UnicodeSegmentation;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{Smart, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{Smart, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Axes, BoxTypstElem, LayoutMultiple, Regions, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    Axes, BoxTypstElem, LayoutMultiple, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    TypstRegions,
 };
 use crate::math::{
     scaled_font_size, styled_char, EquationTypstElem, FrameFragment, GlyphFragment, MathFragment,
@@ -23,8 +24,7 @@ use crate::math::{
 use crate::model::ParagraphTypstElem;
 use crate::syntax::{is_newline, Span};
 use crate::text::{
-    features, BottomEdge, BottomEdgeMetric, TopEdge, TopEdgeMetric, TypstFont, TextElem,
-    TextSize,
+    features, BottomEdge, BottomEdgeMetric, TextElem, TextSize, TopEdge, TopEdgeMetric, TypstFont,
 };
 
 macro_rules! scaled {
@@ -51,7 +51,7 @@ macro_rules! percent {
 pub struct MathContext<'a, 'b, 'v> {
     // External.
     pub engine: &'v mut TypstEngine<'b>,
-    pub regions: Regions<'static>,
+    pub regions: TypstRegions<'static>,
     // Font-related.
     pub font: &'a TypstFont,
     pub ttf: &'a ttf_parser::Face<'a>,
@@ -67,8 +67,8 @@ pub struct MathContext<'a, 'b, 'v> {
 impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn new(
         engine: &'v mut TypstEngine<'b>,
-        styles: StyleChain<'a>,
-        regions: Regions,
+        styles: TypstStyleChain<'a>,
+        regions: TypstRegions,
         font: &'a TypstFont,
     ) -> Self {
         let math_table = font.ttf().tables().math.unwrap();
@@ -105,7 +105,7 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
 
         Self {
             engine,
-            regions: Regions::one(regions.base(), Axes::splat(false)),
+            regions: TypstRegions::one(regions.base(), Axes::splat(false)),
             font,
             ttf: font.ttf(),
             table: math_table,
@@ -128,8 +128,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_root(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
-    ) -> SourceResult<MathRow> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<MathRow> {
         let row = self.layout_fragments(elem, styles)?;
         Ok(MathRow::new(row))
     }
@@ -137,8 +137,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_fragment(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
-    ) -> SourceResult<MathFragment> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<MathFragment> {
         let row = self.layout_fragments(elem, styles)?;
         Ok(MathRow::new(row).into_fragment(self, styles))
     }
@@ -146,8 +146,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_fragments(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
-    ) -> SourceResult<Vec<MathFragment>> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<Vec<MathFragment>> {
         let prev = std::mem::take(&mut self.fragments);
         elem.layout_math(self, styles)?;
         Ok(std::mem::replace(&mut self.fragments, prev))
@@ -156,8 +156,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_row(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
-    ) -> SourceResult<MathRow> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<MathRow> {
         let fragments = self.layout_fragments(elem, styles)?;
         Ok(MathRow::new(fragments))
     }
@@ -165,16 +165,16 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_frame(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstFrame> {
         Ok(self.layout_fragment(elem, styles)?.into_frame())
     }
 
     pub fn layout_box(
         &mut self,
         boxed: &TypstContentRefined<BoxTypstElem>,
-        styles: StyleChain,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstFrame> {
         let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         boxed.layout(self.engine, styles.chain(&local), self.regions)
     }
@@ -182,8 +182,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_content(
         &mut self,
         content: &TypstContent,
-        styles: StyleChain,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstFrame> {
         let local = TextElem::set_size(TextSize(scaled_font_size(self, styles).into())).wrap();
         Ok(content
             .layout(self.engine, styles.chain(&local), self.regions)?
@@ -193,8 +193,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
     pub fn layout_text(
         &mut self,
         elem: &TypstContentRefined<TextElem>,
-        styles: StyleChain,
-    ) -> SourceResult<MathFragment> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<MathFragment> {
         let text = elem.text();
         let span = elem.span();
         let mut chars = text.chars();
@@ -278,8 +278,8 @@ impl<'a, 'b, 'v> MathContext<'a, 'b, 'v> {
         &mut self,
         text: &str,
         span: Span,
-        styles: StyleChain,
-    ) -> SourceResult<FrameFragment> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<FrameFragment> {
         // There isn't a natural width for a paragraph in a math environment;
         // because it will be placed somewhere probably not at the left margin
         // it will overflow. So emulate an `hbox` instead and allow the paragraph

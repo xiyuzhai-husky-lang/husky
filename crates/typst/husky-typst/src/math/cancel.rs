@@ -1,9 +1,10 @@
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::foundations::{
-    cast, elem, Func, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, Func, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Angle, Length, Point, Ratio, Rel, Size, Transform, TypstAbsLength, TypstFrame, TypstFrameItem,
+    Angle, Ratio, Rel, Size, Transform, TypstAbsLength, TypstFrame, TypstFrameItem, TypstLength,
+    TypstPoint,
 };
 use crate::math::{FrameFragment, MathContext, TypstLayoutMath};
 use crate::syntax::TypstSynSpan;
@@ -37,7 +38,7 @@ pub struct CancelLineTypstElem {
     ///     - cancel(x, length: #200%) $
     /// ```
     #[default(Rel::new(Ratio::one(), TypstAbsLength::pt(3.0).into()))]
-    pub length: Rel<Length>,
+    pub length: Rel<TypstLength>,
 
     /// Whether the cancel line should be inverted (flipped along the y-axis).
     /// For the default angle setting, inverted means the cancel line
@@ -107,7 +108,7 @@ pub struct CancelLineTypstElem {
 
 impl TypstLayoutMath for TypstContentRefined<CancelLineTypstElem> {
     #[husky_typst_macros::time(name = "math.cancel", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let body = ctx.layout_fragment(self.body(), styles)?;
         // Preserve properties of body.
         let body_class = body.class();
@@ -189,7 +190,7 @@ fn draw_cancel_line(
     angle: &Smart<CancelAngle>,
     body_size: Size,
     span: TypstSynSpan,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     let default = default_angle(body_size);
     let mut angle = match angle {
         // Non specified angle defaults to the diagonal
@@ -212,8 +213,8 @@ fn draw_cancel_line(
     let length = length_scale.relative_to(default_length);
 
     // Draw a vertical line of length and rotate it by angle
-    let start = Point::new(TypstAbsLength::zero(), length / 2.0);
-    let delta = Point::new(TypstAbsLength::zero(), -length);
+    let start = TypstPoint::new(TypstAbsLength::zero(), length / 2.0);
+    let delta = TypstPoint::new(TypstAbsLength::zero(), -length);
 
     let mut frame = TypstFrame::soft(body_size);
     frame.push(

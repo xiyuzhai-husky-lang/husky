@@ -2,7 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
-use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
+use crate::diag::{bail, error, At, SourceDiagnostic, TypstSourceResult};
 use crate::foundations::{
     func, repr, scope, ty, Array, FromTypstValue, IntoTypstValue, Repr, Str, TypstDict, TypstValue,
 };
@@ -77,7 +77,7 @@ impl Args {
     }
 
     /// Consume and cast the first positional argument if there is one.
-    pub fn eat<T>(&mut self) -> SourceResult<Option<T>>
+    pub fn eat<T>(&mut self) -> TypstSourceResult<Option<T>>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -92,7 +92,7 @@ impl Args {
     }
 
     /// Consume n positional arguments if possible.
-    pub fn consume(&mut self, n: usize) -> SourceResult<Vec<Arg>> {
+    pub fn consume(&mut self, n: usize) -> TypstSourceResult<Vec<Arg>> {
         let mut list = vec![];
 
         let mut i = 0;
@@ -115,7 +115,7 @@ impl Args {
     ///
     /// Returns a `missing argument: {what}` error if no positional argument is
     /// left.
-    pub fn expect<T>(&mut self, what: &str) -> SourceResult<T>
+    pub fn expect<T>(&mut self, what: &str) -> TypstSourceResult<T>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -144,7 +144,7 @@ impl Args {
     }
 
     /// Find and consume the first castable positional argument.
-    pub fn find<T>(&mut self) -> SourceResult<Option<T>>
+    pub fn find<T>(&mut self) -> TypstSourceResult<Option<T>>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -159,7 +159,7 @@ impl Args {
     }
 
     /// Find and consume all castable positional arguments.
-    pub fn all<T>(&mut self) -> SourceResult<Vec<T>>
+    pub fn all<T>(&mut self) -> TypstSourceResult<Vec<T>>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -185,7 +185,7 @@ impl Args {
 
     /// Cast and remove the value for the given named argument, returning an
     /// error if the conversion fails.
-    pub fn named<T>(&mut self, name: &str) -> SourceResult<Option<T>>
+    pub fn named<T>(&mut self, name: &str) -> TypstSourceResult<Option<T>>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -206,7 +206,7 @@ impl Args {
     }
 
     /// Same as named, but with fallback to find.
-    pub fn named_or_find<T>(&mut self, name: &str) -> SourceResult<Option<T>>
+    pub fn named_or_find<T>(&mut self, name: &str) -> TypstSourceResult<Option<T>>
     where
         T: FromTypstValue<Spanned<TypstValue>>,
     {
@@ -226,7 +226,7 @@ impl Args {
 
     /// Return an "unexpected argument" error if there is any remaining
     /// argument.
-    pub fn finish(self) -> SourceResult<()> {
+    pub fn finish(self) -> TypstSourceResult<()> {
         if let Some(arg) = self.items.first() {
             match &arg.name {
                 Some(name) => bail!(arg.span, "unexpected argument: {name}"),

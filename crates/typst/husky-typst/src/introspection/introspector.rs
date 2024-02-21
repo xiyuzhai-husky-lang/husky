@@ -12,7 +12,7 @@ use smallvec::SmallVec;
 use crate::diag::{bail, StrResult};
 use crate::foundations::{Label, Repr, Selector, TypstContent};
 use crate::introspection::{Location, TypstMeta};
-use crate::layout::{Page, Point, Position, Transform, TypstFrame, TypstFrameItem};
+use crate::layout::{Page, Position, Transform, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::model::Numbering;
 use crate::util::NonZeroExt;
 
@@ -260,7 +260,7 @@ impl Introspector {
             .map(|(_, loc)| *loc)
             .unwrap_or(Position {
                 page: NonZeroUsize::ONE,
-                point: Point::zero(),
+                point: TypstPoint::zero(),
             })
     }
 }

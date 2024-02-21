@@ -1,6 +1,8 @@
-use crate::diag::SourceResult;
-use crate::foundations::{elem, func, IsTypstElem, StyleChain, TypstContent, TypstContentRefined};
-use crate::layout::{Point, Size, TypstAbsLength, TypstFrame, TypstFrameItem};
+use crate::diag::TypstSourceResult;
+use crate::foundations::{
+    elem, func, IsTypstElem, TypstContent, TypstContentRefined, TypstStyleChain,
+};
+use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::math::{
     style_cramped, EquationTypstElem, FrameFragment, GlyphFragment, MathContext, MathSize, Scaled,
     TypstLayoutMath,
@@ -42,7 +44,7 @@ pub struct RootElem {
 
 impl TypstLayoutMath for TypstContentRefined<RootElem> {
     #[husky_typst_macros::time(name = "math.root", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         layout(
             ctx,
             styles,
@@ -59,11 +61,11 @@ impl TypstLayoutMath for TypstContentRefined<RootElem> {
 /// See also: https://www.w3.org/TR/mathml-core/#radicals-msqrt-mroot
 fn layout(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     index: Option<&TypstContent>,
     radicand: &TypstContent,
     span: TypstSynSpan,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let gap = scaled!(
         ctx, styles,
         text: radical_vertical_gap,
@@ -123,15 +125,15 @@ fn layout(
 
     // The extra "- thickness" comes from the fact that the sqrt is placed
     // in `push_frame` with respect to its top, not its baseline.
-    let sqrt_pos = Point::new(sqrt_offset, radicand_y - gap - thickness);
-    let line_pos = Point::new(radicand_x, radicand_y - gap - (thickness / 2.0));
-    let radicand_pos = Point::new(radicand_x, radicand_y);
+    let sqrt_pos = TypstPoint::new(sqrt_offset, radicand_y - gap - thickness);
+    let line_pos = TypstPoint::new(radicand_x, radicand_y - gap - (thickness / 2.0));
+    let radicand_pos = TypstPoint::new(radicand_x, radicand_y);
 
     let mut frame = TypstFrame::soft(size);
     frame.set_baseline(ascent);
 
     if let Some(index) = index {
-        let index_pos = Point::new(kern_before, ascent - index.ascent() - shift_up);
+        let index_pos = TypstPoint::new(kern_before, ascent - index.ascent() - shift_up);
         frame.push_frame(index_pos, index);
     }
 
@@ -139,7 +141,7 @@ fn layout(
     frame.push(
         line_pos,
         TypstFrameItem::Shape(
-            TypstGeometry::Line(Point::with_x(radicand.width())).stroked(
+            TypstGeometry::Line(TypstPoint::with_x(radicand.width())).stroked(
                 TypstFixedStroke::from_pair(TextElem::fill_in(styles).as_decoration(), thickness),
             ),
             span,

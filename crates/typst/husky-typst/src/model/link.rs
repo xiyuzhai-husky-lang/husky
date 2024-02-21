@@ -1,9 +1,9 @@
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Label, Repr, Show, Smart, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, Label, Repr, Show, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::introspection::Location;
 use crate::layout::Position;
@@ -91,7 +91,11 @@ impl LinkTypstElem {
 
 impl Show for TypstContentRefined<LinkTypstElem> {
     #[husky_typst_macros::time(name = "link", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        _: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let body = self.body().clone();
         let linked = match self.dest() {
             LinkTarget::Dest(dest) => body.linked(dest.clone()),

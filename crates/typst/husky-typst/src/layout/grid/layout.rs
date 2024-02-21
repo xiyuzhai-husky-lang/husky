@@ -2,20 +2,20 @@ use std::num::NonZeroUsize;
 
 use ecow::eco_format;
 
-use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, SourceResult, StrResult};
+use crate::diag::{bail, At, Hint, HintedStrResult, HintedString, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    Array, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart, StyleChain,
-    TypstContent, TypstValue,
+    Array, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect, Resolve, Smart, TypstContent,
+    TypstStyleChain, TypstValue,
 };
 use crate::layout::{
-    Axes, LayoutMultiple, Length, Point, Regions, Rel, Sides, Size, TypstAbsLength, TypstAlignment,
-    TypstFraction, TypstFrame, TypstFrameItem, TypstLayoutDirection, TypstLayoutFragment,
-    TypstSizing,
+    Axes, LayoutMultiple, Rel, Sides, Size, TypstAbsLength, TypstAlignment, TypstFraction,
+    TypstFrame, TypstFrameItem, TypstLayoutDirection, TypstLayoutFragment, TypstLength, TypstPoint,
+    TypstRegions, TypstSizing,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::TextElem;
-use crate::util::{MaybeReverseIter, NonZeroExt, Numeric};
+use crate::util::{MaybeReverseIter, NonZeroExt, TypstNumeric};
 use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstPaint};
 
 /// A value that can be configured per cell.
@@ -31,7 +31,7 @@ pub enum Celled<T> {
 
 impl<T: Default + Clone + FromTypstValue> Celled<T> {
     /// Resolve the value based on the cell position.
-    pub fn resolve(&self, engine: &mut TypstEngine, x: usize, y: usize) -> SourceResult<T> {
+    pub fn resolve(&self, engine: &mut TypstEngine, x: usize, y: usize) -> TypstSourceResult<T> {
         Ok(match self {
             Self::Value(value) => value.clone(),
             Self::Func(func) => func.call(engine, [x, y])?.cast().at(func.span())?,
@@ -116,9 +116,9 @@ impl LayoutMultiple for Cell {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         self.body.layout(engine, styles, regions)
     }
 }
@@ -157,18 +157,18 @@ pub trait ResolvableCell {
         y: usize,
         fill: &Option<TypstPaint>,
         align: Smart<TypstAlignment>,
-        inset: Sides<Option<Rel<Length>>>,
-        styles: StyleChain,
+        inset: Sides<Option<Rel<TypstLength>>>,
+        styles: TypstStyleChain,
     ) -> Cell;
 
     /// Returns this cell's column override.
-    fn x(&self, styles: StyleChain) -> Smart<usize>;
+    fn x(&self, styles: TypstStyleChain) -> Smart<usize>;
 
     /// Returns this cell's row override.
-    fn y(&self, styles: StyleChain) -> Smart<usize>;
+    fn y(&self, styles: TypstStyleChain) -> Smart<usize>;
 
     /// The amount of columns spanned by this cell.
-    fn colspan(&self, styles: StyleChain) -> NonZeroUsize;
+    fn colspan(&self, styles: TypstStyleChain) -> NonZeroUsize;
 
     /// The cell's span, for errors.
     fn span(&self) -> TypstSynSpan;
@@ -210,11 +210,11 @@ impl CellGrid {
         cells: &[T],
         fill: &Celled<Option<TypstPaint>>,
         align: &Celled<Smart<TypstAlignment>>,
-        inset: Sides<Option<Rel<Length>>>,
+        inset: Sides<Option<Rel<TypstLength>>>,
         engine: &mut TypstEngine,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         span: TypstSynSpan,
-    ) -> SourceResult<Self> {
+    ) -> TypstSourceResult<Self> {
         // Number of content columns: Always at least one.
         let c = tracks.x.len().max(1);
 
@@ -371,7 +371,7 @@ impl CellGrid {
                     Ok(Entry::Cell(new_cell))
                 }
             })
-            .collect::<SourceResult<Vec<Entry>>>()?;
+            .collect::<TypstSourceResult<Vec<Entry>>>()?;
 
         Ok(Self::new_internal(tracks, gutter, resolved_cells))
     }
@@ -587,9 +587,9 @@ pub struct GridLayouter<'a> {
     // How to stroke the cells.
     stroke: &'a Option<TypstFixedStroke>,
     /// The regions to layout children into.
-    regions: Regions<'a>,
+    regions: TypstRegions<'a>,
     /// The inherited styles.
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     /// Resolved column sizes.
     rcols: Vec<TypstAbsLength>,
     /// The sum of `rcols`.
@@ -634,8 +634,8 @@ impl<'a> GridLayouter<'a> {
     pub fn new(
         grid: &'a CellGrid,
         stroke: &'a Option<TypstFixedStroke>,
-        regions: Regions<'a>,
-        styles: StyleChain<'a>,
+        regions: TypstRegions<'a>,
+        styles: TypstStyleChain<'a>,
         span: TypstSynSpan,
     ) -> Self {
         // We use these regions for auto row measurement. Since at that moment,
@@ -660,7 +660,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Determines the columns sizes and then layouts the grid row-by-row.
-    pub fn layout(mut self, engine: &mut TypstEngine) -> SourceResult<TypstLayoutFragment> {
+    pub fn layout(mut self, engine: &mut TypstEngine) -> TypstSourceResult<TypstLayoutFragment> {
         self.measure_columns(engine)?;
 
         for y in 0..self.grid.rows.len() {
@@ -683,7 +683,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Add lines and backgrounds.
-    fn render_fills_strokes(mut self) -> SourceResult<TypstLayoutFragment> {
+    fn render_fills_strokes(mut self) -> TypstSourceResult<TypstLayoutFragment> {
         let mut finished = std::mem::take(&mut self.finished);
         for (frame, rows) in finished.iter_mut().zip(&self.rrows) {
             if self.rcols.is_empty() || rows.is_empty() {
@@ -697,10 +697,10 @@ impl<'a> GridLayouter<'a> {
 
                 // Render horizontal lines.
                 for offset in points(rows.iter().map(|piece| piece.height)) {
-                    let target = Point::with_x(frame.width() + thickness);
+                    let target = TypstPoint::with_x(frame.width() + thickness);
                     let hline = TypstGeometry::Line(target).stroked(stroke.clone());
                     frame.prepend(
-                        Point::new(-half, offset),
+                        TypstPoint::new(-half, offset),
                         TypstFrameItem::Shape(hline, self.span),
                     );
                 }
@@ -713,10 +713,10 @@ impl<'a> GridLayouter<'a> {
                     // We use 'split_vline' to split the vline such that it
                     // is not drawn above colspans.
                     for (dy, length) in split_vline(self.grid, rows, x, 0, self.grid.rows.len()) {
-                        let target = Point::with_y(length + thickness);
+                        let target = TypstPoint::with_y(length + thickness);
                         let vline = TypstGeometry::Line(target).stroked(stroke.clone());
                         frame.prepend(
-                            Point::new(dx, dy - half),
+                            TypstPoint::new(dx, dy - half),
                             TypstFrameItem::Shape(vline, self.span),
                         );
                     }
@@ -747,7 +747,7 @@ impl<'a> GridLayouter<'a> {
                             } else {
                                 TypstAbsLength::zero()
                             };
-                            let pos = Point::new(dx + offset, dy);
+                            let pos = TypstPoint::new(dx + offset, dy);
                             let size = Size::new(width, row.height);
                             let rect = TypstGeometry::Rect(size).filled(fill);
                             frame.prepend(pos, TypstFrameItem::Shape(rect, self.span));
@@ -763,7 +763,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Determine all column sizes.
-    fn measure_columns(&mut self, engine: &mut TypstEngine) -> SourceResult<()> {
+    fn measure_columns(&mut self, engine: &mut TypstEngine) -> TypstSourceResult<()> {
         // Sum of sizes of resolved relative tracks.
         let mut rel = TypstAbsLength::zero();
 
@@ -825,7 +825,7 @@ impl<'a> GridLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         available: TypstAbsLength,
-    ) -> SourceResult<(TypstAbsLength, usize)> {
+    ) -> TypstSourceResult<(TypstAbsLength, usize)> {
         let mut auto = TypstAbsLength::zero();
         let mut count = 0;
         let all_frac_cols = self
@@ -921,7 +921,7 @@ impl<'a> GridLayouter<'a> {
                 let already_covered_width = self.cell_spanned_width(parent_x, colspan);
 
                 let size = Size::new(available, height);
-                let pod = Regions::one(size, Axes::splat(false));
+                let pod = TypstRegions::one(size, Axes::splat(false));
                 let frame = cell.measure(engine, self.styles, pod)?.into_frame();
                 resolved.set_max(frame.width() - already_covered_width);
             }
@@ -982,7 +982,7 @@ impl<'a> GridLayouter<'a> {
 
     /// Layout a row with automatic height. Such a row may break across multiple
     /// regions.
-    fn layout_auto_row(&mut self, engine: &mut TypstEngine, y: usize) -> SourceResult<()> {
+    fn layout_auto_row(&mut self, engine: &mut TypstEngine, y: usize) -> TypstSourceResult<()> {
         // Determine the size for each region of the row. If the first region
         // ends up empty for some column, skip the region and remeasure.
         let mut resolved = match self.measure_auto_row(engine, y, true)? {
@@ -1037,7 +1037,7 @@ impl<'a> GridLayouter<'a> {
         engine: &mut TypstEngine,
         y: usize,
         can_skip: bool,
-    ) -> SourceResult<Option<Vec<TypstAbsLength>>> {
+    ) -> TypstSourceResult<Option<Vec<TypstAbsLength>>> {
         let mut resolved: Vec<TypstAbsLength> = vec![];
 
         for x in 0..self.rcols.len() {
@@ -1074,9 +1074,9 @@ impl<'a> GridLayouter<'a> {
     fn layout_relative_row(
         &mut self,
         engine: &mut TypstEngine,
-        v: Rel<Length>,
+        v: Rel<TypstLength>,
         y: usize,
-    ) -> SourceResult<()> {
+    ) -> TypstSourceResult<()> {
         let resolved = v.resolve(self.styles).relative_to(self.regions.base().y);
         let frame = self.layout_single_row(engine, resolved, y)?;
 
@@ -1102,20 +1102,20 @@ impl<'a> GridLayouter<'a> {
         engine: &mut TypstEngine,
         height: TypstAbsLength,
         y: usize,
-    ) -> SourceResult<TypstFrame> {
+    ) -> TypstSourceResult<TypstFrame> {
         if !height.is_finite() {
             bail!(self.span, "cannot create grid with infinite height");
         }
 
         let mut output = TypstFrame::soft(Size::new(self.width, height));
-        let mut pos = Point::zero();
+        let mut pos = TypstPoint::zero();
 
         // Reverse the column order when using RTL.
         for (x, &rcol) in self.rcols.iter().enumerate().rev_if(self.is_rtl) {
             if let Some(cell) = self.grid.cell(x, y) {
                 let width = self.cell_spanned_width(x, cell.colspan.get());
                 let size = Size::new(width, height);
-                let mut pod = Regions::one(size, Axes::splat(true));
+                let mut pod = TypstRegions::one(size, Axes::splat(true));
                 if self.grid.rows[y] == TypstSizing::Auto {
                     pod.full = self.regions.full;
                 }
@@ -1130,7 +1130,7 @@ impl<'a> GridLayouter<'a> {
                     // over to unrelated cells to its right in RTL.
                     // We avoid this by ensuring the rendered cell starts at
                     // the very left of the cell, even with colspan > 1.
-                    let offset = Point::with_x(-width + rcol);
+                    let offset = TypstPoint::with_x(-width + rcol);
                     frame.translate(offset);
                 }
                 output.push_frame(pos, frame);
@@ -1148,7 +1148,7 @@ impl<'a> GridLayouter<'a> {
         engine: &mut TypstEngine,
         heights: &[TypstAbsLength],
         y: usize,
-    ) -> SourceResult<TypstLayoutFragment> {
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         // Prepare frames.
         let mut outputs: Vec<_> = heights
             .iter()
@@ -1157,12 +1157,12 @@ impl<'a> GridLayouter<'a> {
 
         // Prepare regions.
         let size = Size::new(self.width, heights[0]);
-        let mut pod = Regions::one(size, Axes::splat(true));
+        let mut pod = TypstRegions::one(size, Axes::splat(true));
         pod.full = self.regions.full;
         pod.backlog = &heights[1..];
 
         // Layout the row.
-        let mut pos = Point::zero();
+        let mut pos = TypstPoint::zero();
         for (x, &rcol) in self.rcols.iter().enumerate().rev_if(self.is_rtl) {
             if let Some(cell) = self.grid.cell(x, y) {
                 let width = self.cell_spanned_width(x, cell.colspan.get());
@@ -1172,7 +1172,7 @@ impl<'a> GridLayouter<'a> {
                 let fragment = cell.layout(engine, self.styles, pod)?;
                 for (output, mut frame) in outputs.iter_mut().zip(fragment) {
                     if self.is_rtl {
-                        let offset = Point::with_x(-width + rcol);
+                        let offset = TypstPoint::with_x(-width + rcol);
                         frame.translate(offset);
                     }
                     output.push_frame(pos, frame);
@@ -1192,7 +1192,7 @@ impl<'a> GridLayouter<'a> {
     }
 
     /// Finish rows for one region.
-    fn finish_region(&mut self, engine: &mut TypstEngine) -> SourceResult<()> {
+    fn finish_region(&mut self, engine: &mut TypstEngine) -> TypstSourceResult<()> {
         // Determine the height of existing rows in the region.
         let mut used = TypstAbsLength::zero();
         let mut fr = TypstFraction::zero();
@@ -1212,7 +1212,7 @@ impl<'a> GridLayouter<'a> {
 
         // The frame for the region.
         let mut output = TypstFrame::soft(size);
-        let mut pos = Point::zero();
+        let mut pos = TypstPoint::zero();
         let mut rrows = vec![];
 
         // Place finished rows and layout fractional rows.

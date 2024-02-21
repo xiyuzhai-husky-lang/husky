@@ -5,16 +5,16 @@ use comemo::{Tracked, TrackedMut};
 use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 use smallvec::{smallvec, SmallVec};
 
-use crate::diag::{At, SourceResult, StrResult};
+use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTypstValue,
-    IsTypstElem, Label, LocatableSelector, Repr, Selector, Show, Str, StyleChain, TypstContent,
-    TypstContentRefined, TypstValue,
+    IsTypstElem, Label, LocatableSelector, Repr, Selector, Show, Str, TypstContent,
+    TypstContentRefined, TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator, TypstMeta};
-use crate::layout::{PageElem, TypstFrame, TypstFrameItem};
+use crate::layout::{TypstFrame, TypstFrameItem, TypstPageElem};
 use crate::math::EquationTypstElem;
 use crate::model::{FigureElem, HeadingTypstElem, Numbering, NumberingPattern};
 use crate::syntax::TypstSynSpan;
@@ -224,7 +224,11 @@ impl Counter {
     }
 
     /// Gets the current and final value of the state combined in one state.
-    pub fn both(&self, engine: &mut TypstEngine, location: Location) -> SourceResult<CounterState> {
+    pub fn both(
+        &self,
+        engine: &mut TypstEngine,
+        location: Location,
+    ) -> TypstSourceResult<CounterState> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -259,7 +263,7 @@ impl Counter {
     fn sequence(
         &self,
         engine: &mut TypstEngine,
-    ) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
+    ) -> TypstSourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -278,7 +282,7 @@ impl Counter {
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
-    ) -> SourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
+    ) -> TypstSourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
         let mut locator = Locator::chained(locator);
         let mut engine = TypstEngine {
             world,
@@ -430,7 +434,7 @@ impl Counter {
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
         location: Location,
-    ) -> SourceResult<CounterState> {
+    ) -> TypstSourceResult<CounterState> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -465,7 +469,7 @@ impl Counter {
         /// module, the evaluation of the whole module and its exports could
         /// depend on the counter's value.
         location: Location,
-    ) -> SourceResult<CounterState> {
+    ) -> TypstSourceResult<CounterState> {
         let _ = location;
         let sequence = self.sequence(engine)?;
         let (mut state, page) = sequence.last().unwrap().clone();
@@ -498,14 +502,14 @@ pub enum CounterKey {
 cast! {
     CounterKey,
     self => match self {
-        Self::Page => PageElem::elem().into_value(),
+        Self::Page => TypstPageElem::elem().into_value(),
         Self::Selector(v) => v.into_value(),
         Self::Str(v) => v.into_value(),
     },
     v: Str => Self::Str(v),
     v: Label => Self::Selector(Selector::Label(v)),
     v: ElementSchemaRef => {
-        if v == PageElem::elem() {
+        if v == TypstPageElem::elem() {
             Self::Page
         } else {
             Self::Selector(LocatableSelector::from_value(v.into_value())?.0)
@@ -569,7 +573,11 @@ impl CounterState {
     }
 
     /// Advance the counter and return the numbers for the given heading.
-    pub fn update(&mut self, engine: &mut TypstEngine, update: CounterUpdate) -> SourceResult<()> {
+    pub fn update(
+        &mut self,
+        engine: &mut TypstEngine,
+        update: CounterUpdate,
+    ) -> TypstSourceResult<()> {
         match update {
             CounterUpdate::Set(state) => *self = state,
             CounterUpdate::Step(level) => self.step(level, 1),
@@ -607,7 +615,7 @@ impl CounterState {
         &self,
         engine: &mut TypstEngine,
         numbering: &Numbering,
-    ) -> SourceResult<TypstContent> {
+    ) -> TypstSourceResult<TypstContent> {
         Ok(numbering.apply(engine, &self.0)?.display())
     }
 }
@@ -640,7 +648,11 @@ struct DisplayElem {
 
 impl Show for TypstContentRefined<DisplayElem> {
     #[husky_typst_macros::time(name = "counter.display", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let location = self.location().unwrap();
         let counter = self.counter();
         let numbering = self
@@ -686,7 +698,7 @@ struct UpdateElem {
 }
 
 impl Show for TypstContentRefined<UpdateElem> {
-    fn show(&self, _: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut TypstEngine, _: TypstStyleChain) -> TypstSourceResult<TypstContent> {
         Ok(TypstContent::empty())
     }
 }
@@ -725,7 +737,7 @@ impl ManualPageCounter {
     }
 
     /// Advance past a page.
-    pub fn visit(&mut self, engine: &mut TypstEngine, page: &TypstFrame) -> SourceResult<()> {
+    pub fn visit(&mut self, engine: &mut TypstEngine, page: &TypstFrame) -> TypstSourceResult<()> {
         for (_, item) in page.items() {
             match item {
                 TypstFrameItem::Group(group) => self.visit(engine, &group.frame)?,

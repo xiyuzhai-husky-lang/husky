@@ -1,6 +1,6 @@
 use ecow::eco_format;
 use husky_typst::layout::{Ratio, Transform, TypstAbsLength};
-use husky_typst::util::Numeric;
+use husky_typst::util::TypstNumeric;
 use husky_typst::visualize::{Pattern, RelativeTo};
 use pdf_writer::types::{ColorSpaceOperand, PaintType, TilingType};
 use pdf_writer::{Filter, Finish, Name, Rect};

@@ -7,7 +7,7 @@ use ecow::{eco_format, EcoString, EcoVec};
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
-use crate::diag::{At, SourceResult, StrResult};
+use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::ops;
 use crate::foundations::{
@@ -307,7 +307,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item. Must return a boolean.
         searcher: Func,
-    ) -> SourceResult<Option<TypstValue>> {
+    ) -> TypstSourceResult<Option<TypstValue>> {
         for item in self.iter() {
             if searcher
                 .call(engine, [item.clone()])?
@@ -329,7 +329,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item. Must return a boolean.
         searcher: Func,
-    ) -> SourceResult<Option<i64>> {
+    ) -> TypstSourceResult<Option<i64>> {
         for (i, item) in self.iter().enumerate() {
             if searcher
                 .call(engine, [item.clone()])?
@@ -375,7 +375,7 @@ impl Array {
         #[named]
         #[default(NonZeroI64::new(1).unwrap())]
         step: NonZeroI64,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let first = args.expect::<i64>("end")?;
         let (start, end) = match args.eat::<i64>()? {
             Some(second) => (first, second),
@@ -404,7 +404,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let mut kept = EcoVec::new();
         for item in self.iter() {
             if test
@@ -427,7 +427,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item.
         mapper: Func,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         self.into_iter()
             .map(|item| mapper.call(engine, [item]))
             .collect()
@@ -482,7 +482,7 @@ impl Array {
         #[external]
         #[variadic]
         others: Vec<Array>,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let remaining = args.remaining();
 
         // Fast path for one array.
@@ -540,7 +540,7 @@ impl Array {
         /// The folding function. Must have two parameters: One for the
         /// accumulated value and one for an item.
         folder: Func,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let mut acc = init;
         for item in self {
             acc = folder.call(engine, [acc, item])?;
@@ -597,7 +597,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
-    ) -> SourceResult<bool> {
+    ) -> TypstSourceResult<bool> {
         for item in self {
             if test.call(engine, [item])?.cast::<bool>().at(test.span())? {
                 return Ok(true);
@@ -615,7 +615,7 @@ impl Array {
         engine: &mut TypstEngine,
         /// The function to apply to each item. Must return a boolean.
         test: Func,
-    ) -> SourceResult<bool> {
+    ) -> TypstSourceResult<bool> {
         for item in self {
             if !test.call(engine, [item])?.cast::<bool>().at(test.span())? {
                 return Ok(false);
@@ -734,7 +734,7 @@ impl Array {
         /// determine the keys to sort by.
         #[named]
         key: Option<Func>,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let mut result = Ok(());
         let mut vec = self.0;
         let mut key_of = |x: TypstValue| match &key {
@@ -780,7 +780,7 @@ impl Array {
         /// determine the keys to deduplicate by.
         #[named]
         key: Option<Func>,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let mut out = EcoVec::with_capacity(self.0.len());
         let mut key_of = |x: TypstValue| match &key {
             // NOTE: We are relying on `comemo`'s memoization of function

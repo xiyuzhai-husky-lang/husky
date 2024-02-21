@@ -5,8 +5,8 @@ use std::sync::Arc;
 
 use husky_typst::introspection::TypstMeta;
 use husky_typst::layout::{
-    Axes, FrameKind, Point, Ratio, Size, Transform, TypstAbsLength, TypstFrame, TypstFrameItem,
-    TypstGroupItem,
+    Axes, FrameKind, Ratio, Size, Transform, TypstAbsLength, TypstFrame, TypstFrameItem,
+    TypstGroupItem, TypstPoint,
 };
 use husky_typst::model::TypstDocument;
 use husky_typst::text::{TypstFont, TypstTextItem};
@@ -117,7 +117,7 @@ impl<'a> State<'a> {
     }
 
     /// Pre translate the current item's transform.
-    fn pre_translate(self, pos: Point) -> Self {
+    fn pre_translate(self, pos: TypstPoint) -> Self {
         Self {
             transform: self.transform.pre_translate(pos.x.to_f32(), pos.y.to_f32()),
             ..self
@@ -182,7 +182,7 @@ fn render_frame(canvas: &mut sk::Pixmap, state: State, frame: &TypstFrame) {
 }
 
 /// Render a group frame with optional transform and clipping into the canvas.
-fn render_group(canvas: &mut sk::Pixmap, state: State, pos: Point, group: &TypstGroupItem) {
+fn render_group(canvas: &mut sk::Pixmap, state: State, pos: TypstPoint, group: &TypstGroupItem) {
     let sk_transform = to_sk_transform(&group.transform);
     let state = match group.frame.kind() {
         FrameKind::Soft => state.pre_translate(pos).pre_concat(sk_transform),
@@ -244,7 +244,7 @@ fn render_text(canvas: &mut sk::Pixmap, state: State, text: &TypstTextItem) {
     for glyph in &text.glyphs {
         let id = GlyphId(glyph.id);
         let offset = x + glyph.x_offset.at(text.size).to_f32();
-        let state = state.pre_translate(Point::new(
+        let state = state.pre_translate(TypstPoint::new(
             TypstAbsLength::raw(offset as _),
             TypstAbsLength::raw(0.0),
         ));
@@ -367,7 +367,7 @@ fn render_bitmap_glyph(
     let dy = (raster.y as f32) / (image.height() as f32) * size;
     render_image(
         canvas,
-        state.pre_translate(Point::new(
+        state.pre_translate(TypstPoint::new(
             TypstAbsLength::raw(dx as _),
             TypstAbsLength::raw((-size - dy) as _),
         )),
@@ -626,7 +626,7 @@ fn render_shape(canvas: &mut sk::Pixmap, state: State, shape: &TypstShape) -> Op
 
             let gradient_map = (!matches!(shape.geometry, TypstGeometry::Line(..))).then(|| {
                 (
-                    Point::new(
+                    TypstPoint::new(
                         -*thickness * state.pixel_per_pt as f64,
                         -*thickness * state.pixel_per_pt as f64,
                     ),
@@ -914,7 +914,7 @@ fn to_sk_paint<'a>(
     on_text: bool,
     fill_transform: Option<sk::Transform>,
     pixmap: &'a mut Option<Arc<sk::Pixmap>>,
-    gradient_map: Option<(Point, Axes<Ratio>)>,
+    gradient_map: Option<(TypstPoint, Axes<Ratio>)>,
 ) -> sk::Paint<'a> {
     /// Actual sampling of the gradient, cached for performance.
     #[comemo::memoize]
@@ -922,10 +922,10 @@ fn to_sk_paint<'a>(
         gradient: &Gradient,
         width: u32,
         height: u32,
-        gradient_map: Option<(Point, Axes<Ratio>)>,
+        gradient_map: Option<(TypstPoint, Axes<Ratio>)>,
     ) -> Arc<sk::Pixmap> {
         let (offset, scale) =
-            gradient_map.unwrap_or_else(|| (Point::zero(), Axes::splat(Ratio::one())));
+            gradient_map.unwrap_or_else(|| (TypstPoint::zero(), Axes::splat(Ratio::one())));
         let mut pixmap = sk::Pixmap::new(width.max(1), height.max(1)).unwrap();
         for x in 0..width {
             for y in 0..height {

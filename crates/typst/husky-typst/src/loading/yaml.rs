@@ -1,6 +1,6 @@
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
@@ -42,7 +42,7 @@ pub fn yaml(
     engine: &mut TypstEngine,
     /// Path to a YAML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -56,7 +56,7 @@ impl yaml {
     pub fn decode(
         /// YAML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         serde_yaml::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse YAML ({err})"))
@@ -68,7 +68,7 @@ impl yaml {
     pub fn encode(
         /// TypstValue to be encoded.
         value: Spanned<TypstValue>,
-    ) -> SourceResult<Str> {
+    ) -> TypstSourceResult<Str> {
         let Spanned { v: value, span } = value;
         serde_yaml::to_string(&value)
             .map(|v| v.into())

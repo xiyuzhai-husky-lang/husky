@@ -6,7 +6,7 @@ use std::sync::Arc;
 use ecow::EcoString;
 use kurbo::Vec2;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::foundations::{
     array, cast, func, scope, ty, Args, Array, Cast, Func, IntoTypstValue, Repr, Smart,
 };
@@ -230,7 +230,7 @@ impl Gradient {
         /// The angle of the gradient.
         #[external]
         angle: Angle,
-    ) -> SourceResult<Gradient> {
+    ) -> TypstSourceResult<Gradient> {
         let angle = if let Some(angle) = args.named::<Angle>("angle")? {
             angle
         } else if let Some(dir) = args.named::<TypstLayoutDirection>("dir")? {
@@ -346,7 +346,7 @@ impl Gradient {
         #[named]
         #[default(Spanned::new(Ratio::new(0.0), TypstSynSpan::detached()))]
         focal_radius: Spanned<Ratio>,
-    ) -> SourceResult<Gradient> {
+    ) -> TypstSourceResult<Gradient> {
         if stops.len() < 2 {
             bail!(
                 span, "a gradient must have at least two stops";
@@ -438,7 +438,7 @@ impl Gradient {
         #[named]
         #[default(Axes::splat(Ratio::new(0.5)))]
         center: Axes<Ratio>,
-    ) -> SourceResult<Gradient> {
+    ) -> TypstSourceResult<Gradient> {
         if stops.len() < 2 {
             bail!(
                 span, "a gradient must have at least two stops";
@@ -478,7 +478,7 @@ impl Gradient {
         #[named]
         #[default(Spanned::new(Ratio::zero(), TypstSynSpan::detached()))]
         smoothness: Spanned<Ratio>,
-    ) -> SourceResult<Gradient> {
+    ) -> TypstSourceResult<Gradient> {
         if steps.v < 2 {
             bail!(steps.span, "sharp gradients must have at least two stops");
         }
@@ -572,7 +572,7 @@ impl Gradient {
         #[named]
         #[default(false)]
         mirror: bool,
-    ) -> SourceResult<Gradient> {
+    ) -> TypstSourceResult<Gradient> {
         if repetitions.v == 0 {
             bail!(repetitions.span, "must repeat at least once");
         }
@@ -1176,7 +1176,7 @@ cast! {
 /// This is split into its own function because it is used by all of the
 /// different gradient types.
 #[comemo::memoize]
-fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(TypstColor, Ratio)>> {
+fn process_stops(stops: &[Spanned<GradientStop>]) -> TypstSourceResult<Vec<(TypstColor, Ratio)>> {
     let has_offset = stops.iter().any(|stop| stop.v.offset.is_some());
     if has_offset {
         let mut last_stop = f64::NEG_INFINITY;
@@ -1208,7 +1208,7 @@ fn process_stops(stops: &[Spanned<GradientStop>]) -> SourceResult<Vec<(TypstColo
                     Ok((*color, offset.unwrap()))
                 },
             )
-            .collect::<SourceResult<Vec<_>>>()?;
+            .collect::<TypstSourceResult<Vec<_>>>()?;
 
         if out[0].1 != Ratio::zero() {
             bail!(

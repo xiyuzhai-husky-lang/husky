@@ -4,12 +4,12 @@ use std::cmp;
 use std::cmp::Ordering;
 use std::ops::{Div, Rem};
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::eval::ops;
 use crate::foundations::{
     cast, func, IntoTypstValue, TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
 };
-use crate::layout::{Angle, Length, Ratio, TypstFraction};
+use crate::layout::{Angle, Ratio, TypstFraction, TypstLength};
 use crate::syntax::{Spanned, TypstSynSpan};
 
 /// A module with calculation definitions.
@@ -81,7 +81,7 @@ cast! {
     ToAbs,
     v: i64 => Self(v.abs().into_value()),
     v: f64 => Self(v.abs().into_value()),
-    v: Length => Self(TypstValue::Length(v.try_abs()
+    v: TypstLength => Self(TypstValue::Length(v.try_abs()
         .ok_or("cannot take absolute value of this length")?)),
     v: Angle => Self(TypstValue::Angle(v.abs())),
     v: Ratio => Self(TypstValue::Ratio(v.abs())),
@@ -101,7 +101,7 @@ pub fn pow(
     base: Num,
     /// The exponent of the power.
     exponent: Spanned<Num>,
-) -> SourceResult<Num> {
+) -> TypstSourceResult<Num> {
     match exponent.v {
         _ if exponent.v.float() == 0.0 && base.float() == 0.0 => {
             bail!(span, "zero to the power of zero is undefined")
@@ -153,7 +153,7 @@ pub fn exp(
     span: TypstSynSpan,
     /// The exponent of the power.
     exponent: Spanned<Num>,
-) -> SourceResult<f64> {
+) -> TypstSourceResult<f64> {
     match exponent.v {
         Num::Int(i) if i32::try_from(i).is_err() => {
             bail!(exponent.span, "exponent is too large")
@@ -185,7 +185,7 @@ pub fn exp(
 pub fn sqrt(
     /// The number whose square root to calculate. Must be non-negative.
     value: Spanned<Num>,
-) -> SourceResult<f64> {
+) -> TypstSourceResult<f64> {
     if value.v.float() < 0.0 {
         bail!(value.span, "cannot take square root of negative number");
     }
@@ -206,7 +206,7 @@ pub fn root(
     radicand: f64,
     /// Which root of the radicand to take
     index: Spanned<i64>,
-) -> SourceResult<f64> {
+) -> TypstSourceResult<f64> {
     if index.v == 0 {
         bail!(index.span, "cannot take the 0th root of a number");
     } else if radicand < 0.0 {
@@ -298,7 +298,7 @@ pub fn tan(
 pub fn asin(
     /// The number whose arcsine to calculate. Must be between -1 and 1.
     value: Spanned<Num>,
-) -> SourceResult<Angle> {
+) -> TypstSourceResult<Angle> {
     let val = value.v.float();
     if val < -1.0 || val > 1.0 {
         bail!(value.span, "value must be between -1 and 1");
@@ -316,7 +316,7 @@ pub fn asin(
 pub fn acos(
     /// The number whose arcsine to calculate. Must be between -1 and 1.
     value: Spanned<Num>,
-) -> SourceResult<Angle> {
+) -> TypstSourceResult<Angle> {
     let val = value.v.float();
     if val < -1.0 || val > 1.0 {
         bail!(value.span, "value must be between -1 and 1");
@@ -415,7 +415,7 @@ pub fn log(
     #[named]
     #[default(Spanned::new(10.0, TypstSynSpan::detached()))]
     base: Spanned<f64>,
-) -> SourceResult<f64> {
+) -> TypstSourceResult<f64> {
     let number = value.v.float();
     if number <= 0.0 {
         bail!(value.span, "value must be strictly positive")
@@ -456,7 +456,7 @@ pub fn ln(
     span: TypstSynSpan,
     /// The number whose logarithm to calculate. Must be strictly positive.
     value: Spanned<Num>,
-) -> SourceResult<f64> {
+) -> TypstSourceResult<f64> {
     let number = value.v.float();
     if number <= 0.0 {
         bail!(value.span, "value must be strictly positive")
@@ -730,7 +730,7 @@ pub fn clamp(
     min: Num,
     /// The inclusive maximum value.
     max: Spanned<Num>,
-) -> SourceResult<Num> {
+) -> TypstSourceResult<Num> {
     if max.v.float() < min.float() {
         bail!(max.span, "max must be greater than or equal to min")
     }
@@ -751,7 +751,7 @@ pub fn min(
     /// Must not be empty.
     #[variadic]
     values: Vec<Spanned<TypstValue>>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     minmax(span, values, Ordering::Less)
 }
 
@@ -769,7 +769,7 @@ pub fn max(
     /// Must not be empty.
     #[variadic]
     values: Vec<Spanned<TypstValue>>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     minmax(span, values, Ordering::Greater)
 }
 
@@ -778,7 +778,7 @@ fn minmax(
     span: TypstSynSpan,
     values: Vec<Spanned<TypstValue>>,
     goal: Ordering,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let mut iter = values.into_iter();
     let Some(Spanned {
         v: mut extremum, ..
@@ -845,7 +845,7 @@ pub fn rem(
     dividend: Num,
     /// The divisor of the remainder.
     divisor: Spanned<Num>,
-) -> SourceResult<Num> {
+) -> TypstSourceResult<Num> {
     if divisor.v.float() == 0.0 {
         bail!(divisor.span, "divisor must not be zero");
     }
@@ -870,7 +870,7 @@ pub fn div_euclid(
     dividend: Num,
     /// The divisor of the division.
     divisor: Spanned<Num>,
-) -> SourceResult<Num> {
+) -> TypstSourceResult<Num> {
     if divisor.v.float() == 0.0 {
         bail!(divisor.span, "divisor must not be zero");
     }
@@ -896,7 +896,7 @@ pub fn rem_euclid(
     dividend: Num,
     /// The divisor of the remainder.
     divisor: Spanned<Num>,
-) -> SourceResult<Num> {
+) -> TypstSourceResult<Num> {
     if divisor.v.float() == 0.0 {
         bail!(divisor.span, "divisor must not be zero");
     }
@@ -916,7 +916,7 @@ pub fn quo(
     dividend: Num,
     /// The divisor of the quotient.
     divisor: Spanned<Num>,
-) -> SourceResult<i64> {
+) -> TypstSourceResult<i64> {
     if divisor.v.float() == 0.0 {
         bail!(divisor.span, "divisor must not be zero");
     }

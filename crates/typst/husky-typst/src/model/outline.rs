@@ -1,15 +1,15 @@
 use std::num::NonZeroUsize;
 use std::str::FromStr;
 
-use crate::diag::{bail, At, SourceResult};
+use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, elem, scope, select_where, Func, IsTypstElem, LocatableSelector, Show, ShowSet, Smart,
-    StyleChain, Styles, TypstContent, TypstContentRefined,
+    TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Counter, CounterKey, Locatable};
 use crate::layout::{
-    BoxTypstElem, HElem, HideElem, Length, Rel, RepeatElem, Spacing, TypstFraction,
+    BoxTypstElem, HElem, HideElem, Rel, RepeatElem, Spacing, TypstFraction, TypstLength,
 };
 use crate::model::{HeadingTypstElem, NumberingPattern, ParbreakElem, Refable, TypstDestination};
 use crate::syntax::TypstSynSpan;
@@ -189,7 +189,11 @@ impl OutlineElem {
 
 impl Show for TypstContentRefined<OutlineElem> {
     #[husky_typst_macros::time(name = "outline", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let mut seq = vec![ParbreakElem::new().pack()];
         // Build the outline title.
         if let Some(title) = self.title(styles) {
@@ -255,8 +259,8 @@ impl Show for TypstContentRefined<OutlineElem> {
 }
 
 impl ShowSet for TypstContentRefined<OutlineElem> {
-    fn show_set(&self, _: StyleChain) -> Styles {
-        let mut out = Styles::new();
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
+        let mut out = TypstStyles::new();
         out.set(HeadingTypstElem::set_outlined(false));
         out.set(HeadingTypstElem::set_numbering(None));
         out
@@ -306,7 +310,7 @@ impl LocalName for TypstContentRefined<OutlineElem> {
 /// `#outline()` element.
 pub trait Outlinable: Refable {
     /// Produce an outline item for this element.
-    fn outline(&self, engine: &mut TypstEngine) -> SourceResult<Option<TypstContent>>;
+    fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>>;
 
     /// Returns the nesting level of this element.
     fn level(&self) -> NonZeroUsize {
@@ -318,7 +322,7 @@ pub trait Outlinable: Refable {
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub enum OutlineIndent {
     Bool(bool),
-    Rel(Rel<Length>),
+    Rel(Rel<TypstLength>),
     Func(Func),
 }
 
@@ -329,7 +333,7 @@ impl OutlineIndent {
         ancestors: &Vec<&TypstContent>,
         seq: &mut Vec<TypstContent>,
         span: TypstSynSpan,
-    ) -> SourceResult<()> {
+    ) -> TypstSourceResult<()> {
         match indent {
             // 'none' | 'false' => no indenting
             None | Some(Smart::Custom(OutlineIndent::Bool(false))) => {}
@@ -389,7 +393,7 @@ cast! {
         Self::Func(v) => v.into_value()
     },
     v: bool => OutlineIndent::Bool(v),
-    v: Rel<Length> => OutlineIndent::Rel(v),
+    v: Rel<TypstLength> => OutlineIndent::Rel(v),
     v: Func => OutlineIndent::Func(v),
 }
 
@@ -397,7 +401,7 @@ struct LengthOrContent(TypstContent);
 
 cast! {
     LengthOrContent,
-    v: Rel<Length> => Self(HElem::new(Spacing::Rel(v)).pack()),
+    v: Rel<TypstLength> => Self(HElem::new(Spacing::Rel(v)).pack()),
     v: TypstContent => Self(v),
 }
 
@@ -474,7 +478,7 @@ impl OutlineEntry {
         span: TypstSynSpan,
         elem: TypstContent,
         fill: Option<TypstContent>,
-    ) -> SourceResult<Option<Self>> {
+    ) -> TypstSourceResult<Option<Self>> {
         let Some(outlinable) = elem.with::<dyn Outlinable>() else {
             bail!(span, "cannot outline {}", elem.func().name());
         };
@@ -500,7 +504,7 @@ impl OutlineEntry {
 
 impl Show for TypstContentRefined<OutlineEntry> {
     #[husky_typst_macros::time(name = "outline.entry", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut TypstEngine, _: TypstStyleChain) -> TypstSourceResult<TypstContent> {
         let mut seq = vec![];
         let elem = self.element();
 

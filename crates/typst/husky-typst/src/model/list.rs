@@ -1,12 +1,12 @@
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, Fold, Func, Smart, StyleChain, TypstContent, TypstContentRefined,
-    TypstValue,
+    cast, elem, scope, Array, Fold, Func, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstValue,
 };
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Length, Regions,
-    Spacing, TypstEmLength, TypstLayoutFragment, TypstSizing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Spacing,
+    TypstEmLength, TypstLayoutFragment, TypstLength, TypstRegions, TypstSizing, VAlignment,
 };
 use crate::model::ParagraphTypstElem;
 use crate::text::TextElem;
@@ -97,12 +97,12 @@ pub struct ListElem {
 
     /// The indent of each item.
     #[resolve]
-    pub indent: Length,
+    pub indent: TypstLength,
 
     /// The spacing between the marker and the body of each item.
     #[resolve]
     #[default(TypstEmLength::new(0.5).into())]
-    pub body_indent: Length,
+    pub body_indent: TypstLength,
 
     /// The spacing between the items of a wide (non-tight) list.
     ///
@@ -140,9 +140,9 @@ impl LayoutMultiple for TypstContentRefined<ListElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);
         let gutter = if self.tight(styles) {
@@ -208,7 +208,7 @@ pub enum ListMarker {
 
 impl ListMarker {
     /// Resolve the marker for the given depth.
-    fn resolve(&self, engine: &mut TypstEngine, depth: usize) -> SourceResult<TypstContent> {
+    fn resolve(&self, engine: &mut TypstEngine, depth: usize) -> TypstSourceResult<TypstContent> {
         Ok(match self {
             Self::Content(list) => list.get(depth % list.len()).cloned().unwrap_or_default(),
             Self::Func(func) => func.call(engine, [depth])?.display(),

@@ -1,11 +1,11 @@
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Resolve, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{elem, Resolve, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    AlignElem, Axes, LayoutMultiple, Point, Regions, Size, TypstAbsLength, TypstFrame,
-    TypstLayoutFragment,
+    AlignElem, Axes, LayoutMultiple, Size, TypstAbsLength, TypstFrame, TypstLayoutFragment,
+    TypstPoint, TypstRegions,
 };
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// Repeats content to the available space.
 ///
@@ -40,10 +40,10 @@ impl LayoutMultiple for TypstContentRefined<RepeatElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
-        let pod = Regions::one(regions.size, Axes::new(false, false));
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
+        let pod = TypstRegions::one(regions.size, Axes::new(false, false));
         let piece = self.body().layout(engine, styles, pod)?.into_frame();
         let align = AlignElem::alignment_in(styles).resolve(styles);
 
@@ -71,7 +71,7 @@ impl LayoutMultiple for TypstContentRefined<RepeatElem> {
 
         if width > TypstAbsLength::zero() {
             for _ in 0..(count as usize).min(1000) {
-                frame.push_frame(Point::with_x(offset), piece.clone());
+                frame.push_frame(TypstPoint::with_x(offset), piece.clone());
                 offset += piece.width() + apart;
             }
         }

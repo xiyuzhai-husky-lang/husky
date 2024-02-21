@@ -20,7 +20,7 @@ use husky_typst::foundations::{
     TypstValueAssignmentGroup, FOUNDATIONS,
 };
 use husky_typst::introspection::INTROSPECTION;
-use husky_typst::layout::{Margin, PageElem, TypstAbsLength, LAYOUT};
+use husky_typst::layout::{Margin, TypstAbsLength, TypstPageElem, LAYOUT};
 use husky_typst::loading::DATA_LOADING;
 use husky_typst::math::MATH;
 use husky_typst::model::TypstDocument;
@@ -57,14 +57,13 @@ static GROUPS: Lazy<Vec<GroupData>> = Lazy::new(|| {
 
 static LIBRARY: Lazy<Prehashed<Library>> = Lazy::new(|| {
     let mut lib = Library::default();
-    lib.styles.set(PageElem::set_width(Smart::Custom(
+    lib.styles.set(TypstPageElem::set_width(Smart::Custom(
         TypstAbsLength::pt(240.0).into(),
     )));
-    lib.styles.set(PageElem::set_height(Smart::Auto));
-    lib.styles
-        .set(PageElem::set_margin(Margin::splat(Some(Smart::Custom(
-            TypstAbsLength::pt(15.0).into(),
-        )))));
+    lib.styles.set(TypstPageElem::set_height(Smart::Auto));
+    lib.styles.set(TypstPageElem::set_margin(Margin::splat(Some(
+        Smart::Custom(TypstAbsLength::pt(15.0).into()),
+    ))));
     Prehashed::new(lib)
 });
 

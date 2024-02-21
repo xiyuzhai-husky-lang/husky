@@ -1,6 +1,6 @@
 use ecow::{eco_vec, EcoVec};
 
-use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
+use crate::diag::{bail, error, At, SourceDiagnostic, TypstSourceResult};
 use crate::eval::{ops, Eval, Vm};
 use crate::foundations::{Array, Str, TypstContent, TypstDict, TypstValue};
 use crate::syntax::ast::{self, TypstAstNode};
@@ -8,7 +8,7 @@ use crate::syntax::ast::{self, TypstAstNode};
 impl Eval for ast::Code<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         eval_code(vm, &mut self.exprs())
     }
 }
@@ -17,7 +17,7 @@ impl Eval for ast::Code<'_> {
 fn eval_code<'a>(
     vm: &mut Vm,
     exprs: &mut impl Iterator<Item = ast::Expr<'a>>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let flow = vm.flow.take();
     let mut output = TypstValue::None;
 
@@ -62,7 +62,7 @@ fn eval_code<'a>(
 impl Eval for ast::Expr<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let span = self.span();
         let forbidden = |name| {
             error!(
@@ -142,7 +142,7 @@ impl Eval for ast::Expr<'_> {
 impl Eval for ast::Ident<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         vm.scopes.get(&self).cloned().at(self.span())
     }
 }
@@ -150,7 +150,7 @@ impl Eval for ast::Ident<'_> {
 impl Eval for ast::None<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::None)
     }
 }
@@ -158,7 +158,7 @@ impl Eval for ast::None<'_> {
 impl Eval for ast::Auto<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Auto)
     }
 }
@@ -166,7 +166,7 @@ impl Eval for ast::Auto<'_> {
 impl Eval for ast::Bool<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Bool(self.get()))
     }
 }
@@ -174,7 +174,7 @@ impl Eval for ast::Bool<'_> {
 impl Eval for ast::Int<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Int(self.get()))
     }
 }
@@ -182,7 +182,7 @@ impl Eval for ast::Int<'_> {
 impl Eval for ast::Float<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Float(self.get()))
     }
 }
@@ -190,7 +190,7 @@ impl Eval for ast::Float<'_> {
 impl Eval for ast::Numeric<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::numeric(self.get()))
     }
 }
@@ -198,7 +198,7 @@ impl Eval for ast::Numeric<'_> {
 impl Eval for ast::Str<'_> {
     type Output = TypstValue;
 
-    fn eval(self, _: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, _: &mut Vm) -> TypstSourceResult<Self::Output> {
         Ok(TypstValue::Str(self.get().into()))
     }
 }
@@ -206,7 +206,7 @@ impl Eval for ast::Str<'_> {
 impl Eval for ast::Array<'_> {
     type Output = Array;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let items = self.items();
 
         let mut vec = EcoVec::with_capacity(items.size_hint().0);
@@ -228,7 +228,7 @@ impl Eval for ast::Array<'_> {
 impl Eval for ast::Dict<'_> {
     type Output = TypstDict;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let mut map = indexmap::IndexMap::new();
 
         let mut invalid_keys = eco_vec![];
@@ -267,7 +267,7 @@ impl Eval for ast::Dict<'_> {
 impl Eval for ast::CodeBlock<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         vm.scopes.enter();
         let output = self.body().eval(vm)?;
         vm.scopes.exit();
@@ -278,7 +278,7 @@ impl Eval for ast::CodeBlock<'_> {
 impl Eval for ast::ContentBlock<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         vm.scopes.enter();
         let content = self.body().eval(vm)?;
         vm.scopes.exit();
@@ -289,7 +289,7 @@ impl Eval for ast::ContentBlock<'_> {
 impl Eval for ast::Parenthesized<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         self.expr().eval(vm)
     }
 }
@@ -297,7 +297,7 @@ impl Eval for ast::Parenthesized<'_> {
 impl Eval for ast::FieldAccess<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let value = self.target().eval(vm)?;
         let field = self.field();
         value.field(&field).at(field.span())

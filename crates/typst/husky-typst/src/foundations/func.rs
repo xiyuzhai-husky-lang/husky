@@ -5,7 +5,7 @@ use comemo::{Prehashed, TrackedMut};
 use ecow::{eco_format, EcoString};
 use once_cell::sync::Lazy;
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, repr, scope, ty, Args, CastInfo, ElementSchemaRef, IntoArgs, Selector, Type,
@@ -250,13 +250,17 @@ impl Func {
     }
 
     /// Call the function with the given arguments.
-    pub fn call(&self, engine: &mut TypstEngine, args: impl IntoArgs) -> SourceResult<TypstValue> {
+    pub fn call(
+        &self,
+        engine: &mut TypstEngine,
+        args: impl IntoArgs,
+    ) -> TypstSourceResult<TypstValue> {
         self.call_impl(engine, args.into_args(self.span))
     }
 
     /// Non-generic implementation of `call`.
     #[husky_typst_macros::time(name = "func call", span = self.span())]
-    fn call_impl(&self, engine: &mut TypstEngine, mut args: Args) -> SourceResult<TypstValue> {
+    fn call_impl(&self, engine: &mut TypstEngine, mut args: Args) -> TypstSourceResult<TypstValue> {
         match &self.repr {
             FuncRepr::Native(native) => {
                 let value = (native.function)(engine, &mut args)?;
@@ -413,7 +417,7 @@ pub trait NativeFunc {
 /// Defines a native function.
 #[derive(Debug)]
 pub struct NativeFuncData {
-    pub function: fn(&mut TypstEngine, &mut Args) -> SourceResult<TypstValue>,
+    pub function: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstValue>,
     pub name: &'static str,
     pub title: &'static str,
     pub docs: &'static str,

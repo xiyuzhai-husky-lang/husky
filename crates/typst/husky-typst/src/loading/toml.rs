@@ -1,6 +1,6 @@
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{At, SourceResult};
+use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
@@ -33,7 +33,7 @@ pub fn toml(
     engine: &mut TypstEngine,
     /// Path to a TOML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -47,7 +47,7 @@ impl toml {
     pub fn decode(
         /// TOML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         let raw = std::str::from_utf8(data.as_slice())
             .map_err(|_| "file is not valid utf-8")
@@ -66,7 +66,7 @@ impl toml {
         #[named]
         #[default(true)]
         pretty: bool,
-    ) -> SourceResult<Str> {
+    ) -> TypstSourceResult<Str> {
         let Spanned { v: value, span } = value;
         if pretty {
             ::toml::to_string_pretty(&value)

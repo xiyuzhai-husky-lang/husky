@@ -1,6 +1,6 @@
 use unicode_segmentation::UnicodeSegmentation;
 
-use crate::diag::{bail, error, At, SourceDiagnostic, SourceResult};
+use crate::diag::{bail, error, At, SourceDiagnostic, TypstSourceResult};
 use crate::eval::{destructure, ops, Eval, Vm};
 use crate::foundations::{IntoTypstValue, TypstValue};
 use crate::syntax::ast::{self, TypstAstNode};
@@ -41,7 +41,7 @@ impl FlowEvent {
 impl Eval for ast::Conditional<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let condition = self.condition();
         if condition.eval(vm)?.cast::<bool>().at(condition.span())? {
             self.if_body().eval(vm)
@@ -57,7 +57,7 @@ impl Eval for ast::WhileLoop<'_> {
     type Output = TypstValue;
 
     #[husky_typst_macros::time(name = "while loop", span = self.span())]
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let flow = vm.flow.take();
         let mut output = TypstValue::None;
         let mut i = 0;
@@ -100,7 +100,7 @@ impl Eval for ast::ForLoop<'_> {
     type Output = TypstValue;
 
     #[husky_typst_macros::time(name = "for loop", span = self.span())]
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let flow = vm.flow.take();
         let mut output = TypstValue::None;
 
@@ -176,7 +176,7 @@ impl Eval for ast::ForLoop<'_> {
 impl Eval for ast::LoopBreak<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Break(self.span()));
         }
@@ -187,7 +187,7 @@ impl Eval for ast::LoopBreak<'_> {
 impl Eval for ast::LoopContinue<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Continue(self.span()));
         }
@@ -198,7 +198,7 @@ impl Eval for ast::LoopContinue<'_> {
 impl Eval for ast::FuncReturn<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let value = self.body().map(|body| body.eval(vm)).transpose()?;
         if vm.flow.is_none() {
             vm.flow = Some(FlowEvent::Return(self.span(), value));

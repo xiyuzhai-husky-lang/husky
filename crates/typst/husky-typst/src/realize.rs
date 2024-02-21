@@ -11,17 +11,17 @@ use std::mem;
 use smallvec::smallvec;
 use typed_arena::Arena;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::foundations::{
     Behave, Behaviour, IsTypstElem, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet, Style,
-    StyleChain, StyleVec, StyleVecBuilder, Styles, Synthesize, Transformation, TypstContent,
-    TypstContentRefined,
+    StyleVec, StyleVecBuilder, Synthesize, Transformation, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Locatable, MetaTypstElem, TypstMeta};
 use crate::layout::{
-    AlignElem, BlockElem, BoxTypstElem, ColbreakElem, FlowElem, HElem, LayoutMultiple,
-    LayoutSingle, PageElem, PagebreakElem, Parity, PlaceElem, VElem,
+    AlignElem, BlockElem, BoxTypstElem, ColbreakElem, HElem, LayoutMultiple, LayoutSingle,
+    PagebreakElem, Parity, PlaceElem, TypstFlowElem, TypstPageElem, VElem,
 };
 use crate::math::{EquationTypstElem, TypstLayoutMath};
 use crate::model::{
@@ -38,8 +38,8 @@ pub fn realize_root<'a>(
     engine: &mut TypstEngine,
     scratch: &'a Scratch<'a>,
     content: &'a TypstContent,
-    styles: StyleChain<'a>,
-) -> SourceResult<(TypstContentRefined<DocumentElem>, StyleChain<'a>)> {
+    styles: TypstStyleChain<'a>,
+) -> TypstSourceResult<(TypstContentRefined<DocumentElem>, TypstStyleChain<'a>)> {
     let mut builder = Builder::new(engine, scratch, true);
     builder.accept(content, styles)?;
     builder.interrupt_page(Some(styles), true)?;
@@ -57,8 +57,8 @@ pub fn realize_block<'a>(
     engine: &mut TypstEngine,
     scratch: &'a Scratch<'a>,
     content: &'a TypstContent,
-    styles: StyleChain<'a>,
-) -> SourceResult<(Cow<'a, TypstContent>, StyleChain<'a>)> {
+    styles: TypstStyleChain<'a>,
+) -> TypstSourceResult<(Cow<'a, TypstContent>, TypstStyleChain<'a>)> {
     // These elements implement `Layout` but still require a flow for
     // proper layout.
     if content.can::<dyn LayoutMultiple>() && verdict(engine, content, styles).is_none() {
@@ -72,7 +72,7 @@ pub fn realize_block<'a>(
     let (children, shared) = builder.flow.0.finish();
     let span = first_span(&children);
     Ok((
-        Cow::Owned(FlowElem::new(children.to_vec()).pack().spanned(span)),
+        Cow::Owned(TypstFlowElem::new(children.to_vec()).pack().spanned(span)),
         shared,
     ))
 }
@@ -81,8 +81,8 @@ pub fn realize_block<'a>(
 pub fn realize(
     engine: &mut TypstEngine,
     target: &TypstContent,
-    styles: StyleChain,
-) -> SourceResult<Option<TypstContent>> {
+    styles: TypstStyleChain,
+) -> TypstSourceResult<Option<TypstContent>> {
     let Some(Verdict {
         prepared,
         mut map,
@@ -130,7 +130,7 @@ struct Verdict<'a> {
     /// happen once have happened).
     prepared: bool,
     /// A map of styles to apply to the element.
-    map: Styles,
+    map: TypstStyles,
     /// An optional show rule transformation to apply to the element.
     step: Option<ShowStep<'a>>,
 }
@@ -148,10 +148,10 @@ enum ShowStep<'a> {
 fn verdict<'a>(
     engine: &mut TypstEngine,
     target: &'a TypstContent,
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
 ) -> Option<Verdict<'a>> {
     let mut target = target;
-    let mut map = Styles::new();
+    let mut map = TypstStyles::new();
     let mut revoked = BitSet::new();
     let mut step = None;
     let mut slot;
@@ -250,9 +250,9 @@ fn verdict<'a>(
 fn prepare(
     engine: &mut TypstEngine,
     target: &mut TypstContent,
-    map: &mut Styles,
-    styles: StyleChain,
-) -> SourceResult<Option<TypstContentRefined<MetaTypstElem>>> {
+    map: &mut TypstStyles,
+    styles: TypstStyleChain,
+) -> TypstSourceResult<Option<TypstContentRefined<MetaTypstElem>>> {
     // Generate a location for the element, which uniquely identifies it in
     // the document. This has some overhead, so we only do it for elements
     // that are explicitly marked as locatable and labelled elements.
@@ -307,8 +307,8 @@ fn show(
     engine: &mut TypstEngine,
     target: TypstContent,
     step: ShowStep,
-    styles: StyleChain,
-) -> SourceResult<TypstContent> {
+    styles: TypstStyleChain,
+) -> TypstSourceResult<TypstContent> {
     match step {
         // Apply a user-defined show rule.
         ShowStep::Recipe(recipe, guard) => match &recipe.selector {
@@ -336,7 +336,7 @@ fn show_regex(
     regex: &Regex,
     recipe: &Recipe,
     index: RecipeIndex,
-) -> SourceResult<TypstContent> {
+) -> TypstSourceResult<TypstContent> {
     let make = |s: &str| {
         let mut fresh = elem.clone();
         fresh.push_text(s.into());
@@ -400,7 +400,7 @@ struct Builder<'a, 'v, 't> {
 #[derive(Default)]
 pub struct Scratch<'a> {
     /// An arena where intermediate style chains are stored.
-    styles: Arena<StyleChain<'a>>,
+    styles: Arena<TypstStyleChain<'a>>,
     /// An arena where intermediate content resulting from show rules is stored.
     content: Arena<TypstContent>,
 }
@@ -421,8 +421,8 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
     fn accept(
         &mut self,
         mut content: &'a TypstContent,
-        styles: StyleChain<'a>,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain<'a>,
+    ) -> TypstSourceResult<()> {
         if content.can::<dyn TypstLayoutMath>() && !content.is::<EquationTypstElem>() {
             content = self.scratch.content.alloc(
                 EquationTypstElem::new(content.clone())
@@ -511,9 +511,9 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
     fn styled(
         &mut self,
         elem: &'a TypstContent,
-        map: &'a Styles,
-        styles: StyleChain<'a>,
-    ) -> SourceResult<()> {
+        map: &'a TypstStyles,
+        styles: TypstStyleChain<'a>,
+    ) -> TypstSourceResult<()> {
         let stored = self.scratch.styles.alloc(styles);
         let styles = stored.chain(map);
         self.interrupt_style(map, None)?;
@@ -524,9 +524,9 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
 
     fn interrupt_style(
         &mut self,
-        local: &Styles,
-        outer: Option<StyleChain<'a>>,
-    ) -> SourceResult<()> {
+        local: &TypstStyles,
+        outer: Option<TypstStyleChain<'a>>,
+    ) -> TypstSourceResult<()> {
         if let Some(Some(span)) = local.interruption::<DocumentElem>() {
             if self.doc.is_none() {
                 bail!(
@@ -541,7 +541,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
             {
                 bail!(span, "document set rules must appear before any content");
             }
-        } else if let Some(Some(span)) = local.interruption::<PageElem>() {
+        } else if let Some(Some(span)) = local.interruption::<TypstPageElem>() {
             if self.doc.is_none() {
                 bail!(
                     span,
@@ -562,7 +562,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         Ok(())
     }
 
-    fn interrupt_cites(&mut self) -> SourceResult<()> {
+    fn interrupt_cites(&mut self) -> TypstSourceResult<()> {
         if !self.cites.items.is_empty() {
             let staged = mem::take(&mut self.cites.staged);
             let (group, styles) = mem::take(&mut self.cites).finish();
@@ -575,7 +575,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         Ok(())
     }
 
-    fn interrupt_list(&mut self) -> SourceResult<()> {
+    fn interrupt_list(&mut self) -> TypstSourceResult<()> {
         self.interrupt_cites()?;
         if !self.list.items.is_empty() {
             let staged = mem::take(&mut self.list.staged);
@@ -589,7 +589,7 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         Ok(())
     }
 
-    fn interrupt_par(&mut self) -> SourceResult<()> {
+    fn interrupt_par(&mut self) -> TypstSourceResult<()> {
         self.interrupt_list()?;
         if !self.par.0.is_empty() {
             let (par, styles) = mem::take(&mut self.par).finish();
@@ -600,21 +600,25 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         Ok(())
     }
 
-    fn interrupt_page(&mut self, styles: Option<StyleChain<'a>>, last: bool) -> SourceResult<()> {
+    fn interrupt_page(
+        &mut self,
+        styles: Option<TypstStyleChain<'a>>,
+        last: bool,
+    ) -> TypstSourceResult<()> {
         self.interrupt_par()?;
         let Some(doc) = &mut self.doc else {
             return Ok(());
         };
         if (doc.keep_next && styles.is_some()) || self.flow.0.has_strong_elements(last) {
             let (children, shared) = mem::take(&mut self.flow).0.finish();
-            let styles = if shared == StyleChain::default() {
+            let styles = if shared == TypstStyleChain::default() {
                 styles.unwrap_or_default()
             } else {
                 shared
             };
             let span = first_span(&children);
-            let flow = FlowElem::new(children.to_vec());
-            let page = PageElem::new(flow.pack().spanned(span));
+            let flow = TypstFlowElem::new(children.to_vec());
+            let page = TypstPageElem::new(flow.pack().spanned(span));
             let stored = self.scratch.content.alloc(page.pack().spanned(span));
             self.accept(stored, styles)?;
         }
@@ -633,14 +637,14 @@ struct DocBuilder<'a> {
 }
 
 impl<'a> DocBuilder<'a> {
-    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: TypstStyleChain<'a>) -> bool {
         if let Some(pagebreak) = content.to_packed::<PagebreakElem>() {
             self.keep_next = !pagebreak.weak(styles);
             self.clear_next = pagebreak.to(styles);
             return true;
         }
 
-        if let Some(page) = content.to_packed::<PageElem>() {
+        if let Some(page) = content.to_packed::<TypstPageElem>() {
             let elem = if let Some(clear_to) = self.clear_next.take() {
                 let mut page = page.clone();
                 page.push_clear_to(Some(clear_to));
@@ -673,7 +677,7 @@ impl Default for DocBuilder<'_> {
 struct FlowBuilder<'a>(BehavedBuilder<'a>, bool);
 
 impl<'a> FlowBuilder<'a> {
-    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: TypstStyleChain<'a>) -> bool {
         if content.is::<ParbreakElem>() {
             self.1 = true;
             return true;
@@ -732,7 +736,7 @@ impl<'a> FlowBuilder<'a> {
 struct ParBuilder<'a>(BehavedBuilder<'a>);
 
 impl<'a> ParBuilder<'a> {
-    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: TypstStyleChain<'a>) -> bool {
         if content.is::<MetaTypstElem>() {
             if self.0.has_strong_elements(false) {
                 self.0.push(Cow::Borrowed(content), styles);
@@ -755,7 +759,7 @@ impl<'a> ParBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (TypstContent, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, TypstStyleChain<'a>) {
         let (children, shared) = self.0.finish();
         let span = first_span(&children);
         (
@@ -774,11 +778,11 @@ struct ListBuilder<'a> {
     /// Whether the list contains no paragraph breaks.
     tight: bool,
     /// Trailing content for which it is unclear whether it is part of the list.
-    staged: Vec<(&'a TypstContent, StyleChain<'a>)>,
+    staged: Vec<(&'a TypstContent, TypstStyleChain<'a>)>,
 }
 
 impl<'a> ListBuilder<'a> {
-    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: TypstStyleChain<'a>) -> bool {
         if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<ParbreakElem>()) {
             self.staged.push((content, styles));
             return true;
@@ -799,7 +803,7 @@ impl<'a> ListBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (TypstContent, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, TypstStyleChain<'a>) {
         let (items, shared) = self.items.finish();
         let span = first_span(&items);
         let item = items.items().next().unwrap();
@@ -871,15 +875,15 @@ impl Default for ListBuilder<'_> {
 #[derive(Default)]
 struct CiteGroupBuilder<'a> {
     /// The styles.
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     /// The citations.
     items: Vec<TypstContentRefined<CiteTypstElem>>,
     /// Trailing content for which it is unclear whether it is part of the list.
-    staged: Vec<(&'a TypstContent, StyleChain<'a>)>,
+    staged: Vec<(&'a TypstContent, TypstStyleChain<'a>)>,
 }
 
 impl<'a> CiteGroupBuilder<'a> {
-    fn accept(&mut self, content: &'a TypstContent, styles: StyleChain<'a>) -> bool {
+    fn accept(&mut self, content: &'a TypstContent, styles: TypstStyleChain<'a>) -> bool {
         if !self.items.is_empty() && (content.is::<SpaceElem>() || content.is::<MetaTypstElem>()) {
             self.staged.push((content, styles));
             return true;
@@ -897,7 +901,7 @@ impl<'a> CiteGroupBuilder<'a> {
         false
     }
 
-    fn finish(self) -> (TypstContent, StyleChain<'a>) {
+    fn finish(self) -> (TypstContent, TypstStyleChain<'a>) {
         let span = self
             .items
             .first()

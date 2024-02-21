@@ -58,7 +58,7 @@ pub use self::page::*;
 pub use self::place::*;
 pub use self::point::*;
 pub use self::ratio::*;
-pub use self::regions::Regions;
+pub use self::regions::TypstRegions;
 pub use self::rel::*;
 pub use self::repeat::*;
 pub use self::sides::*;
@@ -71,11 +71,11 @@ pub(crate) use self::inline::*;
 
 use comemo::{Tracked, TrackedMut};
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
-    category, StyleChain, TypstContent, TypstDefnKind, TypstValueAssignmentGroup,
+    category, TypstContent, TypstDefnKind, TypstStyleChain, TypstValueAssignmentGroup,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::model::TypstDocument;
@@ -91,14 +91,14 @@ pub static LAYOUT: TypstDefnKind;
 /// Hook up all `layout` definitions.
 pub fn define(global: &mut TypstValueAssignmentGroup) {
     global.category(LAYOUT);
-    global.define_type::<Length>();
+    global.define_type::<TypstLength>();
     global.define_type::<Angle>();
     global.define_type::<Ratio>();
-    global.define_type::<Rel<Length>>();
+    global.define_type::<Rel<TypstLength>>();
     global.define_type::<TypstFraction>();
     global.define_type::<TypstLayoutDirection>();
     global.define_type::<TypstAlignment>();
-    global.define_elem::<PageElem>();
+    global.define_elem::<TypstPageElem>();
     global.define_elem::<PagebreakElem>();
     global.define_elem::<VElem>();
     global.define_elem::<HElem>();
@@ -110,7 +110,7 @@ pub fn define(global: &mut TypstValueAssignmentGroup) {
     global.define_elem::<ColbreakElem>();
     global.define_elem::<PlaceElem>();
     global.define_elem::<AlignElem>();
-    global.define_elem::<PadElem>();
+    global.define_elem::<TypstPadElem>();
     global.define_elem::<RepeatElem>();
     global.define_elem::<MoveElem>();
     global.define_elem::<ScaleElem>();
@@ -126,8 +126,8 @@ pub trait LayoutRoot {
     fn layout_root(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-    ) -> SourceResult<TypstDocument>;
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstDocument>;
 }
 
 /// Layout into multiple regions.
@@ -136,9 +136,9 @@ pub trait LayoutMultiple {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment>;
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment>;
 
     /// Layout without side effects.
     ///
@@ -147,9 +147,9 @@ pub trait LayoutMultiple {
     fn measure(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let mut locator = Locator::chained(engine.locator.track());
         let mut engine = TypstEngine {
             world: engine.world,
@@ -168,17 +168,17 @@ pub trait LayoutSingle {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame>;
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame>;
 }
 
 impl LayoutRoot for TypstContent {
     fn layout_root(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-    ) -> SourceResult<TypstDocument> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstDocument> {
         #[comemo::memoize]
         fn cached(
             content: &TypstContent,
@@ -187,8 +187,8 @@ impl LayoutRoot for TypstContent {
             route: Tracked<Route>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
-            styles: StyleChain,
-        ) -> SourceResult<TypstDocument> {
+            styles: TypstStyleChain,
+        ) -> TypstSourceResult<TypstDocument> {
             let mut locator = Locator::chained(locator);
             let mut engine = TypstEngine {
                 world,
@@ -218,9 +218,9 @@ impl LayoutMultiple for TypstContent {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         #[allow(clippy::too_many_arguments)]
         #[comemo::memoize]
         fn cached(
@@ -230,9 +230,9 @@ impl LayoutMultiple for TypstContent {
             route: Tracked<Route>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
-            styles: StyleChain,
-            regions: Regions,
-        ) -> SourceResult<TypstLayoutFragment> {
+            styles: TypstStyleChain,
+            regions: TypstRegions,
+        ) -> TypstSourceResult<TypstLayoutFragment> {
             let mut locator = Locator::chained(locator);
             let mut engine = TypstEngine {
                 world,

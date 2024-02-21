@@ -9,7 +9,11 @@ use self::error::TypstEquationResult;
 /// Layout for math elements.
 pub(crate) trait TypstLayoutMath {
     /// Layout the element, producing fragment in the context.
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> TypstEquationResult<()>;
+    fn layout_math(
+        &self,
+        ctx: &mut MathContext,
+        styles: TypstStyleChain,
+    ) -> TypstEquationResult<()>;
 }
 
-type StyleChain = ();
+type TypstStyleChain = ();

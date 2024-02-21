@@ -1,10 +1,10 @@
 use ecow::eco_format;
 
-use crate::diag::{bail, At, Hint, SourceResult};
+use crate::diag::{bail, At, Hint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Func, IntoTypstValue, IsTypstElem, Label, Show, Smart, StyleChain, Synthesize,
-    TypstContent, TypstContentRefined,
+    cast, elem, Func, IntoTypstValue, IsTypstElem, Label, Show, Smart, Synthesize, TypstContent,
+    TypstContentRefined, TypstStyleChain,
 };
 use crate::introspection::{Counter, Locatable};
 use crate::math::EquationTypstElem;
@@ -137,7 +137,11 @@ pub struct RefElem {
 }
 
 impl Synthesize for TypstContentRefined<RefElem> {
-    fn synthesize(&mut self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let citation = to_citation(self, engine, styles)?;
 
         let elem = self.as_mut();
@@ -158,7 +162,11 @@ impl Synthesize for TypstContentRefined<RefElem> {
 
 impl Show for TypstContentRefined<RefElem> {
     #[husky_typst_macros::time(name = "ref", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let target = *self.target();
         let elem = engine.introspector.query_label(target);
         let span = self.span();
@@ -231,8 +239,8 @@ impl Show for TypstContentRefined<RefElem> {
 fn to_citation(
     reference: &TypstContentRefined<RefElem>,
     engine: &mut TypstEngine,
-    styles: StyleChain,
-) -> SourceResult<TypstContentRefined<CiteTypstElem>> {
+    styles: TypstStyleChain,
+) -> TypstSourceResult<TypstContentRefined<CiteTypstElem>> {
     let mut elem =
         TypstContentRefined::new(CiteTypstElem::new(*reference.target()).with_supplement(
             match reference.supplement(styles).clone() {
@@ -263,7 +271,7 @@ impl Supplement {
         &self,
         engine: &mut TypstEngine,
         args: impl IntoIterator<Item = T>,
-    ) -> SourceResult<TypstContent> {
+    ) -> TypstSourceResult<TypstContent> {
         Ok(match self {
             Supplement::Content(content) => content.clone(),
             Supplement::Func(func) => func.call(engine, args)?.display(),

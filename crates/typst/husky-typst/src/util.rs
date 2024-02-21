@@ -135,8 +135,11 @@ impl<I: Iterator + DoubleEndedIterator> MaybeReverseIter for I {
     where
         Self: Sized,
     {
-        let (maybe_self_iter, maybe_rev_iter) =
-            if condition { (None, Some(self.rev())) } else { (Some(self), None) };
+        let (maybe_self_iter, maybe_rev_iter) = if condition {
+            (None, Some(self.rev()))
+        } else {
+            (Some(self), None)
+        };
 
         maybe_self_iter
             .into_iter()
@@ -214,7 +217,7 @@ pub trait Get<Index> {
 }
 
 /// A numeric type.
-pub trait Numeric:
+pub trait TypstNumeric:
     Sized
     + Debug
     + Copy

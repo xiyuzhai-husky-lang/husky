@@ -7,8 +7,8 @@ use base64::Engine;
 use ecow::{eco_format, EcoString};
 use husky_typst::foundations::Repr;
 use husky_typst::layout::{
-    Angle, Axes, FrameKind, Point, Quadrant, Ratio, Size, Transform, TypstAbsLength, TypstFrame,
-    TypstFrameItem, TypstGroupItem,
+    Angle, Axes, FrameKind, Quadrant, Ratio, Size, Transform, TypstAbsLength, TypstFrame,
+    TypstFrameItem, TypstGroupItem, TypstPoint,
 };
 use husky_typst::model::TypstDocument;
 use husky_typst::text::{TypstFont, TypstTextItem};
@@ -124,7 +124,7 @@ impl State {
     }
 
     /// Pre translate the current item's transform.
-    fn pre_translate(self, pos: Point) -> Self {
+    fn pre_translate(self, pos: TypstPoint) -> Self {
         self.pre_concat(Transform::translate(pos.x, pos.y))
     }
 
@@ -356,7 +356,7 @@ impl SVGRenderer {
                     self.render_outline_glyph(
                         state
                             .pre_concat(Transform::scale(Ratio::one(), -Ratio::one()))
-                            .pre_translate(Point::new(
+                            .pre_translate(TypstPoint::new(
                                 TypstAbsLength::pt(offset),
                                 TypstAbsLength::zero(),
                             )),

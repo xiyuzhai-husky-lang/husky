@@ -1,14 +1,14 @@
 use std::num::NonZeroUsize;
 use std::str::FromStr;
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, IsTypstElem, Label, Show, ShowSet, Smart, StyleChain, Styles, TypstContent,
-    TypstContentRefined,
+    cast, elem, scope, IsTypstElem, Label, Show, ShowSet, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable, Location};
-use crate::layout::{HElem, Length, Ratio, TypstAbsLength, TypstEmLength};
+use crate::layout::{HElem, Ratio, TypstAbsLength, TypstEmLength, TypstLength};
 use crate::model::{Numbering, NumberingPattern, ParagraphTypstElem, TypstDestination};
 use crate::text::{SuperElem, TextElem, TextSize};
 use crate::util::NonZeroExt;
@@ -125,7 +125,11 @@ impl TypstContentRefined<FootnoteTypstElem> {
 
 impl Show for TypstContentRefined<FootnoteTypstElem> {
     #[husky_typst_macros::time(name = "footnote", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let loc = self.declaration_location(engine).at(self.span())?;
         let numbering = self.numbering(styles);
         let counter = Counter::of(FootnoteTypstElem::elem());
@@ -235,7 +239,7 @@ pub struct FootnoteEntry {
     /// ```
     #[default(TypstEmLength::new(1.0).into())]
     #[resolve]
-    pub clearance: Length,
+    pub clearance: TypstLength,
 
     /// The gap between footnote entries.
     ///
@@ -248,7 +252,7 @@ pub struct FootnoteEntry {
     /// ```
     #[default(TypstEmLength::new(0.5).into())]
     #[resolve]
-    pub gap: Length,
+    pub gap: TypstLength,
 
     /// The indent of each footnote entry.
     ///
@@ -260,15 +264,19 @@ pub struct FootnoteEntry {
     /// #footnote[Indent]
     /// ```
     #[default(TypstEmLength::new(1.0).into())]
-    pub indent: Length,
+    pub indent: TypstLength,
 }
 
 impl Show for TypstContentRefined<FootnoteEntry> {
     #[husky_typst_macros::time(name = "footnote.entry", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let note = self.note();
         let number_gap = TypstEmLength::new(0.05);
-        let default = StyleChain::default();
+        let default = TypstStyleChain::default();
         let numbering = note.numbering(default);
         let counter = Counter::of(FootnoteTypstElem::elem());
         let Some(loc) = note.location() else {
@@ -294,10 +302,10 @@ impl Show for TypstContentRefined<FootnoteEntry> {
 }
 
 impl ShowSet for TypstContentRefined<FootnoteEntry> {
-    fn show_set(&self, _: StyleChain) -> Styles {
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let text_size = TypstEmLength::new(0.85);
         let leading = TypstEmLength::new(0.5);
-        let mut out = Styles::new();
+        let mut out = TypstStyles::new();
         out.set(ParagraphTypstElem::set_leading(leading.into()));
         out.set(TextElem::set_size(TextSize(text_size.into())));
         out
