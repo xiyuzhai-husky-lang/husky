@@ -7,7 +7,7 @@ use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 use unicode_segmentation::UnicodeSegmentation;
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTypstValue, Label, Repr, Type,
@@ -153,7 +153,7 @@ impl Str {
         #[named]
         #[default(Spanned::new(10, TypstSynSpan::detached()))]
         base: Spanned<i64>,
-    ) -> SourceResult<Str> {
+    ) -> TypstSourceResult<Str> {
         Ok(match value {
             ToStr::Str(s) => {
                 if base.v != 10 {
@@ -440,14 +440,14 @@ impl Str {
         ///  If given, only the first `count` matches of the pattern are placed.
         #[named]
         count: Option<usize>,
-    ) -> SourceResult<Str> {
+    ) -> TypstSourceResult<Str> {
         // Heuristic: Assume the new string is about the same length as
         // the current string.
         let mut output = EcoString::with_capacity(self.as_str().len());
 
         // Replace one match of a pattern with the replacement.
         let mut last_match = 0;
-        let mut handle_match = |range: Range<usize>, dict: TypstDict| -> SourceResult<()> {
+        let mut handle_match = |range: Range<usize>, dict: TypstDict| -> TypstSourceResult<()> {
             // Push everything until the match.
             output.push_str(&self[last_match..range.start]);
             last_match = range.end;
@@ -885,7 +885,7 @@ impl Regex {
         /// and extract its text to use it for your regular expressions:
         /// ```{regex(`\d+\.\d+\.\d+`.text)}```.
         regex: Spanned<Str>,
-    ) -> SourceResult<Regex> {
+    ) -> TypstSourceResult<Regex> {
         Self::new(&regex.v).at(regex.span)
     }
 }

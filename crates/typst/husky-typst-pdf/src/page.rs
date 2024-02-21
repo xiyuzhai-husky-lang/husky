@@ -4,12 +4,12 @@ use std::num::NonZeroUsize;
 use ecow::{eco_format, EcoString};
 use husky_typst::introspection::TypstMeta;
 use husky_typst::layout::{
-    Page, Point, Ratio, Size, Transform, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem,
-    TypstGroupItem,
+    Page, Ratio, Size, Transform, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem,
+    TypstGroupItem, TypstPoint,
 };
 use husky_typst::model::{Numbering, TypstDestination};
 use husky_typst::text::{Case, TypstFont, TypstTextItem};
-use husky_typst::util::{Deferred, Numeric};
+use husky_typst::util::{Deferred, TypstNumeric};
 use husky_typst::visualize::{
     LineCap, LineJoin, Path, PathItem, TypstFixedStroke, TypstGeometry, TypstImage, TypstPaint,
     TypstShape,
@@ -454,7 +454,7 @@ impl State {
     }
 
     /// Creates the [`Transforms`] structure for the current item.
-    pub fn transforms(&self, size: Size, pos: Point) -> Transforms {
+    pub fn transforms(&self, size: Size, pos: TypstPoint) -> Transforms {
         Transforms {
             transform: self
                 .transform
@@ -669,7 +669,7 @@ fn write_frame(ctx: &mut PageContext, frame: &TypstFrame) {
 }
 
 /// Encode a group into the content stream.
-fn write_group(ctx: &mut PageContext, pos: Point, group: &TypstGroupItem) {
+fn write_group(ctx: &mut PageContext, pos: TypstPoint, group: &TypstGroupItem) {
     let translation = Transform::translate(pos.x, pos.y);
 
     ctx.save_state();
@@ -697,7 +697,7 @@ fn write_group(ctx: &mut PageContext, pos: Point, group: &TypstGroupItem) {
 }
 
 /// Encode a text run into the content stream.
-fn write_text(ctx: &mut PageContext, pos: Point, text: &TypstTextItem) {
+fn write_text(ctx: &mut PageContext, pos: TypstPoint, text: &TypstTextItem) {
     let x = pos.x.to_f32();
     let y = pos.y.to_f32();
 
@@ -762,7 +762,7 @@ fn write_text(ctx: &mut PageContext, pos: Point, text: &TypstTextItem) {
 }
 
 /// Encode a geometrical shape into the content stream.
-fn write_shape(ctx: &mut PageContext, pos: Point, shape: &TypstShape) {
+fn write_shape(ctx: &mut PageContext, pos: TypstPoint, shape: &TypstShape) {
     let x = pos.x.to_f32();
     let y = pos.y.to_f32();
 
@@ -879,7 +879,7 @@ fn write_image(ctx: &mut PageContext, x: f32, y: f32, image: &TypstImage, size: 
 }
 
 /// Save a link for later writing in the annotations dictionary.
-fn write_link(ctx: &mut PageContext, pos: Point, dest: &TypstDestination, size: Size) {
+fn write_link(ctx: &mut PageContext, pos: TypstPoint, dest: &TypstDestination, size: Size) {
     let mut min_x = TypstAbsLength::inf();
     let mut min_y = TypstAbsLength::inf();
     let mut max_x = -TypstAbsLength::inf();
@@ -888,8 +888,8 @@ fn write_link(ctx: &mut PageContext, pos: Point, dest: &TypstDestination, size: 
     // Compute the bounding box of the transformed link.
     for point in [
         pos,
-        pos + Point::with_x(size.x),
-        pos + Point::with_y(size.y),
+        pos + TypstPoint::with_x(size.x),
+        pos + TypstPoint::with_y(size.y),
         pos + size.to_point(),
     ] {
         let t = point.transform(ctx.state.transform);

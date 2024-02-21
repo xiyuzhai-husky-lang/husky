@@ -2,14 +2,15 @@ use std::str::FromStr;
 
 use smallvec::{smallvec, SmallVec};
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, Smart, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, scope, Array, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Length, Regions,
-    Spacing, TypstAlignment, TypstEmLength, TypstLayoutFragment, TypstSizing, VAlignment,
+    Axes, BlockElem, Cell, CellGrid, GridLayouter, HAlignment, LayoutMultiple, Spacing,
+    TypstAlignment, TypstEmLength, TypstLayoutFragment, TypstLength, TypstRegions, TypstSizing,
+    VAlignment,
 };
 use crate::model::{Numbering, NumberingPattern, ParagraphTypstElem};
 use crate::text::TextElem;
@@ -145,12 +146,12 @@ pub struct EnumElem {
 
     /// The indentation of each item.
     #[resolve]
-    pub indent: Length,
+    pub indent: TypstLength,
 
     /// The space between the numbering and the body of each item.
     #[resolve]
     #[default(TypstEmLength::new(0.5).into())]
-    pub body_indent: Length,
+    pub body_indent: TypstLength,
 
     /// The spacing between the items of a wide (non-tight) enumeration.
     ///
@@ -216,9 +217,9 @@ impl LayoutMultiple for TypstContentRefined<EnumElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let numbering = self.numbering(styles);
         let indent = self.indent(styles);
         let body_indent = self.body_indent(styles);

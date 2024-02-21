@@ -1,12 +1,12 @@
 use comemo::{Tracked, TrackedMut};
 use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::{Route, TypstEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Func, IsTypstElem, Repr, Selector, Show, Str,
-    StyleChain, TypstContent, TypstContentRefined, TypstValue,
+    TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, Locatable, Location, Locator};
 use crate::syntax::TypstSynSpan;
@@ -205,7 +205,7 @@ impl State {
     ///
     /// This has to happen just once for all states, cutting down the number
     /// of state updates from quadratic to linear.
-    fn sequence(&self, engine: &mut TypstEngine) -> SourceResult<EcoVec<TypstValue>> {
+    fn sequence(&self, engine: &mut TypstEngine) -> TypstSourceResult<EcoVec<TypstValue>> {
         self.sequence_impl(
             engine.world,
             engine.introspector,
@@ -224,7 +224,7 @@ impl State {
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
-    ) -> SourceResult<EcoVec<TypstValue>> {
+    ) -> TypstSourceResult<EcoVec<TypstValue>> {
         let mut locator = Locator::chained(locator);
         let mut engine = TypstEngine {
             world,
@@ -314,7 +314,7 @@ impl State {
         /// suitable location can be retrieved from [`locate`]($locate) or
         /// [`query`]($query).
         location: Location,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let sequence = self.sequence(engine)?;
         let offset = engine
             .introspector
@@ -338,7 +338,7 @@ impl State {
         /// the top level of a module, the evaluation of the whole module and
         /// its exports could depend on the state's value.
         location: Location,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let _ = location;
         let sequence = self.sequence(engine)?;
         Ok(sequence.last().unwrap().clone())
@@ -387,7 +387,11 @@ struct DisplayElem {
 
 impl Show for TypstContentRefined<DisplayElem> {
     #[husky_typst_macros::time(name = "state.display", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        _: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let location = self.location().unwrap();
         let value = self.state().at(engine, location)?;
         Ok(match self.func() {
@@ -410,7 +414,7 @@ struct UpdateElem {
 }
 
 impl Show for TypstContentRefined<UpdateElem> {
-    fn show(&self, _: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(&self, _: &mut TypstEngine, _: TypstStyleChain) -> TypstSourceResult<TypstContent> {
         Ok(TypstContent::empty())
     }
 }

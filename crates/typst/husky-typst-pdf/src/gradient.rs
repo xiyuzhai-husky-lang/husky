@@ -2,8 +2,8 @@ use std::f32::consts::{PI, TAU};
 use std::sync::Arc;
 
 use ecow::eco_format;
-use husky_typst::layout::{Angle, Point, Quadrant, Ratio, Transform, TypstAbsLength};
-use husky_typst::util::Numeric;
+use husky_typst::layout::{Angle, Quadrant, Ratio, Transform, TypstAbsLength, TypstPoint};
+use husky_typst::util::TypstNumeric;
 use husky_typst::visualize::{
     ColorSpace, Gradient, RatioOrAngle, RelativeTo, TypstColor, WeightedColor,
 };
@@ -316,7 +316,7 @@ fn write_patch(target: &mut Vec<u8>, t: f32, t1: f32, c0: [u16; 3], c1: [u16; 3]
     let theta1 = -TAU * t1 + angle.to_rad() as f32 + PI;
 
     let (cp1, cp2) = control_point(
-        Point::new(TypstAbsLength::pt(0.5), TypstAbsLength::pt(0.5)),
+        TypstPoint::new(TypstAbsLength::pt(0.5), TypstAbsLength::pt(0.5)),
         0.5,
         theta,
         theta1,
@@ -366,16 +366,21 @@ fn write_patch(target: &mut Vec<u8>, t: f32, t1: f32, c0: [u16; 3], c1: [u16; 3]
     target.extend_from_slice(bytemuck::cast_slice(&colors));
 }
 
-fn control_point(c: Point, r: f32, angle_start: f32, angle_end: f32) -> (Point, Point) {
+fn control_point(
+    c: TypstPoint,
+    r: f32,
+    angle_start: f32,
+    angle_end: f32,
+) -> (TypstPoint, TypstPoint) {
     let n = (TAU / (angle_end - angle_start)).abs();
     let f = ((angle_end - angle_start) / n).tan() * 4.0 / 3.0;
 
-    let p1 = c + Point::new(
+    let p1 = c + TypstPoint::new(
         TypstAbsLength::pt((r * angle_start.cos() - f * r * angle_start.sin()) as f64),
         TypstAbsLength::pt((r * angle_start.sin() + f * r * angle_start.cos()) as f64),
     );
 
-    let p2 = c + Point::new(
+    let p2 = c + TypstPoint::new(
         TypstAbsLength::pt((r * angle_end.cos() + f * r * angle_end.sin()) as f64),
         TypstAbsLength::pt((r * angle_end.sin() - f * r * angle_end.cos()) as f64),
     );

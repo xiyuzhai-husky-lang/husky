@@ -1,8 +1,8 @@
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::foundations::{
-    cast, elem, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined, TypstValue,
+    cast, elem, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
 };
-use crate::layout::{Length, Point, Rel, Size, TypstEmLength, TypstFrame};
+use crate::layout::{Rel, Size, TypstEmLength, TypstFrame, TypstLength, TypstPoint};
 use crate::math::{
     style_cramped, FrameFragment, GlyphFragment, MathContext, MathFragment, Scaled, TypstLayoutMath,
 };
@@ -59,12 +59,12 @@ pub struct TypstAccentElem {
     pub accent: Accent,
 
     /// The size of the accent, relative to the width of the base.
-    pub size: Smart<Rel<Length>>,
+    pub size: Smart<Rel<TypstLength>>,
 }
 
 impl TypstLayoutMath for TypstContentRefined<TypstAccentElem> {
     #[husky_typst_macros::time(name = "math.accent", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let cramped = style_cramped();
         let base = ctx.layout_fragment(self.base(), styles.chain(&cramped))?;
 
@@ -94,8 +94,8 @@ impl TypstLayoutMath for TypstContentRefined<TypstAccentElem> {
         let accent_base_height = scaled!(ctx, styles, accent_base_height);
         let gap = -accent.descent() - base.height().min(accent_base_height);
         let size = Size::new(base.width(), accent.height() + gap + base.height());
-        let accent_pos = Point::with_x(base_attach - accent_attach);
-        let base_pos = Point::with_y(accent.height() + gap);
+        let accent_pos = TypstPoint::with_x(base_attach - accent_attach);
+        let base_pos = TypstPoint::with_y(accent.height() + gap);
         let baseline = base_pos.y + base.ascent();
         let base_italics_correction = base.italics_correction();
         let base_text_like = base.is_text_like();

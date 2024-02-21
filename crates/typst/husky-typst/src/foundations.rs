@@ -70,7 +70,7 @@ pub use {
 
 use ecow::EcoString;
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::EvalMode;
 use crate::syntax::Spanned;
@@ -282,7 +282,7 @@ pub fn eval(
     #[named]
     #[default]
     scope: TypstDict,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let Spanned { v: text, span } = source;
     let dict = scope;
     let mut scope = TypstValueAssignmentGroup::new();

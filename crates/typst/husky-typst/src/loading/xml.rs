@@ -1,6 +1,6 @@
 use ecow::EcoString;
 
-use crate::diag::{format_xml_like_error, At, FileError, SourceResult};
+use crate::diag::{format_xml_like_error, At, FileError, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{dict, func, scope, Array, IntoTypstValue, Str, TypstDict, TypstValue};
 use crate::loading::Readable;
@@ -61,7 +61,7 @@ pub fn xml(
     engine: &mut TypstEngine,
     /// Path to an XML file.
     path: Spanned<EcoString>,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -75,7 +75,7 @@ impl xml {
     pub fn decode(
         /// XML data.
         data: Spanned<Readable>,
-    ) -> SourceResult<TypstValue> {
+    ) -> TypstSourceResult<TypstValue> {
         let Spanned { v: data, span } = data;
         let text = std::str::from_utf8(data.as_slice())
             .map_err(FileError::from)

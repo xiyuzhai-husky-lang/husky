@@ -3,8 +3,8 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Repr, Resolve, StyleChain, Type,
-    TypstValue,
+    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Repr, Resolve, Type,
+    TypstStyleChain, TypstValue,
 };
 
 /// A value that indicates a smart default.
@@ -234,7 +234,7 @@ impl<T: FromTypstValue> FromTypstValue for Smart<T> {
 impl<T: Resolve> Resolve for Smart<T> {
     type Output = Smart<T::Output>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.map(|v| v.resolve(styles))
     }
 }

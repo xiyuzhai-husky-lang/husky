@@ -4,15 +4,15 @@ use std::str::FromStr;
 
 use ecow::EcoString;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, elem, scope, select_where, ElementSchemaRef, IsTypstElem, Selector, Show, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, TypstContent, TypstContentRefined,
+    Synthesize, TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Count, Counter, CounterKey, CounterUpdate, Locatable, Location};
 use crate::layout::{
-    BlockElem, HAlignment, Length, PlaceElem, TypstAlignment, TypstEmLength, VAlignment, VElem,
+    BlockElem, HAlignment, PlaceElem, TypstAlignment, TypstEmLength, TypstLength, VAlignment, VElem,
 };
 use crate::model::{Numbering, NumberingPattern, Outlinable, Refable, Supplement};
 use crate::syntax::Spanned;
@@ -197,7 +197,7 @@ pub struct FigureElem {
 
     /// The vertical gap between the body and caption.
     #[default(TypstEmLength::new(0.65).into())]
-    pub gap: Length,
+    pub gap: TypstLength,
 
     /// Whether the figure should appear in an [`outline`]($outline) of figures.
     #[default(true)]
@@ -223,7 +223,11 @@ impl FigureElem {
 }
 
 impl Synthesize for TypstContentRefined<FigureElem> {
-    fn synthesize(&mut self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let span = self.span();
         let location = self.location();
         let elem = self.as_mut();
@@ -297,7 +301,11 @@ impl Synthesize for TypstContentRefined<FigureElem> {
 
 impl Show for TypstContentRefined<FigureElem> {
     #[husky_typst_macros::time(name = "figure", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let mut realized = self.body().clone();
 
         // Build the caption, if any.
@@ -331,7 +339,7 @@ impl Show for TypstContentRefined<FigureElem> {
 }
 
 impl ShowSet for TypstContentRefined<FigureElem> {
-    fn show_set(&self, _: StyleChain) -> Styles {
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         // Still allows breakable figures with
         // `show figure: set block(breakable: true)`.
         BlockElem::set_breakable(false).wrap().into()
@@ -351,7 +359,7 @@ impl Count for TypstContentRefined<FigureElem> {
 impl Refable for TypstContentRefined<FigureElem> {
     fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
-        match (**self).supplement(StyleChain::default()).as_ref() {
+        match (**self).supplement(TypstStyleChain::default()).as_ref() {
             Smart::Custom(Some(Supplement::Content(content))) => content.clone(),
             _ => TypstContent::empty(),
         }
@@ -366,17 +374,17 @@ impl Refable for TypstContentRefined<FigureElem> {
     }
 
     fn numbering(&self) -> Option<&Numbering> {
-        (**self).numbering(StyleChain::default()).as_ref()
+        (**self).numbering(TypstStyleChain::default()).as_ref()
     }
 }
 
 impl Outlinable for TypstContentRefined<FigureElem> {
-    fn outline(&self, engine: &mut TypstEngine) -> SourceResult<Option<TypstContent>> {
-        if !self.outlined(StyleChain::default()) {
+    fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>> {
+        if !self.outlined(TypstStyleChain::default()) {
             return Ok(None);
         }
 
-        let Some(caption) = self.caption(StyleChain::default()) else {
+        let Some(caption) = self.caption(TypstStyleChain::default()) else {
             return Ok(None);
         };
 
@@ -386,7 +394,7 @@ impl Outlinable for TypstContentRefined<FigureElem> {
             Some(Some(counter)),
             Some(numbering),
         ) = (
-            (**self).supplement(StyleChain::default()).clone(),
+            (**self).supplement(TypstStyleChain::default()).clone(),
             (**self).counter(),
             self.numbering(),
         ) {
@@ -398,7 +406,7 @@ impl Outlinable for TypstContentRefined<FigureElem> {
                 supplement += TextElem::packed('\u{a0}');
             }
 
-            let separator = caption.get_separator(StyleChain::default());
+            let separator = caption.get_separator(TypstStyleChain::default());
 
             realized = supplement + numbers + separator + caption.body();
         }
@@ -531,7 +539,7 @@ impl FigureCaption {
         }
     }
 
-    fn get_separator(&self, styles: StyleChain) -> TypstContent {
+    fn get_separator(&self, styles: TypstStyleChain) -> TypstContent {
         self.separator(styles).unwrap_or_else(|| {
             TextElem::packed(Self::local_separator(
                 TextElem::lang_in(styles),
@@ -543,7 +551,11 @@ impl FigureCaption {
 
 impl Show for TypstContentRefined<FigureCaption> {
     #[husky_typst_macros::time(name = "figure.caption", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let mut realized = self.body().clone();
 
         if let (

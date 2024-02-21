@@ -1,6 +1,6 @@
 use ecow::eco_format;
 
-use crate::diag::{bail, At, Hint, SourceResult, Trace, Tracepoint};
+use crate::diag::{bail, At, Hint, Trace, Tracepoint, TypstSourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{call_method_access, is_accessor_method, TypstDict, TypstValue};
 use crate::syntax::ast::{self, TypstAstNode};
@@ -8,11 +8,11 @@ use crate::syntax::ast::{self, TypstAstNode};
 /// Access an expression mutably.
 pub(crate) trait Access {
     /// Access the value.
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue>;
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue>;
 }
 
 impl Access for ast::Expr<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue> {
         match self {
             Self::Ident(v) => v.access(vm),
             Self::Parenthesized(v) => v.access(vm),
@@ -27,7 +27,7 @@ impl Access for ast::Expr<'_> {
 }
 
 impl Access for ast::Ident<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue> {
         let span = self.span();
         let value = vm.scopes.get_mut(&self).at(span)?;
         if vm.inspected == Some(span) {
@@ -38,13 +38,13 @@ impl Access for ast::Ident<'_> {
 }
 
 impl Access for ast::Parenthesized<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue> {
         self.expr().access(vm)
     }
 }
 
 impl Access for ast::FieldAccess<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue> {
         access_dict(vm, self)?
             .at_mut(self.field().get())
             .at(self.span())
@@ -52,7 +52,7 @@ impl Access for ast::FieldAccess<'_> {
 }
 
 impl Access for ast::FuncCall<'_> {
-    fn access<'a>(self, vm: &'a mut Vm) -> SourceResult<&'a mut TypstValue> {
+    fn access<'a>(self, vm: &'a mut Vm) -> TypstSourceResult<&'a mut TypstValue> {
         if let ast::Expr::FieldAccess(access) = self.callee() {
             let method = access.field();
             if is_accessor_method(&method) {
@@ -74,7 +74,7 @@ impl Access for ast::FuncCall<'_> {
 pub(crate) fn access_dict<'a>(
     vm: &'a mut Vm,
     access: ast::FieldAccess,
-) -> SourceResult<&'a mut TypstDict> {
+) -> TypstSourceResult<&'a mut TypstDict> {
     match access.target().access(vm)? {
         TypstValue::Dict(dict) => Ok(dict),
         value => {

@@ -2,9 +2,10 @@ use std::iter::once;
 
 use unicode_math_class::MathClass;
 
-use crate::foundations::{Resolve, StyleChain};
+use crate::foundations::{Resolve, TypstStyleChain};
 use crate::layout::{
-    AlignElem, FixedAlignment, FrameKind, Point, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    AlignElem, FixedAlignment, FrameKind, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    TypstPoint,
 };
 use crate::math::{
     alignments, scaled_font_size, spacing, EquationTypstElem, FrameFragment, MathContext,
@@ -151,12 +152,12 @@ impl MathRow {
         }
     }
 
-    pub fn into_frame(self, ctx: &MathContext, styles: StyleChain) -> TypstFrame {
+    pub fn into_frame(self, ctx: &MathContext, styles: TypstStyleChain) -> TypstFrame {
         let align = AlignElem::alignment_in(styles).resolve(styles).x;
         self.into_aligned_frame(ctx, styles, &[], align)
     }
 
-    pub fn into_fragment(self, ctx: &MathContext, styles: StyleChain) -> MathFragment {
+    pub fn into_fragment(self, ctx: &MathContext, styles: TypstStyleChain) -> MathFragment {
         if self.0.len() == 1 {
             self.0.into_iter().next().unwrap()
         } else {
@@ -167,7 +168,7 @@ impl MathRow {
     pub fn into_aligned_frame(
         self,
         ctx: &MathContext,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         points: &[TypstAbsLength],
         align: FixedAlignment,
     ) -> TypstFrame {
@@ -201,7 +202,7 @@ impl MathRow {
                 size.y += leading;
             }
 
-            let mut pos = Point::with_y(size.y);
+            let mut pos = TypstPoint::with_y(size.y);
             if points.is_empty() {
                 pos.x = align.position(width - sub.width());
             }
@@ -262,7 +263,7 @@ impl MathRow {
             }
 
             let y = ascent - fragment.ascent();
-            let pos = Point::new(x, y);
+            let pos = TypstPoint::new(x, y);
             x += fragment.width();
             frame.push_frame(pos, fragment.into_frame());
         }
@@ -283,7 +284,7 @@ impl MathRow {
         let finalize_frame = |frame: &mut TypstFrame, x, ascent, descent| {
             frame.set_size(Size::new(x, ascent + descent));
             frame.set_baseline(TypstAbsLength::zero());
-            frame.translate(Point::with_y(ascent));
+            frame.translate(TypstPoint::with_y(ascent));
         };
 
         let mut space_is_visible = false;
@@ -311,7 +312,7 @@ impl MathRow {
             ascent.set_max(y);
             descent.set_max(fragment.descent());
 
-            let pos = Point::new(x, -y);
+            let pos = TypstPoint::new(x, -y);
             x += fragment.width();
             frame.push_frame(pos, fragment.into_frame());
             empty = false;

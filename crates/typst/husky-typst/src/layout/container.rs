@@ -1,14 +1,15 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, AutoTypstValue, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, AutoTypstValue, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
     TypstValue,
 };
 use crate::layout::{
-    Axes, Corners, FrameKind, LayoutMultiple, Length, Ratio, Regions, Rel, Sides, Size, Spacing,
-    TypstAbsLength, TypstEmLength, TypstFraction, TypstFrame, TypstLayoutFragment, VElem,
+    Axes, Corners, FrameKind, LayoutMultiple, Ratio, Rel, Sides, Size, Spacing, TypstAbsLength,
+    TypstEmLength, TypstFraction, TypstFrame, TypstLayoutFragment, TypstLength, TypstRegions,
+    VElem,
 };
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::{clip_rect, TypstPaint, TypstStroke};
 
 /// An inline-level container that sizes content.
@@ -44,7 +45,7 @@ pub struct BoxTypstElem {
     pub width: TypstSizing,
 
     /// The height of the box.
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// An amount to shift the box's baseline by.
     ///
@@ -52,7 +53,7 @@ pub struct BoxTypstElem {
     /// Image: #box(baseline: 40%, image("tiger.jpg", width: 2cm)).
     /// ```
     #[resolve]
-    pub baseline: Rel<Length>,
+    pub baseline: Rel<TypstLength>,
 
     /// The box's background color. See the
     /// [rectangle's documentation]($rect.fill) for more details.
@@ -68,7 +69,7 @@ pub struct BoxTypstElem {
     /// [rectangle's documentation]($rect.radius) for more details.
     #[resolve]
     #[fold]
-    pub radius: Corners<Option<Rel<Length>>>,
+    pub radius: Corners<Option<Rel<TypstLength>>>,
 
     /// How much to pad the box's content.
     ///
@@ -80,7 +81,7 @@ pub struct BoxTypstElem {
     /// ```
     #[resolve]
     #[fold]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the box's size without affecting the layout.
     ///
@@ -99,7 +100,7 @@ pub struct BoxTypstElem {
     /// ```
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// Whether to clip the content inside the box.
     #[default(false)]
@@ -115,9 +116,9 @@ impl TypstContentRefined<BoxTypstElem> {
     pub fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         let width = match self.width(styles) {
             TypstSizing::Auto => Smart::Auto,
             TypstSizing::Rel(rel) => Smart::Custom(rel),
@@ -136,12 +137,12 @@ impl TypstContentRefined<BoxTypstElem> {
         let mut body = self.body(styles).unwrap_or_default();
         let inset = self.inset(styles).unwrap_or_default();
         if inset.iter().any(|v| !v.is_zero()) {
-            body = body.padded(inset.map(|side| side.map(Length::from)));
+            body = body.padded(inset.map(|side| side.map(TypstLength::from)));
         }
 
         // Select the appropriate base and expansion for the child depending
         // on whether it is automatically or relatively sized.
-        let pod = Regions::one(size, expand);
+        let pod = TypstRegions::one(size, expand);
         let mut frame = body.layout(engine, styles, pod)?.into_frame();
 
         // Enforce correct size.
@@ -227,7 +228,7 @@ pub struct BlockElem {
     ///   lorem(10),
     /// )
     /// ```
-    pub width: Smart<Rel<Length>>,
+    pub width: Smart<Rel<TypstLength>>,
 
     /// The block's height. When the height is larger than the remaining space
     /// on a page and [`breakable`]($block.breakable) is `{true}`, the
@@ -242,7 +243,7 @@ pub struct BlockElem {
     ///   fill: aqua,
     /// )
     /// ```
-    pub height: Smart<Rel<Length>>,
+    pub height: Smart<Rel<TypstLength>>,
 
     /// Whether the block can be broken and continue on the next page.
     ///
@@ -272,19 +273,19 @@ pub struct BlockElem {
     /// [rectangle's documentation]($rect.radius) for more details.
     #[resolve]
     #[fold]
-    pub radius: Corners<Option<Rel<Length>>>,
+    pub radius: Corners<Option<Rel<TypstLength>>>,
 
     /// How much to pad the block's content. See the
     /// [box's documentation]($box.inset) for more details.
     #[resolve]
     #[fold]
-    pub inset: Sides<Option<Rel<Length>>>,
+    pub inset: Sides<Option<Rel<TypstLength>>>,
 
     /// How much to expand the block's size without affecting the layout. See
     /// the [box's documentation]($box.outset) for more details.
     #[resolve]
     #[fold]
-    pub outset: Sides<Option<Rel<Length>>>,
+    pub outset: Sides<Option<Rel<TypstLength>>>,
 
     /// The spacing around this block. This is shorthand to set `above` and
     /// `below` to the same value.
@@ -353,16 +354,16 @@ impl LayoutMultiple for TypstContentRefined<BlockElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         // Apply inset.
         let mut body = self.body(styles).unwrap_or_default();
         let inset = self.inset(styles).unwrap_or_default();
         if inset.iter().any(|v| !v.is_zero()) {
             body = body
                 .clone()
-                .padded(inset.map(|side| side.map(Length::from)));
+                .padded(inset.map(|side| side.map(TypstLength::from)));
         }
 
         // Resolve the sizing to a concrete size.
@@ -377,7 +378,7 @@ impl LayoutMultiple for TypstContentRefined<BlockElem> {
         let mut frames = if self.breakable(styles) {
             // Measure to ensure frames for all regions have the same width.
             if sizing.x == Smart::Auto {
-                let pod = Regions::one(size, Axes::splat(false));
+                let pod = TypstRegions::one(size, Axes::splat(false));
                 let frame = body.measure(engine, styles, pod)?.into_frame();
                 size.x = frame.width();
                 expand.x = true;
@@ -419,7 +420,7 @@ impl LayoutMultiple for TypstContentRefined<BlockElem> {
             }
             frames
         } else {
-            let pod = Regions::one(size, expand);
+            let pod = TypstRegions::one(size, expand);
             let mut frames = body.layout(engine, styles, pod)?.into_frames();
             *frames[0].size_mut() = expand.select(size, frames[0].size());
             frames
@@ -475,7 +476,7 @@ pub enum TypstSizing {
     Auto,
     /// A track size specified in absolute terms and relative to the parent's
     /// size.
-    Rel(Rel<Length>),
+    Rel(Rel<TypstLength>),
     /// A track size specified as a fraction of the remaining free space in the
     /// parent.
     Fr(TypstFraction),
@@ -511,6 +512,6 @@ cast! {
         Self::Fr(fr) => fr.into_value(),
     },
     _: AutoTypstValue => Self::Auto,
-    v: Rel<Length> => Self::Rel(v),
+    v: Rel<TypstLength> => Self::Rel(v),
     v: TypstFraction => Self::Fr(v),
 }

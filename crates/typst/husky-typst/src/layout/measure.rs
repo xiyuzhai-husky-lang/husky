@@ -1,7 +1,7 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{dict, func, StyleChain, Styles, TypstContent, TypstDict};
-use crate::layout::{Axes, LayoutMultiple, Regions, Size, TypstAbsLength};
+use crate::foundations::{dict, func, TypstContent, TypstDict, TypstStyleChain, TypstStyles};
+use crate::layout::{Axes, LayoutMultiple, Size, TypstAbsLength, TypstRegions};
 
 /// Measures the layouted size of content.
 ///
@@ -46,10 +46,10 @@ pub fn measure(
     /// The content whose size to measure.
     content: TypstContent,
     /// The styles with which to layout the content.
-    styles: Styles,
-) -> SourceResult<TypstDict> {
-    let pod = Regions::one(Axes::splat(TypstAbsLength::inf()), Axes::splat(false));
-    let styles = StyleChain::new(&styles);
+    styles: TypstStyles,
+) -> TypstSourceResult<TypstDict> {
+    let pod = TypstRegions::one(Axes::splat(TypstAbsLength::inf()), Axes::splat(false));
+    let styles = TypstStyleChain::new(&styles);
     let frame = content.measure(engine, styles, pod)?.into_frame();
     let Size { x, y } = frame.size();
     Ok(dict! { "width" => x, "height" => y })

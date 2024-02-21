@@ -1,10 +1,10 @@
 use std::borrow::Cow;
 
 use crate::foundations::{
-    cast, elem, Behave, Behaviour, Resolve, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, Behave, Behaviour, Resolve, TypstContent, TypstContentRefined, TypstStyleChain,
 };
-use crate::layout::{Length, Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction};
-use crate::util::Numeric;
+use crate::layout::{Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction, TypstLength};
+use crate::util::TypstNumeric;
 
 /// Inserts horizontal spacing into a paragraph.
 ///
@@ -68,7 +68,7 @@ impl Behave for TypstContentRefined<HElem> {
     fn behaviour(&self) -> Behaviour {
         if self.amount().is_fractional() {
             Behaviour::Destructive
-        } else if self.weak(StyleChain::default()) {
+        } else if self.weak(TypstStyleChain::default()) {
             Behaviour::Weak(1)
         } else {
             Behaviour::Invisible
@@ -77,8 +77,8 @@ impl Behave for TypstContentRefined<HElem> {
 
     fn larger(
         &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
+        prev: &(Cow<TypstContent>, Behaviour, TypstStyleChain),
+        styles: TypstStyleChain,
     ) -> bool {
         let Some(other) = prev.0.to_packed::<HElem>() else {
             return false;
@@ -172,8 +172,8 @@ impl Behave for TypstContentRefined<VElem> {
     fn behaviour(&self) -> Behaviour {
         if self.amount().is_fractional() {
             Behaviour::Destructive
-        } else if self.weakness(StyleChain::default()) > 0 {
-            Behaviour::Weak(self.weakness(StyleChain::default()))
+        } else if self.weakness(TypstStyleChain::default()) > 0 {
+            Behaviour::Weak(self.weakness(TypstStyleChain::default()))
         } else {
             Behaviour::Invisible
         }
@@ -181,8 +181,8 @@ impl Behave for TypstContentRefined<VElem> {
 
     fn larger(
         &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
+        prev: &(Cow<TypstContent>, Behaviour, TypstStyleChain),
+        styles: TypstStyleChain,
     ) -> bool {
         let Some(other) = prev.0.to_packed::<VElem>() else {
             return false;
@@ -206,7 +206,7 @@ cast! {
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub enum Spacing {
     /// Spacing specified in absolute terms and relative to the parent's size.
-    Rel(Rel<Length>),
+    Rel(Rel<TypstLength>),
     /// Spacing specified as a fraction of the remaining free space in the
     /// parent.
     Fr(TypstFraction),
@@ -239,8 +239,8 @@ impl From<TypstEmLength> for Spacing {
     }
 }
 
-impl From<Length> for Spacing {
-    fn from(length: Length) -> Self {
+impl From<TypstLength> for Spacing {
+    fn from(length: TypstLength) -> Self {
         Self::Rel(length.into())
     }
 }
@@ -265,6 +265,6 @@ cast! {
         }
         Self::Fr(fr) => fr.into_value(),
     },
-    v: Rel<Length> => Self::Rel(v),
+    v: Rel<TypstLength> => Self::Rel(v),
     v: TypstFraction => Self::Fr(v),
 }

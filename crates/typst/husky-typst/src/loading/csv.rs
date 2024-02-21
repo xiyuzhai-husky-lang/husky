@@ -1,6 +1,6 @@
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{bail, At, SourceResult};
+use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{cast, func, scope, Array, IntoTypstValue, Type, TypstDict, TypstValue};
 use crate::loading::Readable;
@@ -45,7 +45,7 @@ pub fn csv(
     #[named]
     #[default(RowType::Array)]
     row_type: RowType,
-) -> SourceResult<Array> {
+) -> TypstSourceResult<Array> {
     let Spanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
@@ -78,7 +78,7 @@ impl csv {
         #[named]
         #[default(RowType::Array)]
         row_type: RowType,
-    ) -> SourceResult<Array> {
+    ) -> TypstSourceResult<Array> {
         let Spanned { v: data, span } = data;
         let has_headers = row_type == RowType::Dict;
 

@@ -11,9 +11,10 @@ use unicode_script::{Script, UnicodeScript};
 
 use super::SpanMapper;
 use crate::engine::TypstEngine;
-use crate::foundations::StyleChain;
+use crate::foundations::TypstStyleChain;
 use crate::layout::{
-    Point, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem, TypstLayoutDirection,
+    Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem, TypstLayoutDirection,
+    TypstPoint,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::{
@@ -40,7 +41,7 @@ pub(super) struct ShapedText<'a> {
     /// The text region.
     pub region: Option<Region>,
     /// The text's style properties.
-    pub styles: StyleChain<'a>,
+    pub styles: TypstStyleChain<'a>,
     /// The font variant.
     pub variant: FontVariant,
     /// The font size.
@@ -242,7 +243,7 @@ impl<'a> ShapedText<'a> {
                 range.end = range.end.max(glyph.range.end);
             }
 
-            let pos = Point::new(offset, top + shift - y_offset.at(self.size));
+            let pos = TypstPoint::new(offset, top + shift - y_offset.at(self.size));
             let glyphs: Vec<TypstGlyph> = group
                 .iter()
                 .map(|shaped: &ShapedGlyph| {
@@ -586,7 +587,7 @@ struct ShapingContext<'a, 'v> {
     spans: &'a SpanMapper,
     glyphs: Vec<ShapedGlyph>,
     used: Vec<TypstFont>,
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     size: TypstAbsLength,
     variant: FontVariant,
     features: Vec<rustybuzz::Feature>,
@@ -601,7 +602,7 @@ pub(super) fn shape<'a>(
     base: usize,
     text: &'a str,
     spans: &SpanMapper,
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     dir: TypstLayoutDirection,
     lang: Lang,
     region: Option<Region>,
@@ -945,7 +946,7 @@ fn nbsp_delta(font: &TypstFont) -> Option<TypstEmLength> {
 
 /// Process the language and and region of a style chain into a
 /// rustybuzz-compatible BCP 47 language.
-fn language(styles: StyleChain) -> rustybuzz::Language {
+fn language(styles: TypstStyleChain) -> rustybuzz::Language {
     let mut bcp: EcoString = TextElem::lang_in(styles).as_str().into();
     if let Some(region) = TextElem::region_in(styles) {
         bcp.push('-');

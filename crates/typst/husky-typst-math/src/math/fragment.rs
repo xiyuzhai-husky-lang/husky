@@ -5,14 +5,16 @@ use ttf_parser::gsub::AlternateSet;
 use ttf_parser::{GlyphId, Rect};
 use unicode_math_class::MathClass;
 
-use crate::foundations::StyleChain;
+use crate::foundations::TypstStyleChain;
 use crate::introspection::{Meta, MetaTypstElem};
-use crate::layout::{Corner, FrameItem, Point, Size, TypstAbsLength, TypstEmLength, TypstFrame};
+use crate::layout::{
+    Corner, FrameItem, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstPoint,
+};
 use crate::math::{
     scaled_font_size, styled_char, EquationTypstElem, Limits, MathContext, MathSize, Scaled,
 };
 use crate::syntax::Span;
-use crate::text::{Glyph, Lang, TypstFont, TextElem, TextItem};
+use crate::text::{Glyph, Lang, TextElem, TextItem, TypstFont};
 use crate::visualize::TypstPaint;
 
 #[derive(Debug, Clone)]
@@ -218,13 +220,18 @@ pub struct GlyphFragment {
 }
 
 impl GlyphFragment {
-    pub fn new(ctx: &MathContext, styles: StyleChain, c: char, span: Span) -> Self {
+    pub fn new(ctx: &MathContext, styles: TypstStyleChain, c: char, span: Span) -> Self {
         let id = ctx.ttf.glyph_index(c).unwrap_or_default();
         let id = Self::adjust_glyph_index(ctx, id);
         Self::with_id(ctx, styles, c, id, span)
     }
 
-    pub fn try_new(ctx: &MathContext, styles: StyleChain, c: char, span: Span) -> Option<Self> {
+    pub fn try_new(
+        ctx: &MathContext,
+        styles: TypstStyleChain,
+        c: char,
+        span: Span,
+    ) -> Option<Self> {
         let c = styled_char(styles, c);
         let id = ctx.ttf.glyph_index(c)?;
         let id = Self::adjust_glyph_index(ctx, id);
@@ -233,7 +240,7 @@ impl GlyphFragment {
 
     pub fn with_id(
         ctx: &MathContext,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         c: char,
         id: GlyphId,
         span: Span,
@@ -348,7 +355,7 @@ impl GlyphFragment {
         let mut frame = TypstFrame::soft(size);
         frame.set_baseline(self.ascent);
         frame.push(
-            Point::with_y(self.ascent + self.shift),
+            TypstPoint::with_y(self.ascent + self.shift),
             FrameItem::Text(item),
         );
         frame.meta_iter(self.meta);
@@ -426,7 +433,7 @@ pub struct FrameFragment {
 }
 
 impl FrameFragment {
-    pub fn new(ctx: &MathContext, styles: StyleChain, mut frame: TypstFrame) -> Self {
+    pub fn new(ctx: &MathContext, styles: TypstStyleChain, mut frame: TypstFrame) -> Self {
         let base_ascent = frame.ascent();
         let accent_attach = frame.width() / 2.0;
         frame.meta(styles, false);

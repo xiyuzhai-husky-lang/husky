@@ -1,10 +1,10 @@
 use std::num::NonZeroUsize;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, IsTypstElem, Show, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
-    TypstContentRefined,
+    elem, IsTypstElem, Show, ShowSet, Smart, Synthesize, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{BlockElem, HElem, TypstEmLength, VElem};
@@ -129,7 +129,11 @@ pub struct HeadingTypstElem {
 }
 
 impl Synthesize for TypstContentRefined<HeadingTypstElem> {
-    fn synthesize(&mut self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let supplement = match (**self).supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
             Smart::Custom(None) => TypstContent::empty(),
@@ -143,7 +147,11 @@ impl Synthesize for TypstContentRefined<HeadingTypstElem> {
 
 impl Show for TypstContentRefined<HeadingTypstElem> {
     #[husky_typst_macros::time(name = "heading", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let mut realized = self.body().clone();
         if let Some(numbering) = (**self).numbering(styles).as_ref() {
             realized = Counter::of(HeadingTypstElem::elem())
@@ -163,7 +171,7 @@ impl Show for TypstContentRefined<HeadingTypstElem> {
 }
 
 impl ShowSet for TypstContentRefined<HeadingTypstElem> {
-    fn show_set(&self, styles: StyleChain) -> Styles {
+    fn show_set(&self, styles: TypstStyleChain) -> TypstStyles {
         let level = (**self).level(styles).get();
         let scale = match level {
             1 => 1.4,
@@ -175,7 +183,7 @@ impl ShowSet for TypstContentRefined<HeadingTypstElem> {
         let above = TypstEmLength::new(if level == 1 { 1.8 } else { 1.44 }) / scale;
         let below = TypstEmLength::new(0.75) / scale;
 
-        let mut out = Styles::new();
+        let mut out = TypstStyles::new();
         out.set(TextElem::set_size(TextSize(size.into())));
         out.set(TextElem::set_weight(FontWeight::BOLD));
         out.set(BlockElem::set_above(VElem::block_around(above.into())));
@@ -188,16 +196,16 @@ impl ShowSet for TypstContentRefined<HeadingTypstElem> {
 impl Count for TypstContentRefined<HeadingTypstElem> {
     fn update(&self) -> Option<CounterUpdate> {
         (**self)
-            .numbering(StyleChain::default())
+            .numbering(TypstStyleChain::default())
             .is_some()
-            .then(|| CounterUpdate::Step((**self).level(StyleChain::default())))
+            .then(|| CounterUpdate::Step((**self).level(TypstStyleChain::default())))
     }
 }
 
 impl Refable for TypstContentRefined<HeadingTypstElem> {
     fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
-        match (**self).supplement(StyleChain::default()) {
+        match (**self).supplement(TypstStyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
             _ => TypstContent::empty(),
         }
@@ -208,18 +216,18 @@ impl Refable for TypstContentRefined<HeadingTypstElem> {
     }
 
     fn numbering(&self) -> Option<&Numbering> {
-        (**self).numbering(StyleChain::default()).as_ref()
+        (**self).numbering(TypstStyleChain::default()).as_ref()
     }
 }
 
 impl Outlinable for TypstContentRefined<HeadingTypstElem> {
-    fn outline(&self, engine: &mut TypstEngine) -> SourceResult<Option<TypstContent>> {
-        if !self.outlined(StyleChain::default()) {
+    fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>> {
+        if !self.outlined(TypstStyleChain::default()) {
             return Ok(None);
         }
 
         let mut content = self.body().clone();
-        if let Some(numbering) = (**self).numbering(StyleChain::default()).as_ref() {
+        if let Some(numbering) = (**self).numbering(TypstStyleChain::default()).as_ref() {
             let numbers = Counter::of(HeadingTypstElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?;
@@ -230,7 +238,7 @@ impl Outlinable for TypstContentRefined<HeadingTypstElem> {
     }
 
     fn level(&self) -> NonZeroUsize {
-        (**self).level(StyleChain::default())
+        (**self).level(TypstStyleChain::default())
     }
 }
 

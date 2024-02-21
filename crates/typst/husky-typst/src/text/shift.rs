@@ -1,9 +1,9 @@
 use ecow::EcoString;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Show, StyleChain, TypstContent, TypstContentRefined};
-use crate::layout::{Length, TypstEmLength};
+use crate::foundations::{elem, Show, TypstContent, TypstContentRefined, TypstStyleChain};
+use crate::layout::{TypstEmLength, TypstLength};
 use crate::text::{variant, SpaceElem, TextElem, TextSize};
 use crate::IsTypstWorld;
 
@@ -34,7 +34,7 @@ pub struct SubElem {
     /// `typographic` is true and the font has subscript codepoints for the
     /// given `body`.
     #[default(TypstEmLength::new(0.2).into())]
-    pub baseline: Length,
+    pub baseline: TypstLength,
 
     /// The font size for synthetic subscripts. Does not apply if
     /// `typographic` is true and the font has subscript codepoints for the
@@ -49,7 +49,11 @@ pub struct SubElem {
 
 impl Show for TypstContentRefined<SubElem> {
     #[husky_typst_macros::time(name = "sub", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -94,7 +98,7 @@ pub struct SuperElem {
     /// `typographic` is true and the font has superscript codepoints for the
     /// given `body`.
     #[default(TypstEmLength::new(-0.5).into())]
-    pub baseline: Length,
+    pub baseline: TypstLength,
 
     /// The font size for synthetic superscripts. Does not apply if
     /// `typographic` is true and the font has superscript codepoints for the
@@ -109,7 +113,11 @@ pub struct SuperElem {
 
 impl Show for TypstContentRefined<SuperElem> {
     #[husky_typst_macros::time(name = "super", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let body = self.body().clone();
         let mut transformed = None;
         if self.typographic(styles) {
@@ -150,7 +158,7 @@ fn search_text(content: &TypstContent, sub: bool) -> Option<EcoString> {
 
 /// Checks whether the first retrievable family contains all code points of the
 /// given string.
-fn is_shapable(engine: &TypstEngine, text: &str, styles: StyleChain) -> bool {
+fn is_shapable(engine: &TypstEngine, text: &str, styles: TypstStyleChain) -> bool {
     let world = engine.world;
     for family in TextElem::font_in(styles) {
         if let Some(font) = world

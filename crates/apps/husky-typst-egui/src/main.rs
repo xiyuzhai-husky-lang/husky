@@ -11,7 +11,7 @@ use husky_typst::{
     visualize::{TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstRgb, TypstRgba},
 };
 use husky_typst::{
-    layout::{Point, Size, TypstFrame, TypstFrameItem, TypstGroupItem},
+    layout::{Size, TypstFrame, TypstFrameItem, TypstGroupItem, TypstPoint},
     visualize::TypstShape,
 };
 use render::render;

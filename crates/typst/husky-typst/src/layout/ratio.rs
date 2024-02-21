@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg};
 use ecow::EcoString;
 
 use crate::foundations::{repr, ty, Repr};
-use crate::util::{Numeric, Scalar};
+use crate::util::{Scalar, TypstNumeric};
 
 /// A ratio of a whole.
 ///
@@ -58,7 +58,7 @@ impl Ratio {
     }
 
     /// Return the ratio of the given `whole`.
-    pub fn of<T: Numeric>(self, whole: T) -> T {
+    pub fn of<T: TypstNumeric>(self, whole: T) -> T {
         let resolved = whole * self.get();
         if resolved.is_finite() {
             resolved

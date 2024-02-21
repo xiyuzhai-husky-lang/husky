@@ -1,7 +1,7 @@
 use crate::MathContext;
 use crate::{
     fragment::{FrameFragment, MathFragment},
-    StyleChain,
+    TypstStyleChain,
 };
 
 #[derive(Debug, Default, Clone)]
@@ -12,7 +12,7 @@ impl MathRow {
         todo!()
     }
 
-    pub fn into_fragment(self, ctx: &MathContext, styles: StyleChain) -> MathFragment {
+    pub fn into_fragment(self, ctx: &MathContext, styles: TypstStyleChain) -> MathFragment {
         if self.0.len() == 1 {
             self.0.into_iter().next().unwrap()
         } else {

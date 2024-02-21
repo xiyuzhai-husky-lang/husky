@@ -3,7 +3,7 @@ use ecow::{eco_format, eco_vec, EcoString};
 use serde::{Deserialize, Serialize};
 
 use crate::diag::{
-    bail, error, warning, At, FileError, SourceResult, StrResult, Trace, Tracepoint,
+    bail, error, warning, At, FileError, StrResult, Trace, Tracepoint, TypstSourceResult,
 };
 use crate::eval::{eval, Eval, Vm};
 use crate::foundations::{TypstContent, TypstModuleEvaluation, TypstValue};
@@ -14,7 +14,7 @@ use crate::IsTypstWorld;
 impl Eval for ast::ModuleImport<'_> {
     type Output = TypstValue;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let source = self.source();
         let source_span = source.span();
         let mut source = source.eval(vm)?;
@@ -97,7 +97,7 @@ impl Eval for ast::ModuleImport<'_> {
 impl Eval for ast::ModuleInclude<'_> {
     type Output = TypstContent;
 
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output> {
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let span = self.source().span();
         let source = self.source().eval(vm)?;
         let module = import(vm, source, span, false)?;
@@ -111,7 +111,7 @@ pub fn import(
     source: TypstValue,
     span: TypstSynSpan,
     allow_scopes: bool,
-) -> SourceResult<TypstModuleEvaluation> {
+) -> TypstSourceResult<TypstModuleEvaluation> {
     let path = match source {
         TypstValue::Str(path) => path,
         TypstValue::Module(module) => return Ok(module),
@@ -140,7 +140,7 @@ fn import_package(
     vm: &mut Vm,
     spec: PackageSpec,
     span: TypstSynSpan,
-) -> SourceResult<TypstModuleEvaluation> {
+) -> TypstSourceResult<TypstModuleEvaluation> {
     // Evaluate the manifest.
     let manifest_id = FileId::new(Some(spec.clone()), VirtualPath::new("typst.toml"));
     let bytes = vm.world().file(manifest_id).at(span)?;
@@ -162,7 +162,11 @@ fn import_package(
 }
 
 /// Import a file from a path.
-fn import_file(vm: &mut Vm, path: &str, span: TypstSynSpan) -> SourceResult<TypstModuleEvaluation> {
+fn import_file(
+    vm: &mut Vm,
+    path: &str,
+    span: TypstSynSpan,
+) -> TypstSourceResult<TypstModuleEvaluation> {
     // Load the source file.
     let world = vm.world();
     let id = span.resolve_path(path).at(span)?;

@@ -2,7 +2,7 @@ use std::num::NonZeroUsize;
 
 use ecow::EcoString;
 use husky_typst::introspection::TypstMeta;
-use husky_typst::layout::{Point, Position, Size, TypstFrame, TypstFrameItem};
+use husky_typst::layout::{Position, Size, TypstFrame, TypstFrameItem, TypstPoint};
 use husky_typst::model::{TypstDestination, TypstDocument};
 use husky_typst::syntax::{FileId, LinkedNode, Source, TypstSynSpan, TypstSyntaxKind};
 use husky_typst::visualize::TypstGeometry;
@@ -33,7 +33,7 @@ pub fn jump_from_click(
     world: &dyn IsTypstWorld,
     document: &TypstDocument,
     frame: &TypstFrame,
-    click: Point,
+    click: TypstPoint,
 ) -> Option<Jump> {
     // Try to find a link first.
     for (pos, item) in frame.items() {
@@ -64,7 +64,7 @@ pub fn jump_from_click(
                 for glyph in &text.glyphs {
                     let width = glyph.x_advance.at(text.size);
                     if is_in_rect(
-                        Point::new(pos.x, pos.y - text.size),
+                        TypstPoint::new(pos.x, pos.y - text.size),
                         Size::new(width, text.size),
                         click,
                     ) {
@@ -134,7 +134,7 @@ pub fn jump_from_cursor(
 }
 
 /// Find the position of a span in a frame.
-fn find_in_frame(frame: &TypstFrame, span: TypstSynSpan) -> Option<Point> {
+fn find_in_frame(frame: &TypstFrame, span: TypstSynSpan) -> Option<TypstPoint> {
     for (mut pos, item) in frame.items() {
         if let TypstFrameItem::Group(group) = item {
             // TODO: Handle transformation.
@@ -158,6 +158,6 @@ fn find_in_frame(frame: &TypstFrame, span: TypstSynSpan) -> Option<Point> {
 
 /// Whether a rectangle with the given size at the given position contains the
 /// click position.
-fn is_in_rect(pos: Point, size: Size, click: Point) -> bool {
+fn is_in_rect(pos: TypstPoint, size: Size, click: TypstPoint) -> bool {
     pos.x <= click.x && pos.x + size.x >= click.x && pos.y <= click.y && pos.y + size.y >= click.y
 }

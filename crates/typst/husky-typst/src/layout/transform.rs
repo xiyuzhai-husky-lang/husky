@@ -1,9 +1,9 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Resolve, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{elem, Resolve, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Angle, Axes, FixedAlignment, HAlignment, LayoutMultiple, LayoutSingle, Length, Point, Ratio,
-    Regions, Rel, Size, TypstAbsLength, TypstAlignment, TypstFrame, VAlignment,
+    Angle, Axes, FixedAlignment, HAlignment, LayoutMultiple, LayoutSingle, Ratio, Rel, Size,
+    TypstAbsLength, TypstAlignment, TypstFrame, TypstLength, TypstPoint, TypstRegions, VAlignment,
 };
 
 /// Moves content without affecting layout.
@@ -27,10 +27,10 @@ use crate::layout::{
 #[elem(LayoutSingle)]
 pub struct MoveElem {
     /// The horizontal displacement of the content.
-    pub dx: Rel<Length>,
+    pub dx: Rel<TypstLength>,
 
     /// The vertical displacement of the content.
-    pub dy: Rel<Length>,
+    pub dy: Rel<TypstLength>,
 
     /// The content to move.
     #[required]
@@ -42,10 +42,10 @@ impl LayoutSingle for TypstContentRefined<MoveElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
-        let pod = Regions::one(regions.base(), Axes::splat(false));
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
+        let pod = TypstRegions::one(regions.base(), Axes::splat(false));
         let mut frame = self.body().layout(engine, styles, pod)?.into_frame();
         let delta = Axes::new(self.dx(styles), self.dy(styles)).resolve(styles);
         let delta = delta.zip_map(regions.base(), Rel::relative_to);
@@ -120,9 +120,9 @@ impl LayoutSingle for TypstContentRefined<RotateElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         let angle = self.angle(styles);
         let align = self.origin(styles).resolve(styles);
 
@@ -208,9 +208,9 @@ impl LayoutSingle for TypstContentRefined<ScaleElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         let sx = self.x(styles);
         let sy = self.y(styles);
         let align = self.origin(styles).resolve(styles);
@@ -371,15 +371,15 @@ fn measure_and_layout(
     engine: &mut TypstEngine,
     base_size: Size,
     size: Size,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     body: &TypstContent,
     transform: Transform,
     align: Axes<FixedAlignment>,
     reflow: bool,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     if !reflow {
         // Layout the body.
-        let pod = Regions::one(base_size, Axes::splat(false));
+        let pod = TypstRegions::one(base_size, Axes::splat(false));
         let mut frame = body.layout(engine, styles, pod)?.into_frame();
         let Axes { x, y } = align.zip_map(frame.size(), FixedAlignment::position);
 
@@ -393,11 +393,11 @@ fn measure_and_layout(
     }
 
     // Measure the size of the body.
-    let pod = Regions::one(size, Axes::splat(false));
+    let pod = TypstRegions::one(size, Axes::splat(false));
     let frame = body.measure(engine, styles, pod)?.into_frame();
 
     // Actually perform the layout.
-    let pod = Regions::one(frame.size(), Axes::splat(true));
+    let pod = TypstRegions::one(frame.size(), Axes::splat(true));
     let mut frame = body.layout(engine, styles, pod)?.into_frame();
     let Axes { x, y } = align.zip_map(frame.size(), FixedAlignment::position);
 
@@ -415,11 +415,11 @@ fn measure_and_layout(
 }
 
 /// Computes the bounding box and offset of a transformed frame.
-fn compute_bounding_box(frame: &TypstFrame, ts: Transform) -> (Point, Size) {
-    let top_left = Point::zero().transform_inf(ts);
-    let top_right = Point::new(frame.width(), TypstAbsLength::zero()).transform_inf(ts);
-    let bottom_left = Point::new(TypstAbsLength::zero(), frame.height()).transform_inf(ts);
-    let bottom_right = Point::new(frame.width(), frame.height()).transform_inf(ts);
+fn compute_bounding_box(frame: &TypstFrame, ts: Transform) -> (TypstPoint, Size) {
+    let top_left = TypstPoint::zero().transform_inf(ts);
+    let top_right = TypstPoint::new(frame.width(), TypstAbsLength::zero()).transform_inf(ts);
+    let bottom_left = TypstPoint::new(TypstAbsLength::zero(), frame.height()).transform_inf(ts);
+    let bottom_right = TypstPoint::new(frame.width(), frame.height()).transform_inf(ts);
 
     // We first compute the new bounding box of the rotated frame.
     let min_x = top_left
@@ -448,7 +448,7 @@ fn compute_bounding_box(frame: &TypstFrame, ts: Transform) -> (Point, Size) {
     let height = max_y - min_y;
 
     (
-        Point::new(-min_x, -min_y),
+        TypstPoint::new(-min_x, -min_y),
         Size::new(width.abs(), height.abs()),
     )
 }

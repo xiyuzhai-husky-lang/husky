@@ -1,11 +1,11 @@
-use crate::diag::{bail, At, Hint, SourceResult};
+use crate::diag::{bail, At, Hint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, Behave, Behaviour, Smart, StyleChain, TypstContent, TypstContentRefined,
+    elem, Behave, Behaviour, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, LayoutMultiple, Length, Regions, Rel, TypstAlignment, TypstEmLength, TypstLayoutFragment,
-    VAlignment,
+    Axes, LayoutMultiple, Rel, TypstAlignment, TypstEmLength, TypstLayoutFragment, TypstLength,
+    TypstRegions, VAlignment,
 };
 
 /// Places content at an absolute position.
@@ -68,7 +68,7 @@ pub struct PlaceElem {
     /// The amount of clearance the placed element has in a floating layout.
     #[default(TypstEmLength::new(1.5).into())]
     #[resolve]
-    pub clearance: Length,
+    pub clearance: TypstLength,
 
     /// The horizontal displacement of the placed content.
     ///
@@ -79,10 +79,10 @@ pub struct PlaceElem {
     ///   place(center, dx: amount - 32pt, dy: amount)[A]
     /// }
     /// ```
-    pub dx: Rel<Length>,
+    pub dx: Rel<TypstLength>,
 
     /// The vertical displacement of the placed content.
-    pub dy: Rel<Length>,
+    pub dy: Rel<TypstLength>,
 
     /// The content to place.
     #[required]
@@ -94,9 +94,9 @@ impl TypstContentRefined<PlaceElem> {
     pub fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         // The pod is the base area of the region because for absolute
         // placement we don't really care about the already used area.
         let base = regions.base();
@@ -123,7 +123,7 @@ impl TypstContentRefined<PlaceElem> {
             .clone()
             .aligned(alignment.unwrap_or_else(|| TypstAlignment::CENTER));
 
-        let pod = Regions::one(base, Axes::splat(false));
+        let pod = TypstRegions::one(base, Axes::splat(false));
         let frame = child.layout(engine, styles, pod)?.into_frame();
         Ok(TypstLayoutFragment::frame(frame))
     }

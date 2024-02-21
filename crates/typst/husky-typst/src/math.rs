@@ -42,9 +42,9 @@ use self::spacing::*;
 
 use std::borrow::Cow;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::foundations::{
-    category, Resolve, StyleChain, TypstContent, TypstDefnKind, TypstModuleEvaluation,
+    category, Resolve, TypstContent, TypstDefnKind, TypstModuleEvaluation, TypstStyleChain,
     TypstValueAssignmentGroup,
 };
 use crate::layout::{BoxTypstElem, HElem, Spacing};
@@ -217,12 +217,12 @@ pub fn module() -> TypstModuleEvaluation {
 /// Layout for math elements.
 pub trait TypstLayoutMath {
     /// Layout the element, producing fragment in the context.
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()>;
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()>;
 }
 
 impl TypstLayoutMath for TypstContent {
     #[husky_typst_macros::time(name = "math", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         // Directly layout the body of nested equations instead of handling it
         // like a normal equation so that things like this work:
         // ```
@@ -240,7 +240,7 @@ impl TypstLayoutMath for TypstContent {
         if self.is_sequence() {
             let mut bb = BehavedBuilder::new();
             self.sequence_recursive_for_each(&mut |child: &TypstContent| {
-                bb.push(Cow::Owned(child.clone()), StyleChain::default())
+                bb.push(Cow::Owned(child.clone()), TypstStyleChain::default())
             });
 
             for (child, _) in bb.finish().0.iter() {

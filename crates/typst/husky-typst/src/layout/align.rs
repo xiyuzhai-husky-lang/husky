@@ -2,11 +2,11 @@ use std::ops::Add;
 
 use ecow::{eco_format, EcoString};
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, func, scope, ty, Fold, Repr, Resolve, Show, StyleChain, TypstContent,
-    TypstContentRefined,
+    cast, elem, func, scope, ty, Fold, Repr, Resolve, Show, TypstContent, TypstContentRefined,
+    TypstStyleChain,
 };
 use crate::layout::{Axes, Axis, Side, TypstAbsLength, TypstLayoutDirection};
 use crate::text::TextElem;
@@ -48,7 +48,11 @@ pub struct AlignElem {
 
 impl Show for TypstContentRefined<AlignElem> {
     #[husky_typst_macros::time(name = "align", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -228,7 +232,7 @@ impl Fold for TypstAlignment {
 impl Resolve for TypstAlignment {
     type Output = Axes<FixedAlignment>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.fix(TextElem::dir_in(styles))
     }
 }
@@ -308,7 +312,7 @@ impl From<HAlignment> for TypstAlignment {
 impl Resolve for HAlignment {
     type Output = FixedAlignment;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.fix(TextElem::dir_in(styles))
     }
 }

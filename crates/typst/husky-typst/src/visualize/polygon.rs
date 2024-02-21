@@ -1,15 +1,17 @@
 use std::f64::consts::PI;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, func, scope, IsTypstElem, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined,
+    elem, func, scope, IsTypstElem, Resolve, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain,
 };
 use crate::layout::{
-    Axes, LayoutSingle, Length, Point, Regions, Rel, TypstEmLength, TypstFrame, TypstFrameItem,
+    Axes, LayoutSingle, Rel, TypstEmLength, TypstFrame, TypstFrameItem, TypstLength, TypstPoint,
+    TypstRegions,
 };
 use crate::syntax::TypstSynSpan;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::{
     Path, TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape, TypstStroke,
 };
@@ -51,7 +53,7 @@ pub struct PolygonElem {
     /// The vertices of the polygon. Each point is specified as an array of two
     /// [relative lengths]($relative).
     #[variadic]
-    pub vertices: Vec<Axes<Rel<Length>>>,
+    pub vertices: Vec<Axes<Rel<TypstLength>>>,
 }
 
 #[scope]
@@ -84,7 +86,7 @@ impl PolygonElem {
         /// of the regular polygon.
         #[named]
         #[default(TypstEmLength::one().into())]
-        size: Length,
+        size: TypstLength,
 
         /// The number of vertices in the polygon.
         #[named]
@@ -131,10 +133,10 @@ impl LayoutSingle for TypstContentRefined<PolygonElem> {
     fn layout(
         &self,
         _: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
-        let points: Vec<Point> = self
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
+        let points: Vec<TypstPoint> = self
             .vertices()
             .iter()
             .map(|c| {
@@ -146,7 +148,7 @@ impl LayoutSingle for TypstContentRefined<PolygonElem> {
 
         let size = points
             .iter()
-            .fold(Point::zero(), |max, c| c.max(max))
+            .fold(TypstPoint::zero(), |max, c| c.max(max))
             .to_size();
         if !size.is_finite() {
             bail!(self.span(), "cannot create polygon with infinite size");
@@ -180,7 +182,10 @@ impl LayoutSingle for TypstContentRefined<PolygonElem> {
             stroke,
             fill,
         };
-        frame.push(Point::zero(), TypstFrameItem::Shape(shape, self.span()));
+        frame.push(
+            TypstPoint::zero(),
+            TypstFrameItem::Shape(shape, self.span()),
+        );
         Ok(frame)
     }
 }

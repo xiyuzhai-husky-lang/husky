@@ -8,11 +8,11 @@ use ecow::EcoString;
 use once_cell::sync::Lazy;
 use smallvec::SmallVec;
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, Args, Func, ParamInfo, Repr, Selector, StyleChain, Styles, TypstContent, TypstDict,
-    TypstValue, TypstValueAssignmentGroup,
+    cast, Args, Func, ParamInfo, Repr, Selector, TypstContent, TypstDict, TypstStyleChain,
+    TypstStyles, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -72,12 +72,12 @@ impl ElementSchemaRef {
         self,
         engine: &mut TypstEngine,
         args: &mut Args,
-    ) -> SourceResult<TypstContent> {
+    ) -> TypstSourceResult<TypstContent> {
         (self.0.construct)(engine, args)
     }
 
     /// Execute the set rule for the element and return the resulting style map.
-    pub fn set(self, engine: &mut TypstEngine, mut args: Args) -> SourceResult<Styles> {
+    pub fn set(self, engine: &mut TypstEngine, mut args: Args) -> TypstSourceResult<TypstStyles> {
         let styles = (self.0.set)(engine, &mut args)?;
         args.finish()?;
         Ok(styles)
@@ -210,10 +210,10 @@ pub trait Fields {
     fn field(&self, id: u8) -> Option<TypstValue>;
 
     /// Get the field with the given ID in the presence of styles.
-    fn field_with_styles(&self, id: u8, styles: StyleChain) -> Option<TypstValue>;
+    fn field_with_styles(&self, id: u8, styles: TypstStyleChain) -> Option<TypstValue>;
 
     /// Resolve all fields with the styles and save them in-place.
-    fn materialize(&mut self, styles: StyleChain);
+    fn materialize(&mut self, styles: TypstStyleChain);
 
     /// Get the fields of the element.
     fn fields(&self) -> TypstDict;
@@ -225,7 +225,7 @@ pub trait Construct {
     ///
     /// This is passed only the arguments that remain after execution of the
     /// element's set rule.
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> SourceResult<TypstContent>
+    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent>
     where
         Self: Sized;
 }
@@ -233,7 +233,7 @@ pub trait Construct {
 /// An element's set rule.
 pub trait Set {
     /// Parse relevant arguments into style properties for this element.
-    fn set(engine: &mut TypstEngine, args: &mut Args) -> SourceResult<Styles>
+    fn set(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstStyles>
     where
         Self: Sized;
 }
@@ -245,8 +245,8 @@ pub struct ElementSchema {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub construct: fn(&mut TypstEngine, &mut Args) -> SourceResult<TypstContent>,
-    pub set: fn(&mut TypstEngine, &mut Args) -> SourceResult<Styles>,
+    pub construct: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstContent>,
+    pub set: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstStyles>,
     pub vtable: fn(capability: TypeId) -> Option<*const ()>,
     pub field_id: fn(name: &str) -> Option<u8>,
     pub field_name: fn(u8) -> Option<&'static str>,
@@ -270,13 +270,21 @@ cast! {
 /// rule.
 pub trait Synthesize {
     /// Prepare the element for show rule application.
-    fn synthesize(&mut self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<()>;
+    fn synthesize(
+        &mut self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()>;
 }
 
 /// Defines a built-in show rule for an element.
 pub trait Show {
     /// Execute the base recipe for this element.
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent>;
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent>;
 }
 
 /// Defines built-in show set rules for an element.
@@ -286,7 +294,7 @@ pub trait Show {
 pub trait ShowSet {
     /// Finalize the fully realized form of the element. Use this for effects
     /// that should work even in the face of a user-defined show rule.
-    fn show_set(&self, styles: StyleChain) -> Styles;
+    fn show_set(&self, styles: TypstStyleChain) -> TypstStyles;
 }
 
 /// How the element interacts with other elements.
@@ -299,8 +307,8 @@ pub trait Behave {
     #[allow(unused_variables)]
     fn larger(
         &self,
-        prev: &(Cow<TypstContent>, Behaviour, StyleChain),
-        styles: StyleChain,
+        prev: &(Cow<TypstContent>, Behaviour, TypstStyleChain),
+        styles: TypstStyleChain,
     ) -> bool {
         false
     }

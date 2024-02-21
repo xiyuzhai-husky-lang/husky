@@ -1,9 +1,9 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    dict, elem, func, Func, IsTypstElem, StyleChain, TypstContent, TypstContentRefined,
+    dict, elem, func, Func, IsTypstElem, TypstContent, TypstContentRefined, TypstStyleChain,
 };
-use crate::layout::{LayoutMultiple, Regions, Size, TypstLayoutFragment};
+use crate::layout::{LayoutMultiple, Size, TypstLayoutFragment, TypstRegions};
 use crate::syntax::TypstSynSpan;
 
 /// Provides access to the current outer container's (or page's, if none) size
@@ -75,9 +75,9 @@ impl LayoutMultiple for TypstContentRefined<LayoutElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         // Gets the current region's base size, which will be the size of the
         // outer container, or of the page if there is no such container.
         let Size { x, y } = regions.base();

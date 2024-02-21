@@ -1,15 +1,16 @@
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, Array, IsTypstElem, Smart, StyleChain, TypstContent, TypstContentRefined,
+    cast, elem, scope, Array, IsTypstElem, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain,
 };
 use crate::layout::{
-    BlockElem, HElem, LayoutMultiple, Length, Regions, Sides, Spacing, StackChild, StackElem,
-    TypstEmLength, TypstLayoutDirection, TypstLayoutFragment,
+    BlockElem, HElem, LayoutMultiple, Sides, Spacing, StackChild, StackElem, TypstEmLength,
+    TypstLayoutDirection, TypstLayoutFragment, TypstLength, TypstRegions,
 };
 use crate::model::ParagraphTypstElem;
 use crate::text::TextElem;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// A list of terms and their descriptions.
 ///
@@ -68,7 +69,7 @@ pub struct TermsElem {
     pub separator: TypstContent,
 
     /// The indentation of each item.
-    pub indent: Length,
+    pub indent: TypstLength,
 
     /// The hanging indent of the description.
     ///
@@ -80,7 +81,7 @@ pub struct TermsElem {
     ///   make use of hanging indents.
     /// ```
     #[default(TypstEmLength::new(2.0).into())]
-    pub hanging_indent: Length,
+    pub hanging_indent: TypstLength,
 
     /// The spacing between the items of a wide (non-tight) term list.
     ///
@@ -114,9 +115,9 @@ impl LayoutMultiple for TypstContentRefined<TermsElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let separator = self.separator(styles);
         let indent = self.indent(styles);
         let hanging_indent = self.hanging_indent(styles);

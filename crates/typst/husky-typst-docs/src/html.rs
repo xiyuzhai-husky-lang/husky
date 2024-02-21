@@ -7,7 +7,7 @@ use heck::{ToKebabCase, ToTitleCase};
 use husky_typst::diag::{FileResult, StrResult};
 use husky_typst::eval::Tracer;
 use husky_typst::foundations::{Bytes, Datetime};
-use husky_typst::layout::{Point, Size, TypstAbsLength};
+use husky_typst::layout::{Size, TypstAbsLength, TypstPoint};
 use husky_typst::syntax::{FileId, Source, VirtualPath};
 use husky_typst::text::{TypstFont, TypstFontBook};
 use husky_typst::{IsTypstWorld, Library};
@@ -399,7 +399,7 @@ fn code_block(resolver: &dyn Resolver, lang: &str, text: &str) -> Html {
     };
 
     if let Some([x, y, w, h]) = zoom {
-        document.pages[0].frame.translate(Point::new(-x, -y));
+        document.pages[0].frame.translate(TypstPoint::new(-x, -y));
         *document.pages[0].frame.size_mut() = Size::new(w, h);
     }
 

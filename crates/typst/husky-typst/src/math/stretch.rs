@@ -1,7 +1,7 @@
 use ttf_parser::math::{GlyphAssembly, GlyphConstruction, GlyphPart};
 use ttf_parser::LazyArray16;
 
-use crate::layout::{Point, Size, TypstAbsLength, TypstFrame};
+use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstPoint};
 use crate::math::{GlyphFragment, MathContext, Scaled, VariantFragment};
 
 /// Maximum number of times extenders can be repeated.
@@ -185,9 +185,9 @@ fn assemble(
 
     for (fragment, advance) in selected {
         let pos = if horizontal {
-            Point::new(offset, frame.baseline() - fragment.ascent)
+            TypstPoint::new(offset, frame.baseline() - fragment.ascent)
         } else {
-            Point::with_y(full - offset - fragment.height())
+            TypstPoint::with_y(full - offset - fragment.height())
         };
         frame.push_frame(pos, fragment.into_frame());
         offset += advance;

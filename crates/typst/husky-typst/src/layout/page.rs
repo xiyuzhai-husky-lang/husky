@@ -3,22 +3,23 @@ use std::num::NonZeroUsize;
 use std::ptr;
 use std::str::FromStr;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, AutoTypstValue, Cast, Fold, Func, IsTypstElem, Resolve, Smart, StyleChain,
-    TypstContent, TypstContentRefined, TypstDict, TypstValue,
+    cast, elem, AutoTypstValue, Cast, Fold, Func, IsTypstElem, Resolve, Smart, TypstContent,
+    TypstContentRefined, TypstDict, TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Counter, CounterKey, ManualPageCounter};
 use crate::layout::{
-    AlignElem, Axes, ColumnsElem, HAlignment, LayoutMultiple, Length, Point, Ratio, Regions, Rel,
-    Sides, Size, TypstAbsLength, TypstAlignment, TypstFrame, TypstLayoutDirection, VAlignment,
+    AlignElem, Axes, ColumnsElem, HAlignment, LayoutMultiple, Ratio, Rel, Sides, Size,
+    TypstAbsLength, TypstAlignment, TypstFrame, TypstLayoutDirection, TypstLength, TypstPoint,
+    TypstRegions, VAlignment,
 };
 
 use crate::model::Numbering;
 use crate::syntax::Spanned;
 use crate::text::TextElem;
-use crate::util::{NonZeroExt, Numeric, Scalar};
+use crate::util::{NonZeroExt, Scalar, TypstNumeric};
 use crate::visualize::TypstPaint;
 
 /// Layouts its child onto one or multiple pages.
@@ -41,11 +42,11 @@ use crate::visualize::TypstPaint;
 /// There you go, US friends!
 /// ```
 #[elem]
-pub struct PageElem {
+pub struct TypstPageElem {
     /// A standard paper size to set width and height.
     #[external]
-    #[default(Paper::A4)]
-    pub paper: Paper,
+    #[default(TypstPaper::A4)]
+    pub paper: TypstPaper,
 
     /// The width of the page.
     ///
@@ -61,12 +62,12 @@ pub struct PageElem {
     /// ```
     #[resolve]
     #[parse(
-        let paper = args.named_or_find::<Paper>("paper")?;
+        let paper = args.named_or_find::<TypstPaper>("paper")?;
         args.named("width")?
             .or_else(|| paper.map(|paper| Smart::Custom(paper.width().into())))
     )]
-    #[default(Smart::Custom(Paper::A4.width().into()))]
-    pub width: Smart<Length>,
+    #[default(Smart::Custom(TypstPaper::A4.width().into()))]
+    pub width: Smart<TypstLength>,
 
     /// The height of the page.
     ///
@@ -79,8 +80,8 @@ pub struct PageElem {
         args.named("height")?
             .or_else(|| paper.map(|paper| Smart::Custom(paper.height().into())))
     )]
-    #[default(Smart::Custom(Paper::A4.height().into()))]
-    pub height: Smart<Length>,
+    #[default(Smart::Custom(TypstPaper::A4.height().into()))]
+    pub height: Smart<TypstLength>,
 
     /// Whether the page is flipped into landscape orientation.
     ///
@@ -254,7 +255,7 @@ pub struct PageElem {
     /// The amount the header is raised into the top margin.
     #[resolve]
     #[default(Ratio::new(0.3).into())]
-    pub header_ascent: Rel<Length>,
+    pub header_ascent: Rel<TypstLength>,
 
     /// The page's footer. Fills the bottom margin of each page.
     ///
@@ -285,7 +286,7 @@ pub struct PageElem {
     /// The amount the footer is lowered into the bottom margin.
     #[resolve]
     #[default(Ratio::new(0.3).into())]
-    pub footer_descent: Rel<Length>,
+    pub footer_descent: Rel<TypstLength>,
 
     /// Content in the page's background.
     ///
@@ -334,8 +335,8 @@ pub struct PageElem {
     pub clear_to: Option<Parity>,
 }
 
-impl TypstContentRefined<PageElem> {
-    /// A document can consist of multiple `PageElem`s, one per run of pages
+impl TypstContentRefined<TypstPageElem> {
+    /// A document can consist of multiple `TypstPageElem`s, one per run of pages
     /// with equal properties (not one per actual output page!). The `number` is
     /// the physical page number of the first page of this run. It is mutated
     /// while we post-process the pages in this function. This function returns
@@ -345,10 +346,10 @@ impl TypstContentRefined<PageElem> {
     pub fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         page_counter: &mut ManualPageCounter,
         extend_to: Option<Parity>,
-    ) -> SourceResult<Vec<Page>> {
+    ) -> TypstSourceResult<Vec<Page>> {
         // When one of the lengths is infinite the page fits its content along
         // that axis.
         let width = self.width(styles).unwrap_or(TypstAbsLength::inf());
@@ -360,11 +361,11 @@ impl TypstContentRefined<PageElem> {
 
         let mut min = width.min(height);
         if !min.is_finite() {
-            min = Paper::A4.width();
+            min = TypstPaper::A4.width();
         }
 
         // Determine the margins.
-        let default = Rel::<Length>::from((2.5 / 21.0) * min);
+        let default = Rel::<TypstLength>::from((2.5 / 21.0) * min);
         let margin = self.margin(styles);
         let two_sided = margin.two_sided.unwrap_or(false);
         let margin = margin
@@ -392,7 +393,7 @@ impl TypstContentRefined<PageElem> {
         }
 
         let area = size - margin.sum_by_axis();
-        let mut regions = Regions::repeat(area, area.map(TypstAbsLength::is_finite));
+        let mut regions = TypstRegions::repeat(area, area.map(TypstAbsLength::is_finite));
         regions.root = true;
 
         // Layout the child.
@@ -467,7 +468,7 @@ impl TypstContentRefined<PageElem> {
 
             // Realize margins.
             frame.set_size(frame.size() + margin.sum_by_axis());
-            frame.translate(Point::new(margin.left, margin.top));
+            frame.translate(TypstPoint::new(margin.left, margin.top));
 
             // The page size with margins.
             let size = frame.size();
@@ -479,21 +480,21 @@ impl TypstContentRefined<PageElem> {
                 let (pos, area, align);
                 if ptr::eq(marginal, &header) {
                     let ascent = header_ascent.relative_to(margin.top);
-                    pos = Point::with_x(margin.left);
+                    pos = TypstPoint::with_x(margin.left);
                     area = Size::new(pw, margin.top - ascent);
                     align = TypstAlignment::BOTTOM;
                 } else if ptr::eq(marginal, &footer) {
                     let descent = footer_descent.relative_to(margin.bottom);
-                    pos = Point::new(margin.left, size.y - margin.bottom + descent);
+                    pos = TypstPoint::new(margin.left, size.y - margin.bottom + descent);
                     area = Size::new(pw, margin.bottom - descent);
                     align = TypstAlignment::TOP;
                 } else {
-                    pos = Point::zero();
+                    pos = TypstPoint::zero();
                     area = size;
                     align = HAlignment::Center + VAlignment::Horizon;
                 };
 
-                let pod = Regions::one(area, Axes::splat(true));
+                let pod = TypstRegions::one(area, Axes::splat(true));
                 let sub = content
                     .clone()
                     .styled(AlignElem::set_alignment(align))
@@ -541,7 +542,7 @@ pub struct Page {
 #[derive(Debug, Default, Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Margin {
     /// The margins for each side.
-    pub sides: Sides<Option<Smart<Rel<Length>>>>,
+    pub sides: Sides<Option<Smart<Rel<TypstLength>>>>,
     /// Whether to swap `left` and `right` to make them `inside` and `outside`
     /// (when to swap depends on the binding).
     pub two_sided: Option<bool>,
@@ -549,7 +550,7 @@ pub struct Margin {
 
 impl Margin {
     /// Create an instance with four equal components.
-    pub fn splat(value: Option<Smart<Rel<Length>>>) -> Self {
+    pub fn splat(value: Option<Smart<Rel<TypstLength>>>) -> Self {
         Self {
             sides: Sides::splat(value),
             two_sided: None,
@@ -590,7 +591,7 @@ cast! {
         TypstValue::Dict(dict)
     },
     _: AutoTypstValue => Self::splat(Some(Smart::Auto)),
-    v: Rel<Length> => Self::splat(Some(Smart::Custom(v))),
+    v: Rel<TypstLength> => Self::splat(Some(Smart::Custom(v))),
     mut dict: TypstDict => {
         let mut take = |key| dict.take(key).ok().map(TypstValue::cast).transpose();
 
@@ -686,7 +687,7 @@ impl Marginal {
         &self,
         engine: &mut TypstEngine,
         page: usize,
-    ) -> SourceResult<Cow<'_, TypstContent>> {
+    ) -> TypstSourceResult<Cow<'_, TypstContent>> {
         Ok(match self {
             Self::Content(content) => Cow::Borrowed(content),
             Self::Func(func) => Cow::Owned(func.call(engine, [page])?.display()),
@@ -758,7 +759,7 @@ impl Parity {
 
 /// Specification of a paper.
 #[derive(Debug, Copy, Clone, Hash)]
-pub struct Paper {
+pub struct TypstPaper {
     /// The name of the paper.
     name: &'static str,
     /// The width of the paper in millimeters.
@@ -767,7 +768,7 @@ pub struct Paper {
     height: Scalar,
 }
 
-impl Paper {
+impl TypstPaper {
     /// The width of the paper.
     pub fn width(self) -> TypstAbsLength {
         TypstAbsLength::mm(self.width.get())
@@ -785,7 +786,7 @@ macro_rules! papers {
         /// Predefined papers.
         ///
         /// Each paper is parsable from its name in kebab-case.
-        impl Paper {
+        impl TypstPaper {
             $(pub const $var: Self = Self {
                 name: $name,
                 width: Scalar::new($width),
@@ -793,7 +794,7 @@ macro_rules! papers {
             };)*
         }
 
-        impl FromStr for Paper {
+        impl FromStr for TypstPaper {
             type Err = &'static str;
 
             fn from_str(name: &str) -> Result<Self, Self::Err> {
@@ -805,7 +806,7 @@ macro_rules! papers {
         }
 
         cast! {
-            Paper,
+            TypstPaper,
             self => self.name.into_value(),
             $(
                 /// Produces a paper of the respective size.
@@ -875,7 +876,7 @@ papers! {
     (ANSI_D: 559.0,  864.0, "ansi-d")
     (ANSI_E: 864.0, 1118.0, "ansi-e")
 
-    // ANSI Architectural Paper
+    // ANSI Architectural TypstPaper
     (ARCH_A:  229.0,  305.0, "arch-a")
     (ARCH_B:  305.0,  457.0, "arch-b")
     (ARCH_C:  457.0,  610.0, "arch-c")

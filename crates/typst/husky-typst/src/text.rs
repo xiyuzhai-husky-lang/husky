@@ -35,16 +35,16 @@ use rustybuzz::{Feature, Tag};
 use smallvec::SmallVec;
 use ttf_parser::Rect;
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::TypstContentRefined;
 use crate::foundations::{
     cast, category, elem, Args, Array, Cast, Construct, Fold, IsTypstElem, Never, PlainText, Repr,
-    Resolve, Set, Smart, StyleChain, TypstContent, TypstDefnKind, TypstDict,
+    Resolve, Set, Smart, TypstContent, TypstDefnKind, TypstDict, TypstStyleChain,
     TypstValueAssignmentGroup,
 };
 use crate::layout::TypstEmLength;
-use crate::layout::{Axis, Length, Rel, TypstAbsLength, TypstLayoutDirection};
+use crate::layout::{Axis, Rel, TypstAbsLength, TypstLayoutDirection, TypstLength};
 use crate::model::ParagraphTypstElem;
 use crate::syntax::Spanned;
 use crate::visualize::{RelativeTo, TypstColor, TypstPaint, TypstStroke};
@@ -262,7 +262,7 @@ pub struct TextElem {
     /// ```
     #[resolve]
     #[ghost]
-    pub tracking: Length,
+    pub tracking: TypstLength,
 
     /// The amount of space between words.
     ///
@@ -279,7 +279,7 @@ pub struct TextElem {
     #[resolve]
     #[default(Rel::one())]
     #[ghost]
-    pub spacing: Rel<Length>,
+    pub spacing: Rel<TypstLength>,
 
     /// Whether to automatically insert spacing between CJK and Latin characters.
     ///
@@ -301,7 +301,7 @@ pub struct TextElem {
     /// ```
     #[resolve]
     #[ghost]
-    pub baseline: Length,
+    pub baseline: TypstLength,
 
     /// Whether certain glyphs can hang over into the margin in justified text.
     /// This can make justification visually more pleasing.
@@ -674,7 +674,7 @@ impl Repr for TextElem {
 }
 
 impl Construct for TextElem {
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
         // The text constructor is special: It doesn't create a text element.
         // Instead, it leaves the passed argument structurally unchanged, but
         // styles all text in it.
@@ -743,7 +743,7 @@ cast! {
 }
 
 /// Resolve a prioritized iterator over the font families.
-pub(crate) fn families(styles: StyleChain) -> impl Iterator<Item = &str> + Clone {
+pub(crate) fn families(styles: TypstStyleChain) -> impl Iterator<Item = &str> + Clone {
     const FALLBACKS: &[&str] = &[
         "linux libertine",
         "twitter color emoji",
@@ -764,7 +764,7 @@ pub(crate) fn families(styles: StyleChain) -> impl Iterator<Item = &str> + Clone
 }
 
 /// Resolve the font variant.
-pub(crate) fn variant(styles: StyleChain) -> FontVariant {
+pub(crate) fn variant(styles: TypstStyleChain) -> FontVariant {
     let mut variant = FontVariant::new(
         TextElem::style_in(styles),
         TextElem::weight_in(styles),
@@ -789,12 +789,12 @@ pub(crate) fn variant(styles: StyleChain) -> FontVariant {
 
 /// The size of text.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub struct TextSize(pub Length);
+pub struct TextSize(pub TypstLength);
 
 impl Fold for TextSize {
     fn fold(self, outer: Self) -> Self {
         // Multiply the two linear functions.
-        Self(Length {
+        Self(TypstLength {
             em: TypstEmLength::new(self.0.em.get() * outer.0.em.get()),
             abs: self.0.em.get() * outer.0.abs + self.0.abs,
         })
@@ -804,7 +804,7 @@ impl Fold for TextSize {
 impl Resolve for TextSize {
     type Output = TypstAbsLength;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.0.resolve(styles)
     }
 }
@@ -812,7 +812,7 @@ impl Resolve for TextSize {
 cast! {
     TextSize,
     self => self.0.into_value(),
-    v: Length => Self(v),
+    v: TypstLength => Self(v),
 }
 
 /// Specifies the top edge of text.
@@ -821,7 +821,7 @@ pub enum TopEdge {
     /// An edge specified via font metrics or bounding box.
     Metric(TopEdgeMetric),
     /// An edge specified as a length.
-    Length(Length),
+    Length(TypstLength),
 }
 
 impl TopEdge {
@@ -858,7 +858,7 @@ cast! {
         Self::Length(length) => length.into_value(),
     },
     v: TopEdgeMetric => Self::Metric(v),
-    v: Length => Self::Length(v),
+    v: TypstLength => Self::Length(v),
 }
 
 /// Metrics that describe the top edge of text.
@@ -896,7 +896,7 @@ pub enum BottomEdge {
     /// An edge specified via font metrics or bounding box.
     Metric(BottomEdgeMetric),
     /// An edge specified as a length.
-    Length(Length),
+    Length(TypstLength),
 }
 
 impl BottomEdge {
@@ -933,7 +933,7 @@ cast! {
         Self::Length(length) => length.into_value(),
     },
     v: BottomEdgeMetric => Self::Metric(v),
-    v: Length => Self::Length(v),
+    v: TypstLength => Self::Length(v),
 }
 
 /// Metrics that describe the bottom edge of text.
@@ -977,7 +977,7 @@ cast! {
 impl Resolve for TextDir {
     type Output = TypstLayoutDirection;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         match self.0 {
             Smart::Auto => TextElem::lang_in(styles).dir(),
             Smart::Custom(dir) => dir,
@@ -998,7 +998,7 @@ cast! {
 impl Resolve for Hyphenate {
     type Output = bool;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         match self.0 {
             Smart::Auto => ParagraphTypstElem::justify_in(styles),
             Smart::Custom(v) => v,
@@ -1090,7 +1090,7 @@ impl Fold for FontFeatures {
 }
 
 /// Collect the OpenType features to apply.
-pub(crate) fn features(styles: StyleChain) -> Vec<Feature> {
+pub(crate) fn features(styles: TypstStyleChain) -> Vec<Feature> {
     let mut tags = vec![];
     let mut feat = |tag, value| {
         tags.push(Feature::new(Tag::from_bytes(tag), value, ..));

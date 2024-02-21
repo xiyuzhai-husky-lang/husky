@@ -8,7 +8,7 @@ use comemo::Prehashed;
 use ecow::{eco_vec, EcoString, EcoVec};
 use smallvec::SmallVec;
 
-use crate::diag::{SourceResult, Trace, Tracepoint};
+use crate::diag::{Trace, Tracepoint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     cast, elem, func, ty, ElementSchemaRef, Func, IsTypstElem, Repr, Selector, Show, TypstContent,
@@ -58,7 +58,11 @@ struct StyleElem {
 
 impl Show for TypstContentRefined<StyleElem> {
     #[husky_typst_macros::time(name = "style", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self.func().call(engine, [styles.to_map()])?.display())
     }
 }
@@ -66,9 +70,9 @@ impl Show for TypstContentRefined<StyleElem> {
 /// A list of style properties.
 #[ty(cast)]
 #[derive(Default, PartialEq, Clone, Hash)]
-pub struct Styles(EcoVec<Prehashed<Style>>);
+pub struct TypstStyles(EcoVec<Prehashed<Style>>);
 
-impl Styles {
+impl TypstStyles {
     /// Create a new, empty style list.
     pub fn new() -> Self {
         Self::default()
@@ -98,7 +102,7 @@ impl Styles {
         self.0.pop();
     }
 
-    /// Apply outer styles. Like [`chain`](StyleChain::chain), but in-place.
+    /// Apply outer styles. Like [`chain`](TypstStyleChain::chain), but in-place.
     pub fn apply(&mut self, mut outer: Self) {
         outer.0.extend(mem::take(self).0);
         *self = outer;
@@ -139,7 +143,7 @@ impl Styles {
 
     /// Set a font family composed of a preferred family and existing families
     /// from a style chain.
-    pub fn set_family(&mut self, preferred: FontFamily, existing: StyleChain) {
+    pub fn set_family(&mut self, preferred: FontFamily, existing: TypstStyleChain) {
         self.set(TextElem::set_font(FontList(
             std::iter::once(preferred)
                 .chain(TextElem::font_in(existing).into_iter().cloned())
@@ -148,26 +152,26 @@ impl Styles {
     }
 }
 
-impl From<Prehashed<Style>> for Styles {
+impl From<Prehashed<Style>> for TypstStyles {
     fn from(style: Prehashed<Style>) -> Self {
         Self(eco_vec![style])
     }
 }
 
-impl From<Style> for Styles {
+impl From<Style> for TypstStyles {
     fn from(style: Style) -> Self {
         Self(eco_vec![Prehashed::new(style)])
     }
 }
 
-impl Debug for Styles {
+impl Debug for TypstStyles {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        f.write_str("Styles ")?;
+        f.write_str("TypstStyles ")?;
         f.debug_list().entries(&self.0).finish()
     }
 }
 
-impl Repr for Styles {
+impl Repr for TypstStyles {
     fn repr(&self) -> EcoString {
         "..".into()
     }
@@ -379,7 +383,7 @@ impl Recipe {
     }
 
     /// Whether the recipe is applicable to the target.
-    pub fn applicable(&self, target: &TypstContent, styles: StyleChain) -> bool {
+    pub fn applicable(&self, target: &TypstContent, styles: TypstStyleChain) -> bool {
         self.selector
             .as_ref()
             .map_or(false, |selector| selector.matches(target, Some(styles)))
@@ -390,7 +394,7 @@ impl Recipe {
         &self,
         engine: &mut TypstEngine,
         content: TypstContent,
-    ) -> SourceResult<TypstContent> {
+    ) -> TypstSourceResult<TypstContent> {
         let mut content = match &self.transform {
             Transformation::Content(content) => content.clone(),
             Transformation::Func(func) => {
@@ -433,7 +437,7 @@ pub enum Transformation {
     /// A function to apply to the match.
     Func(Func),
     /// Apply styles to the content.
-    Style(Styles),
+    Style(TypstStyles),
 }
 
 impl Debug for Transformation {
@@ -460,16 +464,16 @@ cast! {
 /// map, trying to find a match and then folding it with matches further up the
 /// chain.
 #[derive(Default, Clone, Copy, Hash)]
-pub struct StyleChain<'a> {
+pub struct TypstStyleChain<'a> {
     /// The first link of this chain.
     head: &'a [Prehashed<Style>],
     /// The remaining links in the chain.
     tail: Option<&'a Self>,
 }
 
-impl<'a> StyleChain<'a> {
+impl<'a> TypstStyleChain<'a> {
     /// Start a new style chain with root styles.
-    pub fn new(root: &'a Styles) -> Self {
+    pub fn new(root: &'a TypstStyles) -> Self {
         Self {
             head: &root.0,
             tail: None,
@@ -481,7 +485,7 @@ impl<'a> StyleChain<'a> {
     /// The resulting style chain contains styles from `local` as well as
     /// `self`. The ones from `local` take precedence over the ones from
     /// `self`. For folded properties `local` contributes the inner value.
-    pub fn chain<'b, C>(&'b self, local: &'b C) -> StyleChain<'b>
+    pub fn chain<'b, C>(&'b self, local: &'b C) -> TypstStyleChain<'b>
     where
         C: Chainable,
     {
@@ -560,8 +564,8 @@ impl<'a> StyleChain<'a> {
     }
 
     /// Convert to a style map.
-    pub fn to_map(self) -> Styles {
-        let mut suffix = Styles::new();
+    pub fn to_map(self) -> TypstStyles {
+        let mut suffix = TypstStyles::new();
         for link in self.links() {
             suffix.apply_slice(link);
         }
@@ -583,8 +587,8 @@ impl<'a> StyleChain<'a> {
 
     /// Build owned styles from the suffix (all links beyond the `len`) of the
     /// chain.
-    fn suffix(self, len: usize) -> Styles {
-        let mut suffix = Styles::new();
+    fn suffix(self, len: usize) -> TypstStyles {
+        let mut suffix = TypstStyles::new();
         let take = self.links().count().saturating_sub(len);
         for link in self.links().take(take) {
             suffix.apply_slice(link);
@@ -598,16 +602,16 @@ impl<'a> StyleChain<'a> {
     }
 }
 
-impl Debug for StyleChain<'_> {
+impl Debug for TypstStyleChain<'_> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        f.write_str("StyleChain ")?;
+        f.write_str("TypstStyleChain ")?;
         f.debug_list()
             .entries(self.entries().collect::<Vec<_>>().into_iter().rev())
             .finish()
     }
 }
 
-impl PartialEq for StyleChain<'_> {
+impl PartialEq for TypstStyleChain<'_> {
     fn eq(&self, other: &Self) -> bool {
         ptr::eq(self.head, other.head)
             && match (self.tail, other.tail) {
@@ -621,12 +625,12 @@ impl PartialEq for StyleChain<'_> {
 /// Things that can be attached to a style chain.
 pub trait Chainable {
     /// Attach `self` as the first link of the chain.
-    fn chain<'a>(&'a self, outer: &'a StyleChain<'_>) -> StyleChain<'a>;
+    fn chain<'a>(&'a self, outer: &'a TypstStyleChain<'_>) -> TypstStyleChain<'a>;
 }
 
 impl Chainable for Prehashed<Style> {
-    fn chain<'a>(&'a self, outer: &'a StyleChain<'_>) -> StyleChain<'a> {
-        StyleChain {
+    fn chain<'a>(&'a self, outer: &'a TypstStyleChain<'_>) -> TypstStyleChain<'a> {
+        TypstStyleChain {
             head: std::slice::from_ref(self),
             tail: Some(outer),
         }
@@ -634,11 +638,11 @@ impl Chainable for Prehashed<Style> {
 }
 
 impl Chainable for [Prehashed<Style>] {
-    fn chain<'a>(&'a self, outer: &'a StyleChain<'_>) -> StyleChain<'a> {
+    fn chain<'a>(&'a self, outer: &'a TypstStyleChain<'_>) -> TypstStyleChain<'a> {
         if self.is_empty() {
             *outer
         } else {
-            StyleChain {
+            TypstStyleChain {
                 head: self,
                 tail: Some(outer),
             }
@@ -647,13 +651,13 @@ impl Chainable for [Prehashed<Style>] {
 }
 
 impl<const N: usize> Chainable for [Prehashed<Style>; N] {
-    fn chain<'a>(&'a self, outer: &'a StyleChain<'_>) -> StyleChain<'a> {
+    fn chain<'a>(&'a self, outer: &'a TypstStyleChain<'_>) -> TypstStyleChain<'a> {
         Chainable::chain(self.as_slice(), outer)
     }
 }
 
-impl Chainable for Styles {
-    fn chain<'a>(&'a self, outer: &'a StyleChain<'_>) -> StyleChain<'a> {
+impl Chainable for TypstStyles {
+    fn chain<'a>(&'a self, outer: &'a TypstStyleChain<'_>) -> TypstStyleChain<'a> {
         Chainable::chain(self.0.as_slice(), outer)
     }
 }
@@ -682,13 +686,13 @@ impl<'a> Iterator for Entries<'a> {
 }
 
 /// An iterator over the links of a style chain.
-struct Links<'a>(Option<StyleChain<'a>>);
+struct Links<'a>(Option<TypstStyleChain<'a>>);
 
 impl<'a> Iterator for Links<'a> {
     type Item = &'a [Prehashed<Style>];
 
     fn next(&mut self) -> Option<Self::Item> {
-        let StyleChain { head, tail } = self.0?;
+        let TypstStyleChain { head, tail } = self.0?;
         self.0 = tail.copied();
         Some(head)
     }
@@ -698,7 +702,7 @@ impl<'a> Iterator for Links<'a> {
 #[derive(Clone, Hash)]
 pub struct StyleVec<T> {
     items: Vec<T>,
-    styles: Vec<(Styles, usize)>,
+    styles: Vec<(TypstStyles, usize)>,
 }
 
 impl<T> StyleVec<T> {
@@ -735,7 +739,7 @@ impl<T> StyleVec<T> {
     }
 
     /// Iterate over references to the contained items and associated styles.
-    pub fn iter(&self) -> impl Iterator<Item = (&T, &Styles)> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&T, &TypstStyles)> + '_ {
         self.items().zip(
             self.styles
                 .iter()
@@ -758,7 +762,7 @@ impl<T> StyleVec<T> {
     /// this method only returns lists once that are shared by consecutive
     /// items. This method is designed for use cases where you want to check,
     /// for example, whether any of the lists fulfills a specific property.
-    pub fn styles(&self) -> impl Iterator<Item = &Styles> {
+    pub fn styles(&self) -> impl Iterator<Item = &TypstStyles> {
         self.styles.iter().map(|(map, _)| map)
     }
 }
@@ -790,7 +794,7 @@ impl<T> Default for StyleVec<T> {
 impl<T> FromIterator<T> for StyleVec<T> {
     fn from_iter<I: IntoIterator<Item = T>>(iter: I) -> Self {
         let items: Vec<_> = iter.into_iter().collect();
-        let styles = vec![(Styles::new(), items.len())];
+        let styles = vec![(TypstStyles::new(), items.len())];
         Self { items, styles }
     }
 }
@@ -812,7 +816,7 @@ impl<T: Debug> Debug for StyleVec<T> {
 #[derive(Debug)]
 pub struct StyleVecBuilder<'a, T> {
     items: Vec<T>,
-    chains: Vec<(StyleChain<'a>, usize)>,
+    chains: Vec<(TypstStyleChain<'a>, usize)>,
 }
 
 impl<'a, T> StyleVecBuilder<'a, T> {
@@ -830,7 +834,7 @@ impl<'a, T> StyleVecBuilder<'a, T> {
     }
 
     /// Push a new item into the style vector.
-    pub fn push(&mut self, item: T, styles: StyleChain<'a>) {
+    pub fn push(&mut self, item: T, styles: TypstStyleChain<'a>) {
         self.items.push(item);
 
         if let Some((prev, count)) = self.chains.last_mut() {
@@ -851,7 +855,7 @@ impl<'a, T> StyleVecBuilder<'a, T> {
     /// Finish building, returning a pair of two things:
     /// - a style vector of items with the non-shared styles
     /// - a shared prefix chain of styles that apply to all items
-    pub fn finish(self) -> (StyleVec<T>, StyleChain<'a>) {
+    pub fn finish(self) -> (StyleVec<T>, TypstStyleChain<'a>) {
         let mut iter = self.chains.iter();
         let mut trunk = match iter.next() {
             Some(&(chain, _)) => chain,
@@ -907,13 +911,13 @@ pub trait Resolve {
     type Output;
 
     /// Resolve the value using the style chain.
-    fn resolve(self, styles: StyleChain) -> Self::Output;
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output;
 }
 
 impl<T: Resolve> Resolve for Option<T> {
     type Output = Option<T::Output>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.map(|v| v.resolve(styles))
     }
 }

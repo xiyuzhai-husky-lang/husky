@@ -1,5 +1,6 @@
 use crate::{
-    error::TypstEquationResult, fragment::MathFragment, row::MathRow, StyleChain, TypstLayoutMath,
+    error::TypstEquationResult, fragment::MathFragment, row::MathRow, TypstLayoutMath,
+    TypstStyleChain,
 };
 
 pub(crate) struct MathContext {
@@ -14,7 +15,7 @@ impl MathContext {
     pub fn layout_root(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
+        styles: TypstStyleChain,
     ) -> TypstEquationResult<MathRow> {
         let row = self.layout_fragments(elem, styles)?;
         Ok(MathRow::new(row))
@@ -23,7 +24,7 @@ impl MathContext {
     pub fn layout_fragment(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
+        styles: TypstStyleChain,
     ) -> TypstEquationResult<MathFragment> {
         let row = self.layout_fragments(elem, styles)?;
         Ok(MathRow::new(row).into_fragment(self, styles))
@@ -32,7 +33,7 @@ impl MathContext {
     pub fn layout_fragments(
         &mut self,
         elem: &dyn TypstLayoutMath,
-        styles: StyleChain,
+        styles: TypstStyleChain,
     ) -> TypstEquationResult<Vec<MathFragment>> {
         let prev = std::mem::take(&mut self.fragments);
         elem.layout_math(self, styles)?;

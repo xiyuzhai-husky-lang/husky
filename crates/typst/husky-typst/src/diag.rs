@@ -12,11 +12,11 @@ use ecow::{eco_vec, EcoVec};
 use crate::syntax::{PackageSpec, Spanned, SyntaxError, TypstSynSpan};
 use crate::{IsTypstWorld, WorldExt};
 
-/// Early-return with a [`StrResult`] or [`SourceResult`].
+/// Early-return with a [`StrResult`] or [`TypstSourceResult`].
 ///
 /// If called with just a string and format args, returns with a
 /// `StrResult`. If called with a span, a string and format args, returns
-/// a `SourceResult`.
+/// a `TypstSourceResult`.
 ///
 /// You can also emit hints with the `; hint: "..."` syntax.
 ///
@@ -118,7 +118,7 @@ pub use {
 };
 
 /// A result that can carry multiple source errors.
-pub type SourceResult<T> = Result<T, EcoVec<SourceDiagnostic>>;
+pub type TypstSourceResult<T> = Result<T, EcoVec<SourceDiagnostic>>;
 
 /// An error or warning in a source file.
 ///
@@ -231,7 +231,7 @@ impl Display for Tracepoint {
     }
 }
 
-/// Enrich a [`SourceResult`] with a tracepoint.
+/// Enrich a [`TypstSourceResult`] with a tracepoint.
 pub trait Trace<T> {
     /// Add the tracepoint to all errors that lie outside the `span`.
     fn trace<F>(
@@ -244,7 +244,7 @@ pub trait Trace<T> {
         F: Fn() -> Tracepoint;
 }
 
-impl<T> Trace<T> for SourceResult<T> {
+impl<T> Trace<T> for TypstSourceResult<T> {
     fn trace<F>(
         self,
         world: Tracked<dyn IsTypstWorld + '_>,
@@ -279,18 +279,18 @@ impl<T> Trace<T> for SourceResult<T> {
 /// A result type with a string error message.
 pub type StrResult<T> = Result<T, EcoString>;
 
-/// Convert a [`StrResult`] or [`HintedStrResult`] to a [`SourceResult`] by
+/// Convert a [`StrResult`] or [`HintedStrResult`] to a [`TypstSourceResult`] by
 /// adding span information.
 pub trait At<T> {
     /// Add the span information.
-    fn at(self, span: TypstSynSpan) -> SourceResult<T>;
+    fn at(self, span: TypstSynSpan) -> TypstSourceResult<T>;
 }
 
 impl<T, S> At<T> for Result<T, S>
 where
     S: Into<EcoString>,
 {
-    fn at(self, span: TypstSynSpan) -> SourceResult<T> {
+    fn at(self, span: TypstSynSpan) -> TypstSourceResult<T> {
         self.map_err(|message| {
             let mut diagnostic = SourceDiagnostic::error(span, message);
             if diagnostic.message.contains("(access denied)") {
@@ -325,7 +325,7 @@ impl From<EcoString> for HintedString {
 }
 
 impl<T> At<T> for Result<T, HintedString> {
-    fn at(self, span: TypstSynSpan) -> SourceResult<T> {
+    fn at(self, span: TypstSynSpan) -> TypstSourceResult<T> {
         self.map_err(|diags| {
             eco_vec![SourceDiagnostic::error(span, diags.message).with_hints(diags.hints)]
         })

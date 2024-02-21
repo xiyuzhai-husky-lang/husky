@@ -3,8 +3,8 @@ use std::fmt::{self, Debug, Formatter};
 use std::ops::{BitAnd, BitAndAssign, BitOr, BitOrAssign, Deref, Not};
 
 use crate::diag::bail;
-use crate::foundations::{array, cast, Array, Resolve, Smart, StyleChain};
-use crate::layout::{Length, Ratio, Rel, TypstAbsLength, TypstLayoutDirection};
+use crate::foundations::{array, cast, Array, Resolve, Smart, TypstStyleChain};
+use crate::layout::{Ratio, Rel, TypstAbsLength, TypstLayoutDirection, TypstLength};
 use crate::util::Get;
 
 /// A container with a horizontal and vertical component.
@@ -304,7 +304,7 @@ impl BitAndAssign for Axes<bool> {
 }
 
 cast! {
-    Axes<Rel<Length>>,
+    Axes<Rel<TypstLength>>,
     self => array![self.x, self.y].into_value(),
     array: Array => {
         let mut iter = array.into_iter();
@@ -328,7 +328,7 @@ cast! {
 }
 
 cast! {
-    Axes<Length>,
+    Axes<TypstLength>,
     self => array![self.x, self.y].into_value(),
     array: Array => {
         let mut iter = array.into_iter();
@@ -342,7 +342,7 @@ cast! {
 impl<T: Resolve> Resolve for Axes<T> {
     type Output = Axes<T::Output>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.map(|v| v.resolve(styles))
     }
 }

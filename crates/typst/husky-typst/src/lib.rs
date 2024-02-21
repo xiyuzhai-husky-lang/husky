@@ -56,12 +56,12 @@ pub mod visualize;
 #[doc(inline)]
 pub use husky_typst_syntax as syntax;
 
-use crate::diag::{warning, FileResult, SourceDiagnostic, SourceResult};
+use crate::diag::{warning, FileResult, SourceDiagnostic, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::eval::Tracer;
 use crate::foundations::{
-    Array, Bytes, Datetime, StyleChain, Styles, TypstContent, TypstDict, TypstModuleEvaluation,
-    TypstValueAssignmentGroup,
+    Array, Bytes, Datetime, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyleChain,
+    TypstStyles, TypstValueAssignmentGroup,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::layout::{LayoutRoot, TypstAlignment, TypstLayoutDirection};
@@ -84,7 +84,7 @@ use std::ops::Range;
 /// `Tracer::new()`. Independently of whether compilation succeeded, calling
 /// `tracer.warnings()` after compilation will return all compiler warnings.
 #[husky_typst_macros::time(name = "compile")]
-pub fn compile(world: &dyn IsTypstWorld, tracer: &mut Tracer) -> SourceResult<TypstDocument> {
+pub fn compile(world: &dyn IsTypstWorld, tracer: &mut Tracer) -> TypstSourceResult<TypstDocument> {
     // Call `track` on the world just once to keep comemo's ID stable.
     let world = world.track();
 
@@ -108,7 +108,7 @@ fn typeset(
     world: Tracked<dyn IsTypstWorld + '_>,
     tracer: &mut Tracer,
     content: &TypstContent,
-) -> SourceResult<TypstDocument> {
+) -> TypstSourceResult<TypstDocument> {
     // The name of the iterations for timing scopes.
     const ITER_NAMES: &[&str] = &[
         "typeset (1)",
@@ -119,7 +119,7 @@ fn typeset(
     ];
 
     let library = world.library();
-    let styles = StyleChain::new(&library.styles);
+    let styles = TypstStyleChain::new(&library.styles);
 
     let mut iter = 0;
     let mut document = TypstDocument::default();
@@ -262,7 +262,7 @@ pub struct Library {
     pub math: TypstModuleEvaluation,
     /// The default style properties (for page size, font selection, and
     /// everything else configurable via set and show rules).
-    pub styles: Styles,
+    pub styles: TypstStyles,
 }
 
 impl Library {
@@ -302,7 +302,7 @@ impl LibraryBuilder {
         Library {
             global,
             math,
-            styles: Styles::new(),
+            styles: TypstStyles::new(),
         }
     }
 }

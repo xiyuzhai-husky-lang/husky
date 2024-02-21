@@ -2,11 +2,11 @@ use kurbo::{BezPath, Line, ParamCurve};
 use smallvec::smallvec;
 use ttf_parser::{GlyphId, OutlineBuilder};
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
-use crate::foundations::{elem, Show, Smart, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{elem, Show, Smart, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{
-    Length, Point, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem,
+    Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem, TypstLength, TypstPoint,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::{BottomEdge, BottomEdgeMetric, TextElem, TopEdge, TopEdgeMetric, TypstTextItem};
@@ -45,7 +45,7 @@ pub struct UnderlineElem {
     /// ]
     /// ```
     #[resolve]
-    pub offset: Smart<Length>,
+    pub offset: Smart<TypstLength>,
 
     /// The amount by which to extend the line beyond (or within if negative)
     /// the content.
@@ -56,7 +56,7 @@ pub struct UnderlineElem {
     /// )
     /// ```
     #[resolve]
-    pub extent: Length,
+    pub extent: TypstLength,
 
     /// Whether the line skips sections in which it would collide with the
     /// glyphs.
@@ -85,7 +85,11 @@ pub struct UnderlineElem {
 
 impl Show for TypstContentRefined<UnderlineElem> {
     #[husky_typst_macros::time(name = "underline", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -135,7 +139,7 @@ pub struct OverlineElem {
     /// ]
     /// ```
     #[resolve]
-    pub offset: Smart<Length>,
+    pub offset: Smart<TypstLength>,
 
     /// The amount by which to extend the line beyond (or within if negative)
     /// the content.
@@ -146,7 +150,7 @@ pub struct OverlineElem {
     /// #overline(underline[Typography Today])
     /// ```
     #[resolve]
-    pub extent: Length,
+    pub extent: TypstLength,
 
     /// Whether the line skips sections in which it would collide with the
     /// glyphs.
@@ -180,7 +184,11 @@ pub struct OverlineElem {
 
 impl Show for TypstContentRefined<OverlineElem> {
     #[husky_typst_macros::time(name = "overline", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -231,7 +239,7 @@ pub struct StrikeElem {
     /// This is #strike(offset: -3.5pt)[on-top].
     /// ```
     #[resolve]
-    pub offset: Smart<Length>,
+    pub offset: Smart<TypstLength>,
 
     /// The amount by which to extend the line beyond (or within if negative)
     /// the content.
@@ -241,7 +249,7 @@ pub struct StrikeElem {
     /// This #strike(extent: 2pt)[extends] beyond the word.
     /// ```
     #[resolve]
-    pub extent: Length,
+    pub extent: TypstLength,
 
     /// Whether the line is placed behind the content.
     ///
@@ -260,7 +268,11 @@ pub struct StrikeElem {
 
 impl Show for TypstContentRefined<StrikeElem> {
     #[husky_typst_macros::time(name = "strike", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -324,7 +336,7 @@ pub struct HighlightElem {
     /// A long #highlight(extent: 4pt)[background].
     /// ```
     #[resolve]
-    pub extent: Length,
+    pub extent: TypstLength,
 
     /// The content that should be highlighted.
     #[required]
@@ -333,7 +345,11 @@ pub struct HighlightElem {
 
 impl Show for TypstContentRefined<HighlightElem> {
     #[husky_typst_macros::time(name = "highlight", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         Ok(self
             .body()
             .clone()
@@ -392,7 +408,7 @@ pub(crate) fn decorate(
     text: &TypstTextItem,
     width: TypstAbsLength,
     shift: TypstAbsLength,
-    pos: Point,
+    pos: TypstPoint,
 ) {
     let font_metrics = text.font.metrics();
 
@@ -405,7 +421,7 @@ pub(crate) fn decorate(
         let (top, bottom) = determine_edges(text, *top_edge, *bottom_edge);
         let rect = TypstGeometry::Rect(Size::new(width + 2.0 * deco.extent, top - bottom))
             .filled(fill.clone());
-        let origin = Point::new(pos.x - deco.extent, pos.y - top - shift);
+        let origin = TypstPoint::new(pos.x - deco.extent, pos.y - top - shift);
         frame.prepend(
             origin,
             TypstFrameItem::Shape(rect, TypstSynSpan::detached()),
@@ -453,8 +469,8 @@ pub(crate) fn decorate(
     let end = pos.x + width + deco.extent;
 
     let mut push_segment = |from: TypstAbsLength, to: TypstAbsLength, prepend: bool| {
-        let origin = Point::new(from, pos.y + offset);
-        let target = Point::new(to - from, TypstAbsLength::zero());
+        let origin = TypstPoint::new(from, pos.y + offset);
+        let target = TypstPoint::new(to - from, TypstAbsLength::zero());
 
         if target.x >= min_width || !evade {
             let shape = TypstGeometry::Line(target).stroked(stroke.clone());

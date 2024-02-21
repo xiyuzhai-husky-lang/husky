@@ -14,10 +14,10 @@ use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Args, Array, AutoTypstValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue,
     Func, IntoTypstValue, IsTypstElem, Label, NativeType, NoneTypstValue, Plugin, Reflect, Repr,
-    Str, Styles, Type, TypstContent, TypstDict, TypstModuleEvaluation, TypstValueAssignmentGroup,
-    Version,
+    Str, Type, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyles,
+    TypstValueAssignmentGroup, Version,
 };
-use crate::layout::{Angle, Length, Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction};
+use crate::layout::{Angle, Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction, TypstLength};
 use crate::symbols::Symbol;
 use crate::syntax::{ast, TypstSynSpan};
 use crate::text::{RawElem, TextElem};
@@ -38,13 +38,13 @@ pub enum TypstValue {
     /// A floating-point number: `1.2`, `10e-4`.
     Float(f64),
     /// A length: `12pt`, `3cm`, `1.5em`, `1em - 2pt`.
-    Length(Length),
+    Length(TypstLength),
     /// An angle: `1.5rad`, `90deg`.
     Angle(Angle),
     /// A ratio: `50%`.
     Ratio(Ratio),
     /// A relative length, combination of a ratio and a length: `20% + 5cm`.
-    Relative(Rel<Length>),
+    Relative(Rel<TypstLength>),
     /// A fraction: `1fr`.
     Fraction(TypstFraction),
     /// A color value: `#f79143ff`.
@@ -70,7 +70,7 @@ pub enum TypstValue {
     /// A content value: `[*Hi* there]`.
     Content(TypstContent),
     // Content styles.
-    Styles(Styles),
+    Styles(TypstStyles),
     /// An array of values: `(1, "hi", 12cm)`.
     Array(Array),
     /// A dictionary value: `(a: 1, b: "hi")`.
@@ -122,10 +122,10 @@ impl TypstValue {
             Self::Bool(_) => Type::of::<bool>(),
             Self::Int(_) => Type::of::<i64>(),
             Self::Float(_) => Type::of::<f64>(),
-            Self::Length(_) => Type::of::<Length>(),
+            Self::Length(_) => Type::of::<TypstLength>(),
             Self::Angle(_) => Type::of::<Angle>(),
             Self::Ratio(_) => Type::of::<Ratio>(),
-            Self::Relative(_) => Type::of::<Rel<Length>>(),
+            Self::Relative(_) => Type::of::<Rel<TypstLength>>(),
             Self::Fraction(_) => Type::of::<TypstFraction>(),
             Self::Color(_) => Type::of::<TypstColor>(),
             Self::Gradient(_) => Type::of::<Gradient>(),
@@ -138,7 +138,7 @@ impl TypstValue {
             Self::Datetime(_) => Type::of::<Datetime>(),
             Self::Duration(_) => Type::of::<Duration>(),
             Self::Content(_) => Type::of::<TypstContent>(),
-            Self::Styles(_) => Type::of::<Styles>(),
+            Self::Styles(_) => Type::of::<TypstStyles>(),
             Self::Array(_) => Type::of::<Array>(),
             Self::Dict(_) => Type::of::<TypstDict>(),
             Self::Func(_) => Type::of::<Func>(),
@@ -626,10 +626,10 @@ macro_rules! primitive {
 primitive! { bool: "boolean", Bool }
 primitive! { i64: "integer", Int }
 primitive! { f64: "float", Float, Int(v) => v as f64 }
-primitive! { Length: "length", Length }
+primitive! { TypstLength: "length", Length }
 primitive! { Angle: "angle", Angle }
 primitive! { Ratio: "ratio", Ratio }
-primitive! { Rel<Length>:  "relative length",
+primitive! { Rel<TypstLength>:  "relative length",
     Relative,
     Length(v) => v.into(),
     Ratio(v) => v.into()
@@ -655,7 +655,7 @@ primitive! { TypstContent: "content",
     Symbol(v) => TextElem::packed(v.get()),
     Str(v) => TextElem::packed(v)
 }
-primitive! { Styles: "styles", Styles }
+primitive! { TypstStyles: "styles", Styles }
 primitive! { Array: "array", Array }
 primitive! { TypstDict: "dictionary", Dict }
 primitive! {
@@ -689,7 +689,7 @@ mod tests {
         test(Angle::deg(90.0), "90deg");
         test(Ratio::one() / 2.0, "50%");
         test(
-            Ratio::new(0.3) + Length::from(TypstAbsLength::cm(2.0)),
+            Ratio::new(0.3) + TypstLength::from(TypstAbsLength::cm(2.0)),
             "30% + 56.69pt",
         );
         test(TypstFraction::one() * 7.55, "7.55fr");

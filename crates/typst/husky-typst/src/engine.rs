@@ -4,7 +4,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use comemo::{Track, Tracked, TrackedMut, Validate};
 
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::eval::Tracer;
 use crate::introspection::{Introspector, Locator};
 use crate::syntax::FileId;
@@ -31,7 +31,7 @@ impl TypstEngine<'_> {
     /// a fatal one if it remains at the end of the introspection loop.
     pub fn delayed<F, T>(&mut self, f: F) -> T
     where
-        F: FnOnce(&mut Self) -> SourceResult<T>,
+        F: FnOnce(&mut Self) -> TypstSourceResult<T>,
         T: Default,
     {
         match f(self) {

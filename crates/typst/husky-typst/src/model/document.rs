@@ -1,13 +1,13 @@
 use ecow::EcoString;
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Args, Array, Construct, Datetime, Smart, StyleChain, TypstContent,
-    TypstContentRefined, TypstValue,
+    cast, elem, Args, Array, Construct, Datetime, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Introspector, ManualPageCounter};
-use crate::layout::{LayoutRoot, Page, PageElem};
+use crate::layout::{LayoutRoot, Page, TypstPageElem};
 
 /// The root element of a document and its metadata.
 ///
@@ -61,7 +61,7 @@ pub struct DocumentElem {
 }
 
 impl Construct for DocumentElem {
-    fn construct(_: &mut TypstEngine, args: &mut Args) -> SourceResult<TypstContent> {
+    fn construct(_: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
         bail!(args.span, "can only be used in set rules")
     }
 }
@@ -71,8 +71,8 @@ impl LayoutRoot for TypstContentRefined<DocumentElem> {
     fn layout_root(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-    ) -> SourceResult<TypstDocument> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstDocument> {
         let mut pages = Vec::with_capacity(self.children().len());
         let mut page_counter = ManualPageCounter::new();
 
@@ -87,12 +87,12 @@ impl LayoutRoot for TypstContentRefined<DocumentElem> {
                 child = elem;
             }
 
-            if let Some(page) = child.to_packed::<PageElem>() {
+            if let Some(page) = child.to_packed::<TypstPageElem>() {
                 let extend_to = iter.peek().and_then(|&next| {
                     *next
                         .to_styled()
                         .map_or(next, |(elem, _)| elem)
-                        .to_packed::<PageElem>()?
+                        .to_packed::<TypstPageElem>()?
                         .clear_to()?
                 });
                 let run = page.layout(engine, styles, &mut page_counter, extend_to)?;

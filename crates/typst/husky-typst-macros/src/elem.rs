@@ -542,9 +542,9 @@ fn create_field_method(field: &Field) -> TokenStream {
         }
     } else {
         let sig = if field.borrowed {
-            quote! { <'a>(&'a self, styles: #foundations::StyleChain<'a>) -> &'a #output }
+            quote! { <'a>(&'a self, styles: #foundations::TypstStyleChain<'a>) -> &'a #output }
         } else {
-            quote! { (&self, styles: #foundations::StyleChain) -> #output }
+            quote! { (&self, styles: #foundations::TypstStyleChain) -> #output }
         };
 
         let mut value =
@@ -582,7 +582,7 @@ fn create_field_in_method(field: &Field) -> TokenStream {
 
     quote! {
         #[doc = #doc]
-        #vis fn #ident_in(styles: #foundations::StyleChain) -> #ref_ #output {
+        #vis fn #ident_in(styles: #foundations::TypstStyleChain) -> #ref_ #output {
             #value
         }
     }
@@ -794,7 +794,7 @@ fn create_construct_impl(element: &Elem) -> TokenStream {
             fn construct(
                 engine: &mut ::husky_typst::engine::TypstEngine,
                 args: &mut #foundations::Args,
-            ) -> ::husky_typst::diag::SourceResult<#foundations::TypstContent> {
+            ) -> ::husky_typst::diag::TypstSourceResult<#foundations::TypstContent> {
                 #(#setup)*
                 Ok(#foundations::TypstContent::new(Self { #(#fields),* }))
             }
@@ -821,8 +821,8 @@ fn create_set_impl(element: &Elem) -> TokenStream {
             fn set(
                 engine: &mut ::husky_typst::engine::TypstEngine,
                 args: &mut #foundations::Args,
-            ) -> ::husky_typst::diag::SourceResult<#foundations::Styles> {
-                let mut styles = #foundations::Styles::new();
+            ) -> ::husky_typst::diag::TypstSourceResult<#foundations::TypstStyles> {
+                let mut styles = #foundations::TypstStyles::new();
                 #(#handlers)*
                 Ok(styles)
             }
@@ -1023,7 +1023,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn field_with_styles(&self, id: u8, styles: #foundations::StyleChain) -> Option<#foundations::TypstValue> {
+            fn field_with_styles(&self, id: u8, styles: #foundations::TypstStyleChain) -> Option<#foundations::TypstValue> {
                 let id = Fields::try_from(id).ok()?;
                 match id {
                     #(#field_with_styles_arms,)*
@@ -1031,7 +1031,7 @@ fn create_fields_impl(element: &Elem) -> TokenStream {
                 }
             }
 
-            fn materialize(&mut self, styles: #foundations::StyleChain) {
+            fn materialize(&mut self, styles: #foundations::TypstStyleChain) {
                #(#materializes)*
             }
 

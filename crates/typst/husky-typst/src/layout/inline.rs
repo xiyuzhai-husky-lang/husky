@@ -9,15 +9,15 @@ use self::linebreak::{breakpoints, Breakpoint};
 use self::shaping::{
     is_gb_style, is_of_cj_script, shape, ShapedGlyph, ShapedText, BEGIN_PUNCT_PAT, END_PUNCT_PAT,
 };
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::eval::Tracer;
-use crate::foundations::{Resolve, Smart, StyleChain, TypstContent, TypstContentRefined};
+use crate::foundations::{Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::introspection::{Introspector, Locator, MetaTypstElem};
 use crate::layout::{
-    AlignElem, Axes, BoxTypstElem, FixedAlignment, HElem, Point, Regions, Size, Spacing,
-    TypstAbsLength, TypstEmLength, TypstFraction, TypstFrame, TypstLayoutDirection,
-    TypstLayoutFragment, TypstSizing,
+    AlignElem, Axes, BoxTypstElem, FixedAlignment, HElem, Size, Spacing, TypstAbsLength,
+    TypstEmLength, TypstFraction, TypstFrame, TypstLayoutDirection, TypstLayoutFragment,
+    TypstPoint, TypstRegions, TypstSizing,
 };
 use crate::math::{EquationTypstElem, MathParItem};
 use crate::model::{Linebreaks, ParagraphTypstElem};
@@ -25,18 +25,18 @@ use crate::syntax::TypstSynSpan;
 use crate::text::{
     Lang, LinebreakElem, SmartQuoteElem, SmartQuoter, SmartQuotes, SpaceElem, TextElem,
 };
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::IsTypstWorld;
 
 /// Layouts content inline.
 pub(crate) fn layout_inline(
     children: &[Prehashed<TypstContent>],
     engine: &mut TypstEngine,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     consecutive: bool,
     region: Size,
     expand: bool,
-) -> SourceResult<TypstLayoutFragment> {
+) -> TypstSourceResult<TypstLayoutFragment> {
     #[comemo::memoize]
     #[allow(clippy::too_many_arguments)]
     fn cached(
@@ -46,11 +46,11 @@ pub(crate) fn layout_inline(
         route: Tracked<Route>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         consecutive: bool,
         region: Size,
         expand: bool,
-    ) -> SourceResult<TypstLayoutFragment> {
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         let mut locator = Locator::chained(locator);
         let mut engine = TypstEngine {
             world,
@@ -230,7 +230,7 @@ enum Item<'a> {
     /// Fractional spacing between other items.
     Fractional(
         TypstFraction,
-        Option<(&'a TypstContentRefined<BoxTypstElem>, StyleChain<'a>)>,
+        Option<(&'a TypstContentRefined<BoxTypstElem>, TypstStyleChain<'a>)>,
     ),
     /// Layouted inline-level content.
     Frame(TypstFrame),
@@ -422,10 +422,10 @@ impl<'a> Line<'a> {
 fn collect<'a>(
     children: &'a [Prehashed<TypstContent>],
     engine: &mut TypstEngine<'_>,
-    styles: &'a StyleChain<'a>,
+    styles: &'a TypstStyleChain<'a>,
     region: Size,
     consecutive: bool,
-) -> SourceResult<(String, Vec<(Segment<'a>, StyleChain<'a>)>, SpanMapper)> {
+) -> TypstSourceResult<(String, Vec<(Segment<'a>, TypstStyleChain<'a>)>, SpanMapper)> {
     let mut full = String::new();
     let mut quoter = SmartQuoter::new();
     let mut segments = Vec::with_capacity(2 + children.len());
@@ -516,7 +516,7 @@ fn collect<'a>(
             }
             Segment::Text(full.len() - prev)
         } else if let Some(elem) = child.to_packed::<EquationTypstElem>() {
-            let pod = Regions::one(region, Axes::splat(false));
+            let pod = TypstRegions::one(region, Axes::splat(false));
             let mut items = elem.layout_inline(engine, styles, pod)?;
             for item in &mut items {
                 let MathParItem::Frame(frame) = item else {
@@ -562,11 +562,11 @@ fn prepare<'a>(
     engine: &mut TypstEngine,
     children: &'a [Prehashed<TypstContent>],
     text: &'a str,
-    segments: Vec<(Segment<'a>, StyleChain<'a>)>,
+    segments: Vec<(Segment<'a>, TypstStyleChain<'a>)>,
     spans: SpanMapper,
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     region: Size,
-) -> SourceResult<Preparation<'a>> {
+) -> TypstSourceResult<Preparation<'a>> {
     let dir = TextElem::dir_in(styles);
     let bidi = BidiInfo::new(
         text,
@@ -601,7 +601,7 @@ fn prepare<'a>(
                     match item {
                         MathParItem::Space(s) => items.push(Item::Absolute(s)),
                         MathParItem::Frame(mut frame) => {
-                            frame.translate(Point::with_y(TextElem::baseline_in(styles)));
+                            frame.translate(TypstPoint::with_y(TextElem::baseline_in(styles)));
                             items.push(Item::Frame(frame));
                         }
                     }
@@ -611,10 +611,10 @@ fn prepare<'a>(
                 if let TypstSizing::Fr(v) = elem.width(styles) {
                     items.push(Item::Fractional(v, Some((elem, styles))));
                 } else {
-                    let pod = Regions::one(region, Axes::splat(false));
+                    let pod = TypstRegions::one(region, Axes::splat(false));
                     let mut frame = elem.layout(engine, styles, pod)?;
                     frame.meta(styles, false);
-                    frame.translate(Point::with_y(TextElem::baseline_in(styles)));
+                    frame.translate(TypstPoint::with_y(TextElem::baseline_in(styles)));
                     items.push(Item::Frame(frame));
                 }
             }
@@ -707,7 +707,7 @@ fn shape_range<'a>(
     bidi: &BidiInfo<'a>,
     range: Range,
     spans: &SpanMapper,
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
 ) {
     let script = TextElem::script_in(styles);
     let lang = TextElem::lang_in(styles);
@@ -780,9 +780,9 @@ fn is_compatible(a: Script, b: Script) -> bool {
 /// Get a style property, but only if it is the same for all children of the
 /// paragraph.
 fn shared_get<T: PartialEq>(
-    styles: StyleChain<'_>,
+    styles: TypstStyleChain<'_>,
     children: &[Prehashed<TypstContent>],
-    getter: fn(StyleChain) -> T,
+    getter: fn(TypstStyleChain) -> T,
 ) -> Option<T> {
     let value = getter(styles);
     children
@@ -1209,7 +1209,7 @@ fn finalize(
     lines: &[Line],
     region: Size,
     expand: bool,
-) -> SourceResult<TypstLayoutFragment> {
+) -> TypstSourceResult<TypstLayoutFragment> {
     // Determine the paragraph's width: Full width of the region if we
     // should expand or there's fractional spacing, fit-to-width otherwise.
     let width =
@@ -1230,7 +1230,7 @@ fn finalize(
     let mut frames: Vec<TypstFrame> = lines
         .iter()
         .map(|line| commit(engine, p, line, width, region.y))
-        .collect::<SourceResult<_>>()?;
+        .collect::<TypstSourceResult<_>>()?;
 
     // Prevent orphans.
     if frames.len() >= 2 && !frames[1].is_empty() {
@@ -1254,7 +1254,7 @@ fn finalize(
 fn merge(first: &mut TypstFrame, second: TypstFrame, leading: TypstAbsLength) {
     let offset = first.height() + leading;
     let total = offset + second.height();
-    first.push_frame(Point::with_y(offset), second);
+    first.push_frame(TypstPoint::with_y(offset), second);
     first.size_mut().y = total;
 }
 
@@ -1265,7 +1265,7 @@ fn commit(
     line: &Line,
     width: TypstAbsLength,
     full: TypstAbsLength,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     let mut remaining = width - line.width - p.hang;
     let mut offset = TypstAbsLength::zero();
 
@@ -1354,10 +1354,10 @@ fn commit(
                 let amount = v.share(fr, remaining);
                 if let Some((elem, styles)) = elem {
                     let region = Size::new(amount, full);
-                    let pod = Regions::one(region, Axes::new(true, false));
+                    let pod = TypstRegions::one(region, Axes::new(true, false));
                     let mut frame = elem.layout(engine, *styles, pod)?;
                     frame.meta(*styles, false);
-                    frame.translate(Point::with_y(TextElem::baseline_in(*styles)));
+                    frame.translate(TypstPoint::with_y(TextElem::baseline_in(*styles)));
                     push(&mut offset, frame);
                 } else {
                     offset += amount;
@@ -1387,7 +1387,7 @@ fn commit(
     for (offset, frame) in frames {
         let x = offset + p.align.position(remaining);
         let y = top - frame.baseline();
-        output.push_frame(Point::new(x, y), frame);
+        output.push_frame(TypstPoint::new(x, y), frame);
     }
 
     Ok(output)

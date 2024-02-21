@@ -2,39 +2,39 @@ use std::fmt::{self, Debug, Formatter};
 
 use comemo::Prehashed;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, IsTypstElem, Resolve, Smart, StyleChain, TypstContent, TypstContentRefined,
+    elem, IsTypstElem, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::introspection::{MetaTypstElem, TypstMeta};
 use crate::layout::{
     AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, LayoutMultiple,
-    LayoutSingle, PlaceElem, Point, Regions, Rel, Size, Spacing, TypstAbsLength, TypstFraction,
-    TypstFrame, TypstFrameItem, TypstLayoutFragment, VAlignment, VElem,
+    LayoutSingle, PlaceElem, Rel, Size, Spacing, TypstAbsLength, TypstFraction, TypstFrame,
+    TypstFrameItem, TypstLayoutFragment, TypstPoint, TypstRegions, VAlignment, VElem,
 };
 use crate::model::{FootnoteEntry, FootnoteTypstElem, ParagraphTypstElem};
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 
 /// Arranges spacing, paragraphs and block-level elements into a flow.
 ///
 /// This element is responsible for layouting both the top-level content flow
 /// and the contents of boxes.
 #[elem(Debug, LayoutMultiple)]
-pub struct FlowElem {
+pub struct TypstFlowElem {
     /// The children that will be arranges into a flow.
     #[variadic]
     pub children: Vec<Prehashed<TypstContent>>,
 }
 
-impl LayoutMultiple for TypstContentRefined<FlowElem> {
+impl LayoutMultiple for TypstContentRefined<TypstFlowElem> {
     #[husky_typst_macros::time(name = "flow", span = self.span())]
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
         if !regions.size.x.is_finite() && regions.expand.x {
             bail!(self.span(), "cannot expand into infinite width");
         }
@@ -76,7 +76,7 @@ impl LayoutMultiple for TypstContentRefined<FlowElem> {
     }
 }
 
-impl Debug for FlowElem {
+impl Debug for TypstFlowElem {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "Flow ")?;
         f.debug_list().entries(&self.children).finish()
@@ -88,9 +88,9 @@ struct FlowLayouter<'a> {
     /// Whether this is the root flow.
     root: bool,
     /// The regions to layout children into.
-    regions: Regions<'a>,
+    regions: TypstRegions<'a>,
     /// The shared styles.
-    styles: StyleChain<'a>,
+    styles: TypstStyleChain<'a>,
     /// Whether the flow should expand to fill the region.
     expand: Axes<bool>,
     /// The initial size of `regions.size` that was available before we started
@@ -172,7 +172,7 @@ impl FlowItem {
 
 impl<'a> FlowLayouter<'a> {
     /// Create a new flow layouter.
-    fn new(mut regions: Regions<'a>, styles: StyleChain<'a>) -> Self {
+    fn new(mut regions: TypstRegions<'a>, styles: TypstStyleChain<'a>) -> Self {
         let expand = regions.expand;
 
         // Disable vertical expansion & root for children.
@@ -199,7 +199,7 @@ impl<'a> FlowLayouter<'a> {
     }
 
     /// Place explicit metadata into the flow.
-    fn layout_meta(&mut self, styles: StyleChain) {
+    fn layout_meta(&mut self, styles: TypstStyleChain) {
         let mut frame = TypstFrame::soft(Size::zero());
         frame.meta(styles, true);
         self.items.push(FlowItem::Frame {
@@ -215,8 +215,8 @@ impl<'a> FlowLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         v: &TypstContentRefined<VElem>,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         self.layout_item(
             engine,
             match v.amount() {
@@ -234,8 +234,8 @@ impl<'a> FlowLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         par: &TypstContentRefined<ParagraphTypstElem>,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let align = AlignElem::alignment_in(styles).resolve(styles);
         let leading = ParagraphTypstElem::leading_in(styles);
         let consecutive = self.last_was_par;
@@ -293,11 +293,11 @@ impl<'a> FlowLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         layoutable: &dyn LayoutSingle,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let align = AlignElem::alignment_in(styles).resolve(styles);
         let sticky = BlockElem::sticky_in(styles);
-        let pod = Regions::one(self.regions.base(), Axes::splat(false));
+        let pod = TypstRegions::one(self.regions.base(), Axes::splat(false));
         let mut frame = layoutable.layout(engine, styles, pod)?;
         frame.meta(styles, false);
         self.layout_item(
@@ -318,8 +318,8 @@ impl<'a> FlowLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         placed: &TypstContentRefined<PlaceElem>,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let float = placed.float(styles);
         let clearance = placed.clearance(styles);
         let alignment = placed.alignment(styles);
@@ -346,8 +346,8 @@ impl<'a> FlowLayouter<'a> {
         &mut self,
         engine: &mut TypstEngine,
         child: &TypstContent,
-        styles: StyleChain,
-    ) -> SourceResult<()> {
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         // Temporarily delegerate rootness to the columns.
         let is_root = self.root;
         if is_root && child.is::<ColumnsElem>() {
@@ -408,7 +408,11 @@ impl<'a> FlowLayouter<'a> {
     }
 
     /// Layout a finished frame.
-    fn layout_item(&mut self, engine: &mut TypstEngine, mut item: FlowItem) -> SourceResult<()> {
+    fn layout_item(
+        &mut self,
+        engine: &mut TypstEngine,
+        mut item: FlowItem,
+    ) -> TypstSourceResult<()> {
         match item {
             FlowItem::Absolute(v, weak) => {
                 if weak
@@ -476,7 +480,7 @@ impl<'a> FlowLayouter<'a> {
                 // content.
                 frame.size_mut().y += clearance;
                 if *y_align == Smart::Custom(Some(FixedAlignment::End)) {
-                    frame.translate(Point::with_y(clearance));
+                    frame.translate(TypstPoint::with_y(clearance));
                 }
 
                 self.regions.size.y -= frame.height();
@@ -500,7 +504,7 @@ impl<'a> FlowLayouter<'a> {
     /// Set `force` to `true` to allow creating a frame for out-of-flow elements
     /// only (this is used to force the creation of a frame in case the
     /// remaining elements are all out-of-flow).
-    fn finish_region(&mut self, engine: &mut TypstEngine, force: bool) -> SourceResult<()> {
+    fn finish_region(&mut self, engine: &mut TypstEngine, force: bool) -> TypstSourceResult<()> {
         if !force && !self.items.is_empty() && self.items.iter().all(FlowItem::is_out_of_flow) {
             self.finished.push(TypstFrame::soft(self.initial));
             self.regions.next();
@@ -588,7 +592,7 @@ impl<'a> FlowLayouter<'a> {
                     ruler = ruler.max(align.y);
                     let x = align.x.position(size.x - frame.width());
                     let y = offset + ruler.position(size.y - used.y);
-                    let pos = Point::new(x, y);
+                    let pos = TypstPoint::new(x, y);
                     offset += frame.height();
                     output.push_frame(pos, frame);
                 }
@@ -623,14 +627,15 @@ impl<'a> FlowLayouter<'a> {
                         }
                     };
 
-                    let pos = Point::new(x, y) + delta.zip_map(size, Rel::relative_to).to_point();
+                    let pos =
+                        TypstPoint::new(x, y) + delta.zip_map(size, Rel::relative_to).to_point();
 
                     output.push_frame(pos, frame);
                 }
                 FlowItem::Footnote(frame) => {
                     let y = size.y - footnote_height + footnote_offset;
                     footnote_offset += frame.height() + self.footnote_config.gap;
-                    output.push_frame(Point::with_y(y), frame);
+                    output.push_frame(TypstPoint::with_y(y), frame);
                 }
             }
         }
@@ -650,7 +655,7 @@ impl<'a> FlowLayouter<'a> {
     }
 
     /// Finish layouting and return the resulting fragment.
-    fn finish(mut self, engine: &mut TypstEngine) -> SourceResult<TypstLayoutFragment> {
+    fn finish(mut self, engine: &mut TypstEngine) -> TypstSourceResult<TypstLayoutFragment> {
         if self.expand.y {
             while !self.regions.backlog.is_empty() {
                 self.finish_region(engine, true)?;
@@ -671,7 +676,7 @@ impl FlowLayouter<'_> {
         &mut self,
         engine: &mut TypstEngine,
         mut notes: Vec<TypstContentRefined<FootnoteTypstElem>>,
-    ) -> SourceResult<()> {
+    ) -> TypstSourceResult<()> {
         if self.root && !self.handle_footnotes(engine, &mut notes, false, false)? {
             self.finish_region(engine, false)?;
             self.handle_footnotes(engine, &mut notes, false, true)?;
@@ -686,7 +691,7 @@ impl FlowLayouter<'_> {
         notes: &mut Vec<TypstContentRefined<FootnoteTypstElem>>,
         movable: bool,
         force: bool,
-    ) -> SourceResult<bool> {
+    ) -> TypstSourceResult<bool> {
         let items_len = self.items.len();
         let notes_len = notes.len();
 
@@ -753,14 +758,14 @@ impl FlowLayouter<'_> {
     }
 
     /// Layout and save the footnote separator, typically a line.
-    fn layout_footnote_separator(&mut self, engine: &mut TypstEngine) -> SourceResult<()> {
+    fn layout_footnote_separator(&mut self, engine: &mut TypstEngine) -> TypstSourceResult<()> {
         let expand = Axes::new(self.regions.expand.x, false);
-        let pod = Regions::one(self.regions.base(), expand);
+        let pod = TypstRegions::one(self.regions.base(), expand);
         let separator = &self.footnote_config.separator;
 
         let mut frame = separator.layout(engine, self.styles, pod)?.into_frame();
         frame.size_mut().y += self.footnote_config.clearance;
-        frame.translate(Point::with_y(self.footnote_config.clearance));
+        frame.translate(TypstPoint::with_y(self.footnote_config.clearance));
 
         self.has_footnotes = true;
         self.regions.size.y -= frame.height();

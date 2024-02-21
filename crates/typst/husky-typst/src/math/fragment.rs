@@ -5,10 +5,10 @@ use ttf_parser::gsub::AlternateSet;
 use ttf_parser::{GlyphId, Rect};
 use unicode_math_class::MathClass;
 
-use crate::foundations::StyleChain;
+use crate::foundations::TypstStyleChain;
 use crate::introspection::{MetaTypstElem, TypstMeta};
 use crate::layout::{
-    Corner, Point, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem,
+    Corner, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem, TypstPoint,
 };
 use crate::math::{
     scaled_font_size, styled_char, EquationTypstElem, Limits, MathContext, MathSize, Scaled,
@@ -220,7 +220,7 @@ pub struct GlyphFragment {
 }
 
 impl GlyphFragment {
-    pub fn new(ctx: &MathContext, styles: StyleChain, c: char, span: TypstSynSpan) -> Self {
+    pub fn new(ctx: &MathContext, styles: TypstStyleChain, c: char, span: TypstSynSpan) -> Self {
         let id = ctx.ttf.glyph_index(c).unwrap_or_default();
         let id = Self::adjust_glyph_index(ctx, id);
         Self::with_id(ctx, styles, c, id, span)
@@ -228,7 +228,7 @@ impl GlyphFragment {
 
     pub fn try_new(
         ctx: &MathContext,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         c: char,
         span: TypstSynSpan,
     ) -> Option<Self> {
@@ -240,7 +240,7 @@ impl GlyphFragment {
 
     pub fn with_id(
         ctx: &MathContext,
-        styles: StyleChain,
+        styles: TypstStyleChain,
         c: char,
         id: GlyphId,
         span: TypstSynSpan,
@@ -355,7 +355,7 @@ impl GlyphFragment {
         let mut frame = TypstFrame::soft(size);
         frame.set_baseline(self.ascent);
         frame.push(
-            Point::with_y(self.ascent + self.shift),
+            TypstPoint::with_y(self.ascent + self.shift),
             TypstFrameItem::Text(item),
         );
         frame.meta_iter(self.meta);
@@ -433,7 +433,7 @@ pub struct FrameFragment {
 }
 
 impl FrameFragment {
-    pub fn new(ctx: &MathContext, styles: StyleChain, mut frame: TypstFrame) -> Self {
+    pub fn new(ctx: &MathContext, styles: TypstStyleChain, mut frame: TypstFrame) -> Self {
         let base_ascent = frame.ascent();
         let accent_attach = frame.width() / 2.0;
         frame.meta(styles, false);

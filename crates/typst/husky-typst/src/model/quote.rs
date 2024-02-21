@@ -1,10 +1,12 @@
-use crate::diag::SourceResult;
+use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, IsTypstElem, Label, Show, ShowSet, Smart, StyleChain, Styles, TypstContent,
-    TypstContentRefined,
+    cast, elem, IsTypstElem, Label, Show, ShowSet, Smart, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstStyles,
 };
-use crate::layout::{BlockElem, HElem, PadElem, Spacing, TypstAlignment, TypstEmLength, VElem};
+use crate::layout::{
+    BlockElem, HElem, Spacing, TypstAlignment, TypstEmLength, TypstPadElem, VElem,
+};
 use crate::model::{CitationForm, CiteTypstElem};
 use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 
@@ -147,7 +149,11 @@ cast! {
 
 impl Show for TypstContentRefined<QuoteElem> {
     #[husky_typst_macros::time(name = "quote", span = self.span())]
-    fn show(&self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let mut realized = self.body().clone();
         let block = self.block(styles);
 
@@ -187,7 +193,7 @@ impl Show for TypstContentRefined<QuoteElem> {
                 realized += weak_v + TypstContent::sequence(seq).aligned(TypstAlignment::END);
             }
 
-            realized = PadElem::new(realized).pack();
+            realized = TypstPadElem::new(realized).pack();
         } else if let Some(Attribution::Label(label)) = self.attribution(styles) {
             realized +=
                 SpaceElem::new().pack() + CiteTypstElem::new(*label).pack().spanned(self.span());
@@ -198,13 +204,13 @@ impl Show for TypstContentRefined<QuoteElem> {
 }
 
 impl ShowSet for TypstContentRefined<QuoteElem> {
-    fn show_set(&self, _: StyleChain) -> Styles {
+    fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let x = TypstEmLength::new(1.0).into();
         let above = TypstEmLength::new(2.4).into();
         let below = TypstEmLength::new(1.8).into();
-        let mut out = Styles::new();
-        out.set(PadElem::set_left(x));
-        out.set(PadElem::set_right(x));
+        let mut out = TypstStyles::new();
+        out.set(TypstPadElem::set_left(x));
+        out.set(TypstPadElem::set_right(x));
         out.set(BlockElem::set_above(VElem::block_around(above)));
         out.set(BlockElem::set_below(VElem::block_around(below)));
         out

@@ -1,7 +1,8 @@
-use crate::diag::{bail, At, SourceResult};
+use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Cast, Label, Show, Smart, StyleChain, Synthesize, TypstContent, TypstContentRefined,
+    cast, elem, Cast, Label, Show, Smart, Synthesize, TypstContent, TypstContentRefined,
+    TypstStyleChain,
 };
 use crate::introspection::Locatable;
 use crate::model::bibliography::Works;
@@ -109,7 +110,11 @@ pub struct CiteTypstElem {
 }
 
 impl Synthesize for TypstContentRefined<CiteTypstElem> {
-    fn synthesize(&mut self, _: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        _: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let elem = self.as_mut();
         elem.push_lang(TextElem::lang_in(styles));
         elem.push_region(TextElem::region_in(styles));
@@ -151,7 +156,11 @@ pub struct TypstCiteGroup {
 
 impl Show for TypstContentRefined<TypstCiteGroup> {
     #[husky_typst_macros::time(name = "cite", span = self.span())]
-    fn show(&self, engine: &mut TypstEngine, _: StyleChain) -> SourceResult<TypstContent> {
+    fn show(
+        &self,
+        engine: &mut TypstEngine,
+        _: TypstStyleChain,
+    ) -> TypstSourceResult<TypstContent> {
         let location = self.location().unwrap();
         let span = self.span();
         Works::generate(engine.world, engine.introspector)

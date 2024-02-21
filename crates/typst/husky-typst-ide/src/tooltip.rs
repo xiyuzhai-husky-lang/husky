@@ -3,10 +3,10 @@ use std::fmt::Write;
 use ecow::{eco_format, EcoString};
 use husky_typst::eval::{CapturesVisitor, Tracer};
 use husky_typst::foundations::{repr, CastInfo, Repr, TypstValue};
-use husky_typst::layout::Length;
+use husky_typst::layout::TypstLength;
 use husky_typst::model::TypstDocument;
 use husky_typst::syntax::{ast, LinkedNode, Source, TypstSyntaxKind};
-use husky_typst::util::{round_2, Numeric};
+use husky_typst::util::{round_2, TypstNumeric};
 use husky_typst::IsTypstWorld;
 use if_chain::if_chain;
 
@@ -141,7 +141,7 @@ fn closure_tooltip(leaf: &LinkedNode) -> Option<Tooltip> {
 }
 
 /// Tooltip text for a hovered length.
-fn length_tooltip(length: Length) -> Option<Tooltip> {
+fn length_tooltip(length: TypstLength) -> Option<Tooltip> {
     length.em.is_zero().then(|| {
         Tooltip::Code(eco_format!(
             "{}pt = {}mm = {}cm = {}in",

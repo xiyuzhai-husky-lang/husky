@@ -6,7 +6,7 @@ use ecow::EcoString;
 
 use crate::foundations::{repr, ty, Repr};
 use crate::layout::TypstAbsLength;
-use crate::util::{Numeric, Scalar};
+use crate::util::{Scalar, TypstNumeric};
 
 /// Defines how the the remaining space in a layout is distributed.
 ///
@@ -61,7 +61,7 @@ impl TypstFraction {
     }
 }
 
-impl Numeric for TypstFraction {
+impl TypstNumeric for TypstFraction {
     fn zero() -> Self {
         Self::zero()
     }

@@ -25,7 +25,7 @@ pub(crate) use self::flow::*;
 
 use comemo::{Track, Tracked, TrackedMut};
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::foundations::{
     Cast, IsTypstElem, TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
@@ -44,7 +44,7 @@ pub fn eval(
     route: Tracked<Route>,
     tracer: TrackedMut<Tracer>,
     source: &Source,
-) -> SourceResult<TypstModuleEvaluation> {
+) -> TypstSourceResult<TypstModuleEvaluation> {
     // Prevent cyclic evaluation.
     let id = source.id();
     if route.contains(id) {
@@ -103,7 +103,7 @@ pub fn eval_string(
     span: TypstSynSpan,
     mode: EvalMode,
     scope: TypstValueAssignmentGroup,
-) -> SourceResult<TypstValue> {
+) -> TypstSourceResult<TypstValue> {
     let mut root = match mode {
         EvalMode::Code => parse_code(string),
         EvalMode::TypstMarkup => parse(string),
@@ -173,5 +173,5 @@ pub trait Eval {
     type Output;
 
     /// Evaluate the expression to the output value.
-    fn eval(self, vm: &mut Vm) -> SourceResult<Self::Output>;
+    fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output>;
 }

@@ -1,13 +1,13 @@
 use smallvec::{smallvec, SmallVec};
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::foundations::{
-    cast, dict, elem, Array, Cast, Fold, Resolve, Smart, StyleChain, TypstContent,
-    TypstContentRefined, TypstDict, TypstValue,
+    cast, dict, elem, Array, Cast, Fold, Resolve, Smart, TypstContent, TypstContentRefined,
+    TypstDict, TypstStyleChain, TypstValue,
 };
 use crate::layout::{
-    Axes, FixedAlignment, Length, Point, Ratio, Rel, Size, TypstAbsLength, TypstEmLength,
-    TypstFrame, TypstFrameItem,
+    Axes, FixedAlignment, Ratio, Rel, Size, TypstAbsLength, TypstEmLength, TypstFrame,
+    TypstFrameItem, TypstLength, TypstPoint,
 };
 use crate::math::{
     alignments, scaled_font_size, stack, style_for_denominator, FrameFragment, GlyphFragment,
@@ -15,7 +15,7 @@ use crate::math::{
 };
 use crate::syntax::{Spanned, TypstSynSpan};
 use crate::text::TextElem;
-use crate::util::Numeric;
+use crate::util::TypstNumeric;
 use crate::visualize::{LineCap, TypstFixedStroke, TypstGeometry, TypstShape, TypstStroke};
 
 const DEFAULT_ROW_GAP: TypstEmLength = TypstEmLength::new(0.5);
@@ -51,7 +51,7 @@ pub struct VecElem {
     /// ```
     #[resolve]
     #[default(DEFAULT_ROW_GAP.into())]
-    pub gap: Rel<Length>,
+    pub gap: Rel<TypstLength>,
 
     /// The elements of the vector.
     #[variadic]
@@ -60,7 +60,7 @@ pub struct VecElem {
 
 impl TypstLayoutMath for TypstContentRefined<VecElem> {
     #[husky_typst_macros::time(name = "math.vec", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let delim = self.delim(styles);
         let frame = layout_vec_body(
             ctx,
@@ -152,7 +152,7 @@ pub struct MatElem {
     /// $ mat(1, 2; 3, 4) $
     /// ```
     #[external]
-    pub gap: Rel<Length>,
+    pub gap: Rel<TypstLength>,
 
     /// The gap between rows. Takes precedence over `gap`.
     ///
@@ -166,7 +166,7 @@ pub struct MatElem {
         args.named("row-gap")?.or(gap)
     )]
     #[default(DEFAULT_ROW_GAP.into())]
-    pub row_gap: Rel<Length>,
+    pub row_gap: Rel<TypstLength>,
 
     /// The gap between columns. Takes precedence over `gap`.
     ///
@@ -177,7 +177,7 @@ pub struct MatElem {
     #[resolve]
     #[parse(args.named("column-gap")?.or(gap))]
     #[default(DEFAULT_COL_GAP.into())]
-    pub column_gap: Rel<Length>,
+    pub column_gap: Rel<TypstLength>,
 
     /// An array of arrays with the rows of the matrix.
     ///
@@ -216,7 +216,7 @@ pub struct MatElem {
 
 impl TypstLayoutMath for TypstContentRefined<MatElem> {
     #[husky_typst_macros::time(name = "math.mat", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let augment = self.augment(styles);
         let rows = self.rows();
 
@@ -316,7 +316,7 @@ pub struct CasesElem {
     /// ```
     #[resolve]
     #[default(DEFAULT_ROW_GAP.into())]
-    pub gap: Rel<Length>,
+    pub gap: Rel<TypstLength>,
 
     /// The branches of the case distinction.
     #[variadic]
@@ -325,7 +325,7 @@ pub struct CasesElem {
 
 impl TypstLayoutMath for TypstContentRefined<CasesElem> {
     #[husky_typst_macros::time(name = "math.cases", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         let delim = self.delim(styles);
         let frame = layout_vec_body(
             ctx,
@@ -392,11 +392,11 @@ impl Delimiter {
 /// Layout the inner contents of a vector.
 fn layout_vec_body(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     column: &[TypstContent],
     align: FixedAlignment,
     row_gap: Rel<TypstAbsLength>,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     let gap = row_gap.relative_to(ctx.regions.base().y);
 
     let denom_style = style_for_denominator(styles);
@@ -411,12 +411,12 @@ fn layout_vec_body(
 /// Layout the inner contents of a matrix.
 fn layout_mat_body(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     rows: &[Vec<TypstContent>],
     augment: Option<Augment<TypstAbsLength>>,
     gap: Axes<Rel<TypstAbsLength>>,
     span: TypstSynSpan,
-) -> SourceResult<TypstFrame> {
+) -> TypstSourceResult<TypstFrame> {
     let gap = gap.zip_map(ctx.regions.base(), Rel::relative_to);
     let half_gap = gap * 0.5;
 
@@ -497,7 +497,7 @@ fn layout_mat_body(
 
         for (cell, &(ascent, descent)) in col.into_iter().zip(&heights) {
             let cell = cell.into_aligned_frame(ctx, styles, &points, FixedAlignment::Center);
-            let pos = Point::new(
+            let pos = TypstPoint::new(
                 if points.is_empty() {
                     x + (rcol - cell.width()) / 2.0
                 } else {
@@ -519,7 +519,7 @@ fn layout_mat_body(
             || vline.0.contains(&(1 - ((ncols - index) as isize)))
         {
             frame.push(
-                Point::with_x(x + half_gap.x),
+                TypstPoint::with_x(x + half_gap.x),
                 line_item(total_height, true, stroke.clone(), span),
             );
         }
@@ -546,7 +546,7 @@ fn layout_mat_body(
             + half_gap.y;
 
         frame.push(
-            Point::with_y(offset),
+            TypstPoint::with_y(offset),
             line_item(total_width, false, stroke.clone(), span),
         );
     }
@@ -563,9 +563,9 @@ fn line_item(
     span: TypstSynSpan,
 ) -> TypstFrameItem {
     let line_geom = if vertical {
-        TypstGeometry::Line(Point::with_y(length))
+        TypstGeometry::Line(TypstPoint::with_y(length))
     } else {
-        TypstGeometry::Line(Point::with_x(length))
+        TypstGeometry::Line(TypstPoint::with_x(length))
     };
 
     TypstFrameItem::Shape(
@@ -581,12 +581,12 @@ fn line_item(
 /// Layout the outer wrapper around the body of a vector or matrix.
 fn layout_delimiters(
     ctx: &mut MathContext,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     mut frame: TypstFrame,
     left: Option<char>,
     right: Option<char>,
     span: TypstSynSpan,
-) -> SourceResult<()> {
+) -> TypstSourceResult<()> {
     let font_size = scaled_font_size(ctx, styles);
     let short_fall = DELIM_SHORT_FALL.at(font_size);
     let axis = ctx.constants.axis_height().scaled(ctx, font_size);
@@ -616,13 +616,13 @@ fn layout_delimiters(
 /// Parameters specifying how augmentation lines
 /// should be drawn on a matrix.
 #[derive(Debug, Default, Clone, PartialEq, Hash)]
-pub struct Augment<T: Numeric = Length> {
+pub struct Augment<T: TypstNumeric = TypstLength> {
     pub hline: AugmentOffsets,
     pub vline: AugmentOffsets,
     pub stroke: Smart<TypstStroke<T>>,
 }
 
-impl<T: Numeric + Fold> Fold for Augment<T> {
+impl<T: TypstNumeric + Fold> Fold for Augment<T> {
     fn fold(self, outer: Self) -> Self {
         Self {
             stroke: match (self.stroke, outer.stroke) {
@@ -640,7 +640,7 @@ impl<T: Numeric + Fold> Fold for Augment<T> {
 impl Resolve for Augment {
     type Output = Augment<TypstAbsLength>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         Augment {
             hline: self.hline,
             vline: self.vline,

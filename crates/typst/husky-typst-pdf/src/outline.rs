@@ -1,6 +1,6 @@
 use std::num::NonZeroUsize;
 
-use husky_typst::foundations::{IsTypstElem, StyleChain, TypstContentRefined};
+use husky_typst::foundations::{IsTypstElem, TypstContentRefined, TypstStyleChain};
 use husky_typst::layout::TypstAbsLength;
 use husky_typst::model::HeadingTypstElem;
 use pdf_writer::{Finish, Ref, TextStr};
@@ -123,11 +123,11 @@ struct HeadingNode<'a> {
 impl<'a> HeadingNode<'a> {
     fn leaf(element: &'a TypstContentRefined<HeadingTypstElem>) -> Self {
         HeadingNode {
-            level: element.level(StyleChain::default()),
+            level: element.level(TypstStyleChain::default()),
             // 'bookmarked' set to 'auto' falls back to the value of 'outlined'.
             bookmarked: element
-                .bookmarked(StyleChain::default())
-                .unwrap_or_else(|| element.outlined(StyleChain::default())),
+                .bookmarked(TypstStyleChain::default())
+                .unwrap_or_else(|| element.outlined(TypstStyleChain::default())),
             element,
             children: Vec::new(),
         }

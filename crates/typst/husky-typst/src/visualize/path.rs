@@ -1,13 +1,13 @@
 use kurbo::{CubicBez, ParamCurveExtrema};
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    array, cast, elem, Array, Reflect, Resolve, Smart, StyleChain, TypstContentRefined,
+    array, cast, elem, Array, Reflect, Resolve, Smart, TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, LayoutMultiple, Length, Point, Regions, Rel, Size, TypstAbsLength, TypstFrame,
-    TypstFrameItem, TypstLayoutFragment,
+    Axes, LayoutMultiple, Rel, Size, TypstAbsLength, TypstFrame, TypstFrameItem,
+    TypstLayoutFragment, TypstLength, TypstPoint, TypstRegions,
 };
 use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstPaint, TypstShape, TypstStroke};
 
@@ -76,17 +76,17 @@ impl LayoutMultiple for TypstContentRefined<PathElem> {
     fn layout(
         &self,
         _: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstLayoutFragment> {
-        let resolve = |axes: Axes<Rel<Length>>| {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstLayoutFragment> {
+        let resolve = |axes: Axes<Rel<TypstLength>>| {
             axes.resolve(styles)
                 .zip_map(regions.base(), Rel::relative_to)
                 .to_point()
         };
 
         let vertices = self.vertices();
-        let points: Vec<Point> = vertices.iter().map(|c| resolve(c.vertex())).collect();
+        let points: Vec<TypstPoint> = vertices.iter().map(|c| resolve(c.vertex())).collect();
 
         let mut size = Size::zero();
         if points.is_empty() {
@@ -99,7 +99,7 @@ impl LayoutMultiple for TypstContentRefined<PathElem> {
         path.move_to(points[0]);
 
         let mut add_cubic =
-            |from_point: Point, to_point: Point, from: PathVertex, to: PathVertex| {
+            |from_point: TypstPoint, to_point: TypstPoint, from: PathVertex, to: PathVertex| {
                 let from_control_point = resolve(from.control_point_from()) + from_point;
                 let to_control_point = resolve(to.control_point_to()) + to_point;
                 path.cubic_to(from_control_point, to_control_point, to_point);
@@ -148,7 +148,10 @@ impl LayoutMultiple for TypstContentRefined<PathElem> {
             stroke,
             fill,
         };
-        frame.push(Point::zero(), TypstFrameItem::Shape(shape, self.span()));
+        frame.push(
+            TypstPoint::zero(),
+            TypstFrameItem::Shape(shape, self.span()),
+        );
 
         Ok(TypstLayoutFragment::frame(frame))
     }
@@ -157,13 +160,17 @@ impl LayoutMultiple for TypstContentRefined<PathElem> {
 /// A component used for path creation.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub enum PathVertex {
-    Vertex(Axes<Rel<Length>>),
-    MirroredControlPoint(Axes<Rel<Length>>, Axes<Rel<Length>>),
-    AllControlPoints(Axes<Rel<Length>>, Axes<Rel<Length>>, Axes<Rel<Length>>),
+    Vertex(Axes<Rel<TypstLength>>),
+    MirroredControlPoint(Axes<Rel<TypstLength>>, Axes<Rel<TypstLength>>),
+    AllControlPoints(
+        Axes<Rel<TypstLength>>,
+        Axes<Rel<TypstLength>>,
+        Axes<Rel<TypstLength>>,
+    ),
 }
 
 impl PathVertex {
-    pub fn vertex(&self) -> Axes<Rel<Length>> {
+    pub fn vertex(&self) -> Axes<Rel<TypstLength>> {
         match self {
             Vertex(x) => *x,
             MirroredControlPoint(x, _) => *x,
@@ -171,7 +178,7 @@ impl PathVertex {
         }
     }
 
-    pub fn control_point_from(&self) -> Axes<Rel<Length>> {
+    pub fn control_point_from(&self) -> Axes<Rel<TypstLength>> {
         match self {
             Vertex(_) => Axes::new(Rel::zero(), Rel::zero()),
             MirroredControlPoint(_, a) => a.map(|x| -x),
@@ -179,7 +186,7 @@ impl PathVertex {
         }
     }
 
-    pub fn control_point_to(&self) -> Axes<Rel<Length>> {
+    pub fn control_point_to(&self) -> Axes<Rel<TypstLength>> {
         match self {
             Vertex(_) => Axes::new(Rel::zero(), Rel::zero()),
             MirroredControlPoint(_, a) => *a,
@@ -202,7 +209,7 @@ cast! {
                 Vertex(a.cast()?)
             },
             (Some(a), Some(b), None, None) => {
-                if Axes::<Rel<Length>>::castable(&a) {
+                if Axes::<Rel<TypstLength>>::castable(&a) {
                     MirroredControlPoint(a.cast()?, b.cast()?)
                 } else {
                     Vertex(Axes::new(a.cast()?, b.cast()?))
@@ -223,9 +230,9 @@ pub struct Path(pub Vec<PathItem>);
 /// An item in a bezier path.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
 pub enum PathItem {
-    MoveTo(Point),
-    LineTo(Point),
-    CubicTo(Point, Point, Point),
+    MoveTo(TypstPoint),
+    LineTo(TypstPoint),
+    CubicTo(TypstPoint, TypstPoint, TypstPoint),
     ClosePath,
 }
 
@@ -238,7 +245,7 @@ impl Path {
     /// Create a path that describes a rectangle.
     pub fn rect(size: Size) -> Self {
         let z = TypstAbsLength::zero();
-        let point = Point::new;
+        let point = TypstPoint::new;
         let mut path = Self::new();
         path.move_to(point(z, z));
         path.line_to(point(size.x, z));
@@ -249,17 +256,17 @@ impl Path {
     }
 
     /// Push a [`MoveTo`](PathItem::MoveTo) item.
-    pub fn move_to(&mut self, p: Point) {
+    pub fn move_to(&mut self, p: TypstPoint) {
         self.0.push(PathItem::MoveTo(p));
     }
 
     /// Push a [`LineTo`](PathItem::LineTo) item.
-    pub fn line_to(&mut self, p: Point) {
+    pub fn line_to(&mut self, p: TypstPoint) {
         self.0.push(PathItem::LineTo(p));
     }
 
     /// Push a [`CubicTo`](PathItem::CubicTo) item.
-    pub fn cubic_to(&mut self, p1: Point, p2: Point, p3: Point) {
+    pub fn cubic_to(&mut self, p1: TypstPoint, p2: TypstPoint, p3: TypstPoint) {
         self.0.push(PathItem::CubicTo(p1, p2, p3));
     }
 
@@ -275,7 +282,7 @@ impl Path {
         let mut max_x = -TypstAbsLength::inf();
         let mut max_y = -TypstAbsLength::inf();
 
-        let mut cursor = Point::zero();
+        let mut cursor = TypstPoint::zero();
         for item in self.0.iter() {
             match item {
                 PathItem::MoveTo(to) => {

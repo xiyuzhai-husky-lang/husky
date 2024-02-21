@@ -7,7 +7,7 @@ use smallvec::SmallVec;
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
     cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTypstValue, Func, Label, Reflect,
-    Regex, Repr, Str, StyleChain, Type, TypstContent, TypstDict, TypstValue,
+    Regex, Repr, Str, Type, TypstContent, TypstDict, TypstStyleChain, TypstValue,
 };
 use crate::introspection::{Locatable, Location};
 use crate::symbols::Symbol;
@@ -136,7 +136,7 @@ impl Selector {
     }
 
     /// Whether the selector matches for the target.
-    pub fn matches(&self, target: &TypstContent, styles: Option<StyleChain>) -> bool {
+    pub fn matches(&self, target: &TypstContent, styles: Option<TypstStyleChain>) -> bool {
         match self {
             Self::Elem(element, dict) => {
                 // TODO: Optimize field access to not clone.

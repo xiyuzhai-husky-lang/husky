@@ -6,7 +6,7 @@ use std::sync::Arc;
 use ecow::{eco_format, EcoString};
 use serde::{Serialize, Serializer};
 
-use crate::diag::{bail, SourceResult, StrResult};
+use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::foundations::{cast, func, scope, ty, Array};
 use crate::syntax::{Spanned, TypstSynSpan};
 
@@ -197,7 +197,7 @@ impl Symbol {
         /// all attached modifiers and the minimum number of other modifiers.
         #[variadic]
         variants: Vec<Spanned<SymbolVariant>>,
-    ) -> SourceResult<Symbol> {
+    ) -> TypstSourceResult<Symbol> {
         let mut list = Vec::new();
         if variants.is_empty() {
             bail!(span, "expected at least one variant");

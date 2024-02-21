@@ -1,6 +1,6 @@
 use comemo::Prehashed;
 
-use crate::foundations::{func, Cast, Smart, Style, StyleChain, TypstContent};
+use crate::foundations::{func, Cast, Smart, Style, TypstContent, TypstStyleChain};
 use crate::layout::TypstAbsLength;
 use crate::math::{EquationTypstElem, MathContext};
 use crate::text::TextElem;
@@ -248,7 +248,7 @@ pub enum MathVariant {
 }
 
 /// Get the font size scaled with the `MathSize`.
-pub fn scaled_font_size(ctx: &MathContext, styles: StyleChain) -> TypstAbsLength {
+pub fn scaled_font_size(ctx: &MathContext, styles: TypstStyleChain) -> TypstAbsLength {
     EquationTypstElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
 }
 
@@ -258,7 +258,7 @@ pub fn style_cramped() -> Prehashed<Style> {
 }
 
 /// The style for subscripts in the current style.
-pub fn style_for_subscript(styles: StyleChain) -> [Prehashed<Style>; 2] {
+pub fn style_for_subscript(styles: TypstStyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_superscript(styles),
         EquationTypstElem::set_cramped(true).wrap(),
@@ -266,7 +266,7 @@ pub fn style_for_subscript(styles: StyleChain) -> [Prehashed<Style>; 2] {
 }
 
 /// The style for superscripts in the current style.
-pub fn style_for_superscript(styles: StyleChain) -> Prehashed<Style> {
+pub fn style_for_superscript(styles: TypstStyleChain) -> Prehashed<Style> {
     EquationTypstElem::set_size(match EquationTypstElem::size_in(styles) {
         MathSize::Display | MathSize::Text => MathSize::Script,
         MathSize::Script | MathSize::ScriptScript => MathSize::ScriptScript,
@@ -275,7 +275,7 @@ pub fn style_for_superscript(styles: StyleChain) -> Prehashed<Style> {
 }
 
 /// The style for numerators in the current style.
-pub fn style_for_numerator(styles: StyleChain) -> Prehashed<Style> {
+pub fn style_for_numerator(styles: TypstStyleChain) -> Prehashed<Style> {
     EquationTypstElem::set_size(match EquationTypstElem::size_in(styles) {
         MathSize::Display => MathSize::Text,
         MathSize::Text => MathSize::Script,
@@ -285,7 +285,7 @@ pub fn style_for_numerator(styles: StyleChain) -> Prehashed<Style> {
 }
 
 /// The style for denominators in the current style.
-pub fn style_for_denominator(styles: StyleChain) -> [Prehashed<Style>; 2] {
+pub fn style_for_denominator(styles: TypstStyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_numerator(styles),
         EquationTypstElem::set_cramped(true).wrap(),
@@ -296,7 +296,7 @@ pub fn style_for_denominator(styles: StyleChain) -> [Prehashed<Style>; 2] {
 ///
 /// <https://www.w3.org/TR/mathml-core/#new-text-transform-mappings>
 /// <https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols>
-pub fn styled_char(styles: StyleChain, c: char) -> char {
+pub fn styled_char(styles: TypstStyleChain, c: char) -> char {
     use MathVariant::*;
 
     let variant = EquationTypstElem::variant_in(styles);

@@ -1,12 +1,12 @@
 use ecow::EcoString;
 
-use crate::diag::{SourceResult, StrResult};
+use crate::diag::{StrResult, TypstSourceResult};
 use crate::foundations::{
     cast, dict, func, scope, ty, Args, Cast, Fold, FromTypstValue, NoneTypstValue, Repr, Resolve,
-    Smart, StyleChain, TypstDict, TypstValue,
+    Smart, TypstDict, TypstStyleChain, TypstValue,
 };
-use crate::layout::{Length, TypstAbsLength};
-use crate::util::{Numeric, Scalar};
+use crate::layout::{TypstAbsLength, TypstLength};
+use crate::util::{Scalar, TypstNumeric};
 use crate::visualize::{Gradient, Pattern, TypstColor, TypstPaint};
 
 /// Defines how to draw a line.
@@ -51,7 +51,7 @@ use crate::visualize::{Gradient, Pattern, TypstColor, TypstPaint};
 /// set to `{auto}` are inherited.
 #[ty(scope, cast)]
 #[derive(Debug, Default, Clone, Eq, PartialEq, Hash)]
-pub struct TypstStroke<T: Numeric = Length> {
+pub struct TypstStroke<T: TypstNumeric = TypstLength> {
     /// The stroke's paint.
     pub paint: Smart<TypstPaint>,
     /// The stroke's thickness.
@@ -68,7 +68,7 @@ pub struct TypstStroke<T: Numeric = Length> {
 
 impl TypstStroke {
     /// Create a stroke from a paint and a thickness.
-    pub fn from_pair(paint: impl Into<TypstPaint>, thickness: Length) -> Self {
+    pub fn from_pair(paint: impl Into<TypstPaint>, thickness: TypstLength) -> Self {
         Self {
             paint: Smart::Custom(paint.into()),
             thickness: Smart::Custom(thickness),
@@ -112,7 +112,7 @@ impl TypstStroke {
         ///
         /// If set to `{auto}`, the value is inherited, defaulting to `{1pt}`.
         #[external]
-        thickness: Smart<Length>,
+        thickness: Smart<TypstLength>,
 
         /// How the ends of the stroke are rendered.
         ///
@@ -182,17 +182,17 @@ impl TypstStroke {
         /// ```
         #[external]
         miter_limit: Smart<f64>,
-    ) -> SourceResult<TypstStroke> {
+    ) -> TypstSourceResult<TypstStroke> {
         if let Some(stroke) = args.eat::<TypstStroke>()? {
             return Ok(stroke);
         }
 
-        fn take<T: FromTypstValue>(args: &mut Args, arg: &str) -> SourceResult<Smart<T>> {
+        fn take<T: FromTypstValue>(args: &mut Args, arg: &str) -> TypstSourceResult<Smart<T>> {
             Ok(args.named::<Smart<T>>(arg)?.unwrap_or(Smart::Auto))
         }
 
         let paint = take::<TypstPaint>(args, "paint")?;
-        let thickness = take::<Length>(args, "thickness")?;
+        let thickness = take::<TypstLength>(args, "thickness")?;
         let cap = take::<LineCap>(args, "cap")?;
         let join = take::<LineJoin>(args, "join")?;
         let dash = take::<Option<DashPattern>>(args, "dash")?;
@@ -209,9 +209,9 @@ impl TypstStroke {
     }
 }
 
-impl<T: Numeric> TypstStroke<T> {
+impl<T: TypstNumeric> TypstStroke<T> {
     /// Map the contained lengths with `f`.
-    pub fn map<F, U: Numeric>(self, f: F) -> TypstStroke<U>
+    pub fn map<F, U: TypstNumeric>(self, f: F) -> TypstStroke<U>
     where
         F: Fn(T) -> U,
     {
@@ -274,7 +274,7 @@ impl TypstStroke<TypstAbsLength> {
     }
 }
 
-impl<T: Numeric + Repr> Repr for TypstStroke<T> {
+impl<T: TypstNumeric + Repr> Repr for TypstStroke<T> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::new();
         let Self {
@@ -344,7 +344,7 @@ impl<T: Numeric + Repr> Repr for TypstStroke<T> {
     }
 }
 
-impl<T: Numeric + Fold> Fold for TypstStroke<T> {
+impl<T: TypstNumeric + Fold> Fold for TypstStroke<T> {
     fn fold(self, outer: Self) -> Self {
         Self {
             paint: self.paint.or(outer.paint),
@@ -360,7 +360,7 @@ impl<T: Numeric + Fold> Fold for TypstStroke<T> {
 impl Resolve for TypstStroke {
     type Output = TypstStroke<TypstAbsLength>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         TypstStroke {
             paint: self.paint,
             thickness: self.thickness.resolve(styles),
@@ -374,7 +374,7 @@ impl Resolve for TypstStroke {
 
 cast! {
     type TypstStroke,
-    thickness: Length => Self {
+    thickness: TypstLength => Self {
         thickness: Smart::Custom(thickness),
         ..Default::default()
     },
@@ -398,7 +398,7 @@ cast! {
         }
 
         let paint = take::<TypstPaint>(&mut dict, "paint")?;
-        let thickness = take::<Length>(&mut dict, "thickness")?;
+        let thickness = take::<TypstLength>(&mut dict, "thickness")?;
         let cap = take::<LineCap>(&mut dict, "cap")?;
         let join = take::<LineJoin>(&mut dict, "join")?;
         let dash = take::<Option<DashPattern>>(&mut dict, "dash")?;
@@ -418,7 +418,7 @@ cast! {
 
 cast! {
     TypstStroke<TypstAbsLength>,
-    self => self.map(Length::from).into_value(),
+    self => self.map(TypstLength::from).into_value(),
 }
 
 /// The line cap of a stroke
@@ -467,14 +467,14 @@ impl Repr for LineJoin {
 
 /// A line dash pattern.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub struct DashPattern<T: Numeric = Length, DT = DashLength<T>> {
+pub struct DashPattern<T: TypstNumeric = TypstLength, DT = DashLength<T>> {
     /// The dash array.
     pub array: Vec<DT>,
     /// The dash phase.
     pub phase: T,
 }
 
-impl<T: Numeric + Repr, DT: Repr> Repr for DashPattern<T, DT> {
+impl<T: TypstNumeric + Repr, DT: Repr> Repr for DashPattern<T, DT> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::from("(array: (");
         for (i, elem) in self.array.iter().enumerate() {
@@ -490,7 +490,7 @@ impl<T: Numeric + Repr, DT: Repr> Repr for DashPattern<T, DT> {
     }
 }
 
-impl<T: Numeric + Default> From<Vec<DashLength<T>>> for DashPattern<T> {
+impl<T: TypstNumeric + Default> From<Vec<DashLength<T>>> for DashPattern<T> {
     fn from(array: Vec<DashLength<T>>) -> Self {
         Self {
             array,
@@ -502,7 +502,7 @@ impl<T: Numeric + Default> From<Vec<DashLength<T>>> for DashPattern<T> {
 impl Resolve for DashPattern {
     type Output = DashPattern<TypstAbsLength>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         DashPattern {
             array: self.array.into_iter().map(|l| l.resolve(styles)).collect(),
             phase: self.phase.resolve(styles),
@@ -527,11 +527,11 @@ cast! {
     "densely-dash-dotted" => vec![TypstAbsLength::pt(3.0).into(), TypstAbsLength::pt(1.0).into(), DashLength::LineWidth, TypstAbsLength::pt(1.0).into()].into(),
     "loosely-dash-dotted" => vec![TypstAbsLength::pt(3.0).into(), TypstAbsLength::pt(4.0).into(), DashLength::LineWidth, TypstAbsLength::pt(4.0).into()].into(),
 
-    array: Vec<DashLength> => Self { array, phase: Length::zero() },
+    array: Vec<DashLength> => Self { array, phase: TypstLength::zero() },
     mut dict: TypstDict => {
         let array: Vec<DashLength> = dict.take("array")?.cast()?;
         let phase = dict.take("phase").ok().map(TypstValue::cast)
-            .transpose()?.unwrap_or(Length::zero());
+            .transpose()?.unwrap_or(TypstLength::zero());
         dict.finish(&["array", "phase"])?;
         Self {
             array,
@@ -542,12 +542,12 @@ cast! {
 
 /// The length of a dash in a line dash pattern.
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub enum DashLength<T: Numeric = Length> {
+pub enum DashLength<T: TypstNumeric = TypstLength> {
     LineWidth,
     Length(T),
 }
 
-impl<T: Numeric> DashLength<T> {
+impl<T: TypstNumeric> DashLength<T> {
     fn finish(self, line_width: T) -> T {
         match self {
             Self::LineWidth => line_width,
@@ -556,7 +556,7 @@ impl<T: Numeric> DashLength<T> {
     }
 }
 
-impl<T: Numeric + Repr> Repr for DashLength<T> {
+impl<T: TypstNumeric + Repr> Repr for DashLength<T> {
     fn repr(&self) -> EcoString {
         match self {
             Self::LineWidth => "dot".repr(),
@@ -568,7 +568,7 @@ impl<T: Numeric + Repr> Repr for DashLength<T> {
 impl Resolve for DashLength {
     type Output = DashLength<TypstAbsLength>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         match self {
             Self::LineWidth => DashLength::LineWidth,
             Self::Length(v) => DashLength::Length(v.resolve(styles)),
@@ -589,7 +589,7 @@ cast! {
         Self::Length(v) => v.into_value(),
     },
     "dot" => Self::LineWidth,
-    v: Length => Self::Length(v),
+    v: TypstLength => Self::Length(v),
 }
 
 /// A fully specified stroke of a geometric shape.

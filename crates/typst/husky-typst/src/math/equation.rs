@@ -2,16 +2,16 @@ use std::num::NonZeroUsize;
 
 use unicode_math_class::MathClass;
 
-use crate::diag::{bail, SourceResult};
+use crate::diag::{bail, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, IsTypstElem, Resolve, ShowSet, Smart, StyleChain, Styles, Synthesize, TypstContent,
-    TypstContentRefined,
+    elem, IsTypstElem, Resolve, ShowSet, Smart, Synthesize, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstStyles,
 };
 use crate::introspection::{Count, Counter, CounterUpdate, Locatable};
 use crate::layout::{
-    AlignElem, Axes, FixedAlignment, LayoutMultiple, LayoutSingle, Point, Regions, Size,
-    TypstAbsLength, TypstAlignment, TypstEmLength, TypstFrame, TypstLayoutDirection,
+    AlignElem, Axes, FixedAlignment, LayoutMultiple, LayoutSingle, Size, TypstAbsLength,
+    TypstAlignment, TypstEmLength, TypstFrame, TypstLayoutDirection, TypstPoint, TypstRegions,
 };
 use crate::math::{scaled_font_size, MathContext, MathSize, MathVariant, TypstLayoutMath};
 use crate::model::{Numbering, Outlinable, ParagraphTypstElem, Refable, Supplement};
@@ -20,7 +20,7 @@ use crate::text::{
     families, variant, FontFamily, FontList, FontWeight, Lang, LocalName, Region, TextElem,
     TypstFont,
 };
-use crate::util::{option_eq, NonZeroExt, Numeric};
+use crate::util::{option_eq, NonZeroExt, TypstNumeric};
 use crate::IsTypstWorld;
 
 /// A mathematical equation.
@@ -133,7 +133,11 @@ pub struct EquationTypstElem {
 }
 
 impl Synthesize for TypstContentRefined<EquationTypstElem> {
-    fn synthesize(&mut self, engine: &mut TypstEngine, styles: StyleChain) -> SourceResult<()> {
+    fn synthesize(
+        &mut self,
+        engine: &mut TypstEngine,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let supplement = match self.as_ref().supplement(styles) {
             Smart::Auto => TextElem::packed(Self::local_name_in(styles)),
             Smart::Custom(None) => TypstContent::empty(),
@@ -146,8 +150,8 @@ impl Synthesize for TypstContentRefined<EquationTypstElem> {
 }
 
 impl ShowSet for TypstContentRefined<EquationTypstElem> {
-    fn show_set(&self, styles: StyleChain) -> Styles {
-        let mut out = Styles::new();
+    fn show_set(&self, styles: TypstStyleChain) -> TypstStyles {
+        let mut out = TypstStyles::new();
         if self.block(styles) {
             out.set(AlignElem::set_alignment(TypstAlignment::CENTER));
             out.set(EquationTypstElem::set_size(MathSize::Display));
@@ -181,9 +185,9 @@ impl TypstContentRefined<EquationTypstElem> {
     pub fn layout_inline(
         &self,
         engine: &mut TypstEngine<'_>,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<Vec<MathParItem>> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<Vec<MathParItem>> {
         assert!(!self.block(styles));
 
         // Find a math font.
@@ -212,7 +216,7 @@ impl TypstContentRefined<EquationTypstElem> {
 
             let ascent = top_edge.max(frame.ascent() - slack);
             let descent = bottom_edge.max(frame.descent() - slack);
-            frame.translate(Point::with_y(ascent - frame.baseline()));
+            frame.translate(TypstPoint::with_y(ascent - frame.baseline()));
             frame.size_mut().y = ascent + descent;
         }
 
@@ -225,9 +229,9 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
     fn layout(
         &self,
         engine: &mut TypstEngine,
-        styles: StyleChain,
-        regions: Regions,
-    ) -> SourceResult<TypstFrame> {
+        styles: TypstStyleChain,
+        regions: TypstRegions,
+    ) -> TypstSourceResult<TypstFrame> {
         const NUMBER_GUTTER: TypstEmLength = TypstEmLength::new(0.5);
 
         assert!(self.block(styles));
@@ -239,7 +243,7 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
         let mut frame = ctx.layout_frame(self, styles)?;
 
         if let Some(numbering) = (**self).numbering(styles) {
-            let pod = Regions::one(regions.base(), Axes::splat(false));
+            let pod = TypstRegions::one(regions.base(), Axes::splat(false));
             let counter = Counter::of(EquationTypstElem::elem())
                 .at(engine, self.location().unwrap())?
                 .display(engine, numbering)?
@@ -264,7 +268,7 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
                 (FixedAlignment::End, TypstLayoutDirection::LeftRight) => -full_counter_width,
                 _ => TypstAbsLength::zero(),
             };
-            frame.translate(Point::with_x(offset));
+            frame.translate(TypstPoint::with_x(offset));
 
             let x = if dir.is_positive() {
                 frame.width() - counter.width()
@@ -273,7 +277,7 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
             };
             let y = (frame.height() - counter.height()) / 2.0;
 
-            frame.push_frame(Point::new(x, y), counter)
+            frame.push_frame(TypstPoint::new(x, y), counter)
         }
 
         Ok(frame)
@@ -282,7 +286,7 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
 
 impl Count for TypstContentRefined<EquationTypstElem> {
     fn update(&self) -> Option<CounterUpdate> {
-        (self.block(StyleChain::default()) && self.numbering().is_some())
+        (self.block(TypstStyleChain::default()) && self.numbering().is_some())
             .then(|| CounterUpdate::Step(NonZeroUsize::ONE))
     }
 }
@@ -328,7 +332,7 @@ impl LocalName for TypstContentRefined<EquationTypstElem> {
 impl Refable for TypstContentRefined<EquationTypstElem> {
     fn supplement(&self) -> TypstContent {
         // After synthesis, this should always be custom content.
-        match (**self).supplement(StyleChain::default()) {
+        match (**self).supplement(TypstStyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
             _ => TypstContent::empty(),
         }
@@ -339,13 +343,13 @@ impl Refable for TypstContentRefined<EquationTypstElem> {
     }
 
     fn numbering(&self) -> Option<&Numbering> {
-        (**self).numbering(StyleChain::default()).as_ref()
+        (**self).numbering(TypstStyleChain::default()).as_ref()
     }
 }
 
 impl Outlinable for TypstContentRefined<EquationTypstElem> {
-    fn outline(&self, engine: &mut TypstEngine) -> SourceResult<Option<TypstContent>> {
-        if !self.block(StyleChain::default()) {
+    fn outline(&self, engine: &mut TypstEngine) -> TypstSourceResult<Option<TypstContent>> {
+        if !self.block(TypstStyleChain::default()) {
             return Ok(None);
         }
         let Some(numbering) = self.numbering() else {
@@ -353,7 +357,7 @@ impl Outlinable for TypstContentRefined<EquationTypstElem> {
         };
 
         // After synthesis, this should always be custom content.
-        let mut supplement = match (**self).supplement(StyleChain::default()) {
+        let mut supplement = match (**self).supplement(TypstStyleChain::default()) {
             Smart::Custom(Some(Supplement::Content(content))) => content,
             _ => TypstContent::empty(),
         };
@@ -373,16 +377,16 @@ impl Outlinable for TypstContentRefined<EquationTypstElem> {
 
 impl TypstLayoutMath for TypstContentRefined<EquationTypstElem> {
     #[husky_typst_macros::time(name = "math.equation", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: StyleChain) -> SourceResult<()> {
+    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
         self.body().layout_math(ctx, styles)
     }
 }
 
 fn find_math_font(
     engine: &mut TypstEngine<'_>,
-    styles: StyleChain,
+    styles: TypstStyleChain,
     span: TypstSynSpan,
-) -> SourceResult<TypstFont> {
+) -> TypstSourceResult<TypstFont> {
     let variant = variant(styles);
     let world = engine.world;
     let Some(font) = families(styles).find_map(|family| {

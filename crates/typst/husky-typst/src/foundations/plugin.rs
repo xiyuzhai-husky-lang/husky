@@ -5,7 +5,7 @@ use std::sync::{Arc, Mutex};
 use ecow::{eco_format, EcoString};
 use wasmi::{AsContext, AsContextMut};
 
-use crate::diag::{bail, At, SourceResult, StrResult};
+use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, repr, scope, ty, Bytes};
 use crate::syntax::Spanned;
@@ -156,7 +156,7 @@ impl Plugin {
         engine: &mut TypstEngine,
         /// Path to a WebAssembly file.
         path: Spanned<EcoString>,
-    ) -> SourceResult<Plugin> {
+    ) -> TypstSourceResult<Plugin> {
         let Spanned { v: path, span } = path;
         let id = span.resolve_path(&path).at(span)?;
         let data = engine.world.file(id).at(span)?;

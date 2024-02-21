@@ -2,7 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, StyleChain, TypstDict,
+    CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, TypstDict, TypstStyleChain,
     TypstValue,
 };
 use crate::layout::Side;
@@ -247,7 +247,7 @@ where
 impl<T: Resolve> Resolve for Corners<T> {
     type Output = Corners<T::Output>;
 
-    fn resolve(self, styles: StyleChain) -> Self::Output {
+    fn resolve(self, styles: TypstStyleChain) -> Self::Output {
         self.map(|v| v.resolve(styles))
     }
 }

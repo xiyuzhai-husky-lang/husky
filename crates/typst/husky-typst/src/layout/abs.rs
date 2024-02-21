@@ -5,7 +5,7 @@ use std::ops::{Add, Div, Mul, Neg, Rem};
 use ecow::EcoString;
 
 use crate::foundations::{cast, repr, Repr, TypstValue};
-use crate::util::{Numeric, Scalar};
+use crate::util::{Scalar, TypstNumeric};
 
 /// An absolute length.
 #[derive(Default, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
@@ -130,7 +130,7 @@ impl TypstAbsLength {
     }
 }
 
-impl Numeric for TypstAbsLength {
+impl TypstNumeric for TypstAbsLength {
     fn zero() -> Self {
         Self::zero()
     }
