@@ -18,7 +18,7 @@ use crate::foundations::{
 };
 use crate::layout::{BlockElem, HAlignment, TypstEmLength};
 use crate::model::Figurable;
-use crate::syntax::{split_newlines, LinkedNode, Spanned};
+use crate::syntax::{split_newlines, LinkedNode, TypstSynSpanned};
 use crate::text::{
     FontFamily, FontList, Hyphenate, Lang, LinebreakElem, LocalName, Region, SmartQuoteElem,
     TextElem, TextSize,
@@ -714,7 +714,9 @@ fn parse_syntaxes(
     engine: &mut TypstEngine,
     args: &mut TypstArgs,
 ) -> TypstSourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
-    let Some(Spanned { v: paths, span }) = args.named::<Spanned<SyntaxPaths>>("syntaxes")? else {
+    let Some(TypstSynSpanned { v: paths, span }) =
+        args.named::<TypstSynSpanned<SyntaxPaths>>("syntaxes")?
+    else {
         return Ok((None, None));
     };
 
@@ -750,7 +752,9 @@ fn parse_theme(
     engine: &mut TypstEngine,
     args: &mut TypstArgs,
 ) -> TypstSourceResult<(Option<EcoString>, Option<Bytes>)> {
-    let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")? else {
+    let Some(TypstSynSpanned { v: path, span }) =
+        args.named::<TypstSynSpanned<EcoString>>("theme")?
+    else {
         return Ok((None, None));
     };
 

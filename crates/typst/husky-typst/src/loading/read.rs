@@ -4,7 +4,7 @@ use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, Cast};
 use crate::loading::Readable;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::IsTypstWorld;
 
 /// Reads plain text or data from a file.
@@ -27,7 +27,7 @@ pub fn read(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to a file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
     /// The encoding to read the file with.
     ///
     /// If set to `{none}`, this function returns raw bytes.
@@ -35,7 +35,7 @@ pub fn read(
     #[default(Some(Encoding::Utf8))]
     encoding: Option<Encoding>,
 ) -> TypstSourceResult<Readable> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
     Ok(match encoding {

@@ -16,7 +16,7 @@ use crate::foundations::{
     TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::layout::{Angle, Ratio};
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
 // Type aliases for `palette` internal types in f32.
 pub type Oklab = palette::oklab::Oklaba<f32>;
@@ -486,7 +486,7 @@ impl TypstColor {
         #[external]
         color: TypstColor,
     ) -> TypstSourceResult<TypstColor> {
-        Ok(if let Some(string) = args.find::<Spanned<Str>>()? {
+        Ok(if let Some(string) = args.find::<TypstSynSpanned<Str>>()? {
             Self::from_str(&string.v).at(string.span)?
         } else if let Some(color) = args.find::<TypstColor>()? {
             color.to_rgba()

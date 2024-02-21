@@ -14,7 +14,7 @@ use crate::foundations::{
     TypstDict, TypstValue, Version,
 };
 use crate::layout::TypstAlignment;
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
 /// Create a new [`Str`] from a format string.
 #[macro_export]
@@ -151,8 +151,8 @@ impl Str {
         value: ToStr,
         /// The base (radix) to display integers in, between 2 and 36.
         #[named]
-        #[default(Spanned::new(10, TypstSynSpan::detached()))]
-        base: Spanned<i64>,
+        #[default(TypstSynSpanned::new(10, TypstSynSpan::detached()))]
+        base: TypstSynSpanned<i64>,
     ) -> TypstSourceResult<Str> {
         Ok(match value {
             ToStr::Str(s) => {
@@ -884,7 +884,7 @@ impl Regex {
         /// If you need many escape sequences, you can also create a raw element
         /// and extract its text to use it for your regular expressions:
         /// ```{regex(`\d+\.\d+\.\d+`.text)}```.
-        regex: Spanned<Str>,
+        regex: TypstSynSpanned<Str>,
     ) -> TypstSourceResult<Regex> {
         Self::new(&regex.v).at(regex.span)
     }

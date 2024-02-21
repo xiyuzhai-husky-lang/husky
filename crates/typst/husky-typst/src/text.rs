@@ -46,7 +46,7 @@ use crate::foundations::{
 use crate::layout::TypstEmLength;
 use crate::layout::{Axis, Rel, TypstAbsLength, TypstLayoutDirection, TypstLength};
 use crate::model::ParagraphTypstElem;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::visualize::{RelativeTo, TypstColor, TypstPaint, TypstStroke};
 
 /// Text styling.
@@ -229,7 +229,7 @@ pub struct TextElem {
     /// This text is red.
     /// ```
     #[parse({
-        let paint: Option<Spanned<TypstPaint>> = args.named_or_find("fill")?;
+        let paint: Option<TypstSynSpanned<TypstPaint>> = args.named_or_find("fill")?;
         if let Some(paint) = &paint {
             if paint.v.relative() == Smart::Custom(RelativeTo::Self_) {
                 bail!(

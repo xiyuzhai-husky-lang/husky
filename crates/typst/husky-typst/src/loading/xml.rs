@@ -4,7 +4,7 @@ use crate::diag::{format_xml_like_error, At, FileError, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{dict, func, scope, Array, IntoTypstValue, Str, TypstDict, TypstValue};
 use crate::loading::Readable;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::IsTypstWorld;
 
 /// Reads structured data from an XML file.
@@ -60,12 +60,12 @@ pub fn xml(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to an XML file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
 ) -> TypstSourceResult<TypstValue> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
-    xml::decode(Spanned::new(Readable::Bytes(data), span))
+    xml::decode(TypstSynSpanned::new(Readable::Bytes(data), span))
 }
 
 #[scope]
@@ -74,9 +74,9 @@ impl xml {
     #[func(title = "Decode XML")]
     pub fn decode(
         /// XML data.
-        data: Spanned<Readable>,
+        data: TypstSynSpanned<Readable>,
     ) -> TypstSourceResult<TypstValue> {
-        let Spanned { v: data, span } = data;
+        let TypstSynSpanned { v: data, span } = data;
         let text = std::str::from_utf8(data.as_slice())
             .map_err(FileError::from)
             .at(span)?;

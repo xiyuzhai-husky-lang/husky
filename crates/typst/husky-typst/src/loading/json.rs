@@ -4,7 +4,7 @@ use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::IsTypstWorld;
 
 /// Reads structured data from a JSON file.
@@ -49,12 +49,12 @@ pub fn json(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to a JSON file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
 ) -> TypstSourceResult<TypstValue> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
-    json::decode(Spanned::new(Readable::Bytes(data), span))
+    json::decode(TypstSynSpanned::new(Readable::Bytes(data), span))
 }
 
 #[scope]
@@ -63,9 +63,9 @@ impl json {
     #[func(title = "Decode JSON")]
     pub fn decode(
         /// JSON data.
-        data: Spanned<Readable>,
+        data: TypstSynSpanned<Readable>,
     ) -> TypstSourceResult<TypstValue> {
-        let Spanned { v: data, span } = data;
+        let TypstSynSpanned { v: data, span } = data;
         serde_json::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse JSON ({err})"))
             .at(span)
@@ -75,13 +75,13 @@ impl json {
     #[func(title = "Encode JSON")]
     pub fn encode(
         /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        value: TypstSynSpanned<TypstValue>,
         /// Whether to pretty print the JSON with newlines and indentation.
         #[named]
         #[default(true)]
         pretty: bool,
     ) -> TypstSourceResult<Str> {
-        let Spanned { v: value, span } = value;
+        let TypstSynSpanned { v: value, span } = value;
         if pretty {
             serde_json::to_string_pretty(&value)
         } else {

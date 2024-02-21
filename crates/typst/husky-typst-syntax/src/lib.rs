@@ -21,7 +21,7 @@ pub use self::lexer::{
 pub use self::node::{LinkedChildren, LinkedNode, SyntaxError, TypstSyntaxNode};
 pub use self::parser::{parse, parse_code, parse_math};
 pub use self::source::Source;
-pub use self::span::{Spanned, TypstSynSpan};
+pub use self::span::{TypstSynSpan, TypstSynSpanned};
 
 use self::lexer::{LexMode, Lexer};
 use self::parser::{reparse_block, reparse_markup};

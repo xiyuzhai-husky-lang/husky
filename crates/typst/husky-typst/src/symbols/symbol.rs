@@ -8,7 +8,7 @@ use serde::{Serialize, Serializer};
 
 use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::foundations::{cast, func, scope, ty, Array};
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
 #[doc(inline)]
 pub use husky_typst_macros::symbols;
@@ -196,13 +196,13 @@ impl Symbol {
         /// displaying a symbol, Typst selects the first from the variants that have
         /// all attached modifiers and the minimum number of other modifiers.
         #[variadic]
-        variants: Vec<Spanned<SymbolVariant>>,
+        variants: Vec<TypstSynSpanned<SymbolVariant>>,
     ) -> TypstSourceResult<Symbol> {
         let mut list = Vec::new();
         if variants.is_empty() {
             bail!(span, "expected at least one variant");
         }
-        for Spanned { v, span } in variants {
+        for TypstSynSpanned { v, span } in variants {
             if list.iter().any(|(prev, _)| &v.0 == prev) {
                 bail!(span, "duplicate variant");
             }

@@ -26,7 +26,7 @@ pub(crate) use self::flow::*;
 use comemo::{Track, Tracked, TrackedMut};
 
 use crate::diag::{bail, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::foundations::{
     Cast, IsTypstElem, TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
     TypstValueAssignmentGroups,
@@ -41,7 +41,7 @@ use crate::IsTypstWorld;
 #[husky_typst_macros::time(name = "eval", span = source.root().span())]
 pub fn eval(
     world: Tracked<dyn IsTypstWorld + '_>,
-    route: Tracked<Route>,
+    route: Tracked<TypstEngineRoute>,
     tracer: TrackedMut<Tracer>,
     source: &Source,
 ) -> TypstSourceResult<TypstModuleEvaluation> {
@@ -56,7 +56,7 @@ pub fn eval(
     let introspector = Introspector::default();
     let engine = TypstEngine {
         world,
-        route: Route::extend(route).with_id(id),
+        route: TypstEngineRoute::extend(route).with_id(id),
         introspector: introspector.track(),
         locator: &mut locator,
         tracer,
@@ -125,7 +125,7 @@ pub fn eval_string(
     let engine = TypstEngine {
         world,
         introspector: introspector.track(),
-        route: Route::default(),
+        route: TypstEngineRoute::default(),
         locator: &mut locator,
         tracer: tracer.track_mut(),
     };

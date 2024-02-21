@@ -4,7 +4,7 @@ use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::IsTypstWorld;
 
 /// Reads structured data from a YAML file.
@@ -41,12 +41,12 @@ pub fn yaml(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to a YAML file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
 ) -> TypstSourceResult<TypstValue> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
-    yaml::decode(Spanned::new(Readable::Bytes(data), span))
+    yaml::decode(TypstSynSpanned::new(Readable::Bytes(data), span))
 }
 
 #[scope]
@@ -55,9 +55,9 @@ impl yaml {
     #[func(title = "Decode YAML")]
     pub fn decode(
         /// YAML data.
-        data: Spanned<Readable>,
+        data: TypstSynSpanned<Readable>,
     ) -> TypstSourceResult<TypstValue> {
-        let Spanned { v: data, span } = data;
+        let TypstSynSpanned { v: data, span } = data;
         serde_yaml::from_slice(data.as_slice())
             .map_err(|err| eco_format!("failed to parse YAML ({err})"))
             .at(span)
@@ -67,9 +67,9 @@ impl yaml {
     #[func(title = "Encode YAML")]
     pub fn encode(
         /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        value: TypstSynSpanned<TypstValue>,
     ) -> TypstSourceResult<Str> {
-        let Spanned { v: value, span } = value;
+        let TypstSynSpanned { v: value, span } = value;
         serde_yaml::to_string(&value)
             .map(|v| v.into())
             .map_err(|err| eco_format!("failed to encode value as YAML ({err})"))

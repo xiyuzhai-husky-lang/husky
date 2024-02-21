@@ -1,6 +1,6 @@
 use comemo::Track;
 use ecow::{eco_vec, EcoString, EcoVec};
-use husky_typst::engine::{Route, TypstEngine};
+use husky_typst::engine::{TypstEngine, TypstEngineRoute};
 use husky_typst::eval::{Tracer, Vm};
 use husky_typst::foundations::{Label, TypstValue, TypstValueAssignmentGroups};
 use husky_typst::introspection::{Introspector, Locator};
@@ -58,7 +58,7 @@ pub fn analyze_import(world: &dyn IsTypstWorld, source: &LinkedNode) -> Option<T
     let mut tracer = Tracer::new();
     let engine = TypstEngine {
         world: world.track(),
-        route: Route::default(),
+        route: TypstEngineRoute::default(),
         introspector: introspector.track(),
         locator: &mut locator,
         tracer: tracer.track_mut(),

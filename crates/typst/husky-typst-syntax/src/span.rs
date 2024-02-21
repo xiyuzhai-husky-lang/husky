@@ -94,40 +94,40 @@ impl TypstSynSpan {
 
 /// A value with a span locating it in the source code.
 #[derive(Copy, Clone, Eq, PartialEq, Hash)]
-pub struct Spanned<T> {
+pub struct TypstSynSpanned<T> {
     /// The spanned value.
     pub v: T,
     /// The value's location in source code.
     pub span: TypstSynSpan,
 }
 
-impl<T> Spanned<T> {
+impl<T> TypstSynSpanned<T> {
     /// Create a new instance from a value and its span.
     pub fn new(v: T, span: TypstSynSpan) -> Self {
         Self { v, span }
     }
 
-    /// Convert from `&Spanned<T>` to `Spanned<&T>`
-    pub fn as_ref(&self) -> Spanned<&T> {
-        Spanned {
+    /// Convert from `&TypstSynSpanned<T>` to `TypstSynSpanned<&T>`
+    pub fn as_ref(&self) -> TypstSynSpanned<&T> {
+        TypstSynSpanned {
             v: &self.v,
             span: self.span,
         }
     }
 
     /// Map the value using a function.
-    pub fn map<F, U>(self, f: F) -> Spanned<U>
+    pub fn map<F, U>(self, f: F) -> TypstSynSpanned<U>
     where
         F: FnOnce(T) -> U,
     {
-        Spanned {
+        TypstSynSpanned {
             v: f(self.v),
             span: self.span,
         }
     }
 }
 
-impl<T: Debug> Debug for Spanned<T> {
+impl<T: Debug> Debug for TypstSynSpanned<T> {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         self.v.fmt(f)
     }

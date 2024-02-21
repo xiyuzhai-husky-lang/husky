@@ -73,7 +73,7 @@ use ecow::EcoString;
 use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::eval::EvalMode;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 
 /// Foundational types and functions.
 ///
@@ -256,7 +256,7 @@ pub fn eval(
     /// The engine.
     engine: &mut TypstEngine,
     /// A string of Typst code to evaluate.
-    source: Spanned<String>,
+    source: TypstSynSpanned<String>,
     /// The syntactical mode in which the string is parsed.
     ///
     /// ```example
@@ -283,7 +283,7 @@ pub fn eval(
     #[default]
     scope: TypstDict,
 ) -> TypstSourceResult<TypstValue> {
-    let Spanned { v: text, span } = source;
+    let TypstSynSpanned { v: text, span } = source;
     let dict = scope;
     let mut scope = TypstValueAssignmentGroup::new();
     for (key, value) in dict {

@@ -4,7 +4,7 @@ use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{func, scope, Str, TypstValue};
 use crate::loading::Readable;
-use crate::syntax::{is_newline, Spanned};
+use crate::syntax::{is_newline, TypstSynSpanned};
 use crate::IsTypstWorld;
 
 /// Reads structured data from a TOML file.
@@ -32,12 +32,12 @@ pub fn toml(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to a TOML file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
 ) -> TypstSourceResult<TypstValue> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
-    toml::decode(Spanned::new(Readable::Bytes(data), span))
+    toml::decode(TypstSynSpanned::new(Readable::Bytes(data), span))
 }
 
 #[scope]
@@ -46,9 +46,9 @@ impl toml {
     #[func(title = "Decode TOML")]
     pub fn decode(
         /// TOML data.
-        data: Spanned<Readable>,
+        data: TypstSynSpanned<Readable>,
     ) -> TypstSourceResult<TypstValue> {
-        let Spanned { v: data, span } = data;
+        let TypstSynSpanned { v: data, span } = data;
         let raw = std::str::from_utf8(data.as_slice())
             .map_err(|_| "file is not valid utf-8")
             .at(span)?;
@@ -61,13 +61,13 @@ impl toml {
     #[func(title = "Encode TOML")]
     pub fn encode(
         /// TypstValue to be encoded.
-        value: Spanned<TypstValue>,
+        value: TypstSynSpanned<TypstValue>,
         /// Whether to pretty-print the resulting TOML.
         #[named]
         #[default(true)]
         pretty: bool,
     ) -> TypstSourceResult<Str> {
-        let Spanned { v: value, span } = value;
+        let TypstSynSpanned { v: value, span } = value;
         if pretty {
             ::toml::to_string_pretty(&value)
         } else {

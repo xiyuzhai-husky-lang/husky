@@ -5,7 +5,7 @@ use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
     Scaled, TypstLayoutMath, TypstMathContext, DELIM_SHORT_FALL,
 };
-use crate::syntax::{Span, Spanned};
+use crate::syntax::{Span, TypstSynSpanned};
 use crate::text::TextElem;
 use crate::visualize::{TypstFixedStroke, TypstGeometry};
 
@@ -70,7 +70,7 @@ pub struct BinomElem {
     #[required]
     #[variadic]
     #[parse(
-        let values = args.all::<Spanned<TypstValue>>()?;
+        let values = args.all::<TypstSynSpanned<TypstValue>>()?;
         if values.is_empty() {
             // Prevents one element binomials
             bail!(args.span, "missing argument: lower");

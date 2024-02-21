@@ -12,7 +12,7 @@ use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::foundations::{
     array, repr, IsTypstElem, Repr, Str, Type, TypstContentRefined, TypstValue,
 };
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
 #[rustfmt::skip]
 #[doc(inline)]
@@ -72,7 +72,7 @@ impl Reflect for TypstValue {
     }
 }
 
-impl<T: Reflect> Reflect for Spanned<T> {
+impl<T: Reflect> Reflect for TypstSynSpanned<T> {
     fn input() -> CastInfo {
         T::input()
     }
@@ -202,7 +202,7 @@ impl<T: IsTypstElem + IntoTypstValue> IntoTypstValue for TypstContentRefined<T> 
     }
 }
 
-impl<T: IntoTypstValue> IntoTypstValue for Spanned<T> {
+impl<T: IntoTypstValue> IntoTypstValue for TypstSynSpanned<T> {
     fn into_value(self) -> TypstValue {
         self.v.into_value()
     }
@@ -280,16 +280,16 @@ impl<T: FromTypstValue + Hash + 'static> FromTypstValue for Prehashed<T> {
     }
 }
 
-impl<T: FromTypstValue> FromTypstValue<Spanned<TypstValue>> for T {
-    fn from_value(value: Spanned<TypstValue>) -> StrResult<Self> {
+impl<T: FromTypstValue> FromTypstValue<TypstSynSpanned<TypstValue>> for T {
+    fn from_value(value: TypstSynSpanned<TypstValue>) -> StrResult<Self> {
         T::from_value(value.v)
     }
 }
 
-impl<T: FromTypstValue> FromTypstValue<Spanned<TypstValue>> for Spanned<T> {
-    fn from_value(value: Spanned<TypstValue>) -> StrResult<Self> {
+impl<T: FromTypstValue> FromTypstValue<TypstSynSpanned<TypstValue>> for TypstSynSpanned<T> {
+    fn from_value(value: TypstSynSpanned<TypstValue>) -> StrResult<Self> {
         let span = value.span;
-        T::from_value(value.v).map(|t| Spanned::new(t, span))
+        T::from_value(value.v).map(|t| TypstSynSpanned::new(t, span))
     }
 }
 

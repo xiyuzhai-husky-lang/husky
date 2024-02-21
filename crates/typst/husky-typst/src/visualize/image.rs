@@ -25,7 +25,7 @@ use crate::layout::{
 };
 use crate::loading::Readable;
 use crate::model::Figurable;
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 use crate::text::{families, Lang, LocalName, Region};
 use crate::util::{option_eq, TypstNumeric};
 use crate::visualize::Path;
@@ -56,8 +56,8 @@ pub struct ImageElem {
     /// Path to an image file.
     #[required]
     #[parse(
-        let Spanned { v: path, span } =
-            args.expect::<Spanned<EcoString>>("path to image file")?;
+        let TypstSynSpanned { v: path, span } =
+            args.expect::<TypstSynSpanned<EcoString>>("path to image file")?;
         let id = span.resolve_path(&path).at(span)?;
         let data = engine.world.file(id).at(span)?;
         path

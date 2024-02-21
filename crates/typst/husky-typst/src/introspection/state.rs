@@ -2,7 +2,7 @@ use comemo::{Tracked, TrackedMut};
 use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
 use crate::diag::TypstSourceResult;
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Func, IsTypstElem, Repr, Selector, Show, Str,
@@ -221,7 +221,7 @@ impl State {
         &self,
         world: Tracked<dyn IsTypstWorld + '_>,
         introspector: Tracked<Introspector>,
-        route: Tracked<Route>,
+        route: Tracked<TypstEngineRoute>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
     ) -> TypstSourceResult<EcoVec<TypstValue>> {
@@ -229,7 +229,7 @@ impl State {
         let mut engine = TypstEngine {
             world,
             introspector,
-            route: Route::extend(route).unnested(),
+            route: TypstEngineRoute::extend(route).unnested(),
             locator: &mut locator,
             tracer,
         };

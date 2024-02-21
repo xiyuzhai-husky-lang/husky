@@ -12,7 +12,7 @@ use smallvec::smallvec;
 use typed_arena::Arena;
 
 use crate::diag::{bail, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::foundations::{
     Behave, Behaviour, IsTypstElem, Recipe, RecipeIndex, Regex, Selector, Show, Style, StyleVec,
     StyleVecBuilder, Transformation, TypstContent, TypstContentRefined, TypstShowSet,
@@ -433,7 +433,11 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
 
         if let Some(realized) = realize(self.engine, content, styles)? {
             self.engine.route.increase();
-            if !self.engine.route.within(Route::MAX_SHOW_RULE_DEPTH) {
+            if !self
+                .engine
+                .route
+                .within(TypstEngineRoute::MAX_SHOW_RULE_DEPTH)
+            {
                 bail!(
                     content.span(), "maximum show rule depth exceeded";
                     hint: "check whether the show rule matches its own output"

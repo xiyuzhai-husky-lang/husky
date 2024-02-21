@@ -9,7 +9,7 @@ use std::string::FromUtf8Error;
 use comemo::Tracked;
 use ecow::{eco_vec, EcoVec};
 
-use crate::syntax::{PackageSpec, Spanned, SyntaxError, TypstSynSpan};
+use crate::syntax::{PackageSpec, SyntaxError, TypstSynSpan, TypstSynSpanned};
 use crate::{IsTypstWorld, WorldExt};
 
 /// Early-return with a [`StrResult`] or [`TypstSourceResult`].
@@ -133,7 +133,7 @@ pub struct SourceDiagnostic {
     /// A diagnostic message describing the problem.
     pub message: EcoString,
     /// The trace of function calls leading to the problem.
-    pub trace: EcoVec<Spanned<Tracepoint>>,
+    pub trace: EcoVec<TypstSynSpanned<Tracepoint>>,
     /// Additional hints to the user, indicating how this problem could be avoided
     /// or worked around.
     pub hints: EcoVec<EcoString>,
@@ -269,7 +269,7 @@ impl<T> Trace<T> for TypstSourceResult<T> {
                     }
                 }
 
-                error.trace.push(Spanned::new(make_point(), span));
+                error.trace.push(TypstSynSpanned::new(make_point(), span));
             }
             errors
         })
