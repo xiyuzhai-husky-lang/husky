@@ -10,7 +10,7 @@ use crate::foundations::{func, repr, scope, ty, Smart, TypstContent, TypstStyleC
 use crate::layout::{
     Axes, LayoutMultiple, Size, TypstAbsLength, TypstFrame, TypstLength, TypstRegions,
 };
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 use crate::util::TypstNumeric;
 use crate::visualize::RelativeTo;
 use crate::IsTypstWorld;
@@ -141,12 +141,15 @@ impl Pattern {
         span: TypstSynSpan,
         /// The bounding box of each cell of the pattern.
         #[named]
-        #[default(Spanned::new(Smart::Auto, TypstSynSpan::detached()))]
-        size: Spanned<Smart<Axes<TypstLength>>>,
+        #[default(TypstSynSpanned::new(Smart::Auto, TypstSynSpan::detached()))]
+        size: TypstSynSpanned<Smart<Axes<TypstLength>>>,
         /// The spacing between cells of the pattern.
         #[named]
-        #[default(Spanned::new(Axes::splat(TypstLength::zero()), TypstSynSpan::detached()))]
-        spacing: Spanned<Axes<TypstLength>>,
+        #[default(TypstSynSpanned::new(
+            Axes::splat(TypstLength::zero()),
+            TypstSynSpan::detached()
+        ))]
+        spacing: TypstSynSpanned<Axes<TypstLength>>,
         /// The [relative placement](#relativeness) of the pattern.
         ///
         /// For an element placed at the root/top level of the document, the

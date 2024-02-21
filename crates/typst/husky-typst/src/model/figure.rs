@@ -17,7 +17,7 @@ use crate::layout::{
     BlockElem, HAlignment, PlaceElem, TypstAlignment, TypstEmLength, TypstLength, VAlignment, VElem,
 };
 use crate::model::{Numbering, NumberingPattern, Refable, Supplement, TypstOutlinable};
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::text::{Lang, Region, TextElem};
 use crate::util::NonZeroExt;
 use crate::visualize::ImageElem;
@@ -470,8 +470,8 @@ pub struct FigureCaption {
     /// ```
     #[default(VAlignment::Bottom)]
     #[parse({
-        let option: Option<Spanned<VAlignment>> = args.named("position")?;
-        if let Some(Spanned { v: align, span }) = option {
+        let option: Option<TypstSynSpanned<VAlignment>> = args.named("position")?;
+        if let Some(TypstSynSpanned { v: align, span }) = option {
             if align == VAlignment::Horizon {
                 bail!(span, "expected `top` or `bottom`");
             }

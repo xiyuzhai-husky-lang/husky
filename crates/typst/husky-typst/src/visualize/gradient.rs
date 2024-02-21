@@ -11,7 +11,7 @@ use crate::foundations::{
     array, cast, func, scope, ty, Array, Cast, Func, IntoTypstValue, Repr, Smart, TypstArgs,
 };
 use crate::layout::{Angle, Axes, Quadrant, Ratio, TypstLayoutDirection};
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 use crate::visualize::{ColorSpace, TypstColor, WeightedColor};
 
 /// A color gradient.
@@ -206,7 +206,7 @@ impl Gradient {
         span: TypstSynSpan,
         /// The color [stops](#stops) of the gradient.
         #[variadic]
-        stops: Vec<Spanned<GradientStop>>,
+        stops: Vec<TypstSynSpanned<GradientStop>>,
         /// The color space in which to interpolate the gradient.
         ///
         /// Defaults to a perceptually uniform color space called
@@ -296,7 +296,7 @@ impl Gradient {
         span: TypstSynSpan,
         /// The color [stops](#stops) of the gradient.
         #[variadic]
-        stops: Vec<Spanned<GradientStop>>,
+        stops: Vec<TypstSynSpanned<GradientStop>>,
         /// The color space in which to interpolate the gradient.
         ///
         /// Defaults to a perceptually uniform color space called
@@ -324,8 +324,8 @@ impl Gradient {
         /// By default, it is set to `{50%}`. The ending radius must be bigger
         /// than the focal radius.
         #[named]
-        #[default(Spanned::new(Ratio::new(0.5), TypstSynSpan::detached()))]
-        radius: Spanned<Ratio>,
+        #[default(TypstSynSpanned::new(Ratio::new(0.5), TypstSynSpan::detached()))]
+        radius: TypstSynSpanned<Ratio>,
         /// The center of the focal circle of the gradient.
         ///
         /// The focal center must be inside of the end circle.
@@ -344,8 +344,8 @@ impl Gradient {
         /// By default, it is set to `{0%}`. The focal radius must be smaller
         /// than the ending radius`.
         #[named]
-        #[default(Spanned::new(Ratio::new(0.0), TypstSynSpan::detached()))]
-        focal_radius: Spanned<Ratio>,
+        #[default(TypstSynSpanned::new(Ratio::new(0.0), TypstSynSpan::detached()))]
+        focal_radius: TypstSynSpanned<Ratio>,
     ) -> TypstSourceResult<Gradient> {
         if stops.len() < 2 {
             bail!(
@@ -411,7 +411,7 @@ impl Gradient {
         span: TypstSynSpan,
         /// The color [stops](#stops) of the gradient.
         #[variadic]
-        stops: Vec<Spanned<GradientStop>>,
+        stops: Vec<TypstSynSpanned<GradientStop>>,
         /// The angle of the gradient.
         #[named]
         #[default(Angle::zero())]
@@ -473,11 +473,11 @@ impl Gradient {
     pub fn sharp(
         &self,
         /// The number of stops in the gradient.
-        steps: Spanned<usize>,
+        steps: TypstSynSpanned<usize>,
         /// How much to smooth the gradient.
         #[named]
-        #[default(Spanned::new(Ratio::zero(), TypstSynSpan::detached()))]
-        smoothness: Spanned<Ratio>,
+        #[default(TypstSynSpanned::new(Ratio::zero(), TypstSynSpan::detached()))]
+        smoothness: TypstSynSpanned<Ratio>,
     ) -> TypstSourceResult<Gradient> {
         if steps.v < 2 {
             bail!(steps.span, "sharp gradients must have at least two stops");
@@ -567,7 +567,7 @@ impl Gradient {
     pub fn repeat(
         &self,
         /// The number of times to repeat the gradient.
-        repetitions: Spanned<usize>,
+        repetitions: TypstSynSpanned<usize>,
         /// Whether to mirror the gradient at each repetition.
         #[named]
         #[default(false)]
@@ -1176,11 +1176,13 @@ cast! {
 /// This is split into its own function because it is used by all of the
 /// different gradient types.
 #[comemo::memoize]
-fn process_stops(stops: &[Spanned<GradientStop>]) -> TypstSourceResult<Vec<(TypstColor, Ratio)>> {
+fn process_stops(
+    stops: &[TypstSynSpanned<GradientStop>],
+) -> TypstSourceResult<Vec<(TypstColor, Ratio)>> {
     let has_offset = stops.iter().any(|stop| stop.v.offset.is_some());
     if has_offset {
         let mut last_stop = f64::NEG_INFINITY;
-        for Spanned { v: stop, span } in stops.iter() {
+        for TypstSynSpanned { v: stop, span } in stops.iter() {
             let Some(stop) = stop.offset else {
                 bail!(
                     *span, "either all stops must have an offset or none of them can";
@@ -1198,7 +1200,7 @@ fn process_stops(stops: &[Spanned<GradientStop>]) -> TypstSourceResult<Vec<(Typs
         let out = stops
             .iter()
             .map(
-                |Spanned {
+                |TypstSynSpanned {
                      v: GradientStop { color, offset },
                      span,
                  }| {

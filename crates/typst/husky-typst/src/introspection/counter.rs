@@ -6,7 +6,7 @@ use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 use smallvec::{smallvec, SmallVec};
 
 use crate::diag::{At, StrResult, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTypstValue,
@@ -279,7 +279,7 @@ impl Counter {
         &self,
         world: Tracked<dyn IsTypstWorld + '_>,
         introspector: Tracked<Introspector>,
-        route: Tracked<Route>,
+        route: Tracked<TypstEngineRoute>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
     ) -> TypstSourceResult<EcoVec<(CounterState, NonZeroUsize)>> {
@@ -287,7 +287,7 @@ impl Counter {
         let mut engine = TypstEngine {
             world,
             introspector,
-            route: Route::extend(route).unnested(),
+            route: TypstEngineRoute::extend(route).unnested(),
             locator: &mut locator,
             tracer,
         };

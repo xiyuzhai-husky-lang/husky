@@ -17,7 +17,7 @@ use crate::layout::{
 };
 
 use crate::model::Numbering;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::text::TextElem;
 use crate::util::{NonZeroExt, Scalar, TypstNumeric};
 use crate::visualize::TypstPaint;
@@ -224,8 +224,8 @@ pub struct TypstPageElem {
     /// ```
     #[default(HAlignment::Center + VAlignment::Bottom)]
     #[parse({
-        let option: Option<Spanned<TypstAlignment>> = args.named("number-align")?;
-        if let Some(Spanned { v: align, span }) = option {
+        let option: Option<TypstSynSpanned<TypstAlignment>> = args.named("number-align")?;
+        if let Some(TypstSynSpanned { v: align, span }) = option {
             if align.y() == Some(VAlignment::Horizon) {
                 bail!(span, "page number cannot be `horizon`-aligned");
             }

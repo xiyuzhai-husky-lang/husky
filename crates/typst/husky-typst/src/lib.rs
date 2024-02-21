@@ -57,7 +57,7 @@ pub mod visualize;
 pub use husky_typst_syntax as syntax;
 
 use crate::diag::{warning, FileResult, SourceDiagnostic, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
     Array, Bytes, Datetime, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyleChain,
@@ -91,7 +91,7 @@ pub fn compile(world: &dyn IsTypstWorld, tracer: &mut Tracer) -> TypstSourceResu
     // Try to evaluate the source file into a module.
     let module = crate::eval::eval(
         world,
-        Route::default().track(),
+        TypstEngineRoute::default().track(),
         tracer.track_mut(),
         &world.main(),
     )
@@ -136,7 +136,7 @@ fn typeset(
         let mut locator = Locator::new();
         let mut engine = TypstEngine {
             world,
-            route: Route::default(),
+            route: TypstEngineRoute::default(),
             tracer: tracer.track_mut(),
             locator: &mut locator,
             introspector: document.introspector.track_with(&constraint),

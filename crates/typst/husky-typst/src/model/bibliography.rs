@@ -24,7 +24,7 @@ use crate::model::{
     CitationForm, FootnoteTypstElem, HeadingTypstElem, LinkTypstElem, ParagraphTypstElem,
     TypstCiteGroup, TypstDestination,
 };
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 use crate::text::{
     Lang, LocalName, Region, SubElem, SuperElem, TextElem, TypstFontStyle, WeightDelta,
 };
@@ -338,8 +338,8 @@ impl Bibliography {
         engine: &mut TypstEngine,
         args: &mut TypstArgs,
     ) -> TypstSourceResult<(BibliographyPaths, Bibliography)> {
-        let Spanned { v: paths, span } =
-            args.expect::<Spanned<BibliographyPaths>>("path to bibliography file")?;
+        let TypstSynSpanned { v: paths, span } =
+            args.expect::<TypstSynSpanned<BibliographyPaths>>("path to bibliography file")?;
 
         // Load bibliography files.
         let data = paths
@@ -452,7 +452,9 @@ impl CslStyle {
         engine: &mut TypstEngine,
         args: &mut TypstArgs,
     ) -> TypstSourceResult<Option<CslStyle>> {
-        let Some(Spanned { v: string, span }) = args.named::<Spanned<EcoString>>("style")? else {
+        let Some(TypstSynSpanned { v: string, span }) =
+            args.named::<TypstSynSpanned<EcoString>>("style")?
+        else {
             return Ok(None);
         };
 
@@ -464,7 +466,8 @@ impl CslStyle {
         engine: &mut TypstEngine,
         args: &mut TypstArgs,
     ) -> TypstSourceResult<Option<Smart<CslStyle>>> {
-        let Some(Spanned { v: smart, span }) = args.named::<Spanned<Smart<EcoString>>>("style")?
+        let Some(TypstSynSpanned { v: smart, span }) =
+            args.named::<TypstSynSpanned<Smart<EcoString>>>("style")?
         else {
             return Ok(None);
         };

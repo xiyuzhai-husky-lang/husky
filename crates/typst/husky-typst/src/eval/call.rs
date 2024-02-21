@@ -3,17 +3,17 @@ use ecow::{eco_format, EcoVec};
 
 use crate::diag::{bail, error, At, HintedStrResult, Trace, Tracepoint, TypstSourceResult};
 use crate::engine::TypstEngine;
-use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
+use crate::eval::{Access, Eval, FlowEvent, Tracer, TypstEngineRoute, Vm};
 use crate::foundations::{
     call_method_mut, is_mutating_method, Bytes, Closure, Func, IntoTypstValue, IsTypstElem,
     TypstArg, TypstArgs, TypstContent, TypstValue, TypstValueAssignmentGroup,
     TypstValueAssignmentGroups,
 };
 use crate::introspection::{Introspector, Locator};
-use crate::math::{Accent, LrElem, AccentTypstElem};
+use crate::math::{Accent, AccentTypstElem, LrElem};
 use crate::symbols::Symbol;
 use crate::syntax::ast::{self, TypstAstNode};
-use crate::syntax::{Spanned, TypstSyntaxNode};
+use crate::syntax::{TypstSynSpanned, TypstSyntaxNode};
 use crate::text::TextElem;
 use crate::IsTypstWorld;
 
@@ -28,7 +28,7 @@ impl Eval for ast::FuncCall<'_> {
         let args = self.args();
         let trailing_comma = args.trailing_comma();
 
-        if !vm.engine.route.within(Route::MAX_CALL_DEPTH) {
+        if !vm.engine.route.within(TypstEngineRoute::MAX_CALL_DEPTH) {
             bail!(span, "maximum function call depth exceeded");
         }
 
@@ -81,7 +81,7 @@ impl Eval for ast::FuncCall<'_> {
                 let this = TypstArg {
                     span: target_span,
                     name: None,
-                    value: Spanned::new(target, target_span),
+                    value: TypstSynSpanned::new(target, target_span),
                 };
                 args.span = span;
                 args.items.insert(0, this);
@@ -195,14 +195,14 @@ impl Eval for ast::Args<'_> {
                     items.push(TypstArg {
                         span,
                         name: None,
-                        value: Spanned::new(expr.eval(vm)?, expr.span()),
+                        value: TypstSynSpanned::new(expr.eval(vm)?, expr.span()),
                     });
                 }
                 ast::Arg::Named(named) => {
                     items.push(TypstArg {
                         span,
                         name: Some(named.name().get().clone().into()),
-                        value: Spanned::new(named.expr().eval(vm)?, named.expr().span()),
+                        value: TypstSynSpanned::new(named.expr().eval(vm)?, named.expr().span()),
                     });
                 }
                 ast::Arg::Spread(expr) => match expr.eval(vm)? {
@@ -211,14 +211,14 @@ impl Eval for ast::Args<'_> {
                         items.extend(array.into_iter().map(|value| TypstArg {
                             span,
                             name: None,
-                            value: Spanned::new(value, span),
+                            value: TypstSynSpanned::new(value, span),
                         }));
                     }
                     TypstValue::Dict(dict) => {
                         items.extend(dict.into_iter().map(|(key, value)| TypstArg {
                             span,
                             name: Some(key),
-                            value: Spanned::new(value, span),
+                            value: TypstSynSpanned::new(value, span),
                         }));
                     }
                     TypstValue::Args(args) => items.extend(args.items),
@@ -274,7 +274,7 @@ pub(crate) fn call_closure(
     closure: &Prehashed<Closure>,
     world: Tracked<dyn IsTypstWorld + '_>,
     introspector: Tracked<Introspector>,
-    route: Tracked<Route>,
+    route: Tracked<TypstEngineRoute>,
     locator: Tracked<Locator>,
     tracer: TrackedMut<Tracer>,
     mut args: TypstArgs,
@@ -291,7 +291,7 @@ pub(crate) fn call_closure(
     let engine = TypstEngine {
         world,
         introspector,
-        route: Route::extend(route),
+        route: TypstEngineRoute::extend(route),
         locator: &mut locator,
         tracer,
     };

@@ -6,7 +6,7 @@ use crate::diag::{bail, error, At, SourceDiagnostic, TypstSourceResult};
 use crate::foundations::{
     func, repr, scope, ty, Array, FromTypstValue, IntoTypstValue, Repr, Str, TypstDict, TypstValue,
 };
-use crate::syntax::{Spanned, TypstSynSpan};
+use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
 /// Captured arguments to a function.
 ///
@@ -56,7 +56,7 @@ impl TypstArgs {
             .map(|value| TypstArg {
                 span,
                 name: None,
-                value: Spanned::new(value.into_value(), span),
+                value: TypstSynSpanned::new(value.into_value(), span),
             })
             .collect();
         Self { span, items }
@@ -72,14 +72,14 @@ impl TypstArgs {
         self.items.push(TypstArg {
             span: self.span,
             name: None,
-            value: Spanned::new(value, span),
+            value: TypstSynSpanned::new(value, span),
         })
     }
 
     /// Consume and cast the first positional argument if there is one.
     pub fn eat<T>(&mut self) -> TypstSourceResult<Option<T>>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         for (i, slot) in self.items.iter().enumerate() {
             if slot.name.is_none() {
@@ -117,7 +117,7 @@ impl TypstArgs {
     /// left.
     pub fn expect<T>(&mut self, what: &str) -> TypstSourceResult<T>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         match self.eat()? {
             Some(v) => Ok(v),
@@ -146,7 +146,7 @@ impl TypstArgs {
     /// Find and consume the first castable positional argument.
     pub fn find<T>(&mut self) -> TypstSourceResult<Option<T>>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         for (i, slot) in self.items.iter().enumerate() {
             if slot.name.is_none() && T::castable(&slot.value.v) {
@@ -161,7 +161,7 @@ impl TypstArgs {
     /// Find and consume all castable positional arguments.
     pub fn all<T>(&mut self) -> TypstSourceResult<Vec<T>>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         let mut list = vec![];
         let mut errors = eco_vec![];
@@ -170,7 +170,7 @@ impl TypstArgs {
                 return true;
             };
             let span = item.value.span;
-            let spanned = Spanned::new(std::mem::take(&mut item.value.v), span);
+            let spanned = TypstSynSpanned::new(std::mem::take(&mut item.value.v), span);
             match T::from_value(spanned) {
                 Ok(val) => list.push(val),
                 Err(err) => errors.push(SourceDiagnostic::error(span, err)),
@@ -187,7 +187,7 @@ impl TypstArgs {
     /// error if the conversion fails.
     pub fn named<T>(&mut self, name: &str) -> TypstSourceResult<Option<T>>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         // We don't quit once we have a match because when multiple matches
         // exist, we want to remove all of them and use the last one.
@@ -208,7 +208,7 @@ impl TypstArgs {
     /// Same as named, but with fallback to find.
     pub fn named_or_find<T>(&mut self, name: &str) -> TypstSourceResult<Option<T>>
     where
-        T: FromTypstValue<Spanned<TypstValue>>,
+        T: FromTypstValue<TypstSynSpanned<TypstValue>>,
     {
         match self.named(name)? {
             Some(value) => Ok(Some(value)),
@@ -308,7 +308,7 @@ pub struct TypstArg {
     /// The name of the argument (`None` for positional arguments).
     pub name: Option<Str>,
     /// The value of the argument.
-    pub value: Spanned<TypstValue>,
+    pub value: TypstSynSpanned<TypstValue>,
 }
 
 impl Debug for TypstArg {

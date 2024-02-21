@@ -10,7 +10,7 @@ use self::shaping::{
     is_gb_style, is_of_cj_script, shape, ShapedGlyph, ShapedText, BEGIN_PUNCT_PAT, END_PUNCT_PAT,
 };
 use crate::diag::{bail, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::introspection::{Introspector, Locator, MetaTypstElem};
@@ -43,7 +43,7 @@ pub(crate) fn layout_inline(
         children: &[Prehashed<TypstContent>],
         world: Tracked<dyn IsTypstWorld + '_>,
         introspector: Tracked<Introspector>,
-        route: Tracked<Route>,
+        route: Tracked<TypstEngineRoute>,
         locator: Tracked<Locator>,
         tracer: TrackedMut<Tracer>,
         styles: TypstStyleChain,
@@ -55,7 +55,7 @@ pub(crate) fn layout_inline(
         let mut engine = TypstEngine {
             world,
             introspector,
-            route: Route::extend(route),
+            route: TypstEngineRoute::extend(route),
             locator: &mut locator,
             tracer,
         };
@@ -189,7 +189,7 @@ impl<'a> Preparation<'a> {
 
 /// A segment of one or multiple collapsed children.
 #[derive(Debug, Clone)]
-enum Segment<'a> {
+enum TypstSegment<'a> {
     /// One or multiple collapsed text or text-equivalent children. Stores how
     /// long the segment is (in bytes of the full text string).
     Text(usize),
@@ -203,7 +203,7 @@ enum Segment<'a> {
     Meta,
 }
 
-impl Segment<'_> {
+impl TypstSegment<'_> {
     /// The text length of the item.
     fn len(&self) -> usize {
         match *self {
@@ -425,7 +425,11 @@ fn collect<'a>(
     styles: &'a TypstStyleChain<'a>,
     region: Size,
     consecutive: bool,
-) -> TypstSourceResult<(String, Vec<(Segment<'a>, TypstStyleChain<'a>)>, SpanMapper)> {
+) -> TypstSourceResult<(
+    String,
+    Vec<(TypstSegment<'a>, TypstStyleChain<'a>)>,
+    SpanMapper,
+)> {
     let mut full = String::new();
     let mut quoter = SmartQuoter::new();
     let mut segments = Vec::with_capacity(2 + children.len());
@@ -439,13 +443,13 @@ fn collect<'a>(
             == TextElem::dir_in(*styles).start().into()
     {
         full.push(SPACING_REPLACE);
-        segments.push((Segment::Spacing(first_line_indent.into()), *styles));
+        segments.push((TypstSegment::Spacing(first_line_indent.into()), *styles));
     }
 
     let hang = ParagraphTypstElem::hanging_indent_in(*styles);
     if !hang.is_zero() {
         full.push(SPACING_REPLACE);
-        segments.push((Segment::Spacing((-hang).into()), *styles));
+        segments.push((TypstSegment::Spacing((-hang).into()), *styles));
     }
 
     while let Some(mut child) = iter.next() {
@@ -458,7 +462,7 @@ fn collect<'a>(
 
         let segment = if child.is::<SpaceElem>() {
             full.push(' ');
-            Segment::Text(1)
+            TypstSegment::Text(1)
         } else if let Some(elem) = child.to_packed::<TextElem>() {
             let prev = full.len();
             if let Some(case) = TextElem::case_in(styles) {
@@ -466,14 +470,14 @@ fn collect<'a>(
             } else {
                 full.push_str(elem.text());
             }
-            Segment::Text(full.len() - prev)
+            TypstSegment::Text(full.len() - prev)
         } else if let Some(elem) = child.to_packed::<HElem>() {
             if elem.amount().is_zero() {
                 continue;
             }
 
             full.push(SPACING_REPLACE);
-            Segment::Spacing(*elem.amount())
+            TypstSegment::Spacing(*elem.amount())
         } else if let Some(elem) = child.to_packed::<LinebreakElem>() {
             let c = if elem.justify(styles) {
                 '\u{2028}'
@@ -481,7 +485,7 @@ fn collect<'a>(
                 '\n'
             };
             full.push(c);
-            Segment::Text(c.len_utf8())
+            TypstSegment::Text(c.len_utf8())
         } else if let Some(elem) = child.to_packed::<SmartQuoteElem>() {
             let prev = full.len();
             if SmartQuoteElem::enabled_in(styles) {
@@ -514,7 +518,7 @@ fn collect<'a>(
             } else {
                 full.push(if elem.double(styles) { '"' } else { '\'' });
             }
-            Segment::Text(full.len() - prev)
+            TypstSegment::Text(full.len() - prev)
         } else if let Some(elem) = child.to_packed::<TypstEquationElem>() {
             let pod = TypstRegions::one(region, Axes::splat(false));
             let mut items = elem.layout_inline(engine, styles, pod)?;
@@ -525,13 +529,13 @@ fn collect<'a>(
                 frame.meta(styles, false);
             }
             full.extend(items.iter().map(MathParItem::text));
-            Segment::Equation(elem, items)
+            TypstSegment::Equation(elem, items)
         } else if let Some(elem) = child.to_packed::<BoxTypstElem>() {
             let frac = elem.width(styles).is_fractional();
             full.push(if frac { SPACING_REPLACE } else { OBJ_REPLACE });
-            Segment::Box(elem, frac)
+            TypstSegment::Box(elem, frac)
         } else if child.is::<MetaTypstElem>() {
-            Segment::Meta
+            TypstSegment::Meta
         } else {
             bail!(child.span(), "unexpected paragraph child");
         };
@@ -542,7 +546,7 @@ fn collect<'a>(
 
         spans.push(segment.len(), child.span());
 
-        if let (Some((Segment::Text(last_len), last_styles)), Segment::Text(len)) =
+        if let (Some((TypstSegment::Text(last_len), last_styles)), TypstSegment::Text(len)) =
             (segments.last_mut(), &segment)
         {
             if *last_styles == styles {
@@ -562,7 +566,7 @@ fn prepare<'a>(
     engine: &mut TypstEngine,
     children: &'a [Prehashed<TypstContent>],
     text: &'a str,
-    segments: Vec<(Segment<'a>, TypstStyleChain<'a>)>,
+    segments: Vec<(TypstSegment<'a>, TypstStyleChain<'a>)>,
     spans: SpanMapper,
     styles: TypstStyleChain<'a>,
     region: Size,
@@ -584,10 +588,10 @@ fn prepare<'a>(
     for (segment, styles) in segments {
         let end = cursor + segment.len();
         match segment {
-            Segment::Text(_) => {
+            TypstSegment::Text(_) => {
                 shape_range(&mut items, engine, &bidi, cursor..end, &spans, styles);
             }
-            Segment::Spacing(spacing) => match spacing {
+            TypstSegment::Spacing(spacing) => match spacing {
                 Spacing::Rel(v) => {
                     let resolved = v.resolve(styles).relative_to(region.x);
                     items.push(Item::Absolute(resolved));
@@ -596,7 +600,7 @@ fn prepare<'a>(
                     items.push(Item::Fractional(v, None));
                 }
             },
-            Segment::Equation(_, par_items) => {
+            TypstSegment::Equation(_, par_items) => {
                 for item in par_items {
                     match item {
                         MathParItem::Space(s) => items.push(Item::Absolute(s)),
@@ -607,7 +611,7 @@ fn prepare<'a>(
                     }
                 }
             }
-            Segment::Box(elem, _) => {
+            TypstSegment::Box(elem, _) => {
                 if let TypstSizing::Fr(v) = elem.width(styles) {
                     items.push(Item::Fractional(v, Some((elem, styles))));
                 } else {
@@ -618,7 +622,7 @@ fn prepare<'a>(
                     items.push(Item::Frame(frame));
                 }
             }
-            Segment::Meta => {
+            TypstSegment::Meta => {
                 let mut frame = TypstFrame::soft(Size::zero());
                 frame.meta(styles, true);
                 items.push(Item::Meta(frame));

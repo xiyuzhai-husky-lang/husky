@@ -4,7 +4,7 @@ use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{cast, func, scope, Array, IntoTypstValue, Type, TypstDict, TypstValue};
 use crate::loading::Readable;
-use crate::syntax::Spanned;
+use crate::syntax::TypstSynSpanned;
 use crate::IsTypstWorld;
 
 /// Reads structured data from a CSV file.
@@ -29,7 +29,7 @@ pub fn csv(
     /// The engine.
     engine: &mut TypstEngine,
     /// Path to a CSV file.
-    path: Spanned<EcoString>,
+    path: TypstSynSpanned<EcoString>,
     /// The delimiter that separates columns in the CSV file.
     /// Must be a single ASCII character.
     #[named]
@@ -46,11 +46,11 @@ pub fn csv(
     #[default(RowType::Array)]
     row_type: RowType,
 ) -> TypstSourceResult<Array> {
-    let Spanned { v: path, span } = path;
+    let TypstSynSpanned { v: path, span } = path;
     let id = span.resolve_path(&path).at(span)?;
     let data = engine.world.file(id).at(span)?;
     self::csv::decode(
-        Spanned::new(Readable::Bytes(data), span),
+        TypstSynSpanned::new(Readable::Bytes(data), span),
         delimiter,
         row_type,
     )
@@ -62,7 +62,7 @@ impl csv {
     #[func(title = "Decode CSV")]
     pub fn decode(
         /// CSV data.
-        data: Spanned<Readable>,
+        data: TypstSynSpanned<Readable>,
         /// The delimiter that separates columns in the CSV file.
         /// Must be a single ASCII character.
         #[named]
@@ -79,7 +79,7 @@ impl csv {
         #[default(RowType::Array)]
         row_type: RowType,
     ) -> TypstSourceResult<Array> {
-        let Spanned { v: data, span } = data;
+        let TypstSynSpanned { v: data, span } = data;
         let has_headers = row_type == RowType::Dict;
 
         let mut builder = ::csv::ReaderBuilder::new();

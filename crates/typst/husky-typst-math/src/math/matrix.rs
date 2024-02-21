@@ -13,7 +13,7 @@ use crate::math::{
     alignments, scaled_font_size, stack, style_for_denominator, FrameFragment, GlyphFragment,
     Scaled, TypstAlignmentResult, TypstLayoutMath, TypstMathContext, DELIM_SHORT_FALL,
 };
-use crate::syntax::{Span, Spanned};
+use crate::syntax::{Span, TypstSynSpanned};
 use crate::text::TextElem;
 use crate::util::Numeric;
 use crate::visualize::{LineCap, TypstFixedStroke, TypstGeometry, TypstShape, TypstStroke};
@@ -195,9 +195,9 @@ pub struct MatElem {
         let mut rows = vec![];
         let mut width = 0;
 
-        let values = args.all::<Spanned<TypstValue>>()?;
+        let values = args.all::<TypstSynSpanned<TypstValue>>()?;
         if values.iter().any(|spanned| matches!(spanned.v, TypstValue::Array(_))) {
-            for Spanned { v, span } in values {
+            for TypstSynSpanned { v, span } in values {
                 let array = v.cast::<Array>().at(span)?;
                 let row: Vec<_> = array.into_iter().map(TypstValue::display).collect();
                 width = width.max(row.len());

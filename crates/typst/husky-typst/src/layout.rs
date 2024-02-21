@@ -72,7 +72,7 @@ pub(crate) use self::inline::*;
 use comemo::{Tracked, TrackedMut};
 
 use crate::diag::{bail, TypstSourceResult};
-use crate::engine::{Route, TypstEngine};
+use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
     category, TypstContent, TypstDefnKind, TypstStyleChain, TypstValueAssignmentGroup,
@@ -184,7 +184,7 @@ impl LayoutRoot for TypstContent {
             content: &TypstContent,
             world: Tracked<dyn IsTypstWorld + '_>,
             introspector: Tracked<Introspector>,
-            route: Tracked<Route>,
+            route: Tracked<TypstEngineRoute>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
             styles: TypstStyleChain,
@@ -193,7 +193,7 @@ impl LayoutRoot for TypstContent {
             let mut engine = TypstEngine {
                 world,
                 introspector,
-                route: Route::extend(route).unnested(),
+                route: TypstEngineRoute::extend(route).unnested(),
                 locator: &mut locator,
                 tracer,
             };
@@ -227,7 +227,7 @@ impl LayoutMultiple for TypstContent {
             content: &TypstContent,
             world: Tracked<dyn IsTypstWorld + '_>,
             introspector: Tracked<Introspector>,
-            route: Tracked<Route>,
+            route: Tracked<TypstEngineRoute>,
             locator: Tracked<Locator>,
             tracer: TrackedMut<Tracer>,
             styles: TypstStyleChain,
@@ -237,12 +237,12 @@ impl LayoutMultiple for TypstContent {
             let mut engine = TypstEngine {
                 world,
                 introspector,
-                route: Route::extend(route),
+                route: TypstEngineRoute::extend(route),
                 locator: &mut locator,
                 tracer,
             };
 
-            if !engine.route.within(Route::MAX_LAYOUT_DEPTH) {
+            if !engine.route.within(TypstEngineRoute::MAX_LAYOUT_DEPTH) {
                 bail!(
                     content.span(), "maximum layout depth exceeded";
                     hint: "try to reduce the amount of nesting in your layout",

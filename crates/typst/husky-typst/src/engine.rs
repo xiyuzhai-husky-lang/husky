@@ -18,7 +18,7 @@ pub struct TypstEngine<'a> {
     pub introspector: Tracked<'a, Introspector>,
     /// The route the engine took during compilation. This is used to detect
     /// cyclic imports and too much nesting.
-    pub route: Route<'a>,
+    pub route: TypstEngineRoute<'a>,
     /// Provides stable identities to elements.
     pub locator: &'a mut Locator<'a>,
     /// The tracer for inspection of the values an expression produces.
@@ -46,11 +46,11 @@ impl TypstEngine<'_> {
 
 /// The route the engine took during compilation. This is used to detect
 /// cyclic imports and too much nesting.
-pub struct Route<'a> {
+pub struct TypstEngineRoute<'a> {
     // We need to override the constraint's lifetime here so that `Tracked` is
     // covariant over the constraint. If it becomes invariant, we're in for a
     // world of lifetime pain.
-    outer: Option<Tracked<'a, Self, <Route<'static> as Validate>::Constraint>>,
+    outer: Option<Tracked<'a, Self, <TypstEngineRoute<'static> as Validate>::Constraint>>,
     /// This is set if this route segment was inserted through the start of a
     /// module evaluation.
     id: Option<FileId>,
@@ -71,7 +71,7 @@ pub struct Route<'a> {
 /// call checks are interleaved, show rule problems we always get the show rule.
 /// The lower the max depth for a kind of error, the higher its precedence
 /// compared to the others.
-impl Route<'_> {
+impl TypstEngineRoute<'_> {
     /// The maximum stack nesting depth.
     pub const MAX_SHOW_RULE_DEPTH: usize = 64;
 
@@ -82,7 +82,7 @@ impl Route<'_> {
     pub const MAX_CALL_DEPTH: usize = 80;
 }
 
-impl<'a> Route<'a> {
+impl<'a> TypstEngineRoute<'a> {
     /// Create a new, empty route.
     pub fn root() -> Self {
         Self {
@@ -95,7 +95,7 @@ impl<'a> Route<'a> {
 
     /// Extend the route with another segment with a default length of 1.
     pub fn extend(outer: Tracked<'a, Self>) -> Self {
-        Route {
+        TypstEngineRoute {
             outer: Some(outer),
             id: None,
             len: 1,
@@ -139,7 +139,7 @@ impl<'a> Route<'a> {
 }
 
 #[comemo::track]
-impl<'a> Route<'a> {
+impl<'a> TypstEngineRoute<'a> {
     /// Whether the given id is part of the route.
     pub fn contains(&self, id: FileId) -> bool {
         self.id == Some(id) || self.outer.map_or(false, |outer| outer.contains(id))
@@ -172,13 +172,13 @@ impl<'a> Route<'a> {
     }
 }
 
-impl Default for Route<'_> {
+impl Default for TypstEngineRoute<'_> {
     fn default() -> Self {
         Self::root()
     }
 }
 
-impl Clone for Route<'_> {
+impl Clone for TypstEngineRoute<'_> {
     fn clone(&self) -> Self {
         Self {
             outer: self.outer,
