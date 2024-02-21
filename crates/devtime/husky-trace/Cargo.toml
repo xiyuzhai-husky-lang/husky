@@ -95,7 +95,6 @@ husky-val = { path = "../../val/husky-val", features = ["test_utils"] }
 husky-val-repr = { path = "../../val/husky-val-repr", features = [
     "test_utils"
 ] }
-husky-trace = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

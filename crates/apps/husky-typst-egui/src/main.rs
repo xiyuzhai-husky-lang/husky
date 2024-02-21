@@ -1,21 +1,24 @@
+mod compile;
+mod fonts;
+mod render;
+mod sandbox;
+
 use eframe::egui;
 use egui::{vec2, Align2, Color32, Pos2, Rect, Rounding, Sense, Stroke, TextStyle};
-use husky_tex::{
+use husky_typst::{
     eval::Tracer,
-    layout::TexAbsLength,
-    visualize::{TexColor, TexFixedStroke, TexGeometry, TexPaint, TexRgb, TexRgba},
+    layout::TypstAbsLength,
+    visualize::{TypstColor, TypstFixedStroke, TypstGeometry, TypstPaint, TypstRgb, TypstRgba},
 };
-use husky_tex::{
-    layout::{FrameItem, GroupItem, Point, Size, TexFrame},
-    visualize::TexShape,
+use husky_typst::{
+    layout::{Point, Size, TypstFrame, TypstFrameItem, TypstGroupItem},
+    visualize::TypstShape,
 };
 use render::render;
 use std::sync::mpsc::{Receiver, SyncSender};
 use std::sync::Arc;
 
-mod compile;
-mod render;
-mod sandbox;
+use crate::fonts::set_fonts;
 
 fn main() {
     let native_options = eframe::NativeOptions::default();
@@ -29,17 +32,18 @@ fn main() {
 
 struct App {
     renderer: SyncSender<String>,
-    rendered: Receiver<Result<TexFrame, String>>,
+    rendered: Receiver<Result<TypstFrame, String>>,
 
     buffer: String,
-    current_frame: Option<Result<TexFrame, String>>,
+    current_frame: Option<Result<TypstFrame, String>>,
 }
 
 impl App {
     fn new(cc: &eframe::CreationContext<'_>) -> Self {
         let sandbox = Arc::new(crate::sandbox::Sandbox::new());
         let mut tracer = Tracer::new();
-        let compiled = husky_tex::compile(
+        set_fonts(&cc.egui_ctx);
+        let compiled = husky_typst::compile(
             &Arc::clone(&sandbox).with_source("x + 1".to_string()),
             &mut tracer,
         )
@@ -63,7 +67,7 @@ impl App {
 
 const PIXELS_PER_POINT: f32 = 1.25;
 
-fn to_px(abs: TexAbsLength) -> f32 {
+fn to_px(abs: TypstAbsLength) -> f32 {
     abs.to_pt() as f32 * PIXELS_PER_POINT
 }
 
@@ -102,11 +106,11 @@ impl eframe::App for App {
     }
 }
 
-fn translate_paint(paint: &TexPaint) -> Color32 {
+fn translate_paint(paint: &TypstPaint) -> Color32 {
     match paint {
-        TexPaint::Solid(color) => {
-            let TexColor::Rgba(TexRgba {
-                color: TexRgb {
+        TypstPaint::Solid(color) => {
+            let TypstColor::Rgba(TypstRgba {
+                color: TypstRgb {
                     red, green, blue, ..
                 },
                 alpha,
@@ -121,8 +125,8 @@ fn translate_paint(paint: &TexPaint) -> Color32 {
                 linear_to_discrete(alpha),
             )
         }
-        TexPaint::Gradient(_) => todo!(),
-        TexPaint::Pattern(_) => todo!(),
+        TypstPaint::Gradient(_) => todo!(),
+        TypstPaint::Pattern(_) => todo!(),
     }
 }
 

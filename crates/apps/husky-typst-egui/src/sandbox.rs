@@ -1,28 +1,28 @@
 use std::sync::Arc;
 
 use comemo::Prehashed;
-use husky_tex::{diag::FileResult, syntax::VirtualPath, LibraryBuilder};
-use husky_tex::{
+use husky_typst::{diag::FileResult, syntax::VirtualPath, LibraryBuilder};
+use husky_typst::{
     foundations::Bytes,
     syntax::{FileId, Source},
 };
-use husky_tex::{foundations::Datetime, Library};
-use husky_tex::{
-    text::{TexFont, TexFontBook},
-    IsTexWorld,
+use husky_typst::{foundations::Datetime, Library};
+use husky_typst::{
+    text::{TypstFont, TypstFontBook},
+    IsTypstWorld,
 };
 
 pub struct Sandbox {
     library: Prehashed<Library>,
-    book: Prehashed<TexFontBook>,
-    fonts: Vec<TexFont>,
+    book: Prehashed<TypstFontBook>,
+    fonts: Vec<TypstFont>,
 }
 
 fn make_source(source: String) -> Source {
     Source::new(FileId::new_fake(VirtualPath::new("input.typ")), source)
 }
 
-fn fonts() -> Vec<TexFont> {
+fn fonts() -> Vec<TypstFont> {
     use husky_path_utils::rust::husky_cargo_workspace_manifest_dir;
 
     std::fs::read_dir(husky_cargo_workspace_manifest_dir().join("assets/fonts"))
@@ -31,7 +31,7 @@ fn fonts() -> Vec<TexFont> {
         .flat_map(|entry| {
             let bytes = std::fs::read(entry.path()).unwrap();
             let buffer = Bytes::from(bytes);
-            TexFont::iter(buffer)
+            TypstFont::iter(buffer)
         })
         .collect()
 }
@@ -47,7 +47,7 @@ impl Sandbox {
 
         Self {
             library: Prehashed::new(LibraryBuilder::default().build()),
-            book: Prehashed::new(TexFontBook::from_fonts(&fonts)),
+            book: Prehashed::new(TypstFontBook::from_fonts(&fonts)),
             fonts,
         }
     }
@@ -66,7 +66,7 @@ impl WithSource {
     }
 }
 
-impl IsTexWorld for WithSource {
+impl IsTypstWorld for WithSource {
     fn library(&self) -> &Prehashed<Library> {
         &self.sandbox.library
     }
@@ -80,11 +80,11 @@ impl IsTexWorld for WithSource {
         Ok(self.source.clone())
     }
 
-    fn book(&self) -> &Prehashed<TexFontBook> {
+    fn book(&self) -> &Prehashed<TypstFontBook> {
         &self.sandbox.book
     }
 
-    fn font(&self, id: usize) -> Option<TexFont> {
+    fn font(&self, id: usize) -> Option<TypstFont> {
         self.sandbox.fonts.get(id).cloned()
     }
 
@@ -101,8 +101,8 @@ impl IsTexWorld for WithSource {
 #[test]
 fn sandbox_works() {
     use expect_test::expect;
-    use husky_tex::compile;
-    use husky_tex::eval::Tracer;
+    use husky_typst::compile;
+    use husky_typst::eval::Tracer;
 
     let sandbox = Sandbox::new();
     let mut tracer = Tracer::new();
@@ -113,22 +113,22 @@ $ x + x $
     .to_string();
     expect![[r#"
         Ok(
-            TexDocument {
+            TypstDocument {
                 pages: [
                     Page {
                         frame: Frame [
                             Text("hello world"),
                             Group Frame [
-                                Elem(Element(equation-tex)),
-                                Elem(Element(equation-tex)),
-                                Elem(Element(equation-tex)),
+                                Elem(Element(equation-typst)),
+                                Elem(Element(equation-typst)),
+                                Elem(Element(equation-typst)),
                                 Text("𝑥"),
-                                Elem(Element(equation-tex)),
+                                Elem(Element(equation-typst)),
                                 Text("+"),
-                                Elem(Element(equation-tex)),
+                                Elem(Element(equation-typst)),
                                 Text("𝑥"),
                             ],
-                            Elem(Element(equation-tex)),
+                            Elem(Element(equation-typst)),
                         ],
                         numbering: None,
                         number: 1,

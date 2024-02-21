@@ -23,7 +23,6 @@ husky-vfs.workspace = true
 husky-toml-utils.workspace = true
 
 [dev-dependencies]
-husky-toolchain-config = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]
