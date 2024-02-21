@@ -13,7 +13,7 @@ use crate::layout::{
     AlignElem, Axes, FixedAlignment, LayoutMultiple, LayoutSingle, Size, TypstAbsLength,
     TypstAlignment, TypstEmLength, TypstFrame, TypstLayoutDirection, TypstPoint, TypstRegions,
 };
-use crate::math::{scaled_font_size, MathContext, MathSize, MathVariant, TypstLayoutMath};
+use crate::math::{scaled_font_size, MathSize, MathVariant, TypstLayoutMath, TypstMathContext};
 use crate::model::{Numbering, Outlinable, ParagraphTypstElem, Refable, Supplement};
 use crate::syntax::Span;
 use crate::text::{
@@ -193,7 +193,7 @@ impl TypstContentRefined<EquationTypstElem> {
         // Find a math font.
         let font = find_math_font(engine, styles, self.span())?;
 
-        let mut ctx = MathContext::new(engine, styles, regions, &font);
+        let mut ctx = TypstMathContext::new(engine, styles, regions, &font);
         let rows = ctx.layout_root(self, styles)?;
 
         let mut items = if rows.row_count() == 1 {
@@ -239,7 +239,7 @@ impl LayoutSingle for TypstContentRefined<EquationTypstElem> {
         // Find a math font.
         let font = find_math_font(engine, styles, self.span())?;
 
-        let mut ctx = MathContext::new(engine, styles, regions, &font);
+        let mut ctx = TypstMathContext::new(engine, styles, regions, &font);
         let mut frame = ctx.layout_frame(self, styles)?;
 
         if let Some(numbering) = (**self).numbering(styles) {
@@ -377,7 +377,11 @@ impl Outlinable for TypstContentRefined<EquationTypstElem> {
 
 impl TypstLayoutMath for TypstContentRefined<EquationTypstElem> {
     #[husky_typst_macros::time(name = "math.equation", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         self.body().layout_math(ctx, styles)
     }
 }

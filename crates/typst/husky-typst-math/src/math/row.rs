@@ -8,8 +8,8 @@ use crate::layout::{
     TypstPoint,
 };
 use crate::math::{
-    alignments, scaled_font_size, spacing, EquationTypstElem, FrameFragment, MathContext,
-    MathFragment, MathParItem, MathSize, TypstAlignmentResult,
+    alignments, scaled_font_size, spacing, EquationTypstElem, FrameFragment, MathFragment,
+    MathParItem, MathSize, TypstAlignmentResult, TypstMathContext,
 };
 use crate::model::ParagraphTypstElem;
 
@@ -152,12 +152,12 @@ impl MathRow {
         }
     }
 
-    pub fn into_frame(self, ctx: &MathContext, styles: TypstStyleChain) -> TypstFrame {
+    pub fn into_frame(self, ctx: &TypstMathContext, styles: TypstStyleChain) -> TypstFrame {
         let align = AlignElem::alignment_in(styles).resolve(styles).x;
         self.into_aligned_frame(ctx, styles, &[], align)
     }
 
-    pub fn into_fragment(self, ctx: &MathContext, styles: TypstStyleChain) -> MathFragment {
+    pub fn into_fragment(self, ctx: &TypstMathContext, styles: TypstStyleChain) -> MathFragment {
         if self.0.len() == 1 {
             self.0.into_iter().next().unwrap()
         } else {
@@ -167,7 +167,7 @@ impl MathRow {
 
     pub fn into_aligned_frame(
         self,
-        ctx: &MathContext,
+        ctx: &TypstMathContext,
         styles: TypstStyleChain,
         points: &[TypstAbsLength],
         align: FixedAlignment,

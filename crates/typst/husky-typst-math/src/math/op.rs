@@ -7,7 +7,7 @@ use crate::foundations::{
     TypstValueAssignmentGroup,
 };
 use crate::layout::HElem;
-use crate::math::{upright, FrameFragment, Limits, MathContext, TypstLayoutMath, THIN};
+use crate::math::{upright, FrameFragment, Limits, TypstLayoutMath, TypstMathContext, THIN};
 use crate::text::TextElem;
 
 /// A text operator in an equation.
@@ -38,7 +38,11 @@ pub struct OpElem {
 
 impl TypstLayoutMath for TypstContentRefined<OpElem> {
     #[husky_typst_macros::time(name = "math.op", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let fragment = ctx.layout_fragment(self.text(), styles)?;
         let italics = fragment.italics_correction();
         let accent_attach = fragment.accent_attach();

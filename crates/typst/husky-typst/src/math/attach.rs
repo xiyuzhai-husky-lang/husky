@@ -4,8 +4,8 @@ use crate::diag::TypstSourceResult;
 use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstPoint};
 use crate::math::{
-    style_for_subscript, style_for_superscript, EquationTypstElem, FrameFragment, MathContext,
-    MathFragment, MathSize, Scaled, TypstLayoutMath,
+    style_for_subscript, style_for_superscript, EquationTypstElem, FrameFragment, MathFragment,
+    MathSize, Scaled, TypstLayoutMath, TypstMathContext,
 };
 use crate::text::TextElem;
 
@@ -51,11 +51,15 @@ pub struct AttachTypstElem {
 
 impl TypstLayoutMath for TypstContentRefined<AttachTypstElem> {
     #[husky_typst_macros::time(name = "math.attach", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         type GetAttachment = fn(&AttachTypstElem, styles: TypstStyleChain) -> Option<TypstContent>;
 
         let layout_attachment =
-            |ctx: &mut MathContext, styles: TypstStyleChain, getter: GetAttachment| {
+            |ctx: &mut TypstMathContext, styles: TypstStyleChain, getter: GetAttachment| {
                 getter(self, styles)
                     .map(|elem| ctx.layout_fragment(&elem, styles))
                     .transpose()
@@ -107,7 +111,11 @@ pub struct PrimesElem {
 
 impl TypstLayoutMath for TypstContentRefined<PrimesElem> {
     #[husky_typst_macros::time(name = "math.primes", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         match *self.count() {
             count @ 1..=4 => {
                 let c = match count {
@@ -156,7 +164,11 @@ pub struct ScriptsElem {
 
 impl TypstLayoutMath for TypstContentRefined<ScriptsElem> {
     #[husky_typst_macros::time(name = "math.scripts", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let mut fragment = ctx.layout_fragment(self.body(), styles)?;
         fragment.set_limits(Limits::Never);
         ctx.push(fragment);
@@ -185,7 +197,11 @@ pub struct LimitsElem {
 
 impl TypstLayoutMath for TypstContentRefined<LimitsElem> {
     #[husky_typst_macros::time(name = "math.limits", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let limits = if self.inline(styles) {
             Limits::Always
         } else {
@@ -252,7 +268,7 @@ macro_rules! measure {
 
 /// Layout the attachments.
 fn layout_attachments(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     base: MathFragment,
     [tl, t, tr, bl, b, br]: [Option<MathFragment>; 6],
@@ -341,7 +357,7 @@ fn layout_attachments(
 }
 
 fn attach_top_and_bottom(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     base: MathFragment,
     t: Option<MathFragment>,
@@ -390,7 +406,7 @@ fn attach_top_and_bottom(
 }
 
 fn compute_shifts_up_and_down(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     styles: TypstStyleChain,
     base: &MathFragment,
     [tl, tr, bl, br]: [&Option<MathFragment>; 4],

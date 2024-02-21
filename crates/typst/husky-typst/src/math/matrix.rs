@@ -11,7 +11,7 @@ use crate::layout::{
 };
 use crate::math::{
     alignments, scaled_font_size, stack, style_for_denominator, FrameFragment, GlyphFragment,
-    MathContext, Scaled, TypstAlignmentResult, TypstLayoutMath, DELIM_SHORT_FALL,
+    Scaled, TypstAlignmentResult, TypstLayoutMath, TypstMathContext, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Spanned, TypstSynSpan};
 use crate::text::TextElem;
@@ -60,7 +60,11 @@ pub struct VecElem {
 
 impl TypstLayoutMath for TypstContentRefined<VecElem> {
     #[husky_typst_macros::time(name = "math.vec", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let delim = self.delim(styles);
         let frame = layout_vec_body(
             ctx,
@@ -216,7 +220,11 @@ pub struct MatElem {
 
 impl TypstLayoutMath for TypstContentRefined<MatElem> {
     #[husky_typst_macros::time(name = "math.mat", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let augment = self.augment(styles);
         let rows = self.rows();
 
@@ -325,7 +333,11 @@ pub struct CasesElem {
 
 impl TypstLayoutMath for TypstContentRefined<CasesElem> {
     #[husky_typst_macros::time(name = "math.cases", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let delim = self.delim(styles);
         let frame = layout_vec_body(
             ctx,
@@ -391,7 +403,7 @@ impl Delimiter {
 
 /// Layout the inner contents of a vector.
 fn layout_vec_body(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     column: &[TypstContent],
     align: FixedAlignment,
@@ -410,7 +422,7 @@ fn layout_vec_body(
 
 /// Layout the inner contents of a matrix.
 fn layout_mat_body(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     rows: &[Vec<TypstContent>],
     augment: Option<Augment<TypstAbsLength>>,
@@ -580,7 +592,7 @@ fn line_item(
 
 /// Layout the outer wrapper around the body of a vector or matrix.
 fn layout_delimiters(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     mut frame: TypstFrame,
     left: Option<char>,

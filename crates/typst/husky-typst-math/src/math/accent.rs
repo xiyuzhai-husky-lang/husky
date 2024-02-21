@@ -4,7 +4,8 @@ use crate::foundations::{
 };
 use crate::layout::{Length, Rel, Size, TypstEmLength, TypstFrame, TypstPoint};
 use crate::math::{
-    style_cramped, FrameFragment, GlyphFragment, MathContext, MathFragment, Scaled, TypstLayoutMath,
+    style_cramped, FrameFragment, GlyphFragment, MathFragment, Scaled, TypstLayoutMath,
+    TypstMathContext,
 };
 use crate::symbols::Symbol;
 use crate::text::TextElem;
@@ -21,7 +22,7 @@ const ACCENT_SHORT_FALL: TypstEmLength = TypstEmLength::new(0.5);
 /// $tilde(a) = accent(a, \u{0303})$
 /// ```
 #[elem(TypstLayoutMath)]
-pub struct TypstAccentElem {
+pub struct AccentTypstElem {
     /// The base to which the accent is applied.
     /// May consist of multiple letters.
     ///
@@ -62,9 +63,13 @@ pub struct TypstAccentElem {
     pub size: Smart<Rel<Length>>,
 }
 
-impl TypstLayoutMath for TypstContentRefined<TypstAccentElem> {
+impl TypstLayoutMath for TypstContentRefined<AccentTypstElem> {
     #[husky_typst_macros::time(name = "math.accent", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let cramped = style_cramped();
         let base = ctx.layout_fragment(self.base(), styles.chain(&cramped))?;
 

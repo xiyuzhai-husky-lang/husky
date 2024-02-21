@@ -4,8 +4,8 @@ use crate::foundations::{
 };
 use crate::layout::{FrameItem, Size, TypstAbsLength, TypstFrame, TypstPoint};
 use crate::math::{
-    style_cramped, EquationTypstElem, FrameFragment, GlyphFragment, MathContext, MathSize, Scaled,
-    TypstLayoutMath,
+    style_cramped, EquationTypstElem, FrameFragment, GlyphFragment, MathSize, Scaled,
+    TypstLayoutMath, TypstMathContext,
 };
 use crate::syntax::Span;
 use crate::text::TextElem;
@@ -44,7 +44,11 @@ pub struct RootElem {
 
 impl TypstLayoutMath for TypstContentRefined<RootElem> {
     #[husky_typst_macros::time(name = "math.root", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout(
             ctx,
             styles,
@@ -60,7 +64,7 @@ impl TypstLayoutMath for TypstContentRefined<RootElem> {
 /// TeXbook page 443, page 360
 /// See also: https://www.w3.org/TR/mathml-core/#radicals-msqrt-mroot
 fn layout(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     index: Option<&TypstContent>,
     radicand: &TypstContent,

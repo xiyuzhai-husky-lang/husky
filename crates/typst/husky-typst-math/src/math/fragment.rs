@@ -11,7 +11,7 @@ use crate::layout::{
     Corner, FrameItem, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstPoint,
 };
 use crate::math::{
-    scaled_font_size, styled_char, EquationTypstElem, Limits, MathContext, MathSize, Scaled,
+    scaled_font_size, styled_char, EquationTypstElem, Limits, MathSize, Scaled, TypstMathContext,
 };
 use crate::syntax::Span;
 use crate::text::{Glyph, Lang, TextElem, TextItem, TypstFont};
@@ -220,14 +220,14 @@ pub struct GlyphFragment {
 }
 
 impl GlyphFragment {
-    pub fn new(ctx: &MathContext, styles: TypstStyleChain, c: char, span: Span) -> Self {
+    pub fn new(ctx: &TypstMathContext, styles: TypstStyleChain, c: char, span: Span) -> Self {
         let id = ctx.ttf.glyph_index(c).unwrap_or_default();
         let id = Self::adjust_glyph_index(ctx, id);
         Self::with_id(ctx, styles, c, id, span)
     }
 
     pub fn try_new(
-        ctx: &MathContext,
+        ctx: &TypstMathContext,
         styles: TypstStyleChain,
         c: char,
         span: Span,
@@ -239,7 +239,7 @@ impl GlyphFragment {
     }
 
     pub fn with_id(
-        ctx: &MathContext,
+        ctx: &TypstMathContext,
         styles: TypstStyleChain,
         c: char,
         id: GlyphId,
@@ -277,7 +277,7 @@ impl GlyphFragment {
     }
 
     /// Apply GSUB substitutions.
-    fn adjust_glyph_index(ctx: &MathContext, id: GlyphId) -> GlyphId {
+    fn adjust_glyph_index(ctx: &TypstMathContext, id: GlyphId) -> GlyphId {
         if let Some(glyphwise_tables) = &ctx.glyphwise_tables {
             glyphwise_tables
                 .iter()
@@ -289,7 +289,7 @@ impl GlyphFragment {
 
     /// Sets element id and boxes in appropriate way without changing other
     /// styles. This is used to replace the glyph with a stretch variant.
-    pub fn set_id(&mut self, ctx: &MathContext, id: GlyphId) {
+    pub fn set_id(&mut self, ctx: &TypstMathContext, id: GlyphId) {
         let advance = ctx.ttf.glyph_hor_advance(id).unwrap_or_default();
         let italics = italics_correction(ctx, id, self.font_size).unwrap_or_default();
         let bbox = ctx.ttf.glyph_bounding_box(id).unwrap_or(Rect {
@@ -362,7 +362,7 @@ impl GlyphFragment {
         frame
     }
 
-    pub fn make_scriptsize(&mut self, ctx: &MathContext) {
+    pub fn make_scriptsize(&mut self, ctx: &TypstMathContext) {
         let alt_id = script_alternatives(ctx, self.id).and_then(|alts| alts.alternates.get(0));
 
         if let Some(alt_id) = alt_id {
@@ -370,7 +370,7 @@ impl GlyphFragment {
         }
     }
 
-    pub fn make_scriptscriptsize(&mut self, ctx: &MathContext) {
+    pub fn make_scriptscriptsize(&mut self, ctx: &TypstMathContext) {
         let alts = script_alternatives(ctx, self.id);
         let alt_id =
             alts.and_then(|alts| alts.alternates.get(1).or_else(|| alts.alternates.get(0)));
@@ -405,7 +405,7 @@ pub struct VariantFragment {
 impl VariantFragment {
     /// Vertically adjust the fragment's frame so that it is centered
     /// on the axis.
-    pub fn center_on_axis(&mut self, ctx: &MathContext) {
+    pub fn center_on_axis(&mut self, ctx: &TypstMathContext) {
         let h = self.frame.height();
         let axis = ctx.constants.axis_height().scaled(ctx, self.font_size);
         self.frame.set_baseline(h / 2.0 + axis);
@@ -433,7 +433,7 @@ pub struct FrameFragment {
 }
 
 impl FrameFragment {
-    pub fn new(ctx: &MathContext, styles: TypstStyleChain, mut frame: TypstFrame) -> Self {
+    pub fn new(ctx: &TypstMathContext, styles: TypstStyleChain, mut frame: TypstFrame) -> Self {
         let base_ascent = frame.ascent();
         let accent_attach = frame.width() / 2.0;
         frame.meta(styles, false);
@@ -497,7 +497,7 @@ pub struct SpacingFragment {
 
 /// Look up the italics correction for a glyph.
 fn italics_correction(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     id: GlyphId,
     font_size: TypstAbsLength,
 ) -> Option<TypstAbsLength> {
@@ -512,7 +512,7 @@ fn italics_correction(
 
 /// Loop up the top accent attachment position for a glyph.
 fn accent_attach(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     id: GlyphId,
     font_size: TypstAbsLength,
 ) -> Option<TypstAbsLength> {
@@ -526,7 +526,10 @@ fn accent_attach(
 }
 
 /// Look up the script/scriptscript alternates for a glyph
-fn script_alternatives<'a>(ctx: &MathContext<'a, '_, '_>, id: GlyphId) -> Option<AlternateSet<'a>> {
+fn script_alternatives<'a>(
+    ctx: &TypstMathContext<'a, '_, '_>,
+    id: GlyphId,
+) -> Option<AlternateSet<'a>> {
     ctx.ssty_table.and_then(|ssty| {
         ssty.coverage
             .get(id)
@@ -535,7 +538,7 @@ fn script_alternatives<'a>(ctx: &MathContext<'a, '_, '_>, id: GlyphId) -> Option
 }
 
 /// Look up whether a glyph is an extended shape.
-fn is_extended_shape(ctx: &MathContext, id: GlyphId) -> bool {
+fn is_extended_shape(ctx: &TypstMathContext, id: GlyphId) -> bool {
     ctx.table
         .glyph_info
         .and_then(|info| info.extended_shapes)
@@ -549,7 +552,7 @@ fn is_extended_shape(ctx: &MathContext, id: GlyphId) -> bool {
 /// data.
 #[allow(unused)]
 fn kern_at_height(
-    ctx: &MathContext,
+    ctx: &TypstMathContext,
     font_size: TypstAbsLength,
     id: GlyphId,
     corner: Corner,

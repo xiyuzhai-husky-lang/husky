@@ -3,7 +3,9 @@ use ecow::eco_format;
 use crate::diag::{At, TypstSourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{IsTypstElem, TypstContent, TypstValue};
-use crate::math::{AttachTypstElem, FracElem, LrElem, PrimesElem, RootElem, TypstAlignPointElem};
+use crate::math::{
+    AttachTypstElem, FracTypstElem, LrElem, PrimesElem, RootElem, TypstAlignPointElem,
+};
 use crate::syntax::ast::{self, TypstAstNode};
 use crate::text::TextElem;
 
@@ -80,7 +82,7 @@ impl Eval for ast::MathFrac<'_> {
     fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let num = self.num().eval_display(vm)?;
         let denom = self.denom().eval_display(vm)?;
-        Ok(FracElem::new(num, denom).pack())
+        Ok(FracTypstElem::new(num, denom).pack())
     }
 }
 

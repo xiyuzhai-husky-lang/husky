@@ -5,7 +5,7 @@ use crate::foundations::{
 use crate::layout::{
     Angle, FrameItem, Length, Ratio, Rel, Size, Transform, TypstAbsLength, TypstFrame, TypstPoint,
 };
-use crate::math::{FrameFragment, MathContext, TypstLayoutMath};
+use crate::math::{FrameFragment, TypstLayoutMath, TypstMathContext};
 use crate::syntax::Span;
 use crate::text::TextElem;
 use crate::visualize::{TypstFixedStroke, TypstGeometry, TypstStroke};
@@ -107,7 +107,11 @@ pub struct CancelLineTypstElem {
 
 impl TypstLayoutMath for TypstContentRefined<CancelLineTypstElem> {
     #[husky_typst_macros::time(name = "math.cancel", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         let body = ctx.layout_fragment(self.body(), styles)?;
         // Preserve properties of body.
         let body_class = body.class();
@@ -182,7 +186,7 @@ cast! {
 
 /// Draws a cancel line.
 fn draw_cancel_line(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     length_scale: Rel<TypstAbsLength>,
     stroke: TypstFixedStroke,
     invert: bool,

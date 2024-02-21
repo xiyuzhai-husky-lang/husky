@@ -3,7 +3,7 @@ use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChai
 use crate::layout::{Size, TypstEmLength, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::math::{
     scaled_font_size, style_for_denominator, style_for_numerator, FrameFragment, GlyphFragment,
-    MathContext, Scaled, TypstLayoutMath, DELIM_SHORT_FALL,
+    Scaled, TypstLayoutMath, TypstMathContext, DELIM_SHORT_FALL,
 };
 use crate::syntax::{Spanned, TypstSynSpan};
 use crate::text::TextElem;
@@ -25,7 +25,7 @@ const FRAC_AROUND: TypstEmLength = TypstEmLength::new(0.1);
 /// expression using round grouping parenthesis. Such parentheses are removed
 /// from the output, but you can nest multiple to force them.
 #[elem(title = "Fraction", TypstLayoutMath)]
-pub struct FracElem {
+pub struct FracTypstElem {
     /// The fraction's numerator.
     #[required]
     pub num: TypstContent,
@@ -35,9 +35,13 @@ pub struct FracElem {
     pub denom: TypstContent,
 }
 
-impl TypstLayoutMath for TypstContentRefined<FracElem> {
+impl TypstLayoutMath for TypstContentRefined<FracTypstElem> {
     #[husky_typst_macros::time(name = "math.frac", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout(
             ctx,
             styles,
@@ -78,14 +82,18 @@ pub struct BinomElem {
 
 impl TypstLayoutMath for TypstContentRefined<BinomElem> {
     #[husky_typst_macros::time(name = "math.binom", span = self.span())]
-    fn layout_math(&self, ctx: &mut MathContext, styles: TypstStyleChain) -> TypstSourceResult<()> {
+    fn layout_math(
+        &self,
+        ctx: &mut TypstMathContext,
+        styles: TypstStyleChain,
+    ) -> TypstSourceResult<()> {
         layout(ctx, styles, self.upper(), self.lower(), true, self.span())
     }
 }
 
 /// Layout a fraction or binomial.
 fn layout(
-    ctx: &mut MathContext,
+    ctx: &mut TypstMathContext,
     styles: TypstStyleChain,
     num: &TypstContent,
     denom: &[TypstContent],
