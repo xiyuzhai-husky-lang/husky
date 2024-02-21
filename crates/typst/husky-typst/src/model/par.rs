@@ -5,7 +5,7 @@ use comemo::Prehashed;
 use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    elem, Args, Cast, Construct, IsTypstElem, Set, Smart, TypstContent, TypstContentRefined,
+    elem, Cast, Construct, IsTypstElem, Set, Smart, TypstArgs, TypstContent, TypstContentRefined,
     TypstStyleChain, Unlabellable,
 };
 use crate::layout::{Size, TypstEmLength, TypstLayoutFragment, TypstLength};
@@ -110,7 +110,10 @@ pub struct ParagraphTypstElem {
 }
 
 impl Construct for ParagraphTypstElem {
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent> {
+    fn construct(
+        engine: &mut TypstEngine,
+        args: &mut TypstArgs,
+    ) -> TypstSourceResult<TypstContent> {
         // The paragraph constructor is special: It doesn't create a paragraph
         // element. Instead, it just ensures that the passed content lives in a
         // separate paragraph and styles it.

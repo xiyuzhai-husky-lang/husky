@@ -1,7 +1,7 @@
 use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, IsTypstElem, Label, Show, ShowSet, Smart, TypstContent, TypstContentRefined,
+    cast, elem, IsTypstElem, Label, Show, Smart, TypstContent, TypstContentRefined, TypstShowSet,
     TypstStyleChain, TypstStyles,
 };
 use crate::layout::{
@@ -42,7 +42,7 @@ use crate::text::{SmartQuoteElem, SpaceElem, TextElem};
 ///   flame of Udûn. Go back to the Shadow! You cannot pass.
 /// ]
 /// ```
-#[elem(ShowSet, Show)]
+#[elem(TypstShowSet, Show)]
 pub struct QuoteElem {
     /// Whether this is a block quote.
     ///
@@ -203,7 +203,7 @@ impl Show for TypstContentRefined<QuoteElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<QuoteElem> {
+impl TypstShowSet for TypstContentRefined<QuoteElem> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let x = TypstEmLength::new(1.0).into();
         let above = TypstEmLength::new(2.4).into();

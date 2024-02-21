@@ -9,7 +9,7 @@ use crate::foundations::{
     cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTypstValue, Func, Label, Reflect,
     Regex, Repr, Str, Type, TypstContent, TypstDict, TypstStyleChain, TypstValue,
 };
-use crate::introspection::{Locatable, Location};
+use crate::introspection::{Location, TypstLocatable};
 use crate::symbols::Symbol;
 use crate::text::TextElem;
 
@@ -352,7 +352,7 @@ impl FromTypstValue for LocatableSelector {
         fn validate(selector: &Selector) -> StrResult<()> {
             match selector {
                 Selector::Elem(elem, _) => {
-                    if !elem.can::<dyn Locatable>() {
+                    if !elem.can::<dyn TypstLocatable>() {
                         Err(eco_format!("{} is not locatable", elem.name()))?
                     }
                 }

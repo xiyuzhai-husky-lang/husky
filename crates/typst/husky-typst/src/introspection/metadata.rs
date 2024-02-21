@@ -3,7 +3,7 @@ use crate::engine::TypstEngine;
 use crate::foundations::{
     elem, Behave, Behaviour, Show, TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
 };
-use crate::introspection::Locatable;
+use crate::introspection::TypstLocatable;
 
 /// Exposes a value to the query system without producing visible content.
 ///
@@ -25,7 +25,7 @@ use crate::introspection::Locatable;
 ///   query(<note>, loc).first().value
 /// })
 /// ```
-#[elem(Behave, Show, Locatable)]
+#[elem(Behave, Show, TypstLocatable)]
 pub struct MetadataElem {
     /// The value to embed into the document.
     #[required]

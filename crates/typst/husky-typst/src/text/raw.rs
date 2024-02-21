@@ -12,8 +12,9 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{At, FileError, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, scope, Args, Array, Bytes, Fold, IsTypstElem, PlainText, Show, ShowSet, Smart,
-    Synthesize, TypstContent, TypstContentRefined, TypstStyleChain, TypstStyles, TypstValue,
+    cast, elem, scope, Array, Bytes, Fold, IsTypstElem, PlainText, Show, Smart, TypstArgs,
+    TypstContent, TypstContentRefined, TypstShowSet, TypstStyleChain, TypstStyles, TypstSynthesize,
+    TypstValue,
 };
 use crate::layout::{BlockElem, HAlignment, TypstEmLength};
 use crate::model::Figurable;
@@ -72,9 +73,9 @@ type LineFn<'a> = &'a mut dyn FnMut(i64, Range<usize>, &mut Vec<TypstContent>);
 #[elem(
     scope,
     title = "Raw Text / Code",
-    Synthesize,
+    TypstSynthesize,
     Show,
-    ShowSet,
+    TypstShowSet,
     LocalName,
     Figurable,
     PlainText
@@ -287,7 +288,7 @@ impl RawElem {
     }
 }
 
-impl Synthesize for TypstContentRefined<RawElem> {
+impl TypstSynthesize for TypstContentRefined<RawElem> {
     fn synthesize(
         &mut self,
         _: &mut TypstEngine,
@@ -440,7 +441,7 @@ impl Show for TypstContentRefined<RawElem> {
     }
 }
 
-impl ShowSet for TypstContentRefined<RawElem> {
+impl TypstShowSet for TypstContentRefined<RawElem> {
     fn show_set(&self, _: TypstStyleChain) -> TypstStyles {
         let mut out = TypstStyles::new();
         out.set(TextElem::set_overhang(false));
@@ -711,7 +712,7 @@ fn load_syntaxes(paths: &SyntaxPaths, bytes: &[Bytes]) -> StrResult<Arc<SyntaxSe
 /// Much nicer than having it be part of the `element` macro.
 fn parse_syntaxes(
     engine: &mut TypstEngine,
-    args: &mut Args,
+    args: &mut TypstArgs,
 ) -> TypstSourceResult<(Option<SyntaxPaths>, Option<Vec<Bytes>>)> {
     let Some(Spanned { v: paths, span }) = args.named::<Spanned<SyntaxPaths>>("syntaxes")? else {
         return Ok((None, None));
@@ -747,7 +748,7 @@ fn load_theme(path: &str, bytes: &Bytes) -> StrResult<Arc<synt::Theme>> {
 /// Much nicer than having it be part of the `element` macro.
 fn parse_theme(
     engine: &mut TypstEngine,
-    args: &mut Args,
+    args: &mut TypstArgs,
 ) -> TypstSourceResult<(Option<EcoString>, Option<Bytes>)> {
     let Some(Spanned { v: path, span }) = args.named::<Spanned<EcoString>>("theme")? else {
         return Ok((None, None));

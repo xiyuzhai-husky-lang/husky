@@ -1,7 +1,7 @@
 //! Handles special built-in methods on values.
 
 use crate::diag::{At, TypstSourceResult};
-use crate::foundations::{Args, Array, Str, Type, TypstDict, TypstValue};
+use crate::foundations::{Array, Str, Type, TypstArgs, TypstDict, TypstValue};
 use crate::syntax::TypstSynSpan;
 
 /// List the available methods for a type and whether they take arguments.
@@ -37,7 +37,7 @@ pub(crate) fn is_accessor_method(method: &str) -> bool {
 pub(crate) fn call_method_mut(
     value: &mut TypstValue,
     method: &str,
-    mut args: Args,
+    mut args: TypstArgs,
     span: TypstSynSpan,
 ) -> TypstSourceResult<TypstValue> {
     let ty = value.ty();
@@ -80,7 +80,7 @@ pub(crate) fn call_method_mut(
 pub(crate) fn call_method_access<'a>(
     value: &'a mut TypstValue,
     method: &str,
-    mut args: Args,
+    mut args: TypstArgs,
     span: TypstSynSpan,
 ) -> TypstSourceResult<&'a mut TypstValue> {
     let ty = value.ty();

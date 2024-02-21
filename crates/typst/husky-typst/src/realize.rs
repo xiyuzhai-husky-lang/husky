@@ -14,14 +14,14 @@ use typed_arena::Arena;
 use crate::diag::{bail, TypstSourceResult};
 use crate::engine::{Route, TypstEngine};
 use crate::foundations::{
-    Behave, Behaviour, IsTypstElem, Recipe, RecipeIndex, Regex, Selector, Show, ShowSet, Style,
-    StyleVec, StyleVecBuilder, Synthesize, Transformation, TypstContent, TypstContentRefined,
-    TypstStyleChain, TypstStyles,
+    Behave, Behaviour, IsTypstElem, Recipe, RecipeIndex, Regex, Selector, Show, Style, StyleVec,
+    StyleVecBuilder, Transformation, TypstContent, TypstContentRefined, TypstShowSet,
+    TypstStyleChain, TypstStyles, TypstSynthesize,
 };
-use crate::introspection::{Locatable, MetaTypstElem, TypstMeta};
+use crate::introspection::{MetaTypstElem, TypstLocatable, TypstMeta};
 use crate::layout::{
-    AlignElem, BlockElem, BoxTypstElem, ColbreakElem, HElem, LayoutMultiple, LayoutSingle,
-    PagebreakElem, Parity, PlaceElem, TypstFlowElem, TypstPageElem, VElem,
+    AlignElem, BlockElem, BoxTypstElem, ColbreakElem, HElem, LayoutMultiple, PagebreakElem, Parity,
+    PlaceElem, TypstFlowElem, TypstLayoutSingle, TypstPageElem, VElem,
 };
 use crate::math::{EquationTypstElem, TypstLayoutMath};
 use crate::model::{
@@ -163,9 +163,9 @@ fn verdict<'a>(
     // fields before real synthesis runs (during preparation). It's really
     // unfortunate that we have to do this, but otherwise
     // `show figure.where(kind: table)` won't work :(
-    if !prepared && target.can::<dyn Synthesize>() {
+    if !prepared && target.can::<dyn TypstSynthesize>() {
         slot = target.clone();
-        slot.with_mut::<dyn Synthesize>()
+        slot.with_mut::<dyn TypstSynthesize>()
             .unwrap()
             .synthesize(engine, styles)
             .ok();
@@ -231,9 +231,9 @@ fn verdict<'a>(
         && map.is_empty()
         && (prepared || {
             target.label().is_none()
-                && !target.can::<dyn ShowSet>()
-                && !target.can::<dyn Locatable>()
-                && !target.can::<dyn Synthesize>()
+                && !target.can::<dyn TypstShowSet>()
+                && !target.can::<dyn TypstLocatable>()
+                && !target.can::<dyn TypstSynthesize>()
         })
     {
         return None;
@@ -256,21 +256,21 @@ fn prepare(
     // Generate a location for the element, which uniquely identifies it in
     // the document. This has some overhead, so we only do it for elements
     // that are explicitly marked as locatable and labelled elements.
-    if target.can::<dyn Locatable>() || target.label().is_some() {
+    if target.can::<dyn TypstLocatable>() || target.label().is_some() {
         let location = engine.locator.locate(hash128(&target));
         target.set_location(location);
     }
 
     // Apply built-in show-set rules. User-defined show-set rules are already
     // considered in the map built while determining the verdict.
-    if let Some(show_settable) = target.with::<dyn ShowSet>() {
+    if let Some(show_settable) = target.with::<dyn TypstShowSet>() {
         map.apply(show_settable.show_set(styles));
     }
 
     // If necessary, generated "synthesized" fields (which are derived from
     // other fields or queries). Do this after show-set so that show-set styles
     // are respected.
-    if let Some(synthesizable) = target.with_mut::<dyn Synthesize>() {
+    if let Some(synthesizable) = target.with_mut::<dyn TypstSynthesize>() {
         synthesizable.synthesize(engine, styles.chain(map))?;
     }
 
@@ -695,7 +695,7 @@ impl<'a> FlowBuilder<'a> {
             return true;
         }
 
-        if content.can::<dyn LayoutSingle>()
+        if content.can::<dyn TypstLayoutSingle>()
             || content.can::<dyn LayoutMultiple>()
             || content.is::<ParagraphTypstElem>()
         {

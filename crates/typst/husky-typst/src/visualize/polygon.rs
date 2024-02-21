@@ -7,8 +7,8 @@ use crate::foundations::{
     TypstStyleChain,
 };
 use crate::layout::{
-    Axes, LayoutSingle, Rel, TypstEmLength, TypstFrame, TypstFrameItem, TypstLength, TypstPoint,
-    TypstRegions,
+    Axes, Rel, TypstEmLength, TypstFrame, TypstFrameItem, TypstLayoutSingle, TypstLength,
+    TypstPoint, TypstRegions,
 };
 use crate::syntax::TypstSynSpan;
 use crate::util::TypstNumeric;
@@ -31,7 +31,7 @@ use crate::visualize::{
 ///   (0%,  2cm),
 /// )
 /// ```
-#[elem(scope, LayoutSingle)]
+#[elem(scope, TypstLayoutSingle)]
 pub struct PolygonElem {
     /// How to fill the polygon.
     ///
@@ -128,7 +128,7 @@ impl PolygonElem {
     }
 }
 
-impl LayoutSingle for TypstContentRefined<PolygonElem> {
+impl TypstLayoutSingle for TypstContentRefined<PolygonElem> {
     #[husky_typst_macros::time(name = "polygon", span = self.span())]
     fn layout(
         &self,

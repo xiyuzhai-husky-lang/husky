@@ -3,10 +3,10 @@ use ecow::eco_format;
 use crate::diag::{bail, At, Hint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Func, IntoTypstValue, IsTypstElem, Label, Show, Smart, Synthesize, TypstContent,
-    TypstContentRefined, TypstStyleChain,
+    cast, elem, Func, IntoTypstValue, IsTypstElem, Label, Show, Smart, TypstContent,
+    TypstContentRefined, TypstStyleChain, TypstSynthesize,
 };
-use crate::introspection::{Counter, Locatable};
+use crate::introspection::{Counter, TypstLocatable};
 use crate::math::EquationTypstElem;
 use crate::model::{
     BibliographyElem, CiteTypstElem, Figurable, FootnoteTypstElem, Numbering, TypstDestination,
@@ -91,7 +91,7 @@ use crate::text::TextElem;
 /// In @beginning we prove @pythagoras.
 /// $ a^2 + b^2 = c^2 $ <pythagoras>
 /// ```
-#[elem(title = "Reference", Synthesize, Locatable, Show)]
+#[elem(title = "Reference", TypstSynthesize, TypstLocatable, Show)]
 pub struct RefElem {
     /// The target label that should be referenced.
     ///
@@ -136,7 +136,7 @@ pub struct RefElem {
     pub element: Option<TypstContent>,
 }
 
-impl Synthesize for TypstContentRefined<RefElem> {
+impl TypstSynthesize for TypstContentRefined<RefElem> {
     fn synthesize(
         &mut self,
         engine: &mut TypstEngine,

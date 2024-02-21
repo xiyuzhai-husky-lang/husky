@@ -12,7 +12,7 @@ use palette::{
 
 use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::foundations::{
-    array, cast, func, repr, scope, ty, Args, Array, IntoTypstValue, Repr, Str,
+    array, cast, func, repr, scope, ty, Array, IntoTypstValue, Repr, Str, TypstArgs,
     TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::layout::{Angle, Ratio};
@@ -230,7 +230,7 @@ impl TypstColor {
     pub fn luma(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The lightness component.
         #[external]
         lightness: Component,
@@ -278,7 +278,7 @@ impl TypstColor {
     pub fn oklab(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The lightness component.
         #[external]
         lightness: RatioComponent,
@@ -335,7 +335,7 @@ impl TypstColor {
     pub fn oklch(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The lightness component.
         #[external]
         lightness: RatioComponent,
@@ -396,7 +396,7 @@ impl TypstColor {
     pub fn linear_rgb(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The red component.
         #[external]
         red: Component,
@@ -453,7 +453,7 @@ impl TypstColor {
     pub fn rgb(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The red component.
         #[external]
         red: Component,
@@ -528,7 +528,7 @@ impl TypstColor {
     pub fn cmyk(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The cyan component.
         #[external]
         cyan: RatioComponent,
@@ -587,7 +587,7 @@ impl TypstColor {
     pub fn hsl(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The hue angle.
         #[external]
         hue: Angle,
@@ -646,7 +646,7 @@ impl TypstColor {
     pub fn hsv(
         /// The real arguments (the other arguments are just for the docs, this
         /// function is a bit involved, so we parse the arguments manually).
-        args: &mut Args,
+        args: &mut TypstArgs,
         /// The hue angle.
         #[external]
         hue: Angle,

@@ -6,8 +6,8 @@ use crate::foundations::{
     elem, Resolve, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
 };
 use crate::layout::{
-    Axes, Corner, Corners, LayoutMultiple, LayoutSingle, Ratio, Rel, Sides, Size, TypstAbsLength,
-    TypstFrame, TypstFrameItem, TypstLength, TypstPoint, TypstRegions,
+    Axes, Corner, Corners, LayoutMultiple, Ratio, Rel, Sides, Size, TypstAbsLength, TypstFrame,
+    TypstFrameItem, TypstLayoutSingle, TypstLength, TypstPoint, TypstRegions,
 };
 use crate::syntax::TypstSynSpan;
 use crate::util::Get;
@@ -26,7 +26,7 @@ use crate::visualize::{Path, TypstFixedStroke, TypstPaint, TypstStroke};
 ///   to fit the content.
 /// ]
 /// ```
-#[elem(title = "Rectangle", LayoutSingle)]
+#[elem(title = "Rectangle", TypstLayoutSingle)]
 pub struct RectElem {
     /// The rectangle's width, relative to its parent container.
     pub width: Smart<Rel<TypstLength>>,
@@ -133,7 +133,7 @@ pub struct RectElem {
     pub body: Option<TypstContent>,
 }
 
-impl LayoutSingle for TypstContentRefined<RectElem> {
+impl TypstLayoutSingle for TypstContentRefined<RectElem> {
     #[husky_typst_macros::time(name = "rect", span = self.span())]
     fn layout(
         &self,
@@ -171,7 +171,7 @@ impl LayoutSingle for TypstContentRefined<RectElem> {
 ///   sized to fit.
 /// ]
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct SquareElem {
     /// The square's side length. This is mutually exclusive with `width` and
     /// `height`.
@@ -239,7 +239,7 @@ pub struct SquareElem {
     pub body: Option<TypstContent>,
 }
 
-impl LayoutSingle for TypstContentRefined<SquareElem> {
+impl TypstLayoutSingle for TypstContentRefined<SquareElem> {
     #[husky_typst_macros::time(name = "square", span = self.span())]
     fn layout(
         &self,
@@ -278,7 +278,7 @@ impl LayoutSingle for TypstContentRefined<SquareElem> {
 ///   to fit the content.
 /// ]
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct EllipseElem {
     /// The ellipse's width, relative to its parent container.
     pub width: Smart<Rel<TypstLength>>,
@@ -317,7 +317,7 @@ pub struct EllipseElem {
     pub body: Option<TypstContent>,
 }
 
-impl LayoutSingle for TypstContentRefined<EllipseElem> {
+impl TypstLayoutSingle for TypstContentRefined<EllipseElem> {
     #[husky_typst_macros::time(name = "ellipse", span = self.span())]
     fn layout(
         &self,
@@ -356,7 +356,7 @@ impl LayoutSingle for TypstContentRefined<EllipseElem> {
 ///   sized to fit.
 /// ]
 /// ```
-#[elem(LayoutSingle)]
+#[elem(TypstLayoutSingle)]
 pub struct CircleElem {
     /// The circle's radius. This is mutually exclusive with `width` and
     /// `height`.
@@ -420,7 +420,7 @@ pub struct CircleElem {
     pub body: Option<TypstContent>,
 }
 
-impl LayoutSingle for TypstContentRefined<CircleElem> {
+impl TypstLayoutSingle for TypstContentRefined<CircleElem> {
     #[husky_typst_macros::time(name = "circle", span = self.span())]
     fn layout(
         &self,

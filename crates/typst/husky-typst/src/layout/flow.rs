@@ -10,8 +10,8 @@ use crate::foundations::{
 use crate::introspection::{MetaTypstElem, TypstMeta};
 use crate::layout::{
     AlignElem, Axes, BlockElem, ColbreakElem, ColumnsElem, FixedAlignment, LayoutMultiple,
-    LayoutSingle, PlaceElem, Rel, Size, Spacing, TypstAbsLength, TypstFraction, TypstFrame,
-    TypstFrameItem, TypstLayoutFragment, TypstPoint, TypstRegions, VAlignment, VElem,
+    PlaceElem, Rel, Size, Spacing, TypstAbsLength, TypstFraction, TypstFrame, TypstFrameItem,
+    TypstLayoutFragment, TypstLayoutSingle, TypstPoint, TypstRegions, VAlignment, VElem,
 };
 use crate::model::{FootnoteEntry, FootnoteTypstElem, ParagraphTypstElem};
 use crate::util::TypstNumeric;
@@ -63,7 +63,7 @@ impl LayoutMultiple for TypstContentRefined<TypstFlowElem> {
                 }
             } else if let Some(elem) = child.to_packed::<ParagraphTypstElem>() {
                 layouter.layout_par(engine, elem, styles)?;
-            } else if let Some(layoutable) = child.with::<dyn LayoutSingle>() {
+            } else if let Some(layoutable) = child.with::<dyn TypstLayoutSingle>() {
                 layouter.layout_single(engine, layoutable, styles)?;
             } else if child.can::<dyn LayoutMultiple>() {
                 layouter.layout_multiple(engine, child, styles)?;
@@ -292,7 +292,7 @@ impl<'a> FlowLayouter<'a> {
     fn layout_single(
         &mut self,
         engine: &mut TypstEngine,
-        layoutable: &dyn LayoutSingle,
+        layoutable: &dyn TypstLayoutSingle,
         styles: TypstStyleChain,
     ) -> TypstSourceResult<()> {
         let align = AlignElem::alignment_in(styles).resolve(styles);

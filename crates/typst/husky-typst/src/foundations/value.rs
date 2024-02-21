@@ -12,9 +12,9 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
-    fields, repr, Args, Array, AutoTypstValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue,
-    Func, IntoTypstValue, IsTypstElem, Label, NativeType, NoneTypstValue, Plugin, Reflect, Repr,
-    Str, Type, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyles,
+    fields, repr, Array, AutoTypstValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue, Func,
+    IntoTypstValue, IsTypstElem, Label, NativeType, NoneTypstValue, Plugin, Reflect, Repr, Str,
+    Type, TypstArgs, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyles,
     TypstValueAssignmentGroup, Version,
 };
 use crate::layout::{Angle, Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction, TypstLength};
@@ -78,7 +78,7 @@ pub enum TypstValue {
     /// An executable function.
     Func(Func),
     /// Captured arguments to a function.
-    Args(Args),
+    Args(TypstArgs),
     /// A type.
     Type(Type),
     /// A module.
@@ -142,7 +142,7 @@ impl TypstValue {
             Self::Array(_) => Type::of::<Array>(),
             Self::Dict(_) => Type::of::<TypstDict>(),
             Self::Func(_) => Type::of::<Func>(),
-            Self::Args(_) => Type::of::<Args>(),
+            Self::Args(_) => Type::of::<TypstArgs>(),
             Self::Type(_) => Type::of::<Type>(),
             Self::Module(_) => Type::of::<TypstModuleEvaluation>(),
             Self::Plugin(_) => Type::of::<TypstModuleEvaluation>(),
@@ -663,7 +663,7 @@ primitive! {
     Func,
     Type(ty) => ty.constructor()?.clone()
 }
-primitive! { Args: "arguments", Args }
+primitive! { TypstArgs: "arguments", Args }
 primitive! { Type: "type", Type }
 primitive! { TypstModuleEvaluation: "module", Module }
 primitive! { Plugin: "plugin", Plugin }

@@ -5,8 +5,9 @@ use crate::diag::{bail, error, At, HintedStrResult, Trace, Tracepoint, TypstSour
 use crate::engine::TypstEngine;
 use crate::eval::{Access, Eval, FlowEvent, Route, Tracer, Vm};
 use crate::foundations::{
-    call_method_mut, is_mutating_method, Arg, Args, Bytes, Closure, Func, IntoTypstValue,
-    IsTypstElem, TypstContent, TypstValue, TypstValueAssignmentGroup, TypstValueAssignmentGroups,
+    call_method_mut, is_mutating_method, Bytes, Closure, Func, IntoTypstValue, IsTypstElem,
+    TypstArg, TypstArgs, TypstContent, TypstValue, TypstValueAssignmentGroup,
+    TypstValueAssignmentGroups,
 };
 use crate::introspection::{Introspector, Locator};
 use crate::math::{Accent, LrElem, TypstAccentElem};
@@ -77,7 +78,7 @@ impl Eval for ast::FuncCall<'_> {
             // new associated function a breaking change and prioritizing fields
             // would break associated functions for certain dictionaries).
             if let Some(callee) = target.ty().scope().get(&field) {
-                let this = Arg {
+                let this = TypstArg {
                     span: target_span,
                     name: None,
                     value: Spanned::new(target, target_span),
@@ -182,7 +183,7 @@ impl Eval for ast::FuncCall<'_> {
 }
 
 impl Eval for ast::Args<'_> {
-    type Output = Args;
+    type Output = TypstArgs;
 
     fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let mut items = EcoVec::with_capacity(self.items().count());
@@ -191,14 +192,14 @@ impl Eval for ast::Args<'_> {
             let span = arg.span();
             match arg {
                 ast::Arg::Pos(expr) => {
-                    items.push(Arg {
+                    items.push(TypstArg {
                         span,
                         name: None,
                         value: Spanned::new(expr.eval(vm)?, expr.span()),
                     });
                 }
                 ast::Arg::Named(named) => {
-                    items.push(Arg {
+                    items.push(TypstArg {
                         span,
                         name: Some(named.name().get().clone().into()),
                         value: Spanned::new(named.expr().eval(vm)?, named.expr().span()),
@@ -207,14 +208,14 @@ impl Eval for ast::Args<'_> {
                 ast::Arg::Spread(expr) => match expr.eval(vm)? {
                     TypstValue::None => {}
                     TypstValue::Array(array) => {
-                        items.extend(array.into_iter().map(|value| Arg {
+                        items.extend(array.into_iter().map(|value| TypstArg {
                             span,
                             name: None,
                             value: Spanned::new(value, span),
                         }));
                     }
                     TypstValue::Dict(dict) => {
-                        items.extend(dict.into_iter().map(|(key, value)| Arg {
+                        items.extend(dict.into_iter().map(|(key, value)| TypstArg {
                             span,
                             name: Some(key),
                             value: Spanned::new(value, span),
@@ -226,7 +227,7 @@ impl Eval for ast::Args<'_> {
             }
         }
 
-        Ok(Args {
+        Ok(TypstArgs {
             span: self.span(),
             items,
         })
@@ -276,7 +277,7 @@ pub(crate) fn call_closure(
     route: Tracked<Route>,
     locator: Tracked<Locator>,
     tracer: TrackedMut<Tracer>,
-    mut args: Args,
+    mut args: TypstArgs,
 ) -> TypstSourceResult<TypstValue> {
     let node = closure.node.cast::<ast::Closure>().unwrap();
 

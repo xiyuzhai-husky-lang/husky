@@ -163,7 +163,7 @@ pub trait LayoutMultiple {
 }
 
 /// Layout into a single region.
-pub trait LayoutSingle {
+pub trait TypstLayoutSingle {
     /// Layout into one frame per region.
     fn layout(
         &self,

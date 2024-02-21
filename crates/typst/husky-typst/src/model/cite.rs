@@ -1,10 +1,10 @@
 use crate::diag::{bail, At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Cast, Label, Show, Smart, Synthesize, TypstContent, TypstContentRefined,
-    TypstStyleChain,
+    cast, elem, Cast, Label, Show, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
+    TypstSynthesize,
 };
-use crate::introspection::Locatable;
+use crate::introspection::TypstLocatable;
 use crate::model::bibliography::Works;
 use crate::model::CslStyle;
 use crate::text::{Lang, Region, TextElem};
@@ -41,7 +41,7 @@ use crate::text::{Lang, Region, TextElem};
 /// This function indirectly has dedicated syntax. [References]($ref) can be
 /// used to cite works from the bibliography. The label then corresponds to the
 /// citation key.
-#[elem(Synthesize)]
+#[elem(TypstSynthesize)]
 pub struct CiteTypstElem {
     /// The citation key that identifies the entry in the bibliography that
     /// shall be cited, as a label.
@@ -109,7 +109,7 @@ pub struct CiteTypstElem {
     pub region: Option<Region>,
 }
 
-impl Synthesize for TypstContentRefined<CiteTypstElem> {
+impl TypstSynthesize for TypstContentRefined<CiteTypstElem> {
     fn synthesize(
         &mut self,
         _: &mut TypstEngine,
@@ -147,7 +147,7 @@ pub enum CitationForm {
 ///
 /// This is automatically created from adjacent citations during show rule
 /// application.
-#[elem(Locatable, Show)]
+#[elem(TypstLocatable, Show)]
 pub struct TypstCiteGroup {
     /// The citations.
     #[required]

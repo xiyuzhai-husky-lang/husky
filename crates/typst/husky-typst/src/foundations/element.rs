@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, Args, Func, ParamInfo, Repr, Selector, TypstContent, TypstDict, TypstStyleChain,
+    cast, Func, ParamInfo, Repr, Selector, TypstArgs, TypstContent, TypstDict, TypstStyleChain,
     TypstStyles, TypstValue, TypstValueAssignmentGroup,
 };
 use crate::text::{Lang, Region};
@@ -71,13 +71,17 @@ impl ElementSchemaRef {
     pub fn construct(
         self,
         engine: &mut TypstEngine,
-        args: &mut Args,
+        args: &mut TypstArgs,
     ) -> TypstSourceResult<TypstContent> {
         (self.0.construct)(engine, args)
     }
 
     /// Execute the set rule for the element and return the resulting style map.
-    pub fn set(self, engine: &mut TypstEngine, mut args: Args) -> TypstSourceResult<TypstStyles> {
+    pub fn set(
+        self,
+        engine: &mut TypstEngine,
+        mut args: TypstArgs,
+    ) -> TypstSourceResult<TypstStyles> {
         let styles = (self.0.set)(engine, &mut args)?;
         args.finish()?;
         Ok(styles)
@@ -225,7 +229,7 @@ pub trait Construct {
     ///
     /// This is passed only the arguments that remain after execution of the
     /// element's set rule.
-    fn construct(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstContent>
+    fn construct(engine: &mut TypstEngine, args: &mut TypstArgs) -> TypstSourceResult<TypstContent>
     where
         Self: Sized;
 }
@@ -233,7 +237,7 @@ pub trait Construct {
 /// An element's set rule.
 pub trait Set {
     /// Parse relevant arguments into style properties for this element.
-    fn set(engine: &mut TypstEngine, args: &mut Args) -> TypstSourceResult<TypstStyles>
+    fn set(engine: &mut TypstEngine, args: &mut TypstArgs) -> TypstSourceResult<TypstStyles>
     where
         Self: Sized;
 }
@@ -245,8 +249,8 @@ pub struct ElementSchema {
     pub title: &'static str,
     pub docs: &'static str,
     pub keywords: &'static [&'static str],
-    pub construct: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstContent>,
-    pub set: fn(&mut TypstEngine, &mut Args) -> TypstSourceResult<TypstStyles>,
+    pub construct: fn(&mut TypstEngine, &mut TypstArgs) -> TypstSourceResult<TypstContent>,
+    pub set: fn(&mut TypstEngine, &mut TypstArgs) -> TypstSourceResult<TypstStyles>,
     pub vtable: fn(capability: TypeId) -> Option<*const ()>,
     pub field_id: fn(name: &str) -> Option<u8>,
     pub field_name: fn(u8) -> Option<&'static str>,
@@ -268,7 +272,7 @@ cast! {
 
 /// Synthesize fields on an element. This happens before execution of any show
 /// rule.
-pub trait Synthesize {
+pub trait TypstSynthesize {
     /// Prepare the element for show rule application.
     fn synthesize(
         &mut self,
@@ -291,7 +295,7 @@ pub trait Show {
 ///
 /// This is a bit more powerful than a user-defined show-set because it can
 /// access the element's fields.
-pub trait ShowSet {
+pub trait TypstShowSet {
     /// Finalize the fully realized form of the element. Use this for effects
     /// that should work even in the face of a user-defined show rule.
     fn show_set(&self, styles: TypstStyleChain) -> TypstStyles;
