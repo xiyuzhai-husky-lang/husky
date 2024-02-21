@@ -18,8 +18,8 @@ use crate::layout::{
     TypstRegions,
 };
 use crate::math::{
-    scaled_font_size, styled_char, EquationTypstElem, FrameFragment, GlyphFragment, MathFragment,
-    MathRow, MathSize, TypstLayoutMath, THICK,
+    scaled_font_size, styled_char, FrameFragment, GlyphFragment, MathFragment, MathRow,
+    TypstEquationElem, TypstLayoutMath, TypstMathSize, THICK,
 };
 use crate::model::ParagraphTypstElem;
 use crate::syntax::{is_newline, TypstSynSpan};
@@ -29,8 +29,8 @@ use crate::text::{
 
 macro_rules! scaled {
     ($ctx:expr, $styles:expr, text: $text:ident, display: $display:ident $(,)?) => {
-        match $crate::math::EquationTypstElem::size_in($styles) {
-            $crate::math::MathSize::Display => scaled!($ctx, $styles, $display),
+        match $crate::math::TypstEquationElem::size_in($styles) {
+            $crate::math::TypstMathSize::Display => scaled!($ctx, $styles, $display),
             _ => scaled!($ctx, $styles, $text),
         }
     };
@@ -198,7 +198,7 @@ impl<'a, 'b, 'v> TypstMathContext<'a, 'b, 'v> {
         let text = elem.text();
         let span = elem.span();
         let mut chars = text.chars();
-        let math_size = EquationTypstElem::size_in(styles);
+        let math_size = TypstEquationElem::size_in(styles);
         let fragment = if let Some(mut glyph) = chars
             .next()
             .filter(|_| chars.next().is_none())
@@ -207,17 +207,17 @@ impl<'a, 'b, 'v> TypstMathContext<'a, 'b, 'v> {
         {
             // A single letter that is available in the math font.
             match math_size {
-                MathSize::Script => {
+                TypstMathSize::Script => {
                     glyph.make_scriptsize(self);
                 }
-                MathSize::ScriptScript => {
+                TypstMathSize::ScriptScript => {
                     glyph.make_scriptscriptsize(self);
                 }
                 _ => (),
             }
 
             if glyph.class == MathClass::Large {
-                let mut variant = if math_size == MathSize::Display {
+                let mut variant = if math_size == TypstMathSize::Display {
                     let height = scaled!(self, styles, display_operator_min_height)
                         .max(SQRT_2 * glyph.height());
                     glyph.stretch_vertical(self, height, TypstAbsLength::zero())
@@ -246,7 +246,7 @@ impl<'a, 'b, 'v> TypstMathContext<'a, 'b, 'v> {
                 TextElem::set_top_edge(TopEdge::Metric(TopEdgeMetric::Bounds)),
                 TextElem::set_bottom_edge(BottomEdge::Metric(BottomEdgeMetric::Bounds)),
                 TextElem::set_size(TextSize(scaled_font_size(self, styles).into())),
-                EquationTypstElem::set_italic(Smart::Custom(false)),
+                TypstEquationElem::set_italic(Smart::Custom(false)),
             ]
             .map(|p| p.wrap());
 

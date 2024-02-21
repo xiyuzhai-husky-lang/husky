@@ -107,8 +107,7 @@ pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath
     crate_path
         .module_paths(db)
         .iter()
-        .map(|module_path| module_path.item_paths(db).iter().copied())
-        .flatten()
+        .flat_map(|module_path| module_path.item_paths(db).iter().copied())
         .collect()
 }
 

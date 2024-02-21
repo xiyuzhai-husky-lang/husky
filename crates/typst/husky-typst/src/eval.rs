@@ -32,7 +32,7 @@ use crate::foundations::{
     TypstValueAssignmentGroups,
 };
 use crate::introspection::{Introspector, Locator};
-use crate::math::EquationTypstElem;
+use crate::math::TypstEquationElem;
 use crate::syntax::{ast, parse, parse_code, parse_math, Source, TypstSynSpan};
 use crate::IsTypstWorld;
 
@@ -142,7 +142,7 @@ pub fn eval_string(
             TypstValue::Content(root.cast::<ast::TypstMarkup>().unwrap().eval(&mut vm)?)
         }
         EvalMode::Math => TypstValue::Content(
-            EquationTypstElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
+            TypstEquationElem::new(root.cast::<ast::Math>().unwrap().eval(&mut vm)?)
                 .with_block(false)
                 .pack(),
         ),

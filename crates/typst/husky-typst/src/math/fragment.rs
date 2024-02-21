@@ -11,7 +11,8 @@ use crate::layout::{
     Corner, Size, TypstAbsLength, TypstEmLength, TypstFrame, TypstFrameItem, TypstPoint,
 };
 use crate::math::{
-    scaled_font_size, styled_char, EquationTypstElem, Limits, MathSize, Scaled, TypstMathContext,
+    scaled_font_size, styled_char, Limits, Scaled, TypstEquationElem, TypstMathContext,
+    TypstMathSize,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::{Lang, TextElem, TypstFont, TypstGlyph, TypstTextItem};
@@ -83,7 +84,7 @@ impl MathFragment {
         }
     }
 
-    pub fn math_size(&self) -> Option<MathSize> {
+    pub fn math_size(&self) -> Option<TypstMathSize> {
         match self {
             Self::Glyph(glyph) => Some(glyph.math_size),
             Self::Variant(variant) => Some(variant.math_size),
@@ -213,7 +214,7 @@ pub struct GlyphFragment {
     pub accent_attach: TypstAbsLength,
     pub font_size: TypstAbsLength,
     pub class: MathClass,
-    pub math_size: MathSize,
+    pub math_size: TypstMathSize,
     pub span: TypstSynSpan,
     pub meta: SmallVec<[TypstMeta; 1]>,
     pub limits: Limits,
@@ -250,7 +251,7 @@ impl GlyphFragment {
         id: GlyphId,
         span: TypstSynSpan,
     ) -> Self {
-        let class = EquationTypstElem::class_in(styles)
+        let class = TypstEquationElem::class_in(styles)
             .or_else(|| match c {
                 ':' => Some(MathClass::Relation),
                 '.' | '/' | '⋯' | '⋱' | '⋰' | '⋮' => Some(MathClass::Normal),
@@ -266,7 +267,7 @@ impl GlyphFragment {
             fill: TextElem::fill_in(styles).as_decoration(),
             shift: TextElem::baseline_in(styles),
             font_size: scaled_font_size(ctx, styles),
-            math_size: EquationTypstElem::size_in(styles),
+            math_size: TypstEquationElem::size_in(styles),
             width: TypstAbsLength::zero(),
             ascent: TypstAbsLength::zero(),
             descent: TypstAbsLength::zero(),
@@ -401,7 +402,7 @@ pub struct VariantFragment {
     pub frame: TypstFrame,
     pub font_size: TypstAbsLength,
     pub class: MathClass,
-    pub math_size: MathSize,
+    pub math_size: TypstMathSize,
     pub span: TypstSynSpan,
     pub limits: Limits,
     pub mid_stretched: Option<bool>,
@@ -428,7 +429,7 @@ pub struct FrameFragment {
     pub frame: TypstFrame,
     pub font_size: TypstAbsLength,
     pub class: MathClass,
-    pub math_size: MathSize,
+    pub math_size: TypstMathSize,
     pub limits: Limits,
     pub spaced: bool,
     pub base_ascent: TypstAbsLength,
@@ -445,8 +446,8 @@ impl FrameFragment {
         Self {
             frame,
             font_size: scaled_font_size(ctx, styles),
-            class: EquationTypstElem::class_in(styles).unwrap_or(MathClass::Normal),
-            math_size: EquationTypstElem::size_in(styles),
+            class: TypstEquationElem::class_in(styles).unwrap_or(MathClass::Normal),
+            math_size: TypstEquationElem::size_in(styles),
             limits: Limits::Never,
             spaced: false,
             base_ascent,

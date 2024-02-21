@@ -19,7 +19,7 @@ use crate::layout::{
     TypstEmLength, TypstFraction, TypstFrame, TypstLayoutDirection, TypstLayoutFragment,
     TypstPoint, TypstRegions, TypstSizing,
 };
-use crate::math::{EquationTypstElem, MathParItem};
+use crate::math::{MathParItem, TypstEquationElem};
 use crate::model::{Linebreaks, ParagraphTypstElem};
 use crate::syntax::TypstSynSpan;
 use crate::text::{
@@ -196,7 +196,7 @@ enum Segment<'a> {
     /// Horizontal spacing between other segments.
     Spacing(Spacing),
     /// A mathematical equation.
-    Equation(&'a TypstContentRefined<EquationTypstElem>, Vec<MathParItem>),
+    Equation(&'a TypstContentRefined<TypstEquationElem>, Vec<MathParItem>),
     /// A box with arbitrary content.
     Box(&'a TypstContentRefined<BoxTypstElem>, bool),
     /// Metadata.
@@ -515,7 +515,7 @@ fn collect<'a>(
                 full.push(if elem.double(styles) { '"' } else { '\'' });
             }
             Segment::Text(full.len() - prev)
-        } else if let Some(elem) = child.to_packed::<EquationTypstElem>() {
+        } else if let Some(elem) = child.to_packed::<TypstEquationElem>() {
             let pod = TypstRegions::one(region, Axes::splat(false));
             let mut items = elem.layout_inline(engine, styles, pod)?;
             for item in &mut items {

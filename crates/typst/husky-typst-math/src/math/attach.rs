@@ -4,8 +4,8 @@ use crate::diag::TypstSourceResult;
 use crate::foundations::{elem, TypstContent, TypstContentRefined, TypstStyleChain};
 use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstPoint};
 use crate::math::{
-    style_for_subscript, style_for_superscript, EquationTypstElem, FrameFragment, MathFragment,
-    MathSize, Scaled, TypstLayoutMath, TypstMathContext,
+    style_for_subscript, style_for_superscript, FrameFragment, MathFragment, Scaled,
+    TypstEquationElem, TypstLayoutMath, TypstMathContext, TypstMathSize,
 };
 use crate::text::TextElem;
 
@@ -254,7 +254,7 @@ impl Limits {
     pub fn active(&self, styles: TypstStyleChain) -> bool {
         match self {
             Self::Always => true,
-            Self::Display => EquationTypstElem::size_in(styles) == MathSize::Display,
+            Self::Display => TypstEquationElem::size_in(styles) == TypstMathSize::Display,
             Self::Never => false,
         }
     }
@@ -411,7 +411,7 @@ fn compute_shifts_up_and_down(
     base: &MathFragment,
     [tl, tr, bl, br]: [&Option<MathFragment>; 4],
 ) -> (TypstAbsLength, TypstAbsLength) {
-    let sup_shift_up = if EquationTypstElem::cramped_in(styles) {
+    let sup_shift_up = if TypstEquationElem::cramped_in(styles) {
         scaled!(ctx, styles, superscript_shift_up_cramped)
     } else {
         scaled!(ctx, styles, superscript_shift_up)

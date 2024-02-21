@@ -15,7 +15,7 @@ use crate::foundations::{
 };
 use crate::introspection::{Introspector, Location, Locator, TypstLocatable, TypstMeta};
 use crate::layout::{TypstFrame, TypstFrameItem, TypstPageElem};
-use crate::math::EquationTypstElem;
+use crate::math::TypstEquationElem;
 use crate::model::{FigureElem, HeadingTypstElem, Numbering, NumberingPattern};
 use crate::syntax::TypstSynSpan;
 use crate::util::NonZeroExt;
@@ -667,8 +667,8 @@ impl Show for TypstContentRefined<DisplayElem> {
                     HeadingTypstElem::numbering_in(styles).clone()
                 } else if func == FigureElem::elem() {
                     FigureElem::numbering_in(styles).clone()
-                } else if func == EquationTypstElem::elem() {
-                    EquationTypstElem::numbering_in(styles).clone()
+                } else if func == TypstEquationElem::elem() {
+                    TypstEquationElem::numbering_in(styles).clone()
                 } else {
                     None
                 }

@@ -1,7 +1,7 @@
 use crate::diag::{warning, TypstSourceResult};
 use crate::eval::{Eval, Vm};
 use crate::foundations::{IsTypstElem, Label, Smart, TypstContent, TypstValue, Unlabellable};
-use crate::math::EquationTypstElem;
+use crate::math::TypstEquationElem;
 use crate::model::{
     EmphElem, EnumItem, HeadingTypstElem, LinkTypstElem, ListItem, ParbreakElem, RefElem,
     StrongElem, Supplement, TermItem,
@@ -249,6 +249,6 @@ impl Eval for ast::Equation<'_> {
     fn eval(self, vm: &mut Vm) -> TypstSourceResult<Self::Output> {
         let body = self.body().eval(vm)?;
         let block = self.block();
-        Ok(EquationTypstElem::new(body).with_block(block).pack())
+        Ok(TypstEquationElem::new(body).with_block(block).pack())
     }
 }
