@@ -2,7 +2,7 @@ use comemo::Prehashed;
 
 use crate::foundations::{func, Cast, Smart, Style, TypstContent, TypstStyleChain};
 use crate::layout::TypstAbsLength;
-use crate::math::{EquationTypstElem, TypstMathContext};
+use crate::math::{TypstEquationElem, TypstMathContext};
 use crate::text::TextElem;
 
 /// Bold font style in math.
@@ -15,7 +15,7 @@ pub fn bold(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_bold(true))
+    body.styled(TypstEquationElem::set_bold(true))
 }
 
 /// Upright (non-italic) font style in math.
@@ -28,7 +28,7 @@ pub fn upright(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_italic(Smart::Custom(false)))
+    body.styled(TypstEquationElem::set_italic(Smart::Custom(false)))
 }
 
 /// Italic font style in math.
@@ -39,7 +39,7 @@ pub fn italic(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_italic(Smart::Custom(true)))
+    body.styled(TypstEquationElem::set_italic(Smart::Custom(true)))
 }
 
 /// Serif (roman) font style in math.
@@ -50,7 +50,7 @@ pub fn serif(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Serif))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Serif))
 }
 
 /// Sans-serif font style in math.
@@ -63,7 +63,7 @@ pub fn sans(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Sans))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Sans))
 }
 
 /// Calligraphic font style in math.
@@ -76,7 +76,7 @@ pub fn cal(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Cal))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Cal))
 }
 
 /// Fraktur font style in math.
@@ -89,7 +89,7 @@ pub fn frak(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Frak))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Frak))
 }
 
 /// Monospace font style in math.
@@ -102,7 +102,7 @@ pub fn mono(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Mono))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Mono))
 }
 
 /// Blackboard bold (double-struck) font style in math.
@@ -120,7 +120,7 @@ pub fn bb(
     /// The content to style.
     body: TypstContent,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_variant(MathVariant::Bb))
+    body.styled(TypstEquationElem::set_variant(MathVariant::Bb))
 }
 
 /// Forced display style in math.
@@ -140,8 +140,8 @@ pub fn display(
     #[default(false)]
     cramped: bool,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_size(MathSize::Display))
-        .styled(EquationTypstElem::set_cramped(cramped))
+    body.styled(TypstEquationElem::set_size(TypstMathSize::Display))
+        .styled(TypstEquationElem::set_cramped(cramped))
 }
 
 /// Forced inline (text) style in math.
@@ -162,8 +162,8 @@ pub fn inline(
     #[default(false)]
     cramped: bool,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_size(MathSize::Text))
-        .styled(EquationTypstElem::set_cramped(cramped))
+    body.styled(TypstEquationElem::set_size(TypstMathSize::Text))
+        .styled(TypstEquationElem::set_cramped(cramped))
 }
 
 /// Forced script style in math.
@@ -183,8 +183,8 @@ pub fn script(
     #[default(true)]
     cramped: bool,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_size(MathSize::Script))
-        .styled(EquationTypstElem::set_cramped(cramped))
+    body.styled(TypstEquationElem::set_size(TypstMathSize::Script))
+        .styled(TypstEquationElem::set_cramped(cramped))
 }
 
 /// Forced second script style in math.
@@ -205,15 +205,15 @@ pub fn sscript(
     #[default(true)]
     cramped: bool,
 ) -> TypstContent {
-    body.styled(EquationTypstElem::set_size(MathSize::ScriptScript))
-        .styled(EquationTypstElem::set_cramped(cramped))
+    body.styled(TypstEquationElem::set_size(TypstMathSize::ScriptScript))
+        .styled(TypstEquationElem::set_cramped(cramped))
 }
 
 /// The size of elements in an equation.
 ///
 /// See the TeXbook p. 141.
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Cast, Hash)]
-pub enum MathSize {
+pub enum TypstMathSize {
     /// Second-level sub- and superscripts.
     ScriptScript,
     /// Sub- and superscripts.
@@ -224,7 +224,7 @@ pub enum MathSize {
     Display,
 }
 
-impl MathSize {
+impl TypstMathSize {
     /// The scaling factor.
     pub fn factor(self, ctx: &TypstMathContext) -> f64 {
         match self {
@@ -247,39 +247,39 @@ pub enum MathVariant {
     Bb,
 }
 
-/// Get the font size scaled with the `MathSize`.
+/// Get the font size scaled with the `TypstMathSize`.
 pub fn scaled_font_size(ctx: &TypstMathContext, styles: TypstStyleChain) -> TypstAbsLength {
-    EquationTypstElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
+    TypstEquationElem::size_in(styles).factor(ctx) * TextElem::size_in(styles)
 }
 
 /// Styles something as cramped.
 pub fn style_cramped() -> Prehashed<Style> {
-    EquationTypstElem::set_cramped(true).wrap()
+    TypstEquationElem::set_cramped(true).wrap()
 }
 
 /// The style for subscripts in the current style.
 pub fn style_for_subscript(styles: TypstStyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_superscript(styles),
-        EquationTypstElem::set_cramped(true).wrap(),
+        TypstEquationElem::set_cramped(true).wrap(),
     ]
 }
 
 /// The style for superscripts in the current style.
 pub fn style_for_superscript(styles: TypstStyleChain) -> Prehashed<Style> {
-    EquationTypstElem::set_size(match EquationTypstElem::size_in(styles) {
-        MathSize::Display | MathSize::Text => MathSize::Script,
-        MathSize::Script | MathSize::ScriptScript => MathSize::ScriptScript,
+    TypstEquationElem::set_size(match TypstEquationElem::size_in(styles) {
+        TypstMathSize::Display | TypstMathSize::Text => TypstMathSize::Script,
+        TypstMathSize::Script | TypstMathSize::ScriptScript => TypstMathSize::ScriptScript,
     })
     .wrap()
 }
 
 /// The style for numerators in the current style.
 pub fn style_for_numerator(styles: TypstStyleChain) -> Prehashed<Style> {
-    EquationTypstElem::set_size(match EquationTypstElem::size_in(styles) {
-        MathSize::Display => MathSize::Text,
-        MathSize::Text => MathSize::Script,
-        MathSize::Script | MathSize::ScriptScript => MathSize::ScriptScript,
+    TypstEquationElem::set_size(match TypstEquationElem::size_in(styles) {
+        TypstMathSize::Display => TypstMathSize::Text,
+        TypstMathSize::Text => TypstMathSize::Script,
+        TypstMathSize::Script | TypstMathSize::ScriptScript => TypstMathSize::ScriptScript,
     })
     .wrap()
 }
@@ -288,7 +288,7 @@ pub fn style_for_numerator(styles: TypstStyleChain) -> Prehashed<Style> {
 pub fn style_for_denominator(styles: TypstStyleChain) -> [Prehashed<Style>; 2] {
     [
         style_for_numerator(styles),
-        EquationTypstElem::set_cramped(true).wrap(),
+        TypstEquationElem::set_cramped(true).wrap(),
     ]
 }
 
@@ -299,9 +299,9 @@ pub fn style_for_denominator(styles: TypstStyleChain) -> [Prehashed<Style>; 2] {
 pub fn styled_char(styles: TypstStyleChain, c: char) -> char {
     use MathVariant::*;
 
-    let variant = EquationTypstElem::variant_in(styles);
-    let bold = EquationTypstElem::bold_in(styles);
-    let italic = EquationTypstElem::italic_in(styles).unwrap_or(matches!(
+    let variant = TypstEquationElem::variant_in(styles);
+    let bold = TypstEquationElem::bold_in(styles);
+    let italic = TypstEquationElem::italic_in(styles).unwrap_or(matches!(
         c,
         'a'..='z' | 'ı' | 'ȷ' | 'A'..='Z' | 'α'..='ω' |
         '∂' | 'ϵ' | 'ϑ' | 'ϰ' | 'ϕ' | 'ϱ' | 'ϖ'

@@ -8,8 +8,8 @@ use crate::layout::{
     TypstPoint,
 };
 use crate::math::{
-    alignments, scaled_font_size, spacing, EquationTypstElem, FrameFragment, MathFragment,
-    MathParItem, MathSize, TypstAlignmentResult, TypstMathContext,
+    alignments, scaled_font_size, spacing, FrameFragment, MathFragment, MathParItem,
+    TypstAlignmentResult, TypstEquationElem, TypstMathContext, TypstMathSize,
 };
 use crate::model::ParagraphTypstElem;
 
@@ -179,7 +179,7 @@ impl MathRow {
             return self.into_line_frame(points, align);
         }
 
-        let leading = if EquationTypstElem::size_in(styles) >= MathSize::Text {
+        let leading = if TypstEquationElem::size_in(styles) >= TypstMathSize::Text {
             ParagraphTypstElem::leading_in(styles)
         } else {
             let font_size = scaled_font_size(ctx, styles);

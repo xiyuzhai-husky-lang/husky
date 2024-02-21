@@ -89,7 +89,7 @@ pub(crate) fn rust_transpilation_packages(
                     .dependencies(db)
                     .expect("no error at this stage")
                     .iter()
-                    .map(|dep| {
+                    .flat_map(|dep| {
                         [
                             RustTranspilationPackage {
                                 target_path,
@@ -102,8 +102,7 @@ pub(crate) fn rust_transpilation_packages(
                                 kind: RustTranspilationPackageKind::Linkages,
                             },
                         ]
-                    })
-                    .flatten(),
+                    }),
             );
             packages
         }

@@ -7,7 +7,7 @@ use crate::foundations::{
     TypstContentRefined, TypstStyleChain, TypstSynthesize,
 };
 use crate::introspection::{Counter, TypstLocatable};
-use crate::math::EquationTypstElem;
+use crate::math::TypstEquationElem;
 use crate::model::{
     BibliographyElem, CiteTypstElem, Figurable, FootnoteTypstElem, Numbering, TypstDestination,
 };
@@ -206,7 +206,7 @@ impl Show for TypstContentRefined<RefElem> {
             .hint(eco_format!(
                 "you can enable {} numbering with `#set {}(numbering: \"1.\")`",
                 elem.func().name(),
-                if elem.func() == EquationTypstElem::elem() {
+                if elem.func() == TypstEquationElem::elem() {
                     "math.equation"
                 } else {
                     elem.func().name()

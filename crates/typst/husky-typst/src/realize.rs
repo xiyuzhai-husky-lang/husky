@@ -23,7 +23,7 @@ use crate::layout::{
     AlignElem, BlockElem, BoxTypstElem, ColbreakElem, HElem, LayoutMultiple, PagebreakElem, Parity,
     PlaceElem, TypstFlowElem, TypstLayoutSingle, TypstPageElem, VElem,
 };
-use crate::math::{EquationTypstElem, TypstLayoutMath};
+use crate::math::{TypstEquationElem, TypstLayoutMath};
 use crate::model::{
     CiteTypstElem, DocumentElem, EnumElem, EnumItem, ListElem, ListItem, ParagraphTypstElem,
     ParbreakElem, TermItem, TermsElem, TypstCiteGroup,
@@ -423,9 +423,9 @@ impl<'a, 'v, 't> Builder<'a, 'v, 't> {
         mut content: &'a TypstContent,
         styles: TypstStyleChain<'a>,
     ) -> TypstSourceResult<()> {
-        if content.can::<dyn TypstLayoutMath>() && !content.is::<EquationTypstElem>() {
+        if content.can::<dyn TypstLayoutMath>() && !content.is::<TypstEquationElem>() {
             content = self.scratch.content.alloc(
-                EquationTypstElem::new(content.clone())
+                TypstEquationElem::new(content.clone())
                     .pack()
                     .spanned(content.span()),
             );
@@ -748,7 +748,7 @@ impl<'a> ParBuilder<'a> {
             || content.is::<LinebreakElem>()
             || content.is::<SmartQuoteElem>()
             || content
-                .to_packed::<EquationTypstElem>()
+                .to_packed::<TypstEquationElem>()
                 .map_or(false, |elem| !elem.block(styles))
             || content.is::<BoxTypstElem>()
         {

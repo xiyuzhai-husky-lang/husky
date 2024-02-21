@@ -429,7 +429,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             Left(PreludeTraitPath::UNVEIL) => {
                                 LinInstantiation::from_javelin(instantiation, db)
                                     .into_iter()
-                                    .map(|instantiation| {
+                                    .flat_map(|instantiation| {
                                         [
                                             Linkage::new(
                                                 db,
@@ -447,7 +447,6 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                             ),
                                         ]
                                     })
-                                    .flatten()
                                     .collect()
                             }
                             _ => match ritchie_item_kind.is_lazy() {
@@ -498,7 +497,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             };
                             LinInstantiation::from_javelin(instantiation, db)
                                 .into_iter()
-                                .map(|instantiation| {
+                                .flat_map(|instantiation| {
                                     let self_ty = LinTypePathLeading::new(
                                         db,
                                         path,
@@ -527,7 +526,6 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         )
                                     }))
                                 })
-                                .flatten()
                                 .collect()
                         }
                         TypeKind::Structure => unreachable!(),
@@ -540,7 +538,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 JavPath::TypeVariantConstructor(path) => {
                     LinInstantiation::from_javelin(instantiation, db)
                         .into_iter()
-                        .map(|instantiation| {
+                        .flat_map(|instantiation| {
                             [Linkage::new(
                                 db,
                                 LinkageData::TypeVariantConstructor {
@@ -554,7 +552,6 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             //     Linkage::new(db, LinkageData::StructField { self_ty, field })
                             // }))
                         })
-                        .flatten()
                         .collect()
                 }
             }
@@ -587,8 +584,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
 #[salsa::tracked(jar = LinkageJar, return_ref)]
 pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linkage> {
     package_javelins(db, package_path)
-        .map(|javelin| linkages_emancipated_by_javelin(db, javelin).iter().copied())
-        .flatten()
+        .flat_map(|javelin| linkages_emancipated_by_javelin(db, javelin).iter().copied())
         .collect()
 }
 

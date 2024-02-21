@@ -160,7 +160,7 @@ pub static MATH: TypstDefnKind;
 pub fn module() -> TypstModuleEvaluation {
     let mut math = TypstValueAssignmentGroup::deduplicating();
     math.category(MATH);
-    math.define_elem::<EquationTypstElem>();
+    math.define_elem::<TypstEquationElem>();
     math.define_elem::<TextElem>();
     math.define_elem::<LrElem>();
     math.define_elem::<MidElem>();
@@ -237,7 +237,7 @@ impl TypstLayoutMath for TypstContent {
         // #let my = $pi$
         // $ my r^2 $
         // ```
-        if let Some(elem) = self.to_packed::<EquationTypstElem>() {
+        if let Some(elem) = self.to_packed::<TypstEquationElem>() {
             return elem.layout_math(ctx, styles);
         }
 

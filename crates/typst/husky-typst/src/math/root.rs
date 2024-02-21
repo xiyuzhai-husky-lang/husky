@@ -4,8 +4,8 @@ use crate::foundations::{
 };
 use crate::layout::{Size, TypstAbsLength, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::math::{
-    style_cramped, EquationTypstElem, FrameFragment, GlyphFragment, MathSize, Scaled,
-    TypstLayoutMath, TypstMathContext,
+    style_cramped, FrameFragment, GlyphFragment, Scaled, TypstEquationElem, TypstLayoutMath,
+    TypstMathContext, TypstMathSize,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::TextElem;
@@ -92,7 +92,7 @@ fn layout(
         .frame;
 
     // Layout the index.
-    let sscript = EquationTypstElem::set_size(MathSize::ScriptScript).wrap();
+    let sscript = TypstEquationElem::set_size(TypstMathSize::ScriptScript).wrap();
     let index = index
         .map(|elem| ctx.layout_frame(elem, styles.chain(&sscript)))
         .transpose()?;

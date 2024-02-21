@@ -2,7 +2,7 @@ use unicode_math_class::MathClass;
 
 use crate::foundations::{IsTypstElem, TypstValueAssignmentGroup};
 use crate::layout::{HElem, TypstAbsLength, TypstEmLength};
-use crate::math::{MathFragment, MathSize, SpacingFragment};
+use crate::math::{MathFragment, SpacingFragment, TypstMathSize};
 
 pub(super) const THIN: TypstEmLength = TypstEmLength::new(1.0 / 6.0);
 pub(super) const MEDIUM: TypstEmLength = TypstEmLength::new(2.0 / 9.0);
@@ -33,7 +33,7 @@ pub(super) fn spacing(
             .map_or(TypstAbsLength::zero(), |size| v.at(size));
         Some(SpacingFragment { width, weak: false }.into())
     };
-    let script = |f: &MathFragment| f.math_size().map_or(false, |s| s <= MathSize::Script);
+    let script = |f: &MathFragment| f.math_size().map_or(false, |s| s <= TypstMathSize::Script);
 
     match (l.class(), r.class()) {
         // No spacing before punctuation; thin spacing after punctuation, unless

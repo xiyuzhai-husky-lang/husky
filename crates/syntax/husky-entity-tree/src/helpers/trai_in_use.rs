@@ -129,8 +129,7 @@ impl<'a> TraitInUseItemsWithGivenIdent<'a> {
             .chain(
                 self.prelude_trait_items
                     .into_iter()
-                    .map(|arr| arr.iter().copied())
-                    .flatten(),
+                    .flat_map(|arr| arr.iter().copied()),
             )
     }
 }

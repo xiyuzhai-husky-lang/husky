@@ -83,8 +83,7 @@ impl EntityTreeCrateBundle {
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_block_paths(db))
-            .flatten()
+            .flat_map(|sheet| sheet.all_trai_for_ty_impl_block_paths(db))
             .filter(move |path| path.ty_sketch(db) == TypeSketch::Path(ty_path))
     }
 
