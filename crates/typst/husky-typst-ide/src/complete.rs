@@ -4,7 +4,7 @@ use std::collections::{BTreeSet, HashSet};
 use ecow::{eco_format, EcoString};
 use husky_typst::foundations::{
     fields_on, format_str, mutable_methods_on, repr, AutoTypstValue, CastInfo, Func, Label,
-    NoneTypstValue, Repr, Type, TypstValue, TypstValueAssignmentGroup,
+    NoneTypstValue, Type, TypstValue, TypstValueAssignmentGroup, TypstValueRepr,
 };
 use husky_typst::model::TypstDocument;
 use husky_typst::syntax::{

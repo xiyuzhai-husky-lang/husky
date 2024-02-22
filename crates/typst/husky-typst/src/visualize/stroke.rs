@@ -2,8 +2,8 @@ use ecow::EcoString;
 
 use crate::diag::{StrResult, TypstSourceResult};
 use crate::foundations::{
-    cast, dict, func, scope, ty, Cast, Fold, FromTypstValue, NoneTypstValue, Repr, Resolve, Smart,
-    TypstArgs, TypstDict, TypstStyleChain, TypstValue,
+    cast, dict, func, scope, ty, Cast, Fold, FromTypstValue, NoneTypstValue, Resolve, Smart,
+    TypstArgs, TypstDict, TypstStyleChain, TypstValue, TypstValueRepr,
 };
 use crate::layout::{TypstAbsLength, TypstLength};
 use crate::util::{Scalar, TypstNumeric};
@@ -274,7 +274,7 @@ impl TypstStroke<TypstAbsLength> {
     }
 }
 
-impl<T: TypstNumeric + Repr> Repr for TypstStroke<T> {
+impl<T: TypstNumeric + TypstValueRepr> TypstValueRepr for TypstStroke<T> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::new();
         let Self {
@@ -432,7 +432,7 @@ pub enum LineCap {
     Square,
 }
 
-impl Repr for LineCap {
+impl TypstValueRepr for LineCap {
     fn repr(&self) -> EcoString {
         match self {
             Self::Butt => "butt".repr(),
@@ -455,7 +455,7 @@ pub enum LineJoin {
     Bevel,
 }
 
-impl Repr for LineJoin {
+impl TypstValueRepr for LineJoin {
     fn repr(&self) -> EcoString {
         match self {
             Self::Miter => "miter".repr(),
@@ -474,7 +474,7 @@ pub struct DashPattern<T: TypstNumeric = TypstLength, DT = DashLength<T>> {
     pub phase: T,
 }
 
-impl<T: TypstNumeric + Repr, DT: Repr> Repr for DashPattern<T, DT> {
+impl<T: TypstNumeric + TypstValueRepr, DT: TypstValueRepr> TypstValueRepr for DashPattern<T, DT> {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::from("(array: (");
         for (i, elem) in self.array.iter().enumerate() {
@@ -556,7 +556,7 @@ impl<T: TypstNumeric> DashLength<T> {
     }
 }
 
-impl<T: TypstNumeric + Repr> Repr for DashLength<T> {
+impl<T: TypstNumeric + TypstValueRepr> TypstValueRepr for DashLength<T> {
     fn repr(&self) -> EcoString {
         match self {
             Self::LineWidth => "dot".repr(),

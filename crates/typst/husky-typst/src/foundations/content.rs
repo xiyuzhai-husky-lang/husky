@@ -15,7 +15,8 @@ use crate::diag::{StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
     elem, func, scope, ty, ElementSchemaRef, Fields, IntoTypstValue, IsTypstElem, Label, Recipe,
-    RecipeIndex, Repr, Selector, Str, Style, TypstDict, TypstStyleChain, TypstStyles, TypstValue,
+    RecipeIndex, Selector, Str, Style, TypstDict, TypstStyleChain, TypstStyles, TypstValue,
+    TypstValueRepr,
 };
 use crate::introspection::{Location, MetaTypstElem, TypstMeta};
 use crate::layout::{
@@ -621,7 +622,7 @@ impl PartialEq for TypstContent {
     }
 }
 
-impl Repr for TypstContent {
+impl TypstValueRepr for TypstContent {
     fn repr(&self) -> EcoString {
         self.inner.elem.repr()
     }
@@ -713,7 +714,7 @@ impl Serialize for TypstContent {
 }
 
 /// The trait that combines all the other traits into a trait object.
-trait IsTypstElemDyn: Debug + Repr + Fields + Send + Sync + 'static {
+trait IsTypstElemDyn: Debug + TypstValueRepr + Fields + Send + Sync + 'static {
     fn type_id_dyn(&self) -> TypeId;
     fn element_schema_ref_dyn(&self) -> ElementSchemaRef;
     fn clone_dyn(
@@ -933,7 +934,7 @@ impl PartialEq for SequenceElem {
     }
 }
 
-impl Repr for SequenceElem {
+impl TypstValueRepr for SequenceElem {
     fn repr(&self) -> EcoString {
         if self.children.is_empty() {
             "[]".into()
@@ -977,7 +978,7 @@ impl PartialEq for StyledTypstElement {
     }
 }
 
-impl Repr for StyledTypstElement {
+impl TypstValueRepr for StyledTypstElement {
     fn repr(&self) -> EcoString {
         eco_format!("styled(child: {}, ..)", self.child.repr())
     }

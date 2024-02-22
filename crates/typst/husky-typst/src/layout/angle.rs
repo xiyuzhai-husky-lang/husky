@@ -5,7 +5,7 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{func, repr, scope, ty, Repr};
+use crate::foundations::{func, repr, scope, ty, TypstValueRepr};
 use crate::util::{Scalar, TypstNumeric};
 
 /// An angle describing a rotation.
@@ -133,7 +133,7 @@ impl Debug for Angle {
     }
 }
 
-impl Repr for Angle {
+impl TypstValueRepr for Angle {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.to_deg(), "deg")
     }

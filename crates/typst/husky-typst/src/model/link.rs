@@ -3,7 +3,8 @@ use ecow::{eco_format, EcoString};
 use crate::diag::{At, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, Label, Repr, Show, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
+    cast, elem, Label, Show, Smart, TypstContent, TypstContentRefined, TypstStyleChain,
+    TypstValueRepr,
 };
 use crate::introspection::Location;
 use crate::layout::Position;
@@ -153,7 +154,7 @@ pub enum TypstDestination {
     Location(Location),
 }
 
-impl Repr for TypstDestination {
+impl TypstValueRepr for TypstDestination {
     fn repr(&self) -> EcoString {
         eco_format!("{self:?}")
     }

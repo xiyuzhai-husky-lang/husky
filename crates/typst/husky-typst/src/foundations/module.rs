@@ -113,7 +113,7 @@ impl Debug for TypstModuleEvaluation {
     }
 }
 
-impl repr::Repr for TypstModuleEvaluation {
+impl repr::TypstValueRepr for TypstModuleEvaluation {
     fn repr(&self) -> EcoString {
         eco_format!("<module {}>", self.name())
     }

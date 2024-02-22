@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg, Rem};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, repr, Repr, TypstValue};
+use crate::foundations::{cast, repr, TypstValue, TypstValueRepr};
 use crate::util::{Scalar, TypstNumeric};
 
 /// An absolute length.
@@ -146,7 +146,7 @@ impl Debug for TypstAbsLength {
     }
 }
 
-impl Repr for TypstAbsLength {
+impl TypstValueRepr for TypstAbsLength {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.to_pt(), "pt")
     }

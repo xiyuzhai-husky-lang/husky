@@ -6,7 +6,7 @@ use once_cell::sync::Lazy;
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    cast, func, Func, NativeFuncData, Repr, TypstValue, TypstValueAssignmentGroup,
+    cast, func, Func, NativeFuncData, TypstValue, TypstValueAssignmentGroup, TypstValueRepr,
 };
 use crate::util::Static;
 
@@ -148,7 +148,7 @@ impl Debug for Type {
     }
 }
 
-impl Repr for Type {
+impl TypstValueRepr for Type {
     fn repr(&self) -> EcoString {
         self.long_name().into()
     }

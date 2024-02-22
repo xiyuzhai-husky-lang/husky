@@ -18,4 +18,5 @@ husky-trace-protocol.workspace = true
 # tasks
 husky-task-interface.workspace = true
 # utils
+husky-control-flow-utils.workspace = true
 husky-print-utils.workspace = true

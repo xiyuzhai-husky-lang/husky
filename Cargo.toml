@@ -8,6 +8,7 @@ members = [
     "crates/devtime/*",
     "crates/devtools/*",
     "crates/fs/*",
+    "crates/gohan/*",
     "crates/gui/*",
     "crates/ide/*",
     "crates/kernel/*",
@@ -25,7 +26,13 @@ members = [
     "crates/vm/*",
     "crates/benchmarks/*",
     "library/core",
-    "registry/*", "crates/prototypes/husky-tn-prototype", "crates/prototypes/husky-vn-prototype", "crates/prototypes/husky-pn-prototype", "crates/prototypes/husky-qn-prototype",
+    "registry/*",
+    "crates/prototypes/husky-tn-prototype",
+    "crates/prototypes/husky-vn-prototype",
+    "crates/prototypes/husky-pn-prototype",
+    "crates/prototypes/husky-qn-prototype",
+    "crates/corgi/husky-corgi-config",
+    "crates/gohan/husky-gohan-base",
 ]
 resolver = "2"
 
@@ -368,6 +375,7 @@ husky-toolchain-config-ast = { path = "crates/toml/husky-toolchain-config-ast" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 husky-check-utils = { path = "crates/utils/husky-check-utils" }
+husky-control-flow-utils = { path = "crates/utils/husky-control-flow-utils" }
 husky-decl-macro-utils = { path = "crates/utils/husky-decl-macro-utils" }
 husky-error-utils = { path = "crates/utils/husky-error-utils" }
 husky-git-utils = { path = "crates/utils/husky-git-utils" }

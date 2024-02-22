@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{repr, ty, Repr};
+use crate::foundations::{repr, ty, TypstValueRepr};
 use crate::layout::TypstAbsLength;
 use crate::util::{Scalar, TypstNumeric};
 
@@ -77,7 +77,7 @@ impl Debug for TypstFraction {
     }
 }
 
-impl Repr for TypstFraction {
+impl TypstValueRepr for TypstFraction {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get(), "fr")
     }

@@ -4,7 +4,8 @@ use ecow::{eco_format, eco_vec, EcoString, EcoVec};
 
 use crate::diag::{bail, error, At, SourceDiagnostic, TypstSourceResult};
 use crate::foundations::{
-    func, repr, scope, ty, Array, FromTypstValue, IntoTypstValue, Repr, Str, TypstDict, TypstValue,
+    func, repr, scope, ty, Array, FromTypstValue, IntoTypstValue, Str, TypstDict, TypstValue,
+    TypstValueRepr,
 };
 use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 
@@ -286,7 +287,7 @@ impl Debug for TypstArgs {
     }
 }
 
-impl Repr for TypstArgs {
+impl TypstValueRepr for TypstArgs {
     fn repr(&self) -> EcoString {
         let pieces = self.items.iter().map(TypstArg::repr).collect::<Vec<_>>();
         repr::pretty_array_like(&pieces, false).into()
@@ -323,7 +324,7 @@ impl Debug for TypstArg {
     }
 }
 
-impl Repr for TypstArg {
+impl TypstValueRepr for TypstArg {
     fn repr(&self) -> EcoString {
         if let Some(name) = &self.name {
             eco_format!("{}: {}", name, self.value.v.repr())

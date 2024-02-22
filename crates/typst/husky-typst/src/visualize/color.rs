@@ -12,8 +12,8 @@ use palette::{
 
 use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::foundations::{
-    array, cast, func, repr, scope, ty, Array, IntoTypstValue, Repr, Str, TypstArgs,
-    TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup,
+    array, cast, func, repr, scope, ty, Array, IntoTypstValue, Str, TypstArgs,
+    TypstModuleEvaluation, TypstValue, TypstValueAssignmentGroup, TypstValueRepr,
 };
 use crate::layout::{Angle, Ratio};
 use crate::syntax::{TypstSynSpan, TypstSynSpanned};
@@ -1433,7 +1433,7 @@ impl Debug for TypstColor {
     }
 }
 
-impl Repr for TypstColor {
+impl TypstValueRepr for TypstColor {
     fn repr(&self) -> EcoString {
         match self {
             Self::Luma(c) => eco_format!("luma({})", Ratio::new(c.luma as _).repr()),

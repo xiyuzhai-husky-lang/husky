@@ -32,7 +32,7 @@ pub fn repr(
 }
 
 /// A trait that defines the `repr` of a Typst value.
-pub trait Repr {
+pub trait TypstValueRepr {
     /// Return the debug representation of the value.
     fn repr(&self) -> EcoString;
 }

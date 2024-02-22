@@ -27,8 +27,8 @@ use smallvec::SmallVec;
 
 use crate::foundations::TypstContentRefined;
 use crate::foundations::{
-    category, elem, ty, Behave, Behaviour, Repr, TypstContent, TypstDefnKind,
-    TypstValueAssignmentGroup, Unlabellable,
+    category, elem, ty, Behave, Behaviour, TypstContent, TypstDefnKind, TypstValueAssignmentGroup,
+    TypstValueRepr, Unlabellable,
 };
 use crate::model::TypstDestination;
 
@@ -104,7 +104,7 @@ impl Debug for TypstMeta {
     }
 }
 
-impl Repr for TypstMeta {
+impl TypstValueRepr for TypstMeta {
     fn repr(&self) -> EcoString {
         eco_format!("{self:?}")
     }

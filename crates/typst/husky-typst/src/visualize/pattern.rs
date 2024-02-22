@@ -268,7 +268,7 @@ impl Pattern {
     }
 }
 
-impl repr::Repr for Pattern {
+impl repr::TypstValueRepr for Pattern {
     fn repr(&self) -> EcoString {
         let mut out = eco_format!(
             "pattern(({}, {})",

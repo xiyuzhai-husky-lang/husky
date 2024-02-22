@@ -2,7 +2,7 @@ use std::fmt::{self, Debug, Formatter};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, Repr, Smart};
+use crate::foundations::{cast, Smart, TypstValueRepr};
 use crate::visualize::{Gradient, Pattern, RelativeTo, TypstColor};
 
 /// How a fill or stroke should be painted.
@@ -67,7 +67,7 @@ impl From<Pattern> for TypstPaint {
     }
 }
 
-impl Repr for TypstPaint {
+impl TypstValueRepr for TypstPaint {
     fn repr(&self) -> EcoString {
         match self {
             Self::Solid(color) => color.repr(),

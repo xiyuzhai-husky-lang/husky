@@ -3,8 +3,8 @@ use std::fmt::{self, Debug, Formatter};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Repr, Resolve, Type,
-    TypstStyleChain, TypstValue,
+    ty, CastInfo, Fold, FromTypstValue, IntoTypstValue, Reflect, Resolve, Type, TypstStyleChain,
+    TypstValue, TypstValueRepr,
 };
 
 /// A value that indicates a smart default.
@@ -54,7 +54,7 @@ impl Debug for AutoTypstValue {
     }
 }
 
-impl Repr for AutoTypstValue {
+impl TypstValueRepr for AutoTypstValue {
     fn repr(&self) -> EcoString {
         "auto".into()
     }

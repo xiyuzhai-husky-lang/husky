@@ -8,7 +8,8 @@ use kurbo::Vec2;
 
 use crate::diag::{bail, TypstSourceResult};
 use crate::foundations::{
-    array, cast, func, scope, ty, Array, Cast, Func, IntoTypstValue, Repr, Smart, TypstArgs,
+    array, cast, func, scope, ty, Array, Cast, Func, IntoTypstValue, Smart, TypstArgs,
+    TypstValueRepr,
 };
 use crate::layout::{Angle, Axes, Quadrant, Ratio, TypstLayoutDirection};
 use crate::syntax::{TypstSynSpan, TypstSynSpanned};
@@ -875,7 +876,7 @@ impl Debug for Gradient {
     }
 }
 
-impl Repr for Gradient {
+impl TypstValueRepr for Gradient {
     fn repr(&self) -> EcoString {
         match self {
             Self::Radial(radial) => radial.repr(),
@@ -900,7 +901,7 @@ pub struct LinearGradient {
     pub anti_alias: bool,
 }
 
-impl Repr for LinearGradient {
+impl TypstValueRepr for LinearGradient {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::from("gradient.linear(");
 
@@ -968,7 +969,7 @@ pub struct RadialGradient {
     pub anti_alias: bool,
 }
 
-impl Repr for RadialGradient {
+impl TypstValueRepr for RadialGradient {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::from("gradient.radial(");
 
@@ -1046,7 +1047,7 @@ pub struct ConicGradient {
     pub anti_alias: bool,
 }
 
-impl Repr for ConicGradient {
+impl TypstValueRepr for ConicGradient {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::from("gradient.conic(");
 

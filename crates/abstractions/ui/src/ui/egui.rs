@@ -2,7 +2,6 @@ use super::*;
 use ::egui::{
     ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
 };
-use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::image::ImageVisual};
 
 impl IsUi for ::egui::Ui {
     type TextureHandle = TextureHandle;

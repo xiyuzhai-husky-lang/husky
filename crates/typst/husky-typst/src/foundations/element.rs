@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::TypstSourceResult;
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, Func, ParamInfo, Repr, Selector, TypstArgs, TypstContent, TypstDict, TypstStyleChain,
-    TypstStyles, TypstValue, TypstValueAssignmentGroup,
+    cast, Func, ParamInfo, Selector, TypstArgs, TypstContent, TypstDict, TypstStyleChain,
+    TypstStyles, TypstValue, TypstValueAssignmentGroup, TypstValueRepr,
 };
 use crate::text::{Lang, Region};
 use crate::util::Static;
@@ -139,7 +139,7 @@ impl Debug for ElementSchemaRef {
     }
 }
 
-impl Repr for ElementSchemaRef {
+impl TypstValueRepr for ElementSchemaRef {
     fn repr(&self) -> EcoString {
         self.name().into()
     }
@@ -165,7 +165,18 @@ cast! {
 
 /// A Typst element that is defined by a native Rust type.
 pub trait IsTypstElem:
-    Debug + Clone + PartialEq + Hash + Construct + Set + Capable + Fields + Repr + Send + Sync + 'static
+    Debug
+    + Clone
+    + PartialEq
+    + Hash
+    + Construct
+    + Set
+    + Capable
+    + Fields
+    + TypstValueRepr
+    + Send
+    + Sync
+    + 'static
 {
     /// Get the element for the native Rust element.
     fn elem() -> ElementSchemaRef

@@ -10,7 +10,7 @@ use unicode_math_class::MathClass;
 
 use crate::diag::{At, StrResult, TypstSourceResult};
 use crate::foundations::{
-    array, repr, IsTypstElem, Repr, Str, Type, TypstContentRefined, TypstValue,
+    array, repr, IsTypstElem, Str, Type, TypstContentRefined, TypstValue, TypstValueRepr,
 };
 use crate::syntax::{TypstSynSpan, TypstSynSpanned};
 

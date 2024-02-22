@@ -2,7 +2,7 @@ use std::num::ParseFloatError;
 
 use ecow::{eco_format, EcoString};
 
-use crate::foundations::{cast, func, repr, scope, ty, Repr, Str};
+use crate::foundations::{cast, func, repr, scope, ty, Str, TypstValueRepr};
 use crate::layout::Ratio;
 
 /// A floating-point number.
@@ -96,7 +96,7 @@ impl f64 {
     }
 }
 
-impl Repr for f64 {
+impl TypstValueRepr for f64 {
     fn repr(&self) -> EcoString {
         repr::format_float(*self, None, true, "")
     }

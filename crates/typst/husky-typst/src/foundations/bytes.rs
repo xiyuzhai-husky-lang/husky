@@ -8,7 +8,7 @@ use ecow::{eco_format, EcoString};
 use serde::{Serialize, Serializer};
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{cast, func, scope, ty, Array, Reflect, Repr, Str, TypstValue};
+use crate::foundations::{cast, func, scope, ty, Array, Reflect, Str, TypstValue, TypstValueRepr};
 
 /// A sequence of bytes.
 ///
@@ -164,7 +164,7 @@ impl Debug for Bytes {
     }
 }
 
-impl Repr for Bytes {
+impl TypstValueRepr for Bytes {
     fn repr(&self) -> EcoString {
         eco_format!("bytes({})", self.len())
     }

@@ -3,7 +3,7 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{repr, ty, Repr};
+use crate::foundations::{repr, ty, TypstValueRepr};
 use crate::util::{Scalar, TypstNumeric};
 
 /// A ratio of a whole.
@@ -74,7 +74,7 @@ impl Debug for Ratio {
     }
 }
 
-impl Repr for Ratio {
+impl TypstValueRepr for Ratio {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get() * 100.0, "%")
     }

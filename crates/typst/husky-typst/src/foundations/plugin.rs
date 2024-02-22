@@ -321,7 +321,7 @@ impl Debug for Plugin {
     }
 }
 
-impl repr::Repr for Plugin {
+impl repr::TypstValueRepr for Plugin {
     fn repr(&self) -> EcoString {
         "plugin(..)".into()
     }

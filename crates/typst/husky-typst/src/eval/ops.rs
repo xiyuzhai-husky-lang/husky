@@ -6,7 +6,7 @@ use ecow::eco_format;
 
 use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::eval::{access_dict, Access, Eval, Vm};
-use crate::foundations::{format_str, Datetime, IntoTypstValue, Regex, Repr, TypstValue};
+use crate::foundations::{format_str, Datetime, IntoTypstValue, Regex, TypstValue, TypstValueRepr};
 use crate::layout::{Rel, TypstAlignment, TypstLength};
 use crate::syntax::ast::{self, TypstAstNode};
 use crate::text::TextElem;
@@ -546,7 +546,7 @@ pub fn compare(lhs: &TypstValue, rhs: &TypstValue) -> StrResult<Ordering> {
 }
 
 /// Try to compare two values.
-fn try_cmp_values<T: PartialOrd + Repr>(a: &T, b: &T) -> StrResult<Ordering> {
+fn try_cmp_values<T: PartialOrd + TypstValueRepr>(a: &T, b: &T) -> StrResult<Ordering> {
     a.partial_cmp(b)
         .ok_or_else(|| eco_format!("cannot compare {} with {}", a.repr(), b.repr()))
 }

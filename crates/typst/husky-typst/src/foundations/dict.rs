@@ -8,7 +8,7 @@ use indexmap::IndexMap;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::diag::StrResult;
-use crate::foundations::{array, func, repr, scope, ty, Array, Repr, Str, TypstValue};
+use crate::foundations::{array, func, repr, scope, ty, Array, Str, TypstValue, TypstValueRepr};
 use crate::syntax::is_ident;
 use crate::util::ArcExt;
 
@@ -241,7 +241,7 @@ impl Debug for TypstDict {
     }
 }
 
-impl Repr for TypstDict {
+impl TypstValueRepr for TypstDict {
     fn repr(&self) -> EcoString {
         if self.is_empty() {
             return "(:)".into();

@@ -3,7 +3,7 @@ use std::fmt::{self, Debug, Formatter};
 use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
-use crate::foundations::{cast, Cast, IntoTypstValue, Repr};
+use crate::foundations::{cast, Cast, IntoTypstValue, TypstValueRepr};
 use crate::layout::Ratio;
 
 /// Properties that distinguish a font from other fonts in the same family.
@@ -250,7 +250,7 @@ impl Default for FontStretch {
         Self::NORMAL
     }
 }
-impl Repr for FontStretch {
+impl TypstValueRepr for FontStretch {
     fn repr(&self) -> EcoString {
         self.to_ratio().repr()
     }

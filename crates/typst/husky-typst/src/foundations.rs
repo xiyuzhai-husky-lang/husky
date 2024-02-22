@@ -51,7 +51,7 @@ pub use self::methods::*;
 pub use self::module::*;
 pub use self::none::*;
 pub use self::plugin::*;
-pub use self::repr::Repr;
+pub use self::repr::TypstValueRepr;
 pub use self::scope::*;
 pub use self::selector::*;
 pub use self::str::*;

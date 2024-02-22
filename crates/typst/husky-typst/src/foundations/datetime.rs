@@ -10,7 +10,7 @@ use time::{format_description, Month, PrimitiveDateTime};
 use crate::diag::{bail, StrResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, func, repr, scope, ty, Duration, Repr, Smart, Str, TypstDict, TypstValue,
+    cast, func, repr, scope, ty, Duration, Smart, Str, TypstDict, TypstValue, TypstValueRepr,
 };
 use crate::IsTypstWorld;
 
@@ -426,7 +426,7 @@ impl Datetime {
     }
 }
 
-impl Repr for Datetime {
+impl TypstValueRepr for Datetime {
     fn repr(&self) -> EcoString {
         let year = self
             .year()

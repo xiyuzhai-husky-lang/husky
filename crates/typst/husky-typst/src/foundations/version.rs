@@ -6,7 +6,7 @@ use std::iter::repeat;
 use ecow::{eco_format, EcoString, EcoVec};
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{cast, func, repr, scope, ty, Repr};
+use crate::foundations::{cast, func, repr, scope, ty, TypstValueRepr};
 
 /// A version with an arbitrary number of components.
 ///
@@ -180,7 +180,7 @@ impl Display for Version {
     }
 }
 
-impl Repr for Version {
+impl TypstValueRepr for Version {
     fn repr(&self) -> EcoString {
         let parts: Vec<_> = self.0.iter().map(|v| eco_format!("{v}")).collect();
         eco_format!("version{}", &repr::pretty_array_like(&parts, false))

@@ -12,7 +12,7 @@ use crate::engine::TypstEngine;
 use crate::eval::ops;
 use crate::foundations::{
     cast, func, repr, scope, ty, Bytes, CastInfo, FromTypstValue, Func, IntoTypstValue, Reflect,
-    Repr, TypstArgs, TypstValue, Version,
+    TypstArgs, TypstValue, TypstValueRepr, Version,
 };
 use crate::syntax::TypstSynSpan;
 
@@ -828,7 +828,7 @@ impl Debug for Array {
     }
 }
 
-impl Repr for Array {
+impl TypstValueRepr for Array {
     fn repr(&self) -> EcoString {
         let max = 40;
         let mut pieces: Vec<_> = self

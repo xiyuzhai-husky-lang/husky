@@ -5,7 +5,9 @@ use std::ops::{Add, Div, Mul, Neg};
 use ecow::{eco_format, EcoString};
 
 use crate::diag::{At, Hint, TypstSourceResult};
-use crate::foundations::{func, scope, ty, Fold, Repr, Resolve, TypstStyleChain, TypstStyles};
+use crate::foundations::{
+    func, scope, ty, Fold, Resolve, TypstStyleChain, TypstStyles, TypstValueRepr,
+};
 use crate::layout::{TypstAbsLength, TypstEmLength};
 use crate::syntax::TypstSynSpan;
 use crate::util::TypstNumeric;
@@ -184,7 +186,7 @@ impl Debug for TypstLength {
     }
 }
 
-impl Repr for TypstLength {
+impl TypstValueRepr for TypstLength {
     fn repr(&self) -> EcoString {
         match (self.abs.is_zero(), self.em.is_zero()) {
             (false, false) => eco_format!("{} + {}", self.abs.repr(), self.em.repr()),

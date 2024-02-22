@@ -4,7 +4,7 @@ use std::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssi
 
 use ecow::{eco_format, EcoString};
 
-use crate::foundations::{cast, ty, Fold, Repr, Resolve, TypstStyleChain};
+use crate::foundations::{cast, ty, Fold, Resolve, TypstStyleChain, TypstValueRepr};
 use crate::layout::{Ratio, TypstAbsLength, TypstEmLength, TypstLength};
 use crate::util::TypstNumeric;
 
@@ -107,7 +107,7 @@ impl<T: TypstNumeric + Debug> Debug for Rel<T> {
     }
 }
 
-impl<T: TypstNumeric + Repr> Repr for Rel<T> {
+impl<T: TypstNumeric + TypstValueRepr> TypstValueRepr for Rel<T> {
     fn repr(&self) -> EcoString {
         match (self.rel.is_zero(), self.abs.is_zero()) {
             (false, false) => eco_format!("{} + {}", self.rel.repr(), self.abs.repr()),

@@ -4,7 +4,7 @@ use ecow::{eco_format, EcoString};
 
 use crate::{
     diag::StrResult,
-    foundations::{cast, func, repr, scope, ty, Repr, Str, TypstValue},
+    foundations::{cast, func, repr, scope, ty, Str, TypstValue, TypstValueRepr},
 };
 
 /// A whole number.
@@ -218,7 +218,7 @@ impl i64 {
     }
 }
 
-impl Repr for i64 {
+impl TypstValueRepr for i64 {
     fn repr(&self) -> EcoString {
         eco_format!("{:?}", self)
     }
