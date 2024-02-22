@@ -10,8 +10,8 @@ use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
     cast, elem, func, scope, select_where, ty, Array, ElementSchemaRef, Func, IntoTypstValue,
-    IsTypstElem, Label, LocatableSelector, Repr, Selector, Show, Str, TypstContent,
-    TypstContentRefined, TypstStyleChain, TypstValue,
+    IsTypstElem, Label, LocatableSelector, Selector, Show, Str, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstValue, TypstValueRepr,
 };
 use crate::introspection::{Introspector, Location, Locator, TypstLocatable, TypstMeta};
 use crate::layout::{TypstFrame, TypstFrameItem, TypstPageElem};
@@ -481,7 +481,7 @@ impl Counter {
     }
 }
 
-impl Repr for Counter {
+impl TypstValueRepr for Counter {
     fn repr(&self) -> EcoString {
         eco_format!("counter({})", self.0.repr())
     }
@@ -518,7 +518,7 @@ cast! {
     v: LocatableSelector => Self::Selector(v.0),
 }
 
-impl Repr for CounterKey {
+impl TypstValueRepr for CounterKey {
     fn repr(&self) -> EcoString {
         match self {
             Self::Page => "page".into(),
@@ -540,7 +540,7 @@ pub enum CounterUpdate {
     Func(Func),
 }
 
-impl Repr for CounterUpdate {
+impl TypstValueRepr for CounterUpdate {
     fn repr(&self) -> EcoString {
         "..".into()
     }

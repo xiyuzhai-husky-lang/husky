@@ -7,7 +7,7 @@ use smallvec::SmallVec;
 use crate::diag::{bail, StrResult};
 use crate::foundations::{
     cast, func, repr, scope, ty, CastInfo, ElementSchemaRef, FromTypstValue, Func, Label, Reflect,
-    Regex, Repr, Str, Type, TypstContent, TypstDict, TypstStyleChain, TypstValue,
+    Regex, Str, Type, TypstContent, TypstDict, TypstStyleChain, TypstValue, TypstValueRepr,
 };
 use crate::introspection::{Location, TypstLocatable};
 use crate::symbols::Symbol;
@@ -245,7 +245,7 @@ impl From<Location> for Selector {
     }
 }
 
-impl Repr for Selector {
+impl TypstValueRepr for Selector {
     fn repr(&self) -> EcoString {
         match self {
             Self::Elem(elem, dict) => {

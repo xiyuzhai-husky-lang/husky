@@ -15,3 +15,10 @@ macro_rules! require {
         }
     };
 }
+
+#[macro_export]
+macro_rules! pass {
+    ($note: expr) => {
+        ()
+    };
+}

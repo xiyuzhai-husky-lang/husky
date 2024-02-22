@@ -10,8 +10,8 @@ use unicode_segmentation::UnicodeSegmentation;
 use crate::diag::{bail, At, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTypstValue, Label, Repr, Type,
-    TypstDict, TypstValue, Version,
+    cast, dict, func, repr, scope, ty, Array, Bytes, Func, IntoTypstValue, Label, Type, TypstDict,
+    TypstValue, TypstValueRepr, Version,
 };
 use crate::layout::TypstAlignment;
 use crate::syntax::{TypstSynSpan, TypstSynSpanned};
@@ -626,19 +626,19 @@ impl Display for Str {
     }
 }
 
-impl Repr for Str {
+impl TypstValueRepr for Str {
     fn repr(&self) -> EcoString {
         self.as_ref().repr()
     }
 }
 
-impl Repr for EcoString {
+impl TypstValueRepr for EcoString {
     fn repr(&self) -> EcoString {
         self.as_ref().repr()
     }
 }
 
-impl Repr for &str {
+impl TypstValueRepr for &str {
     fn repr(&self) -> EcoString {
         let mut r = EcoString::with_capacity(self.len() + 2);
         r.push('"');
@@ -898,7 +898,7 @@ impl Deref for Regex {
     }
 }
 
-impl Repr for Regex {
+impl TypstValueRepr for Regex {
     fn repr(&self) -> EcoString {
         eco_format!("regex({})", self.0.as_str().repr())
     }

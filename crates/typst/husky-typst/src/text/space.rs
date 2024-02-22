@@ -1,5 +1,5 @@
 use crate::foundations::{
-    elem, Behave, Behaviour, PlainText, Repr, TypstContentRefined, Unlabellable,
+    elem, Behave, Behaviour, PlainText, TypstContentRefined, TypstValueRepr, Unlabellable,
 };
 use ecow::EcoString;
 
@@ -7,7 +7,7 @@ use ecow::EcoString;
 #[elem(Behave, Unlabellable, PlainText, Repr)]
 pub struct SpaceElem {}
 
-impl Repr for SpaceElem {
+impl TypstValueRepr for SpaceElem {
     fn repr(&self) -> EcoString {
         "[ ]".into()
     }

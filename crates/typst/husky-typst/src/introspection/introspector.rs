@@ -10,7 +10,7 @@ use indexmap::IndexMap;
 use smallvec::SmallVec;
 
 use crate::diag::{bail, StrResult};
-use crate::foundations::{Label, Repr, Selector, TypstContent};
+use crate::foundations::{Label, Selector, TypstContent, TypstValueRepr};
 use crate::introspection::{Location, TypstMeta};
 use crate::layout::{Page, Position, Transform, TypstFrame, TypstFrameItem, TypstPoint};
 use crate::model::Numbering;

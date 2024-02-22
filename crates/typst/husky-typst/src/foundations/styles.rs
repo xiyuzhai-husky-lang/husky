@@ -11,8 +11,8 @@ use smallvec::SmallVec;
 use crate::diag::{Trace, Tracepoint, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, func, ty, ElementSchemaRef, Func, IsTypstElem, Repr, Selector, Show, TypstContent,
-    TypstContentRefined,
+    cast, elem, func, ty, ElementSchemaRef, Func, IsTypstElem, Selector, Show, TypstContent,
+    TypstContentRefined, TypstValueRepr,
 };
 use crate::syntax::TypstSynSpan;
 use crate::text::{FontFamily, FontList, TextElem};
@@ -171,7 +171,7 @@ impl Debug for TypstStyles {
     }
 }
 
-impl Repr for TypstStyles {
+impl TypstValueRepr for TypstStyles {
     fn repr(&self) -> EcoString {
         "..".into()
     }

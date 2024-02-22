@@ -3,7 +3,7 @@ use std::num::NonZeroUsize;
 use ecow::EcoString;
 
 use crate::engine::TypstEngine;
-use crate::foundations::{func, scope, ty, Repr, TypstDict};
+use crate::foundations::{func, scope, ty, TypstDict, TypstValueRepr};
 use crate::model::Numbering;
 
 /// Identifies an element in the document.
@@ -73,7 +73,7 @@ impl Location {
     }
 }
 
-impl Repr for Location {
+impl TypstValueRepr for Location {
     fn repr(&self) -> EcoString {
         "..".into()
     }

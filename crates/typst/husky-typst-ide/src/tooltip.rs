@@ -2,7 +2,7 @@ use std::fmt::Write;
 
 use ecow::{eco_format, EcoString};
 use husky_typst::eval::{CapturesVisitor, Tracer};
-use husky_typst::foundations::{repr, CastInfo, Repr, TypstValue};
+use husky_typst::foundations::{repr, CastInfo, TypstValue, TypstValueRepr};
 use husky_typst::layout::TypstLength;
 use husky_typst::model::TypstDocument;
 use husky_typst::syntax::{ast, LinkedNode, Source, TypstSyntaxKind};

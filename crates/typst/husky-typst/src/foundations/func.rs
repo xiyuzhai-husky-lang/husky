@@ -367,7 +367,7 @@ impl Debug for Func {
     }
 }
 
-impl repr::Repr for Func {
+impl repr::TypstValueRepr for Func {
     fn repr(&self) -> EcoString {
         match self.name() {
             Some(name) => name.into(),

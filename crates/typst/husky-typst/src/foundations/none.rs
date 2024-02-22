@@ -5,7 +5,7 @@ use serde::{Serialize, Serializer};
 
 use crate::diag::StrResult;
 use crate::foundations::{
-    cast, ty, CastInfo, FromTypstValue, IntoTypstValue, Reflect, Repr, Type, TypstValue,
+    cast, ty, CastInfo, FromTypstValue, IntoTypstValue, Reflect, Type, TypstValue, TypstValueRepr,
 };
 
 /// A value that indicates the absence of any other value.
@@ -59,7 +59,7 @@ impl Debug for NoneTypstValue {
     }
 }
 
-impl Repr for NoneTypstValue {
+impl TypstValueRepr for NoneTypstValue {
     fn repr(&self) -> EcoString {
         "none".into()
     }

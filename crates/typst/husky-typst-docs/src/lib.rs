@@ -16,8 +16,8 @@ use ecow::{eco_format, EcoString};
 use heck::ToTitleCase;
 use husky_typst::diag::{bail, StrResult};
 use husky_typst::foundations::{
-    CastInfo, Func, ParamInfo, Repr, Smart, Type, TypstDefnKind, TypstModuleEvaluation, TypstValue,
-    TypstValueAssignmentGroup, FOUNDATIONS,
+    CastInfo, Func, ParamInfo, Smart, Type, TypstDefnKind, TypstModuleEvaluation, TypstValue,
+    TypstValueAssignmentGroup, TypstValueRepr, FOUNDATIONS,
 };
 use husky_typst::introspection::INTROSPECTION;
 use husky_typst::layout::{Margin, TypstAbsLength, TypstPageElem, LAYOUT};

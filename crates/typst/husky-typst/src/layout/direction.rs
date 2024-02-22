@@ -1,6 +1,6 @@
 use ecow::EcoString;
 
-use crate::foundations::{func, scope, ty, Repr};
+use crate::foundations::{func, scope, ty, TypstValueRepr};
 use crate::layout::{Axis, Side};
 
 /// The four directions into which content can be laid out.
@@ -120,7 +120,7 @@ impl TypstLayoutDirection {
     }
 }
 
-impl Repr for TypstLayoutDirection {
+impl TypstValueRepr for TypstLayoutDirection {
     fn repr(&self) -> EcoString {
         match self {
             Self::LeftRight => "ltr".into(),

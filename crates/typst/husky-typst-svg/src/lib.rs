@@ -5,7 +5,7 @@ use std::io::Read;
 
 use base64::Engine;
 use ecow::{eco_format, EcoString};
-use husky_typst::foundations::Repr;
+use husky_typst::foundations::TypstValueRepr;
 use husky_typst::layout::{
     Angle, Axes, FrameKind, Quadrant, Ratio, Size, Transform, TypstAbsLength, TypstFrame,
     TypstFrameItem, TypstGroupItem, TypstPoint,

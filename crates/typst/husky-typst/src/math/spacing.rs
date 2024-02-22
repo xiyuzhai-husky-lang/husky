@@ -30,7 +30,7 @@ pub(super) fn spacing(
     let resolve = |v: TypstEmLength, size_ref: &MathFragment| -> Option<MathFragment> {
         let width = size_ref
             .font_size()
-            .map_or(TypstAbsLength::zero(), |size| v.at(size));
+            .map_or(TypstAbsLength::zero(), |font_size| v.at(font_size));
         Some(SpacingFragment { width, weak: false }.into())
     };
     let script = |f: &MathFragment| f.math_size().map_or(false, |s| s <= TypstMathSize::Script);

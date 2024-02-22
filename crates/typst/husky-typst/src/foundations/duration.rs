@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg, Sub};
 use ecow::{eco_format, EcoString};
 use time::ext::NumericalDuration;
 
-use crate::foundations::{func, repr, scope, ty, Repr};
+use crate::foundations::{func, repr, scope, ty, TypstValueRepr};
 
 /// Represents a positive or negative span of time.
 #[ty(scope, cast)]
@@ -116,7 +116,7 @@ impl Debug for Duration {
     }
 }
 
-impl Repr for Duration {
+impl TypstValueRepr for Duration {
     fn repr(&self) -> EcoString {
         let mut tmp = self.0;
         let mut vec = Vec::with_capacity(5);

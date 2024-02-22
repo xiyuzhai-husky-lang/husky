@@ -1,6 +1,6 @@
 use ecow::{eco_format, EcoString};
 
-use crate::foundations::{func, scope, ty, Repr};
+use crate::foundations::{func, scope, ty, TypstValueRepr};
 use crate::util::PicoStr;
 
 /// A label for an element.
@@ -64,7 +64,7 @@ impl Label {
     }
 }
 
-impl Repr for Label {
+impl TypstValueRepr for Label {
     fn repr(&self) -> EcoString {
         eco_format!("<{}>", self.as_str())
     }

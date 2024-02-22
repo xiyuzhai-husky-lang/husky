@@ -11,9 +11,9 @@ use crate::engine::TypstEngine;
 use crate::eval::{eval_string, EvalMode};
 use crate::foundations::{
     cast, elem, ty, Array, Bytes, CastInfo, FromTypstValue, IntoTypstValue, IsTypstElem, Label,
-    Reflect, Repr, Show, Smart, Str, Type, TypstArgs, TypstContent, TypstContentRefined,
-    TypstShowSet, TypstStyleChain, TypstStyles, TypstSynthesize, TypstValue,
-    TypstValueAssignmentGroup,
+    Reflect, Show, Smart, Str, Type, TypstArgs, TypstContent, TypstContentRefined, TypstShowSet,
+    TypstStyleChain, TypstStyles, TypstSynthesize, TypstValue, TypstValueAssignmentGroup,
+    TypstValueRepr,
 };
 use crate::introspection::{Introspector, Location, TypstLocatable};
 use crate::layout::{
@@ -577,7 +577,7 @@ impl IntoTypstValue for CslStyle {
     }
 }
 
-impl Repr for CslStyle {
+impl TypstValueRepr for CslStyle {
     fn repr(&self) -> EcoString {
         self.name
             .as_ref()

@@ -5,8 +5,8 @@ use crate::diag::TypstSourceResult;
 use crate::engine::{TypstEngine, TypstEngineRoute};
 use crate::eval::Tracer;
 use crate::foundations::{
-    cast, elem, func, scope, select_where, ty, Func, IsTypstElem, Repr, Selector, Show, Str,
-    TypstContent, TypstContentRefined, TypstStyleChain, TypstValue,
+    cast, elem, func, scope, select_where, ty, Func, IsTypstElem, Selector, Show, Str,
+    TypstContent, TypstContentRefined, TypstStyleChain, TypstValue, TypstValueRepr,
 };
 use crate::introspection::{Introspector, Location, Locator, TypstLocatable};
 use crate::syntax::TypstSynSpan;
@@ -345,7 +345,7 @@ impl State {
     }
 }
 
-impl Repr for State {
+impl TypstValueRepr for State {
     fn repr(&self) -> EcoString {
         eco_format!("state({}, {})", self.key.repr(), self.init.repr())
     }
@@ -361,7 +361,7 @@ pub enum StateUpdate {
     Func(Func),
 }
 
-impl Repr for StateUpdate {
+impl TypstValueRepr for StateUpdate {
     fn repr(&self) -> EcoString {
         "..".into()
     }

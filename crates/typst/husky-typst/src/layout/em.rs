@@ -4,7 +4,7 @@ use std::ops::{Add, Div, Mul, Neg};
 
 use ecow::EcoString;
 
-use crate::foundations::{cast, repr, Repr, Resolve, TypstStyleChain, TypstValue};
+use crate::foundations::{cast, repr, Resolve, TypstStyleChain, TypstValue, TypstValueRepr};
 use crate::layout::TypstAbsLength;
 use crate::text::TextElem;
 use crate::util::{Scalar, TypstNumeric};
@@ -83,7 +83,7 @@ impl Debug for TypstEmLength {
     }
 }
 
-impl Repr for TypstEmLength {
+impl TypstValueRepr for TypstEmLength {
     fn repr(&self) -> EcoString {
         repr::format_float_with_unit(self.get(), "em")
     }

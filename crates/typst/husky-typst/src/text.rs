@@ -39,9 +39,9 @@ use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::TypstContentRefined;
 use crate::foundations::{
-    cast, category, elem, Array, Cast, Construct, Fold, IsTypstElem, Never, PlainText, Repr,
-    Resolve, Set, Smart, TypstArgs, TypstContent, TypstDefnKind, TypstDict, TypstStyleChain,
-    TypstValueAssignmentGroup,
+    cast, category, elem, Array, Cast, Construct, Fold, IsTypstElem, Never, PlainText, Resolve,
+    Set, Smart, TypstArgs, TypstContent, TypstDefnKind, TypstDict, TypstStyleChain,
+    TypstValueAssignmentGroup, TypstValueRepr,
 };
 use crate::layout::TypstEmLength;
 use crate::layout::{Axis, Rel, TypstAbsLength, TypstLayoutDirection, TypstLength};
@@ -667,7 +667,7 @@ impl Debug for TextElem {
     }
 }
 
-impl Repr for TextElem {
+impl TypstValueRepr for TextElem {
     fn repr(&self) -> EcoString {
         eco_format!("[{}]", self.text)
     }

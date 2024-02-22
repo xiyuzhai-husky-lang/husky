@@ -5,8 +5,8 @@ use ecow::{eco_format, EcoString};
 use crate::diag::{bail, StrResult, TypstSourceResult};
 use crate::engine::TypstEngine;
 use crate::foundations::{
-    cast, elem, func, scope, ty, Fold, Repr, Resolve, Show, TypstContent, TypstContentRefined,
-    TypstStyleChain,
+    cast, elem, func, scope, ty, Fold, Resolve, Show, TypstContent, TypstContentRefined,
+    TypstStyleChain, TypstValueRepr,
 };
 use crate::layout::{Axes, Axis, Side, TypstAbsLength, TypstLayoutDirection};
 use crate::text::TextElem;
@@ -209,7 +209,7 @@ impl Add for TypstAlignment {
     }
 }
 
-impl Repr for TypstAlignment {
+impl TypstValueRepr for TypstAlignment {
     fn repr(&self) -> EcoString {
         match self {
             Self::H(x) => x.repr(),
@@ -283,7 +283,7 @@ impl HAlignment {
     }
 }
 
-impl Repr for HAlignment {
+impl TypstValueRepr for HAlignment {
     fn repr(&self) -> EcoString {
         match self {
             Self::Start => "start".into(),
@@ -355,7 +355,7 @@ impl VAlignment {
     }
 }
 
-impl Repr for VAlignment {
+impl TypstValueRepr for VAlignment {
     fn repr(&self) -> EcoString {
         match self {
             Self::Top => "top".into(),

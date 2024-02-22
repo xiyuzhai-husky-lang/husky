@@ -1,7 +1,7 @@
-use egui::Frame;
-use husky_visual_protocol::visual::primitive::PrimitiveVisual;
-
 use super::*;
+use egui::Frame;
+use husky_control_flow_utils::pass;
+use husky_visual_protocol::visual::primitive::PrimitiveVisual;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct SpecificGraphics2dFigure {
@@ -80,6 +80,7 @@ impl<'a> SpecificGraphics2dFigureBuilder<'a> {
                     self.collect(trace_id, element)
                 }
             }
+            Visual::Math(_) => pass!("math is not displayed"),
         }
     }
 

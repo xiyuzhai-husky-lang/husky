@@ -237,7 +237,7 @@ impl Debug for List {
     }
 }
 
-impl crate::foundations::Repr for Symbol {
+impl crate::foundations::TypstValueRepr for Symbol {
     fn repr(&self) -> EcoString {
         eco_format!("\"{}\"", self.get())
     }

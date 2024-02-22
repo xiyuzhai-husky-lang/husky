@@ -5119,6 +5119,7 @@ version = "0.1.0"
 dependencies = [
  "egui",
  "enum-class",
+ "husky-control-flow-utils",
  "husky-print-utils",
  "husky-task",
  "husky-task-interface",

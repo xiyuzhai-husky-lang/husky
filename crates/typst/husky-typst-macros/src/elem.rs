@@ -1049,7 +1049,7 @@ fn create_repr_impl(element: &Elem) -> TokenStream {
     let ident = &element.ident;
     let repr_format = format!("{}{{}}", element.name);
     quote! {
-        impl #foundations::Repr for #ident {
+        impl #foundations::TypstValueRepr for #ident {
             fn repr(&self) -> ::ecow::EcoString {
                 let fields = #foundations::Fields::fields(self)
                     .into_iter()

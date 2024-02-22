@@ -13,9 +13,9 @@ use crate::diag::StrResult;
 use crate::eval::ops;
 use crate::foundations::{
     fields, repr, Array, AutoTypstValue, Bytes, CastInfo, Datetime, Duration, FromTypstValue, Func,
-    IntoTypstValue, IsTypstElem, Label, NativeType, NoneTypstValue, Plugin, Reflect, Repr, Str,
-    Type, TypstArgs, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyles,
-    TypstValueAssignmentGroup, Version,
+    IntoTypstValue, IsTypstElem, Label, NativeType, NoneTypstValue, Plugin, Reflect, Str, Type,
+    TypstArgs, TypstContent, TypstDict, TypstModuleEvaluation, TypstStyles,
+    TypstValueAssignmentGroup, TypstValueRepr, Version,
 };
 use crate::layout::{Angle, Ratio, Rel, TypstAbsLength, TypstEmLength, TypstFraction, TypstLength};
 use crate::symbols::Symbol;
@@ -93,7 +93,7 @@ impl TypstValue {
     /// Create a new dynamic value.
     pub fn dynamic<T>(any: T) -> Self
     where
-        T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
+        T: Debug + TypstValueRepr + NativeType + PartialEq + Hash + Sync + Send + 'static,
     {
         Self::Dyn(CustomTypstValue::new(any))
     }
@@ -263,7 +263,7 @@ impl Debug for TypstValue {
     }
 }
 
-impl Repr for TypstValue {
+impl TypstValueRepr for TypstValue {
     fn repr(&self) -> EcoString {
         match self {
             Self::None => NoneTypstValue.repr(),
@@ -498,7 +498,7 @@ impl CustomTypstValue {
     /// Create a new instance from any value that satisfies the required bounds.
     pub fn new<T>(any: T) -> Self
     where
-        T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
+        T: Debug + TypstValueRepr + NativeType + PartialEq + Hash + Sync + Send + 'static,
     {
         Self(Arc::new(any))
     }
@@ -525,7 +525,7 @@ impl Debug for CustomTypstValue {
     }
 }
 
-impl Repr for CustomTypstValue {
+impl TypstValueRepr for CustomTypstValue {
     fn repr(&self) -> EcoString {
         self.0.repr()
     }
@@ -537,7 +537,7 @@ impl PartialEq for CustomTypstValue {
     }
 }
 
-trait TypstValueDyn: Debug + Repr + Sync + Send + 'static {
+trait TypstValueDyn: Debug + TypstValueRepr + Sync + Send + 'static {
     fn as_any(&self) -> &dyn Any;
     fn dyn_eq(&self, other: &CustomTypstValue) -> bool;
     fn dyn_ty(&self) -> Type;
@@ -546,7 +546,7 @@ trait TypstValueDyn: Debug + Repr + Sync + Send + 'static {
 
 impl<T> TypstValueDyn for T
 where
-    T: Debug + Repr + NativeType + PartialEq + Hash + Sync + Send + 'static,
+    T: Debug + TypstValueRepr + NativeType + PartialEq + Hash + Sync + Send + 'static,
 {
     fn as_any(&self) -> &dyn Any {
         self
