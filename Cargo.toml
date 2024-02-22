@@ -9,7 +9,7 @@ members = [
     "crates/devtime/*",
     "crates/devtools/*",
     "crates/fs/*",
-    "crates/gohan/*",
+    "crates/magitime/*",
     "crates/gui/*",
     "crates/ide/*",
     "crates/kernel/*",

@@ -1,5 +1,4 @@
-use std::net::ToSocketAddrs;
-
+use self::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{
     message::{TraceRequest, TraceResponse},
     synchrotron::action::{
@@ -15,8 +14,7 @@ use husky_value_protocol::presentation::{
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
-
-use self::accompany::AccompanyingTraceIdsExceptFollowed;
+use std::net::ToSocketAddrs;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,

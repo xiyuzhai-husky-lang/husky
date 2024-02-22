@@ -1,10 +1,7 @@
 use super::*;
 
-use notify_change::NotifyChange;
-
 const MOCK_SERVER: &str = "ws://localhost:51718/ws";
 
-#[cfg(feature = "mock")]
 impl<TraceProtocol: IsTraceProtocolFull, Notifier> TraceClient<TraceProtocol, Notifier>
 where
     Notifier: NotifyChange,
