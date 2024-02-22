@@ -4503,6 +4503,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-corgi-base"
+version = "0.1.0"
+
+[[package]]
 name = "husky-corgi-config"
 version = "0.1.0"
 dependencies = [
@@ -5112,6 +5116,14 @@ dependencies = [
  "git2",
  "husky-path-utils",
 ]
+
+[[package]]
+name = "husky-gohan-base"
+version = "0.1.0"
+
+[[package]]
+name = "husky-gohan-input"
+version = "0.1.0"
 
 [[package]]
 name = "husky-graphics2d-visual-protocol"
@@ -5798,10 +5810,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-pn-prototype"
-version = "0.1.0"
-
-[[package]]
 name = "husky-primitive-value"
 version = "0.1.0"
 
@@ -5822,10 +5830,6 @@ dependencies = [
  "tikv-jemalloc-ctl",
  "winapi",
 ]
-
-[[package]]
-name = "husky-qn-prototype"
-version = "0.1.0"
 
 [[package]]
 name = "husky-regional-token"
@@ -6310,10 +6314,6 @@ dependencies = [
 
 [[package]]
 name = "husky-text-span"
-version = "0.1.0"
-
-[[package]]
-name = "husky-tn-prototype"
 version = "0.1.0"
 
 [[package]]
@@ -7061,10 +7061,6 @@ dependencies = [
  "salsa",
  "shifted-unsigned-int",
 ]
-
-[[package]]
-name = "husky-vn-prototype"
-version = "0.1.0"
 
 [[package]]
 name = "husky-websocket-utils"

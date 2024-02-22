@@ -8,6 +8,5 @@ keywords = ["husky", "platform"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 serde.workspace = true

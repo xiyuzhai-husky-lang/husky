@@ -1,5 +1,5 @@
 [package]
-name = "husky-corgi-config"
+name = "husky-gohan-input"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
