@@ -3,7 +3,6 @@ name = "husky-adversarial-utils"
 version.workspace = true
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 rand = "0.8.5"
 fastrand = "1.8.0"

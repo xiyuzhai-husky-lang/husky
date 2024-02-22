@@ -3,7 +3,6 @@ name = "husky-websocket-utils"
 version.workspace = true
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 atomic_enum.workspace = true
 axum = { workspace = true, features = ["ws"], optional = true }

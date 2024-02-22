@@ -5,6 +5,7 @@ members = [
     "crates/archs/*",
     "crates/bc/*",
     "crates/comptime/*",
+    "crates/corgi/*",
     "crates/devtime/*",
     "crates/devtools/*",
     "crates/fs/*",
@@ -27,12 +28,6 @@ members = [
     "crates/benchmarks/*",
     "library/core",
     "registry/*",
-    "crates/prototypes/husky-tn-prototype",
-    "crates/prototypes/husky-vn-prototype",
-    "crates/prototypes/husky-pn-prototype",
-    "crates/prototypes/husky-qn-prototype",
-    "crates/corgi/husky-corgi-config",
-    "crates/gohan/husky-gohan-base",
 ]
 resolver = "2"
 
