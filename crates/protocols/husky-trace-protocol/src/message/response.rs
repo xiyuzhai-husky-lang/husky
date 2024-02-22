@@ -1,6 +1,5 @@
 use self::action::TraceSynchrotronActionsDiff;
 use super::*;
-use crate::{synchrotron::TraceSynchrotron};
 
 /// message sent from trace client to trace server
 #[derive(Debug, PartialEq, Eq, Serialize, Deserialize)]

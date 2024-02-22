@@ -1,5 +1,5 @@
 [package]
-name = "husky-gohan-input"
+name = "husky-magitime"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

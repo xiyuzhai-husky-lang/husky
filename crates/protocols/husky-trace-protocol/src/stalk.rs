@@ -1,7 +1,7 @@
 use crate::*;
 use husky_task_interface::{
-    val_control_flow::{ValuePresentationValControlFlow},
-    vm_control_flow::{ValuePresentationVmControlFlow},
+    val_control_flow::ValuePresentationValControlFlow,
+    vm_control_flow::ValuePresentationVmControlFlow,
 };
 
 pub type JsonValue = serde_json::Value;

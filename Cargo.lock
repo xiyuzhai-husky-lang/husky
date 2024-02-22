@@ -5118,11 +5118,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-gohan-base"
-version = "0.1.0"
-
-[[package]]
-name = "husky-gohan-input"
+name = "husky-gohan-shard"
 version = "0.1.0"
 
 [[package]]
@@ -5830,6 +5826,10 @@ dependencies = [
  "tikv-jemalloc-ctl",
  "winapi",
 ]
+
+[[package]]
+name = "husky-proof-protocol"
+version = "0.1.0"
 
 [[package]]
 name = "husky-regional-token"

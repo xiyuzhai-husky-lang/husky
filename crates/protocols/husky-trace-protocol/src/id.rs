@@ -1,8 +1,6 @@
-use shifted_unsigned_int::ShiftedU32;
-
-use vec_like::OrderedSmallVecSet;
-
 use crate::*;
+use shifted_unsigned_int::ShiftedU32;
+use vec_like::OrderedSmallVecSet;
 
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct TraceId(ShiftedU32);
