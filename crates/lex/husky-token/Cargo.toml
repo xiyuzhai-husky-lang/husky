@@ -10,7 +10,6 @@ description = "TODO"
 thiserror.workspace = true
 ordered-float.workspace = true
 paste.workspace = true
-expect-test.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 lsp-types = { workspace = true, features = ["proposed"], optional = true }
@@ -41,6 +40,7 @@ husky-unicode-symbols.workspace = true
 [lib]
 
 [dev-dependencies]
+expect-test.workspace = true
 indicatif = "0.17.2"
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }

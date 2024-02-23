@@ -5588,6 +5588,21 @@ name = "husky-marker-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-math-ast"
+version = "0.1.0"
+dependencies = [
+ "husky-math-token",
+]
+
+[[package]]
+name = "husky-math-text"
+version = "0.1.0"
+
+[[package]]
+name = "husky-math-token"
+version = "0.1.0"
+
+[[package]]
 name = "husky-minimal-toml-utils"
 version = "0.1.0"
 dependencies = [
@@ -6374,7 +6389,7 @@ dependencies = [
  "husky-unicode-symbols",
  "husky-vfs",
  "husky-wild-utils",
- "lsp-types 0.94.1",
+ "lsp-types 0.95.0",
  "ordered-float 4.2.0",
  "parsec",
  "paste",
@@ -10807,6 +10822,13 @@ dependencies = [
  "serde",
  "time-core",
  "time-macros",
+]
+
+[[package]]
+name = "time-capsule"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
 ]
 
 [[package]]

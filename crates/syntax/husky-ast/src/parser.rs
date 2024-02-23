@@ -76,7 +76,7 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_normal_ast_children<C: IsAstChildren>(&mut self) -> AstIdxRange {
-        let mut asts: Vec<Ast> = vec![];
+        let mut asts: Vec<AstData> = vec![];
         while let Some(ast) = self.parse_ast::<C>() {
             asts.push(ast)
         }
@@ -85,20 +85,20 @@ impl<'a> AstParser<'a> {
         ast_idx_range
     }
 
-    fn alloc_asts(&mut self, asts: Vec<Ast>) -> AstIdxRange {
+    fn alloc_asts(&mut self, asts: Vec<AstData>) -> AstIdxRange {
         self.ast_arena.alloc_batch(asts)
     }
 
-    fn alloc_ast(&mut self, ast: Ast) -> AstIdx {
+    fn alloc_ast(&mut self, ast: AstData) -> AstIdx {
         self.ast_arena.alloc_one(ast)
     }
 
-    fn parse_ast<C: IsAstChildren>(&mut self) -> Option<Ast> {
+    fn parse_ast<C: IsAstChildren>(&mut self) -> Option<AstData> {
         let (token_verse_idx, token_verse, fst, snd) = self
             .token_verse_iter
             .next_token_verse_of_no_less_indent_with_its_first_two_tokens(self.indent())?;
         if token_verse.indent() > self.indent() {
-            return Some(Ast::Err {
+            return Some(AstData::Err {
                 token_verse_idx,
                 error: OriginalAstError::ExcessiveIndent.into(),
             });
@@ -106,7 +106,7 @@ impl<'a> AstParser<'a> {
         Some(
             match self.parse_ast_aux::<C>(token_verse_idx, token_verse, fst, snd) {
                 Ok(value) => value,
-                Err(error) => Ast::Err {
+                Err(error) => AstData::Err {
                     token_verse_idx,
                     error,
                 },
@@ -120,7 +120,7 @@ impl<'a> AstParser<'a> {
         _token_verse: TokenVerse,
         fst: TokenData,
         snd: Option<TokenData>,
-    ) -> AstResult<Ast> {
+    ) -> AstResult<AstData> {
         Ok(match fst {
             TokenData::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_verse_idx, kw)?,
@@ -140,7 +140,7 @@ impl<'a> AstParser<'a> {
                         None,
                     )
                 }
-                Keyword::Impl => Ast::ImplBlock {
+                Keyword::Impl => AstData::ImplBlock {
                     token_verse_idx,
                     items: if self.is_trai_impl(token_verse_idx) {
                         // there are no items for marker traits
@@ -156,11 +156,11 @@ impl<'a> AstParser<'a> {
                         )
                     },
                 },
-                Keyword::End(_) => Ast::Err {
+                Keyword::End(_) => AstData::Err {
                     token_verse_idx,
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
                 },
-                Keyword::Connection(_) => Ast::Err {
+                Keyword::Connection(_) => AstData::Err {
                     token_verse_idx,
                     error: OriginalAstError::UnexpectedConnectionKeywordAsFirstNonCommentToken
                         .into(),
@@ -171,17 +171,17 @@ impl<'a> AstParser<'a> {
             },
             TokenData::Punctuation(Punctuation::POUND) => match snd {
                 Some(snd) => match snd {
-                    TokenData::Punctuation(Punctuation::LBOX) => Ast::Sorc { token_verse_idx },
-                    TokenData::Ident(ident) => Ast::Attr {
+                    TokenData::Punctuation(Punctuation::LBOX) => AstData::Sorc { token_verse_idx },
+                    TokenData::Ident(ident) => AstData::Attr {
                         token_verse_idx,
                         ident,
                     },
-                    _ => Ast::Err {
+                    _ => AstData::Err {
                         token_verse_idx,
                         error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
                     },
                 },
-                None => Ast::Err {
+                None => AstData::Err {
                     token_verse_idx,
                     error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
                 },
@@ -204,7 +204,7 @@ impl<'a> AstParser<'a> {
             .is_some()
     }
 
-    fn parse_defn_or_use<C: IsAstChildren>(&mut self, token_verse_idx: TokenVerseIdx) -> Ast {
+    fn parse_defn_or_use<C: IsAstChildren>(&mut self, token_verse_idx: TokenVerseIdx) -> AstData {
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
             self.module_path,
@@ -214,7 +214,7 @@ impl<'a> AstParser<'a> {
         let visibility_expr = match aux_parser.parse_visibility_expr() {
             Ok(visibility_expr) => visibility_expr,
             Err(e) => {
-                return Ast::Err {
+                return AstData::Err {
                     token_verse_idx,
                     error: e.into(),
                 }
@@ -231,7 +231,7 @@ impl<'a> AstParser<'a> {
                 visibility_expr,
                 Some(aux_parser.finish_with_saved_stream_state()),
             ),
-            _ => Ast::Err {
+            _ => AstData::Err {
                 token_verse_idx,
                 error: OriginalAstError::InvalidAstForDefinitionOrUse.into(),
             },

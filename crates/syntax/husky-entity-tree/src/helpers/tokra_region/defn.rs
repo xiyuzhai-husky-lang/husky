@@ -205,26 +205,26 @@ impl<'a> DefnTokraRegionBuilder<'a> {
         // let
         let ast_sheet = module_path.ast_sheet(db);
         let root_body = match ast_sheet[ast_idx] {
-            Ast::Identifiable { block, .. } => block.children()?,
+            AstData::Identifiable { block, .. } => block.children()?,
             _ => unreachable!(),
         };
         let Some((first_ast_idx, first_token_verse_idx)) =
             root_body
                 .into_iter()
                 .find_map(|ast_idx| match ast_sheet[ast_idx] {
-                    Ast::Err {
+                    AstData::Err {
                         token_verse_idx, ..
                     }
-                    | Ast::BasicStmtOrBranch {
+                    | AstData::BasicStmtOrBranch {
                         token_verse_idx, ..
                     }
-                    | Ast::MatchStmt {
+                    | AstData::MatchStmt {
                         token_verse_idx, ..
                     } => Some((ast_idx, token_verse_idx)),
-                    Ast::IfElseStmts { if_branch, .. } => Some((
+                    AstData::IfElseStmts { if_branch, .. } => Some((
                         ast_idx,
                         match ast_sheet[if_branch] {
-                            Ast::BasicStmtOrBranch {
+                            AstData::BasicStmtOrBranch {
                                 token_verse_idx, ..
                             } => token_verse_idx,
                             _ => unreachable!(),
@@ -329,8 +329,8 @@ impl<'a> DefnTokraRegionBuilder<'a> {
 
     fn build_ast(&mut self, ast_idx: AstIdx) -> Option<DefnAst> {
         match self.ast_sheet[ast_idx] {
-            Ast::Err { .. } => Some(DefnAst::Err),
-            Ast::BasicStmtOrBranch {
+            AstData::Err { .. } => Some(DefnAst::Err),
+            AstData::BasicStmtOrBranch {
                 token_verse_idx,
                 body,
             } => Some(DefnAst::BasicStmtOrBranch {
@@ -341,7 +341,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
                 ),
                 body: body.map(|body| self.build_asts(body.ast_idx_range())),
             }),
-            Ast::IfElseStmts {
+            AstData::IfElseStmts {
                 if_branch,
                 elif_branches,
                 else_branch,
@@ -351,7 +351,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
                 else_branch: else_branch
                     .map(|else_branch| self.build_ast_then_alloc(else_branch).expect("todo")),
             }),
-            Ast::MatchStmt {
+            AstData::MatchStmt {
                 token_verse_idx,
                 pattern_stmt,
                 case_branches,

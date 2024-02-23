@@ -197,7 +197,7 @@ impl TraitForTypeImplBlockSynNode {
             .filter_map(|ast_idx| {
                 let ast = &ast_sheet[ast_idx];
                 match ast {
-                    Ast::Identifiable {
+                    AstData::Identifiable {
                         visibility_expr,
                         item_kind,
                         ident_token,
@@ -222,7 +222,7 @@ impl TraitForTypeImplBlockSynNode {
                         );
                         Some((ident_token.ident(), syn_node_path, node))
                     }
-                    Ast::Sorc { .. } | Ast::Attr { .. } | Ast::Err { .. } => None,
+                    AstData::Sorc { .. } | AstData::Attr { .. } | AstData::Err { .. } => None,
                     _ => unreachable!("Invariant"),
                 }
             })

@@ -166,7 +166,7 @@ pub(crate) fn ty_impl_block_items(
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
-                Ast::Identifiable {
+                AstData::Identifiable {
                     visibility_expr,
                     item_kind,
                     ident_token,
@@ -191,7 +191,7 @@ pub(crate) fn ty_impl_block_items(
                     );
                     Some((ident_token.ident(), syn_node_path, node))
                 }
-                Ast::Attr { .. } | Ast::Sorc { .. } | Ast::Err { .. } => None,
+                AstData::Attr { .. } | AstData::Sorc { .. } | AstData::Err { .. } => None,
                 _ => unreachable!(),
             }
         })

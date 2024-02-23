@@ -2,7 +2,7 @@ use super::*;
 use husky_ast::HasAstSheet;
 use husky_ast::{
     error::{AstError, OriginalAstError},
-    Ast,
+    AstData,
 };
 use husky_scope_expr::OriginalVisibilityExprError;
 use husky_token::verse::idx::TokenVerseIdx;
@@ -22,7 +22,7 @@ pub(crate) fn ast_diagnostic_sheet(
     let ctx = SheetDiagnosticsContext::new(db, module_path);
     for ast in module_path.ast_sheet(db).data() {
         match ast {
-            Ast::Err {
+            AstData::Err {
                 token_verse_idx,
                 error: AstError::Original(error),
             } => diagnostics.push((*token_verse_idx, error).to_diagnostic(&ctx)),

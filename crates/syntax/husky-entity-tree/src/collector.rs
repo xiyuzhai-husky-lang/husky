@@ -85,7 +85,7 @@ impl<'a> EntityTreeCollector<'a> {
                 ast_sheet
                     .all_ast_indexed_iter()
                     .filter_map(|(ast_idx, ast)| match ast {
-                        Ast::ImplBlock {
+                        AstData::ImplBlock {
                             token_verse_idx,
                             items,
                         } => Some(ImplBlockSynNode::parse_from_token_verse(

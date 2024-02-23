@@ -26,12 +26,12 @@ impl AstSheet {
                     .rev()
                     .map(|ast_idx| (ast_idx, &self[ast_idx]))
                     .take_while(|(_, ast)| match ast {
-                        Ast::Sorc { .. } | Ast::Attr { .. } => true,
+                        AstData::Sorc { .. } | AstData::Attr { .. } => true,
                         _ => false,
                     })
                     .filter_map(|(ast_idx, ast)| match ast {
-                        Ast::Sorc { .. } => None,
-                        Ast::Attr {
+                        AstData::Sorc { .. } => None,
+                        AstData::Attr {
                             token_verse_idx,
                             ident,
                         } => Some((ast_idx, *token_verse_idx, *ident)),

@@ -65,41 +65,41 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
         self.ast_ranges
     }
 
-    fn calc_ast(&self, ast: &Ast) -> TokenIdxRange {
+    fn calc_ast(&self, ast: &AstData) -> TokenIdxRange {
         match ast {
-            Ast::Err {
+            AstData::Err {
                 token_verse_idx, ..
             }
-            | Ast::Use {
+            | AstData::Use {
                 token_verse_idx, ..
             }
-            | Ast::Sorc {
+            | AstData::Sorc {
                 token_verse_idx, ..
             }
-            | Ast::Attr {
+            | AstData::Attr {
                 token_verse_idx, ..
             }
-            | Ast::TypeVariant {
+            | AstData::TypeVariant {
                 token_verse_idx, ..
             } => self
                 .token_sheet_data
                 .token_verse_token_idx_range(*token_verse_idx),
-            Ast::BasicStmtOrBranch {
+            AstData::BasicStmtOrBranch {
                 token_verse_idx,
                 body,
                 ..
             } => self.calc_ast_group(*token_verse_idx, body.map(|body| body.ast_idx_range())),
-            Ast::Identifiable {
+            AstData::Identifiable {
                 token_verse_idx,
                 block,
                 ..
             } => self.calc_ast_group(*token_verse_idx, block.children()),
-            Ast::ImplBlock {
+            AstData::ImplBlock {
                 token_verse_idx,
                 items: body,
                 ..
             } => self.calc_ast_group(*token_verse_idx, body.map(|body| body.ast_idx_range())),
-            Ast::IfElseStmts {
+            AstData::IfElseStmts {
                 if_branch: if_stmt,
                 elif_branches: elif_stmts,
                 else_branch: else_stmt,
@@ -118,7 +118,7 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 };
                 (start, end).into()
             }
-            Ast::MatchStmt {
+            AstData::MatchStmt {
                 pattern_stmt,
                 case_branches,
                 ..

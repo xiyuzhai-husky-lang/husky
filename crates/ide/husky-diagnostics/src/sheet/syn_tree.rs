@@ -1,5 +1,5 @@
 use super::*;
-use husky_ast::Ast;
+use husky_ast::AstData;
 use husky_entity_tree::{
     EntityTreeDb, EntityTreeError, ImplBlockIllForm, MajorPathExprError, OriginalEntityTreeError,
     OriginalMajorItemPathExprError,
@@ -71,13 +71,13 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::NoVisibleSubitem => todo!(),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old: _, new } => {
                 match ctx.ast_sheet()[new.decl_ast_idx(db)] {
-                    Ast::Use {
+                    AstData::Use {
                         token_verse_idx: _,
                         visibility_expr: _,
                         state_after_visibility_expr: _,
                     } => todo!(),
-                    Ast::Identifiable { ident_token, .. }
-                    | Ast::TypeVariant { ident_token, .. } => {
+                    AstData::Identifiable { ident_token, .. }
+                    | AstData::TypeVariant { ident_token, .. } => {
                         ctx.token_idx_text_range(ident_token.token_idx())
                     }
                     _ => unreachable!(),
