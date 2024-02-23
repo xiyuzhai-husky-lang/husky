@@ -58,7 +58,7 @@ impl DeclTokraRegionSourceMap {
         self.regional_token_idx_base
     }
 
-    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+    pub fn ast_idx(&self) -> ArenaIdx<AstData> {
         self.ast_idx
     }
 }
@@ -71,11 +71,11 @@ fn build_decl_tokra_region(
     let token_sheet_data = db.token_sheet_data(module_path);
     let ast_sheet = module_path.ast_sheet(db);
     let (token_verse_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
-        Ast::Attr {
+        AstData::Attr {
             token_verse_idx,
             ident: _,
         } => (token_verse_idx, DeclAst::Attr, None),
-        Ast::Identifiable {
+        AstData::Identifiable {
             token_verse_idx,
             visibility_expr: _,
             item_kind: _,
@@ -88,7 +88,7 @@ fn build_decl_tokra_region(
             DeclAst::Identifiable {},
             Some(saved_stream_state),
         ),
-        Ast::TypeVariant {
+        AstData::TypeVariant {
             token_verse_idx,
             variant_path: _,
             vertical_token: _,
@@ -99,7 +99,7 @@ fn build_decl_tokra_region(
             DeclAst::TypeVariant,
             Some(saved_stream_state),
         ),
-        Ast::ImplBlock {
+        AstData::ImplBlock {
             token_verse_idx,
             items: _,
         } => (token_verse_idx, DeclAst::ImplBlock, None),

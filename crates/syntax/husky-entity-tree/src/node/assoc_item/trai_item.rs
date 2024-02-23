@@ -182,7 +182,7 @@ pub(crate) fn trai_item_syn_nodes(
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
-                Ast::Identifiable {
+                AstData::Identifiable {
                     visibility_expr,
                     item_kind,
                     ident_token,
@@ -207,7 +207,7 @@ pub(crate) fn trai_item_syn_nodes(
                     );
                     Some((ident_token.ident(), syn_node_path, node))
                 }
-                Ast::Err { .. } => None,
+                AstData::Err { .. } => None,
                 _ => unreachable!(),
             }
         })

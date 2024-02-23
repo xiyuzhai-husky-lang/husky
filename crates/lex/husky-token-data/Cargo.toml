@@ -7,10 +7,9 @@ edition = "2021"
 thiserror.workspace = true
 ordered-float.workspace = true
 paste.workspace = true
-expect-test.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
+lsp-types = { workspace = true, optional = true }
 # abstractions
 parsec.workspace = true
 salsa.workspace = true
@@ -26,7 +25,7 @@ husky-entity-kind.workspace = true
 husky-term-prelude.workspace = true
 husky-opr.workspace = true
 # protocols
-husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
+husky-token-protocol = { workspace = true, optional = true }
 # syntax
 husky-syn-opr.workspace = true
 # utils
@@ -37,6 +36,7 @@ husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true
 
 [dev-dependencies]
+expect-test.workspace = true
 husky-token-data = { path = ".", features = ["test_utils"] }
 
 [features]

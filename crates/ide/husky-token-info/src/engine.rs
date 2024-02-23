@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{Ast, AstSheet};
+use husky_ast::{AstData, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
 use husky_sema_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
@@ -109,7 +109,7 @@ impl<'a> TokenInfoEngine<'a> {
             self.visit_expr_region(syn_expr_region)
         }
         match self.ast_sheet[syn_node_path.decl_ast_idx(db)] {
-            Ast::Identifiable {
+            AstData::Identifiable {
                 ident_token,
                 item_kind,
                 ..
@@ -118,9 +118,9 @@ impl<'a> TokenInfoEngine<'a> {
                 TokenInfoSource::AstIdentifiable,
                 TokenInfoData::EntityNode(syn_node_path, item_kind),
             ),
-            Ast::ImplBlock { .. } => (),
+            AstData::ImplBlock { .. } => (),
             // ad hoc
-            Ast::Attr { .. } => (),
+            AstData::Attr { .. } => (),
             _ => unreachable!(),
         }
     }

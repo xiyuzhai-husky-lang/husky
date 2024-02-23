@@ -1,12 +1,9 @@
 use super::*;
-
+use husky_coword::{is_char_valid_ident_first_char, Label};
 use husky_term_prelude::literal::{
     float::{TermF32Literal, TermF64Literal},
     StringLiteralTokenData,
 };
-use husky_text_protocol::{char_iter::TextCharIter, range::TextRange};
-
-use husky_coword::{is_char_valid_ident_first_char, Label};
 
 pub(crate) struct RangedPretoken {
     pub(crate) range: TextRange,

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_ast::{range::AstTokenIdxRangeSheet, Ast, AstIdx, AstSheet};
+use husky_ast::{range::AstTokenIdxRangeSheet, AstData, AstIdx, AstSheet};
 
 use husky_token::RangedTokenSheet;
 use lsp_types::FoldingRangeKind;
@@ -31,25 +31,25 @@ impl<'a> FoldingRangeCalculator<'a> {
             .collect()
     }
 
-    fn calc_ast(&self, ast_idx: AstIdx, ast: &Ast) -> Option<FoldingRange> {
+    fn calc_ast(&self, ast_idx: AstIdx, ast: &AstData) -> Option<FoldingRange> {
         let (ast_range, kind) = match ast {
-            Ast::Err { .. }
-            | Ast::Use { .. }
-            | Ast::Sorc { .. }
-            | Ast::Attr { .. }
-            | Ast::IfElseStmts { .. }
-            | Ast::MatchStmt { .. }
-            | Ast::TypeVariant { .. } => None,
-            Ast::Identifiable { block, .. } => block
+            AstData::Err { .. }
+            | AstData::Use { .. }
+            | AstData::Sorc { .. }
+            | AstData::Attr { .. }
+            | AstData::IfElseStmts { .. }
+            | AstData::MatchStmt { .. }
+            | AstData::TypeVariant { .. } => None,
+            AstData::Identifiable { block, .. } => block
                 .children()?
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
-            Ast::ImplBlock { items, .. } => items
+            AstData::ImplBlock { items, .. } => items
                 .as_ref()?
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
-            Ast::BasicStmtOrBranch { body, .. } => (*body)?
+            AstData::BasicStmtOrBranch { body, .. } => (*body)?
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),

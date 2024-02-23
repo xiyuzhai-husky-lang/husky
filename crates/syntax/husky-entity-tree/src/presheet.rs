@@ -155,9 +155,9 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         }
     }
 
-    fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
+    fn process(&mut self, ast_idx: AstIdx, ast: &AstData) {
         match *ast {
-            Ast::Use {
+            AstData::Use {
                 token_verse_idx,
                 ref visibility_expr,
                 state_after_visibility_expr,
@@ -180,7 +180,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                     self.item_use_trackers.push(new_rule)
                 }
             }
-            Ast::Identifiable {
+            AstData::Identifiable {
                 ref visibility_expr,
                 ident_token,
                 block,
@@ -199,14 +199,14 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                     )
                 }
             }
-            Ast::Err { .. }
-            | Ast::Sorc { .. }
-            | Ast::Attr { .. }
-            | Ast::BasicStmtOrBranch { .. }
-            | Ast::IfElseStmts { .. }
-            | Ast::MatchStmt { .. }
-            | Ast::TypeVariant { .. }
-            | Ast::ImplBlock { .. } => (),
+            AstData::Err { .. }
+            | AstData::Sorc { .. }
+            | AstData::Attr { .. }
+            | AstData::BasicStmtOrBranch { .. }
+            | AstData::IfElseStmts { .. }
+            | AstData::MatchStmt { .. }
+            | AstData::TypeVariant { .. }
+            | AstData::ImplBlock { .. } => (),
         }
     }
 }

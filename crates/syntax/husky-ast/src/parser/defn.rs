@@ -9,9 +9,9 @@ impl<'a> AstParser<'a> {
         token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state: Option<TokenStreamState>,
-    ) -> Ast {
+    ) -> AstData {
         self.parse_defn_aux::<C>(token_verse_idx, visibility_expr, state)
-            .unwrap_or_else(|error| Ast::Err {
+            .unwrap_or_else(|error| AstData::Err {
                 token_verse_idx,
                 error,
             })
@@ -22,7 +22,7 @@ impl<'a> AstParser<'a> {
         token_verse_idx: TokenVerseIdx,
         visibility_expr: VisibilityExpr,
         state: Option<TokenStreamState>,
-    ) -> AstResult<Ast> {
+    ) -> AstResult<AstData> {
         let aux_parser = BasicAuxAstParser::new(
             self.db,
             self.module_path,
@@ -88,7 +88,7 @@ impl<'a> AstParser<'a> {
                 unreachable!("it should be guaranteed by callers")
             }
         };
-        Ok(Ast::Identifiable {
+        Ok(AstData::Identifiable {
             visibility_expr,
             ident_token,
             is_generic,
@@ -138,7 +138,7 @@ impl<'a> AstParser<'a> {
                 match aux_parser.try_parse_expected::<IdentToken, _>(
                     OriginalAstError::ExpectedIdentForTypeVariant,
                 ) {
-                    Ok(ident_token) => Ast::TypeVariant {
+                    Ok(ident_token) => AstData::TypeVariant {
                         token_verse_idx,
                         variant_path: TypeVariantPath::new(
                             path,
@@ -150,7 +150,7 @@ impl<'a> AstParser<'a> {
                         ident_token,
                         saved_stream_state: aux_parser.state(),
                     },
-                    Err(error) => Ast::Err {
+                    Err(error) => AstData::Err {
                         token_verse_idx,
                         error,
                     },

@@ -5,7 +5,7 @@ impl<'a> AstParser<'a> {
     pub(super) fn try_parse_stmt<C: IsAstChildren>(
         &mut self,
         token_verse_idx: TokenVerseIdx,
-    ) -> AstResult<Ast> {
+    ) -> AstResult<AstData> {
         C::ALLOW_STMT?;
         Ok(self.parse_stmt(token_verse_idx))
     }
@@ -15,7 +15,7 @@ impl<'a> AstParser<'a> {
         &mut self,
         token_verse_idx: TokenVerseIdx,
         keyword: StmtKeyword,
-    ) -> AstResult<Ast> {
+    ) -> AstResult<AstData> {
         C::ALLOW_STMT?;
         Ok(match keyword {
             StmtKeyword::If => self.parse_if_else_stmts(token_verse_idx),
@@ -34,8 +34,8 @@ impl<'a> AstParser<'a> {
         })
     }
 
-    fn parse_if_else_stmts(&mut self, idx: TokenVerseIdx) -> Ast {
-        Ast::IfElseStmts {
+    fn parse_if_else_stmts(&mut self, idx: TokenVerseIdx) -> AstData {
+        AstData::IfElseStmts {
             if_branch: self.alloc_stmt(idx),
             elif_branches: self.alloc_elif_stmts(),
             else_branch: self.alloc_else_stmt(),
@@ -72,8 +72,8 @@ impl<'a> AstParser<'a> {
         }
     }
 
-    fn parse_match_stmts(&mut self, token_verse_idx: TokenVerseIdx) -> Ast {
-        Ast::MatchStmt {
+    fn parse_match_stmts(&mut self, token_verse_idx: TokenVerseIdx) -> AstData {
+        AstData::MatchStmt {
             token_verse_idx,
             pattern_stmt: self.alloc_stmt(token_verse_idx),
             case_branches: self.parse_case_stmts(),
@@ -85,17 +85,17 @@ impl<'a> AstParser<'a> {
         self.alloc_ast(ast)
     }
 
-    fn parse_stmt(&mut self, token_verse_idx: TokenVerseIdx) -> Ast {
+    fn parse_stmt(&mut self, token_verse_idx: TokenVerseIdx) -> AstData {
         let body = match self.try_parse_option() {
             Ok(body) => body,
             Err(error) => {
-                return Ast::Err {
+                return AstData::Err {
                     token_verse_idx,
                     error,
                 }
             }
         };
-        Ast::BasicStmtOrBranch {
+        AstData::BasicStmtOrBranch {
             token_verse_idx,
             body,
         }

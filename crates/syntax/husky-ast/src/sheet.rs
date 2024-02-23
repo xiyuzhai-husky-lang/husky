@@ -36,7 +36,7 @@ pub struct AstSheet {
 }
 
 impl std::ops::Index<AstIdx> for AstSheet {
-    type Output = Ast;
+    type Output = AstData;
 
     fn index(&self, index: AstIdx) -> &Self::Output {
         &self.ast_arena[index]
@@ -58,14 +58,14 @@ impl AstSheet {
         }
     }
 
-    pub fn all_ast_indexed_iter<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+    pub fn all_ast_indexed_iter<'a>(&'a self) -> impl Iterator<Item = (AstIdx, &'a AstData)> + 'a {
         self.ast_arena.indexed_iter()
     }
 
     pub fn indexed_iter<'a>(
         &'a self,
         ast_idx_range: AstIdxRange,
-    ) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+    ) -> impl Iterator<Item = (AstIdx, &'a AstData)> + 'a {
         ast_idx_range.into_iter().map(|idx| (idx, &self[idx]))
     }
 
@@ -73,13 +73,13 @@ impl AstSheet {
         &self.top_level_asts
     }
 
-    pub fn top_level_asts_iter<'a>(&'a self) -> impl Iterator<Item = &'a Ast> + 'a {
+    pub fn top_level_asts_iter<'a>(&'a self) -> impl Iterator<Item = &'a AstData> + 'a {
         self.ast_arena[&self.top_level_asts].iter()
     }
 
     pub fn top_level_asts_indexed_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (AstIdx, &'a Ast)> + 'a {
+    ) -> impl Iterator<Item = (AstIdx, &'a AstData)> + 'a {
         self.ast_arena[&self.top_level_asts]
             .iter()
             .enumerate()

@@ -9,7 +9,7 @@ pub(crate) fn submodules(db: &::salsa::Db, module_path: ModulePath) -> Vec<Submo
     ast_sheet
         .top_level_asts_iter()
         .filter_map(|ast| match ast {
-            Ast::Identifiable { block, .. } => match block {
+            AstData::Identifiable { block, .. } => match block {
                 DefnBlock::Submodule { path, .. } => Some(path.submodule_path(db)),
                 _ => None,
             },

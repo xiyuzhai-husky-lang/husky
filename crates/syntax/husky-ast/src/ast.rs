@@ -3,7 +3,7 @@ use crate::*;
 /// syntax tree down to TokenVerse level
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum Ast {
+pub enum AstData {
     Err {
         token_verse_idx: TokenVerseIdx,
         error: AstError,
@@ -72,7 +72,7 @@ pub enum ImplAstKind {
     TraitImpl,
 }
 
-pub type AstArena = Arena<Ast>;
-pub type AstIdx = ArenaIdx<Ast>;
-pub type AstIdxRange = ArenaIdxRange<Ast>;
-pub type AstMap<V> = ArenaMap<Ast, V>;
+pub type AstArena = Arena<AstData>;
+pub type AstIdx = ArenaIdx<AstData>;
+pub type AstIdxRange = ArenaIdxRange<AstData>;
+pub type AstMap<V> = ArenaMap<AstData, V>;
