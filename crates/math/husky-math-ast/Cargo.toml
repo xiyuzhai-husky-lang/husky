@@ -12,8 +12,15 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+egui = { workspace = true, optional = true }
+# abstractions
+idx-arena.workspace = true
+time-capsule.workspace = true
 # math
 husky-math-token.workspace = true
 
 [lints]
 workspace = true
+
+[features]
+egui = ["dep:egui"]
