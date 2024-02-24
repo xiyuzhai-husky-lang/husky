@@ -1,26 +1,34 @@
 pub mod action;
+#[cfg(feature = "egui")]
+pub mod egui;
 pub mod event;
 
 use self::event::*;
-use crate::ast::{MathAstArena, MathAstData, MathAstIdx, MathAstIdxRange};
-use time_capsule::state::IsTimeCapsuleState;
+use crate::ast::{TexAstArena, TexAstData, TexAstIdx, TexAstIdxRange};
+use time_capsule::{capsule::TimeCapsule, state::IsTimeCapsuleState};
 
 #[derive(Default)]
-pub struct MathAstSheet {
-    arena: MathAstArena,
+pub struct TexAstSheet {
+    arena: TexAstArena,
 }
 
-impl MathAstSheet {
-    fn alloc_ast(&mut self, ast_data: MathAstData) -> MathAstIdx {
+pub type TexAstSheetTimeCapsule = TimeCapsule<TexAstSheet>;
+
+impl TexAstSheet {
+    fn alloc_ast(&mut self, ast_data: TexAstData) -> TexAstIdx {
         self.arena.alloc_one(ast_data)
     }
 
-    fn alloc_asts(&mut self, asts: impl IntoIterator<Item = MathAstData>) -> MathAstIdxRange {
+    fn alloc_asts(&mut self, asts: impl IntoIterator<Item = TexAstData>) -> TexAstIdxRange {
         self.arena.alloc_batch(asts)
+    }
+
+    pub fn arena(&self) -> &TexAstArena {
+        &self.arena
     }
 }
 
-impl IsTimeCapsuleState for MathAstSheet {
+impl IsTimeCapsuleState for TexAstSheet {
     type Event = MathAstEvent;
 
     fn redo(&mut self, event: &Self::Event) {
@@ -34,6 +42,6 @@ impl IsTimeCapsuleState for MathAstSheet {
 
 #[test]
 pub(crate) fn math_ast_sheet_time_capsule_works() {
-    let mut capsule: MathAstSheetTimeCapsule = todo!();
+    let mut capsule: TexAstSheetTimeCapsule = todo!();
     todo!()
 }

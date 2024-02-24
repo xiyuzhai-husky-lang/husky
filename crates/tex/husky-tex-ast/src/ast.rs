@@ -1,10 +1,10 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
-pub enum MathAstData {
+pub enum TexAstData {
     TextEdit { buffer: String },
     Other,
 }
 
-pub type MathAstArena = Arena<MathAstData>;
-pub type MathAstIdx = ArenaIdx<MathAstData>;
-pub type MathAstIdxRange = ArenaIdxRange<MathAstData>;
+pub type TexAstArena = Arena<TexAstData>;
+pub type TexAstIdx = ArenaIdx<TexAstData>;
+pub type TexAstIdxRange = ArenaIdxRange<TexAstData>;
