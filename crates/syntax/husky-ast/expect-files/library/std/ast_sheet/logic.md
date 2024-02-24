@@ -1,7 +1,7 @@
 AstSheet {
     ast_arena: Arena {
         data: [
-            Ast::Use {
+            AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(

@@ -58,12 +58,8 @@ lto = false
 
 [workspace.dependencies]
 arc-swap = "1.4.0"
-atomic_enum = "0.2.0"
+atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
-az = "1.2"
-base64 = "0.21.2"
-bitflags = { version = "2", features = ["serde"] }
-bytemuck = "1"
 cargo = "0.77.0"
 cargo-manifest = "0.13.0"
 chinese-number = { version = "0.7.2", default-features = false, features = [
@@ -108,6 +104,7 @@ futures-util = { version = "0.3", default-features = false, features = [
 fxhash = "0.2.1"
 git2 = "0.18.2"
 hashlink = "0.9.0"
+heck = "0.4"
 image = "0.24.8"
 imageproc = "0.23.0"
 indexmap = "2.0.0"
@@ -143,97 +140,13 @@ tokio = { version = "1.32.0", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
 tokio-tungstenite = { version = "0.21" }
 toml = "0.8.8"
-toml_edit = "0.21.0"
+toml_edit = "0.22.6"
 tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.5.1", features = ["fs", "trace"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 xxhash-rust = { version = "0.8.5" }
 winapi = "0.3.9"
-# typst dependencies
-flate2 = "1"
-fontdb = { version = "0.16", default-features = false }
-hayagriva = "0.5.1"
-heck = "0.4"
-hypher = "0.1.4"
-iai = { git = "https://github.com/typst/iai", rev = "3f0f927" }
-icu_properties = { version = "1.4", features = ["serde"] }
-icu_provider = { version = "1.4", features = ["sync"] }
-icu_provider_adapters = "1.4"
-icu_provider_blob = "1.4"
-icu_segmenter = { version = "1.4", features = ["serde"] }
-if_chain = "1"
-include_dir = "0.7"
-kurbo = "0.9" # in sync with usvg
-libfuzzer-sys = "0.4"
-lipsum = "0.9"
-miniz_oxide = "0.7"
-native-tls = "0.2"
-notify = "6"
-open = "5.0.1"
-oxipng = { version = "9.0", default-features = false, features = [
-    "filetime",
-    "parallel",
-    "zopfli"
-] }
-palette = { version = "0.7.3", default-features = false, features = [
-    "approx",
-    "libm"
-] }
-pdf-writer = "0.9.2"
-phf = { version = "0.11", features = ["macros"] }
-pixglyph = "0.3"
-pulldown-cmark = "0.9"
-rayon = "1.7.0"
-regex = "1"
-resvg = { version = "0.38.0", default-features = false, features = [
-    "raster-images"
-] }
-roxmltree = "0.19"
-rustybuzz = "0.12.1"
-same-file = "1"
-self-replace = "1.3.7"
-semver = "1"
-serde_yaml = "0.9"
-siphasher = "1"
-subsetter = "0.1.1"
-svg2pdf = { git = "https://github.com/typst/svg2pdf", rev = "49891ef" }
-syntect = { version = "5", default-features = false, features = [
-    "parsing",
-    "regex-fancy",
-    "plist-load",
-    "yaml-load"
-] }
-tar = "0.4"
-tempfile = "3.7.0"
-time = { version = "0.3.34", features = ["formatting", "macros", "parsing"] }
-tiny-skia = "0.11"
-ttf-parser = "0.20.0"
-two-face = { version = "0.3.0", default-features = false, features = [
-    "syntect-fancy"
-] }
-typed-arena = "2"
-unicode_names2 = { git = "https://github.com/xiyuzhai-husky-lang/unicode_names2" }
-unicode-bidi = "0.3.13"
-unicode-ident = "1.0"
-unicode-math-class = "0.1"
-unicode-properties = "0.1"
-unicode-script = "0.5"
-unicode-segmentation = "1"
-unscanny = "0.1"
-ureq = { version = "2", default-features = false, features = [
-    "native-tls",
-    "gzip"
-] }
-usvg = { version = "0.38.0", default-features = false, features = ["text"] }
-walkdir = "2"
-wasmi = "0.31.0"
-xmlparser = "0.13.5"
-xmlwriter = "0.1.0"
-xmp-writer = "0.2"
-xz2 = "0.1"
-yaml-front-matter = "0.1"
-zip = { version = "0.6", default-features = false, features = ["deflate"] }
 # abstractions
 alt-option = { path = "crates/abstractions/alt-option" }
 enum-class = { path = "crates/abstractions/enum-class" }
