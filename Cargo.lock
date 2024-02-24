@@ -5892,6 +5892,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-tex-egui"
+version = "0.1.0"
+dependencies = [
+ "husky-tex-ast",
+]
+
+[[package]]
 name = "husky-tex-token"
 version = "0.1.0"
 

@@ -1,5 +1,3 @@
-use self::event::IsTimeCapsuleEvent;
-
 use super::*;
 use crate::event::TimeCapsuleEventBuilder;
 
@@ -8,6 +6,14 @@ pub struct TimeCapsule<S: IsTimeCapsuleState> {
     pub(crate) state: S,
     events: Vec<S::Event>,
     num_of_active_events: usize,
+}
+
+impl<S: IsTimeCapsuleState> std::ops::Deref for TimeCapsule<S> {
+    type Target = S;
+
+    fn deref(&self) -> &Self::Target {
+        &self.state
+    }
 }
 
 impl<S: IsTimeCapsuleState> Default for TimeCapsule<S>

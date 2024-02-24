@@ -4,14 +4,12 @@ use time_capsule::{
     event::{IsTimeCapsuleEvent, IsTimeCapsuleEventBuffer},
 };
 
-pub type MathAstSheetTimeCapsule = TimeCapsule<MathAstSheet>;
-
 pub struct MathAstEvent {}
 
 impl IsTimeCapsuleEvent for MathAstEvent {
     type Buffer = MathAstEventBuffer;
 
-    type State = MathAstSheet;
+    type State = TexAstSheet;
 }
 
 #[derive(Default)]

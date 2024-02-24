@@ -1,8 +1,8 @@
 //! after text editing, parse the text into a proper ast
 use super::*;
 
-pub struct MathAstParseAction {
-    ast_idx: MathAstIdx,
+pub(in crate::sheet) struct MathAstParseAction {
+    ast_idx: TexAstIdx,
 }
 
 impl IsTimeCapsuleAction for MathAstParseAction {
@@ -14,8 +14,8 @@ impl IsTimeCapsuleAction for MathAstParseAction {
         todo!()
     }
 
-    fn exec(self, sheet: &mut MathAstSheet) -> Self::Outcome {
-        let MathAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
+    fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
+        let TexAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
             unreachable!()
         };
         todo!()
