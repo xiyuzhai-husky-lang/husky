@@ -5,7 +5,7 @@ pub trait IsTimeCapsuleAction {
 
     type Outcome;
 
-    fn add_to_event(&self, event: &mut Self::Event);
+    fn add_to_event_buffer(&self, event: &mut <Self::Event as IsTimeCapsuleEvent>::Buffer);
 
     fn exec(self, state: &mut <Self::Event as IsTimeCapsuleEvent>::State) -> Self::Outcome;
 }

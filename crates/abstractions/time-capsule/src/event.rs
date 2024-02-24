@@ -2,30 +2,34 @@ use self::{action::IsTimeCapsuleAction, capsule::TimeCapsule};
 use super::*;
 
 pub trait IsTimeCapsuleEvent {
-    type State: IsTimeCapsuleState;
+    type Buffer: IsTimeCapsuleEventBuffer<Event = Self>;
 
-    /// used for event building
-    fn null_event() -> Self;
+    type State: IsTimeCapsuleState<Event = Self>;
+}
 
-    /// final
+pub trait IsTimeCapsuleEventBuffer: Default {
+    type Event: IsTimeCapsuleEvent<Buffer = Self>;
+
     fn add_action<A>(&mut self, new_action: &A)
     where
-        A: IsTimeCapsuleAction<Event = Self>,
+        A: IsTimeCapsuleAction<Event = Self::Event>,
     {
-        new_action.add_to_event(self)
+        new_action.add_to_event_buffer(self)
     }
+
+    fn finish(self) -> Option<Self::Event>;
 }
 
 pub struct TimeCapsuleEventBuilder<'a, S: IsTimeCapsuleState> {
     capsule: &'a mut TimeCapsule<S>,
-    event: S::Event,
+    event_buffer: <S::Event as IsTimeCapsuleEvent>::Buffer,
 }
 
 impl<'a, S: IsTimeCapsuleState> TimeCapsuleEventBuilder<'a, S> {
     pub fn new(capsule: &'a mut TimeCapsule<S>) -> Self {
         Self {
             capsule,
-            event: IsTimeCapsuleEvent::null_event(),
+            event_buffer: Default::default(),
         }
     }
 
@@ -33,11 +37,11 @@ impl<'a, S: IsTimeCapsuleState> TimeCapsuleEventBuilder<'a, S> {
     where
         A: IsTimeCapsuleAction<Event = S::Event>,
     {
-        self.event.add_action(&new_action);
+        self.event_buffer.add_action(&new_action);
         self.capsule.state.add_action(new_action)
     }
 
-    pub fn finish(self) -> S::Event {
-        self.event
+    pub fn finish(self) -> Option<S::Event> {
+        self.event_buffer.finish()
     }
 }

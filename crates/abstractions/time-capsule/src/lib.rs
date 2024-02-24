@@ -7,7 +7,10 @@ pub mod state;
 
 #[test]
 fn time_capsule_works() {
-    use crate::{action::IsTimeCapsuleAction, event::IsTimeCapsuleEvent};
+    use crate::{
+        action::IsTimeCapsuleAction,
+        event::{IsTimeCapsuleEvent, IsTimeCapsuleEventBuffer},
+    };
     use expect_test::expect;
 
     #[derive(Default)]
@@ -41,10 +44,19 @@ fn time_capsule_works() {
     }
 
     impl IsTimeCapsuleEvent for CounterEvent {
-        type State = Counter;
+        type Buffer = CounterEventBuffer;
 
-        fn null_event() -> Self {
-            Default::default()
+        type State = Counter;
+    }
+
+    #[derive(Default)]
+    struct CounterEventBuffer(i32);
+
+    impl IsTimeCapsuleEventBuffer for CounterEventBuffer {
+        type Event = CounterEvent;
+
+        fn finish(self) -> Option<Self::Event> {
+            (self.0 != 0).then_some(CounterEvent(self.0))
         }
     }
 
@@ -59,7 +71,7 @@ fn time_capsule_works() {
 
         type Outcome = ();
 
-        fn add_to_event(&self, event: &mut Self::Event) {
+        fn add_to_event_buffer(&self, event: &mut CounterEventBuffer) {
             match self {
                 CounterAction::Incr => event.0 += 1,
                 CounterAction::Decr => event.0 -= 1,

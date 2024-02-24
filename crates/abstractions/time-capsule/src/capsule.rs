@@ -1,3 +1,5 @@
+use self::event::IsTimeCapsuleEvent;
+
 use super::*;
 use crate::event::TimeCapsuleEventBuilder;
 
@@ -44,9 +46,10 @@ impl<S: IsTimeCapsuleState> TimeCapsule<S> {
         }
         let mut event_builder = TimeCapsuleEventBuilder::new(self);
         let r = f(&mut event_builder);
-        let event = event_builder.finish();
-        self.events.push(event);
-        self.num_of_active_events += 1;
+        if let Some(event) = event_builder.finish() {
+            self.events.push(event);
+            self.num_of_active_events += 1;
+        }
         r
     }
 }

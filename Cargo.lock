@@ -5591,7 +5591,10 @@ version = "0.1.0"
 name = "husky-math-ast"
 version = "0.1.0"
 dependencies = [
+ "egui",
  "husky-math-token",
+ "idx-arena",
+ "time-capsule",
 ]
 
 [[package]]
