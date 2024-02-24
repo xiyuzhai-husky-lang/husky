@@ -1,6 +1,4 @@
 //! after text editing, parse the text into a proper ast
-use crate::ast::MathAstTextEditKind;
-
 use super::*;
 
 pub struct MathAstParseAction {
@@ -17,12 +15,9 @@ impl IsTimeCapsuleAction for MathAstParseAction {
     }
 
     fn exec(self, sheet: &mut MathAstSheet) -> Self::Outcome {
-        let MathAstData::TextEdit { kind, ref buffer } = sheet.arena[self.ast_idx] else {
+        let MathAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
             unreachable!()
         };
-        match kind {
-            MathAstTextEditKind::Latex => todo!(),
-            MathAstTextEditKind::Typst => todo!(),
-        }
+        todo!()
     }
 }
