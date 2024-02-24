@@ -9,7 +9,6 @@ members = [
     "crates/devtime/*",
     "crates/devtools/*",
     "crates/fs/*",
-    "crates/math/*",
     "crates/gui/*",
     "crates/ide/*",
     "crates/kernel/*",
@@ -21,6 +20,7 @@ members = [
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
+    "crates/tex/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*",
@@ -310,10 +310,6 @@ husky-linkage = { path = "crates/linkage/husky-linkage" }
 husky-linkage-impl = { path = "crates/linkage/husky-linkage-impl" }
 # linktime
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
-# math
-husky-math-ast = { path = "crates/math/husky-math-ast" }
-husky-math-text = { path = "crates/math/husky-math-text" }
-husky-math-token = { path = "crates/math/husky-math-token" }
 # protocols
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
 husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-visual-protocol" }
@@ -353,6 +349,10 @@ husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-
 husky-task = { path = "crates/tasks/husky-task" }
 husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
+# tex
+husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
+husky-tex-text = { path = "crates/tex/husky-tex-text" }
+husky-tex-token = { path = "crates/tex/husky-tex-token" }
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }

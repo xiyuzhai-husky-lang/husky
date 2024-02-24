@@ -40,11 +40,8 @@ where
 
 #[test]
 fn math_ast_text_edit_action_works() {
-    use crate::ast::MathAstTextEditKind;
-
     let mut sheet: MathAstSheet = Default::default();
     let ast_idx = sheet.alloc_ast(MathAstData::TextEdit {
-        kind: MathAstTextEditKind::Latex,
         buffer: "hello,".to_string(),
     });
     let action = MathAstTextEditAction::new(ast_idx, |s| *s += " world");

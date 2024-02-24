@@ -1,17 +1,8 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 pub enum MathAstData {
-    TextEdit {
-        kind: MathAstTextEditKind,
-        buffer: String,
-    },
+    TextEdit { buffer: String },
     Other,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum MathAstTextEditKind {
-    Latex,
-    Typst,
 }
 
 pub type MathAstArena = Arena<MathAstData>;

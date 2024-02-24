@@ -5165,10 +5165,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-magitime"
-version = "0.1.0"
-
-[[package]]
 name = "husky-manifest"
 version = "0.1.0"
 dependencies = [
@@ -5204,24 +5200,6 @@ dependencies = [
 
 [[package]]
 name = "husky-marker-utils"
-version = "0.1.0"
-
-[[package]]
-name = "husky-math-ast"
-version = "0.1.0"
-dependencies = [
- "egui",
- "husky-math-token",
- "idx-arena",
- "time-capsule",
-]
-
-[[package]]
-name = "husky-math-text"
-version = "0.1.0"
-
-[[package]]
-name = "husky-math-token"
 version = "0.1.0"
 
 [[package]]
@@ -5902,6 +5880,20 @@ dependencies = [
  "husky-path-utils",
  "husky-print-utils",
 ]
+
+[[package]]
+name = "husky-tex-ast"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "husky-tex-token",
+ "idx-arena",
+ "time-capsule",
+]
+
+[[package]]
+name = "husky-tex-token"
+version = "0.1.0"
 
 [[package]]
 name = "husky-text"
