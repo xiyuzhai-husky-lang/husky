@@ -1,0 +1,104 @@
+// Lowercase Greek letters with updated naming convention
+pub const ALPHA_LOWER: char = 'α';
+pub const BETA_LOWER: char = 'β';
+pub const GAMMA_LOWER: char = 'γ';
+pub const DELTA_LOWER: char = 'δ';
+pub const EPSILON_LOWER: char = 'ε';
+pub const ZETA_LOWER: char = 'ζ';
+pub const ETA_LOWER: char = 'η';
+pub const THETA_LOWER: char = 'θ';
+pub const IOTA_LOWER: char = 'ι';
+pub const KAPPA_LOWER: char = 'κ';
+pub const LAMBDA_LOWER: char = 'λ';
+pub const MU_LOWER: char = 'μ';
+pub const NU_LOWER: char = 'ν';
+pub const XI_LOWER: char = 'ξ';
+pub const OMICRON_LOWER: char = 'ο'; // Rarely used, often replaced by the Latin 'o'
+pub const PI_LOWER: char = 'π';
+pub const RHO_LOWER: char = 'ρ';
+pub const SIGMA_LOWER: char = 'σ';
+pub const TAU_LOWER: char = 'τ';
+pub const UPSILON_LOWER: char = 'υ';
+pub const PHI_LOWER: char = 'φ';
+pub const CHI_LOWER: char = 'χ';
+pub const PSI_LOWER: char = 'ψ';
+pub const OMEGA_LOWER: char = 'ω';
+
+// Uppercase Greek letters (only those that differ from Latin letters)
+pub const GAMMA_UPPER: char = 'Γ';
+pub const DELTA_UPPER: char = 'Δ';
+pub const THETA_UPPER: char = 'Θ';
+pub const LAMBDA_UPPER: char = 'Λ';
+pub const XI_UPPER: char = 'Ξ';
+pub const PI_UPPER: char = 'Π';
+pub const SIGMA_UPPER: char = 'Σ';
+pub const PHI_UPPER: char = 'Φ';
+pub const PSI_UPPER: char = 'Ψ';
+pub const OMEGA_UPPER: char = 'Ω';
+
+// Set theory and logic
+pub const SUBSET: char = '⊂';
+pub const SUBSETEQ: char = '⊆';
+pub const SUPSET: char = '⊃';
+pub const SUPSETEQ: char = '⊇';
+pub const NOTSUBSET: char = '⊄';
+pub const EMPTYSET: char = '∅';
+pub const ELEMENT_OF: char = '∈';
+pub const NOT_ELEMENT_OF: char = '∉';
+pub const UNION: char = '∪';
+pub const INTERSECTION: char = '∩';
+pub const SET_DIFFERENCE: char = '−'; // or '\\'
+pub const SYMMETRIC_DIFFERENCE: char = 'Δ';
+pub const CARTESIAN_PRODUCT: char = '×';
+
+// Arithmetic operators
+pub const PLUS: char = '+';
+pub const MINUS: char = '-';
+pub const TIMES: char = '×'; // Often '*' in programming
+pub const DIVIDE: char = '÷'; // Often '/' in programming
+pub const PLUS_MINUS: char = '±';
+pub const MINUS_PLUS: char = '∓';
+
+// Advanced mathematics
+pub const INTEGRAL: char = '∫';
+pub const DOUBLE_INTEGRAL: char = '∬';
+pub const TRIPLE_INTEGRAL: char = '∭';
+pub const CONTOUR_INTEGRAL: char = '∮';
+pub const PARTIAL_DERIVATIVE: char = '∂';
+pub const NABLA: char = '∇'; // Gradient or Del operator
+pub const INFINITY: char = '∞';
+pub const ANGLE: char = '∠';
+pub const PERPENDICULAR: char = '⊥';
+pub const PARALLEL: char = '∥';
+pub const PROPORTIONAL_TO: char = '∝';
+pub const APPROXIMATELY_EQUAL: char = '≈';
+pub const NOT_EQUAL: char = '≠';
+pub const LESS_THAN_OR_EQUAL: char = '≤';
+pub const GREATER_THAN_OR_EQUAL: char = '≥';
+pub const MUCH_LESS_THAN: char = '≪';
+pub const MUCH_GREATER_THAN: char = '≫';
+pub const BECAUSE: char = '∵';
+pub const THEREFORE: char = '∴';
+pub const EQUIVALENT_TO: char = '≡';
+pub const IDENTICALLY_EQUAL: char = '≡'; // Another common use of the symbol
+pub const ALMOST_EQUAL: char = '≈';
+pub const NOT_ALMOST_EQUAL: char = '≉';
+pub const LESS_THAN: char = '<';
+pub const GREATER_THAN: char = '>';
+pub const AND: char = '∧';
+pub const OR: char = '∨';
+pub const NOT: char = '¬';
+pub const IMPLIES: char = '⇒';
+pub const IF_AND_ONLY_IF: char = '⇔';
+pub const SUMMATION: char = '∑';
+pub const PRODUCT: char = '∏';
+pub const LOGICAL_AND: char = '∧'; // Same as AND
+pub const LOGICAL_OR: char = '∨'; // Same as OR
+pub const LOGICAL_NOT: char = '¬'; // Same as NOT
+pub const RADICAL: char = '√';
+pub const INTEGRAL_UPPER: char = '∫';
+pub const INTEGRAL_LOWER: char = '∬';
+pub const CIRCLED_PLUS: char = '⊕'; // Direct sum
+pub const CIRCLED_MINUS: char = '⊖'; // Direct minus
+pub const CIRCLED_TIMES: char = '⊗'; // Vector or tensor product
+pub const CIRCLED_DIVIDE: char = '⊘'; // Not commonly used, but for completeness

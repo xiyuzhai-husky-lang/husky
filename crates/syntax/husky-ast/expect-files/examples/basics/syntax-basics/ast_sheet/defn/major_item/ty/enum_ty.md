@@ -1,7 +1,7 @@
 AstSheet {
     ast_arena: Arena {
         data: [
-            Ast::TypeVariant {
+            AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
@@ -39,7 +39,7 @@ AstSheet {
                     drained: true,
                 },
             },
-            Ast::TypeVariant {
+            AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
@@ -77,7 +77,7 @@ AstSheet {
                     drained: false,
                 },
             },
-            Ast::TypeVariant {
+            AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
@@ -115,7 +115,7 @@ AstSheet {
                     drained: false,
                 },
             },
-            Ast::TypeVariant {
+            AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
@@ -153,7 +153,7 @@ AstSheet {
                     drained: false,
                 },
             },
-            Ast::TypeVariant {
+            AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
@@ -191,7 +191,7 @@ AstSheet {
                     drained: false,
                 },
             },
-            Ast::Identifiable {
+            AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: ShiftedU32(
