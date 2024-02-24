@@ -16,13 +16,11 @@ members = [
     "crates/lex/*",
     "crates/linkage/*",
     "crates/linktime/*",
-    "crates/mizar/*",
     "crates/protocols/*",
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",
     "crates/tasks/*",
-    "crates/typst/*",
     "crates/utils/*",
     "crates/vm/*",
     "crates/benchmarks/*",
@@ -355,17 +353,6 @@ husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-
 husky-task = { path = "crates/tasks/husky-task" }
 husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
-# typst
-husky-typst = { path = "crates/typst/husky-typst" }
-husky-typst-cli = { path = "crates/typst/husky-typst-cli" }
-husky-typst-docs = { path = "crates/typst/husky-typst-docs" }
-husky-typst-ide = { path = "crates/typst/husky-typst-ide" }
-husky-typst-macros = { path = "crates/typst/husky-typst-macros" }
-husky-typst-pdf = { path = "crates/typst/husky-typst-pdf" }
-husky-typst-render = { path = "crates/typst/husky-typst-render" }
-husky-typst-svg = { path = "crates/typst/husky-typst-svg" }
-husky-typst-syntax = { path = "crates/typst/husky-typst-syntax" }
-husky-typst-timing = { path = "crates/typst/husky-typst-timing" }
 # toml
 husky-corgi-config-ast = { path = "crates/toml/husky-corgi-config-ast" }
 husky-manifest-ast = { path = "crates/toml/husky-manifest-ast" }
