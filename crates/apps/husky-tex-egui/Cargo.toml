@@ -12,6 +12,9 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+eframe.workspace = true
+egui.workspace = true
+# tex
 husky-tex-ast = { workspace = true, features = ["egui"] }
 
 [lints]

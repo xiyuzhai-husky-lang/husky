@@ -3,6 +3,7 @@ mod pattern_ty;
 pub(crate) use self::pattern_ty::*;
 
 use crate::*;
+use husky_entity_tree::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
@@ -21,6 +22,7 @@ pub(super) struct DecTermEngine<'a> {
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
 }
 
+/// returns None for defn region
 #[salsa::tracked(jar = DecSignatureJar, return_ref)]
 pub fn syn_expr_dec_term_region(
     db: &::salsa::Db,
@@ -67,16 +69,26 @@ impl<'a> DecTermEngine<'a> {
         }
     }
 
+    pub(crate) fn path(&self) -> SynNodeRegionPath {
+        self.syn_expr_region_data.path()
+    }
+
     fn infer_all(mut self) -> SynExprDecTermRegion {
-        self.infer_current_syn_symbol_terms();
-        self.symbol_declarative_term_region
-            .infer_self_ty_parameter_and_self_value_parameter(
-                self.db,
-                self.toolchain,
-                self.syn_expr_region_data.path(),
-                self.syn_expr_region_data.symbol_region(),
-            );
-        self.infer_expr_roots();
+        // ad hoc, todo: make it clear what it means for defn and snippet region
+        match self.path() {
+            SynNodeRegionPath::Decl(_) => {
+                self.infer_current_syn_symbol_terms();
+                self.symbol_declarative_term_region
+                    .infer_self_ty_parameter_and_self_value_parameter(
+                        self.db,
+                        self.toolchain,
+                        self.syn_expr_region_data.path(),
+                        self.syn_expr_region_data.symbol_region(),
+                    );
+                self.infer_expr_roots();
+            }
+            SynNodeRegionPath::Snippet(_) | SynNodeRegionPath::Defn(_) => (),
+        };
         self.finish()
     }
 
@@ -183,16 +195,16 @@ impl<'a> DecTermEngine<'a> {
                 }
                 SyndicateTypeConstraint::SimpleParenateParameter {
                     syn_pattern_root,
-                    ty_expr_idx: ty,
-                } => self.init_current_syn_symbol_signatures_in_parenate_parameter(
+                    ty,
+                } => self.init_current_syn_symbol_signatures_in_parenate_or_lambda_parameter(
                     *syn_pattern_root,
                     *ty,
                     *symbols,
                 ),
-                SyndicateTypeConstraint::SimpleLambdaParameter {
-                    syn_pattern_root,
-                    ty_expr_idx,
-                } => todo!(),
+                SyndicateTypeConstraint::SimpleLambdaParameter { .. } => {
+                    p!(self.path());
+                    todo!()
+                }
                 SyndicateTypeConstraint::FieldVariable {
                     ident_token,
                     ty_expr_idx,
@@ -235,7 +247,7 @@ impl<'a> DecTermEngine<'a> {
     /// explicit parameters are infered in this crate;
     ///
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
-    fn init_current_syn_symbol_signatures_in_parenate_parameter(
+    fn init_current_syn_symbol_signatures_in_parenate_or_lambda_parameter(
         &mut self,
         parenate_syn_pattern_expr_root: ParenateSynPatternExprRoot,
         ty: SynExprIdx,

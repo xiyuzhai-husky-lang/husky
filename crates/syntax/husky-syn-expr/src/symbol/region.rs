@@ -45,7 +45,7 @@ pub enum SyndicateTypeConstraint {
     TemplateTypeParameter,
     SimpleParenateParameter {
         syn_pattern_root: ParenateSynPatternExprRoot,
-        ty_expr_idx: SynExprIdx,
+        ty: SynExprIdx,
     },
     VariadicParenateParameter {
         ident_token: IdentRegionalToken,
@@ -53,7 +53,7 @@ pub enum SyndicateTypeConstraint {
     },
     SimpleLambdaParameter {
         syn_pattern_root: LambdaSynPatternExprRoot,
-        ty_expr_idx: SynExprIdx,
+        ty: SynExprIdx,
     },
     LetPattern {
         pattern: LetSynPatternExprRoot,

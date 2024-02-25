@@ -7,6 +7,7 @@ pub trait DecSignatureDb {
 }
 
 impl DecSignatureDb for ::salsa::Db {
+    #[track_caller]
     fn syn_expr_dec_term_region(&self, syn_expr_region: SynExprRegion) -> &SynExprDecTermRegion {
         syn_expr_dec_term_region(self, syn_expr_region)
     }

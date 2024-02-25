@@ -62,7 +62,7 @@ where
                 ty.map(
                     |(_, ty_expr_idx)| SyndicateTypeConstraint::SimpleLambdaParameter {
                         syn_pattern_root,
-                        ty_expr_idx,
+                        ty: ty_expr_idx,
                     },
                 ),
             );
