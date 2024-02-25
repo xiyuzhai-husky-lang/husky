@@ -5871,6 +5871,8 @@ dependencies = [
 name = "husky-tex-egui"
 version = "0.1.0"
 dependencies = [
+ "eframe",
+ "egui",
  "husky-tex-ast",
 ]
 

@@ -81,7 +81,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 variables,
                 Some(SyndicateTypeConstraint::SimpleParenateParameter {
                     syn_pattern_root,
-                    ty_expr_idx,
+                    ty: ty_expr_idx,
                 }),
             );
             if let Some(eq_token) = ctx.try_parse_option::<EqRegionalToken>()? {
