@@ -62,7 +62,7 @@ pub enum OriginalSemaExprTypeError {
     #[error("cannot unwrap")]
     CannotUnwrap,
     #[error("no constructor")]
-    NoConstructor,
+    NoConstructor { path: TypePath },
     /// in husky, i8 ~ isize, u8 ~ usize cannot be used for bit operation
     #[error("no bit opr for integer")]
     BitOperationOnlyWorksForRawBitsOrCustom,
