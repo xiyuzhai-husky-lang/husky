@@ -143,7 +143,7 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolData::BeVariable { ident, .. }
             | CurrentSynSymbolData::CaseVariable { ident, .. }
             | CurrentSynSymbolData::LoopVariable { ident, .. }
-            | CurrentSynSymbolData::SimpleLambdaParameter { ident, .. } => ident.into(),
+            | CurrentSynSymbolData::SimpleClosureParameter { ident, .. } => ident.into(),
             CurrentSynSymbolData::TemplateParameter {
                 template_parameter_variant:
                     CurrentTemplateParameterSynSymbolVariant::Lifetime { label_token, .. },
@@ -170,6 +170,7 @@ impl CurrentSynSymbol {
             | CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. }
             | CurrentSynSymbolData::FieldVariable { ident_token } => Some(ident_token.ident()),
             CurrentSynSymbolData::SimpleParenateParameter { ident, .. }
+            | CurrentSynSymbolData::SimpleClosureParameter { ident, .. }
             | CurrentSynSymbolData::LetVariable { ident, .. }
             | CurrentSynSymbolData::BeVariable { ident, .. }
             | CurrentSynSymbolData::CaseVariable { ident, .. }
@@ -181,10 +182,6 @@ impl CurrentSynSymbol {
                 ..
             } => None,
             CurrentSynSymbolData::SelfType | CurrentSynSymbolData::SelfValue { .. } => None,
-            CurrentSynSymbolData::SimpleLambdaParameter {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
         }
     }
 
@@ -199,11 +196,14 @@ pub enum CurrentSynSymbolKind {
     TemplateParameter {
         template_parameter_kind: CurrentTemplateParameterSynSymbolKind,
     },
-    ParenateSimpleParameter {
+    SimpleParenateParameter {
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
-    ParenateVariadicParameter {
+    VariadicParenateParameter {
         ident_token: IdentRegionalToken,
+    },
+    SimpleClosureParameter {
+        pattern_symbol_idx: SynPatternSymbolIdx,
     },
     LetVariable {
         pattern_symbol_idx: SynPatternSymbolIdx,
@@ -257,7 +257,7 @@ pub enum CurrentSynSymbolData {
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
     },
-    SimpleLambdaParameter {
+    SimpleClosureParameter {
         ident: Ident,
         pattern_symbol_idx: SynPatternSymbolIdx,
     },
@@ -333,7 +333,7 @@ impl CurrentSynSymbolData {
             CurrentSynSymbolData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
             }
-            | CurrentSynSymbolData::SimpleLambdaParameter {
+            | CurrentSynSymbolData::SimpleClosureParameter {
                 pattern_symbol_idx, ..
             }
             | CurrentSynSymbolData::LetVariable {
@@ -416,7 +416,13 @@ impl CurrentSynSymbolData {
             },
             CurrentSynSymbolData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
-            } => CurrentSynSymbolKind::ParenateSimpleParameter {
+            } => CurrentSynSymbolKind::SimpleParenateParameter {
+                pattern_symbol_idx: *pattern_symbol_idx,
+            },
+            CurrentSynSymbolData::SimpleClosureParameter {
+                ident,
+                pattern_symbol_idx,
+            } => CurrentSynSymbolKind::SimpleClosureParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSynSymbolData::LetVariable {
@@ -438,7 +444,7 @@ impl CurrentSynSymbolData {
                 CurrentSynSymbolKind::LoopVariable(*expr_idx)
             }
             CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => {
-                CurrentSynSymbolKind::ParenateVariadicParameter {
+                CurrentSynSymbolKind::VariadicParenateParameter {
                     ident_token: *ident_token,
                 }
             }
@@ -449,10 +455,6 @@ impl CurrentSynSymbolData {
                     ident_token: *ident_token,
                 }
             }
-            CurrentSynSymbolData::SimpleLambdaParameter {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
         }
     }
 }

@@ -223,14 +223,11 @@ where
                         None => return TokenDisambiguationResult::Break(()),
                     }
                 }
-                PunctuationMapped::Vertical => match self.last_incomplete_expr() {
-                    Some(IncompleteSynExprData::CommaList {
-                        bra: Delimiter::Vertical,
-                        ..
-                    }) => DisambiguatedTokenData::RightDelimiter(
-                        regional_token_idx,
-                        Delimiter::Vertical,
-                    ),
+                PunctuationMapped::Vert => match (self.env(), self.last_bra()) {
+                    (
+                        Some(ExprEnvironment::WithinDelimiteredParameterList(Delimiter::Vert)),
+                        None,
+                    ) => return TokenDisambiguationResult::Break(()),
                     _ => match self.complete_expr().is_some() {
                         true => DisambiguatedTokenData::SynBinaryOpr(
                             regional_token_idx,
@@ -238,7 +235,7 @@ where
                         ),
                         false => DisambiguatedTokenData::LeftDelimiter(
                             regional_token_idx,
-                            Delimiter::Vertical,
+                            Delimiter::Vert,
                         ),
                     },
                 },

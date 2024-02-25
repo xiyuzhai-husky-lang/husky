@@ -1,6 +1,6 @@
 use crate::{
-    CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolIdxRange, ExprEnvironment,
-    IsSynExprContext, LambdaSynPatternExprRoot, OriginalSynExprError, SynExprError, SynExprIdx,
+    ClosureSynPatternExprRoot, CurrentSynSymbol, CurrentSynSymbolData, CurrentSynSymbolIdxRange,
+    ExprEnvironment, IsSynExprContext, OriginalSynExprError, SynExprError, SynExprIdx,
     SynExprParser, SynExprResult, SynExprRootKind, SyndicateTypeConstraint,
 };
 use husky_regional_token::ColonRegionalToken;
@@ -8,15 +8,15 @@ use husky_token_data::delimiter::Delimiter;
 use parsec::TryParseOptionFromStream;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum LambdaParameterSyndicate {
+pub enum ClosureParameterSyndicate {
     Simple {
-        syn_pattern_root: LambdaSynPatternExprRoot,
+        syn_pattern_root: ClosureSynPatternExprRoot,
         variables: CurrentSynSymbolIdxRange,
         ty: Option<(ColonRegionalToken, SynExprIdx)>,
     },
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LambdaParameterSyndicate
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ClosureParameterSyndicate
 where
     C: IsSynExprContext<'a>,
 {
@@ -27,7 +27,7 @@ where
     ) -> SynExprResult<Option<Self>> {
         use parsec::{HasStreamState, IsStreamParser};
 
-        if let Some(syn_pattern_root) = ctx.try_parse_option::<LambdaSynPatternExprRoot>()? {
+        if let Some(syn_pattern_root) = ctx.try_parse_option::<ClosureSynPatternExprRoot>()? {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
@@ -39,7 +39,7 @@ where
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::SimpleLambdaParameter {
+                        CurrentSynSymbolData::SimpleClosureParameter {
                             ident,
                             pattern_symbol_idx,
                         },
@@ -50,7 +50,7 @@ where
             let ty = colon.map(|colon| {
                 let ty_expr_idx = ctx.parse_expr_expected2(
                     Some(ExprEnvironment::WithinDelimiteredParameterList(
-                        Delimiter::Par,
+                        Delimiter::Vert,
                     )),
                     SynExprRootKind::ExplicitParameterType,
                     OriginalSynExprError::ExpectedParameterType,
@@ -60,13 +60,13 @@ where
             let variables = ctx.define_symbols(
                 variables,
                 ty.map(
-                    |(_, ty_expr_idx)| SyndicateTypeConstraint::SimpleLambdaParameter {
+                    |(_, ty_expr_idx)| SyndicateTypeConstraint::SimpleClosureParameter {
                         syn_pattern_root,
                         ty: ty_expr_idx,
                     },
                 ),
             );
-            Ok(Some(LambdaParameterSyndicate::Simple {
+            Ok(Some(ClosureParameterSyndicate::Simple {
                 syn_pattern_root,
                 variables,
                 ty,

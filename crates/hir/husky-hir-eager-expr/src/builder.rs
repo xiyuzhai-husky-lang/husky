@@ -106,7 +106,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 SynPatternExprRootKind::Let
                 | SynPatternExprRootKind::Case
                 | SynPatternExprRootKind::Be
-                | SynPatternExprRootKind::Lambda => continue,
+                | SynPatternExprRootKind::Closure => continue,
             }
         }
         self.finish()

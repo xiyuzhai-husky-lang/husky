@@ -28,7 +28,7 @@ pub(crate) enum RustPrecedence {
     Curry = 30,
     KeyedArgument = 22,
     ListItem = 21,
-    LambdaHead = 20,
+    ClosureHead = 20,
     Range = 12,
     Assign = 11,
     List = 1,

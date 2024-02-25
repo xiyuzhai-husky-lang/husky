@@ -1,11 +1,11 @@
+mod closure;
 mod html;
-mod lambda;
 mod list_item;
 
 pub use self::html::*;
 pub use self::list_item::*;
 
-use crate::{lambda_parameter::LambdaParameterSyndicate, *};
+use crate::{closure_parameter::ClosureParameterSyndicate, *};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::PunctuatedSmallList;
 
@@ -103,11 +103,11 @@ pub enum SynExprData {
         /// `light_arrow_token` is some
         return_ty_syn_expr_idx: Option<SynExprIdx>,
     },
-    Lambda {
+    Closure {
         ritchie_kind_regional_token_idx: Option<RegionalTokenIdx>,
         lvert_regional_token_idx: RegionalTokenIdx,
         parameters: PunctuatedSmallList<
-            LambdaParameterSyndicate,
+            ClosureParameterSyndicate,
             CommaRegionalToken,
             SynExprError,
             true,

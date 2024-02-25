@@ -157,7 +157,7 @@ impl HirEagerComptimeSvarRegionData {
                                 ident: _,
                                 expr_idx: _,
                             } => todo!(),
-                            CurrentSynSymbolData::SimpleLambdaParameter {
+                            CurrentSynSymbolData::SimpleClosureParameter {
                                 ident,
                                 pattern_symbol_idx,
                             } => todo!(),

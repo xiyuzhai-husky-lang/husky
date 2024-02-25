@@ -10,8 +10,6 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     BoxColonList {
         colon_regional_token_idx: RegionalTokenIdx,
     },
-    NewLambdaHead,
-    FunctionInstantiation {},
     FunctionApplicationOrCall {
         function: SynExprIdx,
     },

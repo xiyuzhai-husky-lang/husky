@@ -126,7 +126,7 @@ impl SynExprData {
             | SynExprData::Todo { .. }
             | SynExprData::Unreachable { .. }
             | SynExprData::NestedBlock { .. } => BaseEntityPath::None,
-            SynExprData::Lambda { .. } => BaseEntityPath::None,
+            SynExprData::Closure { .. } => BaseEntityPath::None,
         }
     }
 }
@@ -392,12 +392,7 @@ where
     pub(super) fn last_bra(&self) -> Option<Delimiter> {
         for (unfinished_expr, _) in self.stack.incomplete_exprs.iter().rev() {
             match unfinished_expr {
-                IncompleteSynExprData::CommaList {
-                    opr: _,
-                    bra,
-                    bra_regional_token_idx: _,
-                    items: _,
-                } => return Some(*bra),
+                IncompleteSynExprData::CommaList { bra, .. } => return Some(*bra),
                 IncompleteSynExprData::CallList { .. } => return Some(Delimiter::Par),
                 _ => (),
             }

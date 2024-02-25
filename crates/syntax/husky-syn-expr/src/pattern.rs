@@ -327,20 +327,20 @@ where
     }
 }
 
-/// # lambda
+/// # closure
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct LambdaSynPatternExprRoot {
+pub struct ClosureSynPatternExprRoot {
     syn_pattern_expr_idx: SynPatternExprIdx,
 }
 
-impl LambdaSynPatternExprRoot {
+impl ClosureSynPatternExprRoot {
     pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
         self.syn_pattern_expr_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LambdaSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ClosureSynPatternExprRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -351,12 +351,12 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Lambda,
+                SynPatternExprRootKind::Closure,
             )?
         else {
             return Ok(None);
         };
-        Ok(Some(LambdaSynPatternExprRoot {
+        Ok(Some(ClosureSynPatternExprRoot {
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }))
     }

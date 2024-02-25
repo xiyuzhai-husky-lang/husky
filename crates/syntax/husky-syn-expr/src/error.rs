@@ -171,14 +171,14 @@ pub enum OriginalSynExprError {
     },
     #[error("ExpectedBlockRcurl")]
     ExpectedBlockRcurl(RegionalTokenStreamState),
-    #[error("ExpectedRvertForLambda")]
-    ExpectedRvertForLambda(RegionalTokenStreamState),
-    #[error("ExpectedEqTokenAfterReturnTypeForLambda")]
-    ExpectedEqTokenAfterReturnTypeForLambda(RegionalTokenStreamState),
-    #[error("ExpectedReturnTypeAfterLightArrowForLambda")]
-    ExpectedReturnTypeAfterLightArrowForLambda(RegionalTokenStreamState),
-    #[error("ExpectedBodyExprForLambda")]
-    ExpectedBodyExprForLambda(RegionalTokenStreamState),
+    #[error("ExpectedRvertForClosure")]
+    ExpectedRvertForClosure(RegionalTokenStreamState),
+    #[error("ExpectedEqTokenAfterReturnTypeForClosure")]
+    ExpectedEqTokenAfterReturnTypeForClosure(RegionalTokenStreamState),
+    #[error("ExpectedReturnTypeAfterLightArrowForClosure")]
+    ExpectedReturnTypeAfterLightArrowForClosure(RegionalTokenStreamState),
+    #[error("ExpectedBodyExprForClosure")]
+    ExpectedBodyExprForClosure(RegionalTokenStreamState),
 }
 
 impl OriginalSynExprError {
@@ -280,10 +280,10 @@ impl OriginalSynExprError {
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree { .. } => todo!(),
             OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
-            OriginalSynExprError::ExpectedRvertForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedBodyExprForLambda(_) => todo!(),
+            OriginalSynExprError::ExpectedRvertForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedBodyExprForClosure(_) => todo!(),
         }
     }
 }
