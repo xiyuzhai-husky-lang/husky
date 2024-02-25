@@ -51,8 +51,8 @@ pub enum SyndicateTypeConstraint {
         ident_token: IdentRegionalToken,
         ty: SynExprIdx,
     },
-    SimpleLambdaParameter {
-        syn_pattern_root: LambdaSynPatternExprRoot,
+    SimpleClosureParameter {
+        syn_pattern_root: ClosureSynPatternExprRoot,
         ty: SynExprIdx,
     },
     LetPattern {
@@ -229,7 +229,7 @@ impl VariableRegionData {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentSynSymbolData::SimpleLambdaParameter {
+                CurrentSynSymbolData::SimpleClosureParameter {
                     ident,
                     pattern_symbol_idx,
                 } => todo!(),

@@ -110,7 +110,7 @@ impl HirLazyVariableData {
                 ident: _,
                 expr_idx: _,
             } => Some(HirLazyVariableData::LoopVariable),
-            CurrentSynSymbolData::SimpleLambdaParameter {
+            CurrentSynSymbolData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
             } => todo!(),

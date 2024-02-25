@@ -1,6 +1,5 @@
 use crate::*;
 use husky_check_utils::should;
-use std::marker::PhantomData;
 
 pub struct ArenaMap<T, V> {
     data: Vec<Option<V>>,

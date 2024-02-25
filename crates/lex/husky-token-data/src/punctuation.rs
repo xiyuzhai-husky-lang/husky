@@ -38,7 +38,7 @@ impl Punctuation {
             PunctuationMapped::Dot => Convexity::Concave,
             PunctuationMapped::Colon => Convexity::Any,
             PunctuationMapped::Comma => Convexity::Concave,
-            PunctuationMapped::Vertical => Convexity::Any,
+            PunctuationMapped::Vert => Convexity::Any,
             PunctuationMapped::Exclamation => Convexity::Concave,
             PunctuationMapped::DoubleExclamation => Convexity::Concave,
             PunctuationMapped::Semicolon => Convexity::Any,
@@ -92,7 +92,7 @@ impl Punctuation {
     /// `::<`
     pub const COLON_COLON_LA: Self = Self(PunctuationMapped::ColonColonLa);
     /// `|`
-    pub const VERT: Self = Self(PunctuationMapped::Vertical);
+    pub const VERT: Self = Self(PunctuationMapped::Vert);
     /// `||`
     pub const VERT_VERT: Self = Self(PunctuationMapped::VertVert);
     /// `..`
@@ -241,7 +241,7 @@ pub enum PunctuationMapped {
     Star,              // `*`
     Comma,             // `,`
     Ambersand,         // `&`
-    Vertical,          // `|`
+    Vert,              // `|`
     Exclamation,       // `!`
     DoubleExclamation, // `!!`
     Semicolon,         // `;`
@@ -286,7 +286,7 @@ impl PunctuationMapped {
             PunctuationMapped::Colon => ":",
             PunctuationMapped::Comma => ",",
             PunctuationMapped::Ambersand => "&",
-            PunctuationMapped::Vertical => "|",
+            PunctuationMapped::Vert => "|",
             PunctuationMapped::Exclamation => "!",
             PunctuationMapped::DoubleExclamation => "!!",
             PunctuationMapped::Semicolon => ";",

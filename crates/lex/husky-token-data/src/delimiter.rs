@@ -7,7 +7,7 @@ pub enum Delimiter {
     TurboFish,
     InlineCurl,
     BlockCurl,
-    Vertical,
+    Vert,
     HtmlAngle,
 }
 
@@ -18,7 +18,7 @@ impl Delimiter {
             Delimiter::Box => "[",
             Delimiter::TurboFish => "::<",
             Delimiter::InlineCurl | Delimiter::BlockCurl => "{",
-            Delimiter::Vertical => "|",
+            Delimiter::Vert => "|",
             Delimiter::HtmlAngle => "<",
         }
     }
@@ -29,7 +29,7 @@ impl Delimiter {
             Delimiter::Box => "]",
             Delimiter::TurboFish => ">",
             Delimiter::InlineCurl | Delimiter::BlockCurl => "}",
-            Delimiter::Vertical => "|",
+            Delimiter::Vert => "|",
             Delimiter::HtmlAngle => "/>",
         }
     }

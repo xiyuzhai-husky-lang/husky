@@ -391,7 +391,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 lcurl_regional_token_idx,
                 rcurl_regional_token.regional_token_idx(),
             ),
-            SynExprData::Lambda {
+            SynExprData::Closure {
                 ritchie_kind_regional_token_idx,
                 lvert_regional_token_idx: lpar_regional_token_idx,
                 body,

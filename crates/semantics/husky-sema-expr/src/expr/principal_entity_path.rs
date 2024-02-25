@@ -45,12 +45,6 @@ impl<'a> SemaExprEngine<'a> {
                                 db,
                             );
                             let instance_constructor_ty = tmpl.instance_constructor_ty(db);
-                            if instance_constructor_ty.is_none() {
-                                use husky_print_utils::p;
-
-                                p!(self.path());
-                                todo!()
-                            }
                             (
                                 Ok(Some(instantiation)),
                                 instance_constructor_ty

@@ -97,7 +97,7 @@ AstSheet {
                     connection: Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `lambda_inline`,
+                    ident: `closure_inline`,
                     token_idx: TokenIdx(
                         13,
                     ),
@@ -110,7 +110,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`syntax_basics::expr::lambda_inline`, `Ritchie(
+                    path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -144,7 +144,7 @@ AstSheet {
                     connection: Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `lambda_nested`,
+                    ident: `closure_nested`,
                     token_idx: TokenIdx(
                         29,
                     ),
@@ -157,7 +157,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Fugitive {
-                    path: FugitivePath(`syntax_basics::expr::lambda_nested`, `Ritchie(
+                    path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

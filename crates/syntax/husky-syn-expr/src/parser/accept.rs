@@ -180,7 +180,6 @@ where
                             rbox_regional_token_idx: ket_regional_token_idx,
                         }
                         .into(),
-                        IncompleteCommaListOpr::NewLambdaHead => todo!(),
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
                             let generic_arguments: Option<SynTemplateArguments> = None;
@@ -220,7 +219,6 @@ where
                             }
                             .into()
                         }
-                        IncompleteCommaListOpr::FunctionInstantiation {} => todo!(),
                         IncompleteCommaListOpr::RitchieArguments {
                             ritchie_kind_regional_token_idx,
                             ritchie_kind,
@@ -509,10 +507,10 @@ where
 
     fn accept_list_start(&mut self, bra: Delimiter, bra_regional_token_idx: RegionalTokenIdx) {
         self.reduce(Precedence::Application);
-        if bra == Delimiter::Vertical {
+        if bra == Delimiter::Vert {
             let lvert = bra_regional_token_idx;
-            let lambda = self.parse_lambda(bra_regional_token_idx);
-            self.push_top_syn_expr(lambda.into())
+            let closure = self.parse_closure(bra_regional_token_idx);
+            self.push_top_syn_expr(closure.into())
         } else {
             self.take_complete_and_push_to_top(|parser, finished_expr| -> TopSynExpr {
                 let finished_expr = finished_expr.map(|expr| parser.context_mut().alloc_expr(expr));
@@ -560,7 +558,7 @@ where
                         OriginalSynExprError::UnexpectedInlineLcurl(bra_regional_token_idx).into(),
                     )
                     .into(),
-                    Delimiter::Vertical => {
+                    Delimiter::Vert => {
                         unreachable!("Handled already")
                     }
                     Delimiter::HtmlAngle => {

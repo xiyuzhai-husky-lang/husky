@@ -3,10 +3,10 @@ fn nested():
         1
     }
 
-fn lambda_inline():
+fn closure_inline():
     let t = |x: i32| x + 1
 
-fn lambda_nested():
+fn closure_nested():
     let t = |x: i32| {
         x + 1
     }

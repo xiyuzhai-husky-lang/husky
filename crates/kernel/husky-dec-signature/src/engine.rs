@@ -201,7 +201,7 @@ impl<'a> DecTermEngine<'a> {
                     *ty,
                     *symbols,
                 ),
-                SyndicateTypeConstraint::SimpleLambdaParameter { .. } => {
+                SyndicateTypeConstraint::SimpleClosureParameter { .. } => {
                     p!(self.path());
                     todo!()
                 }
@@ -616,7 +616,7 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::Todo { .. } => todo!(),
             SynExprData::Unreachable { .. } => todo!(),
             SynExprData::NestedBlock { .. } => todo!(),
-            SynExprData::Lambda { .. } => todo!(),
+            SynExprData::Closure { .. } => todo!(),
         }
     }
 }

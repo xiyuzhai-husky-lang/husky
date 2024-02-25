@@ -38,7 +38,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`syntax_basics::expr::lambda_inline`, `Ritchie(
+                FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -74,7 +74,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Fugitive(
-                FugitivePath(`syntax_basics::expr::lambda_nested`, `Ritchie(
+                FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                     Fn,
                 )`),
             ),

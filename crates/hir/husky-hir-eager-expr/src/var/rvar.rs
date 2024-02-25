@@ -184,7 +184,7 @@ impl HirEagerRuntimeSvarData {
                 ident: _,
                 expr_idx: _,
             } => Some(HirEagerRuntimeSvarData::LoopVariable),
-            CurrentSynSymbolData::SimpleLambdaParameter {
+            CurrentSynSymbolData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
             } => todo!(),

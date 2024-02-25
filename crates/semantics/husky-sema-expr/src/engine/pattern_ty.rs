@@ -112,7 +112,7 @@ impl<'a> SemaExprEngine<'a> {
                 symbol_modifier_keyword_group,
             } => todo!(),
             CurrentSynSymbolData::FieldVariable { ident_token } => todo!(),
-            CurrentSynSymbolData::SimpleLambdaParameter {
+            CurrentSynSymbolData::SimpleClosureParameter {
                 ident,
                 pattern_symbol_idx,
             } => todo!(),

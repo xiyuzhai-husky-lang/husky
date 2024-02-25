@@ -14,6 +14,11 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FlyTerm>,
     ) {
+        enum A {
+            D(i32),
+            C(i32),
+        }
+        let t = |(A::D(a) | A::C(a)): A| todo!();
         use husky_print_utils::p;
 
         p!(opr);

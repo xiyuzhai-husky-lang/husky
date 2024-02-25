@@ -322,10 +322,10 @@ impl Diagnose for OriginalSynExprError {
                 error: _,
             } => todo!(),
             OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
-            OriginalSynExprError::ExpectedRvertForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForLambda(_) => todo!(),
-            OriginalSynExprError::ExpectedBodyExprForLambda(_) => todo!(),
+            OriginalSynExprError::ExpectedRvertForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedBodyExprForClosure(_) => todo!(),
         }
     }
 
