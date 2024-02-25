@@ -44,10 +44,17 @@ impl<'a> SemaExprEngine<'a> {
                                 self.fly_terms_mut(),
                                 db,
                             );
+                            let instance_constructor_ty = tmpl.instance_constructor_ty(db);
+                            if instance_constructor_ty.is_none() {
+                                use husky_print_utils::p;
+
+                                p!(self.path());
+                                todo!()
+                            }
                             (
                                 Ok(Some(instantiation)),
-                                tmpl.instance_constructor_ty(db)
-                                    .ok_or(OriginalSemaExprTypeError::NoConstructor.into())
+                                instance_constructor_ty
+                                    .ok_or(OriginalSemaExprTypeError::NoConstructor { path }.into())
                                     .map(Into::into),
                             )
                         }

@@ -38,7 +38,7 @@ impl std::ops::Deref for ItemSynNodePath {
     }
 }
 
-#[salsa::interned(jar = EntityTreeJar, override_debug)]
+#[salsa::interned(jar = EntityTreeJar)]
 pub struct ItemSynNodePathId {
     data: ItemSynNodePathData,
 }

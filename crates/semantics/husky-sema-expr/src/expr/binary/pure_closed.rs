@@ -14,8 +14,17 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FlyTerm>,
     ) {
+        use husky_print_utils::p;
+
+        p!(opr);
+        let lopd_syn_expr_idx = lopd;
         let (lopd, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
+            use husky_print_utils::p;
+
+            p!(self.syn_expr_region_data()[lopd_syn_expr_idx].debug(self.db()));
+            p!(self.sema_expr_arena()[lopd].debug(self.db()));
+            todo!();
             let ropd = self.build_sema_expr(ropd, ExpectAnyDerived);
             return (
                 lopd,

@@ -7,7 +7,7 @@ use husky_sema_expr::{
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::module_item_syn_node_defns;
 use husky_syn_expr::SynExprRegion;
-use salsa::DisplayWithDb;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprTypeDiagnosticSheet {
@@ -153,8 +153,8 @@ impl Diagnose for OriginalSemaExprDataError {
 impl Diagnose for OriginalSemaExprTypeError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
-        // MOM
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+        let db = ctx.db();
         match self {
             OriginalSemaExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
@@ -197,8 +197,8 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
             }
-            OriginalSemaExprTypeError::NoConstructor => {
-                format!("Type Error: no constructor")
+            OriginalSemaExprTypeError::NoConstructor { path } => {
+                format!("Type Error: no constructor for `{}`", path.display(db))
             }
             OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom => {
                 format!("Type Error: no bit opr for integer")
