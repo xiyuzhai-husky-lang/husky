@@ -188,7 +188,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 32,
@@ -210,7 +210,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
                             Gn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `narrow_down`,

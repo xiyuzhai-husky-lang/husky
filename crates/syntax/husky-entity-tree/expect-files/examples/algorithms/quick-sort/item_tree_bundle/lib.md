@@ -10,7 +10,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 27,
@@ -38,7 +38,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `quick_sort`,
@@ -50,7 +50,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -80,7 +80,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `quick_sort_aux`,
@@ -94,7 +94,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -124,7 +124,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `partition`,
@@ -138,7 +138,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -168,7 +168,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `quick_sort_works_for_integers`,
@@ -182,7 +182,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -212,7 +212,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `quick_sort_works_for_strs`,

@@ -6,7 +6,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
@@ -32,7 +32,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_five`,
