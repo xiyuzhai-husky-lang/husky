@@ -89,7 +89,6 @@ impl salsa::DebugWithDb for FugitiveSynNodePath {
     ) -> std::fmt::Result {
         use std::fmt::Debug;
 
-        let data = self.data(db);
         f.write_str("FugitiveSynNodePath(`")?;
         let maybe_ambiguous_path = self.data(db).maybe_ambiguous_path;
         maybe_ambiguous_path.path.show_aux(f, db)?;
