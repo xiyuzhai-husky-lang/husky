@@ -113,7 +113,7 @@ pub enum SynExprData {
             true,
             3,
         >,
-        rvert_regional_token: RparRegionalToken,
+        rvert_regional_token: RvertRegionalToken,
         /// in husky, `=` is needed after lambda return type to disambiguate `{`
         return_ty: Option<(LightArrowRegionalToken, SynExprIdx, EqRegionalToken)>,
         body: SynExprIdx,

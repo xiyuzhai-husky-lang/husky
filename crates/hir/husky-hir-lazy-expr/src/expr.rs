@@ -468,6 +468,7 @@ impl ToHirLazy for SemaExprIdx {
                 stmts,
                 rcurl_regional_token,
             } => todo!(),
+            SemaExprData::Closure {} => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)
     }

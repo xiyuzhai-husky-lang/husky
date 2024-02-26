@@ -385,6 +385,7 @@ impl<'a> SemaExprEngine<'a> {
                 stmts,
                 rcurl_regional_token,
             } => todo!(),
+            SemaExprData::Closure {} => todo!(),
         }
     }
 

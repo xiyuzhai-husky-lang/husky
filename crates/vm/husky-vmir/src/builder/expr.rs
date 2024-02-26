@@ -90,6 +90,7 @@ impl<'a, 'b> VmirBlockBuilder<'a, 'b> {
             } => todo!(),
             HirEagerExprData::Todo => todo!(),
             HirEagerExprData::Unreachable => todo!(),
+            HirEagerExprData::Closure => todo!(),
         }
         // match expr.variant {
         //     EagerExprVariant::Variable { varname, binding } => {

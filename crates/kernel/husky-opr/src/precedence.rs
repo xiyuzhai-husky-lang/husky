@@ -22,7 +22,7 @@ pub enum Precedence {
     Curry = 30,
     KeyedArgument = 22,
     ListItem = 21,
-    ClosureHead = 20,
+    Closure = 20,
     Method = 12,
     Assign = 11,
     List = 1,

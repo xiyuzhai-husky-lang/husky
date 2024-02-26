@@ -265,6 +265,9 @@ pub enum SemaExprData {
         arguments: IdentMap<SemaHtmlArgumentExpr>,
         empty_html_ket: EmptyHtmlKetRegionalToken,
     },
+    Closure {
+        // todo
+    },
     /// sorry is for comptime (say proof) terms
     Sorry {
         regional_token_idx: RegionalTokenIdx,
@@ -1173,6 +1176,10 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(self.term_menu().ty0().into()),
                 )
             }
+            SynExprData::Closure { .. } => (
+                Ok(SemaExprData::Closure {}),
+                Err(OriginalSemaExprTypeError::ClosureTypeTodo.into()),
+            ),
             SynExprData::Sorry { regional_token_idx } => (
                 Ok(SemaExprData::Sorry { regional_token_idx }),
                 Ok(self.term_menu().never().into()),
@@ -1189,7 +1196,6 @@ impl<'a> SemaExprEngine<'a> {
                 Err(DerivedSemaExprDataError::SynExpr.into()),
                 Err(DerivedSemaExprTypeError::SynExprError.into()),
             ),
-            SynExprData::Closure { .. } => todo!(),
         }
     }
 

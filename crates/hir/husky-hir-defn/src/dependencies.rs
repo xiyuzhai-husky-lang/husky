@@ -104,6 +104,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     self.add_item_path(assoc_item_path)
                 }
                 HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
+                HirEagerExprData::Closure => todo!(),
             }
         }
     }
