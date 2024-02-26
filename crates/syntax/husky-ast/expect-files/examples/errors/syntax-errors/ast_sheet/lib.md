@@ -14,7 +14,7 @@ AstSheet {
                         `syntax_errors`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `ast`,
                     token_idx: TokenIdx(
@@ -30,15 +30,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `syntax_errors::ast`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 },
             },
@@ -55,7 +51,7 @@ AstSheet {
                         `syntax_errors`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `uses`,
                     token_idx: TokenIdx(
@@ -71,15 +67,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `syntax_errors::uses`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 },
             },

@@ -18,9 +18,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -59,9 +59,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -96,9 +96,9 @@ AstSheet {
                         `core::slice`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -135,9 +135,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -176,9 +176,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -217,9 +217,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -258,9 +258,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -299,9 +299,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -355,11 +355,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Extern,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Extern,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Slice`,
@@ -422,11 +422,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Extern,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Extern,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `CyclicSlice`,

@@ -2,60 +2,44 @@
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `syntax_basics::ast`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `syntax_basics::uses`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `syntax_basics::defn`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `syntax_basics::expr`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 4,
+                    },
+                ),
             ),
         },
     ),

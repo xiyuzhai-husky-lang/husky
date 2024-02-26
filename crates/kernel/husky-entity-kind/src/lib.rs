@@ -5,6 +5,7 @@ use self::ritchie::*;
 use husky_entity_protocol::*;
 use serde::{Deserialize, Serialize};
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TypeKind {
     Enum,
@@ -15,6 +16,7 @@ pub enum TypeKind {
     Extern,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum MajorFugitiveKind {
     Ritchie(RitchieItemKind),
@@ -33,6 +35,7 @@ impl MajorFugitiveKind {
     pub const BN: Self = MajorFugitiveKind::Ritchie(RitchieItemKind::Bn);
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
     Module,
@@ -78,14 +81,16 @@ impl EntityKind {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum MajorItemKind {
     Type(TypeKind),
     Fugitive(MajorFugitiveKind),
     Trait,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum AssocItemKind {
     TypeItem(TypeItemKind),
@@ -93,6 +98,7 @@ pub enum AssocItemKind {
     TraitForTypeItem(TraitItemKind),
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TypeItemKind {
     AssocVal,
@@ -142,6 +148,7 @@ impl Into<EntityClass> for TypeItemKind {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitItemKind {
     AssocRitchie(RitchieItemKind),
@@ -191,47 +198,9 @@ impl Into<EntityClass> for TraitItemKind {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum MajorItemConnectionKind {
     Connected,
     Disconnected,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EnumVariantKind {
-    Constant,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum RoutineKind {
-    Normal,
-    TypeCall,
-    TypeAssoc,
-    TraitAssoc,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum RawMembRoutineKind {
-    Proc,
-    Func,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum MemberKind {
-    Field,
-    Method { is_lazy: bool },
-    Call,
-    TraitAssocType,
-    TraitAssocConstSize,
-    TraitAssocAny,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldKind {
-    StructRegular,
-    StructDefault,
-    StructDerived,
-    StructMemo, // property is not store along with struct
-    RecordRegular,
-    RecordProperty,
 }

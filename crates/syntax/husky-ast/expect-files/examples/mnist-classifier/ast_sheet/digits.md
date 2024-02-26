@@ -14,7 +14,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `zero`,
                     token_idx: TokenIdx(
@@ -30,15 +30,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 60,
+                            },
+                        ),
                     ),
                 },
             },
@@ -55,7 +51,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `one`,
                     token_idx: TokenIdx(
@@ -71,15 +67,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 61,
+                            },
+                        ),
                     ),
                 },
             },
@@ -96,7 +88,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `six`,
                     token_idx: TokenIdx(
@@ -112,15 +104,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 62,
+                            },
+                        ),
                     ),
                 },
             },
@@ -137,7 +125,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `three`,
                     token_idx: TokenIdx(
@@ -153,15 +141,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 63,
+                            },
+                        ),
                     ),
                 },
             },
@@ -178,7 +162,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `four`,
                     token_idx: TokenIdx(
@@ -194,15 +178,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 64,
+                            },
+                        ),
                     ),
                 },
             },
@@ -219,7 +199,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `five`,
                     token_idx: TokenIdx(
@@ -235,15 +215,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 65,
+                            },
+                        ),
                     ),
                 },
             },
@@ -260,7 +236,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `seven`,
                     token_idx: TokenIdx(
@@ -276,15 +252,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 66,
+                            },
+                        ),
                     ),
                 },
             },
@@ -301,7 +273,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `eight`,
                     token_idx: TokenIdx(
@@ -317,15 +289,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 67,
+                            },
+                        ),
                     ),
                 },
             },
@@ -342,7 +310,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `nine`,
                     token_idx: TokenIdx(
@@ -358,15 +326,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 68,
+                            },
+                        ),
                     ),
                 },
             },
@@ -383,7 +347,7 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `two`,
                     token_idx: TokenIdx(
@@ -399,15 +363,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 69,
+                            },
+                        ),
                     ),
                 },
             },

@@ -14,9 +14,9 @@ AstSheet {
                         `std::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -49,9 +49,9 @@ AstSheet {
                         `std::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -94,9 +94,9 @@ AstSheet {
                         `std::ops`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Add`,

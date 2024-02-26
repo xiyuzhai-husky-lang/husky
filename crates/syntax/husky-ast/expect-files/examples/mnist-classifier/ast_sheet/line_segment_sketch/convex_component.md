@@ -23,9 +23,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -81,11 +81,11 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `ConvexComponent`,

@@ -3,15 +3,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `syntax_basics::ast`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 1,
+                        },
+                    ),
                 ),
             },
         },
@@ -20,15 +16,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `syntax_basics::uses`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
                 ),
             },
         },
@@ -37,15 +29,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `syntax_basics::defn`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 3,
+                        },
+                    ),
                 ),
             },
         },
@@ -54,15 +42,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `syntax_basics::expr`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 4,
+                        },
+                    ),
                 ),
             },
         },

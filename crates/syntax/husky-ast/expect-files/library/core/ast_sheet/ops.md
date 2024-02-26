@@ -14,9 +14,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -49,9 +49,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -86,9 +86,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -121,9 +121,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -158,9 +158,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -193,9 +193,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -230,9 +230,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -267,9 +267,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -302,9 +302,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -339,9 +339,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -376,9 +376,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -411,9 +411,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -448,9 +448,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -485,9 +485,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -520,9 +520,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -557,9 +557,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -594,9 +594,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -629,9 +629,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -664,9 +664,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -701,9 +701,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -738,9 +738,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -773,9 +773,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -810,9 +810,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -845,9 +845,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -882,9 +882,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -917,9 +917,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -954,9 +954,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -989,9 +989,9 @@ AstSheet {
                         `core::ops`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -1021,17 +1021,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                ident: `Continue`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 74,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -1059,17 +1053,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                ident: `Break`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 75,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -1129,9 +1117,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Add`,
@@ -1182,9 +1170,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `AddAssign`,
@@ -1235,9 +1223,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitAnd`,
@@ -1288,9 +1276,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitAndAssign`,
@@ -1341,9 +1329,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitOr`,
@@ -1394,9 +1382,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitOrAssign`,
@@ -1447,9 +1435,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitXor`,
@@ -1500,9 +1488,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BitXorAssign`,
@@ -1553,9 +1541,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Div`,
@@ -1606,9 +1594,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `DivAssign`,
@@ -1651,9 +1639,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `IntIndex`,
@@ -1704,9 +1692,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Mul`,
@@ -1757,9 +1745,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `MulAssign`,
@@ -1810,9 +1798,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Neg`,
@@ -1863,9 +1851,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Not`,
@@ -1916,9 +1904,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Sub`,
@@ -1961,9 +1949,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Unveil`,
@@ -2006,11 +1994,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `ControlFlow`,

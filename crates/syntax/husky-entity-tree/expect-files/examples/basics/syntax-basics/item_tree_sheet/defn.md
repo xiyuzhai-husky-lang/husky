@@ -11,15 +11,11 @@ EntityTreeSheet {
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::defn::major_item`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -47,15 +43,11 @@ EntityTreeSheet {
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::defn::major_item`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 6,
+                                                },
+                                            ),
                                         ),
                                         disambiguator: 0,
                                     },
@@ -80,15 +72,11 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::Submodule {
                     submodule_item_path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `syntax_basics::defn::major_item`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
                 },
             },

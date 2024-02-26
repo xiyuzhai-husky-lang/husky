@@ -14,9 +14,9 @@ AstSheet {
                         `core::default`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -70,9 +70,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Trait,
-                    connection: Connected,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Trait,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Default`,

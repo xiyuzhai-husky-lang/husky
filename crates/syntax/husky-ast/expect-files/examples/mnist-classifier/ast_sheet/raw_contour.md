@@ -23,9 +23,9 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -321,9 +321,9 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -362,9 +362,9 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -403,9 +403,9 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -444,9 +444,9 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -489,9 +489,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -527,17 +527,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Up`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 103,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -565,17 +559,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Left`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 104,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -603,17 +591,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Down`,
-                                index: U8(
-                                    2,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 105,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -641,17 +623,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Right`,
-                                index: U8(
-                                    3,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 106,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -2281,11 +2257,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `RawContour`,
@@ -2361,11 +2337,11 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Direction`,
@@ -2404,13 +2380,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_pixel_pair`,
@@ -2451,13 +2427,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_pixel_to_the_left`,
@@ -2498,13 +2474,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_pixel_to_the_right`,
@@ -2545,13 +2521,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_inward_direction`,
@@ -2592,13 +2568,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_angle_change`,
@@ -2639,13 +2615,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_outward_direction`,
@@ -2686,11 +2662,11 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `StreakCache`,
@@ -2723,13 +2699,13 @@ AstSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `get_concave_middle_point`,
@@ -2774,13 +2750,13 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `find_raw_contours`,

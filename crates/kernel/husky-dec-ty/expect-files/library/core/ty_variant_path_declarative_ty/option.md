@@ -4,17 +4,11 @@
         [
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                ident: `Some`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 77,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`(independent (t: Type) -> fn((t) -> core::option::Option t`),
@@ -22,17 +16,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                ident: `None`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 78,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`(independent (t: Type) -> core::option::Option t`),

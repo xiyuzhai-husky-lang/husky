@@ -8,7 +8,10 @@ description = "TODO"
 
 [dependencies]
 serde.workspace = true
+# abstractions
 enum-class.workspace = true
+salsa.workspace = true
+# protocols
 husky-entity-protocol = { workspace = true, optional = true }
 
 [features]

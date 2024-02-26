@@ -9,17 +9,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                ident: `Ok`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 81,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -47,17 +41,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                                ident: `Err`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 82,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -90,9 +78,9 @@ AstSheet {
                         `core::result`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -125,9 +113,9 @@ AstSheet {
                         `core::result`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -207,11 +195,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Result`,

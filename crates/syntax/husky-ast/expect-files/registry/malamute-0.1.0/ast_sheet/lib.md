@@ -9,17 +9,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                ident: `Known`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -47,17 +41,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                ident: `Unknown`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 3,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -85,17 +73,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 5,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -123,17 +105,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `No`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 6,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -175,9 +151,9 @@ AstSheet {
                         `malamute`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -257,9 +233,9 @@ AstSheet {
                         `malamute`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -292,9 +268,9 @@ AstSheet {
                         `malamute`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -330,17 +306,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ident: `ConfidentYes`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 8,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -368,17 +338,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ident: `ConfidentNo`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 9,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -406,17 +370,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ident: `Unconfident`,
-                                index: U8(
-                                    2,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 10,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -497,9 +455,9 @@ AstSheet {
                         `malamute`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocType,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocType,
                     ),
                 },
                 ident_token: IdentToken {
@@ -532,9 +490,9 @@ AstSheet {
                         `malamute`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -588,11 +546,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Class`,
@@ -644,11 +602,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `OneVsAll`,
@@ -734,11 +692,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `OneVsAllResult`,
@@ -798,13 +756,13 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Gn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `narrow_down`,

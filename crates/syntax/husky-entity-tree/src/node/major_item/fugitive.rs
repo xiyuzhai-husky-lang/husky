@@ -2,7 +2,6 @@ use husky_entity_kind::MajorFugitiveKind;
 
 use super::*;
 
-#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
@@ -79,6 +78,28 @@ impl FugitiveSynNodePath {
             ItemSynNode::MajorItem(node) => node,
             _ => unreachable!(),
         }
+    }
+}
+
+impl salsa::DebugWithDb for FugitiveSynNodePath {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        use std::fmt::Debug;
+
+        let data = self.data(db);
+        f.write_str("FugitiveSynNodePath(`")?;
+        let maybe_ambiguous_path = self.data(db).maybe_ambiguous_path;
+        maybe_ambiguous_path.path.show_aux(f, db)?;
+        f.write_str("`, `")?;
+        self.data(db)
+            .maybe_ambiguous_path
+            .path
+            .major_fugitive_kind(db)
+            .fmt(f)?;
+        f.write_fmt(format_args!("`, ({}))", maybe_ambiguous_path.disambiguator))
     }
 }
 

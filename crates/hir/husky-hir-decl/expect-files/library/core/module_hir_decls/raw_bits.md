@@ -44,17 +44,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 121,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -71,17 +65,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::raw_bits`,
-                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 121,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),

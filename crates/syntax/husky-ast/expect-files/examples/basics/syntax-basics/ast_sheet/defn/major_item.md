@@ -14,7 +14,7 @@ AstSheet {
                         `syntax_basics::defn::major_item`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `ty`,
                     token_idx: TokenIdx(
@@ -30,15 +30,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `syntax_basics::defn::major_item::ty`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 13,
+                            },
+                        ),
                     ),
                 },
             },

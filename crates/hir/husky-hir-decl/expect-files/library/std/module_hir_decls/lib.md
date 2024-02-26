@@ -2,45 +2,33 @@
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `std::prelude`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `std::logic`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
             path: SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `std::ops`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
             ),
         },
     ),

@@ -8,17 +8,11 @@
         [
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Up`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 17,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
@@ -26,17 +20,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Left`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 18,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
@@ -44,17 +32,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Down`,
-                                index: U8(
-                                    2,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 19,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
@@ -62,17 +44,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ident: `Right`,
-                                index: U8(
-                                    3,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 20,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),

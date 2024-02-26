@@ -2,57 +2,41 @@
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 36,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `mnist_classifier::line_segment_sketch::convex_component`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 37,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `mnist_classifier::line_segment_sketch::convexity`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 38,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `mnist_classifier::line_segment_sketch::line_segment`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 39,
+                },
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -117,45 +101,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 355,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 292,
+                    },
+                ),
             ),
         ),
     ),
@@ -190,45 +151,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 358,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `mnist_classifier::line_segment_sketch`,
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 294,
+                    },
+                ),
             ),
         ),
     ),
