@@ -16,7 +16,7 @@ pub use self::ty_variant::*;
 
 use crate::*;
 
-#[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::interned(db = EntityPathDb, jar = EntityPathJar, override_debug)]
 pub struct ItemPathId {
     pub data: ItemPathData,
 }

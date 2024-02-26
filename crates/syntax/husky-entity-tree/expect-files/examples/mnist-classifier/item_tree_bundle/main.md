@@ -13,15 +13,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::connected_component`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -49,15 +45,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::connected_component`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -80,15 +72,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::raw_contour`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -116,15 +104,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::raw_contour`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -147,15 +131,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::geom2d`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -183,15 +163,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::geom2d`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 3,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -214,15 +190,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::line_segment_sketch`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 4,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -250,15 +222,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -281,15 +249,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::fermi`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -317,15 +281,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::fermi`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -348,15 +308,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 6,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -384,15 +340,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 6,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -415,15 +367,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::major`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 7,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -451,15 +399,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::major`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 7,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -477,20 +421,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
@@ -516,20 +447,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
                             ),
                         ),
                         ident: `main`,
@@ -548,15 +466,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -567,15 +481,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -586,15 +496,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -605,15 +511,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -624,15 +526,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -643,15 +541,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -662,15 +556,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 7,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -2036,15 +1926,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2083,15 +1969,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2130,15 +2012,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2177,15 +2055,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2224,15 +2098,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2271,15 +2141,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -2505,22 +2371,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::connected_component`,
@@ -2548,22 +2401,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `hole_tmpl`,
@@ -2629,22 +2469,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::connected_component`,
@@ -2672,22 +2499,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `horizontal_extend`,
@@ -2699,22 +2513,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 128,
@@ -2740,22 +2541,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `find_connected_components`,
@@ -2838,15 +2626,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2869,15 +2653,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2900,15 +2680,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2931,15 +2707,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2962,15 +2734,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2993,15 +2761,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -3024,15 +2788,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -4825,17 +4585,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::connected_component`,
-                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 283,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -4851,17 +4605,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::connected_component`,
-                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 283,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -4973,15 +4721,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -5145,22 +4889,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5188,22 +4919,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_pixel_pair`,
@@ -5215,22 +4933,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5258,22 +4963,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_pixel_to_the_left`,
@@ -5285,22 +4977,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5328,22 +5007,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_pixel_to_the_right`,
@@ -5355,22 +5021,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5398,22 +5051,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_inward_direction`,
@@ -5425,22 +5065,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5468,22 +5095,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_angle_change`,
@@ -5495,22 +5109,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5538,22 +5139,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_outward_direction`,
@@ -5623,22 +5211,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5666,22 +5241,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `get_concave_middle_point`,
@@ -5693,22 +5255,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 208,
@@ -5734,22 +5283,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `find_raw_contours`,
@@ -5901,15 +5437,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5932,15 +5464,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5963,15 +5491,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5994,15 +5518,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -6025,15 +5545,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -6056,15 +5572,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -6087,15 +5599,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -8255,17 +7763,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 285,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -8281,17 +7783,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 285,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -8457,15 +7953,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -8504,15 +7996,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -8551,15 +8039,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -9018,17 +8502,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 286,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -9044,17 +8522,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 286,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -9084,17 +8556,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 287,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -9110,17 +8576,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 287,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -9150,17 +8610,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 288,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -9176,17 +8630,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 288,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -9216,17 +8664,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 289,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -9242,17 +8684,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 289,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -9282,17 +8718,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 290,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -9308,17 +8738,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 290,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -9362,15 +8786,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 36,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -9398,15 +8818,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 36,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9429,15 +8845,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -9465,15 +8877,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9496,15 +8904,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -9532,15 +8936,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9563,15 +8963,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 39,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -9599,15 +8995,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 39,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9733,22 +9125,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9776,22 +9155,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `go_right`,
@@ -9803,22 +9169,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9846,22 +9199,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `go_left`,
@@ -9873,22 +9213,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9916,22 +9243,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `extend_end`,
@@ -9943,22 +9257,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9986,22 +9287,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `extend_start`,
@@ -10013,22 +9301,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -10056,22 +9331,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `find_line_segments`,
@@ -10090,15 +9352,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 36,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -10109,15 +9367,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convex_component`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -10128,15 +9382,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convexity`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 38,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -10147,15 +9397,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::line_segment`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 39,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -10590,17 +9836,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -10616,17 +9856,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 292,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -10726,17 +9960,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 294,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -10752,17 +9980,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 294,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -10809,15 +10031,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -10845,15 +10063,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -10881,15 +10095,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -10973,15 +10183,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -11020,15 +10226,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -11067,15 +10269,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -11102,15 +10300,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -11249,22 +10443,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 78,
@@ -11290,22 +10471,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `find_concave_components`,
@@ -11344,15 +10512,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11375,15 +10539,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11406,15 +10566,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11437,15 +10593,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11468,15 +10620,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11499,15 +10647,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11530,15 +10674,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11904,15 +11044,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11935,15 +11071,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11966,15 +11098,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -11997,15 +11125,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14229,17 +13353,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 296,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -14255,17 +13373,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 296,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -14458,15 +13570,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14505,15 +13613,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14552,15 +13656,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14599,15 +13699,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14639,15 +13735,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14656,15 +13748,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14696,15 +13784,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14713,15 +13797,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -14881,15 +13961,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14912,15 +13988,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14943,15 +14015,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14974,15 +14042,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -15756,15 +14820,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -15798,22 +14858,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 23,
@@ -15839,22 +14886,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `is_convex`,
@@ -15884,15 +14918,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -15915,15 +14945,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -15946,15 +14972,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -15977,15 +14999,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16946,15 +15964,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -16993,15 +16007,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -17040,15 +16050,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -17330,17 +16336,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 298,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -17356,17 +16356,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 298,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -17451,15 +16445,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -17547,22 +16537,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 25,
@@ -17588,22 +16565,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `fermi_match`,
@@ -17642,15 +16606,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17673,15 +16633,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17704,15 +16660,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17735,15 +16687,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17766,15 +16714,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17797,15 +16741,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -17828,15 +16768,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -19505,17 +18441,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::fermi`,
-                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 299,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -19531,17 +18461,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 299,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),
@@ -19626,15 +18550,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::zero`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 54,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19662,15 +18582,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::zero`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -19693,15 +18609,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::one`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 55,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19729,15 +18641,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::one`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 55,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -19760,15 +18668,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::six`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 56,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19796,15 +18700,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::six`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 56,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -19827,15 +18727,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::three`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 57,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19863,15 +18759,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::three`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 57,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -19894,15 +18786,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::four`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 58,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19930,15 +18818,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::four`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 58,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -19961,15 +18845,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::five`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 59,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -19997,15 +18877,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::five`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 59,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20028,15 +18904,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::seven`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 60,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -20064,15 +18936,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::seven`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 60,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20095,15 +18963,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::eight`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 61,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -20131,15 +18995,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::eight`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20162,15 +19022,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::nine`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 62,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -20198,15 +19054,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::nine`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 62,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20229,15 +19081,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `mnist_classifier::digits::two`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 63,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -20265,15 +19113,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `mnist_classifier::digits::two`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 63,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -20298,15 +19142,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::zero`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20317,15 +19157,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::one`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20336,15 +19172,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::six`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 56,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20355,15 +19187,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::three`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20374,15 +19202,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::four`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 58,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20393,15 +19217,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::five`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 59,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20412,15 +19232,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::seven`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 60,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20431,15 +19247,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::eight`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20450,15 +19262,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::nine`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20469,15 +19277,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits::two`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 63,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -20511,15 +19315,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20542,15 +19342,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20573,15 +19369,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20604,15 +19396,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20635,15 +19423,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20666,15 +19450,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20697,15 +19477,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -22558,15 +21334,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -22818,15 +21590,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -22872,15 +21640,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -22917,15 +21681,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -22962,15 +21722,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23007,15 +21763,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23052,15 +21804,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23097,15 +21845,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23142,15 +21886,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23187,15 +21927,11 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23220,15 +21956,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23262,15 +21994,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23304,15 +22032,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23346,15 +22070,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23388,15 +22108,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23430,15 +22146,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23472,15 +22184,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23514,15 +22222,11 @@ EntityTreeCrateBundle {
                                 ),
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -23565,20 +22269,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
@@ -23604,20 +22295,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`(0)),
                             ),
                         ),
                         ident: `open_one_match`,
@@ -23629,22 +22307,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
@@ -23672,22 +22337,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `almost_closed`,
@@ -23699,20 +22351,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -23738,20 +22377,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`(0)),
                             ),
                         ),
                         ident: `is_zero`,
@@ -23807,15 +22433,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23838,15 +22460,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23869,15 +22487,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23900,15 +22514,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23931,15 +22541,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23962,15 +22568,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -23993,15 +22595,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -24024,15 +22622,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -24055,15 +22649,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -24086,15 +22676,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -24156,15 +22742,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24199,15 +22781,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24242,15 +22820,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24285,15 +22859,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24328,15 +22898,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24371,15 +22937,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -24414,15 +22976,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -26989,20 +25547,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -27028,20 +25573,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
                             ),
                         ),
                         ident: `one_fermi_match`,
@@ -27053,20 +25585,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 64,
@@ -27090,20 +25609,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
                             ),
                         ),
                         ident: `is_one`,
@@ -27113,22 +25619,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -27156,22 +25649,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `upmost`,
@@ -27183,22 +25663,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -27226,22 +25693,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `downmost`,
@@ -27253,22 +25707,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -27296,22 +25737,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `hat`,
@@ -27391,15 +25819,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27422,15 +25846,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27453,15 +25873,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27484,15 +25900,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27515,15 +25927,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27546,15 +25954,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27577,15 +25981,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27608,15 +26008,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27639,15 +26035,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27670,15 +26062,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -27740,15 +26128,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27783,15 +26167,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27826,15 +26206,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27869,15 +26245,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27912,15 +26284,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27955,15 +26323,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -27998,15 +26362,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -30573,20 +28933,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -30612,20 +28959,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
                             ),
                         ),
                         ident: `six_match`,
@@ -30637,20 +28971,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -30676,20 +28997,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
                             ),
                         ),
                         ident: `six_match_refined1`,
@@ -30701,20 +29009,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -30740,20 +29035,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
                             ),
                         ),
                         ident: `is_six`,
@@ -30765,22 +29047,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -30808,22 +29077,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `upmost`,
@@ -30835,22 +29091,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -30878,22 +29121,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `bottom1`,
@@ -30973,15 +29203,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31004,15 +29230,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31035,15 +29257,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31066,15 +29284,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31097,15 +29311,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31128,15 +29338,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31159,15 +29365,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31190,15 +29392,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31221,15 +29419,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31252,15 +29446,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31322,15 +29512,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31365,15 +29551,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31408,15 +29590,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31451,15 +29629,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31494,15 +29668,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31537,15 +29707,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31580,15 +29746,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -34155,20 +32317,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -34194,20 +32343,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`(0)),
                             ),
                         ),
                         ident: `three_fermi_match`,
@@ -34219,20 +32355,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -34258,20 +32381,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`(0)),
                             ),
                         ),
                         ident: `is_three`,
@@ -34283,22 +32393,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -34326,22 +32423,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `uparc`,
@@ -34353,22 +32437,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -34396,22 +32467,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `downarc`,
@@ -34423,22 +32481,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -34466,22 +32511,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `back`,
@@ -34563,15 +32595,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34594,15 +32622,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34625,15 +32649,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34656,15 +32676,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34687,15 +32703,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34718,15 +32730,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34749,15 +32757,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34780,15 +32784,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34811,15 +32811,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34842,15 +32838,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -34912,15 +32904,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -34955,15 +32943,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -34998,15 +32982,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35041,15 +33021,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35084,15 +33060,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35127,15 +33099,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35170,15 +33138,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -37745,20 +35709,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -37784,20 +35735,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`(0)),
                             ),
                         ),
                         ident: `left_components`,
@@ -37809,22 +35747,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -37852,22 +35777,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `left_coordinate_max`,
@@ -37879,20 +35791,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -37918,20 +35817,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`(0)),
                             ),
                         ),
                         ident: `components_max_downwards`,
@@ -37943,20 +35829,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -37982,20 +35855,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`(0)),
                             ),
                         ),
                         ident: `components_max_heights`,
@@ -38007,20 +35867,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -38046,20 +35893,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`(0)),
                             ),
                         ),
                         ident: `is_four`,
@@ -38071,22 +35905,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -38114,22 +35935,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `displacement_downwards`,
@@ -38141,22 +35949,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -38184,22 +35979,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `cc_box_heights`,
@@ -38303,15 +36085,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38334,15 +36112,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38365,15 +36139,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38396,15 +36166,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38427,15 +36193,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38458,15 +36220,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38489,15 +36247,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38520,15 +36274,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38551,15 +36301,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38582,15 +36328,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38652,15 +36394,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38695,15 +36433,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38738,15 +36472,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38781,15 +36511,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38824,15 +36550,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38867,15 +36589,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38910,15 +36628,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -41485,20 +39199,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -41524,20 +39225,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
                             ),
                         ),
                         ident: `is_five`,
@@ -41569,15 +39257,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41600,15 +39284,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41631,15 +39311,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41662,15 +39338,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41693,15 +39365,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41724,15 +39392,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41755,15 +39419,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41786,15 +39446,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41817,15 +39473,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41848,15 +39500,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41918,15 +39566,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -41961,15 +39605,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42004,15 +39644,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42047,15 +39683,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42090,15 +39722,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42133,15 +39761,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42176,15 +39800,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -44751,20 +42371,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -44790,20 +42397,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
                             ),
                         ),
                         ident: `simple_seven_match`,
@@ -44815,22 +42409,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -44858,22 +42439,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `simple_leftdown_pattern`,
@@ -44885,20 +42453,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -44924,20 +42479,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
                             ),
                         ),
                         ident: `special_seven_match`,
@@ -44949,22 +42491,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -44992,22 +42521,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `leftupcc_pattern`,
@@ -45019,22 +42535,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -45062,22 +42565,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `leftdowncc_pattern`,
@@ -45089,20 +42579,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -45128,20 +42605,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
                             ),
                         ),
                         ident: `is_seven`,
@@ -45234,15 +42698,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45265,15 +42725,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45296,15 +42752,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45327,15 +42779,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45358,15 +42806,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45389,15 +42833,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45420,15 +42860,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45451,15 +42887,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45482,15 +42914,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45513,15 +42941,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45583,15 +43007,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45626,15 +43046,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45669,15 +43085,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45712,15 +43124,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45755,15 +43163,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45798,15 +43202,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45841,15 +43241,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -48416,20 +45812,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
@@ -48455,20 +45838,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
                             ),
                         ),
                         ident: `upper_mouth_match`,
@@ -48480,20 +45850,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -48519,20 +45876,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
                             ),
                         ),
                         ident: `is_eight`,
@@ -48544,22 +45888,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
@@ -48587,22 +45918,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `big_mouth`,
@@ -48658,15 +45976,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48689,15 +46003,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48720,15 +46030,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48751,15 +46057,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48782,15 +46084,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48813,15 +46111,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48844,15 +46138,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48875,15 +46165,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48906,15 +46192,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48937,15 +46219,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -49007,15 +46285,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49050,15 +46324,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49093,15 +46363,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49136,15 +46402,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49179,15 +46441,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49222,15 +46480,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49265,15 +46519,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -51840,20 +49090,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -51879,20 +49116,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`(0)),
                             ),
                         ),
                         ident: `nine_match`,
@@ -51904,20 +49128,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -51943,20 +49154,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`(0)),
                             ),
                         ),
                         ident: `nine_match_refine`,
@@ -51968,20 +49166,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -52007,20 +49192,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`(0)),
                             ),
                         ),
                         ident: `is_nine`,
@@ -52032,22 +49204,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -52075,22 +49234,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `downmost`,
@@ -52102,22 +49248,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -52145,22 +49278,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `big_cc`,
@@ -52240,15 +49360,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52271,15 +49387,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52302,15 +49414,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52333,15 +49441,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52364,15 +49468,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52395,15 +49495,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52426,15 +49522,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52457,15 +49549,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52488,15 +49576,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52519,15 +49603,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52589,15 +49669,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52632,15 +49708,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52675,15 +49747,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52718,15 +49786,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52761,15 +49825,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52804,15 +49864,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52847,15 +49903,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -55422,20 +52474,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -55461,20 +52500,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`(0)),
                             ),
                         ),
                         ident: `two_match`,
@@ -55486,22 +52512,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -55529,22 +52542,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `left_cc_pattern`,
@@ -55556,22 +52556,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -55599,22 +52586,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `right_cc_pattern`,
@@ -55626,22 +52600,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                                                                Fn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -55669,22 +52630,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                                    Fn,
+                                )`(0)),
                             ),
                         ),
                         ident: `down_cc_pattern`,
@@ -55696,20 +52644,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`(0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -55735,20 +52670,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`(0)),
                             ),
                         ),
                         ident: `is_two`,
@@ -55830,15 +52752,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55861,15 +52779,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55892,15 +52806,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55923,15 +52833,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55954,15 +52860,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 58,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55985,15 +52887,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -56016,15 +52914,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -56047,15 +52941,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -56078,15 +52968,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -56109,15 +52995,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -56179,15 +53061,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::connected_component`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56222,15 +53100,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::raw_contour`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56265,15 +53139,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::geom2d`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 3,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56308,15 +53178,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::line_segment_sketch`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 4,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56351,15 +53217,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::fermi`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 5,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56394,15 +53256,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::digits`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 6,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -56437,15 +53295,11 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
                                             submodule_item_path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `mnist_classifier::major`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 7,
+                                                    },
+                                                ),
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -59012,20 +55866,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 20,
@@ -59049,20 +55890,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`(0)),
                             ),
                         ),
                         ident: `connected_components`,
@@ -59072,20 +55900,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 21,
@@ -59109,20 +55924,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`(0)),
                             ),
                         ),
                         ident: `major_connected_component`,
@@ -59132,20 +55934,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 22,
@@ -59169,20 +55958,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`(0)),
                             ),
                         ),
                         ident: `ignored_connected_components_row_span_sum_sum`,
@@ -59192,20 +55968,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 23,
@@ -59229,20 +55992,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`(0)),
                             ),
                         ),
                         ident: `major_raw_contours`,
@@ -59252,20 +56002,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 24,
@@ -59289,20 +56026,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`(0)),
                             ),
                         ),
                         ident: `major_raw_contour`,
@@ -59312,20 +56036,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 25,
@@ -59349,20 +56060,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`(0)),
                             ),
                         ),
                         ident: `major_line_segment_sketch`,
@@ -59372,20 +56070,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 26,
@@ -59409,20 +56094,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`(0)),
                             ),
                         ),
                         ident: `major_concave_components`,
@@ -59504,15 +56176,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59535,15 +56203,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59566,15 +56230,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59597,15 +56257,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59628,15 +56284,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59659,15 +56311,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -59690,15 +56338,11 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::major`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(

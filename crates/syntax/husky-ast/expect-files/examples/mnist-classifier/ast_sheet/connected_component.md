@@ -50,9 +50,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -755,9 +755,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -796,9 +796,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -837,9 +837,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -878,9 +878,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -919,9 +919,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -960,9 +960,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -1001,9 +1001,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -1042,9 +1042,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -1083,9 +1083,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1126,9 +1126,9 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1608,11 +1608,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `ConnectedComponentDistribution`,
@@ -1649,11 +1649,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `EffHoles`,
@@ -1686,13 +1686,13 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `hole_tmpl`,
@@ -1737,11 +1737,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `ConnectedComponent`,
@@ -1808,13 +1808,13 @@ AstSheet {
                         `mnist_classifier::connected_component`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `horizontal_extend`,
@@ -1859,13 +1859,13 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `find_connected_components`,

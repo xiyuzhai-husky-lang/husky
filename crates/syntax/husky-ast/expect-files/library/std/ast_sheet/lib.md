@@ -14,7 +14,7 @@ AstSheet {
                         `std`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `prelude`,
                     token_idx: TokenIdx(
@@ -30,15 +30,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `std::prelude`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 },
             },
@@ -55,7 +51,7 @@ AstSheet {
                         `std`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `logic`,
                     token_idx: TokenIdx(
@@ -71,15 +67,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `std::logic`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 },
             },
@@ -96,7 +88,7 @@ AstSheet {
                         `std`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `ops`,
                     token_idx: TokenIdx(
@@ -112,15 +104,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `std::ops`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
                 },
             },

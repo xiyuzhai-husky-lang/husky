@@ -286,13 +286,13 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `quick_sort`,
@@ -333,13 +333,13 @@ AstSheet {
                         `quick_sort`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `quick_sort_aux`,
@@ -380,13 +380,13 @@ AstSheet {
                         `quick_sort`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `partition`,
@@ -436,13 +436,13 @@ AstSheet {
                         `quick_sort`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `quick_sort_works_for_integers`,
@@ -492,13 +492,13 @@ AstSheet {
                         `quick_sort`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `quick_sort_works_for_strs`,

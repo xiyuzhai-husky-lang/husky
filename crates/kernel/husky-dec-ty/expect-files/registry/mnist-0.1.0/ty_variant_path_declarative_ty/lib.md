@@ -4,17 +4,11 @@
         [
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Zero`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -22,17 +16,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `One`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 3,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -40,17 +28,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Two`,
-                                index: U8(
-                                    2,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 4,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -58,17 +40,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Three`,
-                                index: U8(
-                                    3,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 5,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -76,17 +52,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Four`,
-                                index: U8(
-                                    4,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 6,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -94,17 +64,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Five`,
-                                index: U8(
-                                    5,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 7,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -112,17 +76,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Six`,
-                                index: U8(
-                                    6,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 8,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -130,17 +88,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Seven`,
-                                index: U8(
-                                    7,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 9,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -148,17 +100,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Eight`,
-                                index: U8(
-                                    8,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 10,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),
@@ -166,17 +112,11 @@
             ),
             (
                 TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Nine`,
-                                index: U8(
-                                    9,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 11,
+                        },
+                    ),
                 ),
                 Ok(
                     DecTerm(`mnist::MnistLabel`),

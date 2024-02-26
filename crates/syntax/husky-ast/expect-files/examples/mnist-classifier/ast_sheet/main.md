@@ -104,7 +104,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `connected_component`,
                     token_idx: TokenIdx(
@@ -120,15 +120,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 },
             },
@@ -145,7 +141,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `raw_contour`,
                     token_idx: TokenIdx(
@@ -161,15 +157,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 },
             },
@@ -186,7 +178,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `geom2d`,
                     token_idx: TokenIdx(
@@ -202,15 +194,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
                 },
             },
@@ -227,7 +215,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `line_segment_sketch`,
                     token_idx: TokenIdx(
@@ -243,15 +231,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
                 },
             },
@@ -268,7 +252,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `fermi`,
                     token_idx: TokenIdx(
@@ -284,15 +268,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
                 },
             },
@@ -309,7 +289,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `digits`,
                     token_idx: TokenIdx(
@@ -325,15 +305,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
                 },
             },
@@ -350,7 +326,7 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `major`,
                     token_idx: TokenIdx(
@@ -366,15 +342,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     ),
                 },
             },
@@ -511,11 +483,11 @@ AstSheet {
                         `mnist_classifier`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Val,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Val,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `main`,

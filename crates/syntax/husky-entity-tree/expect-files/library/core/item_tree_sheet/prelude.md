@@ -665,32 +665,20 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
                                     ty_variant_path: TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                    ident: `Some`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 77,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                    ident: `Some`,
-                                                    index: U8(
-                                                        0,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 77,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -700,17 +688,11 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 77,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -728,32 +710,20 @@ EntityTreeSheet {
                             UseSymbol {
                                 original_symbol: EntitySymbol::TypeVariant {
                                     ty_variant_path: TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                    ident: `None`,
-                                                    index: U8(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 78,
+                                            },
+                                        ),
                                     ),
                                 },
                                 path: PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId {
-                                            data: ItemPathData::TypeVariant(
-                                                TypeVariantPathData {
-                                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                    ident: `None`,
-                                                    index: U8(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 78,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -763,17 +733,11 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `None`,
-                                            index: U8(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -1265,15 +1229,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::basic`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1310,15 +1270,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::default`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1355,15 +1311,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::num`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1400,15 +1352,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::raw_bits`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1445,15 +1393,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::fmt`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1490,15 +1434,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::visual`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1535,15 +1475,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::marker`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1580,15 +1516,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::clone`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1625,15 +1557,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::option`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1670,15 +1598,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::cmp`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1715,15 +1639,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::slice`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
                             ),
                         },
                     ),
@@ -1760,15 +1680,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `core::vec`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
                             ),
                         },
                     ),

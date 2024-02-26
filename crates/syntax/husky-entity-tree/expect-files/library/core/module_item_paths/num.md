@@ -72,17 +72,11 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 93,
+                    },
+                ),
             ),
         ),
     ),
@@ -117,45 +111,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::i8`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 131,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 95,
+                    },
+                ),
             ),
         ),
     ),
@@ -190,45 +161,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::i16`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 134,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 97,
+                    },
+                ),
             ),
         ),
     ),
@@ -270,45 +218,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::i32`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 99,
+                    },
+                ),
             ),
         ),
     ),
@@ -336,45 +261,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::i64`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 140,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 101,
+                    },
+                ),
             ),
         ),
     ),
@@ -402,45 +304,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::i128`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 142,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 103,
+                    },
+                ),
             ),
         ),
     ),
@@ -468,45 +347,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::isize`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 144,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 105,
+                    },
+                ),
             ),
         ),
     ),
@@ -534,45 +390,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::u8`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 146,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 107,
+                    },
+                ),
             ),
         ),
     ),
@@ -600,45 +433,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::u16`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 148,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 109,
+                    },
+                ),
             ),
         ),
     ),
@@ -666,45 +476,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::u32`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 150,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 111,
+                    },
+                ),
             ),
         ),
     ),
@@ -732,45 +519,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::u64`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 152,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 113,
+                    },
+                ),
             ),
         ),
     ),
@@ -798,45 +562,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::u128`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 154,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 115,
+                    },
+                ),
             ),
         ),
     ),
@@ -864,45 +605,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::usize`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 156,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 117,
+                    },
+                ),
             ),
         ),
     ),
@@ -979,45 +697,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::f32`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 165,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::num`,
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 119,
+                    },
+                ),
             ),
         ),
     ),
@@ -1052,28 +747,11 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        trai_path: TraitPath(`core::ops::Add`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::num::f64`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `add`,
-                                item_kind: MethodRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 168,
+                    },
+                ),
             ),
         ),
     ),

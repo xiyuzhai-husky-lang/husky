@@ -9,17 +9,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                ident: `UnitVariant`,
-                                index: U8(
-                                    0,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 7,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -47,17 +41,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                ident: `PropsVariantWithOneField`,
-                                index: U8(
-                                    1,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 8,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -85,17 +73,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                ident: `PropsVariantWithTwoFields`,
-                                index: U8(
-                                    2,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 9,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -123,17 +105,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                ident: `TupleVariantWithOneField`,
-                                index: U8(
-                                    3,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 10,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -161,17 +137,11 @@ AstSheet {
                     ),
                 },
                 variant_path: TypeVariantPath(
-                    ItemPathId {
-                        data: ItemPathData::TypeVariant(
-                            TypeVariantPathData {
-                                parent_ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                ident: `TupleVariantWithTwoFields`,
-                                index: U8(
-                                    4,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 11,
+                        },
+                    ),
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -204,11 +174,11 @@ AstSheet {
                         `syntax_basics::defn::major_item::ty::enum_ty`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Enum,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Enum,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `A`,

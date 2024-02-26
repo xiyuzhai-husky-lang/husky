@@ -140,9 +140,9 @@ AstSheet {
                         `mnist_classifier::fermi`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -181,9 +181,9 @@ AstSheet {
                         `mnist_classifier::fermi`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -222,9 +222,9 @@ AstSheet {
                         `mnist_classifier::fermi`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -342,11 +342,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `FermiMatchResult`,
@@ -400,13 +400,13 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `fermi_match`,

@@ -33,11 +33,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Extern,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Extern,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Array`,

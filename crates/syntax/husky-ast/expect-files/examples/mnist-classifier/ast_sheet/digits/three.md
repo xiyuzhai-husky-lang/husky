@@ -272,11 +272,11 @@ AstSheet {
                         `mnist_classifier::digits::three`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Val,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Val,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `three_fermi_match`,
@@ -338,11 +338,11 @@ AstSheet {
                         `mnist_classifier::digits`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Val,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Val,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `is_three`,
@@ -381,13 +381,13 @@ AstSheet {
                         `mnist_classifier::digits::three`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `uparc`,
@@ -428,13 +428,13 @@ AstSheet {
                         `mnist_classifier::digits::three`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `downarc`,
@@ -475,13 +475,13 @@ AstSheet {
                         `mnist_classifier::digits::three`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `back`,

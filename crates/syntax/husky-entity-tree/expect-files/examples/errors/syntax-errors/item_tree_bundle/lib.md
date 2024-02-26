@@ -13,15 +13,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `syntax_errors::ast`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -49,15 +45,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `syntax_errors::ast`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -80,15 +72,11 @@ EntityTreeCrateBundle {
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: SubmoduleItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::SubmoduleItem(
-                                                                SubmoduleItemPathData {
-                                                                    submodule_path: SubmodulePath(
-                                                                        `syntax_errors::uses`,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -116,15 +104,11 @@ EntityTreeCrateBundle {
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: SubmoduleItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::SubmoduleItem(
-                                                            SubmoduleItemPathData {
-                                                                submodule_path: SubmodulePath(
-                                                                    `syntax_errors::uses`,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -149,15 +133,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `syntax_errors::ast`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -168,15 +148,11 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `syntax_errors::uses`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         },
                     },
@@ -279,17 +255,11 @@ EntityTreeCrateBundle {
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
                                             path: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `syntax_errors::ast`,
-                                                                ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 136,
+                                                    },
+                                                ),
                                             ),
                                         },
                                     ),
@@ -305,17 +275,11 @@ EntityTreeCrateBundle {
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
                                                 path: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `syntax_errors::ast`,
-                                                                    ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 136,
+                                                        },
+                                                    ),
                                                 ),
                                             },
                                         ),

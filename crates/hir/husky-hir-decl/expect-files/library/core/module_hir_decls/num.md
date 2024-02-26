@@ -577,17 +577,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 93,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -604,17 +598,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 93,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -893,28 +881,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i8`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 140,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -956,28 +927,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i8`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 140,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1029,17 +983,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 95,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1056,17 +1004,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 95,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1345,28 +1287,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i16`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 143,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -1408,28 +1333,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i16`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 143,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1481,17 +1389,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 97,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1508,17 +1410,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 97,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1892,28 +1788,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 147,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -1955,28 +1834,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 147,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2028,17 +1890,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 99,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -2055,17 +1911,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 99,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2249,28 +2099,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 149,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2312,28 +2145,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 149,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2385,17 +2201,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 101,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -2412,17 +2222,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 101,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2606,28 +2410,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i128`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 151,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2669,28 +2456,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i128`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 151,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2742,17 +2512,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 103,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -2769,17 +2533,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 103,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -2963,28 +2721,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::isize`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 153,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3026,28 +2767,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::isize`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 153,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3099,17 +2823,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 105,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -3126,17 +2844,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 105,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -3320,28 +3032,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u8`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 155,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3383,28 +3078,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u8`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 155,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3456,17 +3134,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 107,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -3483,17 +3155,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 107,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -3677,28 +3343,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u16`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 157,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3740,28 +3389,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u16`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 157,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3813,17 +3445,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 109,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -3840,17 +3466,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 109,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -4034,28 +3654,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 159,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4097,28 +3700,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 159,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4170,17 +3756,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 111,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -4197,17 +3777,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 111,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -4391,28 +3965,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 161,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4454,28 +4011,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 161,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4527,17 +4067,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 113,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -4554,17 +4088,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 113,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -4748,28 +4276,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u128`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 163,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4811,28 +4322,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u128`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 163,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4884,17 +4378,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 115,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -4911,17 +4399,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 115,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -5105,28 +4587,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::usize`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 165,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -5168,28 +4633,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::usize`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 165,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5241,17 +4689,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 117,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -5268,17 +4710,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 117,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -6012,28 +5448,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 174,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -6075,28 +5494,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::f32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 174,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6148,17 +5550,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 119,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -6175,17 +5571,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 119,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -6441,28 +5831,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 177,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -6504,28 +5877,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::f64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `add`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 177,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),

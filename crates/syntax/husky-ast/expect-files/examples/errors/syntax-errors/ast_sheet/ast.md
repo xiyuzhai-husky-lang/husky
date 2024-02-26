@@ -50,11 +50,11 @@ AstSheet {
                         `syntax_errors::ast`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `A`,

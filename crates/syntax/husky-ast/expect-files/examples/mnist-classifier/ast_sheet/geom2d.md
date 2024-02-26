@@ -59,9 +59,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -102,9 +102,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -145,9 +145,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -188,9 +188,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -231,9 +231,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -605,9 +605,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -652,9 +652,9 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -695,9 +695,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -738,9 +738,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -781,9 +781,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -824,9 +824,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -867,9 +867,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -910,9 +910,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1016,9 +1016,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1059,9 +1059,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1156,9 +1156,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1199,9 +1199,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1242,9 +1242,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1285,9 +1285,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1328,9 +1328,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1371,9 +1371,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1450,9 +1450,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1493,9 +1493,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1536,9 +1536,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1579,9 +1579,9 @@ AstSheet {
                         `mnist_classifier::geom2d`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -1635,11 +1635,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Point2d`,
@@ -1693,11 +1693,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `RelativePoint2d`,
@@ -1734,11 +1734,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Vector2d`,
@@ -1792,11 +1792,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `ClosedRange`,
@@ -1850,11 +1850,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `BoundingBox`,
@@ -1908,11 +1908,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `RelativeBoundingBox`,

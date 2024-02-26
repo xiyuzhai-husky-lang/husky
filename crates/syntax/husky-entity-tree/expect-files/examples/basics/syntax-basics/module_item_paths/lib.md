@@ -2,57 +2,41 @@
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `syntax_basics::ast`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 1,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `syntax_basics::uses`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 2,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `syntax_basics::defn`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 3,
+                },
+            ),
         ),
     ),
     ItemPath::Submodule(
         Room32,
         SubmoduleItemPath(
-            ItemPathId {
-                data: ItemPathData::SubmoduleItem(
-                    SubmoduleItemPathData {
-                        submodule_path: SubmodulePath(
-                            `syntax_basics::expr`,
-                        ),
-                    },
-                ),
-            },
+            ItemPathId(
+                Id {
+                    value: 4,
+                },
+            ),
         ),
     ),
 ]

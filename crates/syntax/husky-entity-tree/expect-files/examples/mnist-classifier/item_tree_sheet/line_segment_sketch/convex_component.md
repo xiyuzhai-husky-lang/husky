@@ -84,15 +84,11 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 36,
+                                    },
+                                ),
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -115,15 +111,11 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convex_component`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 37,
+                                    },
+                                ),
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -146,15 +138,11 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convexity`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 38,
+                                    },
+                                ),
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -177,15 +165,11 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::line_segment`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 39,
+                                    },
+                                ),
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -959,15 +943,11 @@ EntityTreeSheet {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::SubmoduleItem(
-                                        SubmoduleItemPathData {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
                             ),
                         },
                     ),

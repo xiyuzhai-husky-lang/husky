@@ -279,28 +279,11 @@
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 352,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -330,28 +313,11 @@
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `visualize`,
-                                                        item_kind: MethodRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 352,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -392,17 +358,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 296,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -419,17 +379,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 296,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),

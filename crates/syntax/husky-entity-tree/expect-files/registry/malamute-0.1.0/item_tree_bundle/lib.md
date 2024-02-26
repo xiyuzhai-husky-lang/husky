@@ -188,22 +188,9 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Fugitive(
-                                                    FugitiveSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
-                                                                Gn,
-                                                            )`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                    FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`(0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 32,
@@ -223,22 +210,9 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Fugitive(
-                                                FugitiveSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`malamute::narrow_down`, `Ritchie(
-                                                            Gn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                    Gn,
+                                )`(0)),
                             ),
                         ),
                         ident: `narrow_down`,

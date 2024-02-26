@@ -12,17 +12,11 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 124,
+                    },
+                ),
             ),
         ),
     ),
@@ -57,43 +51,22 @@
     ItemPath::AssocItem(
         AssocItemPath::TraitForTypeItem(
             TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::slice`,
-                                        trai_path: TraitPath(`core::ops::IntIndex`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `Output`,
-                                item_kind: AssocType,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 178,
+                    },
+                ),
             ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
-                ItemPathId {
-                    data: ItemPathData::ImplBlock(
-                        ImplBlockPathData::TypeImplBlock(
-                            TypeImplBlockPathData {
-                                module_path: `core::slice`,
-                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                disambiguator: 0,
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 126,
+                    },
+                ),
             ),
         ),
     ),

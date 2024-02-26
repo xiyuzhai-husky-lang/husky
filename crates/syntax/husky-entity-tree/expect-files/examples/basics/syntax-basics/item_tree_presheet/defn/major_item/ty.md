@@ -11,15 +11,11 @@ EntityTreePresheet {
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: SubmoduleItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::SubmoduleItem(
-                                                        SubmoduleItemPathData {
-                                                            submodule_path: SubmodulePath(
-                                                                `syntax_basics::defn::major_item::ty::enum_ty`,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 12,
+                                                    },
+                                                ),
                                             ),
                                             disambiguator: 0,
                                         },
@@ -47,15 +43,11 @@ EntityTreePresheet {
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmoduleItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::SubmoduleItem(
-                                                    SubmoduleItemPathData {
-                                                        submodule_path: SubmodulePath(
-                                                            `syntax_basics::defn::major_item::ty::enum_ty`,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 12,
+                                                },
+                                            ),
                                         ),
                                         disambiguator: 0,
                                     },

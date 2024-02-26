@@ -45,17 +45,11 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `syntax_errors::ast`,
-                                    ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 136,
+                        },
+                    ),
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -72,17 +66,11 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `syntax_errors::ast`,
-                                                    ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
+                                    ItemPathId(
+                                        Id {
+                                            value: 136,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),

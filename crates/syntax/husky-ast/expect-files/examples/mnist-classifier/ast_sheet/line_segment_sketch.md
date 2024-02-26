@@ -23,9 +23,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -93,9 +93,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -136,9 +136,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -188,9 +188,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TraitForTypeItem(
-                        MethodRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             Fn,
                         ),
                     ),
@@ -363,9 +363,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -404,9 +404,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        MemoizedField,
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MemoizedField,
                     ),
                 },
                 ident_token: IdentToken {
@@ -445,9 +445,9 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: AssocItem {
-                    assoc_item_kind: TypeItem(
-                        AssocRitchie(
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::AssocRitchie(
                             Fn,
                         ),
                     ),
@@ -1827,7 +1827,7 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `concave_component`,
                     token_idx: TokenIdx(
@@ -1843,15 +1843,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 83,
+                            },
+                        ),
                     ),
                 },
             },
@@ -1868,7 +1864,7 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `convex_component`,
                     token_idx: TokenIdx(
@@ -1884,15 +1880,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 84,
+                            },
+                        ),
                     ),
                 },
             },
@@ -1909,7 +1901,7 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `convexity`,
                     token_idx: TokenIdx(
@@ -1925,15 +1917,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 85,
+                            },
+                        ),
                     ),
                 },
             },
@@ -1950,7 +1938,7 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: Module,
+                item_kind: EntityKind::Module,
                 ident_token: IdentToken {
                     ident: `line_segment`,
                     token_idx: TokenIdx(
@@ -1966,15 +1954,11 @@ AstSheet {
                 },
                 block: DefnBlock::Submodule {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 86,
+                            },
+                        ),
                     ),
                 },
             },
@@ -2118,11 +2102,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `LineSegmentStroke`,
@@ -2193,11 +2177,11 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Type(
-                        Struct,
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `LineSegmentSketch`,
@@ -2264,13 +2248,13 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `go_right`,
@@ -2311,13 +2295,13 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `go_left`,
@@ -2358,13 +2342,13 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `extend_end`,
@@ -2405,13 +2389,13 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `extend_start`,
@@ -2452,13 +2436,13 @@ AstSheet {
                         `mnist_classifier::line_segment_sketch`,
                     ),
                 },
-                item_kind: MajorItem {
-                    module_item_kind: Fugitive(
-                        Ritchie(
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Fugitive(
+                        MajorFugitiveKind::Ritchie(
                             Fn,
                         ),
                     ),
-                    connection: Connected,
+                    connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `find_line_segments`,
