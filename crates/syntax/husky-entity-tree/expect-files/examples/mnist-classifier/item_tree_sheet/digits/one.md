@@ -6,7 +6,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
@@ -32,7 +32,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `one_fermi_match`,
@@ -44,7 +44,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 64,
@@ -68,7 +68,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_one`,
@@ -80,7 +80,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
@@ -110,7 +110,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `upmost`,
@@ -124,7 +124,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
@@ -154,7 +154,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `downmost`,
@@ -168,7 +168,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
@@ -198,7 +198,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `hat`,

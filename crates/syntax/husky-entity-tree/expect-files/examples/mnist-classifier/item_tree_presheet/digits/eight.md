@@ -6,7 +6,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
@@ -32,7 +32,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `upper_mouth_match`,
@@ -44,7 +44,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
@@ -70,7 +70,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_eight`,
@@ -84,7 +84,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::eight`,
@@ -114,7 +114,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `big_mouth`,

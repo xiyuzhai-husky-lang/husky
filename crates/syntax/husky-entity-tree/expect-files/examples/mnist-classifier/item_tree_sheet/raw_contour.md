@@ -126,7 +126,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -156,7 +156,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_pixel_pair`,
@@ -170,7 +170,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -200,7 +200,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_pixel_to_the_left`,
@@ -214,7 +214,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -244,7 +244,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_pixel_to_the_right`,
@@ -258,7 +258,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -288,7 +288,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_inward_direction`,
@@ -302,7 +302,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -332,7 +332,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_angle_change`,
@@ -346,7 +346,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -376,7 +376,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_outward_direction`,
@@ -448,7 +448,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::raw_contour`,
@@ -478,7 +478,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `get_concave_middle_point`,
@@ -492,7 +492,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 208,
@@ -520,7 +520,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `find_raw_contours`,

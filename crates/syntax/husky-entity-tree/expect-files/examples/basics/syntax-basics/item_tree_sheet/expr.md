@@ -8,7 +8,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
@@ -38,7 +38,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `nested`,
@@ -52,7 +52,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
@@ -82,7 +82,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `closure_inline`,
@@ -96,7 +96,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `syntax_basics::expr`,
@@ -126,7 +126,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `closure_nested`,

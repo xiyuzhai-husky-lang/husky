@@ -8,7 +8,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 27,
@@ -36,7 +36,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `quick_sort`,
@@ -48,7 +48,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `quick_sort`,
@@ -78,7 +78,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `quick_sort_aux`,
@@ -92,7 +92,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `quick_sort`,
@@ -122,7 +122,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `partition`,
@@ -136,7 +136,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `quick_sort`,
@@ -166,7 +166,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `quick_sort_works_for_integers`,
@@ -180,7 +180,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `quick_sort`,
@@ -210,7 +210,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `quick_sort_works_for_strs`,

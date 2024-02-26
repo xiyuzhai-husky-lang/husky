@@ -6,7 +6,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -32,7 +32,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `simple_seven_match`,
@@ -46,7 +46,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -76,7 +76,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `simple_leftdown_pattern`,
@@ -88,7 +88,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -114,7 +114,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `special_seven_match`,
@@ -128,7 +128,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -158,7 +158,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `leftupcc_pattern`,
@@ -172,7 +172,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::seven`,
@@ -202,7 +202,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `leftdowncc_pattern`,
@@ -214,7 +214,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
@@ -240,7 +240,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_seven`,

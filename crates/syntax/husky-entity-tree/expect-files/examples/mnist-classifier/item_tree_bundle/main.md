@@ -421,7 +421,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier`,
@@ -447,7 +447,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                             ),
                         ),
                         ident: `main`,
@@ -2373,7 +2373,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::connected_component`,
@@ -2403,7 +2403,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `hole_tmpl`,
@@ -2471,7 +2471,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::connected_component`,
@@ -2501,7 +2501,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `horizontal_extend`,
@@ -2515,7 +2515,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 128,
@@ -2543,7 +2543,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `find_connected_components`,
@@ -4891,7 +4891,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -4921,7 +4921,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_pixel_pair`,
@@ -4935,7 +4935,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -4965,7 +4965,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_pixel_to_the_left`,
@@ -4979,7 +4979,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5009,7 +5009,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_pixel_to_the_right`,
@@ -5023,7 +5023,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5053,7 +5053,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_inward_direction`,
@@ -5067,7 +5067,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5097,7 +5097,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_angle_change`,
@@ -5111,7 +5111,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5141,7 +5141,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_outward_direction`,
@@ -5213,7 +5213,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -5243,7 +5243,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `get_concave_middle_point`,
@@ -5257,7 +5257,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 208,
@@ -5285,7 +5285,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `find_raw_contours`,
@@ -9127,7 +9127,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9157,7 +9157,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `go_right`,
@@ -9171,7 +9171,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9201,7 +9201,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `go_left`,
@@ -9215,7 +9215,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9245,7 +9245,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `extend_end`,
@@ -9259,7 +9259,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9289,7 +9289,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `extend_start`,
@@ -9303,7 +9303,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
@@ -9333,7 +9333,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `find_line_segments`,
@@ -10445,7 +10445,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 78,
@@ -10473,7 +10473,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `find_concave_components`,
@@ -14860,7 +14860,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 23,
@@ -14888,7 +14888,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `is_convex`,
@@ -16539,7 +16539,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 25,
@@ -16567,7 +16567,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `fermi_match`,
@@ -22269,7 +22269,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
@@ -22295,7 +22295,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `open_one_match`,
@@ -22309,7 +22309,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
@@ -22339,7 +22339,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `almost_closed`,
@@ -22351,7 +22351,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -22377,7 +22377,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_zero`,
@@ -25547,7 +25547,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -25573,7 +25573,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `one_fermi_match`,
@@ -25585,7 +25585,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 64,
@@ -25609,7 +25609,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_one`,
@@ -25621,7 +25621,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -25651,7 +25651,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `upmost`,
@@ -25665,7 +25665,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -25695,7 +25695,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `downmost`,
@@ -25709,7 +25709,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -25739,7 +25739,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `hat`,
@@ -28933,7 +28933,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -28959,7 +28959,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `six_match`,
@@ -28971,7 +28971,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -28997,7 +28997,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                             ),
                         ),
                         ident: `six_match_refined1`,
@@ -29009,7 +29009,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -29035,7 +29035,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_six`,
@@ -29049,7 +29049,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -29079,7 +29079,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `upmost`,
@@ -29093,7 +29093,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -29123,7 +29123,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `bottom1`,
@@ -32317,7 +32317,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -32343,7 +32343,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `three_fermi_match`,
@@ -32355,7 +32355,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -32381,7 +32381,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_three`,
@@ -32395,7 +32395,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -32425,7 +32425,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `uparc`,
@@ -32439,7 +32439,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -32469,7 +32469,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `downarc`,
@@ -32483,7 +32483,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -32513,7 +32513,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `back`,
@@ -35709,7 +35709,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35735,7 +35735,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                             ),
                         ),
                         ident: `left_components`,
@@ -35749,7 +35749,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35779,7 +35779,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `left_coordinate_max`,
@@ -35791,7 +35791,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35817,7 +35817,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                             ),
                         ),
                         ident: `components_max_downwards`,
@@ -35829,7 +35829,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35855,7 +35855,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                             ),
                         ),
                         ident: `components_max_heights`,
@@ -35867,7 +35867,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35893,7 +35893,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_four`,
@@ -35907,7 +35907,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35937,7 +35937,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `displacement_downwards`,
@@ -35951,7 +35951,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -35981,7 +35981,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `cc_box_heights`,
@@ -39199,7 +39199,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -39225,7 +39225,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_five`,
@@ -42371,7 +42371,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -42397,7 +42397,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `simple_seven_match`,
@@ -42411,7 +42411,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -42441,7 +42441,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `simple_leftdown_pattern`,
@@ -42453,7 +42453,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -42479,7 +42479,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `special_seven_match`,
@@ -42493,7 +42493,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -42523,7 +42523,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `leftupcc_pattern`,
@@ -42537,7 +42537,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -42567,7 +42567,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `leftdowncc_pattern`,
@@ -42579,7 +42579,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -42605,7 +42605,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_seven`,
@@ -45812,7 +45812,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
@@ -45838,7 +45838,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `upper_mouth_match`,
@@ -45850,7 +45850,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -45876,7 +45876,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_eight`,
@@ -45890,7 +45890,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
@@ -45920,7 +45920,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `big_mouth`,
@@ -49090,7 +49090,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -49116,7 +49116,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `nine_match`,
@@ -49128,7 +49128,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -49154,7 +49154,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`, (0)),
                             ),
                         ),
                         ident: `nine_match_refine`,
@@ -49166,7 +49166,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -49192,7 +49192,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_nine`,
@@ -49206,7 +49206,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -49236,7 +49236,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `downmost`,
@@ -49250,7 +49250,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -49280,7 +49280,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `big_cc`,
@@ -52474,7 +52474,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -52500,7 +52500,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                             ),
                         ),
                         ident: `two_match`,
@@ -52514,7 +52514,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -52544,7 +52544,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `left_cc_pattern`,
@@ -52558,7 +52558,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -52588,7 +52588,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `right_cc_pattern`,
@@ -52602,7 +52602,7 @@ EntityTreeCrateBundle {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                         Fn,
-                                    )`(0)),
+                                    )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -52632,7 +52632,7 @@ EntityTreeCrateBundle {
                             MajorItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                     Fn,
-                                )`(0)),
+                                )`, (0)),
                             ),
                         ),
                         ident: `down_cc_pattern`,
@@ -52644,7 +52644,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -52670,7 +52670,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                             ),
                         ),
                         ident: `is_two`,
@@ -55866,7 +55866,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 20,
@@ -55890,7 +55890,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                             ),
                         ),
                         ident: `connected_components`,
@@ -55900,7 +55900,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 21,
@@ -55924,7 +55924,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                             ),
                         ),
                         ident: `major_connected_component`,
@@ -55934,7 +55934,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 22,
@@ -55958,7 +55958,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                             ),
                         ),
                         ident: `ignored_connected_components_row_span_sum_sum`,
@@ -55968,7 +55968,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 23,
@@ -55992,7 +55992,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                             ),
                         ),
                         ident: `major_raw_contours`,
@@ -56002,7 +56002,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 24,
@@ -56026,7 +56026,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                             ),
                         ),
                         ident: `major_raw_contour`,
@@ -56036,7 +56036,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 25,
@@ -56060,7 +56060,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                             ),
                         ),
                         ident: `major_line_segment_sketch`,
@@ -56070,7 +56070,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`(0)),
+                                    FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 26,
@@ -56094,7 +56094,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`(0)),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                             ),
                         ),
                         ident: `major_concave_components`,

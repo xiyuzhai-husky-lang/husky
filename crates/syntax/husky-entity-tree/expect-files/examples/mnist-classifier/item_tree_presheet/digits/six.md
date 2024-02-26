@@ -6,7 +6,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -32,7 +32,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `six_match`,
@@ -44,7 +44,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -70,7 +70,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                     ),
                 ),
                 ident: `six_match_refined1`,
@@ -82,7 +82,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
@@ -108,7 +108,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_six`,
@@ -122,7 +122,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -152,7 +152,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `upmost`,
@@ -166,7 +166,7 @@ EntityTreePresheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::six`,
@@ -196,7 +196,7 @@ EntityTreePresheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `bottom1`,

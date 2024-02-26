@@ -62,7 +62,7 @@ EntityTreeSheet {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                 Fn,
-                            )`(0)),
+                            )`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 78,
@@ -90,7 +90,7 @@ EntityTreeSheet {
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                             Fn,
-                        )`(0)),
+                        )`, (0)),
                     ),
                 ),
                 ident: `find_concave_components`,

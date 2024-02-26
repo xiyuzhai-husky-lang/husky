@@ -419,7 +419,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
+                            FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -445,7 +445,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::main`, `Val`(0)),
+                        FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                     ),
                 ),
                 ident: `main`,
