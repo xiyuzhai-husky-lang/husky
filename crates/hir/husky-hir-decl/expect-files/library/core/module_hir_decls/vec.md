@@ -300,7 +300,7 @@
                     },
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            HirEagerParenateParameter::Ordinary {
+                            HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 1,
                                 contract: Move,
                                 ty: HirType::Svar(
@@ -855,7 +855,7 @@
                     },
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            HirEagerParenateParameter::Ordinary {
+                            HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
@@ -866,7 +866,7 @@
                                     },
                                 ),
                             },
-                            HirEagerParenateParameter::Ordinary {
+                            HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 2,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
@@ -1009,7 +1009,7 @@
                     },
                     parenate_parameters: HirEagerParenateParameters(
                         [
-                            HirEagerParenateParameter::Ordinary {
+                            HirEagerParenateParameter::Simple {
                                 pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::Ritchie(
@@ -1017,8 +1017,8 @@
                                         ritchie_ty_kind: Fn,
                                         parameters: HirRitchieParameters {
                                             data: [
-                                                HirRitchieParameter::Ordinary(
-                                                    HirRitchieRegularParameter {
+                                                HirRitchieParameter::Simple(
+                                                    HirRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: HirType::Svar(
                                                             HirTypeSvar::Type {

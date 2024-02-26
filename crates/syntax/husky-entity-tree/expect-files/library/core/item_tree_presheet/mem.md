@@ -7,11 +7,18 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::mem::Ref`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -31,11 +38,18 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 38,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Ref`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -47,11 +61,18 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 39,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -71,11 +92,18 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 39,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -87,11 +115,18 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::mem::Leash`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -111,11 +146,18 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::Leash`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -127,11 +169,18 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::mem::At`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -151,11 +200,18 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::mem::At`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),

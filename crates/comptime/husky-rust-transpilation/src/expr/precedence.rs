@@ -28,7 +28,7 @@ pub(crate) enum RustPrecedence {
     Curry = 30,
     KeyedArgument = 22,
     ListItem = 21,
-    ClosureHead = 20,
+    Closure = 20,
     Range = 12,
     Assign = 11,
     List = 1,
@@ -122,6 +122,7 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::Unwrap { .. } => RustPrecedence::Suffix,
         HirEagerExprData::Block { .. } => RustPrecedence::None,
         HirEagerExprData::As { .. } => RustPrecedence::As,
-        HirEagerExprData::Unveil { .. } => RustPrecedence::None, // this is because we use macro to do unveil
+        HirEagerExprData::Unveil { .. } => RustPrecedence::None,
+        HirEagerExprData::Closure => RustPrecedence::Closure, // this is because we use macro to do unveil
     }
 }

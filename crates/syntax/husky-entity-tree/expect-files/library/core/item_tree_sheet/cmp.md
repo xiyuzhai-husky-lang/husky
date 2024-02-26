@@ -7,11 +7,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 30,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::PartialEq`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -31,11 +38,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialEq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -47,11 +61,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::Eq`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -71,11 +92,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 31,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Eq`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -87,11 +115,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 32,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -111,11 +146,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::PartialOrd`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -127,11 +169,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 33,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::Ord`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -151,11 +200,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::cmp::Ord`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),

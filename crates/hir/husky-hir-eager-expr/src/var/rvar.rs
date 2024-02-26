@@ -34,6 +34,7 @@ pub enum HirEagerRuntimeSvarName {
 pub enum HirEagerRuntimeSvarData {
     SelfValue,
     ParenateParameter,
+    ClosureParameter,
     LetVariable,
     BeVariable,
     CaseVariable,
@@ -154,40 +155,27 @@ impl HirEagerRuntimeSvarData {
         match current_syn_symbol_data {
             CurrentSynSymbolData::TemplateParameter { .. } => None,
             CurrentSynSymbolData::SelfType => todo!(),
-            CurrentSynSymbolData::SelfValue {
-                symbol_modifier_keyword_group: _,
-            } => todo!(),
-            CurrentSynSymbolData::SimpleParenateParameter {
-                ident: _,
-                pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSvarData::ParenateParameter),
-            CurrentSynSymbolData::VariadicParenateParameter {
-                symbol_modifier_keyword_group: _,
-                ident_token: _,
-            } => Some(HirEagerRuntimeSvarData::ParenateParameter),
-            CurrentSynSymbolData::LetVariable {
-                ident: _,
-                pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSvarData::LetVariable),
-            CurrentSynSymbolData::BeVariable {
-                ident: _,
-                pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSvarData::BeVariable),
-            CurrentSynSymbolData::CaseVariable {
-                ident: _,
-                pattern_symbol_idx: _,
-            } => Some(HirEagerRuntimeSvarData::CaseVariable),
-            CurrentSynSymbolData::FieldVariable { ident_token: _ } => {
+            CurrentSynSymbolData::SelfValue { .. } => todo!(),
+            CurrentSynSymbolData::SimpleParenateParameter { .. } => {
+                Some(HirEagerRuntimeSvarData::ParenateParameter)
+            }
+            CurrentSynSymbolData::VariadicParenateParameter { .. } => {
+                Some(HirEagerRuntimeSvarData::ParenateParameter)
+            }
+            CurrentSynSymbolData::SimpleClosureParameter { .. } => {
+                Some(HirEagerRuntimeSvarData::ClosureParameter)
+            }
+            CurrentSynSymbolData::LetVariable { .. } => Some(HirEagerRuntimeSvarData::LetVariable),
+            CurrentSynSymbolData::BeVariable { .. } => Some(HirEagerRuntimeSvarData::BeVariable),
+            CurrentSynSymbolData::CaseVariable { .. } => {
+                Some(HirEagerRuntimeSvarData::CaseVariable)
+            }
+            CurrentSynSymbolData::FieldVariable { .. } => {
                 Some(HirEagerRuntimeSvarData::FieldVariable)
             }
-            CurrentSynSymbolData::LoopVariable {
-                ident: _,
-                expr_idx: _,
-            } => Some(HirEagerRuntimeSvarData::LoopVariable),
-            CurrentSynSymbolData::SimpleClosureParameter {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
+            CurrentSynSymbolData::LoopVariable { .. } => {
+                Some(HirEagerRuntimeSvarData::LoopVariable)
+            }
         }
     }
 }

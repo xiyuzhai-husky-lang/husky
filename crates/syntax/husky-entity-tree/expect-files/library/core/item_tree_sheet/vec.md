@@ -7,11 +7,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::vec::Vec`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -31,11 +38,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
                         TypeSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 77,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::vec::Vec`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2814,21 +2828,53 @@ EntityTreeSheet {
         (
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 121,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
             ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 121,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ast_idx: 12,
                     impl_token: ImplToken {

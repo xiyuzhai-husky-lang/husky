@@ -6,11 +6,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -27,11 +42,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::connected_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `connected_component`,
@@ -43,11 +73,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -64,11 +109,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::raw_contour`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `raw_contour`,
@@ -80,11 +140,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -101,11 +176,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::geom2d`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `geom2d`,
@@ -117,11 +207,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -138,11 +243,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `line_segment_sketch`,
@@ -154,11 +274,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -175,11 +310,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::fermi`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `fermi`,
@@ -191,11 +341,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -212,11 +377,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::digits`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `digits`,
@@ -228,11 +408,26 @@ EntityTreePresheet {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
@@ -249,11 +444,26 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::Submodule(
                     Room32,
                     SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::major`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 ),
                 ident: `major`,
@@ -266,11 +476,18 @@ EntityTreePresheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -298,11 +515,18 @@ EntityTreePresheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
                         FugitiveSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),

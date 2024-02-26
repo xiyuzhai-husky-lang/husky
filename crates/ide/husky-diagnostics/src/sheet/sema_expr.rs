@@ -206,6 +206,9 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::ExpectedNumTypeForIncrOrDecr => {
                 format!("Type Error: ExpectedNumTypeForIncrOrDecr")
             }
+            OriginalSemaExprTypeError::ClosureTypeTodo => {
+                format!("Type Error: ClosureTypeTodo")
+            }
         }
     }
 

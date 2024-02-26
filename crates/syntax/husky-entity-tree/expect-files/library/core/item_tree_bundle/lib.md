@@ -8,11 +8,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::array`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 1,
@@ -27,11 +42,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::array`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `array`,
@@ -41,11 +71,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::basic`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 2,
@@ -60,11 +105,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::basic`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `basic`,
@@ -74,11 +134,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::clone`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 3,
@@ -93,11 +168,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::clone`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `clone`,
@@ -107,11 +197,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::cmp`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 4,
@@ -126,11 +231,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::cmp`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `cmp`,
@@ -140,11 +260,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::default`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 5,
@@ -159,11 +294,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::default`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `default`,
@@ -173,11 +323,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::fmt`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 6,
@@ -192,11 +357,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::fmt`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `fmt`,
@@ -206,11 +386,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::logic`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 7,
@@ -225,11 +420,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::logic`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `logic`,
@@ -239,11 +449,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::marker`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 8,
@@ -258,11 +483,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::marker`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `marker`,
@@ -272,11 +512,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::mem`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 9,
@@ -291,11 +546,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::mem`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `mem`,
@@ -305,11 +575,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::num`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 10,
@@ -324,11 +609,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::num`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `num`,
@@ -338,11 +638,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::ops`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 11,
@@ -357,11 +672,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::ops`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `ops`,
@@ -371,11 +701,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::option`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 12,
@@ -390,11 +735,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::option`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `option`,
@@ -404,11 +764,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::prelude`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 13,
@@ -423,11 +798,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::prelude`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `prelude`,
@@ -437,11 +827,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::raw_bits`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 14,
@@ -456,11 +861,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::raw_bits`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `raw_bits`,
@@ -470,11 +890,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::result`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 15,
@@ -489,11 +924,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::result`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `result`,
@@ -503,11 +953,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::vec`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 16,
@@ -522,11 +987,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::vec`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `vec`,
@@ -536,11 +1016,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 17,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::slice`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 17,
@@ -555,11 +1050,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::slice`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `slice`,
@@ -569,11 +1079,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 18,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::str`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 18,
@@ -588,11 +1113,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::str`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `str`,
@@ -602,11 +1142,26 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 19,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `core::visual`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 19,
@@ -621,11 +1176,26 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `core::visual`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         ident: `visual`,
@@ -2650,11 +3220,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::array::Array`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -2674,11 +3251,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::array::Array`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5512,11 +6096,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::bool`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5536,11 +6127,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::bool`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5552,11 +6150,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::never`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5576,11 +6181,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::never`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5592,11 +6204,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::unit`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5616,11 +6235,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::unit`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5632,11 +6258,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 24,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Trait`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5656,11 +6289,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Trait`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5672,11 +6312,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 25,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Module`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5696,11 +6343,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Module`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5712,11 +6366,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 26,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5736,11 +6397,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5752,11 +6420,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Place`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5776,11 +6451,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Place`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -5792,11 +6474,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::basic::Universe`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -5816,11 +6505,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -8717,11 +9413,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::clone::Clone`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -8747,11 +9450,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 29,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::clone::Clone`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -11530,21 +12240,43 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 88,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::clone`,
+                                                    trai_path: TraitPath(`core::clone::Clone`),
+                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 88,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::clone`,
+                                                        trai_path: TraitPath(`core::clone::Clone`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 5,
                             impl_token: ImplToken {
@@ -11644,11 +12376,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::cmp::PartialEq`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -11668,11 +12407,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::PartialEq`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -11684,11 +12430,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::cmp::Eq`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -11708,11 +12461,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 31,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::Eq`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -11724,11 +12484,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::cmp::PartialOrd`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -11748,11 +12515,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 32,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::PartialOrd`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -11764,11 +12538,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::cmp::Ord`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -11788,11 +12569,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 33,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::cmp::Ord`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -14653,11 +15441,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 34,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::default::Default`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -14683,11 +15478,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::default::Default`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -17521,11 +18323,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::fmt::Debug`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -17545,11 +18354,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::fmt::Debug`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -20400,11 +21216,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::marker::Copy`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -20424,11 +21247,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 36,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::marker::Copy`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -20440,11 +21270,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 37,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::marker::Sized`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -20464,11 +21301,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::marker::Sized`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -23256,21 +24100,43 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 89,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::marker`,
+                                                    trai_path: TraitPath(`core::marker::Copy`),
+                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 89,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::marker`,
+                                                        trai_path: TraitPath(`core::marker::Copy`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 3,
                             impl_token: ImplToken {
@@ -23362,11 +24228,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::mem::Ref`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -23386,11 +24259,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::mem::Ref`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -23402,11 +24282,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -23426,11 +24313,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -23442,11 +24336,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 40,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::mem::Leash`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -23466,11 +24367,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -23482,11 +24390,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::mem::At`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -23506,11 +24421,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::mem::At`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26316,21 +27238,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 90,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::mem`,
+                                                    trai_path: TraitPath(`core::marker::Copy`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::mem::Leash`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 90,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::mem`,
+                                                        trai_path: TraitPath(`core::marker::Copy`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::mem::Leash`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 5,
                             impl_token: ImplToken {
@@ -26408,11 +27356,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26432,11 +27387,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26448,11 +27410,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26472,11 +27441,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 43,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26488,11 +27464,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26512,11 +27495,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26528,11 +27518,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 45,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26552,11 +27549,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 45,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26568,11 +27572,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 46,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26592,11 +27603,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26608,11 +27626,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::isize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26632,11 +27657,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 47,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26648,11 +27680,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 48,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26672,11 +27711,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 48,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26688,11 +27734,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 49,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26712,11 +27765,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 49,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26728,11 +27788,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26752,11 +27819,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 50,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26768,11 +27842,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26792,11 +27873,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 51,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26808,11 +27896,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26832,11 +27927,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26848,11 +27950,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 53,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::usize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26872,11 +27981,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26888,11 +28004,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26912,11 +28035,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -26928,11 +28058,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::f64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -26952,11 +28089,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 55,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -29877,21 +31021,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 91,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 91,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 53,
                             impl_token: ImplToken {
@@ -29911,21 +31087,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 92,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i8`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 92,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 54,
                             impl_token: ImplToken {
@@ -29955,21 +31157,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 93,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 93,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 58,
                             impl_token: ImplToken {
@@ -29989,21 +31223,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 94,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i16`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 94,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i16`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 59,
                             impl_token: ImplToken {
@@ -30033,21 +31293,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 95,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 95,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 63,
                             impl_token: ImplToken {
@@ -30067,21 +31359,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 96,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i32`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 96,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 64,
                             impl_token: ImplToken {
@@ -30111,21 +31429,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 97,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 97,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 68,
                             impl_token: ImplToken {
@@ -30145,21 +31495,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 98,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i64`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 98,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 69,
                             impl_token: ImplToken {
@@ -30189,21 +31565,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 99,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 99,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 73,
                             impl_token: ImplToken {
@@ -30223,21 +31631,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 100,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::i128`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 100,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i128`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 74,
                             impl_token: ImplToken {
@@ -30267,21 +31701,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 101,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 101,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 78,
                             impl_token: ImplToken {
@@ -30301,21 +31767,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 102,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::isize`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 102,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 79,
                             impl_token: ImplToken {
@@ -30345,21 +31837,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 103,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 103,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 83,
                             impl_token: ImplToken {
@@ -30379,21 +31903,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 104,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u8`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 104,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u8`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 84,
                             impl_token: ImplToken {
@@ -30423,21 +31973,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 105,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 105,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 88,
                             impl_token: ImplToken {
@@ -30457,21 +32039,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 106,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u16`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 106,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u16`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 89,
                             impl_token: ImplToken {
@@ -30501,21 +32109,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 107,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 107,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 93,
                             impl_token: ImplToken {
@@ -30535,21 +32175,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 108,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u32`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 108,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 94,
                             impl_token: ImplToken {
@@ -30579,21 +32245,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 109,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 109,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 98,
                             impl_token: ImplToken {
@@ -30613,21 +32311,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 110,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u64`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 110,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 99,
                             impl_token: ImplToken {
@@ -30657,21 +32381,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 111,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 111,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 103,
                             impl_token: ImplToken {
@@ -30691,21 +32447,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 112,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::u128`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 112,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u128`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 104,
                             impl_token: ImplToken {
@@ -30735,21 +32517,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 113,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 113,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 108,
                             impl_token: ImplToken {
@@ -30769,21 +32583,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 114,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::usize`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 114,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 109,
                             impl_token: ImplToken {
@@ -30813,21 +32653,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 115,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 115,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 113,
                             impl_token: ImplToken {
@@ -30847,21 +32719,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 116,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 116,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 114,
                             impl_token: ImplToken {
@@ -30891,21 +32789,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 117,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 117,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 118,
                             impl_token: ImplToken {
@@ -30925,21 +32855,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 118,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::num::f64`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 118,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 119,
                             impl_token: ImplToken {
@@ -31143,11 +33099,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 56,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Add`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31173,11 +33136,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Add`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31189,11 +33159,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 57,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::AddAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31219,11 +33196,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 57,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::AddAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31235,11 +33219,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 58,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitAnd`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31265,11 +33256,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 58,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitAnd`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31281,11 +33279,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 59,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitAndAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31311,11 +33316,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 59,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitAndAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31327,11 +33339,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 60,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitOr`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31357,11 +33376,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitOr`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31373,11 +33399,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 61,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitOrAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31403,11 +33436,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 61,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitOrAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31419,11 +33459,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitXor`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31449,11 +33496,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 62,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitXor`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31465,11 +33519,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 63,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::BitXorAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31495,11 +33556,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 63,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::BitXorAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31511,11 +33579,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 64,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Div`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31541,11 +33616,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 64,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Div`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31557,11 +33639,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::DivAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31587,11 +33676,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 65,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::DivAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31603,11 +33699,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 66,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::IntIndex`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31633,11 +33736,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 66,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::IntIndex`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31649,11 +33759,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 67,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Mul`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31679,11 +33796,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 67,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Mul`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31695,11 +33819,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 68,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::MulAssign`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31725,11 +33856,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 68,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::MulAssign`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31741,11 +33879,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 69,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Neg`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31771,11 +33916,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 69,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Neg`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31787,11 +33939,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 70,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Not`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31817,11 +33976,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 70,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Not`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31833,11 +33999,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 71,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Sub`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31863,11 +34036,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 71,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Sub`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31879,11 +34059,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 72,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::ops::Unveil`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31909,11 +34096,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 72,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::ops::Unveil`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -31925,11 +34119,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 73,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -31955,11 +34156,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 73,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -34946,11 +37154,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 74,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::option::Option`, `Enum`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -34976,11 +37191,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 74,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::option::Option`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -39853,11 +42075,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 75,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -39877,11 +42106,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -42660,21 +44896,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 119,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::raw_bits`,
+                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 119,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::raw_bits`,
+                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 10,
                             impl_token: ImplToken {
@@ -42750,11 +45018,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 76,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::result::Result`, `Enum`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -42780,11 +45055,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 76,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::result::Result`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -45645,21 +47927,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 120,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::result`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::result::Result`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 120,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::result`,
+                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::result::Result`, `Enum`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 8,
                             impl_token: ImplToken {
@@ -45798,11 +48106,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 77,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -45822,11 +48137,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -48605,21 +50927,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 121,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::vec`,
+                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 121,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 12,
                             impl_token: ImplToken {
@@ -48695,11 +51049,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 78,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::slice::Slice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -48719,11 +51080,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 78,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -48735,11 +51103,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 79,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -48759,11 +51134,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 79,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -51551,21 +53933,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 122,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::slice`,
+                                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 122,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::slice`,
+                                                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 11,
                             impl_token: ImplToken {
@@ -51585,21 +53999,47 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 123,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::slice`,
+                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 123,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::slice`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 14,
                             impl_token: ImplToken {
@@ -51629,21 +54069,53 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TypeImplBlock(
                         TypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 124,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::ImplBlock(
+                                                        ImplBlockPathData::TypeImplBlock(
+                                                            TypeImplBlockPathData {
+                                                                module_path: `core::slice`,
+                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 124,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::slice`,
+                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 15,
                             impl_token: ImplToken {
@@ -51719,11 +54191,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 80,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::str::str`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -51743,11 +54222,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 80,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::str::str`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -51759,11 +54245,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 81,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -51783,11 +54276,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 81,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -54630,11 +57130,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
                                     TraitSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 82,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`core::visual::Visualize`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -54660,11 +57167,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::visual::Visualize`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -54676,11 +57190,18 @@ EntityTreeCrateBundle {
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 83,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::visual::Visual`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -54700,11 +57221,18 @@ EntityTreeCrateBundle {
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 83,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::visual::Visual`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -57492,21 +60020,43 @@ EntityTreeCrateBundle {
                 (
                     ImplBlockSynNodePath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 125,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `core::visual`,
+                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                     ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 125,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::visual`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::DeriveAny,
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             ast_idx: 6,
                             impl_token: ImplToken {

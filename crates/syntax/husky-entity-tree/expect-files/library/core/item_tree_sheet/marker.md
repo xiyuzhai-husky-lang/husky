@@ -7,11 +7,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::marker::Copy`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -31,11 +38,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Copy`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -47,11 +61,18 @@ EntityTreeSheet {
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Trait(
                             TraitSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::marker::Sized`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -71,11 +92,18 @@ EntityTreeSheet {
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(
                         TraitSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`core::marker::Sized`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2863,21 +2891,43 @@ EntityTreeSheet {
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 89,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::marker`,
+                                            trai_path: TraitPath(`core::marker::Copy`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
             ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 89,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::marker`,
+                                                trai_path: TraitPath(`core::marker::Copy`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     ast_idx: 3,
                     impl_token: ImplToken {

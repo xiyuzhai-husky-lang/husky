@@ -68,6 +68,8 @@ pub enum OriginalSemaExprTypeError {
     BitOperationOnlyWorksForRawBitsOrCustom,
     #[error("ExpectedNumTypeForIncrOrDecr")]
     ExpectedNumTypeForIncrOrDecr,
+    #[error("ClosureTypeTodo")]
+    ClosureTypeTodo,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {

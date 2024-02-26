@@ -529,6 +529,21 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 lcurl_regional_token_idx,
                 rcurl_regional_token.regional_token_idx(),
             ),
+            SemaExprData::VecFunctor {
+                lbox_regional_token_idx,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::ArrayFunctor {
+                lbox_regional_token_idx,
+                items,
+                rbox_regional_token_idx,
+            } => todo!(),
+            SemaExprData::Closure {} => todo!(),
+            SemaExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => todo!(),
         }
     }
 

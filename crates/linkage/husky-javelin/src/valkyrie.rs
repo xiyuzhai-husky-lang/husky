@@ -226,6 +226,7 @@ impl ValkyrieRides {
                 | HirEagerExprData::Todo
                 | HirEagerExprData::Unreachable
                 | HirEagerExprData::Unwrap { .. } => (),
+                HirEagerExprData::Closure => todo!(),
             }
         }
         for _data in hir_eager_expr_region.stmt_arena(db) {

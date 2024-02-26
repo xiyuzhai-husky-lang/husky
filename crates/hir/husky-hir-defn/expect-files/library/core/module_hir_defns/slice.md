@@ -395,7 +395,7 @@
                         },
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -406,7 +406,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(

@@ -14,14 +14,6 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FlyTerm>,
     ) {
-        enum A {
-            D(i32),
-            C(i32),
-        }
-        let t = |(A::D(a) | A::C(a)): A| todo!();
-        use husky_print_utils::p;
-
-        p!(opr);
         let lopd_syn_expr_idx = lopd;
         let (lopd, lopd_ty) = self.build_sema_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {

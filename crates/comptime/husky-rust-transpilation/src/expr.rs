@@ -462,6 +462,7 @@ impl HirEagerExprSite {
                 builder.keyword(RustKeyword::As);
                 ty.transpile_to_rust(builder)
             }
+            HirEagerExprData::Closure => todo!(),
         }
     }
 }
