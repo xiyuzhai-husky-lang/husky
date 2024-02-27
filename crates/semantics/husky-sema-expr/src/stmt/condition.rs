@@ -9,7 +9,7 @@ pub enum SemaCondition {
     Be {
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: BePatternSynSyndicate,
+        target: BePatternSyndicate,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there

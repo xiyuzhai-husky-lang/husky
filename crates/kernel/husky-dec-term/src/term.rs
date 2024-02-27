@@ -43,7 +43,7 @@ pub enum DecTerm {
     /// variables are derived from symbols
     Hvar(DecHvar),
     EntityPath(DecItemPath),
-    Category(Category),
+    Category(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(DecCurry),

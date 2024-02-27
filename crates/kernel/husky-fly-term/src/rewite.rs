@@ -143,7 +143,7 @@ impl FlyTerm {
                 )
             }
             FlyTermData::Hole(_, _) => self,
-            FlyTermData::Category(_) => self,
+            FlyTermData::Sort(_) => self,
             FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

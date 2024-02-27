@@ -160,7 +160,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -171,7 +171,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -419,7 +419,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -430,7 +430,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -658,7 +658,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -669,7 +669,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -917,7 +917,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -928,7 +928,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -939,7 +939,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1075,7 +1075,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1099,7 +1099,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1164,7 +1164,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1188,7 +1188,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1246,17 +1246,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Left`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1267,17 +1261,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Up`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1293,17 +1281,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Down`,
-                                                                    index: U8(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1327,17 +1309,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Right`,
-                                                                    index: U8(
-                                                                        3,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1348,17 +1324,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Left`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1369,17 +1339,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Up`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1408,17 +1372,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Right`,
-                                                                    index: U8(
-                                                                        3,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1429,17 +1387,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Up`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1917,7 +1869,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1928,7 +1880,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2123,7 +2075,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2379,7 +2331,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2390,7 +2342,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2401,7 +2353,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2412,7 +2364,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 4,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2558,7 +2510,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2582,7 +2534,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2647,7 +2599,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2671,7 +2623,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2729,17 +2681,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Down`,
-                                                                    index: U8(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2750,17 +2696,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Left`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2789,17 +2729,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Right`,
-                                                                    index: U8(
-                                                                        3,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2810,17 +2744,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Down`,
-                                                                    index: U8(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2844,17 +2772,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Left`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2865,17 +2787,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Right`,
-                                                                    index: U8(
-                                                                        3,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2891,17 +2807,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Left`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 18,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2930,17 +2840,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Up`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2964,17 +2868,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Up`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 17,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2985,17 +2883,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Down`,
-                                                                    index: U8(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -3029,17 +2921,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Right`,
-                                                                    index: U8(
-                                                                        3,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 20,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -3050,17 +2936,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                    ident: `Down`,
-                                                                    index: U8(
-                                                                        2,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 19,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -3538,34 +3418,22 @@
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3615,34 +3483,22 @@
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3883,7 +3739,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -4386,7 +4242,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4404,7 +4260,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4554,7 +4410,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -5477,7 +5333,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5501,7 +5357,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5525,7 +5381,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5874,7 +5730,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5898,7 +5754,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5922,7 +5778,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5946,7 +5802,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6011,7 +5867,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6035,7 +5891,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6562,7 +6418,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6653,7 +6509,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6677,7 +6533,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6752,7 +6608,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7106,7 +6962,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7130,7 +6986,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7535,7 +7391,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7559,7 +7415,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7728,7 +7584,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7752,7 +7608,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7827,7 +7683,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8826,7 +8682,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8850,7 +8706,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8925,7 +8781,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9863,68 +9719,44 @@
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10180,53 +10012,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::raw_contour`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 422,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::raw_contour`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 422,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -10256,28 +10054,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 422,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10319,28 +10100,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::raw_contour`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 422,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10469,17 +10233,11 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::raw_contour`,
-                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 285,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -10496,17 +10254,11 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::raw_contour`,
-                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 285,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -10636,7 +10388,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10650,7 +10402,7 @@
                                                         PlaceToLeash,
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11128,7 +10880,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11225,7 +10977,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11322,7 +11074,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11419,7 +11171,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11485,7 +11237,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11509,7 +11261,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11572,7 +11324,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11596,7 +11348,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11633,7 +11385,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -11651,7 +11403,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -12101,7 +11853,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -13288,7 +13040,7 @@
                         },
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -13299,7 +13051,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -13724,7 +13476,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(

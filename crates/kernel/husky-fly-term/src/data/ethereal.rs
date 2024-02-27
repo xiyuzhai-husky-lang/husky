@@ -28,7 +28,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => FlyTermData::TypeVariant { path },
         },
-        EthTerm::Category(term) => FlyTermData::Category(term),
+        EthTerm::Category(term) => FlyTermData::Sort(term),
         EthTerm::Universe(_) => todo!(),
         EthTerm::Curry(term) => FlyTermData::Curry {
             toolchain: term.toolchain(db),

@@ -66,7 +66,7 @@ impl<'a> SemaExprEngine<'a> {
             | FlyTermData::Hole(_, _)
             | FlyTermData::Literal(_)
             | FlyTermData::Curry { .. }
-            | FlyTermData::Category(_) => todo!(),
+            | FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie { .. } => todo!(),
             FlyTermData::Symbol { .. } => todo!(),
             FlyTermData::Hvar { .. } => todo!(),

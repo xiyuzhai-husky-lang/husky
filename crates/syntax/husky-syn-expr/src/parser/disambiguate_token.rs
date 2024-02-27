@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_kind::{ritchie::RitchieItemKind, EntityKind, MajorFugitiveKind, MajorItemKind};
 use husky_opr::*;
+use husky_term_prelude::ritchie::RitchieKind;
 use husky_token_data::delimiter::Delimiter;
 use std::ops::ControlFlow;
 

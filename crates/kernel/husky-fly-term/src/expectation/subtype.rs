@@ -35,8 +35,8 @@ impl ExpectFlyTerm for ExpectSubtypeOrEqual {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        Some(self.expected)
+    fn destination(&self) -> FlyTermDestination {
+        FlyTermDestination::Specific(self.expected)
     }
 
     // expectee should be a subtype of expecteed

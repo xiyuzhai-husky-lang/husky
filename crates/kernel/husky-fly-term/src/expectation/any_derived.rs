@@ -20,8 +20,8 @@ impl ExpectFlyTerm for ExpectAnyDerived {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        None
+    fn destination(&self) -> FlyTermDestination {
+        FlyTermDestination::AnyDerived
     }
 
     fn resolve(

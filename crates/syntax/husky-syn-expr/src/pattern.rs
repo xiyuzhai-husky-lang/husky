@@ -35,13 +35,13 @@ pub enum SynPatternExprData {
     /// example: `(a, b)`
     Tuple {
         lpar: LparRegionalToken,
-        fields: PunctuatedSmallList<SynPatternExprIdx, CommaRegionalToken, SynExprError, true, 3>,
+        fields: PunctuatedSmallList<PatternSynExprIdx, CommaRegionalToken, SynExprError, true, 3>,
         rpar: RparRegionalToken,
     },
     TupleStruct {
         name: TypePath,
         lpar: LparRegionalToken,
-        fields: PunctuatedSmallList<SynPatternExprIdx, CommaRegionalToken, SynExprError, true, 3>,
+        fields: PunctuatedSmallList<PatternSynExprIdx, CommaRegionalToken, SynExprError, true, 3>,
         rpar: RparRegionalToken,
     },
     TupleTypeVariant {
@@ -73,13 +73,13 @@ pub enum SynPatternExprData {
         ident_token: IdentRegionalToken,
         asperand_token: AtRegionalToken,
         /// example: `1..9`
-        src: SynPatternExprIdx,
+        src: PatternSynExprIdx,
     },
     /// example: `1..9`
     Range {
-        start: SynPatternExprIdx,
+        start: PatternSynExprIdx,
         dot_dot_token: DotDotRegionalToken,
-        end: SynPatternExprIdx,
+        end: PatternSynExprIdx,
     },
 }
 
@@ -91,17 +91,17 @@ pub struct FieldSynPatternExprData {
 }
 
 pub type SynPatternExprArena = Arena<SynPatternExprData>;
-pub type SynPatternExprIdx = ArenaIdx<SynPatternExprData>;
+pub type PatternSynExprIdx = ArenaIdx<SynPatternExprData>;
 pub type SynPatternExprIdxRange = ArenaIdxRange<SynPatternExprData>;
 pub type SynPatternExprMap<V> = ArenaMap<SynPatternExprData, V>;
 pub type SynPatternExprOrderedMap<V> = ArenaOrderedMap<SynPatternExprData, V>;
 
 /// irreducible against `|`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SynPatternComponent(SynPatternExprIdx);
+pub struct SynPatternComponent(PatternSynExprIdx);
 
 impl SynPatternComponent {
-    pub fn syn_pattern_expr_idx(self) -> SynPatternExprIdx {
+    pub fn syn_pattern_expr_idx(self) -> PatternSynExprIdx {
         self.0
     }
 }
@@ -295,17 +295,17 @@ where
 /// # parenate
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ParenateSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternExprIdx,
+pub struct ParenateParameterSynPatternExprRoot {
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
-impl ParenateSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+impl ParenateParameterSynPatternExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ParenateSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ParenateParameterSynPatternExprRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -321,21 +321,21 @@ where
         else {
             return Ok(None);
         };
-        Ok(Some(ParenateSynPatternExprRoot {
+        Ok(Some(ParenateParameterSynPatternExprRoot {
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }))
     }
 }
 
-/// # closure
+/// # closure parameter
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ClosureSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternExprIdx,
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
 impl ClosureSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+    pub fn syn_pattern_expr_idx(&self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 }
@@ -362,20 +362,20 @@ where
     }
 }
 
-// let
+// let variable
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct LetSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternExprIdx,
+pub struct LetPatternSynExprRoot {
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
-impl LetSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+impl LetPatternSynExprRoot {
+    pub fn syn_pattern_expr_idx(&self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LetSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for LetPatternSynExprRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -391,7 +391,7 @@ where
         else {
             return Ok(None);
         };
-        Ok(Some(LetSynPatternExprRoot {
+        Ok(Some(LetPatternSynExprRoot {
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }))
     }
@@ -401,11 +401,11 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct CaseSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternExprIdx,
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
 impl CaseSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+    pub fn syn_pattern_expr_idx(&self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 }
@@ -436,11 +436,11 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BeSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternExprIdx,
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
 impl BeSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternExprIdx {
+    pub fn syn_pattern_expr_idx(&self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 }

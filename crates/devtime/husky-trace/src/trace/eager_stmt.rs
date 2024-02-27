@@ -480,7 +480,7 @@ struct EagerStmtAssocTraceRegistry<'a> {
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprEssence>,
     eager_expr_traces_issued: VecPairMap<SemaExprIdx, Trace>,
     eager_pattern_expr_trace_path_registry: TracePathRegistry<EagerPatternExprEssence>,
-    eager_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
+    eager_pattern_expr_traces_issued: VecPairMap<PatternSynExprIdx, Trace>,
 }
 
 impl<'a> EagerStmtAssocTraceRegistry<'a> {

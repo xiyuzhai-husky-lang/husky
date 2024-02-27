@@ -1,7 +1,5 @@
 mod expect;
 mod expr_term;
-mod sema_expr;
-mod stmt;
 mod symbol;
 #[macro_use]
 mod utils;
@@ -9,7 +7,6 @@ mod branch_ty_merger;
 mod pattern_ty;
 
 pub(crate) use self::branch_ty_merger::*;
-pub use self::sema_expr::*;
 pub(crate) use self::utils::*;
 
 use self::symbol::*;
@@ -209,19 +206,23 @@ impl<'a> SemaExprEngine<'a> {
         self.infer_all_exprs()
     }
 
-    pub(crate) fn alloc_sema_expr(
+    pub(crate) fn alloc_expr(
         &mut self,
         data_result: Result<SemaExprData, SemaExprDataError>,
         immediate_ty_result: Result<FlyTerm, SemaExprTypeError>,
         expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
     ) -> SemaExprIdx {
-        let sema_expr_idx = self.sema_expr_arena.alloc_one(
+        let expr = self.sema_expr_arena.alloc_one(
             data_result,
             immediate_ty_result,
             expectation_idx_and_ty,
         );
         self.fly_term_region.resolve_as_much_as_possible(self.db());
-        sema_expr_idx
+        expr
+    }
+
+    pub(crate) fn alloc_stmt_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
+        self.sema_stmt_arena.alloc_batch(batch)
     }
 
     pub(crate) fn db(&self) -> &'a ::salsa::Db {

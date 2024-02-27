@@ -717,7 +717,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -1210,7 +1210,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -1703,7 +1703,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -2181,7 +2181,7 @@
                                         22,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
@@ -2496,7 +2496,7 @@
                                         76,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 9,
                                             },
@@ -2522,7 +2522,7 @@
                                         83,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 11,
                                             },
@@ -3168,7 +3168,7 @@
                                         211,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 23,
                                             },
@@ -3194,7 +3194,7 @@
                                         218,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 25,
                                             },
@@ -3220,7 +3220,7 @@
                                         225,
                                     ),
                                     target: Ok(
-                                        BePatternSynSyndicate {
+                                        BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 27,
                                             },
@@ -3691,7 +3691,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 12,
                                             },
@@ -3728,7 +3728,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 13,
                                             },
@@ -3757,7 +3757,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 14,
                                             },
@@ -3786,7 +3786,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 15,
                                             },
@@ -3815,7 +3815,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 16,
                                             },
@@ -3844,7 +3844,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 17,
                                             },
@@ -3873,7 +3873,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 18,
                                             },
@@ -3902,7 +3902,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 19,
                                             },
@@ -3931,7 +3931,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 20,
                                             },
@@ -3960,7 +3960,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 21,
                                             },
@@ -4029,7 +4029,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 28,
                                             },
@@ -4058,7 +4058,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
@@ -4087,7 +4087,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
@@ -4124,7 +4124,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
@@ -4153,7 +4153,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
@@ -4182,7 +4182,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
@@ -4219,7 +4219,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 7,
                                             },

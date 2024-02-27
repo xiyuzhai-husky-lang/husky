@@ -3,15 +3,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 36,
+                        },
+                    ),
                 ),
             },
         },
@@ -20,15 +16,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::convex_component`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 37,
+                        },
+                    ),
                 ),
             },
         },
@@ -37,15 +29,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 38,
+                        },
+                    ),
                 ),
             },
         },
@@ -54,15 +42,11 @@
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
                 path: SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::line_segment`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 39,
+                        },
+                    ),
                 ),
             },
         },
@@ -221,26 +205,11 @@
                                             ident: `clone`,
                                             path: AssocItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssocItem(
-                                                            AssocItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `core::clone`,
-                                                                            trai_path: TraitPath(`core::clone::Clone`),
-                                                                            ty_sketch: TypeSketch::DeriveAny,
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `clone`,
-                                                                    item_kind: MethodRitchie(
-                                                                        Fn,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 333,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -342,26 +311,11 @@
                                             ident: `clone`,
                                             path: AssocItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssocItem(
-                                                            AssocItemPathData::TraitForTypeItem(
-                                                                TraitForTypeItemPathData {
-                                                                    impl_block: TraitForTypeImplBlock {
-                                                                        data: TraitForTypeImplBlockPathData {
-                                                                            module_path: `core::clone`,
-                                                                            trai_path: TraitPath(`core::clone::Clone`),
-                                                                            ty_sketch: TypeSketch::DeriveAny,
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    },
-                                                                    ident: `clone`,
-                                                                    item_kind: MethodRitchie(
-                                                                        Fn,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 333,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -553,7 +507,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -564,7 +518,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1337,7 +1291,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1355,7 +1309,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1536,7 +1490,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1547,7 +1501,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2320,7 +2274,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2338,7 +2292,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2519,7 +2473,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2540,7 +2494,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2551,7 +2505,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -2740,7 +2694,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2764,7 +2718,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3122,7 +3076,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3146,7 +3100,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3285,7 +3239,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3309,7 +3263,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3374,7 +3328,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3398,7 +3352,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3521,7 +3475,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3624,7 +3578,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3924,7 +3878,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -3948,7 +3902,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4013,7 +3967,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4037,7 +3991,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4109,7 +4063,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4236,7 +4190,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4430,7 +4384,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -4454,7 +4408,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5012,7 +4966,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -5033,7 +4987,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -5044,7 +4998,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -5055,7 +5009,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 4,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -5254,7 +5208,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5278,7 +5232,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5623,7 +5577,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5647,7 +5601,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5780,7 +5734,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5845,7 +5799,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5869,7 +5823,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5934,7 +5888,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -5958,7 +5912,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6114,7 +6068,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6138,7 +6092,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6401,7 +6355,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6425,7 +6379,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6490,7 +6444,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6514,7 +6468,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6586,7 +6540,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6713,7 +6667,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6840,7 +6794,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -6969,7 +6923,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7061,7 +7015,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -7750,7 +7704,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -7771,7 +7725,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -8084,7 +8038,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8108,7 +8062,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8132,7 +8086,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8223,7 +8177,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8247,7 +8201,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8271,7 +8225,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8568,7 +8522,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -8686,7 +8640,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9126,7 +9080,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9150,7 +9104,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9168,7 +9122,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9325,7 +9279,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9349,7 +9303,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9373,7 +9327,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9397,7 +9351,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9488,7 +9442,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9512,7 +9466,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9536,7 +9490,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9885,7 +9839,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -9957,7 +9911,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10075,7 +10029,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10183,7 +10137,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10312,7 +10266,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10683,7 +10637,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10707,7 +10661,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10725,7 +10679,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -10957,7 +10911,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -12053,7 +12007,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -12077,7 +12031,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -12095,7 +12049,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -12877,53 +12831,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 420,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 420,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -12953,28 +12873,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 420,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13016,28 +12919,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 420,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13200,17 +13086,11 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 292,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -13227,17 +13107,11 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 292,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -13283,7 +13157,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -13304,7 +13178,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -13315,7 +13189,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 3,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -13582,7 +13456,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -13606,7 +13480,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -13637,7 +13511,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -13905,7 +13779,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -14062,53 +13936,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 421,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 421,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -14138,28 +13978,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 421,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -14201,28 +14024,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 421,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14280,26 +14086,11 @@
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::visual`,
-                                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `visualize`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 416,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
@@ -14399,17 +14190,11 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 294,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -14426,17 +14211,11 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 294,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -14558,7 +14337,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15062,7 +14841,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15159,7 +14938,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15256,7 +15035,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15353,7 +15132,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15419,7 +15198,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15443,7 +15222,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15506,7 +15285,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15530,7 +15309,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15567,7 +15346,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15585,7 +15364,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -15876,7 +15655,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -15897,7 +15676,7 @@
                                         },
                                     ),
                                 },
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -16042,7 +15821,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -16066,7 +15845,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -16103,7 +15882,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -16127,7 +15906,7 @@
                                                         ),
                                                     ),
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(

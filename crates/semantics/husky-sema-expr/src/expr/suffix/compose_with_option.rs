@@ -38,7 +38,7 @@ impl<'a> SemaExprEngine<'a> {
                 ty_ethereal_term,
             } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
-            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

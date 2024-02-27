@@ -70,9 +70,10 @@ fn list_like_index_signature(
             }
             HoleKind::UnspecifiedFloatType => todo!(),
             HoleKind::ImplicitType => todo!(),
-            HoleKind::Any => todo!(),
+            HoleKind::AnyOriginal => todo!(),
+            HoleKind::AnyDerived => todo!(),
         },
-        FlyTermData::Category(_) => todo!(),
+        FlyTermData::Sort(_) => todo!(),
         FlyTermData::Ritchie {
             ritchie_kind,
             parameter_contracted_tys,

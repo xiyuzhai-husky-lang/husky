@@ -48,10 +48,9 @@ fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bo
         FlyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => true,
             HoleKind::UnspecifiedFloatType => false,
-            HoleKind::ImplicitType => false,
-            HoleKind::Any => false,
+            HoleKind::ImplicitType | HoleKind::AnyOriginal | HoleKind::AnyDerived => false,
         },
-        FlyTermData::Category(_) => false,
+        FlyTermData::Sort(_) => false,
         FlyTermData::Ritchie {
             ritchie_kind,
             parameter_contracted_tys,

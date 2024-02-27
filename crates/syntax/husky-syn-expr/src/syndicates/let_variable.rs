@@ -4,8 +4,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::debug_with_db]
-pub struct LetPatternSynSyndicate {
-    syn_pattern_expr_root: LetSynPatternExprRoot,
+pub struct LetPatternSyndicate {
+    syn_pattern_expr_root: LetPatternSynExprRoot,
     variables: CurrentSynSymbolIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
@@ -15,9 +15,9 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,
-    ) -> SynExprResult<LetPatternSynSyndicate> {
+    ) -> SynExprResult<LetPatternSyndicate> {
         let state = self.state();
-        let Some(syn_pattern_expr_root) = self.try_parse_option::<LetSynPatternExprRoot>()? else {
+        let Some(syn_pattern_expr_root) = self.try_parse_option::<LetPatternSynExprRoot>()? else {
             Err(OriginalSynExprError::ExpectedLetPattern(state))?
         };
         let symbols = self
@@ -54,7 +54,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
             ty,
         });
         let variables = self.define_symbols(symbols, ty_constraint);
-        Ok(LetPatternSynSyndicate {
+        Ok(LetPatternSyndicate {
             syn_pattern_expr_root,
             variables,
             colon_token,
@@ -63,8 +63,8 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
     }
 }
 
-impl LetPatternSynSyndicate {
-    pub fn syn_pattern_root(&self) -> LetSynPatternExprRoot {
+impl LetPatternSyndicate {
+    pub fn syn_pattern_root(&self) -> LetPatternSynExprRoot {
         self.syn_pattern_expr_root
     }
 

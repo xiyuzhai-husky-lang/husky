@@ -13,4 +13,4 @@ A variable is
 - local variable
     - let variable
     - case variable
-    - ifel variable
+    - be variable

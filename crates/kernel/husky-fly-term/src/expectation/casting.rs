@@ -36,15 +36,15 @@ impl ExpectFlyTerm for ExpectCasting {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        Some(self.destination)
+    fn destination(&self) -> FlyTermDestination {
+        FlyTermDestination::Specific(self.destination)
     }
 
     fn resolve(
         &self,
-        db: &::salsa::Db,
-        terms: &mut FlyTerms,
-        state: &mut ExpectationState,
+        _db: &::salsa::Db,
+        _terms: &mut FlyTerms,
+        _state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         // todo
         AltOption::AltNone

@@ -1,31 +1,21 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ExpectEqsCategory {
+pub struct ExpectSort {
     pub(crate) smallest_universe: Universe,
 }
 
-impl ExpectEqsCategory {
-    pub const ANY_SORT: Self = Self {
+impl ExpectSort {
+    pub const ANY: Self = Self {
         smallest_universe: Universe::new(0),
     };
 
-    #[inline(always)]
-    pub fn new_any_sort() -> Self {
-        Self {
-            smallest_universe: Universe::new(0),
-        }
-    }
-
-    #[inline(always)]
-    pub fn new_expect_eqs_ty_kind() -> Self {
-        Self {
-            smallest_universe: Universe::new(1),
-        }
-    }
+    pub const TYPE: Self = Self {
+        smallest_universe: Universe::new(1),
+    };
 }
 
-impl ExpectFlyTerm for ExpectEqsCategory {
+impl ExpectFlyTerm for ExpectSort {
     type Outcome = Universe;
 
     #[inline(always)]
@@ -42,8 +32,9 @@ impl ExpectFlyTerm for ExpectEqsCategory {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        None
+    fn destination(&self) -> FlyTermDestination {
+        // todo: refine
+        FlyTermDestination::AnyOriginal
     }
 
     fn resolve(

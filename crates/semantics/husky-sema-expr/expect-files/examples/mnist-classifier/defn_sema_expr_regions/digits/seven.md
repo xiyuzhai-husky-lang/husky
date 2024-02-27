@@ -7442,7 +7442,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
@@ -9568,7 +9568,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         104,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 9,
                                         },
@@ -10000,7 +10000,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             25,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
@@ -10381,7 +10381,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             104,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 9,
                                             },

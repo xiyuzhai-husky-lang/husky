@@ -255,53 +255,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 153,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 153,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -331,28 +297,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 153,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -396,17 +345,11 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist`,
-                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 148,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -423,17 +366,11 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist`,
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 148,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -606,49 +543,19 @@
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssocType,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 155,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist`,
-                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssocType,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 155,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -665,26 +572,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist`,
-                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `Output`,
-                                                            item_kind: AssocType,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 155,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -790,53 +682,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 156,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 156,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -866,28 +724,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 156,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -931,17 +772,11 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist`,
-                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 151,
+                            },
+                        ),
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -958,17 +793,11 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist`,
-                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 151,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1141,49 +970,19 @@
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssocType,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 158,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist`,
-                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssocType,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 158,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -1200,26 +999,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist`,
-                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `Output`,
-                                                            item_kind: AssocType,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 158,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),

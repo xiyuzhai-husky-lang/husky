@@ -1731,7 +1731,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -2034,7 +2034,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         27,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
@@ -2956,7 +2956,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 8,
                                         },
@@ -3497,7 +3497,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         86,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 11,
                                         },
@@ -4319,7 +4319,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         118,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 15,
                                         },
@@ -5979,7 +5979,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             86,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 11,
                                             },
@@ -6117,7 +6117,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             118,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 15,
                                             },
@@ -6386,7 +6386,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             14,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
@@ -6460,7 +6460,7 @@
                                         be_regional_token_idx: RegionalTokenIdx(
                                             27,
                                         ),
-                                        target: BePatternSynSyndicate {
+                                        target: BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
@@ -6599,7 +6599,7 @@
                                             be_regional_token_idx: RegionalTokenIdx(
                                                 64,
                                             ),
-                                            target: BePatternSynSyndicate {
+                                            target: BePatternSyndicate {
                                                 pattern_expr_root: BeSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 8,
                                                 },

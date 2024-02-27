@@ -1,3 +1,5 @@
+use husky_term_prelude::ritchie::RitchieKind;
+
 use super::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]

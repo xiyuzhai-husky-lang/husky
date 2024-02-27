@@ -1,14 +1,13 @@
+use super::*;
 use husky_regional_token::ColonRegionalToken;
 
-use super::*;
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct CasePatternSemaSyndicate {
+pub struct CaseVariableObelisk {
     syn_pattern_root: CaseSynPatternExprRoot,
     variables: CurrentSynSymbolIdxRange,
 }
 
-impl CasePatternSemaSyndicate {
+impl CaseVariableObelisk {
     pub fn syn_pattern_root(&self) -> CaseSynPatternExprRoot {
         self.syn_pattern_root
     }
@@ -23,13 +22,13 @@ impl<'a> SemaExprEngine<'a> {
         &mut self,
         case_pattern_syn_obelisk: &CasePatternSyndicate,
         match_target_ty: FlyTerm,
-    ) -> CasePatternSemaSyndicate {
+    ) -> CaseVariableObelisk {
         self.infer_variable_pattern_root_and_symbols_ty(
             case_pattern_syn_obelisk.syn_pattern_root(),
             match_target_ty,
             case_pattern_syn_obelisk.variables(),
         );
-        CasePatternSemaSyndicate {
+        CaseVariableObelisk {
             syn_pattern_root: case_pattern_syn_obelisk.syn_pattern_root(),
             variables: case_pattern_syn_obelisk.variables(),
         }

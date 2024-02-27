@@ -58,7 +58,9 @@
                             ],
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: Type(
-                                    Fn,
+                                    Item(
+                                        Fn,
+                                    ),
                                 ),
                                 params: [
                                     DeclarativeRitchieParameter::Regular(

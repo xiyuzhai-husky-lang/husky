@@ -46,7 +46,7 @@ where
             }
         }
         Ok(SynExprData::Closure {
-            ritchie_kind_regional_token_idx: None,
+            closure_kind_regional_token_idx: None,
             lvert_regional_token_idx,
             parameters,
             rvert_regional_token,

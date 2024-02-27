@@ -7,7 +7,7 @@ use parsec::{HasStreamState, TryParseOptionFromStream};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ParenateParameterSyndicate {
     Simple {
-        syn_pattern_root: ParenateSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternExprRoot,
         variables: CurrentSynSymbolIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
@@ -22,7 +22,7 @@ pub enum ParenateParameterSyndicate {
         ty: SynExprIdx,
     },
     Keyed {
-        syn_pattern_root: ParenateSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternExprRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: CurrentSynSymbolIdx,
@@ -50,7 +50,9 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(syn_pattern_root) = ctx.try_parse_option::<ParenateSynPatternExprRoot>()? {
+        if let Some(syn_pattern_root) =
+            ctx.try_parse_option::<ParenateParameterSynPatternExprRoot>()?
+        {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());

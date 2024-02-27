@@ -5,8 +5,8 @@ use husky_term_prelude::literal::Literal;
 pub struct TermMenu0 {
     universe0: Universe,
     universe1: Universe,
-    prop: Category,
-    ty0: Category,
+    prop: Sort,
+    ty0: Sort,
     static_lifetime: Literal,
     unit: EthTerm,
     never: EthTerm,
@@ -88,8 +88,8 @@ impl TermMenu0 {
             static_lifetime: Literal::StaticLifetime,
             universe0,
             universe1,
-            prop: Category::new(universe0),
-            ty0: Category::new(universe1),
+            prop: Sort::new(universe0),
+            ty0: Sort::new(universe1),
             core_ops_add: EthTerm::EntityPath(item_path_menu.add_trai_path().into()),
             // start here
             // EthTerm::Entity(item_path_menu.core_ops_())
@@ -163,12 +163,12 @@ impl TermMenu0 {
     }
 
     /// `Prop`
-    pub fn prop(&self) -> Category {
+    pub fn prop(&self) -> Sort {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> Category {
+    pub fn ty0(&self) -> Sort {
         self.ty0
     }
 

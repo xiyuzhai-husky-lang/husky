@@ -1,6 +1,6 @@
 use crate::*;
 use husky_eth_term::term::EthTerm;
-use husky_syn_expr::{SynPatternExprData, SynPatternExprIdx, SynPatternExprRoot};
+use husky_syn_expr::{PatternSynExprIdx, SynPatternExprData, SynPatternExprRoot};
 use husky_term_prelude::literal::{
     int::{
         TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
@@ -69,7 +69,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     fn new_pattern_expr_aux(
         &mut self,
-        syn_pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_expr_idx: PatternSynExprIdx,
     ) -> HirEagerPatternExpr {
         let db = self.db();
         match self.syn_expr_region_data()[syn_pattern_expr_idx] {

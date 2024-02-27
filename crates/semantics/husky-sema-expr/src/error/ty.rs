@@ -68,8 +68,8 @@ pub enum OriginalSemaExprTypeError {
     BitOperationOnlyWorksForRawBitsOrCustom,
     #[error("ExpectedNumTypeForIncrOrDecr")]
     ExpectedNumTypeForIncrOrDecr,
-    #[error("ClosureTypeTodo")]
-    ClosureTypeTodo,
+    #[error("ClosureParameterTypeNotInferred")]
+    ClosureParameterTypeNotInferred,
 }
 
 impl OriginalError for OriginalSemaExprTypeError {
@@ -179,6 +179,8 @@ pub enum DerivedSemaExprTypeError {
     BranchTypeMerge,
     #[error("SynPatternError")]
     SynPatternError,
+    #[error("ClosureReturnTypeNotInferred")]
+    ClosureReturnTypeNotInferred,
 }
 
 pub type SemaExprTypeResult<T> = Result<T, SemaExprTypeError>;

@@ -1,7 +1,8 @@
-mod case_pattern_obelisk;
-pub mod let_pattern_obelisk;
+pub mod case_variable;
+pub mod closure_parameter;
+pub mod let_variable;
 
-pub use self::case_pattern_obelisk::*;
-pub use self::let_pattern_obelisk::*;
+pub use self::case_variable::*;
+pub use self::let_variable::*;
 
 use crate::*;

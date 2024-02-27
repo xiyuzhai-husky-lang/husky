@@ -385,53 +385,19 @@
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::default::Default`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `default`,
-                                        item_kind: AssocRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 147,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::default::Default`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `default`,
-                                            item_kind: AssocRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 147,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -451,28 +417,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::default::Default`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `default`,
-                                                            item_kind: AssocRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 147,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -514,28 +463,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::default::Default`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `default`,
-                                                                item_kind: AssocRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 147,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -546,17 +478,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ident: `No`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 6,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -797,49 +723,19 @@
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssocType,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 148,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::Class`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssocType,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 148,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -856,26 +752,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::Class`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `Output`,
-                                                            item_kind: AssocType,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 148,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -952,60 +833,26 @@
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `unveil`,
-                                        item_kind: AssocRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 149,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::Class`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `unveil`,
-                                            item_kind: AssocRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 149,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1061,28 +908,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::Class`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `unveil`,
-                                                            item_kind: AssocRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 149,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1176,28 +1006,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::Class`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `unveil`,
-                                                                item_kind: AssocRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 149,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1227,17 +1040,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                                ident: `Known`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1270,7 +1077,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: Svar(
                                                                 Type {
@@ -1297,17 +1104,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                ident: `Break`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 101,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1372,7 +1173,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1406,17 +1207,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                ident: `Continue`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 100,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1481,7 +1276,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -1562,34 +1357,22 @@
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `No`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 6,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1746,49 +1529,19 @@
             TraitForTypeItemHirDefn::AssocType(
                 TraitForTypeAssocTypeHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssocType,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 150,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocTypeHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssocType,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 150,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -1805,26 +1558,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `Output`,
-                                                            item_kind: AssocType,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 150,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1860,60 +1598,26 @@
             TraitForTypeItemHirDefn::AssocFn(
                 TraitForTypeAssocFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `unveil`,
-                                        item_kind: AssocRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 151,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeAssocFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `malamute`,
-                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `unveil`,
-                                            item_kind: AssocRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 151,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1957,28 +1661,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `malamute`,
-                                                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `unveil`,
-                                                            item_kind: AssocRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 151,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2031,28 +1718,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `malamute`,
-                                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `unveil`,
-                                                                item_kind: AssocRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 151,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2076,17 +1746,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ident: `Yes`,
-                                                                    index: U8(
-                                                                        0,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2096,17 +1760,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                ident: `Break`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 101,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -2159,7 +1817,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2185,17 +1843,11 @@
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::TypeVariant(
-                                                                TypeVariantPathData {
-                                                                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                    ident: `No`,
-                                                                    index: U8(
-                                                                        1,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 6,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2205,17 +1857,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                ident: `Break`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 101,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -2268,7 +1914,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2302,17 +1948,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                                                ident: `Continue`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 100,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -2365,7 +2005,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -2463,51 +2103,33 @@
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                                ident: `ConfidentYes`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 8,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                                ident: `ConfidentNo`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 9,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
                                         HirEagerPatternExpr::Unit(
                                             PatternPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                                                ident: `Unconfident`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 10,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),

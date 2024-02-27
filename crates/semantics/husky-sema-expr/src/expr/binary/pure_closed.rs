@@ -57,9 +57,10 @@ impl<'a> SemaExprEngine<'a> {
             FlyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(lopd_ty),
                 HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
+                HoleKind::AnyOriginal => todo!(),
+                HoleKind::AnyDerived => todo!(),
             },
-            FlyTermData::Category(_) => todo!(),
+            FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

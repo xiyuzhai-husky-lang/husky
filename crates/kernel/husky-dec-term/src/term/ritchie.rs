@@ -7,6 +7,7 @@ pub use self::regular::*;
 pub use self::variadic::*;
 
 use super::*;
+use husky_term_prelude::ritchie::RitchieKind;
 use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`

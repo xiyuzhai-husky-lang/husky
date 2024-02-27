@@ -1,4 +1,5 @@
 // ! `husky-sema-expr`
+#![feature(result_flattening)]
 #![feature(let_chains)]
 #![feature(if_let_guard)]
 #![feature(const_trait_impl)]

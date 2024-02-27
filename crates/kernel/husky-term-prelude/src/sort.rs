@@ -2,15 +2,15 @@ use super::*;
 
 /// `Sort u` for some universe `u`
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct Category {
+pub struct Sort {
     universe: Universe,
 }
 
-impl Category {
-    pub const PROP: Self = Category {
+impl Sort {
+    pub const PROP: Self = Sort {
         universe: Universe::PROP_UNIVERSE,
     };
-    pub const TYPE: Self = Category {
+    pub const TYPE: Self = Sort {
         universe: Universe::TYPE_UNIVERSE,
     };
 
@@ -18,11 +18,11 @@ impl Category {
         Self { universe }
     }
 
-    pub fn from_(db: &::salsa::Db, _term: Category) -> Self {
-        Category::new(Universe::from_(db, _term.universe()))
+    pub fn from_(db: &::salsa::Db, _term: Sort) -> Self {
+        Sort::new(Universe::from_(db, _term.universe()))
     }
 
-    pub fn ty(self) -> TermPreludeResult<Category> {
+    pub fn ty(self) -> TermPreludeResult<Sort> {
         Ok(Self {
             universe: self.universe.next()?,
         })
@@ -41,7 +41,7 @@ impl Category {
     }
 }
 
-impl std::fmt::Display for Category {
+impl std::fmt::Display for Sort {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self.universe.raw() {
             0 => f.write_str("Prop"),

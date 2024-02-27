@@ -135,7 +135,7 @@ impl EthTerm {
             EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
             EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
             EthTerm::Curry(slf) => slf.raw_ty(db),
-            EthTerm::Ritchie(_) => DecTerm::Category(Category::new(1.into())).into(),
+            EthTerm::Ritchie(_) => DecTerm::Category(Sort::new(1.into())).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
             EthTerm::TypeAsTraitItem(_) => todo!(),

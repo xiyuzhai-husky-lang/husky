@@ -206,8 +206,8 @@ impl Diagnose for OriginalSemaExprTypeError {
             OriginalSemaExprTypeError::ExpectedNumTypeForIncrOrDecr => {
                 format!("Type Error: ExpectedNumTypeForIncrOrDecr")
             }
-            OriginalSemaExprTypeError::ClosureTypeTodo => {
-                format!("Type Error: ClosureTypeTodo")
+            OriginalSemaExprTypeError::ClosureParameterTypeNotInferred => {
+                format!("Type Error: ClosureParameterTypeNotInferred")
             }
         }
     }
@@ -247,8 +247,9 @@ impl Diagnose for (HoleSource, &'_ OriginalHollowTermResolveError) {
         match self.0 {
             HoleSource::Expr(_) => todo!(),
             HoleSource::Expectation(_) => todo!(),
+            HoleSource::SemaExpr(_) => todo!(),
+            HoleSource::Pattern(_) => todo!(),
         }
-        // ctx.expr_text_range()
     }
 }
 

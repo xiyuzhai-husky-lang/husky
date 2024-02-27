@@ -129,6 +129,7 @@ pub enum HirEagerExprData {
     Block {
         stmts: HirEagerStmtIdxRange,
     },
+    Closure,
     // todo: handle container
     EmptyHtmlTag {
         function_ident: Ident,
@@ -136,7 +137,6 @@ pub enum HirEagerExprData {
     },
     Todo,
     Unreachable,
-    Closure,
 }
 
 impl ToHirEager for SemaExprIdx {
@@ -460,7 +460,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::NestedBlock { stmts, .. } => HirEagerExprData::Block {
                 stmts: stmts.to_hir_eager(builder),
             },
-            SemaExprData::Closure {} => HirEagerExprData::Closure,
+            SemaExprData::Closure { .. } => HirEagerExprData::Closure,
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
         let ty_place = ty

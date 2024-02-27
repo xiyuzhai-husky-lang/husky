@@ -139,7 +139,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -387,17 +387,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 206,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -428,7 +422,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -546,7 +540,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -794,17 +788,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 206,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -835,7 +823,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
@@ -953,7 +941,7 @@
                         ),
                         parenate_parameters: HirEagerParenateParameters(
                             [
-                                HirEagerParenateParameter::Ordinary {
+                                HirEagerParenateParameter::Simple {
                                     pattern_expr_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
@@ -1201,17 +1189,11 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                ident: `Some`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 206,
+                                                        },
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -1242,7 +1224,7 @@
                                                 },
                                                 item_groups: [
                                                     Regular(
-                                                        HirRitchieRegularParameter {
+                                                        HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(

@@ -141,7 +141,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FlyTerm>,
     ) {
-        let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectEqsCategory::new_any_sort());
+        let ropd_sema_expr_idx = self.build_sema_expr(ropd, ExpectSort::ANY);
         let Some(ropd_term) = self.infer_expr_term(ropd_sema_expr_idx) else {
             let lopd_sema_expr_idx = self.build_sema_expr(lopd, ExpectAnyDerived);
             return (
@@ -173,7 +173,7 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemaExprTypeResult<FlyTerm>,
     ) {
-        let expect_any_sort = ExpectEqsCategory::new_any_sort();
+        let expect_any_sort = ExpectSort::ANY;
         let (lopd_sema_expr_idx, lopd_universe) =
             self.build_sema_expr_with_outcome(lopd, expect_any_sort);
         let Some(lopd_universe) = lopd_universe else {

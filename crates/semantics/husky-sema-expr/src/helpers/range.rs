@@ -105,10 +105,10 @@ impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SemaExprRangeRegionData 
     }
 }
 
-impl std::ops::Index<SynPatternExprIdx> for SemaExprRangeRegionData {
+impl std::ops::Index<PatternSynExprIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -154,10 +154,10 @@ impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SemaExprRangeCalcul
     }
 }
 
-impl<'a> std::ops::Index<SynPatternExprIdx> for SemaExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PatternSynExprIdx> for SemaExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -538,7 +538,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemaExprData::Closure {} => todo!(),
+            SemaExprData::Closure { .. } => todo!(),
             SemaExprData::NestedBlock {
                 lcurl_regional_token_idx,
                 stmts,

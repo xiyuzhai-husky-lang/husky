@@ -1,12 +1,11 @@
-use husky_regional_token::{EqRegionalToken, LetRegionalToken};
-
 use super::*;
+use husky_regional_token::{EqRegionalToken, LetRegionalToken};
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
         let_token: LetRegionalToken,
-        let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSynSyndicate>,
+        let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSyndicate>,
         eq_token: &SynExprResult<EqRegionalToken>,
         initial_value: SynExprIdx,
     ) -> (
@@ -17,7 +16,7 @@ impl<'a> SemaExprEngine<'a> {
             match let_pattern_syn_obelisk.as_ref() {
                 Ok(let_pattern_syn_obelisk) => {
                     let let_pattern_sema_obelisk =
-                        match self.build_let_pattern_sema_obelisk(let_pattern_syn_obelisk) {
+                        match self.build_let_pattern_obelisk(let_pattern_syn_obelisk) {
                             Ok(let_pattern_sema_obelisk) => let_pattern_sema_obelisk,
                             Err(_) => todo!(),
                         };
@@ -36,7 +35,7 @@ impl<'a> SemaExprEngine<'a> {
                     )
                 }
             };
-        let contract = self.syn_expr_region_data.pattern_contract(
+        let contract = self.syn_expr_region_data().pattern_contract(
             let_pattern_syn_obelisk
                 .as_ref()
                 .expect("must be okay")
@@ -68,7 +67,9 @@ impl<'a> SemaExprEngine<'a> {
                 }
             };
         let ty_result = match pattern_ty {
-            Some(ty) if ty == self.term_menu.never().into() => Ok(self.term_menu.never().into()),
+            Some(ty) if ty == self.term_menu().never().into() => {
+                Ok(self.term_menu().never().into())
+            }
             Some(ty) => {
                 match let_pattern_syn_obelisk {
                     Ok(let_variables_pattern) => self.infer_variable_pattern_root_and_symbols_ty(
@@ -78,9 +79,9 @@ impl<'a> SemaExprEngine<'a> {
                     ),
                     Err(_) => todo!(),
                 };
-                Ok(self.term_menu.unit_ty_ontology().into())
+                Ok(self.term_menu().unit_ty_ontology().into())
             }
-            None => Ok(self.term_menu.unit_ty_ontology().into()),
+            None => Ok(self.term_menu().unit_ty_ontology().into()),
         };
         let eq_token = match eq_token {
             Ok(eq_token) => *eq_token,

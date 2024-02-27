@@ -1053,7 +1053,9 @@
                                     contract: Pure,
                                     ty: HirType::Ritchie(
                                         HirRitchieType {
-                                            ritchie_ty_kind: Fn,
+                                            ritchie_ty_kind: Item(
+                                                Fn,
+                                            ),
                                             parameters: HirRitchieParameters {
                                                 data: [
                                                     HirRitchieParameter::Simple(

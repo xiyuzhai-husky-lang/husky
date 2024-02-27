@@ -5,6 +5,7 @@ pub(super) use self::call_list::*;
 pub(super) use self::comma_list::*;
 
 use super::*;
+use husky_term_prelude::ritchie::RitchieKind;
 use husky_token_data::delimiter::Delimiter;
 use parsec::TryParseOptionFromStream;
 use smallvec::SmallVec;

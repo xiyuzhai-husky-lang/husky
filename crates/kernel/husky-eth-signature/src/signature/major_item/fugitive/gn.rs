@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
-use husky_term_prelude::RitchieKind;
+use husky_term_prelude::ritchie::RitchieKind;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct GnFugitiveEthTemplate {
@@ -25,12 +25,8 @@ impl GnFugitiveEthTemplate {
             .map(|&param| EtherealRitchieParameter::from_dec(param, db))
             .collect::<EthTermResult<SmallVec<[_; 4]>>>()?;
         let return_ty = EthTerm::ty_from_dec(db, tmpl.return_ty(db))?;
-        let ritchie_ty = EthRitchie::new(
-            db,
-            RitchieKind::Type(RitchieItemKind::Gn),
-            ritchie_params,
-            return_ty,
-        )?;
+        let ritchie_ty =
+            EthRitchie::new(db, RitchieKind::RITCHIE_TYPE_GN, ritchie_params, return_ty)?;
         Ok(Self::new(db, path, template_parameters, ritchie_ty))
     }
 }

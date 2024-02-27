@@ -1,4 +1,5 @@
 use super::*;
+use husky_term_prelude::ritchie::RitchieKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct TupleStructTypeDecTemplate {

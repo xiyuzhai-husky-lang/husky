@@ -32,7 +32,7 @@ pub enum EthTerm {
     /// the name `hvar` is to be distinguishable from runtime variable
     Hvar(EthHvar),
     EntityPath(ItemPathTerm),
-    Category(Category),
+    Category(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(EthCurry),

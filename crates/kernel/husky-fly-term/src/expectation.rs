@@ -27,7 +27,7 @@ pub use self::sort::*;
 pub use self::subtype::*;
 
 use super::*;
-use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_term_prelude::ritchie::RitchieKind;
 use idx_arena::ArenaIdx;
 use thiserror::Error;
 
@@ -38,7 +38,7 @@ use thiserror::Error;
 pub enum Expectation {
     ExplicitlyConvertible(ExpectCasting),
     ImplicitlyConvertible(ExpectCoersion),
-    EqsSort(ExpectEqsCategory),
+    EqsSort(ExpectSort),
     LoopVariableType,
     EqsExactly(ExpectSubtypeOrEqual),
     EqsFunctionType(ExpectEqsFunctionType),
@@ -121,23 +121,23 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
-            FinalDestination::Ritchie(RitchieKind::Type(RitchieItemKind::Fn)) => {
+            FinalDestination::Ritchie(RitchieKind::RITCHIE_TYPE_FN) => {
                 TypePathDisambiguation::InstanceConstructor
             }
             FinalDestination::Ritchie(_) => todo!(),
         }
     }
 
-    fn destination(&self) -> Option<FlyTerm>;
+    fn destination(&self) -> FlyTermDestination;
 
-    fn destination_term_data<'a>(
-        &self,
-        db: &'a ::salsa::Db,
-        fly_terms: &'a FlyTerms,
-    ) -> Option<FlyTermData<'a>> {
-        self.destination()
-            .map(|destination| destination.data_inner(db, fly_terms))
-    }
+    // fn destination_term_data<'a>(
+    //     &self,
+    //     db: &'a ::salsa::Db,
+    //     fly_terms: &'a FlyTerms,
+    // ) ->  FlyTermData<'a>  {
+    //     self.destination()
+    //         .map(|destination| destination.data_inner(db, fly_terms))
+    // }
 
     /// needs to return option to indicate whether something has been changed
     fn resolve(
@@ -146,6 +146,12 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
         terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect>;
+}
+
+pub enum FlyTermDestination {
+    AnyOriginal,
+    AnyDerived,
+    Specific(FlyTerm),
 }
 
 pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
