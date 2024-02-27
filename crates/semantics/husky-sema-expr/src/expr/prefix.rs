@@ -50,9 +50,10 @@ impl<'a> SemaExprEngine<'a> {
                             (Ok((opd_sema_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
                         }
                         HoleKind::ImplicitType => todo!(),
-                        HoleKind::Any => todo!(),
+                        HoleKind::AnyOriginal => todo!(),
+                        HoleKind::AnyDerived => todo!(),
                     },
-                    FlyTermData::Category(_) => todo!(),
+                    FlyTermData::Sort(_) => todo!(),
                     FlyTermData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys,

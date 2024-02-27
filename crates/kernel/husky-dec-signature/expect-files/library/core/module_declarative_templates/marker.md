@@ -109,7 +109,7 @@
                                 },
                                 ty: Ok(
                                     Category(
-                                        Category {
+                                        Sort {
                                             universe: Universe(
                                                 1,
                                             ),

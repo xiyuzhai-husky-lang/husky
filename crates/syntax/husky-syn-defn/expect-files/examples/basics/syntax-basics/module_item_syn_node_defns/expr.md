@@ -139,7 +139,7 @@
                                         ),
                                     },
                                     let_variables_pattern: Ok(
-                                        LetPatternSynSyndicate {
+                                        LetPatternSyndicate {
                                             syn_pattern_expr_root: LetSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },

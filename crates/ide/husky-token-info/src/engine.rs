@@ -459,7 +459,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::NestedBlockCurl,
                 )
             }
-            SemaExprData::Closure {} => todo!(),
+            SemaExprData::Closure { .. } => todo!(),
         }
     }
 

@@ -93,8 +93,8 @@ impl From<EthCurry> for FlyTerm {
     }
 }
 
-impl From<Category> for FlyTerm {
-    fn from(value: Category) -> Self {
+impl From<Sort> for FlyTerm {
+    fn from(value: Sort) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }

@@ -5,7 +5,7 @@ impl FlyTerm {
         match self.data_inner(db, terms) {
             FlyTermData::TypeOntology { .. }
             | FlyTermData::Hole(_, _)
-            | FlyTermData::Category(_)
+            | FlyTermData::Sort(_)
             | FlyTermData::Ritchie { .. }
             | FlyTermData::Symbol { .. }
             | FlyTermData::Hvar { .. } => self,
@@ -34,9 +34,10 @@ impl FlyTerm {
                 HoleKind::UnspecifiedIntegerType
                 | HoleKind::UnspecifiedFloatType
                 | HoleKind::ImplicitType => FinalDestination::TypeOntology,
-                HoleKind::Any => FinalDestination::AnyOriginal,
+                HoleKind::AnyOriginal => FinalDestination::AnyOriginal,
+                HoleKind::AnyDerived => FinalDestination::AnyDerived,
             },
-            FlyTermData::Category(_) => FinalDestination::Sort,
+            FlyTermData::Sort(_) => FinalDestination::Sort,
             FlyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
             FlyTermData::Symbol { .. } | FlyTermData::Hvar { .. } => FinalDestination::AnyOriginal,
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
@@ -73,7 +74,7 @@ impl FlyTerm {
                 None => todo!(),
             },
             FlyTermData::Hole(hole_kind, _) => 0,
-            FlyTermData::Category(_) => 0,
+            FlyTermData::Sort(_) => 0,
             FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

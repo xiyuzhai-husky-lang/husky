@@ -7,7 +7,7 @@ use husky_entity_tree::{
     helpers::ty_side_trai_for_ty_impl_block_paths_map,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
-use husky_term_prelude::RitchieKind;
+use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
 
 pub struct TraitForTypeImplBlockEthTemplates<'a> {
     trai_side_derive_any: &'a [TraitForTypeImplBlockEthTemplate],
@@ -79,20 +79,23 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
         EthTerm::Hvar(_) => todo!(),
         EthTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
-                RitchieItemKind::Fn => match trai_path.refine(db) {
-                    Left(prelude_trai_path) => {
-                        return Ok(match prelude_trai_path {
-                            PreludeTraitPath::Clone | PreludeTraitPath::Copy => true,
-                            _ => false,
-                        })
-                    }
-                    Right(_) => todo!(),
+                RitchieTypeKind::Item(ritchie_item_kind) => match ritchie_item_kind {
+                    RitchieItemKind::Fn => match trai_path.refine(db) {
+                        Left(prelude_trai_path) => {
+                            return Ok(match prelude_trai_path {
+                                PreludeTraitPath::Clone | PreludeTraitPath::Copy => true,
+                                _ => false,
+                            })
+                        }
+                        Right(_) => todo!(),
+                    },
+                    RitchieItemKind::Gn => todo!(),
+                    RitchieItemKind::Vn => todo!(),
+                    RitchieItemKind::Pn => todo!(),
+                    RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
                 },
-                RitchieItemKind::Gn => todo!(),
-                RitchieItemKind::Vn => todo!(),
-                RitchieItemKind::Pn => todo!(),
-                RitchieItemKind::Qn => todo!(),
-                RitchieItemKind::Bn => todo!(),
+                RitchieTypeKind::Closure(_) => todo!(),
             },
             RitchieKind::Trait(_) => todo!(),
         },

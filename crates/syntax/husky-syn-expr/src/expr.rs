@@ -6,6 +6,7 @@ pub use self::html::*;
 pub use self::list_item::*;
 
 use crate::{closure_parameter::ClosureParameterSyndicate, *};
+use husky_term_prelude::ritchie::RitchieKind;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::PunctuatedSmallList;
 
@@ -52,7 +53,7 @@ pub enum SynExprData {
     Be {
         src: SynExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: SynExprResult<BePatternSynSyndicate>,
+        target: SynExprResult<BePatternSyndicate>,
     },
     Prefix {
         opr: SynPrefixOpr,
@@ -104,7 +105,7 @@ pub enum SynExprData {
         return_ty_syn_expr_idx: Option<SynExprIdx>,
     },
     Closure {
-        ritchie_kind_regional_token_idx: Option<RegionalTokenIdx>,
+        closure_kind_regional_token_idx: Option<RegionalTokenIdx>,
         lvert_regional_token_idx: RegionalTokenIdx,
         parameters: PunctuatedSmallList<
             ClosureParameterSyndicate,

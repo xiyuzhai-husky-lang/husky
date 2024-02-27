@@ -148,7 +148,7 @@ impl SynExprRegionData {
 
     pub fn syn_pattern_expr_current_syn_symbols_mapped<R>(
         &self,
-        syn_pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_expr_idx: PatternSynExprIdx,
         f: impl Fn(CurrentSynSymbolIdx) -> R,
     ) -> IdentPairMap<R> {
         unsafe {
@@ -203,10 +203,10 @@ impl std::ops::Index<SynPatternSymbolIdx> for SynExprRegionData {
         &self.pattern_expr_region[index]
     }
 }
-impl std::ops::Index<SynPatternExprIdx> for SynExprRegionData {
+impl std::ops::Index<PatternSynExprIdx> for SynExprRegionData {
     type Output = SynPatternExprData;
 
-    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }

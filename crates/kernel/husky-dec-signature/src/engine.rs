@@ -249,7 +249,7 @@ impl<'a> DecTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_syn_symbol_signatures_in_parenate_or_lambda_parameter(
         &mut self,
-        parenate_syn_pattern_expr_root: ParenateSynPatternExprRoot,
+        parenate_syn_pattern_expr_root: ParenateParameterSynPatternExprRoot,
         ty: SynExprIdx,
         symbols: CurrentSynSymbolIdxRange,
     ) {

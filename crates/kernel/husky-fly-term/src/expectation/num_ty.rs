@@ -21,8 +21,9 @@ impl ExpectFlyTerm for ExpectNumType {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        None
+    fn destination(&self) -> FlyTermDestination {
+        // todo: refine
+        FlyTermDestination::AnyOriginal
     }
 
     fn resolve(
@@ -49,7 +50,7 @@ impl ExpectFlyTerm for ExpectNumType {
                     },
                     smallvec![],
                 ),
-                HoleKind::ImplicitType | HoleKind::Any => AltNone,
+                HoleKind::ImplicitType | HoleKind::AnyOriginal | HoleKind::AnyDerived => AltNone,
             },
             _ => state.set_err(
                 OriginalFlyTermExpectationError::ExpectedIntType { expectee },

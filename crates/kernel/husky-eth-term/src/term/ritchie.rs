@@ -7,6 +7,7 @@ pub use self::regular::*;
 pub use self::variadic::*;
 
 use super::*;
+use husky_term_prelude::ritchie::RitchieKind;
 
 /// representing term `x -> y`
 #[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]

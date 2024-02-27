@@ -15,14 +15,14 @@ impl<'a> SemaExprEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternExprIdx, ty: FlyTerm) {
+    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: PatternSynExprIdx, ty: FlyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternExprIdx, ty: FlyTerm) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: FlyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
             SynPatternExprData::Literal { .. } => (), // there is no subpattern to infer
             SynPatternExprData::Ident { .. } => (),   // there is no subpattern to infer
@@ -64,7 +64,10 @@ impl<'a> SemaExprEngine<'a> {
         };
         let modifier =
             match *self.syn_expr_region_data.symbol_region()[current_syn_symbol_idx].data() {
-                CurrentSynSymbolData::LetVariable {
+                CurrentSynSymbolData::SimpleClosureParameter {
+                    pattern_symbol_idx, ..
+                }
+                | CurrentSynSymbolData::LetVariable {
                     pattern_symbol_idx, ..
                 }
                 | CurrentSynSymbolData::BeVariable {
@@ -96,6 +99,11 @@ impl<'a> SemaExprEngine<'a> {
             CurrentSynSymbolData::SimpleParenateParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
+            CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolData::SimpleClosureParameter {
+                ident,
+                pattern_symbol_idx,
+            } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSynSymbolData::LetVariable {
                 pattern_symbol_idx, ..
             }
@@ -106,16 +114,11 @@ impl<'a> SemaExprEngine<'a> {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSynSymbolData::LoopVariable { .. } => todo!(),
-            CurrentSynSymbolData::VariadicParenateParameter { ident_token, .. } => todo!(),
             CurrentSynSymbolData::SelfType => todo!(),
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group,
             } => todo!(),
             CurrentSynSymbolData::FieldVariable { ident_token } => todo!(),
-            CurrentSynSymbolData::SimpleClosureParameter {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
         }
     }
 
@@ -141,7 +144,7 @@ impl<'a> SemaExprEngine<'a> {
         }
     }
 
-    fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> Option<FlyTerm> {
+    fn get_pattern_expr_ty(&self, pattern_expr_idx: PatternSynExprIdx) -> Option<FlyTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty().ok().copied())

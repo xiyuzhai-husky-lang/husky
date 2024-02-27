@@ -1,5 +1,4 @@
 use super::*;
-use husky_eth_term::term::application::EthApplication;
 
 impl FlyTerm {
     #[inline(always)]
@@ -44,7 +43,7 @@ impl FlyTerm {
                     FlyTermData::Symbol { .. } => todo!(),
                     FlyTermData::Hvar { .. } => todo!(),
                     FlyTermData::TypeVariant { .. } => todo!(),
-                    FlyTermData::Category(_)
+                    FlyTermData::Sort(_)
                     | FlyTermData::Literal(_)
                     | FlyTermData::Curry { .. }
                     | FlyTermData::Ritchie { .. } => unreachable!(),

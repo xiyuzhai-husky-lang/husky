@@ -37,14 +37,14 @@ impl DecTerm {
         }
     }
 
-    pub const PROP: DecTerm = DecTerm::Category(Category::new(Universe::new(0)));
+    pub const PROP: DecTerm = DecTerm::Category(Sort::new(Universe::new(0)));
 
-    pub const TYPE: DecTerm = DecTerm::Category(Category::new(Universe::new(1)));
+    pub const TYPE: DecTerm = DecTerm::Category(Sort::new(Universe::new(1)));
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecTermFamily {
-    Category(Category),
+    Category(Sort),
     TypePath(TypePath),
     Other,
 }

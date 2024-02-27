@@ -50,11 +50,11 @@ pub enum SynExprRootKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynPatternExprRoot {
     kind: SynPatternExprRootKind,
-    syn_pattern_expr_idx: SynPatternExprIdx,
+    syn_pattern_expr_idx: PatternSynExprIdx,
 }
 
-impl From<ParenateSynPatternExprRoot> for SynPatternExprRoot {
-    fn from(root: ParenateSynPatternExprRoot) -> Self {
+impl From<ParenateParameterSynPatternExprRoot> for SynPatternExprRoot {
+    fn from(root: ParenateParameterSynPatternExprRoot) -> Self {
         SynPatternExprRoot {
             kind: SynPatternExprRootKind::Parenate,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
@@ -62,8 +62,17 @@ impl From<ParenateSynPatternExprRoot> for SynPatternExprRoot {
     }
 }
 
-impl From<LetSynPatternExprRoot> for SynPatternExprRoot {
-    fn from(root: LetSynPatternExprRoot) -> Self {
+impl From<ClosureSynPatternExprRoot> for SynPatternExprRoot {
+    fn from(root: ClosureSynPatternExprRoot) -> Self {
+        SynPatternExprRoot {
+            kind: SynPatternExprRootKind::Parenate,
+            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        }
+    }
+}
+
+impl From<LetPatternSynExprRoot> for SynPatternExprRoot {
+    fn from(root: LetPatternSynExprRoot) -> Self {
         SynPatternExprRoot {
             kind: SynPatternExprRootKind::Let,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
@@ -102,7 +111,7 @@ pub enum SynPatternExprRootKind {
 impl SynPatternExprRoot {
     pub(crate) fn new(
         kind: SynPatternExprRootKind,
-        syn_pattern_expr_idx: SynPatternExprIdx,
+        syn_pattern_expr_idx: PatternSynExprIdx,
         ctx: &mut SynExprContext,
     ) -> Self {
         let slf = Self {
@@ -113,7 +122,7 @@ impl SynPatternExprRoot {
         slf
     }
 
-    pub fn syn_pattern_expr_idx(self) -> SynPatternExprIdx {
+    pub fn syn_pattern_expr_idx(self) -> PatternSynExprIdx {
         self.syn_pattern_expr_idx
     }
 

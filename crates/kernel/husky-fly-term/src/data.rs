@@ -8,10 +8,9 @@ pub(crate) use self::solid::*;
 
 use crate::*;
 use husky_dec_term::term::HvarIndex;
-use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
-use husky_term_prelude::literal::Literal;
+use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::Toolchain;
 
 #[salsa::debug_with_db]
@@ -34,7 +33,7 @@ pub enum FlyTermData<'a> {
         ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(Category),
+    Sort(Sort),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
@@ -105,9 +104,9 @@ impl<'a> FlyTermData<'a> {
                 HoleKind::UnspecifiedIntegerType => "_i".to_string(),
                 HoleKind::UnspecifiedFloatType => "_f".to_string(),
                 HoleKind::ImplicitType => "_t".to_string(),
-                HoleKind::Any => "_a".to_string(),
+                HoleKind::AnyOriginal | HoleKind::AnyDerived => "_a".to_string(),
             },
-            FlyTermData::Category(_) => "Type".to_string(),
+            FlyTermData::Sort(_) => "Type".to_string(),
             FlyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
@@ -145,7 +144,7 @@ pub enum FlyBaseTypeData<'a> {
         ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(Category),
+    Category(Sort),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
@@ -232,7 +231,7 @@ impl FlyTerm {
             FlyBaseTypeData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => Ok(Some(true)),
                 HoleKind::ImplicitType => todo!(),
-                HoleKind::Any => todo!(),
+                HoleKind::AnyOriginal | HoleKind::AnyDerived => todo!(),
             },
             FlyBaseTypeData::Category(_) => Ok(None),
             FlyBaseTypeData::Ritchie {

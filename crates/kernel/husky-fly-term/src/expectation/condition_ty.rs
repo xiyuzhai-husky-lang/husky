@@ -25,7 +25,7 @@ impl ExpectFlyTerm for ExpectConditionType {
         FinalDestination::TypeOntology
     }
 
-    fn destination(&self) -> Option<FlyTerm> {
+    fn destination(&self) -> FlyTermDestination {
         todo!()
     }
 

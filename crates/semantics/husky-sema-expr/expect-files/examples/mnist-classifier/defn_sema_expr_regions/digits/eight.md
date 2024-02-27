@@ -1314,7 +1314,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
@@ -1650,7 +1650,7 @@
                                     be_regional_token_idx: RegionalTokenIdx(
                                         32,
                                     ),
-                                    target: BePatternSynSyndicate {
+                                    target: BePatternSyndicate {
                                         pattern_expr_root: BeSynPatternExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
@@ -1927,7 +1927,7 @@
                                             be_regional_token_idx: RegionalTokenIdx(
                                                 32,
                                             ),
-                                            target: BePatternSynSyndicate {
+                                            target: BePatternSyndicate {
                                                 pattern_expr_root: BeSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 3,
                                                 },
@@ -2040,7 +2040,7 @@
                                             be_regional_token_idx: RegionalTokenIdx(
                                                 20,
                                             ),
-                                            target: BePatternSynSyndicate {
+                                            target: BePatternSyndicate {
                                                 pattern_expr_root: BeSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 2,
                                                 },

@@ -25,10 +25,10 @@ impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
     }
 }
 
-impl std::ops::Index<SynPatternExprIdx> for SynExprRangeRegion {
+impl std::ops::Index<PatternSynExprIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -65,10 +65,10 @@ impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SynExprRangeCalcula
     }
 }
 
-impl<'a> std::ops::Index<SynPatternExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PatternSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: SynPatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -392,7 +392,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 rcurl_regional_token.regional_token_idx(),
             ),
             SynExprData::Closure {
-                ritchie_kind_regional_token_idx,
+                closure_kind_regional_token_idx: ritchie_kind_regional_token_idx,
                 lvert_regional_token_idx: lpar_regional_token_idx,
                 body,
                 ..

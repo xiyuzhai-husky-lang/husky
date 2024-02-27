@@ -314,7 +314,8 @@ impl FlyTerms {
             HoleKind::UnspecifiedIntegerType => term_menu.i32_ty_ontology().into(),
             HoleKind::UnspecifiedFloatType => term_menu.f32_ty_ontology().into(),
             HoleKind::ImplicitType => return, // ad hoc
-            HoleKind::Any => return,          // ad hoc
+            HoleKind::AnyOriginal => return,  // ad hoc
+            HoleKind::AnyDerived => return,   // ad hoc
         };
         self.fill_hole(db, hole, term)
     }

@@ -3,6 +3,7 @@ use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::PreludeIndirectionTypePath;
 use husky_hir_ty::{instantiation::HirTermSvarResolution, ritchie::HirRitchieType, HirConstSvar};
+use husky_term_prelude::ritchie::RitchieTypeKind;
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
@@ -62,7 +63,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
 impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
-        builder.word(self.ritchie_ty_kind(db).code());
+        match self.ritchie_ty_kind(db) {
+            RitchieTypeKind::Item(ritchie_ty_kind) => builder.word(ritchie_ty_kind.code()),
+            RitchieTypeKind::Closure(_) => unreachable!(),
+        }
         builder.bracketed_comma_list(RustDelimiter::Par, self.parameters(db).iter());
         builder.punctuation(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)

@@ -38,7 +38,7 @@ impl FlyTerms {
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(_) => HoleKind::Any,
+            EthTerm::Symbol(_) => HoleKind::AnyOriginal,
             EthTerm::Hvar(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(cat) => {
@@ -89,7 +89,7 @@ impl FlyTerms {
                     ty_ethereal_term,
                 } => todo!(),
                 FlyTermData::Hole(_, _) => todo!(),
-                FlyTermData::Category(cat) => {
+                FlyTermData::Sort(cat) => {
                     if cat.universe().raw() != 1 {
                         // maybe we need to consider universe
                         todo!()
@@ -101,7 +101,7 @@ impl FlyTerms {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FlyTermData::Symbol { .. } => HoleKind::Any,
+                FlyTermData::Symbol { .. } => HoleKind::AnyOriginal,
                 FlyTermData::Hvar { .. } => todo!(),
                 _ => unreachable!(),
             },

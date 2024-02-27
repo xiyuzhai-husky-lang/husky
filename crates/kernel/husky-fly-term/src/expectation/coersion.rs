@@ -135,8 +135,8 @@ impl ExpectFlyTerm for ExpectCoersion {
         self.ty_expected().final_destination_inner(db, terms)
     }
 
-    fn destination(&self) -> Option<FlyTerm> {
-        Some(self.ty_expected())
+    fn destination(&self) -> FlyTermDestination {
+        FlyTermDestination::Specific(self.ty_expected())
     }
 
     fn resolve(

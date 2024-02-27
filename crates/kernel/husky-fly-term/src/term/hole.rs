@@ -1,4 +1,5 @@
 use super::*;
+use idx_arena::ArenaIdx;
 
 /// source
 ///
@@ -7,6 +8,8 @@ use super::*;
 #[enum_class::from_variants]
 pub enum HoleSource {
     Expr(SynExprIdx),
+    SemaExpr(ArenaIdx<()>),
+    Pattern(PatternSynExprIdx),
     Expectation(FlyTermExpectationIdx),
 }
 
@@ -23,7 +26,8 @@ pub enum HoleKind {
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
     ImplicitType,
-    Any,
+    AnyOriginal,
+    AnyDerived,
 }
 
 impl HolTerm {

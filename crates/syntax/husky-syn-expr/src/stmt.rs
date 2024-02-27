@@ -17,7 +17,7 @@ use parsec::IsStreamParser;
 pub enum SynStmtData {
     Let {
         let_token: LetRegionalToken,
-        let_variables_pattern: SynExprResult<LetPatternSynSyndicate>,
+        let_variables_pattern: SynExprResult<LetPatternSyndicate>,
         assign_token: SynExprResult<EqRegionalToken>,
         initial_value: SynExprIdx,
     },

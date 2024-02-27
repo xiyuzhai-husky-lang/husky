@@ -185,53 +185,19 @@
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
                     path: TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 419,
+                            },
+                        ),
                     ),
                     hir_decl: TraitForTypeMethodFnHirDecl {
                         path: TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 419,
+                                },
+                            ),
                         ),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -261,28 +227,11 @@
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssocItem(
-                                                    AssocItemPathData::TraitForTypeItem(
-                                                        TraitForTypeItemPathData {
-                                                            impl_block: TraitForTypeImplBlock {
-                                                                data: TraitForTypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodRitchie(
-                                                                Fn,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 419,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -324,28 +273,11 @@
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssocItem(
-                                                        AssocItemPathData::TraitForTypeItem(
-                                                            TraitForTypeItemPathData {
-                                                                impl_block: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_sketch: TypeSketch::Path(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                        ),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodRitchie(
-                                                                    Fn,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 419,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -413,26 +345,11 @@
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::visual`,
-                                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `visualize`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 416,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {

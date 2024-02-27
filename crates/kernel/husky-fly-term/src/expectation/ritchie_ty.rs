@@ -1,4 +1,5 @@
 use super::*;
+use husky_term_prelude::ritchie::RitchieTypeKind;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::debug_with_db]
@@ -29,8 +30,9 @@ impl ExpectFlyTerm for ExpectEqsRitchieType {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        None
+    fn destination(&self) -> FlyTermDestination {
+        // todo: refine
+        FlyTermDestination::AnyOriginal
     }
 
     fn resolve(
@@ -60,7 +62,7 @@ impl ExpectFlyTerm for ExpectEqsRitchieType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = FlyTermDb)]
 pub struct ExpectEqsRitchieTypeOutcome {
-    pub(crate) ritchie_ty_kind: RitchieItemKind,
+    pub(crate) ritchie_ty_kind: RitchieTypeKind,
     pub(crate) parameter_contracted_tys: SmallVec<[FlyRitchieParameter; 2]>,
     pub(crate) return_ty: FlyTerm,
 }
@@ -74,7 +76,7 @@ impl ExpectEqsRitchieTypeOutcome {
         self.return_ty
     }
 
-    pub fn ritchie_ty_kind(&self) -> RitchieItemKind {
+    pub fn ritchie_ty_kind(&self) -> RitchieTypeKind {
         self.ritchie_ty_kind
     }
 }

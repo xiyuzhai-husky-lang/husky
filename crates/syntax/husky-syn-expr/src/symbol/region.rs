@@ -44,7 +44,7 @@ pub struct VariableRegionData {
 pub enum SyndicateTypeConstraint {
     TemplateTypeParameter,
     SimpleParenateParameter {
-        syn_pattern_root: ParenateSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternExprRoot,
         ty: SynExprIdx,
     },
     VariadicParenateParameter {
@@ -56,7 +56,7 @@ pub enum SyndicateTypeConstraint {
         ty: SynExprIdx,
     },
     LetPattern {
-        pattern: LetSynPatternExprRoot,
+        pattern: LetPatternSynExprRoot,
         ty: SynExprIdx,
     },
     FieldVariable {

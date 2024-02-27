@@ -209,7 +209,7 @@ struct LazyStmtAssocTraceRegistry<'a> {
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprEssence>,
     lazy_expr_traces_issued: VecPairMap<SemaExprIdx, Trace>,
     lazy_pattern_expr_trace_path_registry: TracePathRegistry<LazyPatternExprEssence>,
-    lazy_pattern_expr_traces_issued: VecPairMap<SynPatternExprIdx, Trace>,
+    lazy_pattern_expr_traces_issued: VecPairMap<PatternSynExprIdx, Trace>,
 }
 
 impl<'a> LazyStmtAssocTraceRegistry<'a> {

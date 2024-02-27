@@ -1,6 +1,7 @@
 mod assoc_item;
 mod binary;
 mod box_list;
+mod closure;
 mod current_syn_symbol;
 mod field;
 mod function_application;
@@ -23,7 +24,7 @@ pub use self::ritchie_call_arguments_ty::*;
 pub(crate) use self::suffix::*;
 pub use self::template_argument::*;
 
-use crate::*;
+use crate::{obelisks::closure_parameter::ClosureParameterObelisk, *};
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_eth_signature::TraitForTypeAssocTypeEtherealSignature;
@@ -46,7 +47,7 @@ use husky_syn_expr::{
     entity_path::PrincipalEntityPathSynExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
-use husky_term_prelude::RitchieKind;
+use husky_term_prelude::ritchie::RitchieKind;
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
@@ -108,7 +109,7 @@ pub enum SemaExprData {
     Be {
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
-        target: BePatternSynSyndicate,
+        target: BePatternSyndicate,
     },
     Prefix {
         opr: SemaPrefixOpr,
@@ -266,7 +267,8 @@ pub enum SemaExprData {
         empty_html_ket: EmptyHtmlKetRegionalToken,
     },
     Closure {
-        // todo
+        params: Vec<ClosureParameterObelisk>,
+        body: SemaExprIdx,
     },
     /// sorry is for comptime (say proof) terms
     Sorry {
@@ -399,6 +401,12 @@ impl<'a> std::ops::Index<SemaExprIdx> for SemaExprArenaRef<'a> {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
+impl Into<HoleSource> for SemaExprIdx {
+    fn into(self) -> HoleSource {
+        HoleSource::SemaExpr(unsafe { std::mem::transmute(self) })
+    }
+}
+
 impl SemaExprIdx {
     /// panic if there is any error
     ///
@@ -476,10 +484,7 @@ impl<'a> SemaExprEngine<'a> {
                 | SynExprRootKind::ExplicitParameterType
                 | SynExprRootKind::TypeAliasTypeTerm
                 | SynExprRootKind::AssocTypeTerm => {
-                    let sema_expr_idx = self.build_sema_expr(
-                        root.syn_expr_idx(),
-                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                    );
+                    let sema_expr_idx = self.build_sema_expr(root.syn_expr_idx(), ExpectSort::TYPE);
                     self.infer_expr_term(sema_expr_idx);
                     sema_expr_idx
                 }
@@ -599,7 +604,7 @@ impl<'a> SemaExprEngine<'a> {
             _ => None,
         };
         let sema_expr_idx =
-            self.alloc_sema_expr(data_result, immediate_ty_result, expectation_idx_and_ty);
+            self.alloc_expr(data_result, immediate_ty_result, expectation_idx_and_ty);
         (sema_expr_idx, expectation_idx_and_ty)
     }
 
@@ -622,7 +627,7 @@ impl<'a> SemaExprEngine<'a> {
             ty.into(),
             expr_ty_expectation,
         );
-        let sema_expr_idx = self.alloc_sema_expr(
+        let sema_expr_idx = self.alloc_expr(
             Ok(SemaExprData::Unit {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
@@ -1012,10 +1017,10 @@ impl<'a> SemaExprEngine<'a> {
                         }
                     }
                     TypePathDisambiguation::InstanceConstructor => {
-                        let element_ty: FlyTerm = match expr_ty_expectation
-                            .destination_term_data(self.db(), self.fly_term_region().terms())
-                        {
-                            Some(ty_pattern) => match ty_pattern {
+                        let element_ty: FlyTerm = match expr_ty_expectation.destination() {
+                            FlyTermDestination::Specific(ty_pattern) => match ty_pattern
+                                .data_inner(self.db(), self.fly_term_region().terms())
+                            {
                                 FlyTermData::Literal(_) => todo!(),
                                 FlyTermData::TypeOntology {
                                     refined_ty_path,
@@ -1042,7 +1047,7 @@ impl<'a> SemaExprEngine<'a> {
                                     ty_ethereal_term,
                                 } => todo!(),
                                 FlyTermData::Hole(_, _) => todo!(),
-                                FlyTermData::Category(_) => todo!(),
+                                FlyTermData::Sort(_) => todo!(),
                                 FlyTermData::Ritchie {
                                     ritchie_kind,
                                     parameter_contracted_tys,
@@ -1053,7 +1058,12 @@ impl<'a> SemaExprEngine<'a> {
                                 FlyTermData::Hvar { .. } => todo!(),
                                 FlyTermData::TypeVariant { path } => todo!(),
                             },
-                            None => self.new_hole(syn_expr_idx, HoleKind::Any).into(),
+                            FlyTermDestination::AnyOriginal => {
+                                self.new_hole(syn_expr_idx, HoleKind::AnyOriginal).into()
+                            }
+                            FlyTermDestination::AnyDerived => {
+                                self.new_hole(syn_expr_idx, HoleKind::AnyDerived).into()
+                            }
                         };
                         (
                             Ok(SemaExprData::NewList {
@@ -1099,7 +1109,7 @@ impl<'a> SemaExprEngine<'a> {
             },
             SynExprData::Block { stmts } => {
                 let (stmts, block_ty) =
-                    self.build_sema_block_with_its_ty_returned(stmts, expr_ty_expectation.clone());
+                    self.build_sema_stmts_with_its_ty_returned(stmts, expr_ty_expectation.clone());
                 (
                     Ok(SemaExprData::Block { stmts }),
                     block_ty.ok_or(DerivedSemaExprTypeError::BlockTypeError.into()),
@@ -1111,7 +1121,7 @@ impl<'a> SemaExprEngine<'a> {
                 rcurl_regional_token,
             } => {
                 let (stmts, block_ty) =
-                    self.build_sema_block_with_its_ty_returned(stmts, expr_ty_expectation.clone());
+                    self.build_sema_stmts_with_its_ty_returned(stmts, expr_ty_expectation.clone());
                 (
                     Ok(SemaExprData::NestedBlock {
                         lcurl_regional_token_idx,
@@ -1176,9 +1186,18 @@ impl<'a> SemaExprEngine<'a> {
                     Ok(self.term_menu().ty0().into()),
                 )
             }
-            SynExprData::Closure { .. } => (
-                Ok(SemaExprData::Closure {}),
-                Err(OriginalSemaExprTypeError::ClosureTypeTodo.into()),
+            SynExprData::Closure {
+                closure_kind_regional_token_idx,
+                ref parameters,
+                return_ty,
+                body,
+                ..
+            } => self.build_closure_expr(
+                closure_kind_regional_token_idx,
+                parameters.elements(),
+                return_ty.map(|(_, expr, _)| expr),
+                body,
+                expr_ty_expectation,
             ),
             SynExprData::Sorry { regional_token_idx } => (
                 Ok(SemaExprData::Sorry { regional_token_idx }),

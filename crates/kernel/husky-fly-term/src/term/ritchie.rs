@@ -8,7 +8,8 @@ pub use self::variadic::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
+use husky_eth_term::term::ritchie::EtherealRitchieParameter;
+use husky_term_prelude::ritchie::RitchieKind;
 
 impl FlyTerm {
     pub fn new_ritchie(

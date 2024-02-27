@@ -28,8 +28,9 @@ impl ExpectFlyTerm for ExpectFinalDestination {
     }
 
     #[inline(always)]
-    fn destination(&self) -> Option<FlyTerm> {
-        None
+    fn destination(&self) -> FlyTermDestination {
+        // todo: refine
+        FlyTermDestination::AnyOriginal
     }
 
     fn resolve(

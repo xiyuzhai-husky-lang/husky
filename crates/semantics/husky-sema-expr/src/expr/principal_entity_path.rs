@@ -136,13 +136,15 @@ impl<'a> SemaExprEngine<'a> {
         match path.eth_template(db)? {
             TypeVariantEthTemplate::Props(_) => todo!(),
             TypeVariantEthTemplate::Unit(_) => match expr_ty_expectation.destination() {
-                Some(destination) => match destination.data(self) {
+                FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
+                    Ok(path.ty(db)?.into())
+                }
+                FlyTermDestination::Specific(destination) => match destination.data(self) {
                     FlyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
                         Ok(destination)
                     }
                     _ => Ok(path.ty(db)?.into()),
                 },
-                None => Ok(path.ty(db)?.into()),
             },
             TypeVariantEthTemplate::Tuple(_) => Ok(path.ty(db)?.into()),
         }

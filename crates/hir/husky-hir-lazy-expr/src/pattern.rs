@@ -1,6 +1,6 @@
 use husky_hir_ty::HirType;
-use husky_sema_expr::LetPatternSemaSyndicate;
-use husky_syn_expr::{BePatternSynSyndicate, SynPatternExprData};
+use husky_sema_expr::LetVariableObelisk;
+use husky_syn_expr::{BePatternSyndicate, SynPatternExprData};
 
 use crate::*;
 
@@ -25,7 +25,7 @@ impl HirLazyLetVariablesPattern {
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_let_variables_pattern(
         &mut self,
-        let_variables_pattern: &LetPatternSemaSyndicate,
+        let_variables_pattern: &LetVariableObelisk,
     ) -> HirLazyLetVariablesPattern {
         HirLazyLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
@@ -50,7 +50,7 @@ pub enum HirLazyBeVariablesPattern {
     Some,
 }
 
-impl ToHirLazy for BePatternSynSyndicate {
+impl ToHirLazy for BePatternSyndicate {
     type Output = HirLazyBeVariablesPattern;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
