@@ -33,19 +33,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 20,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::array::Array`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },

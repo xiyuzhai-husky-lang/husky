@@ -24,17 +24,11 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
-                            ItemPathId {
-                                data: ItemPathData::TypeVariant(
-                                    TypeVariantPathData {
-                                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        ident: `Break`,
-                                        index: U8(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 101,
+                                },
+                            ),
                         ),
                     ),
                     instantiation: JavInstantiation {
@@ -110,17 +104,11 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
-                            ItemPathId {
-                                data: ItemPathData::TypeVariant(
-                                    TypeVariantPathData {
-                                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        ident: `Continue`,
-                                        index: U8(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 100,
+                                },
+                            ),
                         ),
                     ),
                     instantiation: JavInstantiation {
@@ -198,17 +186,11 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
-                            ItemPathId {
-                                data: ItemPathData::TypeVariant(
-                                    TypeVariantPathData {
-                                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        ident: `Break`,
-                                        index: U8(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 101,
+                                },
+                            ),
                         ),
                     ),
                     instantiation: JavInstantiation {
@@ -266,17 +248,11 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeVariantConstructor(
                         TypeVariantPath(
-                            ItemPathId {
-                                data: ItemPathData::TypeVariant(
-                                    TypeVariantPathData {
-                                        parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        ident: `Continue`,
-                                        index: U8(
-                                            0,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 100,
+                                },
+                            ),
                         ),
                     ),
                     instantiation: JavInstantiation {

@@ -2904,7 +2904,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2940,7 +2940,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -3155,7 +3155,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -3191,7 +3191,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -3352,17 +3352,11 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Left`,
-                                                        index: U8(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3371,17 +3365,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3417,17 +3405,11 @@
                                     path_expr_idx: 6,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Up`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3436,17 +3418,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3510,17 +3486,11 @@
                                     path_expr_idx: 8,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Down`,
-                                                        index: U8(
-                                                            2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3529,17 +3499,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3624,17 +3588,11 @@
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Right`,
-                                                        index: U8(
-                                                            3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3643,17 +3601,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3689,17 +3641,11 @@
                                     path_expr_idx: 12,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Left`,
-                                                        index: U8(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3708,17 +3654,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3754,17 +3694,11 @@
                                     path_expr_idx: 14,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Up`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3773,17 +3707,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3896,17 +3824,11 @@
                                     path_expr_idx: 16,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Right`,
-                                                        index: U8(
-                                                            3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3915,17 +3837,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3961,17 +3877,11 @@
                                     path_expr_idx: 18,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Up`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -3980,17 +3890,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4224,7 +4128,7 @@
                                                     28,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 6,
                                                 },
@@ -4249,7 +4153,7 @@
                                                     36,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 7,
                                                 },
@@ -4274,7 +4178,7 @@
                                                     42,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 8,
                                                 },
@@ -4479,7 +4383,7 @@
                                                     58,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 11,
                                                 },
@@ -4504,7 +4408,7 @@
                                                     64,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 14,
                                                 },
@@ -4529,7 +4433,7 @@
                                                     72,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 15,
                                                 },
@@ -4554,7 +4458,7 @@
                                                     78,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 16,
                                                 },
@@ -4697,7 +4601,7 @@
                                                     88,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 20,
                                                 },
@@ -4722,7 +4626,7 @@
                                                     96,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 21,
                                                 },
@@ -4747,7 +4651,7 @@
                                                     102,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 22,
                                                 },
@@ -4813,8 +4717,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -4852,8 +4756,8 @@
                                             10,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -4906,7 +4810,7 @@
                                                     22,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 3,
                                                 },
@@ -4931,7 +4835,7 @@
                                                     46,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 9,
                                                 },
@@ -4956,7 +4860,7 @@
                                                     52,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 10,
                                                 },
@@ -4981,7 +4885,7 @@
                                                     82,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 17,
                                                 },
@@ -5006,7 +4910,7 @@
                                                     106,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 23,
                                                 },
@@ -6048,11 +5952,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -6063,7 +5969,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -6240,11 +6146,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -6255,7 +6163,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -7624,7 +7532,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -7635,7 +7543,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -7677,7 +7585,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -8148,8 +8056,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -8202,7 +8110,7 @@
                                                     29,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 5,
                                                 },
@@ -8227,7 +8135,7 @@
                                                     39,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 6,
                                                 },
@@ -8252,7 +8160,7 @@
                                                     44,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 7,
                                                 },
@@ -8742,7 +8650,7 @@
                         data: [
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             0,
                                         ),
@@ -8774,7 +8682,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             0,
                                         ),
@@ -8881,7 +8789,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             0,
                                         ),
@@ -9212,7 +9120,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             0,
                                         ),
@@ -9653,7 +9561,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -9689,7 +9597,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -9904,7 +9812,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -9940,7 +9848,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -10101,17 +10009,11 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Down`,
-                                                        index: U8(
-                                                            2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10120,17 +10022,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10166,17 +10062,11 @@
                                     path_expr_idx: 6,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Left`,
-                                                        index: U8(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10185,17 +10075,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10308,17 +10192,11 @@
                                     path_expr_idx: 8,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Right`,
-                                                        index: U8(
-                                                            3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10327,17 +10205,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10373,17 +10245,11 @@
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Down`,
-                                                        index: U8(
-                                                            2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10392,17 +10258,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10487,17 +10347,11 @@
                                     path_expr_idx: 14,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Left`,
-                                                        index: U8(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10506,17 +10360,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10552,17 +10400,11 @@
                                     path_expr_idx: 18,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Right`,
-                                                        index: U8(
-                                                            3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10571,17 +10413,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10645,17 +10481,11 @@
                                     path_expr_idx: 20,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Left`,
-                                                        index: U8(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10664,17 +10494,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                                index: U8(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 18,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10787,17 +10611,11 @@
                                     path_expr_idx: 22,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Up`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10806,17 +10624,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10901,17 +10713,11 @@
                                     path_expr_idx: 26,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Up`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10920,17 +10726,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                                index: U8(
-                                                                    0,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 17,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -10966,17 +10766,11 @@
                                     path_expr_idx: 30,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Down`,
-                                                        index: U8(
-                                                            2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -10985,17 +10779,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -11136,17 +10924,11 @@
                                     path_expr_idx: 32,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Right`,
-                                                        index: U8(
-                                                            3,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11155,17 +10937,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                                index: U8(
-                                                                    3,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 20,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -11201,17 +10977,11 @@
                                     path_expr_idx: 34,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        ident: `Down`,
-                                                        index: U8(
-                                                            2,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11220,17 +10990,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                                index: U8(
-                                                                    2,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 19,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -11464,7 +11228,7 @@
                                                     28,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 4,
                                                 },
@@ -11489,7 +11253,7 @@
                                                     34,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 7,
                                                 },
@@ -11514,7 +11278,7 @@
                                                     42,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 8,
                                                 },
@@ -11719,7 +11483,7 @@
                                                     70,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 13,
                                                 },
@@ -11744,7 +11508,7 @@
                                                     78,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 14,
                                                 },
@@ -11769,7 +11533,7 @@
                                                     86,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 15,
                                                 },
@@ -11881,7 +11645,7 @@
                                                     52,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 10,
                                                 },
@@ -11906,7 +11670,7 @@
                                                     58,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 11,
                                                 },
@@ -11931,7 +11695,7 @@
                                                     64,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 12,
                                                 },
@@ -11956,7 +11720,7 @@
                                                     90,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 16,
                                                 },
@@ -11981,7 +11745,7 @@
                                                     96,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 17,
                                                 },
@@ -12155,7 +11919,7 @@
                                                     122,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 24,
                                                 },
@@ -12180,7 +11944,7 @@
                                                     130,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 25,
                                                 },
@@ -12205,7 +11969,7 @@
                                                     138,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 26,
                                                 },
@@ -12286,7 +12050,7 @@
                                                     106,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 22,
                                                 },
@@ -12311,7 +12075,7 @@
                                                     116,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 23,
                                                 },
@@ -12336,7 +12100,7 @@
                                                     142,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 27,
                                                 },
@@ -12479,7 +12243,7 @@
                                                     152,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 31,
                                                 },
@@ -12504,7 +12268,7 @@
                                                     160,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 32,
                                                 },
@@ -12529,7 +12293,7 @@
                                                     166,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 33,
                                                 },
@@ -12595,8 +12359,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -12634,8 +12398,8 @@
                                             10,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -12688,7 +12452,7 @@
                                                     22,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 3,
                                                 },
@@ -12713,7 +12477,7 @@
                                                     46,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 9,
                                                 },
@@ -12738,7 +12502,7 @@
                                                     100,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 18,
                                                 },
@@ -12763,7 +12527,7 @@
                                                     146,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 28,
                                                 },
@@ -12788,7 +12552,7 @@
                                                     170,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 34,
                                                 },
@@ -14292,11 +14056,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -14307,7 +14073,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -14484,11 +14250,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -14499,7 +14267,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -15737,7 +15505,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -17368,7 +17136,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -17398,7 +17166,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -17497,8 +17265,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -17536,8 +17304,8 @@
                                             9,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -17575,8 +17343,8 @@
                                             18,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -18347,11 +18115,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -18362,7 +18132,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22201,7 +21971,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -23073,7 +22843,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -23109,7 +22879,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -23145,7 +22915,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24568,7 +24338,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24604,7 +24374,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24640,7 +24410,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24676,7 +24446,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24891,7 +24661,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24927,7 +24697,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -26843,7 +26613,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: At,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27100,7 +26870,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -27280,7 +27050,7 @@
                                             ),
                                             parenate_parameters: [
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -27301,7 +27071,7 @@
                                                     },
                                                 ),
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -27522,7 +27292,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -27558,7 +27328,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -27656,7 +27426,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27667,7 +27437,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -27731,7 +27501,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -28773,7 +28543,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: At,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -28952,7 +28722,7 @@
                                             ),
                                             parenate_parameters: [
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -28973,7 +28743,7 @@
                                                     },
                                                 ),
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -29194,7 +28964,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -29230,7 +29000,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -30449,7 +30219,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: At,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -30628,7 +30398,7 @@
                                             ),
                                             parenate_parameters: [
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -30649,7 +30419,7 @@
                                                     },
                                                 ),
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -30870,7 +30640,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -30906,7 +30676,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -31440,7 +31210,7 @@
                                             ),
                                             parenate_parameters: [
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -31461,7 +31231,7 @@
                                                     },
                                                 ),
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -31682,7 +31452,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -31718,7 +31488,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -31816,7 +31586,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -31827,7 +31597,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -31891,7 +31661,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -35706,7 +35476,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -35996,7 +35766,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -36032,7 +35802,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -36130,7 +35900,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -36141,7 +35911,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -36205,7 +35975,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -36349,8 +36119,8 @@
                                             27,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -36388,8 +36158,8 @@
                                             38,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -36427,8 +36197,8 @@
                                             47,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -36466,8 +36236,8 @@
                                             53,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 6,
                                         },
                                         variables: ArenaIdxRange(
@@ -37415,8 +37185,8 @@
                                             222,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 22,
                                         },
                                         variables: ArenaIdxRange(
@@ -37454,8 +37224,8 @@
                                             235,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 23,
                                         },
                                         variables: ArenaIdxRange(
@@ -37580,7 +37350,7 @@
                                                     430,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 24,
                                                 },
@@ -37605,7 +37375,7 @@
                                                     453,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 25,
                                                 },
@@ -37630,7 +37400,7 @@
                                                     474,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 26,
                                                 },
@@ -37655,7 +37425,7 @@
                                                     484,
                                                 ),
                                             ),
-                                            case_pattern_sema_obelisk: CasePatternSemaSyndicate {
+                                            case_pattern_sema_obelisk: CaseVariableObelisk {
                                                 syn_pattern_root: CaseSynPatternExprRoot {
                                                     syn_pattern_expr_idx: 27,
                                                 },
@@ -37791,8 +37561,8 @@
                                             99,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 7,
                                         },
                                         variables: ArenaIdxRange(
@@ -37848,8 +37618,8 @@
                                             109,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 8,
                                         },
                                         variables: ArenaIdxRange(
@@ -37887,8 +37657,8 @@
                                             114,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 9,
                                         },
                                         variables: ArenaIdxRange(
@@ -37926,8 +37696,8 @@
                                             126,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 10,
                                         },
                                         variables: ArenaIdxRange(
@@ -37965,8 +37735,8 @@
                                             138,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 11,
                                         },
                                         variables: ArenaIdxRange(
@@ -38004,8 +37774,8 @@
                                             148,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 12,
                                         },
                                         variables: ArenaIdxRange(
@@ -38043,8 +37813,8 @@
                                             160,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 13,
                                         },
                                         variables: ArenaIdxRange(
@@ -38082,8 +37852,8 @@
                                             164,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 14,
                                         },
                                         variables: ArenaIdxRange(
@@ -38121,8 +37891,8 @@
                                             168,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 15,
                                         },
                                         variables: ArenaIdxRange(
@@ -38160,8 +37930,8 @@
                                             172,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 16,
                                         },
                                         variables: ArenaIdxRange(
@@ -38199,8 +37969,8 @@
                                             177,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 17,
                                         },
                                         variables: ArenaIdxRange(
@@ -38238,8 +38008,8 @@
                                             182,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 18,
                                         },
                                         variables: ArenaIdxRange(
@@ -38277,8 +38047,8 @@
                                             187,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 19,
                                         },
                                         variables: ArenaIdxRange(
@@ -38316,8 +38086,8 @@
                                             193,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 20,
                                         },
                                         variables: ArenaIdxRange(
@@ -38355,8 +38125,8 @@
                                             199,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 21,
                                         },
                                         variables: ArenaIdxRange(
@@ -38545,8 +38315,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -38602,8 +38372,8 @@
                                             11,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -41712,7 +41482,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -41813,7 +41583,9 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [],
                                                     },
@@ -43627,7 +43399,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -44152,11 +43924,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -44167,7 +43941,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -44178,7 +43952,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45231,11 +45005,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45246,7 +45022,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45257,7 +45033,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45268,7 +45044,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45553,11 +45329,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -45568,7 +45346,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -47208,11 +46986,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -47403,11 +47183,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -47418,7 +47200,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -48435,11 +48217,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -48450,7 +48234,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -49575,11 +49359,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -49590,7 +49376,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -50073,11 +49859,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -50088,7 +49876,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -52984,11 +52772,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -52999,7 +52789,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -53311,28 +53101,11 @@
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::raw_contour`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 417,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -53342,28 +53115,11 @@
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::raw_contour`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 417,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -53889,7 +53645,7 @@
                                             ),
                                             parenate_parameters: [
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -53906,7 +53662,7 @@
                                                     },
                                                 ),
                                                 Regular(
-                                                    FlyRitchieRegularParameter {
+                                                    FlyRitchieSimpleParameter {
                                                         contract: Pure,
                                                         ty: FlyTerm {
                                                             place: None,
@@ -54098,7 +53854,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -54124,7 +53880,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -54327,11 +54083,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -54342,7 +54100,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -55285,7 +55043,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -55859,7 +55617,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -55870,7 +55628,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -55918,7 +55676,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -56253,7 +56011,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -56264,7 +56022,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -56312,7 +56070,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -56647,7 +56405,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -56658,7 +56416,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -56706,7 +56464,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57041,7 +56799,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -57052,7 +56810,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -57100,7 +56858,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57392,7 +57150,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57428,7 +57186,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57639,7 +57397,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57675,7 +57433,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57744,7 +57502,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57774,7 +57532,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -57873,8 +57631,8 @@
                                             49,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 6,
                                         },
                                         variables: ArenaIdxRange(
@@ -58036,8 +57794,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -58075,8 +57833,8 @@
                                             10,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -58114,8 +57872,8 @@
                                             17,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -58153,8 +57911,8 @@
                                             24,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -58192,8 +57950,8 @@
                                             31,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -60056,11 +59814,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -60071,7 +59831,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -60120,11 +59880,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -60135,7 +59897,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -60332,11 +60094,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -60347,7 +60111,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -61123,7 +60887,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -61134,7 +60898,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -61176,7 +60940,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -61944,7 +61708,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -62943,7 +62707,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -63320,7 +63084,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -63698,7 +63462,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -64482,7 +64246,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -64859,7 +64623,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -65111,8 +64875,8 @@
                                             19,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -65150,8 +64914,8 @@
                                             30,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -65220,8 +64984,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -65321,8 +65085,8 @@
                                             68,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -65360,8 +65124,8 @@
                                             85,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -68009,7 +67773,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -68977,7 +68741,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -68988,7 +68752,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -69038,7 +68802,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -69141,8 +68905,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -69180,8 +68944,8 @@
                                             11,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -69219,8 +68983,8 @@
                                             22,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(

@@ -136,19 +136,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 21,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::bool`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -266,19 +273,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 22,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::never`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -396,19 +410,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 23,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::unit`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -423,19 +444,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 24,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Trait`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -450,19 +478,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Module`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -477,19 +512,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 26,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -504,19 +546,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 27,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Place`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -531,19 +580,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 28,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },

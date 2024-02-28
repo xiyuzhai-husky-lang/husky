@@ -112,7 +112,7 @@
                         data: [
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -273,17 +273,11 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ident: `Eight`,
-                                                        index: U8(
-                                                            8,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 271,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -292,17 +286,11 @@
                                             path: ItemPath::TypeVariant(
                                                 Room32,
                                                 TypeVariantPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::TypeVariant(
-                                                            TypeVariantPathData {
-                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                ident: `Eight`,
-                                                                index: U8(
-                                                                    8,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 271,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -647,7 +635,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -994,7 +982,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -1059,7 +1047,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),

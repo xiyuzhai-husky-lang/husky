@@ -3,26 +3,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 78,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 78,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -49,13 +37,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 78,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -110,7 +92,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -141,26 +123,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 79,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                        Fn,
+                    )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Fn(
                         MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 79,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                Fn,
+                            )`, (0)),
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -174,8 +148,8 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Ordinary {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -228,13 +202,9 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 79,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -353,7 +323,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -365,7 +335,7 @@ SynNodeDeclSheet {
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -376,11 +346,11 @@ SynNodeDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -422,26 +392,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 80,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 80,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -468,13 +426,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 80,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -529,7 +481,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -560,26 +512,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 81,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -606,13 +546,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 81,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -667,7 +601,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -698,26 +632,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 82,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 82,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -744,13 +666,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 82,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -785,17 +701,11 @@ SynNodeDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Four`,
-                                                                        index: U8(
-                                                                            4,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 267,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -871,17 +781,11 @@ SynNodeDeclSheet {
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Four`,
-                                                                        index: U8(
-                                                                            4,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 267,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -906,7 +810,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -937,26 +841,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 83,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                        Fn,
+                    )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Fn(
                         MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 83,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                Fn,
+                            )`, (0)),
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -970,8 +866,8 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Ordinary {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -1024,13 +920,9 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 83,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -1149,7 +1041,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1161,7 +1053,7 @@ SynNodeDeclSheet {
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1172,11 +1064,11 @@ SynNodeDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -1218,26 +1110,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 84,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                        Fn,
+                    )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Fn(
                         MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 84,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                Fn,
+                            )`, (0)),
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1251,8 +1135,8 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Ordinary {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -1305,13 +1189,9 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 84,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -1430,7 +1310,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1442,7 +1322,7 @@ SynNodeDeclSheet {
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1453,11 +1333,11 @@ SynNodeDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,

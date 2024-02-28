@@ -67,17 +67,11 @@
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `syntax_errors::ast`,
-                                        ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 136,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -87,17 +81,11 @@
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
                         TypeImplBlockPath(
-                            ItemPathId {
-                                data: ItemPathData::ImplBlock(
-                                    ImplBlockPathData::TypeImplBlock(
-                                        TypeImplBlockPathData {
-                                            module_path: `syntax_errors::ast`,
-                                            ty_path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 136,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -199,7 +187,7 @@
                         data: [
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),

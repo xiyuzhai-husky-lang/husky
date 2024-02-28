@@ -4,7 +4,10 @@ mod html;
 pub use self::call_list::*;
 pub use self::html::*;
 
-use crate::{var::rvar::HirEagerRvarIdx, *};
+use crate::{
+    be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
+    var::rvar::HirEagerRvarIdx, *,
+};
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::StaticDispatch,
@@ -129,7 +132,11 @@ pub enum HirEagerExprData {
     Block {
         stmts: HirEagerStmtIdxRange,
     },
-    Closure,
+    Closure {
+        parameters: SmallVec<[HirEagerClosureParameterPattern; 4]>,
+        return_ty: Option<HirType>,
+        body: HirEagerExprIdx,
+    },
     // todo: handle container
     EmptyHtmlTag {
         function_ident: Ident,
@@ -460,7 +467,20 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::NestedBlock { stmts, .. } => HirEagerExprData::Block {
                 stmts: stmts.to_hir_eager(builder),
             },
-            SemaExprData::Closure { .. } => HirEagerExprData::Closure,
+            SemaExprData::Closure {
+                ref parameter_obelisks,
+                return_ty,
+                body,
+                ..
+            } => HirEagerExprData::Closure {
+                parameters: parameter_obelisks
+                    .iter()
+                    .map(|param| param.to_hir_eager(builder))
+                    .collect(),
+                return_ty: return_ty
+                    .map(|(_, return_ty, _)| builder.expr_term_hir_ty(return_ty).unwrap()),
+                body: body.to_hir_eager(builder),
+            },
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
         let ty_place = ty

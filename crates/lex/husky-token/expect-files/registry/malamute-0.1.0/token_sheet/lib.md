@@ -67,7 +67,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -92,7 +92,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -200,7 +200,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -208,7 +208,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -571,7 +571,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -671,7 +671,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -855,7 +855,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -863,7 +863,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -871,7 +871,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -1117,7 +1117,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -1200,7 +1200,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(
@@ -1283,7 +1283,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
         TokenData::Ident(

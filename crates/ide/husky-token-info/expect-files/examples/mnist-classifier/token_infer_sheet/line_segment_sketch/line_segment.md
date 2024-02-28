@@ -37,15 +37,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -64,19 +60,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 47,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Struct,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Struct,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -192,17 +195,26 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 398,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        AssocItem {
-                            assoc_item_kind: TypeItem(
-                                MethodRitchie(
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
                                     Fn,
                                 ),
                             ),
@@ -296,17 +308,26 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TypeItem(
                                 TypeItemSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 399,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        AssocItem {
-                            assoc_item_kind: TypeItem(
-                                MethodRitchie(
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
                                     Fn,
                                 ),
                             ),
@@ -322,7 +343,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),

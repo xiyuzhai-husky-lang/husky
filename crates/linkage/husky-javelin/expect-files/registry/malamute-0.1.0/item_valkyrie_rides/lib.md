@@ -164,28 +164,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::default::Default`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `default`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 147,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -279,26 +262,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `Output`,
-                                    item_kind: AssocType,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 148,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -317,28 +285,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `unveil`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 149,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -353,17 +304,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                            ident: `Known`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -399,17 +344,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                            ident: `Break`,
-                                            index: U8(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -477,17 +416,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                            ident: `Continue`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 100,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -586,26 +519,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `Output`,
-                                    item_kind: AssocType,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 150,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -624,28 +542,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `unveil`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 151,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -660,17 +561,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                            ident: `Break`,
-                                            index: U8(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 101,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -726,17 +621,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                            ident: `Continue`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 100,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {

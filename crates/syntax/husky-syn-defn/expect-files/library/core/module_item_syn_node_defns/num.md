@@ -3,11 +3,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 42,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -17,11 +24,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 130,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 132,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -30,11 +66,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 43,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -44,11 +87,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 131,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 133,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -57,11 +129,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 44,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -71,11 +150,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 132,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 134,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -84,11 +192,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 45,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -98,11 +213,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 133,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 135,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -111,11 +255,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 46,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -125,11 +276,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 134,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::i128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 136,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -138,11 +318,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 47,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -152,11 +339,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 135,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::isize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 137,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -165,11 +381,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 48,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -179,11 +402,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 136,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 138,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -192,11 +444,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 49,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -206,11 +465,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 137,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 139,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -219,11 +507,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 50,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -233,11 +528,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 138,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 140,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -246,11 +570,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 51,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -260,11 +591,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 139,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 141,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -273,11 +633,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 52,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -287,11 +654,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 140,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::u128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 142,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -300,11 +696,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 53,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -314,11 +717,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 141,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::usize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 143,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -327,11 +759,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 54,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -341,11 +780,40 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 142,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 144,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -354,11 +822,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 55,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -368,9 +843,162 @@
         ItemSynNodePath::Attr(
             Room32,
             AttrSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 143,
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypePath(`core::num::f64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            ),
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: AttrItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 145,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::ImplBlock(
+            ImplBlockSynNodePath::TypeImplBlock(
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::ImplBlock(
+            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::i8`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TraitForTypeItem(
+                TraitForTypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 148,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -381,11 +1009,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 91,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -395,11 +1033,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 144,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -409,11 +1056,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 145,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -423,11 +1079,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 92,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::i16`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -437,11 +1106,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 146,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 151,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -451,11 +1133,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 93,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 97,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -465,11 +1157,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 147,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -479,11 +1180,43 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 148,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -493,11 +1226,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 94,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::i32`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -507,11 +1253,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 149,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 155,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -521,11 +1280,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 95,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 99,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -535,39 +1304,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 150,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 151,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 152,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -577,11 +1327,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 96,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::i64`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -591,11 +1354,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 153,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 157,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -605,11 +1381,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 97,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 101,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -619,11 +1405,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 154,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -633,11 +1428,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 98,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::i128`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -647,11 +1455,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 155,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 159,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -661,11 +1482,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 99,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 103,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -675,11 +1506,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 156,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -689,11 +1529,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 100,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::isize`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -703,11 +1556,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 157,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 161,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -717,11 +1583,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 101,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 105,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -731,11 +1607,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 158,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -745,11 +1630,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 102,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::u8`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -759,11 +1657,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 159,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 163,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -773,11 +1684,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 103,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 107,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -787,11 +1708,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 160,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -801,11 +1731,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 104,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::u16`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -815,11 +1758,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 161,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 165,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -829,11 +1785,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 105,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 109,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -843,11 +1809,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 162,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -857,11 +1832,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 106,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::u32`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -871,11 +1859,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 163,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 167,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -885,11 +1886,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 107,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 111,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -899,11 +1910,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 164,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -913,11 +1933,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 108,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::u64`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -927,11 +1960,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 165,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 169,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -941,11 +1987,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 109,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 113,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -955,11 +2011,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 166,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -969,11 +2034,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 110,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::u128`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -983,11 +2061,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 167,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 171,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -997,11 +2088,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 111,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 115,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1011,11 +2112,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 168,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1025,11 +2135,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 112,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::usize`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1039,11 +2162,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 169,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 173,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1053,11 +2189,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 113,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 117,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1067,11 +2213,181 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 170,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1081,11 +2397,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 114,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::f32`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1095,11 +2424,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 171,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 182,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1109,11 +2451,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 115,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 119,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1123,11 +2475,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 172,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1137,95 +2498,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 173,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 174,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 175,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 176,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 177,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 178,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 179,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1235,11 +2521,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 116,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::num`,
+                                            trai_path: TraitPath(`core::ops::Add`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::num::f64`, `Extern`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1249,81 +2548,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 180,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 117,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 181,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 182,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 118,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TraitForTypeItem(
-                TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 183,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 185,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),

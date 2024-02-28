@@ -57,11 +57,18 @@ SynDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 48,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -189,7 +196,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -324,8 +331,8 @@ SynDeclSheet {
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateSynParameterData::Ordinary {
-                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                ParenateParameterSyndicate::Simple {
+                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
                                     variables: ArenaIdxRange(
@@ -338,8 +345,8 @@ SynDeclSheet {
                                     ),
                                     ty: 4,
                                 },
-                                ParenateSynParameterData::Ordinary {
-                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                ParenateParameterSyndicate::Simple {
+                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                         syn_pattern_expr_idx: 2,
                                     },
                                     variables: ArenaIdxRange(
@@ -364,13 +371,9 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 49,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -451,7 +454,9 @@ SynDeclSheet {
                                             },
                                             SynExprData::Ritchie {
                                                 ritchie_kind: Type(
-                                                    Fn,
+                                                    Item(
+                                                        Fn,
+                                                    ),
                                                 ),
                                                 ritchie_kind_regional_token_idx: RegionalTokenIdx(
                                                     17,
@@ -636,7 +641,7 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -648,7 +653,7 @@ SynDeclSheet {
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `concave_components`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -659,7 +664,7 @@ SynDeclSheet {
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `templates`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -670,22 +675,22 @@ SynDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 4,
+                                                    ty: 4,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 11,
+                                                    ty: 11,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
@@ -740,17 +745,11 @@ SynDeclSheet {
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::fermi`,
-                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 299,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -758,17 +757,11 @@ SynDeclSheet {
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
                         path: TypeImplBlockPath(
-                            ItemPathId {
-                                data: ItemPathData::ImplBlock(
-                                    ImplBlockPathData::TypeImplBlock(
-                                        TypeImplBlockPathData {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 299,
+                                },
+                            ),
                         ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
@@ -781,11 +774,21 @@ SynDeclSheet {
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
                                             TypeImplBlockSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 271,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 299,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -841,7 +844,7 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -895,11 +898,21 @@ SynDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 271,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 299,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -955,7 +968,7 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -983,11 +996,18 @@ SynDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 293,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1043,7 +1063,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1098,11 +1118,21 @@ SynDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 271,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 299,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -1158,7 +1188,7 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1186,11 +1216,18 @@ SynDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 294,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1246,7 +1283,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1301,11 +1338,21 @@ SynDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 271,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 299,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -1361,7 +1408,7 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1389,11 +1436,18 @@ SynDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 295,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1449,7 +1503,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },

@@ -4,11 +4,18 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`malamute::Class`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -17,11 +24,18 @@ SynNodeDeclSheet {
                     TypeSynNodeDecl::Enum(
                         EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`malamute::Class`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 Some(
@@ -65,11 +79,18 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::Class`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -98,7 +119,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -154,11 +175,18 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -167,11 +195,18 @@ SynNodeDeclSheet {
                     TypeSynNodeDecl::Enum(
                         EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 Some(
@@ -244,11 +279,18 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -295,7 +337,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -410,11 +452,18 @@ SynNodeDeclSheet {
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -423,11 +472,18 @@ SynNodeDeclSheet {
                     TypeSynNodeDecl::Enum(
                         EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 Some(
@@ -500,11 +556,18 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 3,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -551,7 +614,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -665,39 +728,27 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                        Gn,
+                    )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Gn(
                         MajorGnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                Gn,
+                            )`, (0)),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -896,7 +947,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -964,7 +1015,7 @@ SynNodeDeclSheet {
                                                         16,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateVariadicParameter {
+                                                    data: CurrentSynSymbolData::VariadicParenateParameter {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentRegionalToken {
                                                             ident: `f`,
@@ -980,7 +1031,7 @@ SynNodeDeclSheet {
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `skip`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1023,11 +1074,11 @@ SynNodeDeclSheet {
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     4..5,
@@ -1149,7 +1200,7 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Variadic {
+                                        ParenateParameterSyndicate::Variadic {
                                             dot_dot_dot_token: DotDotDotRegionalToken(
                                                 RegionalTokenIdx(
                                                     15,
@@ -1182,8 +1233,8 @@ SynNodeDeclSheet {
                                             ),
                                             ty: 2,
                                         },
-                                        ParenateSynParameterData::Keyed {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Keyed {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             symbol_modifier_keyword_group: None,
@@ -1263,11 +1314,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::default::Default`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1275,11 +1339,24 @@ SynNodeDeclSheet {
                 ImplBlockSynNodeDecl::TraitForType(
                     TraitForTypeImplBlockSynNodeDecl {
                         syn_node_path: TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 130,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::default::Default`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         impl_regional_token: ImplRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
@@ -1379,11 +1456,24 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 130,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::default::Default`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -1523,7 +1613,7 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -1645,11 +1735,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::AssocItem(
                 AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 133,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 147,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1658,11 +1761,24 @@ SynNodeDeclSheet {
                     TraitForTypeItemSynNodeDecl::AssocFn(
                         TraitForTypeAssocFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 133,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 147,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 None,
@@ -1720,11 +1836,24 @@ SynNodeDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 130,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::default::Default`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -1864,7 +1993,7 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1983,11 +2112,24 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 133,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 147,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -2022,7 +2164,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedSynSymbol {
@@ -2077,11 +2219,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 131,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::Class`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2089,11 +2244,24 @@ SynNodeDeclSheet {
                 ImplBlockSynNodeDecl::TraitForType(
                     TraitForTypeImplBlockSynNodeDecl {
                         syn_node_path: TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 131,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::Class`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         impl_regional_token: ImplRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
@@ -2193,11 +2361,24 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 131,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -2429,7 +2610,7 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -2538,11 +2719,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::AssocItem(
                 AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 134,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 148,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2551,11 +2745,24 @@ SynNodeDeclSheet {
                     TraitForTypeItemSynNodeDecl::AssocType(
                         TraitForTypeAssocTypeSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 134,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 148,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: Ok(
                                 None,
@@ -2578,11 +2785,24 @@ SynNodeDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 131,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -2814,7 +3034,7 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -2920,11 +3140,24 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 134,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 148,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -2962,7 +3195,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedSynSymbol {
@@ -3017,11 +3250,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::AssocItem(
                 AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 135,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 149,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3030,11 +3276,24 @@ SynNodeDeclSheet {
                     TraitForTypeItemSynNodeDecl::AssocFn(
                         TraitForTypeAssocFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 135,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 149,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 None,
@@ -3049,8 +3308,8 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Ordinary {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -3107,11 +3366,24 @@ SynNodeDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 131,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -3343,7 +3615,7 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -3449,11 +3721,24 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 135,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 149,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -3653,7 +3938,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedSynSymbol {
@@ -3688,7 +3973,7 @@ SynNodeDeclSheet {
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `one_vs_all`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -3699,11 +3984,11 @@ SynNodeDeclSheet {
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 5,
+                                                    ty: 5,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -3746,11 +4031,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 132,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3758,11 +4056,24 @@ SynNodeDeclSheet {
                 ImplBlockSynNodeDecl::TraitForType(
                     TraitForTypeImplBlockSynNodeDecl {
                         syn_node_path: TraitForTypeImplBlockSynNodePath(
-                            ItemSynNodePathId(
-                                Id {
-                                    value: 132,
-                                },
-                            ),
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePathData {
+                                            path: TraitForTypeImplBlock {
+                                                data: TraitForTypeImplBlockPathData {
+                                                    module_path: `malamute`,
+                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                    ty_sketch: TypeSketch::Path(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         impl_regional_token: ImplRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
@@ -3862,11 +4173,24 @@ SynNodeDeclSheet {
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 132,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -4119,7 +4443,7 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -4241,11 +4565,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::AssocItem(
                 AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 136,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 150,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -4254,11 +4591,24 @@ SynNodeDeclSheet {
                     TraitForTypeItemSynNodeDecl::AssocType(
                         TraitForTypeAssocTypeSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 136,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 150,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: Ok(
                                 None,
@@ -4281,11 +4631,24 @@ SynNodeDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 132,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -4538,7 +4901,7 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -4657,11 +5020,24 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 136,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 150,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -4699,7 +5075,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedSynSymbol {
@@ -4754,11 +5130,24 @@ SynNodeDeclSheet {
             ItemSynNodePath::AssocItem(
                 AssocItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 137,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssocItem(
+                                AssocItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 151,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -4767,11 +5156,24 @@ SynNodeDeclSheet {
                     TraitForTypeItemSynNodeDecl::AssocFn(
                         TraitForTypeAssocFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 137,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssocItem(
+                                        AssocItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 151,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameter_decl_list: Ok(
                                 None,
@@ -4786,8 +5188,8 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateSynParameterData::Ordinary {
-                                            syn_pattern_root: ParenateSynPatternExprRoot {
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -4844,11 +5246,24 @@ SynNodeDeclSheet {
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 132,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `malamute`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -5101,7 +5516,7 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -5220,11 +5635,24 @@ SynNodeDeclSheet {
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 137,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 151,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -5424,7 +5852,7 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedSynSymbol {
@@ -5459,7 +5887,7 @@ SynNodeDeclSheet {
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `one_vs_all_result`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -5470,11 +5898,11 @@ SynNodeDeclSheet {
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 5,
+                                                    ty: 5,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,

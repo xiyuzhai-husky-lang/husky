@@ -3,11 +3,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -17,11 +24,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 129,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 136,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),

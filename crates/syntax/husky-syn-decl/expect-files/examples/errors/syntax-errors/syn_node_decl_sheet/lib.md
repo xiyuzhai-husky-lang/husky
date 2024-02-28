@@ -4,21 +4,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -27,21 +49,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),

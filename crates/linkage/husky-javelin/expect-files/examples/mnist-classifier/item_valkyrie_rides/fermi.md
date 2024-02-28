@@ -119,11 +119,13 @@
                                         HirTemplateArgument::Type(
                                             HirType::Ritchie(
                                                 HirRitchieType {
-                                                    ritchie_ty_kind: Fn,
+                                                    ritchie_ty_kind: Item(
+                                                        Fn,
+                                                    ),
                                                     parameters: HirRitchieParameters {
                                                         data: [
-                                                            HirRitchieParameter::Ordinary(
-                                                                HirRitchieRegularParameter {
+                                                            HirRitchieParameter::Simple(
+                                                                HirRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -296,17 +298,11 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId {
-                        data: ItemPathData::ImplBlock(
-                            ImplBlockPathData::TypeImplBlock(
-                                TypeImplBlockPathData {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 299,
+                        },
+                    ),
                 ),
             ),
         ),

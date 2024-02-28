@@ -28,26 +28,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::result`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::result::Result`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `Continue`,
-                                    item_kind: AssocType,
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 174,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -57,28 +42,11 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::result`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::result::Result`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `unveil`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 175,
+                        },
+                    ),
                 ),
             ),
         ),

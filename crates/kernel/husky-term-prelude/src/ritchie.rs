@@ -63,7 +63,14 @@ impl RitchieKind {
                     RitchieItemKind::Qn => "qn(",
                     RitchieItemKind::Bn => "bn(",
                 },
-                RitchieTypeKind::Closure(_) => todo!(),
+                RitchieTypeKind::Closure(ritchie_closure_kind) => match ritchie_closure_kind {
+                    RitchieClosureKind::Fn => "#closure fn(",
+                    RitchieClosureKind::Gn => "#closure gn(",
+                    RitchieClosureKind::Vn => "#closure vn(",
+                    RitchieClosureKind::Pn => "#closure pn(",
+                    RitchieClosureKind::Qn => "#closure qn(",
+                    RitchieClosureKind::Bn => "#closure bn(",
+                },
             },
             RitchieKind::Trait(ritchie_trai_kind) => match ritchie_trai_kind {
                 RitchieTraitKind::Fn => "Fn(",

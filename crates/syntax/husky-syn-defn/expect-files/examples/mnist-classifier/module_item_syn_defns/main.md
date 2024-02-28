@@ -3,15 +3,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::connected_component`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
         None,
@@ -20,15 +16,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
             ),
         ),
         None,
@@ -37,15 +29,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
             ),
         ),
         None,
@@ -54,15 +42,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 4,
+                    },
+                ),
             ),
         ),
         None,
@@ -71,15 +55,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::fermi`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 5,
+                    },
+                ),
             ),
         ),
         None,
@@ -88,15 +68,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 6,
+                    },
+                ),
             ),
         ),
         None,
@@ -105,15 +81,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::major`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 7,
+                    },
+                ),
             ),
         ),
         None,
@@ -136,13 +108,7 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -226,7 +192,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -253,13 +219,7 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -423,17 +383,11 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                            index: U8(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 250,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -615,17 +569,11 @@
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                            index: U8(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 250,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -711,7 +659,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },

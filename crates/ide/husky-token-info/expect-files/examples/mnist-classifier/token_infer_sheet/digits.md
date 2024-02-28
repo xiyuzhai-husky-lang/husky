@@ -9,14 +9,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 50,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -28,14 +39,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 51,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 55,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -47,14 +69,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 52,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 56,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -66,14 +99,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 57,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -85,14 +129,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 58,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -104,14 +159,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 59,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -123,14 +189,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 60,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -142,14 +219,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 57,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -161,14 +249,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 62,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -180,14 +279,25 @@ Ok(
                         ItemSynNodePath::Submodule(
                             Room32,
                             SubmoduleSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 63,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
                             ),
                         ),
-                        Module,
+                        EntityKind::Module,
                     ),
                 },
             ),
@@ -207,15 +317,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 55,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -283,15 +389,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -359,15 +461,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -435,15 +533,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 63,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -511,15 +605,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -587,15 +677,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 59,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -663,15 +749,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -739,15 +821,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),
@@ -815,15 +893,11 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::SubmoduleItem(
-                                                SubmoduleItemPathData {
-                                                    submodule_path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
-                                                    ),
-                                                },
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 62,
+                                            },
+                                        ),
                                     ),
                                 },
                             ),

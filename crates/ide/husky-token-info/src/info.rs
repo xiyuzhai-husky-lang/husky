@@ -84,6 +84,9 @@ pub enum TokenInfoData {
     SemaPrefixTypeOpr,
     CallPar,
     NestedBlockCurl,
+    ClosureVert,
+    ClosureLightArrow,
+    ClosureEq,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -148,6 +151,9 @@ impl TokenInfoData {
             TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
             TokenInfoData::CallPar => TokenClass::Punctuation,
             TokenInfoData::NestedBlockCurl => TokenClass::Punctuation,
+            TokenInfoData::ClosureVert => TokenClass::Punctuation,
+            TokenInfoData::ClosureLightArrow => TokenClass::Punctuation,
+            TokenInfoData::ClosureEq => TokenClass::Punctuation,
         }
     }
 }

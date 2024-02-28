@@ -7,8 +7,10 @@ impl<'a> SemaExprEngine<'a> {
     pub(super) fn build_closure_expr(
         &mut self,
         closure_kind_regional_token_idx: Option<RegionalTokenIdx>,
-        params: &[ClosureParameterSyndicate],
-        return_ty_syn_expr: Option<SynExprIdx>,
+        lvert_regional_token_idx: RegionalTokenIdx,
+        parameter_syndicates: &[ClosureParameterSyndicate],
+        rvert_regional_token: RvertRegionalToken,
+        return_ty_syn_expr: Option<(LightArrowRegionalToken, SynExprIdx, EqRegionalToken)>,
         body: SynExprIdx,
         expr_ty_expectation: &impl ExpectFlyTerm,
     ) -> (
@@ -17,9 +19,14 @@ impl<'a> SemaExprEngine<'a> {
     ) {
         let ritchie_kind: RitchieKind = RitchieClosureKind::Fn.into();
         let destination = expr_ty_expectation.destination();
-        let return_ty = return_ty_syn_expr
-            .map(|return_ty_syn_expr| self.build_sema_expr(return_ty_syn_expr, ExpectSort::TYPE));
-        let params: Vec<ClosureParameterObelisk> = params
+        let return_ty = return_ty_syn_expr.map(|(light_arrow, return_ty_syn_expr, eq)| {
+            (
+                light_arrow,
+                self.build_sema_expr(return_ty_syn_expr, ExpectSort::TYPE),
+                eq,
+            )
+        });
+        let parameter_obelisk: Vec<ClosureParameterObelisk> = parameter_syndicates
             .iter()
             .map(|param| self.build_closure_parameter_obelisk(param))
             .collect();
@@ -33,14 +40,14 @@ impl<'a> SemaExprEngine<'a> {
                         return_ty,
                     } = destination.data(self) =>
                 {
-                    for (i, param) in params.iter().enumerate() {
+                    for (i, param) in parameter_obelisk.iter().enumerate() {
                         let parameter_contracted_ty_expected = parameter_contracted_tys[i];
                         todo!()
                     }
                     todo!()
                 }
                 FlyTermDestination::AnyOriginal => {
-                    for param in &params {
+                    for param in &parameter_obelisk {
                         match *param {
                             ClosureParameterObelisk::Simple {
                                 syn_pattern_root,
@@ -67,7 +74,7 @@ impl<'a> SemaExprEngine<'a> {
                         }
                     }
                     match return_ty {
-                        Some(return_ty) => match self.infer_expr_term(return_ty) {
+                        Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
                             Some(return_ty) => self
                                 .build_sema_expr_with_ty(body, ExpectCoersion::new_move(return_ty)),
                             None => self.build_sema_expr_with_ty(body, ExpectAnyDerived),
@@ -76,7 +83,7 @@ impl<'a> SemaExprEngine<'a> {
                     }
                 }
                 FlyTermDestination::Specific(_) | FlyTermDestination::AnyDerived => {
-                    for param in &params {
+                    for param in &parameter_obelisk {
                         match param {
                             ClosureParameterObelisk::Simple {
                                 syn_pattern_root,
@@ -87,7 +94,7 @@ impl<'a> SemaExprEngine<'a> {
                         }
                     }
                     match return_ty {
-                        Some(return_ty) => match self.infer_expr_term(return_ty) {
+                        Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
                             Some(return_ty) => self
                                 .build_sema_expr_with_ty(body, ExpectCoersion::new_move(return_ty)),
                             None => self.build_sema_expr_with_ty(body, ExpectAnyDerived),
@@ -103,6 +110,16 @@ impl<'a> SemaExprEngine<'a> {
                 None => Err(DerivedSemaExprTypeError::ClosureReturnTypeNotInferred.into()),
             })
             .flatten();
-        (Ok(SemaExprData::Closure { params, body }), return_ty_result)
+        (
+            Ok(SemaExprData::Closure {
+                closure_kind_regional_token_idx,
+                lvert_regional_token_idx,
+                parameter_obelisks: parameter_obelisk,
+                rvert_regional_token,
+                return_ty,
+                body,
+            }),
+            return_ty_result,
+        )
     }
 }

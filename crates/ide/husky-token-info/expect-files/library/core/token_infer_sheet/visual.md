@@ -33,17 +33,24 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`core::visual::Visualize`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Trait,
-                            connection: Connected,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Trait,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -65,19 +72,26 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 83,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::visual::Visual`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Type(
-                                Extern,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Extern,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -116,17 +130,30 @@ Ok(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitForTypeItem(
                                 TraitForTypeItemSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 242,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 249,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        AssocItem {
-                            assoc_item_kind: TraitForTypeItem(
-                                MethodRitchie(
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                                TraitItemKind::MethodRitchie(
                                     Fn,
                                 ),
                             ),

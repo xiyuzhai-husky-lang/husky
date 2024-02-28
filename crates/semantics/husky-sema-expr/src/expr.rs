@@ -38,9 +38,9 @@ use husky_fly_term::{
 };
 use husky_opr::*;
 use husky_regional_token::{
-    ColonColonRegionalToken, EmptyHtmlKetRegionalToken, IdentRegionalToken,
+    ColonColonRegionalToken, EmptyHtmlKetRegionalToken, EqRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, NestedRcurlRegionalToken, PlaceLabelRegionalToken,
-    RegionalTokenIdx,
+    RegionalTokenIdx, RvertRegionalToken,
 };
 use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{
@@ -267,7 +267,11 @@ pub enum SemaExprData {
         empty_html_ket: EmptyHtmlKetRegionalToken,
     },
     Closure {
-        params: Vec<ClosureParameterObelisk>,
+        closure_kind_regional_token_idx: Option<RegionalTokenIdx>,
+        lvert_regional_token_idx: RegionalTokenIdx,
+        parameter_obelisks: Vec<ClosureParameterObelisk>,
+        rvert_regional_token: RvertRegionalToken,
+        return_ty: Option<(LightArrowRegionalToken, SemaExprIdx, EqRegionalToken)>,
         body: SemaExprIdx,
     },
     /// sorry is for comptime (say proof) terms
@@ -1188,14 +1192,17 @@ impl<'a> SemaExprEngine<'a> {
             }
             SynExprData::Closure {
                 closure_kind_regional_token_idx,
+                lvert_regional_token_idx,
                 ref parameters,
+                rvert_regional_token,
                 return_ty,
                 body,
-                ..
             } => self.build_closure_expr(
                 closure_kind_regional_token_idx,
+                lvert_regional_token_idx,
                 parameters.elements(),
-                return_ty.map(|(_, expr, _)| expr),
+                rvert_regional_token,
+                return_ty.map(|(light_arrow, expr, eq)| (light_arrow, expr, eq)),
                 body,
                 expr_ty_expectation,
             ),

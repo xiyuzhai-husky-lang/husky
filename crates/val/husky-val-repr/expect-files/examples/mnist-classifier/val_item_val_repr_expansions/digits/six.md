@@ -120,7 +120,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 242,
@@ -178,14 +178,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 245,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 246,
@@ -215,14 +215,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 245,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 246,
@@ -291,7 +291,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -360,7 +360,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -429,7 +429,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -469,14 +469,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 254,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 255,
@@ -526,7 +526,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -580,7 +580,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 253,
@@ -650,14 +650,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 258,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 259,
@@ -726,7 +726,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 242,
@@ -795,7 +795,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 243,
@@ -961,28 +961,11 @@
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `malamute`,
-                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `unveil`,
-                                                        item_kind: AssocRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -994,7 +977,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 265,
@@ -1070,7 +1053,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 243,
@@ -1140,14 +1123,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 267,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 268,
@@ -1183,14 +1166,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 267,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 268,
@@ -1226,7 +1209,7 @@
                         ),
                         opn: ValOpn::Unwrap,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 270,
@@ -1278,7 +1261,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 271,
@@ -1333,7 +1316,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 271,
@@ -1390,7 +1373,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 273,
@@ -1420,14 +1403,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 245,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 246,
@@ -1463,7 +1446,7 @@
                         ),
                         opn: ValOpn::Unwrap,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 248,
@@ -1515,7 +1498,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 276,
@@ -1572,7 +1555,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 277,
@@ -1645,7 +1628,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 243,
@@ -1714,7 +1697,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 243,
@@ -1791,14 +1774,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 283,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 284,
@@ -1834,14 +1817,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 267,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 268,
@@ -1895,7 +1878,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 273,
@@ -1970,7 +1953,7 @@
                             Minus,
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 289,
@@ -2010,14 +1993,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 275,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 290,
@@ -2113,14 +2096,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 16,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 294,
@@ -2174,7 +2157,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 277,
@@ -2335,28 +2318,11 @@
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `malamute`,
-                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `unveil`,
-                                                        item_kind: AssocRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -2368,7 +2334,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 298,
@@ -2407,17 +2373,11 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                         arguments: [],
@@ -2482,7 +2442,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 303,
@@ -2512,14 +2472,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 245,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 246,
@@ -2555,7 +2515,7 @@
                         ),
                         opn: ValOpn::Unwrap,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 248,
@@ -2607,7 +2567,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 305,
@@ -2662,14 +2622,14 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 304,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 306,
@@ -2726,7 +2686,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 277,
@@ -2785,14 +2745,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 254,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 255,
@@ -2895,14 +2855,14 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 309,
@@ -3081,28 +3041,11 @@
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `malamute`,
-                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `unveil`,
-                                                        item_kind: AssocRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -3114,7 +3057,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 312,
@@ -3169,14 +3112,14 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 304,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 306,
@@ -3233,7 +3176,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 308,
@@ -3310,14 +3253,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 314,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 315,
@@ -3353,17 +3296,11 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                         arguments: [],
@@ -3395,17 +3332,11 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                         arguments: [],
@@ -3470,7 +3401,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 242,
@@ -3631,28 +3562,11 @@
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `malamute`,
-                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `unveil`,
-                                                        item_kind: AssocRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -3664,7 +3578,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 325,
@@ -3736,7 +3650,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 242,
@@ -3813,14 +3727,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 327,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 328,
@@ -3889,7 +3803,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 242,
@@ -3966,14 +3880,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 331,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 332,
@@ -4023,7 +3937,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -4077,7 +3991,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 253,
@@ -4147,14 +4061,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 337,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 338,
@@ -4190,7 +4104,7 @@
                         ),
                         opn: ValOpn::Unwrap,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 339,
@@ -4240,7 +4154,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 340,
@@ -4292,7 +4206,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 341,
@@ -4372,14 +4286,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 342,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 343,
@@ -4429,7 +4343,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -4483,7 +4397,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 253,
@@ -4553,14 +4467,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 346,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 347,
@@ -4610,7 +4524,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 14,
@@ -4664,7 +4578,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 253,
@@ -4734,14 +4648,14 @@
                         ),
                         opn: ValOpn::Index,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 351,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 352,
@@ -4777,7 +4691,7 @@
                         ),
                         opn: ValOpn::Unwrap,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 353,
@@ -4827,7 +4741,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 354,
@@ -4879,7 +4793,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 355,
@@ -4959,14 +4873,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 356,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 357,
@@ -5006,14 +4920,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 254,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 255,
@@ -5090,14 +5004,14 @@
                             ),
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 257,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 362,
@@ -5133,17 +5047,11 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                         arguments: [],
@@ -5177,14 +5085,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 291,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 288,
@@ -5220,14 +5128,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 295,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 293,
@@ -5263,7 +5171,7 @@
                         ),
                         opn: ValOpn::Return,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 300,
@@ -5299,7 +5207,7 @@
                         ),
                         opn: ValOpn::Return,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 317,
@@ -5335,14 +5243,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 285,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 282,
@@ -5483,7 +5391,7 @@
                         ),
                         opn: ValOpn::Return,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 320,
@@ -5519,14 +5427,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 333,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 330,
@@ -5562,14 +5470,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 358,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 350,
@@ -5599,14 +5507,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 250,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 249,
@@ -5757,14 +5665,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 344,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 336,
@@ -5845,14 +5753,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 363,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 361,
@@ -5884,14 +5792,14 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 250,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 249,
@@ -5999,28 +5907,11 @@
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
-                                        ItemPathId {
-                                            data: ItemPathData::AssocItem(
-                                                AssocItemPathData::TraitForTypeItem(
-                                                    TraitForTypeItemPathData {
-                                                        impl_block: TraitForTypeImplBlock {
-                                                            data: TraitForTypeImplBlockPathData {
-                                                                module_path: `malamute`,
-                                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                        },
-                                                        ident: `unveil`,
-                                                        item_kind: AssocRitchie(
-                                                            Fn,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 349,
+                                            },
+                                        ),
                                     ),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -6032,7 +5923,7 @@
                             },
                         ),
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 325,
@@ -6116,14 +6007,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 344,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 336,
@@ -6204,14 +6095,14 @@
                         ),
                         opn: ValOpn::Require,
                         arguments: [
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 363,
                                     },
                                 ),
                             ),
-                            Ordinary(
+                            Simple(
                                 ValRepr(
                                     Id {
                                         value: 361,
@@ -6247,17 +6138,11 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                         arguments: [],

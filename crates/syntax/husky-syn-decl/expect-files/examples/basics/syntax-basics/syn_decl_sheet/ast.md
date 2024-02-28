@@ -4,29 +4,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `syntax_basics::ast::submodule_name`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 5,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `syntax_basics::ast::submodule_name`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
                 },
             ),

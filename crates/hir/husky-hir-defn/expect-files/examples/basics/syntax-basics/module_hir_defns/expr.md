@@ -208,7 +208,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            2,
+                            5,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -222,7 +222,57 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Closure,
+                                            data: HirEagerExprData::Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Literal(
+                                                Literal::I32(
+                                                    1,
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 1,
+                                                opr: Closed(
+                                                    Add,
+                                                ),
+                                                ropd: 2,
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Closure {
+                                                parameters: [
+                                                    Simple {
+                                                        pattern_expr_idx: 2,
+                                                        ty: Some(
+                                                            PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                                return_ty: None,
+                                                body: 3,
+                                            },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
                                         },
@@ -245,7 +295,7 @@
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 1,
+                                            initial_value: 4,
                                             coersion: None,
                                         },
                                     ],
@@ -255,6 +305,10 @@
                                         HirEagerPatternExpr::Ident {
                                             symbol_modifier: None,
                                             ident: `t`,
+                                        },
+                                        HirEagerPatternExpr::Ident {
+                                            symbol_modifier: None,
+                                            ident: `x`,
                                         },
                                     ],
                                 },
@@ -347,7 +401,7 @@
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            2,
+                            6,
                             HirEagerExprRegion {
                                 path: RegionPath::Defn(
                                     ItemPath::MajorItem(
@@ -361,7 +415,35 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::Closure,
+                                            data: HirEagerExprData::Variable(
+                                                2,
+                                            ),
+                                            ty_place: ImmutableStackOwned {
+                                                location: PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
+                                                ),
+                                            },
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Literal(
+                                                Literal::I32(
+                                                    1,
+                                                ),
+                                            ),
+                                            ty_place: Const,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Binary {
+                                                lopd: 1,
+                                                opr: Closed(
+                                                    Add,
+                                                ),
+                                                ropd: 2,
+                                            },
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
                                         },
@@ -374,17 +456,53 @@
                                             ty_place: Transient,
                                             is_ty_always_copyable: true,
                                         },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Closure {
+                                                parameters: [
+                                                    Simple {
+                                                        pattern_expr_idx: 2,
+                                                        ty: Some(
+                                                            PathLeading(
+                                                                HirTypePathLeading(
+                                                                    Id {
+                                                                        value: 2,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                                return_ty: None,
+                                                body: 4,
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Block {
+                                                stmts: ArenaIdxRange(
+                                                    2..3,
+                                                ),
+                                            },
+                                            ty_place: Transient,
+                                            is_ty_always_copyable: true,
+                                        },
                                     ],
                                 },
                                 stmt_arena: Arena {
                                     data: [
+                                        Eval {
+                                            expr_idx: 3,
+                                            coersion: None,
+                                            discarded: false,
+                                        },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
                                                 pattern_expr_idx: 1,
                                                 ty: None,
                                             },
                                             contract: Pure,
-                                            initial_value: 1,
+                                            initial_value: 5,
                                             coersion: None,
                                         },
                                     ],
@@ -394,6 +512,10 @@
                                         HirEagerPatternExpr::Ident {
                                             symbol_modifier: None,
                                             ident: `t`,
+                                        },
+                                        HirEagerPatternExpr::Ident {
+                                            symbol_modifier: None,
+                                            ident: `x`,
                                         },
                                     ],
                                 },

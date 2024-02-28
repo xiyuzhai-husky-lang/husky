@@ -21,13 +21,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 95,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -82,7 +76,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -131,13 +125,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 96,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -192,7 +180,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -241,13 +229,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 97,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -282,17 +264,11 @@ SynDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Nine`,
-                                                                        index: U8(
-                                                                            9,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 272,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -368,17 +344,11 @@ SynDeclSheet {
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Nine`,
-                                                                        index: U8(
-                                                                            9,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 272,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -403,7 +373,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -448,8 +418,8 @@ SynDeclSheet {
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateSynParameterData::Ordinary {
-                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                ParenateParameterSyndicate::Simple {
+                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
                                     variables: ArenaIdxRange(
@@ -474,13 +444,9 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 98,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -599,7 +565,7 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -611,7 +577,7 @@ SynDeclSheet {
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -622,11 +588,11 @@ SynDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -682,8 +648,8 @@ SynDeclSheet {
                             )`),
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateSynParameterData::Ordinary {
-                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                ParenateParameterSyndicate::Simple {
+                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
                                     },
                                     variables: ArenaIdxRange(
@@ -708,13 +674,9 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 99,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -833,7 +795,7 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -845,7 +807,7 @@ SynDeclSheet {
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -856,11 +818,11 @@ SynDeclSheet {
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,

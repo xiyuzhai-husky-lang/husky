@@ -2,13 +2,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 86,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
             ),
         ),
         Some(
@@ -23,13 +17,7 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 86,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -84,7 +72,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -111,13 +99,7 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 86,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -280,7 +262,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -313,13 +295,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 87,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -334,13 +312,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -459,7 +433,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -471,7 +445,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -482,11 +456,11 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -524,13 +498,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -661,7 +631,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -738,7 +708,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -817,13 +787,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 88,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
             ),
         ),
         Some(
@@ -838,13 +802,7 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 88,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -899,7 +857,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -926,13 +884,7 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -1132,7 +1084,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -1165,13 +1117,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 89,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -1186,13 +1134,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 89,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -1311,7 +1255,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1323,7 +1267,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1334,11 +1278,11 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -1376,13 +1320,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -1592,7 +1532,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -1677,7 +1617,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -1760,13 +1700,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 90,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -1781,13 +1717,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 90,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -1906,7 +1838,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1918,7 +1850,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1929,11 +1861,11 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
@@ -1971,13 +1903,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -2252,7 +2180,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -2297,7 +2225,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -2394,7 +2322,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -2510,13 +2438,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
             ),
         ),
         Some(
@@ -2531,13 +2453,7 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 91,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -2572,17 +2488,11 @@
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Seven`,
-                                                                        index: U8(
-                                                                            7,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 270,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2658,17 +2568,11 @@
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId {
-                                                                data: ItemPathData::TypeVariant(
-                                                                    TypeVariantPathData {
-                                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                        ident: `Seven`,
-                                                                        index: U8(
-                                                                            7,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 270,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2693,7 +2597,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2720,13 +2624,7 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 91,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -3127,17 +3025,11 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3269,17 +3161,11 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3382,17 +3268,11 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3462,17 +3342,11 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3554,17 +3428,11 @@
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3632,17 +3500,11 @@
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3673,17 +3535,11 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3735,17 +3591,11 @@
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                            ident: `Yes`,
-                                                            index: U8(
-                                                                0,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3762,7 +3612,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
@@ -3791,7 +3641,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
                                             variables: ArenaIdxRange(
@@ -3836,7 +3686,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -3897,7 +3747,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 7,
                                             },
                                             variables: ArenaIdxRange(
@@ -3950,7 +3800,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -4035,7 +3885,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 10,
                                             },
                                             variables: ArenaIdxRange(
@@ -4096,17 +3946,11 @@
                                     SynPatternExprData::TupleTypeVariant {
                                         path_expr_idx: 4,
                                         path: TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
                                         ),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
@@ -4176,17 +4020,11 @@
                                     SynPatternExprData::TupleTypeVariant {
                                         path_expr_idx: 15,
                                         path: TypeVariantPath(
-                                            ItemPathId {
-                                                data: ItemPathData::TypeVariant(
-                                                    TypeVariantPathData {
-                                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                        ident: `Some`,
-                                                        index: U8(
-                                                            0,
-                                                        ),
-                                                    },
-                                                ),
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
                                         ),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
@@ -4326,7 +4164,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },

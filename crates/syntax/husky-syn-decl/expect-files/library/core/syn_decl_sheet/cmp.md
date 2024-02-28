@@ -18,11 +18,18 @@ SynDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 30,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::cmp::PartialEq`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -51,7 +58,7 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -91,11 +98,18 @@ SynDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 31,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::cmp::Eq`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -124,7 +138,7 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -164,11 +178,18 @@ SynDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 32,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -197,7 +218,7 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -237,11 +258,18 @@ SynDeclSheet {
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
-                                                ItemSynNodePathId(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::cmp::Ord`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
@@ -270,7 +298,7 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: SynSymbolRegionData {
+                                symbol_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },

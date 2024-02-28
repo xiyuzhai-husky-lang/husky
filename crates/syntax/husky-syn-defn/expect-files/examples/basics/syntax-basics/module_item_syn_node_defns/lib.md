@@ -3,11 +3,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -16,11 +27,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -29,11 +51,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -42,11 +75,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,

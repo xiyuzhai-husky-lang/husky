@@ -4,6 +4,7 @@ mod loop_stmt;
 pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
+use self::{be_variable::HirEagerBeVariablesPattern, let_variable::HirEagerLetVariablesPattern};
 use crate::{coersion::HirEagerCoersion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
@@ -11,8 +12,6 @@ use husky_hir_ty::ritchie::HirEagerContract;
 use husky_sema_expr::{
     stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
 };
-
-use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmtData {

@@ -3,11 +3,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -16,11 +27,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -29,11 +51,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -42,11 +75,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -55,11 +99,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -68,11 +123,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -81,11 +147,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -93,13 +170,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
             ),
         ),
         Some(
@@ -114,13 +185,7 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -204,7 +269,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -231,13 +296,7 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -401,17 +460,11 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                            index: U8(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 250,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -593,17 +646,11 @@
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::TypeVariant(
-                                                        TypeVariantPathData {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                            index: U8(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 250,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -689,7 +736,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },

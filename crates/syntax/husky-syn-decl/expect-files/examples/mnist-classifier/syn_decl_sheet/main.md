@@ -4,29 +4,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::connected_component`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 1,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -35,29 +27,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -66,29 +50,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::geom2d`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 3,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -97,29 +73,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 4,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 4,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -128,29 +96,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::fermi`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 5,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 5,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -159,29 +119,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 6,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 6,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -190,29 +142,21 @@ SynDeclSheet {
             ItemPath::Submodule(
                 Room32,
                 SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 7,
+                        },
+                    ),
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(
-                        ItemPathId {
-                            data: ItemPathData::SubmoduleItem(
-                                SubmoduleItemPathData {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
-                                    ),
-                                },
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 7,
+                            },
+                        ),
                     ),
                 },
             ),
@@ -238,13 +182,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -328,7 +266,7 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },

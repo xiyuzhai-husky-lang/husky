@@ -3,11 +3,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),

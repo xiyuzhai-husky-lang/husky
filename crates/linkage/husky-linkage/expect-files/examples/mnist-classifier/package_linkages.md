@@ -2368,28 +2368,11 @@
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::Class`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `unveil`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 391,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinInstantiation {
@@ -2426,28 +2409,11 @@
     Linkage {
         data: LinkageData::UnveilAssocFn {
             path: TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `malamute`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`malamute::Class`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `unveil`,
-                                item_kind: AssocRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 391,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2494,26 +2460,11 @@
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::clone`,
-                                            trai_path: TraitPath(`core::clone::Clone`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `clone`,
-                                    item_kind: MethodRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 386,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinInstantiation {
@@ -3101,26 +3052,11 @@
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::clone`,
-                                            trai_path: TraitPath(`core::clone::Clone`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `clone`,
-                                    item_kind: MethodRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 386,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinInstantiation {
@@ -4252,17 +4188,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                            ident: `Some`,
-                            index: U8(
-                                0,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 206,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4296,17 +4226,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                            ident: `Known`,
-                            index: U8(
-                                0,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 249,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4340,17 +4264,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ident: `Break`,
-                            index: U8(
-                                1,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 205,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4406,17 +4324,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ident: `Continue`,
-                            index: U8(
-                                0,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 204,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [

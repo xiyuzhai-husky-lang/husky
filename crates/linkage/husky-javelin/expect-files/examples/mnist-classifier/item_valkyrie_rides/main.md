@@ -3,15 +3,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::connected_component`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
         None,
@@ -20,15 +16,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
             ),
         ),
         None,
@@ -37,15 +29,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
             ),
         ),
         None,
@@ -54,15 +42,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 4,
+                    },
+                ),
             ),
         ),
         None,
@@ -71,15 +55,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::fermi`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 5,
+                    },
+                ),
             ),
         ),
         None,
@@ -88,15 +68,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 6,
+                    },
+                ),
             ),
         ),
         None,
@@ -105,15 +81,11 @@
         ItemPath::Submodule(
             Room32,
             SubmoduleItemPath(
-                ItemPathId {
-                    data: ItemPathData::SubmoduleItem(
-                        SubmoduleItemPathData {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::major`,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 7,
+                    },
+                ),
             ),
         ),
         None,
@@ -131,28 +103,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -222,28 +177,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -313,28 +251,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -404,28 +325,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -495,28 +399,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -586,28 +473,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -677,28 +547,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -768,28 +621,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -859,28 +695,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssocItem(
-                                        AssocItemPathData::TraitForTypeItem(
-                                            TraitForTypeItemPathData {
-                                                impl_block: TraitForTypeImplBlock {
-                                                    data: TraitForTypeImplBlockPathData {
-                                                        module_path: `malamute`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`malamute::Class`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                                ident: `unveil`,
-                                                item_kind: AssocRitchie(
-                                                    Fn,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 305,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {

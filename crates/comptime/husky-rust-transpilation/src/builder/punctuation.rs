@@ -34,7 +34,7 @@ pub(crate) enum RustDelimiter {
     Angle,         // Angle <>
     Curl,          // Curly brackets {}
     MultilineCurl, // Curly brackets {  }
-    Vertical,      // Vertical bars ||
+    Vert,          // Vertical bars ||
 }
 
 impl RustDelimiter {
@@ -46,7 +46,7 @@ impl RustDelimiter {
             RustDelimiter::Angle => "<",
             RustDelimiter::Curl => "{",
             RustDelimiter::MultilineCurl => " {",
-            RustDelimiter::Vertical => "|",
+            RustDelimiter::Vert => "|",
         }
     }
 
@@ -58,7 +58,7 @@ impl RustDelimiter {
             RustDelimiter::Angle => ">",
             RustDelimiter::Curl => "}",
             RustDelimiter::MultilineCurl => "}",
-            RustDelimiter::Vertical => "|",
+            RustDelimiter::Vert => "|",
         }
     }
 }

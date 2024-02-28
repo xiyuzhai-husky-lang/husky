@@ -3,11 +3,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 32,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 36,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -16,11 +27,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 33,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -29,11 +51,22 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 34,
-                    },
-                ),
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 38,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
             ),
         ),
         None,
@@ -42,9 +75,41 @@
         ItemSynNodePath::Submodule(
             Room32,
             SubmoduleSynNodePath(
-                ItemSynNodePathId(
-                    Id {
-                        value: 35,
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Submodule(
+                        SubmoduleSynNodePathData {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: SubmoduleItemPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Type(
+                TypeSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -55,25 +120,18 @@
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 36,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 37,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Type(
+                                TypeSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -82,13 +140,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 38,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -103,13 +157,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 38,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -259,7 +309,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -271,7 +321,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `u`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -282,7 +332,7 @@
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -293,22 +343,22 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 1,
+                                                    ty: 1,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
@@ -358,13 +408,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -971,7 +1017,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -1008,7 +1054,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -1037,7 +1083,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -1066,7 +1112,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -1195,7 +1241,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -1370,13 +1416,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 39,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -1391,13 +1433,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 39,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -1547,7 +1585,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1559,7 +1597,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `u`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -1570,7 +1608,7 @@
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -1581,22 +1619,22 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 1,
+                                                    ty: 1,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
@@ -1646,13 +1684,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -2259,7 +2293,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -2296,7 +2330,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -2325,7 +2359,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -2354,7 +2388,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -2483,7 +2517,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -2658,13 +2692,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 40,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -2679,13 +2709,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 40,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -2887,7 +2913,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2899,7 +2925,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -2910,7 +2936,7 @@
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `start`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -2921,7 +2947,7 @@
                                                         14,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -2932,33 +2958,33 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 3,
                                                     },
-                                                    ty_expr_idx: 4,
+                                                    ty: 4,
                                                 },
                                                 ArenaIdxRange(
                                                     3..4,
@@ -3020,13 +3046,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 40,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -4529,7 +4551,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 9,
                                             },
                                             variables: ArenaIdxRange(
@@ -4558,7 +4580,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 10,
                                             },
                                             variables: ArenaIdxRange(
@@ -4635,7 +4657,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 8,
                                             },
                                             variables: ArenaIdxRange(
@@ -4745,7 +4767,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -4774,7 +4796,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -4803,7 +4825,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -4832,7 +4854,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -4907,7 +4929,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
@@ -4936,7 +4958,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
                                             variables: ArenaIdxRange(
@@ -4965,7 +4987,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 7,
                                             },
                                             variables: ArenaIdxRange(
@@ -5286,7 +5308,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -5676,13 +5698,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 41,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -5697,13 +5715,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 41,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -5950,7 +5964,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -5962,7 +5976,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -5973,7 +5987,7 @@
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `start0`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -5984,7 +5998,7 @@
                                                         14,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `end`,
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -5995,7 +6009,7 @@
                                                         18,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 4,
                                                     },
@@ -6006,44 +6020,44 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 3,
                                                     },
-                                                    ty_expr_idx: 4,
+                                                    ty: 4,
                                                 },
                                                 ArenaIdxRange(
                                                     3..4,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 4,
                                                     },
-                                                    ty_expr_idx: 5,
+                                                    ty: 5,
                                                 },
                                                 ArenaIdxRange(
                                                     4..5,
@@ -6117,13 +6131,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -7754,7 +7764,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 9,
                                             },
                                             variables: ArenaIdxRange(
@@ -7783,7 +7793,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 10,
                                             },
                                             variables: ArenaIdxRange(
@@ -7904,7 +7914,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 7,
                                             },
                                             variables: ArenaIdxRange(
@@ -7933,7 +7943,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 8,
                                             },
                                             variables: ArenaIdxRange(
@@ -8089,7 +8099,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -8118,7 +8128,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -8147,7 +8157,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -8222,7 +8232,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -8251,7 +8261,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
@@ -8280,7 +8290,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
                                             variables: ArenaIdxRange(
@@ -8627,7 +8637,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -9022,13 +9032,9 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 42,
-                        },
-                    ),
-                ),
+                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    Fn,
+                )`, (0)),
             ),
         ),
         Some(
@@ -9043,13 +9049,9 @@
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 42,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                    Fn,
+                                                )`, (0)),
                                             ),
                                         ),
                                     ),
@@ -9219,7 +9221,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -9231,7 +9233,7 @@
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -9242,7 +9244,7 @@
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -9253,22 +9255,22 @@
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
@@ -9318,13 +9320,9 @@
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
-                                    ),
+                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                        Fn,
+                                    )`, (0)),
                                 ),
                             ),
                         ),
@@ -12026,7 +12024,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 9,
                                             },
                                             variables: ArenaIdxRange(
@@ -12067,7 +12065,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 7,
                                             },
                                             variables: ArenaIdxRange(
@@ -12096,7 +12094,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 8,
                                             },
                                             variables: ArenaIdxRange(
@@ -12149,7 +12147,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 15,
                                             },
                                             variables: ArenaIdxRange(
@@ -12184,7 +12182,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 11,
                                             },
                                             variables: ArenaIdxRange(
@@ -12213,7 +12211,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 12,
                                             },
                                             variables: ArenaIdxRange(
@@ -12242,7 +12240,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 13,
                                             },
                                             variables: ArenaIdxRange(
@@ -12271,7 +12269,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 14,
                                             },
                                             variables: ArenaIdxRange(
@@ -12336,7 +12334,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 10,
                                             },
                                             variables: ArenaIdxRange(
@@ -12419,7 +12417,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
@@ -12448,7 +12446,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
                                             variables: ArenaIdxRange(
@@ -12537,7 +12535,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 19,
                                             },
                                             variables: ArenaIdxRange(
@@ -12572,7 +12570,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -12609,7 +12607,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -12638,7 +12636,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -12667,7 +12665,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -12718,7 +12716,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 16,
                                             },
                                             variables: ArenaIdxRange(
@@ -12747,7 +12745,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 17,
                                             },
                                             variables: ArenaIdxRange(
@@ -12776,7 +12774,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 18,
                                             },
                                             variables: ArenaIdxRange(
@@ -13277,7 +13275,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -13632,7 +13630,7 @@
                             pattern_ty_constraints: [
                                 (
                                     LetPattern {
-                                        pattern: LetSynPatternExprRoot {
+                                        pattern: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         ty: 3,
@@ -13940,11 +13938,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 263,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -13954,11 +13965,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 342,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 356,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -13978,11 +14002,24 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 263,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -14063,7 +14100,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -14095,11 +14132,24 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 342,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 356,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -14155,7 +14205,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -14183,11 +14233,24 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 342,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitForTypeItemPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 356,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -14329,7 +14392,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -14371,11 +14434,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 264,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 292,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -14385,11 +14458,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 343,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -14409,11 +14491,21 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 264,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 292,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -14469,7 +14561,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -14497,11 +14589,20 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 343,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                                            Fn,
+                                                                        )`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -14704,7 +14805,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -14716,7 +14817,7 @@
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -14727,7 +14828,7 @@
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `from`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -14738,7 +14839,7 @@
                                                         15,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `to`,
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -14749,33 +14850,33 @@
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 3,
                                                     },
-                                                    ty_expr_idx: 4,
+                                                    ty: 4,
                                                 },
                                                 ArenaIdxRange(
                                                     3..4,
@@ -14838,11 +14939,20 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 343,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
+                                                    TypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
+                                                                Fn,
+                                                            )`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -15059,7 +15169,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {
@@ -15125,11 +15235,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 344,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -15149,11 +15268,21 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 264,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 292,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -15209,7 +15338,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15237,11 +15366,20 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 344,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -15297,7 +15435,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15325,11 +15463,20 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 344,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
+                                                    TypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
+                                                                Fn,
+                                                            )`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -15430,7 +15577,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -15464,11 +15611,24 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 265,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -15478,11 +15638,24 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TraitForTypeItem(
                 TraitForTypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 345,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TraitForTypeItem(
+                                TraitForTypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 359,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -15502,11 +15675,24 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 265,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -15587,7 +15773,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15619,11 +15805,24 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 345,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 359,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -15679,7 +15878,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15707,11 +15906,24 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 345,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitForTypeItemPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 359,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -15790,7 +16002,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -15824,11 +16036,21 @@
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TypeImplBlock(
                 TypeImplBlockSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 266,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 294,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -15838,11 +16060,18 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 346,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -15862,11 +16091,21 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 266,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 294,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -15922,7 +16161,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15950,11 +16189,18 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 346,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -16023,7 +16269,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16051,11 +16297,18 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 346,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
+                                                    TypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -16148,7 +16401,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -16182,11 +16435,18 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 347,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -16206,11 +16466,21 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 266,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 294,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -16266,7 +16536,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16294,11 +16564,18 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 347,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -16354,7 +16631,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16382,11 +16659,18 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 347,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
+                                                    TypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -17158,7 +17442,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 6,
                                             },
                                             variables: ArenaIdxRange(
@@ -17211,7 +17495,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -17240,7 +17524,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
@@ -17269,7 +17553,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
@@ -17298,7 +17582,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
@@ -17327,7 +17611,7 @@
                                     },
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetSynPatternExprRoot {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
                                                 syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
@@ -17574,7 +17858,7 @@
                                 ],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -17825,11 +18109,20 @@
         ItemSynNodePath::AssocItem(
             AssocItemSynNodePath::TypeItem(
                 TypeItemSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 348,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                            Fn,
+                                        )`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -17849,11 +18142,21 @@
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
-                                                                ItemSynNodePathId(
-                                                                    Id {
-                                                                        value: 266,
-                                                                    },
-                                                                ),
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 294,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -17909,7 +18212,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SynSymbolRegionData {
+                                                symbol_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -17937,11 +18240,20 @@
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 348,
-                                                        },
-                                                    ),
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssocItem(
+                                                            AssocItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                                                            Fn,
+                                                                        )`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -18099,7 +18411,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -18111,7 +18423,7 @@
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `ct`,
                                                         pattern_symbol_idx: 1,
                                                     },
@@ -18122,7 +18434,7 @@
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::ParenateRegularParameter {
+                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
                                                         ident: `r`,
                                                         pattern_symbol_idx: 2,
                                                     },
@@ -18133,22 +18445,22 @@
                                         allow_self_value: True,
                                         pattern_ty_constraints: [
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 1,
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty: 2,
                                                 },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
                                             ),
                                             (
-                                                OrdinaryParenateParameter {
-                                                    syn_pattern_root: ParenateSynPatternExprRoot {
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                         syn_pattern_expr_idx: 2,
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
                                                     2..3,
@@ -18199,11 +18511,20 @@
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
-                                        ItemSynNodePathId(
-                                            Id {
-                                                value: 348,
-                                            },
-                                        ),
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::AssocItem(
+                                                AssocItemSynNodePathData::TypeItem(
+                                                    TypeItemSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(
+                                                                Fn,
+                                                            )`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -18378,7 +18699,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: SynSymbolRegionData {
+                        symbol_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedSynSymbol {

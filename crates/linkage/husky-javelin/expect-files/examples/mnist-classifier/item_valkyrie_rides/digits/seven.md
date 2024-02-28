@@ -12,11 +12,13 @@
                     ValkyrieRide::VecConstructor {
                         element_ty: HirType::Ritchie(
                             HirRitchieType {
-                                ritchie_ty_kind: Fn,
+                                ritchie_ty_kind: Item(
+                                    Fn,
+                                ),
                                 parameters: HirRitchieParameters {
                                     data: [
-                                        HirRitchieParameter::Ordinary(
-                                            HirRitchieRegularParameter {
+                                        HirRitchieParameter::Simple(
+                                            HirRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -95,11 +97,13 @@
                     ValkyrieRide::VecConstructor {
                         element_ty: HirType::Ritchie(
                             HirRitchieType {
-                                ritchie_ty_kind: Fn,
+                                ritchie_ty_kind: Item(
+                                    Fn,
+                                ),
                                 parameters: HirRitchieParameters {
                                     data: [
-                                        HirRitchieParameter::Ordinary(
-                                            HirRitchieRegularParameter {
+                                        HirRitchieParameter::Simple(
+                                            HirRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {

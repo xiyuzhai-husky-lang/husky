@@ -4,21 +4,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -27,21 +49,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -50,21 +94,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 3,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -73,21 +139,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 4,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -96,21 +184,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 5,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -119,21 +229,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 6,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 6,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -142,21 +274,43 @@ SynNodeDeclSheet {
             ItemSynNodePath::Submodule(
                 Room32,
                 SubmoduleSynNodePath(
-                    ItemSynNodePathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 7,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
                 ),
             ),
             ItemSynNodeDecl::Submodule(
                 SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 7,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -164,26 +318,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(
-                        ItemSynNodePathId(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
+                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(
-                                ItemSynNodePathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -210,13 +352,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(
-                                                    ItemSynNodePathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -300,7 +436,7 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SynSymbolRegionData {
+                                    symbol_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },

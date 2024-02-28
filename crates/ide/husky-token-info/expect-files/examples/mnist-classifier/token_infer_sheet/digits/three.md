@@ -32,20 +32,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 73,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -218,20 +212,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 74,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -301,17 +289,11 @@ Ok(
                         4,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                            ident: `Three`,
-                                            index: U8(
-                                                3,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 266,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -319,17 +301,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                            ident: `Three`,
-                                            index: U8(
-                                                3,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 266,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -577,17 +553,11 @@ Ok(
                         9,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -595,17 +565,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -669,17 +633,11 @@ Ok(
                         10,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -687,17 +645,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1068,17 +1020,11 @@ Ok(
                         13,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1086,17 +1032,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ident: `Yes`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 252,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1109,22 +1049,18 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 75,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                                    Fn,
+                                )`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Ritchie(
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Ritchie(
                                     Fn,
                                 ),
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -1137,7 +1073,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1287,17 +1223,11 @@ Ok(
                         1,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1305,17 +1235,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1389,22 +1313,18 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 76,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                                    Fn,
+                                )`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Ritchie(
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Ritchie(
                                     Fn,
                                 ),
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -1417,7 +1337,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1567,17 +1487,11 @@ Ok(
                         1,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1585,17 +1499,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1669,22 +1577,18 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 77,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
+                                    Fn,
+                                )`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Ritchie(
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Ritchie(
                                     Fn,
                                 ),
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -1697,7 +1601,7 @@ Ok(
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
                         current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ParenateRegularParameter {
+                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
                             pattern_symbol_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1847,17 +1751,11 @@ Ok(
                         1,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
@@ -1865,17 +1763,11 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                     ),
