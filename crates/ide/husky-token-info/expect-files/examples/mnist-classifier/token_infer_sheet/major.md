@@ -32,20 +32,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 105,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -161,20 +155,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 106,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -508,20 +496,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -737,20 +719,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 108,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -844,20 +820,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 109,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -934,20 +904,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 110,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },
@@ -1021,20 +985,14 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 111,
-                                        },
-                                    ),
-                                ),
+                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Fugitive(
-                                Val,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Fugitive(
+                                MajorFugitiveKind::Val,
                             ),
-                            connection: Connected,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },

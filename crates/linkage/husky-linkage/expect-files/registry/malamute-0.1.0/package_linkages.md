@@ -13,28 +13,11 @@
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::default::Default`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `default`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 147,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinInstantiation {
@@ -49,28 +32,11 @@
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssocItem(
-                            AssocItemPathData::TraitForTypeItem(
-                                TraitForTypeItemPathData {
-                                    impl_block: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `malamute`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`malamute::OneVsAll`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                    ident: `unveil`,
-                                    item_kind: AssocRitchie(
-                                        Fn,
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 151,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinInstantiation {
@@ -84,28 +50,11 @@
     Linkage {
         data: LinkageData::UnveilAssocFn {
             path: TraitForTypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssocItem(
-                        AssocItemPathData::TraitForTypeItem(
-                            TraitForTypeItemPathData {
-                                impl_block: TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `malamute`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                                ident: `unveil`,
-                                item_kind: AssocRitchie(
-                                    Fn,
-                                ),
-                            },
-                        ),
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 151,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -118,17 +67,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ident: `Break`,
-                            index: U8(
-                                1,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 101,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -184,17 +127,11 @@
     Linkage {
         data: LinkageData::TypeVariantConstructor {
             path: TypeVariantPath(
-                ItemPathId {
-                    data: ItemPathData::TypeVariant(
-                        TypeVariantPathData {
-                            parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                            ident: `Continue`,
-                            index: U8(
-                                0,
-                            ),
-                        },
-                    ),
-                },
+                ItemPathId(
+                    Id {
+                        value: 100,
+                    },
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [

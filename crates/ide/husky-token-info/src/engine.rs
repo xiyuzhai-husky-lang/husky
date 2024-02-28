@@ -459,7 +459,39 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::NestedBlockCurl,
                 )
             }
-            SemaExprData::Closure { .. } => todo!(),
+            &SemaExprData::Closure {
+                closure_kind_regional_token_idx,
+                lvert_regional_token_idx,
+                rvert_regional_token,
+                return_ty,
+                ..
+            } => {
+                if let Some(closure_kind_regional_token_idx) = closure_kind_regional_token_idx {
+                    todo!()
+                }
+                self.add(
+                    lvert_regional_token_idx,
+                    sema_expr_idx,
+                    TokenInfoData::ClosureVert,
+                );
+                self.add(
+                    rvert_regional_token.regional_token_idx(),
+                    sema_expr_idx,
+                    TokenInfoData::ClosureVert,
+                );
+                if let Some((light_arrow, _, eq)) = return_ty {
+                    self.add(
+                        light_arrow.regional_token_idx(),
+                        sema_expr_idx,
+                        TokenInfoData::ClosureLightArrow,
+                    );
+                    self.add(
+                        eq.regional_token_idx(),
+                        sema_expr_idx,
+                        TokenInfoData::ClosureEq,
+                    );
+                }
+            }
         }
     }
 

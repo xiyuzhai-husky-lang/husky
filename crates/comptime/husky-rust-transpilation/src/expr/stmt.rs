@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::stmt::{ConditionConversion, LoopBoundaryKind, LoopStep};
-use husky_hir_eager_expr::HirEagerCaseBranch;
+use husky_hir_eager_expr::{let_variable::HirEagerLetVariablesPattern, HirEagerCaseBranch};
 use husky_hir_opr::suffix::HirSuffixOpr;
 
 impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {

@@ -5,15 +5,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -38,15 +34,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::zero`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 54,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -3817,15 +3809,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::one`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -6629,15 +6617,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::six`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -9907,15 +9891,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::three`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 57,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -13085,15 +13065,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::four`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 58,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -16359,15 +16335,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::five`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 59,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -16469,15 +16441,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::seven`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 60,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -18349,15 +18317,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::eight`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 61,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -19294,15 +19258,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::nine`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 62,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -22065,15 +22025,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::two`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 63,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -25205,15 +25161,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::major`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
                         ),
                     },
                 ),

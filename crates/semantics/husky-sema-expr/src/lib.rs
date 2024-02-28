@@ -10,7 +10,7 @@ mod error;
 mod expr;
 // mod info;
 pub mod helpers;
-mod obelisks;
+pub mod obelisks;
 mod region;
 pub mod stmt;
 #[cfg(test)]

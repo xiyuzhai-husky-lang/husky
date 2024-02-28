@@ -212,7 +212,7 @@ TokenSheetData {
     tokens: [
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Vertical,
+                PunctuationMapped::Vert,
             ),
         ),
     ],
@@ -249,7 +249,7 @@ TokenSheetData {
     tokens: [
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::DoubleVertical,
+                PunctuationMapped::VertVert,
             ),
         ),
     ],

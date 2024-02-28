@@ -312,7 +312,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -828,7 +828,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -856,7 +856,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -1780,7 +1780,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -1808,7 +1808,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2665,7 +2665,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Leash,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -2676,7 +2676,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -2687,7 +2687,7 @@
                                                         },
                                                     ),
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -2741,7 +2741,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2777,7 +2777,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2846,7 +2846,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2882,7 +2882,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -2974,7 +2974,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -2985,7 +2985,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -3049,7 +3049,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -3804,8 +3804,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -3861,8 +3861,8 @@
                                             11,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -3900,8 +3900,8 @@
                                             21,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -3939,8 +3939,8 @@
                                             26,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -4015,8 +4015,8 @@
                                             47,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -4691,7 +4691,7 @@
                             },
                             FlyTermExpectationEntry {
                                 expectation: Expectation::EqsSort(
-                                    ExpectEqsCategory {
+                                    ExpectSort {
                                         smallest_universe: Universe(
                                             1,
                                         ),
@@ -5072,11 +5072,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -5087,7 +5089,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -5873,11 +5875,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -5888,7 +5892,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -6446,11 +6450,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -6461,7 +6467,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -7193,28 +7199,11 @@
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssocItem(
-                                AssocItemPathData::TraitForTypeItem(
-                                    TraitForTypeItemPathData {
-                                        impl_block: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodRitchie(
-                                            Fn,
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
+                        ItemPathId(
+                            Id {
+                                value: 407,
+                            },
+                        ),
                     ),
                 ),
             ),
@@ -7224,28 +7213,11 @@
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssocItem(
-                                    AssocItemPathData::TraitForTypeItem(
-                                        TraitForTypeItemPathData {
-                                            impl_block: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodRitchie(
-                                                Fn,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 407,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7426,29 +7398,14 @@
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::visual`,
-                                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `visualize`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 410,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -8341,7 +8298,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -8435,7 +8392,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9065,7 +9022,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9299,7 +9256,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9454,7 +9411,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9554,7 +9511,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9747,7 +9704,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -9952,7 +9909,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -10479,7 +10436,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -10490,7 +10447,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -10538,7 +10495,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -11009,8 +10966,8 @@
                                             58,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -11048,8 +11005,8 @@
                                             69,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 6,
                                         },
                                         variables: ArenaIdxRange(
@@ -11126,8 +11083,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -11165,8 +11122,8 @@
                                             6,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -11204,8 +11161,8 @@
                                             19,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -11243,8 +11200,8 @@
                                             27,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -13117,7 +13074,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -13286,7 +13243,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -13479,7 +13436,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -13684,7 +13641,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -14048,7 +14005,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -14340,7 +14297,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -14351,7 +14308,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -14362,7 +14319,7 @@
                                                         },
                                                     ),
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -14410,7 +14367,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -14446,7 +14403,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -14780,8 +14737,8 @@
                                             45,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -14881,8 +14838,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -14920,8 +14877,8 @@
                                             6,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -16443,7 +16400,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -17152,7 +17109,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -17357,7 +17314,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -17998,7 +17955,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -18009,7 +17966,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -18057,7 +18014,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -18392,7 +18349,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -18403,7 +18360,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -18451,7 +18408,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -18786,7 +18743,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -18797,7 +18754,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -18845,7 +18802,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19180,7 +19137,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -19191,7 +19148,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -19239,7 +19196,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19531,7 +19488,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19567,7 +19524,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19778,7 +19735,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19814,7 +19771,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19883,7 +19840,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -19913,7 +19870,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -20012,8 +19969,8 @@
                                             61,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 6,
                                         },
                                         variables: ArenaIdxRange(
@@ -20175,8 +20132,8 @@
                                             1,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
@@ -20214,8 +20171,8 @@
                                             14,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
@@ -20253,8 +20210,8 @@
                                             21,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
@@ -20292,8 +20249,8 @@
                                             28,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
@@ -20331,8 +20288,8 @@
                                             35,
                                         ),
                                     },
-                                    let_pattern_sema_obelisk: LetPatternSemaSyndicate {
-                                        syn_pattern_root: LetSynPatternExprRoot {
+                                    let_pattern_sema_obelisk: LetVariableObelisk {
+                                        syn_pattern_root: LetPatternSynExprRoot {
                                             syn_pattern_expr_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
@@ -22256,11 +22213,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22271,7 +22230,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22320,11 +22279,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22335,7 +22296,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22532,11 +22493,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -22547,7 +22510,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -23141,7 +23104,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -23152,7 +23115,7 @@
                                                 },
                                                 parenate_parameters: [
                                                     FlyRitchieParameter::Regular(
-                                                        FlyRitchieRegularParameter {
+                                                        FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
                                                                 place: None,
@@ -23194,7 +23157,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -23818,7 +23781,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -24017,29 +23980,14 @@
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::clone`,
-                                                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `clone`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 324,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -24297,7 +24245,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -24496,29 +24444,14 @@
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::clone`,
-                                                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `clone`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 324,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -24612,7 +24545,7 @@
                                     ),
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24642,7 +24575,7 @@
                                             },
                                         ),
                                         SemaRitchieParameterArgumentMatch::Regular(
-                                            FlyRitchieRegularParameter {
+                                            FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
                                                     place: None,
@@ -24831,11 +24764,13 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_kind: Type(
-                                                            Fn,
+                                                            Item(
+                                                                Fn,
+                                                            ),
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -24846,7 +24781,7 @@
                                                                 },
                                                             ),
                                                             FlyRitchieParameter::Regular(
-                                                                FlyRitchieRegularParameter {
+                                                                FlyRitchieSimpleParameter {
                                                                     contract: Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
@@ -25472,7 +25407,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -25671,29 +25606,14 @@
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::clone`,
-                                                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `clone`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 324,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -26292,7 +26212,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -26491,29 +26411,14 @@
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssocItem(
-                                                                AssocItemPathData::TraitForTypeItem(
-                                                                    TraitForTypeItemPathData {
-                                                                        impl_block: TraitForTypeImplBlock {
-                                                                            data: TraitForTypeImplBlockPathData {
-                                                                                module_path: `core::clone`,
-                                                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        },
-                                                                        ident: `clone`,
-                                                                        item_kind: MethodRitchie(
-                                                                            Fn,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 324,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27021,7 +26926,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27121,7 +27026,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27633,7 +27538,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -27772,7 +27677,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -28332,7 +28237,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
@@ -28471,7 +28376,7 @@
                                                         Fn,
                                                     )`),
                                                 ),
-                                                self_value_parameter: FlyRitchieRegularParameter {
+                                                self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,

@@ -123,6 +123,6 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         HirEagerExprData::Block { .. } => RustPrecedence::None,
         HirEagerExprData::As { .. } => RustPrecedence::As,
         HirEagerExprData::Unveil { .. } => RustPrecedence::None,
-        HirEagerExprData::Closure => RustPrecedence::Closure, // this is because we use macro to do unveil
+        HirEagerExprData::Closure { .. } => RustPrecedence::Closure, // this is because we use macro to do unveil
     }
 }

@@ -134,6 +134,9 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::SemaPrefixTypeOpr => format!("SemaPrefixTypeOpr"),
                 TokenInfoData::CallPar => format!("call par"),
                 TokenInfoData::NestedBlockCurl => format!("NestedBlockCurl"),
+                TokenInfoData::ClosureVert => format!("ClosureVert"),
+                TokenInfoData::ClosureLightArrow => format!("ClosureLightArrow"),
+                TokenInfoData::ClosureEq => format!("ClosureEq"),
             },
             None => format!(""),
         };

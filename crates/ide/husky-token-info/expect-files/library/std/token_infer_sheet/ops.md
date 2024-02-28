@@ -15,17 +15,24 @@ Ok(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
                                 TraitSynNodePath(
-                                    ItemSynNodePathId(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`std::ops::Add`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        MajorItem {
-                            module_item_kind: Trait,
-                            connection: Connected,
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Trait,
+                            connection: MajorItemConnectionKind::Connected,
                         },
                     ),
                 },

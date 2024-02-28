@@ -12,11 +12,13 @@
                     ValkyrieRide::VecConstructor {
                         element_ty: HirType::Ritchie(
                             HirRitchieType {
-                                ritchie_ty_kind: Fn,
+                                ritchie_ty_kind: Item(
+                                    Fn,
+                                ),
                                 parameters: HirRitchieParameters {
                                     data: [
-                                        HirRitchieParameter::Ordinary(
-                                            HirRitchieRegularParameter {
+                                        HirRitchieParameter::Simple(
+                                            HirRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -132,17 +134,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -196,17 +192,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -260,17 +250,11 @@
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TypeVariantConstructor(
                             TypeVariantPath(
-                                ItemPathId {
-                                    data: ItemPathData::TypeVariant(
-                                        TypeVariantPathData {
-                                            parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                            ident: `Some`,
-                                            index: U8(
-                                                0,
-                                            ),
-                                        },
-                                    ),
-                                },
+                                ItemPathId(
+                                    Id {
+                                        value: 206,
+                                    },
+                                ),
                             ),
                         ),
                         hir_instantiation: HirInstantiation {

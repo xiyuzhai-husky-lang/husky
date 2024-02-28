@@ -538,7 +538,15 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemaExprData::Closure { .. } => todo!(),
+            &SemaExprData::Closure {
+                closure_kind_regional_token_idx,
+                lvert_regional_token_idx,
+                body,
+                ..
+            } => {
+                let start = closure_kind_regional_token_idx.unwrap_or(lvert_regional_token_idx);
+                RegionalTokenIdxRange::new(start, self[body].end())
+            }
             SemaExprData::NestedBlock {
                 lcurl_regional_token_idx,
                 stmts,

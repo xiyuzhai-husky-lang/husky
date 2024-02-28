@@ -32,7 +32,7 @@ count-todo:
 
 update-expect:
 	cargo check --tests
-	UPDATE_EXPECT=1 cargo test --features "allow-print"\
+	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
 

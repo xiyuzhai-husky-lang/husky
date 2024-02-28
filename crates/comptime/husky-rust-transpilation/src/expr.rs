@@ -1,3 +1,4 @@
+mod closure;
 mod html;
 pub(crate) mod pattern;
 pub(crate) mod precedence;
@@ -12,9 +13,9 @@ use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry,
-    HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerLetVariablesPattern,
-    HirEagerPatternExpr, HirEagerPatternExprIdx, HirEagerRitchieParameterArgumentMatch,
-    HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
+    HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerPatternExpr,
+    HirEagerPatternExprIdx, HirEagerRitchieParameterArgumentMatch, HirEagerStmtData,
+    HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -462,7 +463,31 @@ impl HirEagerExprSite {
                 builder.keyword(RustKeyword::As);
                 ty.transpile_to_rust(builder)
             }
-            HirEagerExprData::Closure => todo!(),
+            HirEagerExprData::Closure {
+                ref parameters,
+                return_ty,
+                body,
+                ..
+            } => {
+                builder.bracketed_comma_list(RustDelimiter::Vert, parameters);
+                match return_ty {
+                    Some(return_ty) => {
+                        builder.punctuation(RustPunctuation::LightArrow);
+                        return_ty.transpile_to_rust(builder);
+                        builder.bracketed(RustDelimiter::Curl, |builder| {
+                            (body, self.subexpr(RustPrecedenceRange::Any))
+                                .transpile_to_rust(builder)
+                        })
+                    }
+                    None => {
+                        (
+                            body,
+                            self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::Closure)),
+                        )
+                            .transpile_to_rust(builder);
+                    }
+                }
+            }
         }
     }
 }

@@ -5,15 +5,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -38,15 +34,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::zero`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 54,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -626,14 +618,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 13,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 11,
@@ -729,14 +721,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 19,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 15,
@@ -832,14 +824,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 25,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 21,
@@ -994,14 +986,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 36,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 34,
@@ -1097,7 +1089,7 @@
                 ),
                 opn: ValOpn::Return,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 38,
@@ -1243,7 +1235,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -1366,7 +1358,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 5,
@@ -1580,14 +1572,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -1740,14 +1732,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -2058,14 +2050,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -2172,7 +2164,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -2274,14 +2266,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -2388,7 +2380,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -2490,14 +2482,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -2604,7 +2596,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -2847,14 +2839,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 53,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 50,
@@ -2956,14 +2948,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -3070,7 +3062,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -3158,14 +3150,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 60,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 55,
@@ -3317,7 +3309,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -3425,7 +3417,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 56,
@@ -3513,14 +3505,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 67,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 62,
@@ -3672,7 +3664,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -3780,7 +3772,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 63,
@@ -4041,7 +4033,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -4149,7 +4141,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 69,
@@ -4348,14 +4340,14 @@
                 ),
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 71,
@@ -4459,7 +4451,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 74,
@@ -4565,7 +4557,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 75,
@@ -4658,14 +4650,14 @@
                 ),
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 71,
@@ -4769,7 +4761,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 77,
@@ -4875,7 +4867,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 78,
@@ -5139,7 +5131,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 82,
@@ -5245,7 +5237,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 83,
@@ -5400,7 +5392,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 82,
@@ -5506,7 +5498,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 85,
@@ -5712,14 +5704,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 76,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 79,
@@ -5813,14 +5805,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 84,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 86,
@@ -5908,14 +5900,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 93,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 91,
@@ -6009,14 +6001,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 81,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 88,
@@ -6227,14 +6219,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -6341,7 +6333,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -6426,15 +6418,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::one`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -7073,7 +7061,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -7476,14 +7464,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -7636,14 +7624,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -8185,14 +8173,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -8299,7 +8287,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 107,
@@ -8593,14 +8581,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 128,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 125,
@@ -8696,14 +8684,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 132,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 130,
@@ -9171,14 +9159,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 180,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 177,
@@ -9649,14 +9637,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 273,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 271,
@@ -10047,14 +10035,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 302,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 300,
@@ -10386,14 +10374,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 315,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 312,
@@ -10489,14 +10477,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 319,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 317,
@@ -10589,15 +10577,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::six`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -11421,7 +11405,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -11503,14 +11487,14 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 331,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 330,
@@ -11594,14 +11578,14 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 326,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 327,
@@ -11862,7 +11846,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -12123,7 +12107,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -12275,7 +12259,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -12863,14 +12847,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 366,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 363,
@@ -13341,7 +13325,7 @@
                 ),
                 opn: ValOpn::Return,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 400,
@@ -13445,7 +13429,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -13553,7 +13537,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -13901,7 +13885,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -14255,14 +14239,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 413,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 410,
@@ -14414,7 +14398,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -14502,14 +14486,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 424,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 416,
@@ -14613,7 +14597,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -14721,7 +14705,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -14825,7 +14809,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 420,
@@ -14931,7 +14915,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 421,
@@ -15143,14 +15127,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 438,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 430,
@@ -15254,7 +15238,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -15362,7 +15346,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -15450,14 +15434,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 443,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 441,
@@ -15551,14 +15535,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 335,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 336,
@@ -15643,15 +15627,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::three`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 57,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -19001,15 +18981,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::four`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 58,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -22535,15 +22511,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::five`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 59,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -22665,15 +22637,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::seven`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 60,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -24725,15 +24693,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::eight`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 61,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -25790,15 +25754,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::nine`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 62,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -28741,15 +28701,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::digits::two`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 63,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -32081,15 +32037,11 @@
                 data: TracePathData::Submodule(
                     SubmoduleTracePathData {
                         submodule_item_path: SubmoduleItemPath(
-                            ItemPathId {
-                                data: ItemPathData::SubmoduleItem(
-                                    SubmoduleItemPathData {
-                                        submodule_path: SubmodulePath(
-                                            `mnist_classifier::major`,
-                                        ),
-                                    },
-                                ),
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
                         ),
                     },
                 ),
@@ -36922,7 +36874,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -37325,14 +37277,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -37485,14 +37437,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -38034,14 +37986,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 105,
@@ -38148,7 +38100,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 107,
@@ -38442,14 +38394,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 128,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 125,
@@ -38545,14 +38497,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 132,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 130,
@@ -39020,14 +38972,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 180,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 177,
@@ -39498,14 +39450,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 273,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 271,
@@ -39896,14 +39848,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 302,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 300,
@@ -40235,14 +40187,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 315,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 312,
@@ -40338,14 +40290,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 319,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 317,
@@ -40752,7 +40704,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -40834,14 +40786,14 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 331,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 330,
@@ -40925,14 +40877,14 @@
                 val_domain_repr: Omni,
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 326,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 327,
@@ -41193,7 +41145,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -41454,7 +41406,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -41606,7 +41558,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -42194,14 +42146,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 366,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 363,
@@ -42672,7 +42624,7 @@
                 ),
                 opn: ValOpn::Return,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 400,
@@ -42776,7 +42728,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -42884,7 +42836,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -43232,7 +43184,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -43586,14 +43538,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 413,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 410,
@@ -43745,7 +43697,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 323,
@@ -43833,14 +43785,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 424,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 416,
@@ -43944,7 +43896,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -44052,7 +44004,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -44156,7 +44108,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 420,
@@ -44262,7 +44214,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 421,
@@ -44474,14 +44426,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 438,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 430,
@@ -44585,7 +44537,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -44693,7 +44645,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 334,
@@ -44781,14 +44733,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 443,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 441,
@@ -44882,14 +44834,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 335,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 336,
@@ -45311,14 +45263,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 13,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 11,
@@ -45414,14 +45366,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 19,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 15,
@@ -45517,14 +45469,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 25,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 21,
@@ -45679,14 +45631,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 36,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 34,
@@ -45782,7 +45734,7 @@
                 ),
                 opn: ValOpn::Return,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 38,
@@ -45928,7 +45880,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -46051,7 +46003,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 5,
@@ -46265,14 +46217,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -46425,14 +46377,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -46743,14 +46695,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -46857,7 +46809,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -46959,14 +46911,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -47073,7 +47025,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -47175,14 +47127,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -47289,7 +47241,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -47532,14 +47484,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 53,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 50,
@@ -47641,14 +47593,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -47755,7 +47707,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,
@@ -47843,14 +47795,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 60,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 55,
@@ -48002,7 +47954,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -48110,7 +48062,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 56,
@@ -48198,14 +48150,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 67,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 62,
@@ -48357,7 +48309,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -48465,7 +48417,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 63,
@@ -48726,7 +48678,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 4,
@@ -48834,7 +48786,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 69,
@@ -49033,14 +48985,14 @@
                 ),
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 71,
@@ -49144,7 +49096,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 74,
@@ -49250,7 +49202,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 75,
@@ -49343,14 +49295,14 @@
                 ),
                 opn: ValOpn::Index,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 71,
@@ -49454,7 +49406,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 77,
@@ -49560,7 +49512,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 78,
@@ -49824,7 +49776,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 82,
@@ -49930,7 +49882,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 83,
@@ -50085,7 +50037,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 82,
@@ -50191,7 +50143,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 85,
@@ -50397,14 +50349,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 76,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 79,
@@ -50498,14 +50450,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 84,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 86,
@@ -50593,14 +50545,14 @@
                 ),
                 opn: ValOpn::Require,
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 93,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 91,
@@ -50694,14 +50646,14 @@
                     ),
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 81,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 88,
@@ -50912,14 +50864,14 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 41,
@@ -51026,7 +50978,7 @@
                     },
                 ),
                 arguments: [
-                    Ordinary(
+                    Simple(
                         ValRepr(
                             Id {
                                 value: 43,

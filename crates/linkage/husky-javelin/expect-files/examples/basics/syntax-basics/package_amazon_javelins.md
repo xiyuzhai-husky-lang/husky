@@ -27,4 +27,34 @@
             },
         },
     ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Fugitive(
+                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        Fn,
+                    )`),
+                ),
+                instantiation: JavInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Fugitive(
+                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        Fn,
+                    )`),
+                ),
+                instantiation: JavInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
 ]
