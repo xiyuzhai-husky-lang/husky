@@ -5,4 +5,9 @@ edition = "2021"
 
 [dependencies]
 # abstractions
+enum-class.workspace = true
+salsa.workspace = true
 shifted-unsigned-int.workspace = true
+# kernel
+husky-coword.workspace = true
+husky-eth-term.workspace = true

@@ -12,6 +12,7 @@ use husky_sema_expr::{
     SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
 };
+use husky_sema_place_contract::region::{sema_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, InheritedSynSymbolIdx, PatternSynExprIdx, SynExprRegionData,
     SynExprRootKind, SynPatternExprMap, SynPatternExprRootKind, SynSymbolMap,
@@ -21,6 +22,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
     pub(crate) sema_expr_region_data: &'a SemaExprRegionData,
+    sema_place_contract_region: &'a SemaPlaceContractRegion,
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
     hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
@@ -53,6 +55,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             db,
             syn_expr_region_data,
             sema_expr_region_data,
+            sema_place_contract_region: sema_place_contract_region(db, sema_expr_region),
             hir_eager_expr_arena: Default::default(),
             hir_eager_pattern_expr_arena: Default::default(),
             hir_eager_stmt_arena: Default::default(),
@@ -221,7 +224,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         (
             HirEagerExprRegion::new(
                 self.db,
-                self.sema_expr_region_data.path(),
+                self.sema_expr_region_data.region_path(),
                 self.hir_eager_expr_arena,
                 self.hir_eager_stmt_arena,
                 self.hir_eager_pattern_expr_arena,
@@ -257,6 +260,10 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn fly_terms(&self) -> &FlyTerms {
         self.sema_expr_region_data.fly_term_region().terms()
+    }
+
+    pub(crate) fn sema_place_contract_region(&self) -> &'a SemaPlaceContractRegion {
+        self.sema_place_contract_region
     }
 }
 

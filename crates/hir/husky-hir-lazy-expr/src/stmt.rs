@@ -85,7 +85,7 @@ impl ToHirLazy for SemaStmtIdx {
                 eol_semicolon,
             } => HirLazyStmtData::Eval {
                 expr_idx: expr_idx.to_hir_lazy(builder),
-                discarded: eol_semicolon.as_ref().expect("no error").is_some(),
+                discarded: eol_semicolon.is_some(),
             },
             SemaStmtData::Break { .. } => unreachable!(),
             SemaStmtData::ForBetween { .. } => unreachable!(),

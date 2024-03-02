@@ -432,6 +432,9 @@ impl SemaExprIdx {
         arena[self].ty().unwrap()
     }
 
+    /// outside crate wouldn't need to access this
+    ///
+    /// for downstream crates, it's assumed that there are no semantic errors otherwise the analysis stops at semantic
     pub(crate) fn ok_ty<'a>(self, arena: &'a SemaExprArena) -> Option<FlyTerm> {
         arena[self].ty()
     }
@@ -452,12 +455,12 @@ impl<V> SemaExprMap<V> {
         Self(ArenaMap::new2(sema_expr_arena.0))
     }
 
-    pub fn insert_new(&mut self, expr_idx: SemaExprIdx, v: V) {
-        self.0.insert_new(expr_idx.0, v)
+    pub fn insert_new(&mut self, expr: SemaExprIdx, v: V) {
+        self.0.insert_new(expr.0, v)
     }
 
-    pub fn get(&self, sema_expr_idx: SemaExprIdx) -> Option<&V> {
-        self.0.get(sema_expr_idx.0)
+    pub fn get(&self, expr: SemaExprIdx) -> Option<&V> {
+        self.0.get(expr.0)
     }
 
     pub fn iter(&self) -> impl Iterator<Item = (SemaExprIdx, &V)> {
@@ -476,7 +479,7 @@ impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
 }
 
 impl<'a> SemaExprEngine<'a> {
-    pub(crate) fn infer_all_exprs(&mut self) {
+    pub(crate) fn build_all_exprs(&mut self) {
         for root in self.syn_expr_region_data().syn_expr_roots() {
             let sema_expr_idx = match root.kind() {
                 SynExprRootKind::SelfType
@@ -563,10 +566,10 @@ impl<'a> SemaExprEngine<'a> {
     /// infer the type of a new expression but don't need the result for now
     pub(crate) fn build_sema_expr<E: ExpectFlyTerm>(
         &mut self,
-        expr_idx: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> SemaExprIdx {
-        let (sema_expr_idx, _) = self.build_sema_expr_aux(expr_idx, expr_ty_expectation);
+        let (sema_expr_idx, _) = self.build_sema_expr_aux(syn_expr_idx, expr_ty_expectation);
         sema_expr_idx
     }
 

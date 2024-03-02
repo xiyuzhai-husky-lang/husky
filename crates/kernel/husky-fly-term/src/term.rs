@@ -20,19 +20,19 @@ use husky_term_prelude::literal::Literal;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyTerm {
-    place: Option<FlyPlace>,
+    place: Option<FlyQuary>,
     base: FlyTermBase,
 }
 
 impl FlyTerm {
-    pub(crate) fn new_ethereal(place: FlyPlace, ethereal_term: EthTerm) -> Self {
+    pub(crate) fn new_ethereal(place: FlyQuary, ethereal_term: EthTerm) -> Self {
         Self {
             place: Some(place),
             base: ethereal_term.into(),
         }
     }
 
-    pub fn with_place(self, place: FlyPlace) -> Self {
+    pub fn with_place(self, place: FlyQuary) -> Self {
         Self {
             place: Some(place),
             base: self.base,
@@ -50,8 +50,8 @@ pub enum FlyTermBase {
     Place,
 }
 
-impl From<FlyPlace> for FlyTerm {
-    fn from(place: FlyPlace) -> Self {
+impl From<FlyQuary> for FlyTerm {
+    fn from(place: FlyQuary) -> Self {
         FlyTerm {
             place: Some(place),
             base: FlyTermBase::Place,
@@ -152,7 +152,7 @@ fn term_to_fly_term_works() {
 }
 
 impl FlyTerm {
-    pub fn place(self) -> Option<FlyPlace> {
+    pub fn quary(self) -> Option<FlyQuary> {
         self.place
     }
 

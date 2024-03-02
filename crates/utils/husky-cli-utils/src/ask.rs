@@ -1,8 +1,10 @@
 use std::io::Write;
 
+use colored::Colorize;
+
 pub fn ask_user_for_permission(question: impl std::fmt::Display) -> bool {
     loop {
-        print!("{} (y/n)? ", question);
+        print!("{}? (y/n)", question.to_string().blue());
         let _ = std::io::stdout().flush();
         let mut s = String::new();
         std::io::stdin()

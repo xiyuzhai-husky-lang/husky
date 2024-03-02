@@ -2,14 +2,14 @@ use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
 use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
-use husky_place::PlaceIdx;
-use vec_like::SmallVecPairMap;
+use husky_place::{place::Place, PlaceIdx};
+use vec_like::{SmallVecMap, SmallVecPairMap};
 
 #[derive(Debug, Default)]
 pub(crate) struct HirEagerExprSite {
     pub(crate) rust_precedence_range: RustPrecedenceRange,
     pub(crate) rust_bindings: RustBindings,
-    pub(crate) location_contract_map: SmallVecPairMap<PlaceIdx, HirEagerContract, 2>,
+    pub(crate) place_contracts: SmallVecPairMap<Place, HirEagerContract, 2>,
 }
 
 impl HirEagerExprSite {
@@ -17,18 +17,18 @@ impl HirEagerExprSite {
     /// `self` refers to the parent expr on site
     pub(crate) fn self_expr_on_site(
         &self,
-        self_value_place: HirPlace,
+        self_value_place: HirQuary,
         contract: HirEagerContract,
         has_self_value_binding: bool,
     ) -> Self {
-        let mut location_contract_map = self.location_contract_map.clone();
-        if let Some(location) = self_value_place.location()
+        let mut place_contracts = self.place_contracts.clone();
+        if let Some(place) = self_value_place.place()
             && contract != HirEagerContract::At
         {
-            location_contract_map.insert((location, contract))
+            place_contracts.insert((place, contract))
         }
         Self {
-            location_contract_map,
+            place_contracts,
             rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             // this is because `RustBinding::SelfValue` automatically covers the contract
             rust_bindings: if has_self_value_binding {
@@ -43,7 +43,7 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
-            location_contract_map: self.location_contract_map.clone(),
+            place_contracts: self.place_contracts.clone(),
         }
     }
 
@@ -51,7 +51,7 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
-            location_contract_map: Default::default(),
+            place_contracts: Default::default(),
         }
     }
 
@@ -60,7 +60,7 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings: Default::default(),
-            location_contract_map: self.location_contract_map.clone(),
+            place_contracts: Default::default(),
         }
     }
 
@@ -89,18 +89,17 @@ impl HirEagerExprSite {
             HirEagerCoersion::PlaceToLeash => rust_bindings.push(RustBinding::Reref),
             HirEagerCoersion::Deref(_) => rust_bindings.push(RustBinding::Deref),
         }
-        let mut location_contract_map = self.location_contract_map.clone();
-        if let Some(location) = coersion.place_after_coersion().location() {
-            location_contract_map.insert((location, param.contract))
+        let mut place_contracts: SmallVecPairMap<Place, HirEagerContract, 2> = Default::default();
+        if let Some(place) = coersion.quary_after_coersion().place() {
+            place_contracts.insert((place, param.contract))
         }
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings,
-            location_contract_map,
+            place_contracts,
         }
     }
 
-    #[deprecated(note = "change coersion type to HirEagerCoersion")]
     pub(crate) fn new_root(coersion: Option<HirEagerCoersion>) -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
@@ -114,27 +113,27 @@ impl HirEagerExprSite {
                 },
                 None => Default::default(),
             },
-            location_contract_map: Default::default(),
+            place_contracts: Default::default(),
         }
     }
 
+    #[deprecated(note = "change coersion type to HirEagerCoersion")]
     pub(crate) fn new_let_initial_value(
         contract: HirEagerContract,
         initial_value_entry: &HirEagerExprEntry,
         coersion: Option<HirEagerCoersion>,
     ) -> Self {
-        let mut location_contract_map: SmallVecPairMap<PlaceIdx, HirEagerContract, 2> =
-            Default::default();
-        if let Some(location) = initial_value_entry.ty_place.location()
+        let mut place_contracts: SmallVecPairMap<Place, HirEagerContract, 2> = Default::default();
+        if let Some(place) = initial_value_entry.quary().place()
             && contract != HirEagerContract::At
         {
-            location_contract_map.insert((location, contract))
+            place_contracts.insert((place, contract))
         };
-        let rust_bindings: RustBindings = match initial_value_entry.ty_place {
-            HirPlace::Transient => Default::default(),
+        let rust_bindings: RustBindings = match initial_value_entry.quary() {
+            HirQuary::Transient => Default::default(),
             _ => match contract {
                 HirEagerContract::Pure | HirEagerContract::Const | HirEagerContract::Leash
-                    if !initial_value_entry.is_ty_always_copyable =>
+                    if !initial_value_entry.is_always_copyable() =>
                 {
                     RustBinding::Reref.into()
                 }
@@ -150,11 +149,11 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings,
-            location_contract_map,
+            place_contracts,
         }
     }
 
-    pub(crate) fn location_contract(&self, location: PlaceIdx) -> Option<HirEagerContract> {
-        self.location_contract_map.get_value(location).copied()
+    pub(crate) fn place_contract(&self, place: Place) -> Option<HirEagerContract> {
+        self.place_contracts.get_value(place).copied()
     }
 }

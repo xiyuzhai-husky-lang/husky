@@ -51,7 +51,7 @@ pub enum SemaStmtData {
         sema_expr_idx: SemaExprIdx,
         outcome: Option<ExpectationOutcome>,
         // todo: change this to EolOrEolSemicolonToken
-        eol_semicolon: TokenDataResult<Option<EolSemicolonRegionalToken>>,
+        eol_semicolon: Option<EolSemicolonRegionalToken>,
     },
     ForBetween {
         for_token: StmtForRegionalToken,
@@ -200,6 +200,11 @@ impl SemaStmtIdxRange {
     pub fn end(self) -> SemaStmtIdx {
         SemaStmtIdx(self.0.end())
     }
+
+    pub fn split_last(self) -> (Self, SemaStmtIdx) {
+        let (range, last) = self.0.split_last();
+        (Self(range), SemaStmtIdx(last))
+    }
 }
 
 impl IntoIterator for SemaStmtIdxRange {
@@ -237,12 +242,12 @@ impl<V> SemaStmtMap<V> {
         Self(ArenaMap::new2(sema_stmt_arena.0))
     }
 
-    pub fn insert_new(&mut self, stmt_idx: SemaStmtIdx, v: V) {
-        self.0.insert_new(stmt_idx.0, v)
+    pub fn insert_new(&mut self, stmt: SemaStmtIdx, v: V) {
+        self.0.insert_new(stmt.0, v)
     }
 
-    pub fn get(&self, sema_stmt_idx: SemaStmtIdx) -> Option<&V> {
-        self.0.get(sema_stmt_idx.0)
+    pub fn get(&self, stmt: SemaStmtIdx) -> Option<&V> {
+        self.0.get(stmt.0)
     }
 }
 
@@ -378,36 +383,41 @@ impl<'a> SemaExprEngine<'a> {
             SynStmtData::Eval {
                 expr_idx,
                 eol_semicolon,
-            } => {
-                let (sema_expr_idx, ty, outcome) = match eol_semicolon {
-                    Ok(None) => {
-                        self.build_sema_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
-                    }
-                    Ok(Some(_)) => {
-                        let (sema_expr_idx, expr_ty, outcome) =
-                            self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
-                        let ty_result = match expr_ty {
-                            Some(ty) => match ty.base_resolved(self) {
-                                FlyTermBase::Eth(ty) if ty == self.term_menu().never() => {
-                                    Some(self.term_menu().never().into())
-                                }
-                                _ => Some(self.term_menu().unit_ty_ontology().into()),
-                            },
-                            None => None,
-                        };
-                        (sema_expr_idx, ty_result, outcome)
-                    }
-                    Err(_) => self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyDerived),
-                };
-                (
-                    Ok(SemaStmtData::Eval {
-                        sema_expr_idx,
-                        eol_semicolon,
-                        outcome,
-                    }),
-                    ty.ok_or(DerivedSemaExprTypeError::EvalExprTypeNotInferred.into()),
-                )
-            }
+            } => match eol_semicolon {
+                Ok(eol_semicolon) => {
+                    let (sema_expr_idx, ty, outcome) = match eol_semicolon {
+                        None => {
+                            self.build_sema_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
+                        }
+                        Some(_) => {
+                            let (sema_expr_idx, expr_ty, outcome) = self
+                                .build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
+                            let ty_result = match expr_ty {
+                                Some(ty) => match ty.base_resolved(self) {
+                                    FlyTermBase::Eth(ty) if ty == self.term_menu().never() => {
+                                        Some(self.term_menu().never().into())
+                                    }
+                                    _ => Some(self.term_menu().unit_ty_ontology().into()),
+                                },
+                                None => None,
+                            };
+                            (sema_expr_idx, ty_result, outcome)
+                        }
+                    };
+                    (
+                        Ok(SemaStmtData::Eval {
+                            sema_expr_idx,
+                            eol_semicolon,
+                            outcome,
+                        }),
+                        ty.ok_or(DerivedSemaExprTypeError::EvalExprTypeNotInferred.into()),
+                    )
+                }
+                Err(_) => {
+                    let _ = self.build_sema_expr_with_ty_and_outcome(expr_idx, ExpectAnyDerived);
+                    todo!()
+                }
+            },
             SynStmtData::ForBetween {
                 for_token,
                 ref particulars,

@@ -32,16 +32,15 @@ macro_rules! p {
 #[macro_export]
 macro_rules! ps {
     ($s:expr) => {
-        eprintln!(
-            r#"
-{}{}:{}{}:{}
+        format!(
+            r#"{}{}:{}{}:{}
 {}"#,
             husky_print_utils::GREEN,
             file!(),
             husky_print_utils::YELLOW,
             line!(),
             husky_print_utils::RESET,
-            $s,
+            husky_print_utils::eshow!($s),
         )
     };
 }

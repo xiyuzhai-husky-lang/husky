@@ -1,7 +1,7 @@
 use crate::*;
 use either::*;
 use husky_fly_term::{deref::DerefFlyCoersion, trival::TrivialFlyCoersion, FlyCoersion};
-use husky_hir_ty::{lifetime::HirLifetime, place::HirPlace};
+use husky_hir_ty::{lifetime::HirLifetime, place::HirQuary};
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -15,26 +15,26 @@ pub enum HirEagerCoersion {
 
 impl HirEagerCoersion {
     pub const TRIVIAL_TRANSIENT: Self = HirEagerCoersion::Trivial(TrivialHirEagerCoersion {
-        expectee_place: HirPlace::Transient,
+        expectee_place: HirQuary::Transient,
     });
 
-    pub fn place_after_coersion(self) -> HirPlace {
+    pub fn quary_after_coersion(self) -> HirQuary {
         match self {
             HirEagerCoersion::Trivial(slf) => slf.place_after_coersion(),
             HirEagerCoersion::Deref(slf) => slf.place_after_coersion(),
             HirEagerCoersion::Never
             | HirEagerCoersion::WrapInSome
-            | HirEagerCoersion::PlaceToLeash => HirPlace::Transient,
+            | HirEagerCoersion::PlaceToLeash => HirQuary::Transient,
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TrivialHirEagerCoersion {
-    expectee_place: HirPlace,
+    expectee_place: HirQuary,
 }
 impl TrivialHirEagerCoersion {
-    fn place_after_coersion(self) -> HirPlace {
+    fn place_after_coersion(self) -> HirQuary {
         self.expectee_place
     }
 }
@@ -45,10 +45,10 @@ pub enum DerefHirEagerCoersion {
     Ref { lifetime: HirLifetime },
 }
 impl DerefHirEagerCoersion {
-    fn place_after_coersion(self) -> HirPlace {
+    fn place_after_coersion(self) -> HirQuary {
         match self {
-            DerefHirEagerCoersion::Leash => HirPlace::Leashed,
-            DerefHirEagerCoersion::Ref { lifetime } => HirPlace::Ref {
+            DerefHirEagerCoersion::Leash => HirQuary::Leashed,
+            DerefHirEagerCoersion::Ref { lifetime } => HirQuary::Ref {
                 guard: Right(lifetime),
             },
         }
@@ -74,7 +74,7 @@ impl ToHirEager for TrivialFlyCoersion {
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         TrivialHirEagerCoersion {
-            expectee_place: HirPlace::from_fly(self.expectee_place),
+            expectee_place: HirQuary::from_fly(self.expectee_place),
         }
     }
 }

@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
-    var::rvar::HirEagerRvarIdx, *,
+    place_contract::HirEagerPlaceContractSite, var::rvar::HirEagerRvarIdx, *,
 };
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
@@ -15,7 +15,7 @@ use husky_fly_term::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, place::HirPlace, ritchie::HirEagerContract, HirType,
+    instantiation::HirInstantiation, place::HirQuary, ritchie::HirEagerContract, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
@@ -31,9 +31,25 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
-    pub data: HirEagerExprData,
-    pub ty_place: HirPlace,
-    pub is_ty_always_copyable: bool,
+    data: HirEagerExprData,
+    ty_place: HirQuary,
+    is_always_copyable: bool,
+    place_contracts: HirEagerPlaceContractSite,
+}
+
+/// # getters
+impl HirEagerExprEntry {
+    pub fn data(&self) -> &HirEagerExprData {
+        &self.data
+    }
+
+    pub fn quary(&self) -> HirQuary {
+        self.ty_place
+    }
+
+    pub fn is_always_copyable(&self) -> bool {
+        self.is_always_copyable
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -484,16 +500,19 @@ impl ToHirEager for SemaExprIdx {
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
         let ty_place = ty
-            .place()
-            .map(|place| HirPlace::from_fly(place))
-            .unwrap_or(HirPlace::Transient);
+            .quary()
+            .map(|place| HirQuary::from_fly(place))
+            .unwrap_or(HirQuary::Transient);
+        let place_contracts =
+            HirEagerPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let entry = HirEagerExprEntry {
             data,
             ty_place,
-            is_ty_always_copyable: ty
+            is_always_copyable: ty
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
+            place_contracts,
         };
         builder.alloc_expr(*self, entry)
     }

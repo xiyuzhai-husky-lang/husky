@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TrivialFlyCoersion {
-    pub expectee_place: FlyPlace,
+    pub expectee_place: FlyQuary,
 }
 
 impl TrivialFlyCoersion {
     /// equal to expectee's place because it's trivial
-    pub fn place_after_coersion(self) -> FlyPlace {
+    pub fn place_after_coersion(self) -> FlyQuary {
         self.expectee_place
     }
 }
@@ -23,7 +23,7 @@ impl ExpectCoersion {
             state.expectee(),
             self.ty_expected,
             TrivialFlyCoersion {
-                expectee_place: state.expectee().place().unwrap_or(FlyPlace::Transient),
+                expectee_place: state.expectee().quary().unwrap_or(FlyQuary::Transient),
             },
             db,
             terms,

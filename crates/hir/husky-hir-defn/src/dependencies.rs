@@ -52,7 +52,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
     pub(crate) fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
         let db = self.db;
         for entry in hir_eager_expr_region.expr_arena(db) {
-            match entry.data {
+            match *entry.data() {
                 HirEagerExprData::Literal(_) => (),
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),

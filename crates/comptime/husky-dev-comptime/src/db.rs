@@ -7,6 +7,8 @@ use std::panic::RefUnwindSafe;
     // devtime
     husky_trace::db::TraceJar,
     // fs
+    husky_corgi_config::CorgiConfigJar,
+    husky_manifest::ManifestJar,
     husky_vfs::VfsJar,
     // hir
     husky_hir_eager_expr::db::HirEagerExprJar,
@@ -37,8 +39,7 @@ use std::panic::RefUnwindSafe;
     husky_linkage::jar::LinkageJar,
     // semantics
     husky_sema_expr::SemaExprJar,
-    husky_corgi_config::CorgiConfigJar,
-    husky_manifest::ManifestJar,
+    husky_sema_place_contract::jar::SemaPlaceContractJar,
     // syntax
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,

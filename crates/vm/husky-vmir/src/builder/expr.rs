@@ -12,7 +12,7 @@ impl<'a, 'b> VmirBlockBuilder<'a, 'b> {
         output_stack_idx: VMStackIdx,
         discard: bool,
     ) {
-        match self.expr_arena[expr].data {
+        match *self.expr_arena[expr].data() {
             HirEagerExprData::Literal(_) => todo!(),
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),

@@ -13,7 +13,7 @@ pub enum FlyIndexSignature {
 }
 
 impl MemberSignature for FlyIndexSignature {
-    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
+    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         match self {
             FlyIndexSignature::Int { element_ty } => {
                 Ok(element_ty.with_place(self_value_final_place))

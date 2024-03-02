@@ -266,7 +266,7 @@ impl<'a> FlyTermDataKindMerger<'a> {
     }
 
     pub(crate) fn accept_one(&mut self, term: FlyTerm) {
-        if term.place().is_some() {
+        if term.quary().is_some() {
             self.has_sol = true
         }
         match term.resolve_progress(self.hol_terms) {

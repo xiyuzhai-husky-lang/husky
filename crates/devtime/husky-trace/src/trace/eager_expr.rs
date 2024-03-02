@@ -99,7 +99,7 @@ impl EagerExprTraceData {
         let Some(hir_eager_expr_idx) = self.hir_eager_expr_idx else {
             return false;
         };
-        match self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data {
+        match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
             HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
@@ -119,7 +119,7 @@ impl EagerExprTraceData {
         let caller_sema_expr_region = self.sema_expr_region;
         let caller_sema_expr_region_data = caller_sema_expr_region.data(db);
         let hir_eager_expr_source_map_data = self.hir_eager_expr_source_map.data(db);
-        match self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data {
+        match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
             HirEagerExprData::FunctionFnCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,

@@ -118,7 +118,7 @@ impl ToHirEager for SemaStmtIdx {
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
                 expr_idx: sema_expr_idx.to_hir_eager(builder),
-                discarded: eol_semicolon.as_ref().expect("no error").is_some(),
+                discarded: eol_semicolon.is_some(),
                 coersion: match outcome {
                     Some(ExpectationOutcome::Coersion(coersion_outcome)) => {
                         Some(coersion_outcome.coersion().to_hir_eager(builder))

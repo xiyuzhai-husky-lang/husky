@@ -89,7 +89,7 @@ impl<'a> SemaExprEngine<'a> {
                                 syn_expr_idx,
                                 &instantiation,
                             )
-                            .with_place(FlyPlace::Leashed),
+                            .with_place(FlyQuary::Leashed),
                         };
                         (Ok(Some(instantiation)), Ok(ty))
                     }

@@ -134,6 +134,7 @@ impl TypeItemKind {
     pub const METHOD_BN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Bn);
 }
 
+#[cfg(feature = "protocol_support")]
 impl Into<EntityClass> for TypeItemKind {
     fn into(self) -> EntityClass {
         match self {
@@ -184,6 +185,7 @@ impl TraitItemKind {
     pub const METHOD_BN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Bn);
 }
 
+#[cfg(feature = "protocol_support")]
 impl Into<EntityClass> for TraitItemKind {
     fn into(self) -> EntityClass {
         match self {

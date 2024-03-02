@@ -19,7 +19,7 @@ pub struct FlyDynamicDispatch<S: MemberSignature> {
 
 /// members means dynamic associated items, i.e. those accessed through an instance
 pub trait MemberSignature {
-    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm>;
+    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm>;
 }
 
 impl<S: MemberSignature> FlyDynamicDispatch<S> {
@@ -45,39 +45,39 @@ impl<S: MemberSignature> FlyDynamicDispatch<S> {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyIndirection {
-    Place(FlyPlace),
+    QualifiedPlace(FlyQuary),
     Leash,
 }
 
 impl FlyIndirection {
-    fn act(self, initial_place: FlyPlace) -> FlyPlace {
+    fn act(self, initial_place: FlyQuary) -> FlyQuary {
         match self {
-            FlyIndirection::Place(place) => match place {
-                FlyPlace::Const => todo!(),
-                FlyPlace::StackPure { location } => todo!(),
-                FlyPlace::ImmutableStackOwned { location } => todo!(),
-                FlyPlace::MutableStackOwned { location } => todo!(),
-                FlyPlace::Transient => todo!(),
-                FlyPlace::Ref { guard } => todo!(),
-                FlyPlace::RefMut { guard } => todo!(),
-                FlyPlace::Leashed => todo!(),
-                FlyPlace::Todo => todo!(),
-                FlyPlace::EtherealSymbol(_) => todo!(),
+            FlyIndirection::QualifiedPlace(qualified_place) => match qualified_place {
+                FlyQuary::Const => todo!(),
+                FlyQuary::StackPure { .. } => todo!(),
+                FlyQuary::ImmutableStackOwned { .. } => todo!(),
+                FlyQuary::MutableStackOwned { .. } => todo!(),
+                FlyQuary::Transient => todo!(),
+                FlyQuary::Ref { guard } => todo!(),
+                FlyQuary::RefMut { .. } => todo!(),
+                FlyQuary::Leashed => todo!(),
+                FlyQuary::Todo => todo!(),
+                FlyQuary::EtherealSymbol(_) => todo!(),
             },
-            FlyIndirection::Leash => FlyPlace::Leashed,
+            FlyIndirection::Leash => FlyQuary::Leashed,
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyIndirections {
-    initial_place: FlyPlace,
+    initial_place: FlyQuary,
     indirections: SmallVec<[FlyIndirection; 2]>,
-    final_place: FlyPlace,
+    final_place: FlyQuary,
 }
 
 impl FlyIndirections {
-    pub(crate) fn new(initial_place: FlyPlace) -> Self {
+    pub(crate) fn new(initial_place: FlyQuary) -> Self {
         Self {
             initial_place,
             indirections: smallvec![],
@@ -90,11 +90,11 @@ impl FlyIndirections {
         self.indirections.push(indirection)
     }
 
-    pub fn initial_place(&self) -> FlyPlace {
+    pub fn initial_place(&self) -> FlyQuary {
         self.initial_place
     }
 
-    pub fn final_place(&self) -> FlyPlace {
+    pub fn final_place(&self) -> FlyQuary {
         self.final_place
     }
 }

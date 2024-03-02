@@ -18,15 +18,17 @@ husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-eth-term.workspace = true
 husky-fly-term.workspace = true
-husky-expr = { path = "../../kernel/husky-expr" }
+husky-expr.workspace = true
+husky-place.workspace = true
 # hir
 husky-hir-ty.workspace = true
 husky-hir-opr.workspace = true
 # lex
 husky-token-data.workspace = true
 # semantics
-husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
+husky-sema-opr.workspace = true
 husky-sema-expr.workspace = true
+husky-sema-place-contract.workspace = true
 # syntax
 # todo: remove this?
 husky-syn-expr.workspace = true

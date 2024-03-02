@@ -1,17 +1,17 @@
-use crate::place::HirPlace;
+use crate::place::HirQuary;
 use husky_fly_term::dispatch::{FlyIndirection, FlyIndirections};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirIndirections {
-    initial_place: HirPlace,
+    initial_place: HirQuary,
     indirections: SmallVec<[HirIndirection; 2]>,
-    final_place: HirPlace,
+    final_place: HirQuary,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirIndirection {
-    Place(HirPlace),
+    Place(HirQuary),
     Leash,
 }
 
@@ -26,12 +26,12 @@ impl std::ops::Deref for HirIndirections {
 impl HirIndirections {
     pub fn from_fly(indirections: &FlyIndirections) -> Self {
         HirIndirections {
-            initial_place: HirPlace::from_fly(indirections.initial_place()),
+            initial_place: HirQuary::from_fly(indirections.initial_place()),
             indirections: indirections
                 .iter()
                 .map(|&indirection| HirIndirection::from_fly(indirection))
                 .collect(),
-            final_place: HirPlace::from_fly(indirections.final_place()),
+            final_place: HirQuary::from_fly(indirections.final_place()),
         }
     }
 }
@@ -39,7 +39,9 @@ impl HirIndirections {
 impl HirIndirection {
     fn from_fly(indiretion: FlyIndirection) -> Self {
         match indiretion {
-            FlyIndirection::Place(place) => HirIndirection::Place(HirPlace::from_fly(place)),
+            FlyIndirection::QualifiedPlace(place) => {
+                HirIndirection::Place(HirQuary::from_fly(place))
+            }
             FlyIndirection::Leash => HirIndirection::Leash,
         }
     }

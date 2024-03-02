@@ -47,14 +47,14 @@ pub enum FlyTermSymbolResolution {
     Explicit(FlyTerm),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(FlyPlace),
+    SelfPlace(FlyQuary),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyInstantiationEnvironment {
     TypeOntologyConstructor,
     AssocFn,
-    MethodFn { self_place: FlyPlace },
+    MethodFn { self_place: FlyQuary },
     MemoizedField,
 }
 
@@ -354,10 +354,10 @@ impl FlyInstantiate for EthApplication {
                         FlyTermBase::Eth(_) => todo!(),
                         FlyTermBase::Sol(_) => todo!(),
                         FlyTermBase::Hol(_) => todo!(),
-                        FlyTermBase::Place => the_place.place().unwrap(),
+                        FlyTermBase::Place => the_place.quary().unwrap(),
                     };
                     let base = arguments[1].instantiate(engine, expr_idx, instantiation);
-                    match base.place() {
+                    match base.quary() {
                         Some(_) => todo!(),
                         None => base.with_place(the_place),
                     }

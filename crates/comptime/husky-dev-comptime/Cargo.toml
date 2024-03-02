@@ -12,6 +12,8 @@ husky-rust-transpilation.workspace = true
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
+husky-corgi-config.workspace = true
+husky-manifest.workspace = true
 husky-toolchain-config.workspace = true
 husky-vfs.workspace = true
 # hir
@@ -46,9 +48,8 @@ husky-linkage.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # semantics
-husky-manifest.workspace = true
 husky-sema-expr.workspace = true
-husky-corgi-config.workspace = true
+husky-sema-place-contract.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-toml-ast.workspace = true

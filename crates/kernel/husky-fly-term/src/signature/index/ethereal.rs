@@ -10,7 +10,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
     owner_ty_arguments: &[EthTerm],
     index_ty: FlyTerm,
-    final_place: FlyPlace,
+    final_place: FlyQuary,
 ) -> FlyTermMaybeResult<FlyIndexSignature> {
     let db = engine.db();
     match refined_ty_path {

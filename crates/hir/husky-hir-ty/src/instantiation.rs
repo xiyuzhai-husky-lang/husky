@@ -1,5 +1,5 @@
 use super::*;
-use crate::place::HirPlace;
+use crate::place::HirQuary;
 use husky_eth_term::instantiation::EthInstantiation;
 use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
@@ -31,7 +31,7 @@ pub enum HirTermSvarResolution {
     Explicit(HirTemplateArgument),
     /// means we don't care about it now
     SelfLifetime,
-    SelfPlace(HirPlace),
+    SelfPlace(HirQuary),
 }
 impl HirTermSvarResolution {
     fn is_univalent_for_javelin(&self) -> bool {
@@ -61,7 +61,7 @@ impl HirInstantiation {
                     ),
                     FlyTermSymbolResolution::SelfLifetime => HirTermSvarResolution::SelfLifetime,
                     FlyTermSymbolResolution::SelfPlace(place) => {
-                        HirTermSvarResolution::SelfPlace(HirPlace::from_fly(place))
+                        HirTermSvarResolution::SelfPlace(HirQuary::from_fly(place))
                     }
                 },
             )),
@@ -114,7 +114,7 @@ impl HirInstantiation {
         self.symbol_map.as_ref()
     }
 
-    pub fn places(&self) -> SmallVec<[HirPlace; 2]> {
+    pub fn places(&self) -> SmallVec<[HirQuary; 2]> {
         self.symbol_map
             .iter()
             .filter_map(|&(_, res)| match res {

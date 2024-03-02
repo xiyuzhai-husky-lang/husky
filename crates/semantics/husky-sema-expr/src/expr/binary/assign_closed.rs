@@ -21,26 +21,26 @@ impl<'a> SemaExprEngine<'a> {
         let ropd_sema_expr_idx = match lopd_ty {
             Some(lopd_ty) => {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
-                match lopd_ty.place() {
+                match lopd_ty.quary() {
                     Some(lopd_place) => match lopd_place {
-                        FlyPlace::Const => {
+                        FlyQuary::Const => {
                             // ad hoc
                             // should return err
                             ()
                         }
-                        FlyPlace::StackPure { location } => todo!(),
-                        FlyPlace::ImmutableStackOwned { location } => todo!(),
-                        FlyPlace::MutableStackOwned { .. } => (),
-                        FlyPlace::Transient => {
+                        FlyQuary::StackPure { place } => todo!(),
+                        FlyQuary::ImmutableStackOwned { place } => todo!(),
+                        FlyQuary::MutableStackOwned { .. } => (),
+                        FlyQuary::Transient => {
                             // ad hoc
                             // should return err
                             ()
                         }
-                        FlyPlace::Ref { guard } => todo!(),
-                        FlyPlace::RefMut { guard } => todo!(),
-                        FlyPlace::Leashed => todo!(),
-                        FlyPlace::Todo => todo!(),
-                        FlyPlace::EtherealSymbol(_) => todo!(),
+                        FlyQuary::Ref { guard } => todo!(),
+                        FlyQuary::RefMut { .. } => todo!(),
+                        FlyQuary::Leashed => todo!(),
+                        FlyQuary::Todo => todo!(),
+                        FlyQuary::EtherealSymbol(_) => todo!(),
                     },
                     // ad hoc
                     None => (), // todo!(),
