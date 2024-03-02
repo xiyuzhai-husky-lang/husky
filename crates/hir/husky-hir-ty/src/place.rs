@@ -1,25 +1,25 @@
 use either::*;
-use husky_fly_term::{FlyLifetime, FlyPlace};
-use husky_place::PlaceIdx;
+use husky_fly_term::{FlyLifetime, FlyQuary};
+use husky_place::{place::Place, PlaceIdx};
 
 use crate::lifetime::HirLifetime;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirPlace {
+pub enum HirQuary {
     Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: PlaceIdx,
+        place: Place,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: PlaceIdx,
+        place: Place,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: PlaceIdx,
+        place: Place,
     },
     // rvalue
     Transient,
@@ -43,7 +43,7 @@ pub enum HirPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<PlaceIdx, HirLifetime>,
+        guard: Either<Place, HirLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -73,7 +73,8 @@ pub enum HirPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<PlaceIdx, HirLifetime>,
+        place: Place,
+        lifetime: Option<HirLifetime>,
     },
     /// stored in database
     /// always immutable
@@ -81,47 +82,42 @@ pub enum HirPlace {
     Todo,
 }
 
-impl HirPlace {
-    pub fn from_fly(place: FlyPlace) -> HirPlace {
+impl HirQuary {
+    pub fn from_fly(place: FlyQuary) -> HirQuary {
         match place {
-            FlyPlace::Const => HirPlace::Const,
-            FlyPlace::StackPure { location } => HirPlace::StackPure { location },
-            FlyPlace::ImmutableStackOwned { location } => {
-                HirPlace::ImmutableStackOwned { location }
-            }
-            FlyPlace::MutableStackOwned { location } => HirPlace::MutableStackOwned { location },
-            FlyPlace::Transient => HirPlace::Transient,
-            FlyPlace::Ref { guard } => HirPlace::Ref {
+            FlyQuary::Const => HirQuary::Const,
+            FlyQuary::StackPure { place } => HirQuary::StackPure { place },
+            FlyQuary::ImmutableStackOwned { place } => HirQuary::ImmutableStackOwned { place },
+            FlyQuary::MutableStackOwned { place } => HirQuary::MutableStackOwned { place },
+            FlyQuary::Transient => HirQuary::Transient,
+            FlyQuary::Ref { guard } => HirQuary::Ref {
                 guard: hir_place_guard_from_fly(guard),
             },
-            FlyPlace::RefMut { guard } => HirPlace::RefMut {
-                guard: hir_place_guard_from_fly(guard),
+            FlyQuary::RefMut { place, lifetime } => HirQuary::RefMut {
+                place,
+                lifetime: lifetime.map(HirLifetime::from_fly),
             },
-            FlyPlace::Leashed => HirPlace::Leashed,
-            FlyPlace::Todo => HirPlace::Todo,
-            FlyPlace::EtherealSymbol(_) => todo!(),
+            FlyQuary::Leashed => HirQuary::Leashed,
+            FlyQuary::Todo => HirQuary::Todo,
+            FlyQuary::EtherealSymbol(_) => todo!(),
         }
     }
 
-    pub fn location(self) -> Option<PlaceIdx> {
+    pub fn place(self) -> Option<Place> {
         match self {
-            HirPlace::StackPure { location }
-            | HirPlace::ImmutableStackOwned { location }
-            | HirPlace::MutableStackOwned { location }
-            | HirPlace::Ref {
-                guard: Left(location),
-            }
-            | HirPlace::RefMut {
-                guard: Left(location),
-            } => Some(location),
+            HirQuary::StackPure { place }
+            | HirQuary::ImmutableStackOwned { place }
+            | HirQuary::MutableStackOwned { place }
+            | HirQuary::Ref { guard: Left(place) }
+            | HirQuary::RefMut { place, .. } => Some(place),
             _ => None,
         }
     }
 }
 
-fn hir_place_guard_from_fly(guard: Either<PlaceIdx, FlyLifetime>) -> Either<PlaceIdx, HirLifetime> {
+fn hir_place_guard_from_fly(guard: Either<Place, FlyLifetime>) -> Either<Place, HirLifetime> {
     match guard {
-        Left(location) => Left(location),
+        Left(place) => Left(place),
         Right(lifetime) => Right(HirLifetime::from_fly(lifetime)),
     }
 }

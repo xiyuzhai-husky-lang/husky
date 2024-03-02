@@ -1,5 +1,5 @@
 use husky_eth_term::term::svar::EthSvar;
-use husky_place::PlaceIdx;
+use husky_place::{place::Place, PlaceIdx};
 use thiserror::Error;
 
 use super::*;
@@ -43,18 +43,19 @@ impl SymbolType {
         ty: FlyTerm,
     ) -> Self {
         let new_place = match modifier {
-            SvarModifier::Pure => FlyPlace::StackPure {
-                location: engine.issue_new_stack_location_idx(),
+            SvarModifier::Pure => FlyQuary::StackPure {
+                place: engine.issue_new_stack_place_idx().into(),
             },
-            SvarModifier::Owned => FlyPlace::ImmutableStackOwned {
-                location: engine.issue_new_stack_location_idx(),
+            SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
+                place: engine.issue_new_stack_place_idx().into(),
             },
             SvarModifier::Mut => todo!(),
             SvarModifier::Ref => todo!(),
-            SvarModifier::RefMut => FlyPlace::RefMut {
-                guard: Left(engine.issue_new_stack_location_idx()),
+            SvarModifier::RefMut => FlyQuary::RefMut {
+                place: engine.issue_new_stack_place_idx().into(),
+                lifetime: None,
             },
-            SvarModifier::Const => FlyPlace::Const,
+            SvarModifier::Const => FlyQuary::Const,
             SvarModifier::Ambersand(_) => todo!(),
             SvarModifier::AmbersandMut(_) => todo!(),
             SvarModifier::Le => todo!(),
@@ -72,38 +73,38 @@ impl SymbolType {
     ) -> FlyTermResult<Self> {
         let new_place = match modifier {
             SvarModifier::Pure => match ty.place {
-                Some(FlyPlace::Transient) | None => FlyPlace::ImmutableStackOwned {
-                    location: engine.issue_new_stack_location_idx(),
+                Some(FlyQuary::Transient) | None => FlyQuary::ImmutableStackOwned {
+                    place: engine.issue_new_stack_place_idx().into(),
                 },
-                Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
-                    Some(true) => FlyPlace::ImmutableStackOwned {
-                        location: engine.issue_new_stack_location_idx(),
+                Some(quary) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
+                    Some(true) => FlyQuary::ImmutableStackOwned {
+                        place: engine.issue_new_stack_place_idx().into(),
                     },
-                    Some(false) => match place {
-                        FlyPlace::Const => todo!(),
-                        FlyPlace::StackPure { location }
-                        | FlyPlace::ImmutableStackOwned { location }
-                        | FlyPlace::MutableStackOwned { location } => FlyPlace::Ref {
-                            guard: Left(location),
-                        },
-                        FlyPlace::Transient => unreachable!(),
-                        FlyPlace::Ref { guard } => todo!(),
-                        FlyPlace::RefMut { guard } => todo!(),
-                        FlyPlace::Leashed => FlyPlace::Leashed,
-                        FlyPlace::Todo => todo!(),
-                        FlyPlace::EtherealSymbol(_) => todo!(),
+                    Some(false) => match quary {
+                        FlyQuary::Const => todo!(),
+                        FlyQuary::StackPure { place }
+                        | FlyQuary::ImmutableStackOwned { place }
+                        | FlyQuary::MutableStackOwned { place } => {
+                            FlyQuary::Ref { guard: Left(place) }
+                        }
+                        FlyQuary::Transient => unreachable!(),
+                        FlyQuary::Ref { guard } => todo!(),
+                        FlyQuary::RefMut { .. } => todo!(),
+                        FlyQuary::Leashed => FlyQuary::Leashed,
+                        FlyQuary::Todo => todo!(),
+                        FlyQuary::EtherealSymbol(_) => todo!(),
                     },
                     None => todo!(),
                 },
             },
             SvarModifier::Owned => todo!(),
             SvarModifier::Mut => match ty.place {
-                Some(FlyPlace::Transient) | None => FlyPlace::MutableStackOwned {
-                    location: engine.issue_new_stack_location_idx(),
+                Some(FlyQuary::Transient) | None => FlyQuary::MutableStackOwned {
+                    place: engine.issue_new_stack_place_idx().into(),
                 },
                 Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
-                    Some(true) => FlyPlace::MutableStackOwned {
-                        location: engine.issue_new_stack_location_idx(),
+                    Some(true) => FlyQuary::MutableStackOwned {
+                        place: engine.issue_new_stack_place_idx().into(),
                     },
                     Some(false) => {
                         p!(ty.show(engine.db(), engine.fly_terms()));
@@ -129,27 +130,27 @@ impl SymbolType {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PlaceTypeData {
-    place: FlyPlace,
+    qualified_place: FlyQuary,
     ty: EthTerm,
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum FlyPlace {
+pub enum FlyQuary {
     Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        location: PlaceIdx,
+        place: Place,
     },
     /// lvalue nonreference
     ImmutableStackOwned {
-        location: PlaceIdx,
+        place: Place,
     },
     /// lvalue nonreference
     MutableStackOwned {
-        location: PlaceIdx,
+        place: Place,
     },
     // rvalue
     Transient,
@@ -173,7 +174,7 @@ pub enum FlyPlace {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<PlaceIdx, FlyLifetime>,
+        guard: Either<Place, FlyLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -203,63 +204,81 @@ pub enum FlyPlace {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<PlaceIdx, FlyLifetime>,
+        place: Place,
+        lifetime: Option<FlyLifetime>,
     },
     /// stored in database
     /// always immutable
     Leashed,
     Todo,
+    #[deprecated(note = "consider more carefully")]
     EtherealSymbol(EthSvar),
 }
 
-impl FlyPlace {
+impl FlyQuary {
     pub(crate) fn bind(&self, contract: TermContract) -> FlyPlaceResult<()> {
         match (contract, self) {
-            (TermContract::Const, FlyPlace::Const) => Ok(()),
+            (TermContract::Const, FlyQuary::Const) => Ok(()),
             (TermContract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
-            (TermContract::Leash, FlyPlace::Leashed) => Ok(()),
+            (TermContract::Leash, FlyQuary::Leashed) => Ok(()),
             (TermContract::Leash, _) => todo!("error"),
             (TermContract::Pure, _) => Ok(()),
-            (TermContract::Move, FlyPlace::Const) => Ok(()),
-            (TermContract::Move, FlyPlace::StackPure { location }) => Ok(()),
-            (TermContract::Move, FlyPlace::ImmutableStackOwned { location }) => Ok(()),
-            (TermContract::Move, FlyPlace::MutableStackOwned { location }) => Ok(()),
-            (TermContract::Move, FlyPlace::Transient) => Ok(()),
-            (TermContract::Move, FlyPlace::Ref { guard }) => Ok(()), // ad hoc
-            (TermContract::Move, FlyPlace::RefMut { guard }) => todo!(),
-            (TermContract::Move, FlyPlace::Leashed) => Ok(()),
-            (TermContract::Move, FlyPlace::Todo) => todo!(),
-            (TermContract::Borrow, FlyPlace::Const) => todo!(),
-            (TermContract::Borrow, FlyPlace::StackPure { location }) => todo!(),
-            (TermContract::Borrow, FlyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::Borrow, FlyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::Borrow, FlyPlace::Transient) => todo!(),
-            (TermContract::Borrow, FlyPlace::Ref { guard }) => todo!(),
-            (TermContract::Borrow, FlyPlace::RefMut { guard }) => todo!(),
-            (TermContract::Borrow, FlyPlace::Leashed) => todo!(),
-            (TermContract::Borrow, FlyPlace::Todo) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::Const) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::StackPure { location }) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::Transient) => Ok(()),
-            (TermContract::BorrowMut, FlyPlace::Ref { guard }) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::RefMut { guard }) => Ok(()),
-            (TermContract::BorrowMut, FlyPlace::Leashed) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::Todo) => todo!(),
-            (TermContract::At, FlyPlace::Const) => todo!(),
-            (TermContract::At, FlyPlace::StackPure { location }) => todo!(),
-            (TermContract::At, FlyPlace::ImmutableStackOwned { location }) => todo!(),
-            (TermContract::At, FlyPlace::MutableStackOwned { location }) => todo!(),
-            (TermContract::At, FlyPlace::Transient) => todo!(),
-            (TermContract::At, FlyPlace::Ref { guard }) => todo!(),
-            (TermContract::At, FlyPlace::RefMut { guard }) => todo!(),
-            (TermContract::At, FlyPlace::Leashed) => todo!(),
-            (TermContract::At, FlyPlace::Todo) => todo!(),
-            (TermContract::Move, FlyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::Borrow, FlyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::BorrowMut, FlyPlace::EtherealSymbol(_)) => todo!(),
-            (TermContract::At, FlyPlace::EtherealSymbol(_)) => todo!(),
+            (TermContract::Move, FlyQuary::Const) => Ok(()),
+            (TermContract::Move, FlyQuary::StackPure { place }) => Ok(()),
+            (TermContract::Move, FlyQuary::ImmutableStackOwned { place }) => Ok(()),
+            (TermContract::Move, FlyQuary::MutableStackOwned { place }) => Ok(()),
+            (TermContract::Move, FlyQuary::Transient) => Ok(()),
+            (TermContract::Move, FlyQuary::Ref { guard }) => Ok(()), // ad hoc
+            (TermContract::Move, FlyQuary::RefMut { .. }) => todo!(),
+            (TermContract::Move, FlyQuary::Leashed) => Ok(()),
+            (TermContract::Move, FlyQuary::Todo) => todo!(),
+            (TermContract::Borrow, FlyQuary::Const) => todo!(),
+            (TermContract::Borrow, FlyQuary::StackPure { place }) => todo!(),
+            (TermContract::Borrow, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (TermContract::Borrow, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (TermContract::Borrow, FlyQuary::Transient) => todo!(),
+            (TermContract::Borrow, FlyQuary::Ref { guard }) => todo!(),
+            (TermContract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
+            (TermContract::Borrow, FlyQuary::Leashed) => todo!(),
+            (TermContract::Borrow, FlyQuary::Todo) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::Const) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::Transient) => Ok(()),
+            (TermContract::BorrowMut, FlyQuary::Ref { guard }) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
+            (TermContract::BorrowMut, FlyQuary::Leashed) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::Todo) => todo!(),
+            (TermContract::At, FlyQuary::Const) => todo!(),
+            (TermContract::At, FlyQuary::StackPure { place }) => todo!(),
+            (TermContract::At, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (TermContract::At, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (TermContract::At, FlyQuary::Transient) => todo!(),
+            (TermContract::At, FlyQuary::Ref { guard }) => todo!(),
+            (TermContract::At, FlyQuary::RefMut { .. }) => todo!(),
+            (TermContract::At, FlyQuary::Leashed) => todo!(),
+            (TermContract::At, FlyQuary::Todo) => todo!(),
+            (TermContract::Move, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (TermContract::Borrow, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (TermContract::BorrowMut, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (TermContract::At, FlyQuary::EtherealSymbol(_)) => todo!(),
+        }
+    }
+
+    pub fn place(self) -> Option<Place> {
+        match self {
+            FlyQuary::StackPure { place }
+            | FlyQuary::ImmutableStackOwned { place }
+            | FlyQuary::MutableStackOwned { place }
+            | FlyQuary::Ref { guard: Left(place) }
+            | FlyQuary::RefMut { place, .. } => Some(place),
+            FlyQuary::EtherealSymbol(svar) => Some(svar.into()),
+            FlyQuary::Const
+            | FlyQuary::Transient
+            | FlyQuary::Leashed
+            | FlyQuary::Todo
+            | FlyQuary::Ref { guard: Right(_) } => None,
         }
     }
 }

@@ -1,12 +1,14 @@
+#![feature(let_chains)]
 pub mod builder;
 pub mod coersion;
 pub mod db;
 pub mod expr;
 pub mod helpers;
-mod pattern;
-mod pattern_expr;
-mod region;
-mod source_map;
+pub mod pattern;
+pub mod pattern_expr;
+pub mod place_contract;
+pub mod region;
+pub mod source_map;
 pub mod stmt;
 pub mod var;
 

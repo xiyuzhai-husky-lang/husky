@@ -45,4 +45,8 @@ impl<'a> Text<'a> {
     pub fn text_within(self, range: TextRange) -> &'a str {
         &self.raw_text[self.line_map.offset_range(range)]
     }
+
+    pub fn offset_range(self, range: TextRange) -> std::ops::Range<usize> {
+        self.line_map.offset_range(range)
+    }
 }

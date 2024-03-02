@@ -19,7 +19,7 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSvarResolution, place::HirPlace, ritchie::HirEagerContract,
+    instantiation::HirTermSvarResolution, place::HirQuary, ritchie::HirEagerContract,
     HirTemplateSvarClass, HirTemplateVar,
 };
 use husky_opr::BinaryClosedOpr;
@@ -30,7 +30,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         let (slf, mut site) = self;
         let _db = builder.db();
         let entry = slf.entry(builder.hir_eager_expr_arena());
-        let data = &entry.data;
+        let data = entry.data();
         let precedence = hir_eager_expr_precedence(data);
         let needs_deref = site.hir_eager_expr_needs_deref(entry);
         if needs_deref {
@@ -97,11 +97,11 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
 
 impl HirEagerExprSite {
     fn hir_eager_expr_needs_deref(&self, entry: &HirEagerExprEntry) -> bool {
-        match entry.data {
-            HirEagerExprData::Variable(_) => match entry.ty_place {
-                HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
-                HirPlace::Ref { .. } => true,
-                HirPlace::RefMut { .. } => true,
+        match *entry.data() {
+            HirEagerExprData::Variable(_) => match entry.quary() {
+                HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
+                HirQuary::Ref { .. } => true,
+                HirQuary::RefMut { .. } => true,
                 _ => false,
             },
             HirEagerExprData::ConstSvar { .. }
@@ -111,13 +111,13 @@ impl HirEagerExprSite {
             | HirEagerExprData::MethodFnCall { .. }
             | HirEagerExprData::Suffix { .. }
             | HirEagerExprData::Unveil { .. }
-            | HirEagerExprData::Unwrap { .. } => match entry.ty_place {
-                HirPlace::Const | HirPlace::StackPure { .. } => !entry.is_ty_always_copyable,
-                ty_place => match ty_place.location() {
-                    Some(location) => match self.location_contract(location) {
+            | HirEagerExprData::Unwrap { .. } => match entry.quary() {
+                HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
+                quary => match quary.place() {
+                    Some(place) => match self.place_contract(place) {
                         Some(contract) => match contract {
                             HirEagerContract::Pure | HirEagerContract::Const => {
-                                !entry.is_ty_always_copyable
+                                !entry.is_always_copyable()
                             }
                             HirEagerContract::Move => false,
                             HirEagerContract::Borrow => true,
@@ -168,7 +168,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                     (
                         lopd,
-                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure, true),
+                        self.self_expr_on_site(HirQuary::Transient, HirEagerContract::Pure, true),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -180,7 +180,7 @@ impl HirEagerExprSite {
                 HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
                     (
                         lopd,
-                        self.self_expr_on_site(HirPlace::Transient, HirEagerContract::Pure, true),
+                        self.self_expr_on_site(HirQuary::Transient, HirEagerContract::Pure, true),
                     )
                         .transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
@@ -195,7 +195,7 @@ impl HirEagerExprSite {
                     (
                         lopd,
                         self.self_expr_on_site(
-                            builder.hir_eager_expr_arena()[lopd].ty_place,
+                            builder.hir_eager_expr_arena()[lopd].quary(),
                             HirEagerContract::BorrowMut,
                             false,
                         ),
@@ -324,7 +324,7 @@ impl HirEagerExprSite {
                 (
                     owner_hir_expr_idx,
                     self.self_expr_on_site(
-                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
+                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].quary(),
                         HirEagerContract::At,
                         true,
                     ),
@@ -354,7 +354,7 @@ impl HirEagerExprSite {
                 (
                     self_argument,
                     self.self_expr_on_site(
-                        builder.hir_eager_expr_arena()[self_argument].ty_place,
+                        builder.hir_eager_expr_arena()[self_argument].quary(),
                         self_contract,
                         true,
                     ),
@@ -364,8 +364,8 @@ impl HirEagerExprSite {
                 let places = instantiation.places();
                 match places.len() {
                     0 => ident.transpile_to_rust(builder),
-                    1 => match places[0].location() {
-                        Some(location) => match self.location_contract(location) {
+                    1 => match places[0].place() {
+                        Some(location) => match self.place_contract(location) {
                             Some(contract) => match contract {
                                 HirEagerContract::Pure => ident.transpile_to_rust(builder),
                                 HirEagerContract::Move => todo!(),
@@ -403,7 +403,7 @@ impl HirEagerExprSite {
                 (
                     owner_hir_expr_idx,
                     self.self_expr_on_site(
-                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].ty_place,
+                        builder.hir_eager_expr_arena()[owner_hir_expr_idx].quary(),
                         HirEagerContract::At,
                         true,
                     ),

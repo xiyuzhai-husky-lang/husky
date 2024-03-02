@@ -108,6 +108,9 @@ pub enum JarIndex {
     // devtime
     TraceJar,
     // fs
+    CorgiConfigJar,
+    ManifestJar,
+    ToolchainConfigJar,
     VfsJar,
     // hir
     HirDeclJar,
@@ -136,6 +139,7 @@ pub enum JarIndex {
     EthTermJar,
     FlyTermJar,
     TermPreludeJar,
+    PlaceJar,
     // lex
     TextJar,
     TokenJar,
@@ -145,10 +149,8 @@ pub enum JarIndex {
     JavelinJar,
     LinkageJar,
     // semantics
-    CorgiConfigJar,
-    ManifestJar,
-    ToolchainConfigJar,
     SemaExprJar,
+    SemaPlaceContractJar,
     // syntax
     AstJar,
     EntityTreeJar,

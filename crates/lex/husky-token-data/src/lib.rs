@@ -33,7 +33,7 @@ pub enum TokenData {
     Error(TokenDataError),
 }
 
-#[cfg(feature = "protocol_support")]
+/// # constants
 impl TokenData {
     pub const VERTICAL: Self = TokenData::Punctuation(Punctuation::VERT);
     pub const EQ: Self = TokenData::Punctuation(Punctuation::EQ);
@@ -41,7 +41,10 @@ impl TokenData {
     pub const INLINE_LCURL: Self = TokenData::Punctuation(Punctuation::INLINE_LCURL);
     pub const BLOCK_RCURL: Self = TokenData::Punctuation(Punctuation::NESTED_RCURL);
     pub const INLINE_RCURL: Self = TokenData::Punctuation(Punctuation::INLINE_RCURL);
+}
 
+#[cfg(feature = "protocol_support")]
+impl TokenData {
     // overridable given more information
     pub fn default_token_class(self) -> TokenClass {
         match self {

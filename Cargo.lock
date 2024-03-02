@@ -2712,6 +2712,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4271d37baee1b8c7e4b708028c57d816cf9d2434acb33a549475f78c181f6253"
 
 [[package]]
+name = "git-save"
+version = "0.1.0"
+dependencies = [
+ "husky-cli-utils",
+ "husky-control-flow-utils",
+]
+
+[[package]]
 name = "git2"
 version = "0.18.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4028,6 +4036,10 @@ name = "husky-boot-task-interface-macros"
 version = "0.1.0"
 
 [[package]]
+name = "husky-borrow-checker"
+version = "0.1.0"
+
+[[package]]
 name = "husky-cargo-utils"
 version = "0.1.0"
 dependencies = [
@@ -4049,6 +4061,9 @@ dependencies = [
 [[package]]
 name = "husky-cli-utils"
 version = "0.1.0"
+dependencies = [
+ "colored",
+]
 
 [[package]]
 name = "husky-code-editor"
@@ -4300,6 +4315,7 @@ dependencies = [
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-sema-expr",
+ "husky-sema-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4837,9 +4853,11 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-opr",
  "husky-hir-ty",
+ "husky-place",
  "husky-print-utils",
  "husky-sema-expr",
  "husky-sema-opr",
+ "husky-sema-place-contract",
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
@@ -5366,6 +5384,10 @@ dependencies = [
 name = "husky-place"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
+ "husky-coword",
+ "husky-eth-term",
+ "salsa",
  "shifted-unsigned-int",
 ]
 
@@ -5524,8 +5546,10 @@ dependencies = [
 name = "husky-sema-expr"
 version = "0.1.0"
 dependencies = [
+ "codespan-reporting",
  "either",
  "enum-class",
+ "expect-test",
  "husky-ast",
  "husky-corgi-config",
  "husky-corgi-config-ast",
@@ -5554,6 +5578,7 @@ dependencies = [
  "husky-syn-expr",
  "husky-syn-opr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -5573,6 +5598,17 @@ name = "husky-sema-opr"
 version = "0.1.0"
 dependencies = [
  "husky-opr",
+]
+
+[[package]]
+name = "husky-sema-place-contract"
+version = "0.1.0"
+dependencies = [
+ "husky-place",
+ "husky-sema-expr",
+ "husky-syn-expr",
+ "husky-term-prelude",
+ "salsa",
 ]
 
 [[package]]

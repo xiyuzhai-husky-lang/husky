@@ -181,7 +181,7 @@ impl SemaExprRegionData {
         &self.symbol_terms
     }
 
-    pub fn path(&self) -> RegionPath {
+    pub fn region_path(&self) -> RegionPath {
         self.path
     }
 

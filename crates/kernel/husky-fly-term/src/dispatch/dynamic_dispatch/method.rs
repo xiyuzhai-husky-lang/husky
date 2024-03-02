@@ -82,7 +82,7 @@ pub trait HasFlyMethodDispatch: HasFlyTypeMethodDispatch + HasFlyTraitMethodDisp
         )
     }
 
-    fn initial_place(self) -> FlyPlace;
+    fn initial_place(self) -> FlyQuary;
 }
 
 impl HasFlyTypeMethodDispatch for FlyTerm {
@@ -145,8 +145,8 @@ impl HasFlyTraitMethodDispatch for FlyTerm {
 }
 
 impl HasFlyMethodDispatch for FlyTerm {
-    fn initial_place(self) -> FlyPlace {
+    fn initial_place(self) -> FlyQuary {
         // ad hoc
-        self.place().unwrap_or(FlyPlace::Transient)
+        self.quary().unwrap_or(FlyQuary::Transient)
     }
 }

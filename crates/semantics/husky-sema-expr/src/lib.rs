@@ -4,10 +4,10 @@
 #![feature(if_let_guard)]
 #![feature(const_trait_impl)]
 #![allow(unused, warnings)]
-pub mod db;
 mod engine;
 mod error;
 mod expr;
+pub mod jar;
 // mod info;
 pub mod helpers;
 pub mod obelisks;
@@ -16,10 +16,10 @@ pub mod stmt;
 #[cfg(test)]
 mod tests;
 
-pub use self::db::*;
 pub use self::engine::*;
 pub use self::error::*;
 pub use self::expr::*;
+pub use self::jar::*;
 pub use self::obelisks::*;
 pub use self::region::*;
 pub use self::stmt::*;

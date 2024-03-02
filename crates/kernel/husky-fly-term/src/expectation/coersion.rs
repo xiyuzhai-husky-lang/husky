@@ -23,12 +23,12 @@ pub enum FlyCoersion {
 }
 
 impl FlyCoersion {
-    pub fn place_after_coersion(self) -> FlyPlace {
+    pub fn place_after_coersion(self) -> FlyQuary {
         match self {
             FlyCoersion::Trivial(slf) => slf.place_after_coersion(),
             FlyCoersion::Deref(slf) => slf.place_after_coersion(),
             FlyCoersion::Never | FlyCoersion::WrapInSome | FlyCoersion::PlaceToLeash => {
-                FlyPlace::Transient
+                FlyQuary::Transient
             }
         }
     }

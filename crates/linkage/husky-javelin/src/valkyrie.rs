@@ -134,7 +134,7 @@ impl ValkyrieRides {
     ) {
         for entry in hir_eager_expr_region.expr_arena(db) {
             #[deprecated(note = "incomplete")]
-            match entry.data {
+            match *entry.data() {
                 HirEagerExprData::AssocFn { assoc_item_path: _ } => (), // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),

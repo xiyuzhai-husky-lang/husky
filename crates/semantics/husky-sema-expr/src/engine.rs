@@ -82,7 +82,7 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
 }
 
 impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
-    fn stack_location_registry_mut(&mut self) -> &mut PlaceRegistry {
+    fn stack_place_registry_mut(&mut self) -> &mut PlaceRegistry {
         &mut self.stack_location_registry
     }
 
@@ -203,7 +203,7 @@ impl<'a> SemaExprEngine<'a> {
 
     pub(crate) fn infer_all(&mut self) {
         self.infer_current_parameter_symbols();
-        self.infer_all_exprs()
+        self.build_all_exprs()
     }
 
     pub(crate) fn alloc_expr(
@@ -361,27 +361,28 @@ fn calc_self_value_ty(
         }
     }?;
     let place = match modifier {
-        SvarModifier::Pure => FlyPlace::StackPure {
-            location: registry.issue_new(),
+        SvarModifier::Pure => FlyQuary::StackPure {
+            place: registry.issue_new().into(),
         },
-        SvarModifier::Owned => FlyPlace::ImmutableStackOwned {
-            location: registry.issue_new(),
+        SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
+            place: registry.issue_new().into(),
         },
-        SvarModifier::Mut => FlyPlace::MutableStackOwned {
-            location: registry.issue_new(),
+        SvarModifier::Mut => FlyQuary::MutableStackOwned {
+            place: registry.issue_new().into(),
         },
         SvarModifier::Ref => todo!(),
         SvarModifier::RefMut => todo!(),
         SvarModifier::Const => todo!(),
-        SvarModifier::Ambersand(_) => FlyPlace::Ref {
-            guard: Left(registry.issue_new()),
+        SvarModifier::Ambersand(_) => FlyQuary::Ref {
+            guard: Left(registry.issue_new().into()),
         },
-        SvarModifier::AmbersandMut(_) => FlyPlace::RefMut {
-            guard: Left(registry.issue_new()),
+        SvarModifier::AmbersandMut(_) => FlyQuary::RefMut {
+            place: registry.issue_new().into(),
+            lifetime: None,
         },
-        SvarModifier::Le => FlyPlace::Leashed,
-        SvarModifier::Tilde => FlyPlace::Leashed,
-        SvarModifier::At => FlyPlace::EtherealSymbol(self_place?),
+        SvarModifier::Le => FlyQuary::Leashed,
+        SvarModifier::Tilde => FlyQuary::Leashed,
+        SvarModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
     Some(self_ty.with_place(place))
 }

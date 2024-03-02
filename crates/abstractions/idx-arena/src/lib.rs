@@ -24,6 +24,20 @@ pub struct ArenaIdxRange<T> {
     end: ArenaIdx<T>,
 }
 
+impl<T> ArenaIdxRange<T> {
+    pub fn split_last(self) -> (Self, ArenaIdx<T>) {
+        debug_assert!(self.start < self.end);
+        let last = self.end - 1;
+        (
+            Self {
+                start: self.start,
+                end: last,
+            },
+            last,
+        )
+    }
+}
+
 impl<T> std::fmt::Debug for ArenaIdxRange<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("ArenaIdxRange")
@@ -114,11 +128,3 @@ impl<T> ArenaIdxRange<T> {
         }
     }
 }
-
-// impl<T> core::ops::Index<ArenaIdx<T>> for Vec<T> {
-//     type Output = T;
-
-//     fn index(&self, idx: ArenaIdx<T>) -> &Self::Output {
-//         &self[idx.index()]
-//     }
-// }

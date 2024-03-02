@@ -23,7 +23,7 @@ impl FlyFieldSignature {
 }
 
 impl MemberSignature for FlyFieldSignature {
-    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
+    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }

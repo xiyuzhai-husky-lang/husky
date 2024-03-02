@@ -191,7 +191,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
         let syn_expr_region = sema_expr_region.syn_expr_region(db);
         let syn_expr_region_data = syn_expr_region.data(db);
         let sema_expr_region_data = sema_expr_region.data(db);
-        let region_path = sema_expr_region_data.path();
+        let region_path = sema_expr_region_data.region_path();
         fn t<V>(len: usize) -> Vec<V> {
             let mut v: Vec<V> = vec![];
             v.reserve(len);

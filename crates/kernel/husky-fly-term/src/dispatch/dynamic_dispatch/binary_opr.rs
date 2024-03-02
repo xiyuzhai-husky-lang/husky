@@ -8,7 +8,7 @@ impl SemaBinaryOprDynamicDispatch {
     #[deprecated]
     pub fn builtin() -> Self {
         SemaBinaryOprDynamicDispatch::new(
-            FlyIndirections::new(FlyPlace::Transient),
+            FlyIndirections::new(FlyQuary::Transient),
             SemaBinaryOprFlySignature::Builtin,
         )
     }

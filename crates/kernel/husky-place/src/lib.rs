@@ -1,3 +1,8 @@
+pub mod jar;
+pub mod place;
+
+use self::jar::PlaceJar as Jar;
+use husky_eth_term::term::svar::EthSvar;
 use shifted_unsigned_int::ShiftedU32;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

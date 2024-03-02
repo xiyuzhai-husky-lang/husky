@@ -13,14 +13,14 @@ pub struct MethodFnFlySignature {
 }
 
 impl MemberSignature for MethodFnFlySignature {
-    fn expr_ty(&self, self_value_final_place: FlyPlace) -> FlyTermResult<FlyTerm> {
+    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
 impl MethodFnFlySignature {
     pub(crate) fn from_eth(
-        self_place: FlyPlace,
+        self_place: FlyQuary,
         eth_sig: &TraitForTypeMethodFnEtherealSignature,
     ) -> Self {
         Self {
@@ -68,7 +68,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
     ident_token: IdentRegionalToken,
-    self_place: FlyPlace,
+    self_place: FlyQuary,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
@@ -111,7 +111,7 @@ fn ty_method_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     template: TypeMethodFnEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
-    self_place: FlyPlace,
+    self_place: FlyQuary,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);

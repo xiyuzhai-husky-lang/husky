@@ -10,25 +10,23 @@ mod stream;
 mod tests;
 mod tokenize;
 
-pub use db::*;
-pub use error::*;
-use husky_text_protocol::range::TextRange;
-pub use line_group::*;
-pub use sheet::*;
-pub use special::*;
-pub use stream::*;
-
-use tokenize::*;
-
-#[salsa::jar]
-pub struct TomlTokenJar(toml_token_sheet);
+pub use self::db::*;
+pub use self::error::*;
+pub use self::sheet::*;
+pub use self::special::*;
+pub use self::stream::*;
 
 use husky_coword::Coword;
 use husky_text_span::DocumentSpan;
 use std::char;
 use std::str;
-
 use std::sync::Arc;
+
+use husky_text_protocol::range::TextRange;
+use tokenize::*;
+
+#[salsa::jar]
+pub struct TomlTokenJar(toml_token_sheet);
 
 pub type StringValue = Arc<String>;
 
