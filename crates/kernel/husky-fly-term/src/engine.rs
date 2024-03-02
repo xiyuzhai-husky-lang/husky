@@ -108,7 +108,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         &mut self,
         src: ExpectationSource,
         expectee: FlyTerm,
-        expectation: impl Into<Expectation>,
+        expectation: impl ExpectFlyTerm,
     ) -> (FlyTermExpectationIdx, FlyTerm) {
         let db = self.db();
         self.fly_term_region_mut()

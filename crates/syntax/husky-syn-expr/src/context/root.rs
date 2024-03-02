@@ -32,7 +32,7 @@ pub enum SynExprRootKind {
     BlockExpr,
     ReturnExpr,
     Condition,
-    ExplicitParameterDefaultValue { ty_syn_expr_idx: SynExprIdx },
+    ParenateParameterDefaultValue { ty_syn_expr_idx: SynExprIdx },
     FieldBindInitialValue { ty_syn_expr_idx: SynExprIdx },
     ConstantImplicitParameterType,
     ExplicitParameterType,

@@ -129,7 +129,7 @@ impl ToHirEager for SemaStmtIdx {
             SemaStmtData::ForBetween {
                 ref particulars,
                 for_loop_var_symbol_idx: _frame_var_symbol_idx,
-                ref block,
+                stmts: ref block,
                 ..
             } => HirEagerStmtData::ForBetween {
                 particulars: particulars.to_hir_eager(builder),
@@ -138,20 +138,24 @@ impl ToHirEager for SemaStmtIdx {
             SemaStmtData::ForIn { .. } => todo!(),
             SemaStmtData::Forext {
                 ref particulars,
-                ref block,
+                stmts: ref block,
                 ..
             } => HirEagerStmtData::Forext {
                 particulars: particulars.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::While {
-                condition, block, ..
+                condition,
+                stmts: block,
+                ..
             } => HirEagerStmtData::While {
                 condition: condition.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::DoWhile {
-                condition, block, ..
+                condition,
+                stmts: block,
+                ..
             } => HirEagerStmtData::DoWhile {
                 condition: condition.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),

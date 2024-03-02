@@ -32,7 +32,7 @@ impl FlyTerm {
         }
     }
 
-    pub fn with_place(self, place: FlyQuary) -> Self {
+    pub fn with_quary(self, place: FlyQuary) -> Self {
         Self {
             place: Some(place),
             base: self.base,

@@ -4,7 +4,7 @@ use husky_eth_term::term::ritchie::EtherealRitchieVariadicParameter;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyRitchieVariadicParameter {
-    contract: TermContract,
+    contract: Contract,
     ty: FlyTerm,
 }
 
@@ -34,11 +34,11 @@ impl FlyInstantiate for EtherealRitchieVariadicParameter {
 }
 
 impl FlyRitchieVariadicParameter {
-    pub fn new(contract: TermContract, ty: FlyTerm) -> Self {
+    pub fn new(contract: Contract, ty: FlyTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

@@ -9,6 +9,10 @@ pub struct ExpectAnyOriginalOutcome;
 impl ExpectFlyTerm for ExpectAnyOriginal {
     type Outcome = ExpectAnyOriginalOutcome;
 
+    fn initial_resolve_progress() -> ExpectationProgress {
+        ExpectationProgress::Resolved(Ok(ExpectAnyOriginalOutcome.into()))
+    }
+
     #[inline(always)]
     fn retrieve_outcome(_outcome: &ExpectationOutcome) -> &Self::Outcome {
         &ExpectAnyOriginalOutcome

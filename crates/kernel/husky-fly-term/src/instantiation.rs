@@ -359,7 +359,7 @@ impl FlyInstantiate for EthApplication {
                     let base = arguments[1].instantiate(engine, expr_idx, instantiation);
                     match base.quary() {
                         Some(_) => todo!(),
-                        None => base.with_place(the_place),
+                        None => base.with_quary(the_place),
                     }
                 }
                 refined_path => {

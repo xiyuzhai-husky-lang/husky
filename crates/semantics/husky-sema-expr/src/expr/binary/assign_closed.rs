@@ -73,10 +73,7 @@ impl<'a> SemaExprEngine<'a> {
                     FlyBaseTypeData::Symbol { symbol } => todo!(),
                     FlyBaseTypeData::Hvar { hvar } => todo!(),
                 };
-                self.build_sema_expr(
-                    ropd,
-                    ExpectCoersion::new(TermContract::Move, ropd_ty_expected),
-                )
+                self.build_sema_expr(ropd, ExpectCoersion::new(Contract::Move, ropd_ty_expected))
             }
             None => self.build_sema_expr(ropd, ExpectAnyDerived),
         };

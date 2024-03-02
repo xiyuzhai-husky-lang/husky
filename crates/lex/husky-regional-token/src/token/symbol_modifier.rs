@@ -1,5 +1,5 @@
 use crate::*;
-use husky_term_prelude::{SvarModifier, TermContract};
+use husky_term_prelude::{Contract, SvarModifier};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EphemSymbolModifierRegionalTokens {
@@ -40,19 +40,19 @@ impl Into<SvarModifier> for EphemSymbolModifierRegionalTokens {
 }
 
 // we try to keep as similar to `Rust` as possible
-impl Into<TermContract> for EphemSymbolModifierRegionalTokens {
+impl Into<Contract> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
-    fn into(self) -> TermContract {
+    fn into(self) -> Contract {
         match self {
             EphemSymbolModifierRegionalTokens::Mut(_)
-            | EphemSymbolModifierRegionalTokens::Owned(_) => TermContract::Move,
-            EphemSymbolModifierRegionalTokens::Ref(_) => TermContract::Borrow,
-            EphemSymbolModifierRegionalTokens::RefMut(..) => TermContract::BorrowMut,
-            EphemSymbolModifierRegionalTokens::Ambersand(_, _) => TermContract::Borrow,
-            EphemSymbolModifierRegionalTokens::AmbersandMut(_, _, _) => TermContract::BorrowMut,
+            | EphemSymbolModifierRegionalTokens::Owned(_) => Contract::Move,
+            EphemSymbolModifierRegionalTokens::Ref(_) => Contract::Borrow,
+            EphemSymbolModifierRegionalTokens::RefMut(..) => Contract::BorrowMut,
+            EphemSymbolModifierRegionalTokens::Ambersand(_, _) => Contract::Borrow,
+            EphemSymbolModifierRegionalTokens::AmbersandMut(_, _, _) => Contract::BorrowMut,
             EphemSymbolModifierRegionalTokens::Le(_) => todo!(),
-            EphemSymbolModifierRegionalTokens::Tilde(_) => TermContract::Leash,
-            EphemSymbolModifierRegionalTokens::At(_, _) => TermContract::At,
+            EphemSymbolModifierRegionalTokens::Tilde(_) => Contract::Leash,
+            EphemSymbolModifierRegionalTokens::At(_, _) => Contract::At,
         }
     }
 }

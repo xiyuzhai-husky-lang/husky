@@ -439,32 +439,32 @@ impl Trace {
                     particulars: _,
                     for_loop_var_symbol_idx: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::ForIn {
                     for_token: _,
-                    condition: _,
+                    range: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::Forext {
                     forext_token: _,
                     particulars: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::While {
                     while_token: _,
                     condition: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::DoWhile {
                     do_token: _,
                     while_token: _,
                     condition: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
                     if_branch: sema_if_branch,
@@ -531,12 +531,7 @@ impl Trace {
                         );
                     }
                 }
-                SemaStmtData::Match {
-                    match_token: _,
-                    match_target: _,
-                    eol_with_token: _,
-                    case_branches: _,
-                } => todo!(),
+                SemaStmtData::Match { .. } => todo!(),
             }
         }
         subtraces

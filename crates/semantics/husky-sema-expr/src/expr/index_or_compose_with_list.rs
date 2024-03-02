@@ -31,7 +31,7 @@ impl<'a> SemaExprEngine<'a> {
             _ => match self.calc_index_expr_ty(expr_idx, owner_ty, items) {
                 Ok((index_sema_list_items, index_dynamic_dispatch, ty_result)) => (
                     Ok(SemaExprData::Index {
-                        owner_sema_expr_idx,
+                        owner: owner_sema_expr_idx,
                         lbox_regional_token_idx,
                         index_sema_list_items,
                         rbox_regional_token_idx,

@@ -200,7 +200,7 @@ impl ToHirLazy for SemaExprIdx {
             },
             SemaExprData::Prefix {
                 opr,
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 ..
             } => HirLazyExprData::Prefix {
                 opr: HirPrefixOpr::from_sema(
@@ -212,7 +212,7 @@ impl ToHirLazy for SemaExprIdx {
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_lazy(builder),
             },
             SemaExprData::Suffix {
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 opr,
                 ..
             } => match opr {
@@ -323,7 +323,7 @@ impl ToHirLazy for SemaExprIdx {
                 return_ty_sema_expr_idx: _,
             } => todo!(),
             SemaExprData::Field {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 owner_ty,
                 ident_token,
                 ref dispatch,
@@ -405,7 +405,7 @@ impl ToHirLazy for SemaExprIdx {
                 rpar_regional_token_idx: _,
             } => todo!(),
             SemaExprData::Index {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 ref index_sema_list_items,
                 ..
             } => HirLazyExprData::Index {

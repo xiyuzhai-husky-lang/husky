@@ -1,4 +1,4 @@
-use crate::TermContract;
+use crate::Contract;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[enum_class::from_variants]
@@ -18,9 +18,9 @@ pub enum RitchieTypeKind {
 }
 
 impl RitchieTypeKind {
-    pub fn function_contract(self) -> TermContract {
+    pub fn function_contract(self) -> Contract {
         match self {
-            RitchieTypeKind::Item(ritchie_item_kind) => TermContract::Pure,
+            RitchieTypeKind::Item(ritchie_item_kind) => Contract::Pure,
             RitchieTypeKind::Closure(ritchie_closure_kind) => match ritchie_closure_kind {
                 RitchieClosureKind::Fn => todo!(),
                 RitchieClosureKind::Gn => todo!(),

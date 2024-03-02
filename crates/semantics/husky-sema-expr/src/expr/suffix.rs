@@ -29,7 +29,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemaExprData::Suffix {
-                        opd_sema_expr_idx,
+                        opd: opd_sema_expr_idx,
                         opr: SemaSuffixOpr::Incr,
                         opr_regional_token_idx,
                     }),
@@ -41,7 +41,7 @@ impl<'a> SemaExprEngine<'a> {
                     self.build_sema_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemaExprData::Suffix {
-                        opd_sema_expr_idx,
+                        opd: opd_sema_expr_idx,
                         opr: SemaSuffixOpr::Decr,
                         opr_regional_token_idx,
                     }),

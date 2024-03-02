@@ -32,7 +32,7 @@ impl FlyFieldDyanmicDispatch {
     pub fn expr_ty(&self) -> FlyTerm {
         self.signature
             .return_ty()
-            .with_place(self.indirections.final_place)
+            .with_quary(self.indirections.final_place)
     }
 }
 

@@ -31,9 +31,9 @@ impl TypeMethodFnDecTemplate {
         let self_ty = impl_block.ty(db);
         let contract = match decl.self_value_parameter(db) {
             Some(self_value_parameter) => {
-                TermContract::new(self_value_parameter.ephem_symbol_modifier_token_verse())
+                Contract::new(self_value_parameter.ephem_symbol_modifier_token_verse())
             }
-            None => TermContract::Pure,
+            None => Contract::Pure,
         };
         let self_value_parameter = DeclarativeRitchieSimpleParameter::new(contract, self_ty);
         let dec_term_menu = db.dec_term_menu(syn_expr_region.toolchain(db)).unwrap();

@@ -15,12 +15,14 @@ impl ExpectCasting {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::debug_with_db]
-pub struct ExpectExplicitlyConvertibleOutcome {
-    destination: FlyTerm,
-}
+pub struct ExpectCastingOutcome;
 
 impl ExpectFlyTerm for ExpectCasting {
-    type Outcome = ExpectExplicitlyConvertibleOutcome;
+    type Outcome = ExpectCastingOutcome;
+
+    fn initial_resolve_progress() -> ExpectationProgress {
+        ExpectationProgress::Resolved(Ok(ExpectCastingOutcome.into()))
+    }
 
     #[inline(always)]
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {

@@ -19,6 +19,15 @@ pub enum SemaHtmlArgumentExpr {
     },
 }
 
+impl SemaHtmlArgumentExpr {
+    pub fn expr(self) -> SemaExprIdx {
+        match self {
+            SemaHtmlArgumentExpr::Expanded { argument, .. } => argument,
+            SemaHtmlArgumentExpr::Shortened { .. } => todo!(),
+        }
+    }
+}
+
 impl vec_like::AsVecMapEntry for SemaHtmlArgumentExpr {
     type K = Ident;
 

@@ -102,7 +102,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                         Some(ExprEnvironment::WithinDelimiteredParameterList(
                             Delimiter::Par,
                         )),
-                        SynExprRootKind::ExplicitParameterDefaultValue {
+                        SynExprRootKind::ParenateParameterDefaultValue {
                             ty_syn_expr_idx: ty_expr_idx,
                         },
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,

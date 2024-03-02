@@ -85,7 +85,7 @@ impl PropsStructFieldDecTemplate {
 
     pub fn into_ritchie_parameter_contracted_ty(self) -> Option<DeclarativeRitchieParameter> {
         (!self.has_initialization)
-            .then_some(DeclarativeRitchieSimpleParameter::new(TermContract::Move, self.ty).into())
+            .then_some(DeclarativeRitchieSimpleParameter::new(Contract::Move, self.ty).into())
     }
 }
 

@@ -5,7 +5,7 @@ use husky_eth_term::term::ritchie::EtherealRitchieKeyedParameter;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyRitchieKeyedParameter {
     key: Ident,
-    contract: TermContract,
+    contract: Contract,
     ty: FlyTerm,
     has_default: bool,
 }
@@ -47,7 +47,7 @@ impl FlyRitchieKeyedParameter {
     }
 
     #[inline(always)]
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

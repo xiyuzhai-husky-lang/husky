@@ -6,5 +6,5 @@ pub enum SemaPrefixOpr {
     BitNot,
     LeashType,
     RefType,
-    Option,
+    OptionType,
 }

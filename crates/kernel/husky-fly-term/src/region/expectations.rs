@@ -87,7 +87,6 @@ pub struct ExpectationState {
     idx: FlyTermExpectationIdx,
     src: ExpectationSource,
     expectee: FlyTerm,
-    implicit_parameter_substitutions: ImplicitParameterSubstitutions,
     resolve_progress: ExpectationProgress,
 }
 
@@ -213,17 +212,15 @@ impl FlyTermEffect {
 
 impl FlyTermRegion {
     /// returns expectation idx and also the type after replacing implicit parameters with holes
-    pub fn add_expectation(
+    pub fn add_expectation<E: ExpectFlyTerm>(
         &mut self,
         src: ExpectationSource,
         expectee: FlyTerm,
-        expectation: impl Into<Expectation>,
+        expectation: E,
         db: &::salsa::Db,
     ) -> (FlyTermExpectationIdx, FlyTerm) {
         let idx = unsafe { self.expectations.arena.next_idx() };
-        // todo: remove this
-        let (expectee, implicit_parameter_substitutions) =
-            FlyTermSubstitution::from_expectee(expectee, db, &mut self.terms, idx);
+        let resolve_progress = E::initial_resolve_progress();
         (
             self.expectations
                 .alloc_expectation(FlyTermExpectationEntry {
@@ -232,8 +229,7 @@ impl FlyTermRegion {
                         idx,
                         src,
                         expectee,
-                        implicit_parameter_substitutions,
-                        resolve_progress: ExpectationProgress::Intact,
+                        resolve_progress,
                     },
                 }),
             expectee,

@@ -3,7 +3,7 @@ use husky_eth_term::term::ritchie::{
     EthRitchie, EthRitchieSimpleParameter, EtherealRitchieParameter,
 };
 use husky_fly_term::FlyRitchieSimpleParameter;
-use husky_term_prelude::{ritchie::RitchieTypeKind, TermContract};
+use husky_term_prelude::{ritchie::RitchieTypeKind, Contract};
 
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = new)]
 pub struct HirRitchieType {
@@ -105,15 +105,15 @@ pub enum HirEagerContract {
 }
 
 impl HirEagerContract {
-    pub fn from_term(contract: TermContract) -> Self {
+    pub fn from_term(contract: Contract) -> Self {
         match contract {
-            TermContract::Pure => HirEagerContract::Pure,
-            TermContract::Move => HirEagerContract::Move,
-            TermContract::Borrow => HirEagerContract::Borrow,
-            TermContract::BorrowMut => HirEagerContract::BorrowMut,
-            TermContract::Const => HirEagerContract::Const,
-            TermContract::Leash => HirEagerContract::Leash,
-            TermContract::At => HirEagerContract::At,
+            Contract::Pure => HirEagerContract::Pure,
+            Contract::Move => HirEagerContract::Move,
+            Contract::Borrow => HirEagerContract::Borrow,
+            Contract::BorrowMut => HirEagerContract::BorrowMut,
+            Contract::Const => HirEagerContract::Const,
+            Contract::Leash => HirEagerContract::Leash,
+            Contract::At => HirEagerContract::At,
         }
     }
 }

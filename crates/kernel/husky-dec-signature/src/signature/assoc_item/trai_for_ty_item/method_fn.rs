@@ -25,7 +25,7 @@ impl TraitForTypeMethodFnDecTemplate {
         let self_value_parameter = DeclarativeRitchieSimpleParameter::new(
             match decl.self_value_parameter(db) {
                 Some(self_value_parameter) => todo!(),
-                None => TermContract::Pure,
+                None => Contract::Pure,
             },
             self_ty,
         );

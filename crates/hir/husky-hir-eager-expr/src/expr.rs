@@ -244,7 +244,7 @@ impl ToHirEager for SemaExprIdx {
             },
             SemaExprData::Prefix {
                 opr,
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 ..
             } => HirEagerExprData::Prefix {
                 opr: HirPrefixOpr::from_sema(
@@ -256,7 +256,7 @@ impl ToHirEager for SemaExprIdx {
                 opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Suffix {
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 opr,
                 ..
             } => match opr {
@@ -367,7 +367,7 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::Ritchie { .. } => todo!(),
             SemaExprData::Field {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 ident_token,
                 ref dispatch,
                 ..
@@ -426,7 +426,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Delimitered { item, .. } => return item.to_hir_eager(builder),
             SemaExprData::NewTuple { .. } => todo!(),
             SemaExprData::Index {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 lbox_regional_token_idx: _,
                 ref index_sema_list_items,
                 ..

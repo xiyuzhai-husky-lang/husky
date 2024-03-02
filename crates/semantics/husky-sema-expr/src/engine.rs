@@ -44,7 +44,7 @@ pub(crate) struct SemaExprEngine<'a> {
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: SynPatternExprMap<TermContract>,
+    pattern_expr_contracts: SynPatternExprMap<Contract>,
     return_ty: Option<EthTerm>,
     pub(crate) unveiler: Unveiler,
     self_ty: Option<EthTerm>,
@@ -384,5 +384,5 @@ fn calc_self_value_ty(
         SvarModifier::Tilde => FlyQuary::Leashed,
         SvarModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
-    Some(self_ty.with_place(place))
+    Some(self_ty.with_quary(place))
 }

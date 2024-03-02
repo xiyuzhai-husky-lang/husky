@@ -233,10 +233,10 @@ impl<'a> SemaExprEngine<'a> {
             SemaExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
             } => self.calc_prefix_expr_term(sema_expr_idx, *opr, *opd_sema_expr_idx),
             SemaExprData::Suffix {
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 opr,
                 opr_regional_token_idx,
             } => todo!(),
@@ -275,7 +275,7 @@ impl<'a> SemaExprEngine<'a> {
             },
             SemaExprData::Block { stmts } => todo!(),
             SemaExprData::Index {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 lbox_regional_token_idx,
                 index_sema_list_items: indices,
                 rbox_regional_token_idx,
@@ -323,9 +323,8 @@ impl<'a> SemaExprEngine<'a> {
                 let mut params: Vec<FlyRitchieParameter> = vec![];
                 for item in parameter_ty_items.clone() {
                     match self.infer_expr_term(item.sema_expr_idx) {
-                        Some(ty_term) => params.push(
-                            FlyRitchieSimpleParameter::new(TermContract::Pure, ty_term).into(),
-                        ),
+                        Some(ty_term) => params
+                            .push(FlyRitchieSimpleParameter::new(Contract::Pure, ty_term).into()),
                         None => todo!("err"),
                     }
                 }

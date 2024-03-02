@@ -25,12 +25,12 @@ impl<'a> SemaExprEngine<'a> {
         let &Ok(match_target_syn_expr_idx) = match_target_syn_expr_idx_result else {
             todo!()
         };
-        let (match_target_sema_expr_idx, match_target_ty) =
+        let (match_target, match_target_ty) =
             self.build_sema_expr_with_ty(match_target_syn_expr_idx, ExpectAnyOriginal);
         let Some(match_target_ty) = match_target_ty else {
             use husky_print_utils::p;
             p!(self.syn_expr_region_data()[match_target_syn_expr_idx].debug(self.db()));
-            p!(self.sema_expr_arena()[match_target_sema_expr_idx].debug(self.db()));
+            p!(self.sema_expr_arena()[match_target].debug(self.db()));
             todo!()
         };
         let mut merger = BranchTypeMerger::new(expr_expectation);
@@ -46,10 +46,19 @@ impl<'a> SemaExprEngine<'a> {
         else {
             todo!()
         };
+        let match_contract = Contract::merge(sema_case_branches.iter().map(|branch| {
+            self.syn_expr_region_data().pattern_contract(
+                branch
+                    .case_pattern_sema_obelisk
+                    .syn_pattern_root()
+                    .syn_pattern_expr_idx(),
+            )
+        }));
         (
             Ok(SemaStmtData::Match {
                 match_token,
-                match_target: match_target_sema_expr_idx,
+                match_target,
+                match_contract,
                 eol_with_token,
                 case_branches: sema_case_branches,
             }),

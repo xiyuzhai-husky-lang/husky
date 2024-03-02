@@ -79,9 +79,10 @@ mnist-developer:
 	cargo run --bin husky-mnist-classifier-developer
 
 save:
-	git add -A
-	git commit -m "save"
-	git push
+# git add -A
+# git commit -m "save"
+# git push
+	git-save
 
 save-clean:
 	git add -A

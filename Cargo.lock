@@ -4785,6 +4785,7 @@ dependencies = [
  "husky-manifest-ast",
  "husky-print-utils",
  "husky-sema-expr",
+ "husky-sema-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5605,11 +5606,14 @@ name = "husky-sema-place-contract"
 version = "0.1.0"
 dependencies = [
  "husky-entity-kind",
+ "husky-fly-term",
  "husky-place",
  "husky-sema-expr",
+ "husky-sema-opr",
  "husky-syn-expr",
  "husky-term-prelude",
  "salsa",
+ "vec-like",
 ]
 
 [[package]]
