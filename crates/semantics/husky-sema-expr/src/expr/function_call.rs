@@ -18,7 +18,7 @@ impl<'a> SemaExprEngine<'a> {
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         );
-        let Some(outcome) = outcome else {
+        let Some(function_expectation_outcome) = outcome else {
             for item in items {
                 self.build_sema_expr(item.syn_expr_idx(), ExpectAnyDerived);
             }
@@ -35,9 +35,9 @@ impl<'a> SemaExprEngine<'a> {
                 ),
             );
         };
-        match *outcome.variant() {
+        match *function_expectation_outcome.variant() {
             ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                ritchie_kind,
+                ritchie_ty_kind,
                 ref parameter_contracted_tys,
             } => {
                 let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
@@ -51,12 +51,13 @@ impl<'a> SemaExprEngine<'a> {
                 (
                     Ok(SemaExprData::FunctionRitchieCall {
                         function_sema_expr_idx,
+                        ritchie_ty_kind,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,
                         rpar_regional_token_idx,
                     }),
-                    Ok(outcome.return_ty()),
+                    Ok(function_expectation_outcome.return_ty()),
                 )
             }
             ExpectEqsFunctionTypeOutcomeData::ExplicitCurry {
@@ -93,8 +94,8 @@ impl<'a> SemaExprEngine<'a> {
 
     pub(super) fn build_function_call_sema_expr(
         &mut self,
-        expr_idx: SynExprIdx,
-        function: SynExprIdx,
+        syn_expr_idx: SynExprIdx,
+        function_syn_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
         template_arguments: Option<&SynTemplateArguments>,
         lpar_regional_token_idx: RegionalTokenIdx,
@@ -104,9 +105,11 @@ impl<'a> SemaExprEngine<'a> {
         SemaExprDataResult<SemaExprData>,
         SemaExprTypeResult<FlyTerm>,
     ) {
-        let (function_sema_expr_idx, outcome) = self
-            .build_sema_expr_with_outcome(function, ExpectEqsRitchieType::new(final_destination));
-        let Some(outcome) = outcome else {
+        let (function_sema_expr_idx, outcome) = self.build_sema_expr_with_outcome(
+            function_syn_expr_idx,
+            ExpectEqsRitchieType::new(final_destination),
+        );
+        let Some(function_expectation_outcome) = outcome else {
             for item in items {
                 self.build_sema_expr_with_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
@@ -119,20 +122,23 @@ impl<'a> SemaExprEngine<'a> {
             );
         };
         let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
-            expr_idx,
-            outcome.parameter_contracted_tys(),
+            syn_expr_idx,
+            function_expectation_outcome.parameter_contracted_tys(),
             items.iter().copied(),
         ) {
             Ok(ritchie_parameter_argument_matches) => ritchie_parameter_argument_matches,
             Err(e) => return todo!(),
         };
+        let ritchie_ty_kind = function_expectation_outcome.ritchie_ty_kind();
+        let return_ty = function_expectation_outcome.return_ty();
         let data = SemaExprData::FunctionRitchieCall {
             function_sema_expr_idx,
+            ritchie_ty_kind,
             template_arguments: template_arguments.map(|_| todo!()),
             lpar_regional_token_idx,
             ritchie_parameter_argument_matches,
             rpar_regional_token_idx,
         };
-        (Ok(data), Ok(outcome.return_ty()))
+        (Ok(data), Ok(return_ty))
     }
 }

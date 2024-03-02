@@ -227,7 +227,7 @@ fn fn_call_eager_expr_trace_input_traces(
         .iter()
         .map(|m| {
             let data = match m {
-                SemaRitchieParameterArgumentMatch::Regular(_, list_item) => {
+                SemaRitchieParameterArgumentMatch::Simple(_, list_item) => {
                     let sema_expr_idx = list_item.argument_sema_expr_idx();
                     EagerCallInputSketch::Regular {
                         argument_sema_expr_idx: sema_expr_idx,

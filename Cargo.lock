@@ -5604,6 +5604,7 @@ dependencies = [
 name = "husky-sema-place-contract"
 version = "0.1.0"
 dependencies = [
+ "husky-entity-kind",
  "husky-place",
  "husky-sema-expr",
  "husky-syn-expr",

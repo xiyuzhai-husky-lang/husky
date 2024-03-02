@@ -1,3 +1,4 @@
+use crate::TermContract;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[enum_class::from_variants]
@@ -14,6 +15,22 @@ pub enum RitchieTypeKind {
     Item(RitchieItemKind),
     // todo: each closure should be unique
     Closure(RitchieClosureKind),
+}
+
+impl RitchieTypeKind {
+    pub fn function_contract(self) -> TermContract {
+        match self {
+            RitchieTypeKind::Item(ritchie_item_kind) => TermContract::Pure,
+            RitchieTypeKind::Closure(ritchie_closure_kind) => match ritchie_closure_kind {
+                RitchieClosureKind::Fn => todo!(),
+                RitchieClosureKind::Gn => todo!(),
+                RitchieClosureKind::Vn => todo!(),
+                RitchieClosureKind::Pn => todo!(),
+                RitchieClosureKind::Qn => todo!(),
+                RitchieClosureKind::Bn => todo!(),
+            },
+        }
+    }
 }
 
 impl std::fmt::Display for RitchieTypeKind {

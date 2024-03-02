@@ -17,12 +17,12 @@ use salsa::DisplayWithDb;
 
 #[macro_export]
 macro_rules! emit_note_on_sema_expr_codespan {
-    ($sema_expr_region: expr, $db: expr, $($expr_messages: expr),* $(,)?) => {{
+    ($self: expr, $($expr_messages: expr),* $(,)?) => {{
         $crate::helpers::codespan::emit_note_on_sema_expr_codespan(
-            $sema_expr_region,
+            $self.sema_expr_region(),
             $crate::helpers::codespan::Severity::Note,
             format!("{}:{}:{}", file!(), line!(), column!()),
-            $db,
+            $self.db(),
             [$($crate::convert_expr_message!($expr_messages)),*]
         )
     }};

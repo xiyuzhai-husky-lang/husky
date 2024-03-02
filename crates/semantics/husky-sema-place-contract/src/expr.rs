@@ -1,9 +1,13 @@
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
+use husky_entity_kind::ritchie::RitchieItemKind;
 #[allow(unused_imports)]
 use husky_sema_expr::emit_note_on_sema_expr_codespan;
-use husky_sema_expr::{SemaExprData, SemaExprIdx};
+use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_syn_expr::SynExprRootKind;
-use husky_term_prelude::TermContract;
+use husky_term_prelude::{
+    ritchie::{RitchieClosureKind, RitchieTypeKind},
+    TermContract,
+};
 
 impl<'a> PlaceContractEngine<'a> {
     pub(crate) fn infer_all_exprs(&mut self) {
@@ -25,39 +29,16 @@ impl<'a> PlaceContractEngine<'a> {
             site.set(place, contract)
         }
         match *expr.data(self.sema_expr_region_data().sema_expr_arena()) {
-            SemaExprData::Literal(_, _) => todo!(),
-            SemaExprData::Unit {
-                lpar_regional_token_idx,
-                rpar_regional_token_idx,
-            } => todo!(),
-            SemaExprData::PrincipalEntityPath { .. } => (),
-            SemaExprData::AssocItem {
-                parent_expr_idx,
-                parent_path,
-                colon_colon_regional_token,
-                ident_token,
-                ref static_dispatch,
-            } => todo!(),
-            SemaExprData::InheritedSynSymbol {
-                ident,
-                regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
-            } => todo!(),
-            SemaExprData::CurrentSynSymbol {
-                ident,
-                regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
-            } => todo!(),
-            SemaExprData::FrameVarDecl {
-                regional_token_idx,
-                ident,
-                frame_var_symbol_idx,
-                current_syn_symbol_kind,
-            } => todo!(),
-            SemaExprData::SelfType(_) => todo!(),
-            SemaExprData::SelfValue(_) => todo!(),
+            SemaExprData::Literal(_, _)
+            | SemaExprData::Unit { .. }
+            | SemaExprData::PrincipalEntityPath { .. }
+            | SemaExprData::AssocItem { .. }
+            | SemaExprData::InheritedSynSymbol { .. }
+            | SemaExprData::CurrentSynSymbol { .. }
+            | SemaExprData::FrameVarDecl { .. }
+            | SemaExprData::SelfType(_)
+            | SemaExprData::SelfValue(_)
+            | SemaExprData::FunctionApplication { .. } => (),
             SemaExprData::Binary {
                 lopd,
                 opr,
@@ -86,22 +67,42 @@ impl<'a> PlaceContractEngine<'a> {
             SemaExprData::Unwrap {
                 opd_sema_expr_idx, ..
             } => self.infer_expr(opd_sema_expr_idx, TermContract::At, site.clone()),
-            SemaExprData::FunctionApplication { .. } => (),
             SemaExprData::FunctionRitchieCall {
                 function_sema_expr_idx,
-                ref template_arguments,
+                ritchie_ty_kind,
                 ref ritchie_parameter_argument_matches,
                 ..
-            } => todo!(),
-            SemaExprData::Ritchie {
-                ritchie_kind_regional_token_idx,
-                ritchie_kind,
-                lpar_token,
-                ref parameter_ty_items,
-                rpar_regional_token_idx,
-                light_arrow_token,
-                return_ty_sema_expr_idx,
-            } => todo!(),
+            } => {
+                self.infer_expr(
+                    function_sema_expr_idx,
+                    ritchie_ty_kind.function_contract(),
+                    Default::default(),
+                );
+                for m in ritchie_parameter_argument_matches {
+                    match m {
+                        SemaRitchieParameterArgumentMatch::Simple(param, arg) => self.infer_expr(
+                            arg.argument_expr_idx,
+                            param.contract,
+                            Default::default(),
+                        ),
+                        SemaRitchieParameterArgumentMatch::Variadic(_, _) => {
+                            todo!()
+                        }
+                        SemaRitchieParameterArgumentMatch::Keyed(param, arg) => {
+                            if let Some(arg) = arg {
+                                self.infer_expr(
+                                    arg.argument_expr_idx(),
+                                    param.contract(),
+                                    Default::default(),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            SemaExprData::Ritchie { .. } => {
+                todo!()
+            }
             SemaExprData::Field {
                 owner_sema_expr_idx,
                 owner_ty,
@@ -170,18 +171,14 @@ impl<'a> PlaceContractEngine<'a> {
                 ref items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemaExprData::NewList {
-                lbox_regional_token_idx,
-                ref items,
-                element_ty,
-                rbox_regional_token_idx,
-            } => todo!(),
-            SemaExprData::BoxColonList {
-                lbox_regional_token_idx,
-                colon_regional_token_idx,
-                ref items,
-                rbox_regional_token_idx,
-            } => todo!(),
+            SemaExprData::NewList { ref items, .. } => {
+                for item in items {
+                    self.infer_expr(item.sema_expr_idx, TermContract::Move, Default::default())
+                }
+            }
+            SemaExprData::BoxColonList { ref items, .. } => {
+                todo!()
+            }
             SemaExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,

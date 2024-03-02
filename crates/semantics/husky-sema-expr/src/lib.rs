@@ -6,7 +6,7 @@
 #![allow(unused, warnings)]
 mod engine;
 mod error;
-mod expr;
+pub mod expr;
 pub mod jar;
 // mod info;
 pub mod helpers;
