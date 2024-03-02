@@ -309,7 +309,7 @@ impl<'a> DecTermEngine<'a> {
                 SynExprRootKind::Trait
                 | SynExprRootKind::ReturnType
                 | SynExprRootKind::TupleStructFieldType
-                | SynExprRootKind::ExplicitParameterDefaultValue { .. }
+                | SynExprRootKind::ParenateParameterDefaultValue { .. }
                 | SynExprRootKind::TypeAliasTypeTerm
                 | SynExprRootKind::AssocTypeTerm => (),
                 SynExprRootKind::SelfType => {
@@ -600,7 +600,7 @@ impl<'a> DecTermEngine<'a> {
                         // todo: support variadic, and keyed??
                         Ok(DeclarativeRitchieSimpleParameter::new(
                             // todo: handle &mut !!
-                            TermContract::Pure,
+                            Contract::Pure,
                             self.infer_new_expr_term(parameter_ty_item.syn_expr_idx())?,
                         )
                         .into())

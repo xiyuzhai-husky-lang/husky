@@ -35,7 +35,7 @@ impl<'a> SemaExprEngine<'a> {
                 let unveil_output_ty_signature = unveil_output_ty_signature.clone();
                 let opd_sema_expr_idx = self.build_sema_expr(
                     opd_syn_expr_idx,
-                    ExpectCoersion::new(TermContract::Move, opd_ty.into()),
+                    ExpectCoersion::new(Contract::Move, opd_ty.into()),
                 );
                 (
                     Ok(SemaExprData::Unveil {

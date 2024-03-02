@@ -140,7 +140,7 @@ impl<'a> HirLazyExprBuilder<'a> {
                 // ad hoc
                 SynExprRootKind::FieldBindInitialValue { .. } => (),
                 // ad hoc
-                SynExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                SynExprRootKind::ParenateParameterDefaultValue { .. } => (),
                 // ad hoc
                 SynExprRootKind::Snippet => (),
                 // ad hoc

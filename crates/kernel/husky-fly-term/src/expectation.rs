@@ -32,12 +32,12 @@ use idx_arena::ArenaIdx;
 use thiserror::Error;
 
 #[salsa::debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[non_exhaustive]
 #[enum_class::from_variants]
 pub enum Expectation {
-    ExplicitlyConvertible(ExpectCasting),
-    ImplicitlyConvertible(ExpectCoersion),
+    Casting(ExpectCasting),
+    Coersion(ExpectCoersion),
     EqsSort(ExpectSort),
     LoopVariableType,
     EqsExactly(ExpectSubtypeOrEqual),
@@ -65,8 +65,8 @@ impl Expectation {
             ExpectationProgress::Resolved(_) => return AltNone,
         }
         match self {
-            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, state),
-            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, state),
+            Expectation::Casting(epn) => epn.resolve(db, terms, state),
+            Expectation::Coersion(epn) => epn.resolve(db, terms, state),
             Expectation::EqsSort(epn) => epn.resolve(db, terms, state),
             Expectation::LoopVariableType => todo!(),
             Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, state),
@@ -83,9 +83,39 @@ impl Expectation {
     }
 }
 
+impl ExpectFlyTerm for Expectation {
+    type Outcome = ExpectationOutcome;
+
+    fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
+        todo!()
+    }
+
+    fn final_destination_inner(&self, db: &salsa::Db, terms: &FlyTerms) -> FinalDestination {
+        todo!()
+    }
+
+    fn destination(&self) -> FlyTermDestination {
+        todo!()
+    }
+
+    fn resolve(
+        &self,
+        db: &salsa::Db,
+        terms: &mut FlyTerms,
+        state: &mut ExpectationState,
+    ) -> AltOption<FlyTermEffect> {
+        todo!()
+    }
+}
+
 // maybe make this Copy?
 pub trait ExpectFlyTerm: Into<Expectation> + Clone {
     type Outcome: Clone + Into<ExpectationOutcome>;
+
+    /// override this for ExpectAny*
+    fn initial_resolve_progress() -> ExpectationProgress {
+        ExpectationProgress::Intact
+    }
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome;
 
@@ -160,7 +190,7 @@ pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
-    ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
+    ExplicitlyConvertible(ExpectCastingOutcome),
     Coersion(ExpectCoersionOutcome),
     EqsSort(Universe),
     Subtype(ExpectSubtypeOutcome),
@@ -188,6 +218,14 @@ impl ExpectationProgress {
         match self {
             ExpectationProgress::Intact | ExpectationProgress::Holed => None,
             ExpectationProgress::Resolved(Ok(outcome)) => Some(E::retrieve_outcome(outcome)),
+            ExpectationProgress::Resolved(Err(_)) => None,
+        }
+    }
+
+    pub fn outcome2(&self) -> Option<&ExpectationOutcome> {
+        match self {
+            ExpectationProgress::Intact | ExpectationProgress::Holed => None,
+            ExpectationProgress::Resolved(Ok(outcome)) => Some(outcome),
             ExpectationProgress::Resolved(Err(_)) => None,
         }
     }
@@ -222,7 +260,7 @@ pub enum OriginalFlyTermExpectationError {
     },
     #[error("type path mismatch for coersion")]
     TypePathMismatchForCoersion {
-        contract: TermContract,
+        contract: Contract,
         ty_expected: FlyTerm,
         expectee: FlyTerm,
         expected_path: TypePath,
@@ -237,7 +275,7 @@ pub enum OriginalFlyTermExpectationError {
     #[error("ExpectedCoersion")]
     ExpectedCoersion {
         expectee: FlyTerm,
-        contract: TermContract,
+        contract: Contract,
         expected: FlyTerm,
     },
     #[error("ExpectedIntType")]

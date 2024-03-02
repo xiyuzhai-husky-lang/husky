@@ -4,13 +4,13 @@ use super::*;
 #[salsa::debug_with_db]
 pub struct DeclarativeRitchieKeyedParameter {
     key: Ident,
-    contract: TermContract,
+    contract: Contract,
     ty: DecTerm,
     has_default: bool,
 }
 
 impl DeclarativeRitchieKeyedParameter {
-    pub fn new(key: Ident, contract: TermContract, ty: DecTerm, has_default: bool) -> Self {
+    pub fn new(key: Ident, contract: Contract, ty: DecTerm, has_default: bool) -> Self {
         Self {
             key,
             contract,
@@ -32,7 +32,7 @@ impl DeclarativeRitchieKeyedParameter {
         self.key
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

@@ -62,7 +62,7 @@ impl SymbolType {
             SvarModifier::Tilde => todo!(),
             SvarModifier::At => todo!(),
         };
-        Self(ty.with_place(new_place))
+        Self(ty.with_quary(new_place))
     }
 
     pub fn new_variable_ty(
@@ -122,7 +122,7 @@ impl SymbolType {
             SvarModifier::Tilde => todo!(),
             SvarModifier::At => todo!(),
         };
-        Ok(Self(ty.with_place(new_place)))
+        Ok(Self(ty.with_quary(new_place)))
     }
 }
 
@@ -216,53 +216,53 @@ pub enum FlyQuary {
 }
 
 impl FlyQuary {
-    pub(crate) fn bind(&self, contract: TermContract) -> FlyPlaceResult<()> {
+    pub(crate) fn bind(&self, contract: Contract) -> FlyPlaceResult<()> {
         match (contract, self) {
-            (TermContract::Const, FlyQuary::Const) => Ok(()),
-            (TermContract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
-            (TermContract::Leash, FlyQuary::Leashed) => Ok(()),
-            (TermContract::Leash, _) => todo!("error"),
-            (TermContract::Pure, _) => Ok(()),
-            (TermContract::Move, FlyQuary::Const) => Ok(()),
-            (TermContract::Move, FlyQuary::StackPure { place }) => Ok(()),
-            (TermContract::Move, FlyQuary::ImmutableStackOwned { place }) => Ok(()),
-            (TermContract::Move, FlyQuary::MutableStackOwned { place }) => Ok(()),
-            (TermContract::Move, FlyQuary::Transient) => Ok(()),
-            (TermContract::Move, FlyQuary::Ref { guard }) => Ok(()), // ad hoc
-            (TermContract::Move, FlyQuary::RefMut { .. }) => todo!(),
-            (TermContract::Move, FlyQuary::Leashed) => Ok(()),
-            (TermContract::Move, FlyQuary::Todo) => todo!(),
-            (TermContract::Borrow, FlyQuary::Const) => todo!(),
-            (TermContract::Borrow, FlyQuary::StackPure { place }) => todo!(),
-            (TermContract::Borrow, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (TermContract::Borrow, FlyQuary::MutableStackOwned { place }) => todo!(),
-            (TermContract::Borrow, FlyQuary::Transient) => todo!(),
-            (TermContract::Borrow, FlyQuary::Ref { guard }) => todo!(),
-            (TermContract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
-            (TermContract::Borrow, FlyQuary::Leashed) => todo!(),
-            (TermContract::Borrow, FlyQuary::Todo) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::Const) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::MutableStackOwned { place }) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::Transient) => Ok(()),
-            (TermContract::BorrowMut, FlyQuary::Ref { guard }) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
-            (TermContract::BorrowMut, FlyQuary::Leashed) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::Todo) => todo!(),
-            (TermContract::At, FlyQuary::Const) => todo!(),
-            (TermContract::At, FlyQuary::StackPure { place }) => todo!(),
-            (TermContract::At, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (TermContract::At, FlyQuary::MutableStackOwned { place }) => todo!(),
-            (TermContract::At, FlyQuary::Transient) => todo!(),
-            (TermContract::At, FlyQuary::Ref { guard }) => todo!(),
-            (TermContract::At, FlyQuary::RefMut { .. }) => todo!(),
-            (TermContract::At, FlyQuary::Leashed) => todo!(),
-            (TermContract::At, FlyQuary::Todo) => todo!(),
-            (TermContract::Move, FlyQuary::EtherealSymbol(_)) => todo!(),
-            (TermContract::Borrow, FlyQuary::EtherealSymbol(_)) => todo!(),
-            (TermContract::BorrowMut, FlyQuary::EtherealSymbol(_)) => todo!(),
-            (TermContract::At, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (Contract::Const, FlyQuary::Const) => Ok(()),
+            (Contract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
+            (Contract::Leash, FlyQuary::Leashed) => Ok(()),
+            (Contract::Leash, _) => todo!("error"),
+            (Contract::Pure, _) => Ok(()),
+            (Contract::Move, FlyQuary::Const) => Ok(()),
+            (Contract::Move, FlyQuary::StackPure { place }) => Ok(()),
+            (Contract::Move, FlyQuary::ImmutableStackOwned { place }) => Ok(()),
+            (Contract::Move, FlyQuary::MutableStackOwned { place }) => Ok(()),
+            (Contract::Move, FlyQuary::Transient) => Ok(()),
+            (Contract::Move, FlyQuary::Ref { guard }) => Ok(()), // ad hoc
+            (Contract::Move, FlyQuary::RefMut { .. }) => todo!(),
+            (Contract::Move, FlyQuary::Leashed) => Ok(()),
+            (Contract::Move, FlyQuary::Todo) => todo!(),
+            (Contract::Borrow, FlyQuary::Const) => todo!(),
+            (Contract::Borrow, FlyQuary::StackPure { place }) => todo!(),
+            (Contract::Borrow, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (Contract::Borrow, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::Borrow, FlyQuary::Transient) => todo!(),
+            (Contract::Borrow, FlyQuary::Ref { guard }) => todo!(),
+            (Contract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
+            (Contract::Borrow, FlyQuary::Leashed) => todo!(),
+            (Contract::Borrow, FlyQuary::Todo) => todo!(),
+            (Contract::BorrowMut, FlyQuary::Const) => todo!(),
+            (Contract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::Transient) => Ok(()),
+            (Contract::BorrowMut, FlyQuary::Ref { guard }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
+            (Contract::BorrowMut, FlyQuary::Leashed) => todo!(),
+            (Contract::BorrowMut, FlyQuary::Todo) => todo!(),
+            (Contract::At, FlyQuary::Const) => todo!(),
+            (Contract::At, FlyQuary::StackPure { place }) => todo!(),
+            (Contract::At, FlyQuary::ImmutableStackOwned { place }) => todo!(),
+            (Contract::At, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::At, FlyQuary::Transient) => todo!(),
+            (Contract::At, FlyQuary::Ref { guard }) => todo!(),
+            (Contract::At, FlyQuary::RefMut { .. }) => todo!(),
+            (Contract::At, FlyQuary::Leashed) => todo!(),
+            (Contract::At, FlyQuary::Todo) => todo!(),
+            (Contract::Move, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (Contract::Borrow, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (Contract::BorrowMut, FlyQuary::EtherealSymbol(_)) => todo!(),
+            (Contract::At, FlyQuary::EtherealSymbol(_)) => todo!(),
         }
     }
 

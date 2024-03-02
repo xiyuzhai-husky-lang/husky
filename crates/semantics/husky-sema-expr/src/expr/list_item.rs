@@ -1,5 +1,6 @@
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaCommaListItem {
     pub sema_expr_idx: SemaExprIdx,
@@ -37,6 +38,7 @@ impl<'a> SemaExprEngine<'a> {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaRegularCallListItem {
     pub argument_expr_idx: SemaExprIdx,
@@ -44,6 +46,7 @@ pub struct SemaRegularCallListItem {
     separator: CallListSeparator,
 }
 
+/// # constructor
 impl SemaRegularCallListItem {
     pub(crate) fn new(
         argument_expr_idx: SemaExprIdx,
@@ -56,9 +59,16 @@ impl SemaRegularCallListItem {
             separator,
         }
     }
+}
 
+/// # getters
+impl SemaRegularCallListItem {
     pub fn argument_sema_expr_idx(&self) -> SemaExprIdx {
         self.argument_expr_idx
+    }
+
+    pub fn coersion_outcome(&self) -> Option<&ExpectCoersionOutcome> {
+        self.coersion_outcome.as_ref()
     }
 
     pub fn separator(&self) -> CallListSeparator {
@@ -66,6 +76,7 @@ impl SemaRegularCallListItem {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaVariadicCallListItem {
     argument_sema_expr_idx: SemaExprIdx,
@@ -95,6 +106,7 @@ impl SemaVariadicCallListItem {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,

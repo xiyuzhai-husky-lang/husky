@@ -45,7 +45,7 @@ impl EnumPropsVariantDecTemplate {
                 .iter()
                 .copied()
                 .map(|field: EnumPropsVariantFieldDecTemplate| {
-                    DeclarativeRitchieSimpleParameter::new(TermContract::Move, field.ty).into()
+                    DeclarativeRitchieSimpleParameter::new(Contract::Move, field.ty).into()
                 })
                 .collect(),
             return_ty,

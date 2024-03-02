@@ -97,6 +97,16 @@ pub struct VecMap<V> {
     entries: Vec<V>,
 }
 
+impl<'a, V> IntoIterator for &'a VecMap<V> {
+    type Item = &'a V;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.entries.iter()
+    }
+}
+
 pub trait VecMapGetEntry<V>
 where
     V: AsVecMapEntry,

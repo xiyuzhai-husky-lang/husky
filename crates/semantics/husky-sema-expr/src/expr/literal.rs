@@ -10,7 +10,7 @@ impl<'a> SemaExprEngine<'a> {
         expectation: &impl ExpectFlyTerm,
     ) -> SemaExprTypeResult<FlyTerm> {
         self.calc_literal_expr_ty_aux(expr_idx, literal_token_idx, expectation)
-            .map(|term| term.with_place(FlyQuary::Const))
+            .map(|term| term.with_quary(FlyQuary::Const))
     }
 
     fn calc_literal_expr_ty_aux(

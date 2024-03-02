@@ -35,7 +35,7 @@ impl<'a> SemaExprEngine<'a> {
         let expr_ty = field_dispatch.expr_ty();
         (
             Ok(SemaExprData::Field {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 owner_ty,
                 dot_regional_token_idx,
                 ident_token,

@@ -50,7 +50,7 @@ impl<'a> SemaExprEngine<'a> {
                                 naive_suffix_f_given_opd_ty(self, opd_ty);
                             (
                                 sema_opr_result.map(|opr| SemaExprData::Suffix {
-                                    opd_sema_expr_idx,
+                                    opd: opd_sema_expr_idx,
                                     opr,
                                     opr_regional_token_idx,
                                 }),

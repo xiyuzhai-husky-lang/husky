@@ -16,7 +16,7 @@ impl MemberSignature for FlyIndexSignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         match self {
             FlyIndexSignature::Int { element_ty } => {
-                Ok(element_ty.with_place(self_value_final_place))
+                Ok(element_ty.with_quary(self_value_final_place))
             }
             FlyIndexSignature::Regular { element_ty } => todo!(),
             FlyIndexSignature::Index { element_ty } => todo!(),

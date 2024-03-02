@@ -37,7 +37,7 @@ impl HirPrefixOpr {
                 _ => todo!(),
             },
             SemaPrefixOpr::BitNot => HirPrefixOpr::BitNot,
-            SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::Option => {
+            SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::OptionType => {
                 unreachable!()
             }
         }

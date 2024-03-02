@@ -253,7 +253,7 @@ impl Trace {
                 &SemaStmtData::ForBetween {
                     for_token,
                     eol_colon,
-                    block,
+                    stmts: block,
                     ..
                 } => subtraces.push(
                     Trace::new_eager_stmt(
@@ -274,9 +274,9 @@ impl Trace {
                 ),
                 &SemaStmtData::ForIn {
                     for_token,
-                    condition: _,
+                    range: _,
                     eol_colon,
-                    block,
+                    stmts: block,
                 } => subtraces.push(
                     Trace::new_eager_stmt(
                         parent_trace_path,
@@ -298,20 +298,20 @@ impl Trace {
                     forext_token: _,
                     particulars: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::While {
                     while_token: _,
                     condition: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::DoWhile {
                     do_token: _,
                     while_token: _,
                     condition: _,
                     eol_colon: _,
-                    block: _,
+                    stmts: _,
                 } => todo!(),
                 SemaStmtData::IfElse {
                     if_branch: sema_if_branch,
@@ -378,12 +378,7 @@ impl Trace {
                         );
                     }
                 }
-                SemaStmtData::Match {
-                    match_token: _,
-                    match_target: _,
-                    eol_with_token: _,
-                    case_branches: _,
-                } => todo!(),
+                SemaStmtData::Match { .. } => todo!(),
             }
         }
         subtraces

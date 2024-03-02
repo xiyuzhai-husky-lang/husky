@@ -71,7 +71,7 @@ impl TupleStructTypeDecTemplate {
 
 impl TupleStructFieldDecTemplate {
     pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeRitchieParameter {
-        DeclarativeRitchieSimpleParameter::new(TermContract::Move, self.ty).into()
+        DeclarativeRitchieSimpleParameter::new(Contract::Move, self.ty).into()
     }
 
     pub fn ty(&self) -> DecTerm {

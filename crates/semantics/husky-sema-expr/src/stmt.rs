@@ -26,7 +26,7 @@ pub enum SemaStmtData {
     Let {
         let_token: LetRegionalToken,
         let_pattern_sema_obelisk: LetVariableObelisk,
-        contract: TermContract,
+        contract: Contract,
         eq_token: EqRegionalToken,
         initial_value_sema_expr_idx: SemaExprIdx,
         coersion_outcome: Option<ExpectCoersionOutcome>,
@@ -58,32 +58,32 @@ pub enum SemaStmtData {
         particulars: SemaForBetweenParticulars,
         for_loop_var_symbol_idx: CurrentSynSymbolIdx,
         eol_colon: EolRegionalToken,
-        block: SemaStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     ForIn {
         for_token: StmtForRegionalToken,
-        condition: SemaExprIdx,
+        range: SemaExprIdx,
         eol_colon: EolRegionalToken,
-        block: SemaStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     Forext {
         forext_token: ForextRegionalToken,
         particulars: SemaForextParticulars,
         eol_colon: EolRegionalToken,
-        block: SemaStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     While {
         while_token: WhileRegionalToken,
         condition: SemaCondition,
         eol_colon: EolRegionalToken,
-        block: SemaStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
         condition: SemaCondition,
         eol_colon: EolRegionalToken,
-        block: SemaStmtIdxRange,
+        stmts: SemaStmtIdxRange,
     },
     IfElse {
         if_branch: SemaIfBranch,
@@ -93,6 +93,7 @@ pub enum SemaStmtData {
     Match {
         match_token: MatchRegionalToken,
         match_target: SemaExprIdx,
+        match_contract: Contract,
         eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemaCaseBranch>,
     },
@@ -439,7 +440,7 @@ impl<'a> SemaExprEngine<'a> {
                         particulars,
                         for_loop_var_symbol_idx,
                         eol_colon,
-                        block,
+                        stmts: block,
                     }),
                     Ok(self.term_menu().unit_ty_ontology().into()),
                 )
@@ -476,7 +477,7 @@ impl<'a> SemaExprEngine<'a> {
                         forext_token,
                         particulars,
                         eol_colon,
-                        block,
+                        stmts: block,
                     }),
                     Ok(self.term_menu().unit_ty_ontology().into()),
                 )
@@ -499,7 +500,7 @@ impl<'a> SemaExprEngine<'a> {
                         while_token,
                         condition,
                         eol_colon,
-                        block,
+                        stmts: block,
                     }),
                     Ok(self.term_menu().unit_ty_ontology().into()),
                 )
@@ -524,7 +525,7 @@ impl<'a> SemaExprEngine<'a> {
                         while_token,
                         condition,
                         eol_colon,
-                        block,
+                        stmts: block,
                     }),
                     Ok(self.term_menu().unit_ty_ontology().into()),
                 )

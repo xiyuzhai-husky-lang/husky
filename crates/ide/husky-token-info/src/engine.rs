@@ -290,7 +290,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 SemaPrefixOpr::Minus => (),
                 SemaPrefixOpr::Not => (),
                 SemaPrefixOpr::BitNot => (),
-                SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::Option => {
+                SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::OptionType => {
                     self.add(
                         *opr_regional_token_idx,
                         sema_expr_idx,
@@ -313,7 +313,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::Be { .. } => (),
             SemaExprData::FunctionApplication { .. } => (),
             SemaExprData::Index {
-                owner_sema_expr_idx: _,
+                owner: _,
                 lbox_regional_token_idx: _,
                 index_sema_list_items: _,
                 rbox_regional_token_idx: _,

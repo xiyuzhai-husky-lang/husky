@@ -75,7 +75,7 @@ impl<T> std::hash::Hash for ArenaIdxRange<T> {
 impl<T> IntoIterator for ArenaIdxRange<T> {
     type Item = ArenaIdx<T>;
 
-    type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
+    type IntoIter = impl Iterator<Item = Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.to_range().into_iter()
@@ -85,7 +85,7 @@ impl<T> IntoIterator for ArenaIdxRange<T> {
 impl<T> IntoIterator for &ArenaIdxRange<T> {
     type Item = ArenaIdx<T>;
 
-    type IntoIter = <core::ops::Range<ArenaIdx<T>> as IntoIterator>::IntoIter;
+    type IntoIter = impl Iterator<Item = Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.to_range().clone().into_iter()

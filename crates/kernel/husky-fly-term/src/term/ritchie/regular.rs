@@ -4,7 +4,7 @@ use husky_eth_term::term::ritchie::EthRitchieSimpleParameter;
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyRitchieSimpleParameter {
-    pub contract: TermContract,
+    pub contract: Contract,
     pub ty: FlyTerm,
 }
 
@@ -46,11 +46,11 @@ impl FlyInstantiate for EthRitchieSimpleParameter {
 }
 
 impl FlyRitchieSimpleParameter {
-    pub fn new(contract: TermContract, ty: FlyTerm) -> Self {
+    pub fn new(contract: Contract, ty: FlyTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> TermContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

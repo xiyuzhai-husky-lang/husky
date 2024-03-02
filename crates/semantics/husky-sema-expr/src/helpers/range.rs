@@ -369,10 +369,10 @@ impl<'a> SemaExprRangeCalculator<'a> {
             SemaExprData::Prefix {
                 opr,
                 opr_regional_token_idx,
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
             } => RegionalTokenIdxRange::new(*opr_regional_token_idx, self[opd_sema_expr_idx].end()),
             SemaExprData::Suffix {
-                opd_sema_expr_idx,
+                opd: opd_sema_expr_idx,
                 opr_regional_token_idx,
                 ..
             }
@@ -412,7 +412,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
             )),
             SemaExprData::MethodGnCall { .. } => todo!(),
             SemaExprData::Field {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 ident_token,
                 ..
             } => self[owner_sema_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
@@ -444,7 +444,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 RegionalTokenIdxRangeEnd::new_after(*rpar_regional_token_idx),
             ),
             SemaExprData::Index {
-                owner_sema_expr_idx,
+                owner: owner_sema_expr_idx,
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
                 ..
@@ -611,7 +611,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 for_token,
                 ref particulars,
                 ref eol_colon,
-                ref block,
+                stmts: ref block,
                 ..
             } => {
                 let start = for_token.regional_token_idx();
@@ -620,14 +620,14 @@ impl<'a> SemaExprRangeCalculator<'a> {
             }
             SemaStmtData::ForIn {
                 for_token,
-                ref block,
+                stmts: ref block,
                 ..
             } => todo!(),
             SemaStmtData::Forext {
                 forext_token,
                 /* todo: particulars */
                 ref eol_colon,
-                ref block,
+                stmts: ref block,
                 ..
             } => {
                 let start = forext_token.regional_token_idx();
@@ -638,7 +638,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 while_token,
                 ref condition,
                 ref eol_colon,
-                ref block,
+                stmts: ref block,
                 ..
             } => {
                 let start = while_token.regional_token_idx();
@@ -649,7 +649,7 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 do_token,
                 ref condition,
                 ref eol_colon,
-                ref block,
+                stmts: ref block,
                 ..
             } => {
                 let start = do_token.regional_token_idx();

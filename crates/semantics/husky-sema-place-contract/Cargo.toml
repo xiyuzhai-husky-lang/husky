@@ -14,11 +14,14 @@ keywords.workspace = true
 [dependencies]
 # abstractions
 salsa.workspace = true
+vec-like.workspace = true
 # kernel
 husky-entity-kind.workspace = true
 husky-place.workspace = true
 husky-term-prelude.workspace = true
+husky-fly-term.workspace = true
 # semantics
+husky-sema-opr.workspace = true
 husky-sema-expr.workspace = true
 # syntax
 husky-syn-expr.workspace = true

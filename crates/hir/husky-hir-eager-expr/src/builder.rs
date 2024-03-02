@@ -91,7 +91,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 SynExprRootKind::BlockExpr
                 | SynExprRootKind::ReturnExpr
                 | SynExprRootKind::FieldBindInitialValue { .. }
-                | SynExprRootKind::ExplicitParameterDefaultValue { .. } => {
+                | SynExprRootKind::ParenateParameterDefaultValue { .. } => {
                     sema_expr_idx.to_hir_eager(&mut self);
                 }
                 // ad hoc

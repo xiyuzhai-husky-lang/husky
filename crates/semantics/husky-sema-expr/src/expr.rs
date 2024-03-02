@@ -1,22 +1,24 @@
-mod assoc_item;
-mod binary;
-mod box_list;
-mod closure;
-mod current_syn_symbol;
-mod field;
-mod function_application;
-mod function_call;
-mod html;
-mod index_or_compose_with_list;
-mod list_item;
-mod literal;
-mod method;
-mod prefix;
-mod principal_entity_path;
-mod ritchie_call_arguments_ty;
-mod suffix;
-mod template_argument;
-mod utils;
+pub mod assoc_item;
+pub mod binary;
+pub mod box_list;
+pub mod closure;
+pub mod current_syn_symbol;
+pub mod field;
+pub mod function_application;
+pub mod function_call;
+pub mod html;
+pub mod index_or_compose_with_list;
+pub mod list_item;
+pub mod literal;
+pub mod method;
+pub mod prefix;
+pub mod principal_entity_path;
+pub mod ritchie_call_arguments_ty;
+pub mod suffix;
+pub mod template_argument;
+pub mod utils;
+
+use std::ops::Index;
 
 pub use self::html::*;
 pub use self::list_item::*;
@@ -100,6 +102,7 @@ pub enum SemaExprData {
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),
     Binary {
+        // todo: coersion?
         lopd: SemaExprIdx,
         opr: SemaBinaryOpr,
         dispatch: SemaBinaryOprDynamicDispatch,
@@ -107,17 +110,20 @@ pub enum SemaExprData {
         ropd: SemaExprIdx,
     },
     Be {
+        // todo: coersion?
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
         target: BePatternSyndicate,
     },
     Prefix {
+        // todo: coersion?
         opr: SemaPrefixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
-        opd_sema_expr_idx: SemaExprIdx,
+        opd: SemaExprIdx,
     },
     Suffix {
-        opd_sema_expr_idx: SemaExprIdx,
+        // todo: coersion?
+        opd: SemaExprIdx,
         opr: SemaSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
     },
@@ -159,7 +165,7 @@ pub enum SemaExprData {
         return_ty_sema_expr_idx: Option<SemaExprIdx>,
     },
     Field {
-        owner_sema_expr_idx: SemaExprIdx,
+        owner: SemaExprIdx,
         owner_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
@@ -176,7 +182,7 @@ pub enum SemaExprData {
     },
     MethodFnCall {
         self_argument_sema_expr_idx: SemaExprIdx,
-        self_contract: TermContract,
+        self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         // todo: change to FlyMethodFnDynamicDispatch
@@ -220,7 +226,7 @@ pub enum SemaExprData {
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
     Index {
-        owner_sema_expr_idx: SemaExprIdx,
+        owner: SemaExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
         index_sema_list_items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
@@ -421,6 +427,26 @@ impl SemaExprIdx {
         arena_ref.0.index(self.0).data()
     }
 
+    /// None means something is wrong
+    pub fn expectation_outcome<'a>(
+        self,
+        sema_expr_region: &'a SemaExprRegionData,
+    ) -> Option<&'a ExpectationOutcome> {
+        use husky_print_utils::p;
+        p!(sema_expr_region
+            .sema_expr_arena()
+            .index(self)
+            .expectation_idx_and_ty);
+        let (expectation_idx, _) = sema_expr_region
+            .sema_expr_arena()
+            .index(self)
+            .expectation_idx_and_ty?;
+        p!(sema_expr_region.fly_term_region()[expectation_idx]);
+        sema_expr_region.fly_term_region()[expectation_idx]
+            .resolve_progress()
+            .outcome2()
+    }
+
     /// panic if there is any error
     pub fn data_result<'a>(
         self,
@@ -510,7 +536,7 @@ impl<'a> SemaExprEngine<'a> {
                     None => self.build_sema_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
                 SynExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
-                | SynExprRootKind::ExplicitParameterDefaultValue { ty_syn_expr_idx } => {
+                | SynExprRootKind::ParenateParameterDefaultValue { ty_syn_expr_idx } => {
                     let (ty_sema_expr_idx, _) = self.sema_expr_roots[ty_syn_expr_idx].1;
                     match self.infer_expr_term(ty_sema_expr_idx) {
                         Some(ty) => {
@@ -837,7 +863,7 @@ impl<'a> SemaExprEngine<'a> {
                         Ok(SemaExprData::Prefix {
                             opr,
                             opr_regional_token_idx,
-                            opd_sema_expr_idx,
+                            opd: opd_sema_expr_idx,
                         }),
                         ty_result,
                     ),

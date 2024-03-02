@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermContract {
+pub enum Contract {
     Pure,
     Move,
     Borrow,
@@ -11,38 +11,85 @@ pub enum TermContract {
     At,
 }
 
-impl TermContract {
+impl Contract {
     pub fn new<TG>(ephem_symbol_modifier_token_verse: Option<TG>) -> Self
     where
-        TG: Into<TermContract>,
+        TG: Into<Contract>,
     {
         match ephem_symbol_modifier_token_verse {
             Some(t) => t.into(),
-            None => TermContract::Pure,
+            None => Contract::Pure,
         }
     }
 
     pub fn as_str(self) -> &'static str {
         match self {
-            TermContract::Pure => "",
-            TermContract::Move => "move ",
-            TermContract::Borrow => "borrow",
-            TermContract::BorrowMut => "borrow mut",
-            TermContract::Const => "const",
-            TermContract::Leash => todo!(),
-            TermContract::At => "@",
+            Contract::Pure => "",
+            Contract::Move => "move ",
+            Contract::Borrow => "borrow",
+            Contract::BorrowMut => "borrow mut",
+            Contract::Const => "const",
+            Contract::Leash => todo!(),
+            Contract::At => "@",
+        }
+    }
+
+    pub fn merge(contracts: impl IntoIterator<Item = Self>) -> Self {
+        let mut contracts = contracts.into_iter();
+        let Some(mut contract) = contracts.next() else {
+            return Contract::Pure;
+        };
+        for next in contracts {
+            contract *= next
+        }
+        contract
+    }
+}
+
+impl std::ops::MulAssign<Self> for Contract {
+    fn mul_assign(&mut self, rhs: Self) {
+        *self = match (*self, rhs) {
+            (slf, rhs) if slf == rhs => return,
+            (Contract::At, Contract::Pure) => Contract::Pure,
+            (_, Contract::At | Contract::Pure) => return,
+            (Contract::At | Contract::Pure, rhs) => rhs,
+            (Contract::Move, Contract::Move) => todo!(),
+            (Contract::Move, Contract::Borrow) => todo!(),
+            (Contract::Move, Contract::BorrowMut) => todo!(),
+            (Contract::Move, Contract::Const) => todo!(),
+            (Contract::Move, Contract::Leash) => todo!(),
+            (Contract::Borrow, Contract::Move) => todo!(),
+            (Contract::Borrow, Contract::Borrow) => todo!(),
+            (Contract::Borrow, Contract::BorrowMut) => todo!(),
+            (Contract::Borrow, Contract::Const) => todo!(),
+            (Contract::Borrow, Contract::Leash) => todo!(),
+            (Contract::BorrowMut, Contract::Move) => todo!(),
+            (Contract::BorrowMut, Contract::Borrow) => todo!(),
+            (Contract::BorrowMut, Contract::Const) => todo!(),
+            (Contract::BorrowMut, Contract::Leash) => todo!(),
+            (Contract::Const, Contract::Move) => todo!(),
+            (Contract::Const, Contract::Borrow) => todo!(),
+            (Contract::Const, Contract::BorrowMut) => todo!(),
+            (Contract::Const, Contract::Const) => todo!(),
+            (Contract::Const, Contract::Leash) => todo!(),
+            (Contract::Leash, Contract::Move) => todo!(),
+            (Contract::Leash, Contract::Borrow) => todo!(),
+            (Contract::Leash, Contract::BorrowMut) => todo!(),
+            (Contract::Leash, Contract::Const) => todo!(),
+            (Contract::BorrowMut, Contract::BorrowMut) => todo!(),
+            (Contract::Leash, Contract::Leash) => todo!(),
         }
     }
 }
 
-impl From<SvarModifier> for TermContract {
+impl From<SvarModifier> for Contract {
     fn from(modifier: SvarModifier) -> Self {
         match modifier {
-            SvarModifier::Pure => TermContract::Pure,
-            SvarModifier::Owned | SvarModifier::Mut => TermContract::Move,
-            SvarModifier::Ref => TermContract::Borrow,
-            SvarModifier::RefMut => TermContract::BorrowMut,
-            SvarModifier::Const => TermContract::Const,
+            SvarModifier::Pure => Contract::Pure,
+            SvarModifier::Owned | SvarModifier::Mut => Contract::Move,
+            SvarModifier::Ref => Contract::Borrow,
+            SvarModifier::RefMut => Contract::BorrowMut,
+            SvarModifier::Const => Contract::Const,
             SvarModifier::Ambersand(_) => todo!(),
             SvarModifier::AmbersandMut(_) => todo!(),
             SvarModifier::Le => todo!(),

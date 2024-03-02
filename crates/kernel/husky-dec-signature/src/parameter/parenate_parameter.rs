@@ -45,7 +45,7 @@ impl DeclarativeParenateParameters {
                             ty,
                             ..
                         } => DeclarativeRitchieVariadicParameter::new(
-                            TermContract::new(*symbol_modifier_keyword_group),
+                            Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,
@@ -59,7 +59,7 @@ impl DeclarativeParenateParameters {
                             ..
                         } => DeclarativeRitchieKeyedParameter::new(
                             ident_token.ident(),
-                            TermContract::new(*symbol_modifier_keyword_group),
+                            Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,

@@ -22,7 +22,7 @@ impl<'a> SemaExprEngine<'a> {
                 // match
                 todo!()
             }
-            SemaPrefixOpr::Option => {
+            SemaPrefixOpr::OptionType => {
                 Ok(
                     FlyTerm::new_application(self, self.term_menu.option_ty_ontology(), opd_term)
                         .map_err(|e| DerivedSemaExprTermError::OptionApplicationTerm(e))?

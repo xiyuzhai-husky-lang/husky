@@ -110,7 +110,7 @@ impl<'a> SemaExprEngine<'a> {
                 // todo!("consider universe");
                 let opd_sema_expr_idx = self.build_sema_expr(opd, self.expect_ty0_subtype());
                 (
-                    Ok((opd_sema_expr_idx, SemaPrefixOpr::Option)),
+                    Ok((opd_sema_expr_idx, SemaPrefixOpr::OptionType)),
                     Ok(self.term_menu().ty0().into()),
                 )
             }

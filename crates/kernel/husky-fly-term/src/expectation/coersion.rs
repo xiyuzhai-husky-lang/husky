@@ -38,7 +38,7 @@ impl FlyCoersion {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db]
 pub struct ExpectCoersion {
-    contract: TermContract,
+    contract: Contract,
     ty_expected: FlyTerm,
 }
 
@@ -55,7 +55,7 @@ impl ExpectCoersionOutcome {
 
 impl ExpectCoersion {
     #[inline(always)]
-    pub fn new(contract: TermContract, ty_expected: FlyTerm) -> Self {
+    pub fn new(contract: Contract, ty_expected: FlyTerm) -> Self {
         Self {
             contract,
             ty_expected,
@@ -65,7 +65,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_const(ty: FlyTerm) -> Self {
         Self {
-            contract: TermContract::Const,
+            contract: Contract::Const,
             ty_expected: ty,
         }
     }
@@ -86,7 +86,7 @@ impl ExpectCoersion {
             _ => ty,
         };
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: ty,
         }
     }
@@ -94,7 +94,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_unit(engine: &impl FlyTermEngine) -> Self {
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: engine.term_menu().unit_ty_ontology().into(),
         }
     }
@@ -102,7 +102,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_bool(engine: &impl FlyTermEngine) -> Self {
         Self {
-            contract: TermContract::Pure,
+            contract: Contract::Pure,
             ty_expected: engine.term_menu().bool_ty_ontology().into(),
         }
     }
@@ -110,7 +110,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_move(ty: FlyTerm) -> Self {
         Self {
-            contract: TermContract::Move,
+            contract: Contract::Move,
             ty_expected: ty,
         }
     }
