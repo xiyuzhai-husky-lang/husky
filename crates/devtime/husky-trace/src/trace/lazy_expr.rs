@@ -251,7 +251,7 @@ fn fn_call_lazy_expr_trace_input_traces(
         .iter()
         .map(|m| {
             let data = match m {
-                SemaRitchieParameterArgumentMatch::Regular(_, list_item) => {
+                SemaRitchieParameterArgumentMatch::Simple(_, list_item) => {
                     let sema_expr_idx = list_item.argument_sema_expr_idx();
                     LazyCallInputSketch::Regular {
                         sema_expr_idx,

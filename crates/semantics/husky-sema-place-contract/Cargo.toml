@@ -15,6 +15,7 @@ keywords.workspace = true
 # abstractions
 salsa.workspace = true
 # kernel
+husky-entity-kind.workspace = true
 husky-place.workspace = true
 husky-term-prelude.workspace = true
 # semantics

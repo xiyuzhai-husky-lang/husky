@@ -24,7 +24,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         pam: &SemaRitchieParameterArgumentMatch,
     ) -> HirLazyCallListItemGroup {
         match pam {
-            SemaRitchieParameterArgumentMatch::Regular(_, item) => {
+            SemaRitchieParameterArgumentMatch::Simple(_, item) => {
                 HirLazyCallListItemGroup::Regular(item.argument_sema_expr_idx().to_hir_lazy(self))
             }
             SemaRitchieParameterArgumentMatch::Variadic(_, items) => {

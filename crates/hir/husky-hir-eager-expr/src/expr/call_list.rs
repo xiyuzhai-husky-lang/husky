@@ -25,7 +25,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         pam: &SemaRitchieParameterArgumentMatch,
     ) -> HirEagerRitchieParameterArgumentMatch {
         match pam {
-            SemaRitchieParameterArgumentMatch::Regular(param, item) => {
+            SemaRitchieParameterArgumentMatch::Simple(param, item) => {
                 HirEagerRitchieParameterArgumentMatch::Regular(
                     HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
                     item.argument_sema_expr_idx().to_hir_eager(self),

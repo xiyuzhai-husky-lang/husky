@@ -1,5 +1,7 @@
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
-use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sema_expr::{
+    stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
+};
 use husky_term_prelude::TermContract;
 
 impl<'a> PlaceContractEngine<'a> {
@@ -36,9 +38,14 @@ impl<'a> PlaceContractEngine<'a> {
                 ref coersion_outcome,
                 ..
             } => todo!(),
-            SemaStmtData::Require { condition, .. } => todo!(),
-            SemaStmtData::Assert { condition, .. } => todo!(),
-            SemaStmtData::Break { .. } => todo!(),
+            SemaStmtData::Require { condition, .. } | SemaStmtData::Assert { condition, .. } => {
+                let expr = match condition {
+                    SemaCondition::Be { src, .. } => src,
+                    SemaCondition::Other { sema_expr_idx, .. } => sema_expr_idx,
+                };
+                self.infer_expr(expr, TermContract::Pure, Default::default())
+            }
+            SemaStmtData::Break { .. } => (),
             SemaStmtData::Eval {
                 sema_expr_idx,
                 ref outcome,

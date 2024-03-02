@@ -47,7 +47,7 @@ use husky_syn_expr::{
     entity_path::PrincipalEntityPathSynExprIdx, InheritedSynSymbolIdx, InheritedSynSymbolKind,
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
-use husky_term_prelude::ritchie::RitchieKind;
+use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
@@ -140,6 +140,7 @@ pub enum SemaExprData {
     },
     FunctionRitchieCall {
         function_sema_expr_idx: SemaExprIdx,
+        ritchie_ty_kind: RitchieTypeKind,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,

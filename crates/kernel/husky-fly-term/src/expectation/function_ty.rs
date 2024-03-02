@@ -1,4 +1,5 @@
 use super::*;
+use husky_term_prelude::ritchie::RitchieTypeKind;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::debug_with_db]
@@ -65,16 +66,19 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
                 parameter_contracted_tys,
                 return_ty,
                 ..
-            } => state.set_ok(
-                ExpectEqsFunctionTypeOutcome {
-                    return_ty,
-                    variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                        ritchie_kind,
-                        parameter_contracted_tys: parameter_contracted_tys.to_vec(),
+            } => match ritchie_kind {
+                RitchieKind::Type(ritchie_ty_kind) => state.set_ok(
+                    ExpectEqsFunctionTypeOutcome {
+                        return_ty,
+                        variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
+                            ritchie_ty_kind,
+                            parameter_contracted_tys: parameter_contracted_tys.to_vec(),
+                        },
                     },
-                },
-                smallvec![],
-            ),
+                    smallvec![],
+                ),
+                RitchieKind::Trait(_) => todo!(),
+            },
             _ => state.set_err(
                 OriginalFlyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
@@ -104,7 +108,7 @@ impl ExpectEqsFunctionTypeOutcome {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExpectEqsFunctionTypeOutcomeData {
     TypeRitchie {
-        ritchie_kind: RitchieKind,
+        ritchie_ty_kind: RitchieTypeKind,
         parameter_contracted_tys: Vec<FlyRitchieParameter>,
     },
     ExplicitCurry {
