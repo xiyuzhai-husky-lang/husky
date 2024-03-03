@@ -54,7 +54,7 @@ husky-vm.workspace = true
 husky-val.workspace = true
 husky-val-repr.workspace = true
 # vm
-husky-vmir.workspace = true
+husky-vmir-expr.workspace = true
 
 [dev-dependencies]
 husky-ast = { workspace = true, features = ["test_utils"] }
