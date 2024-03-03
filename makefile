@@ -50,7 +50,7 @@ update-expect-local-job-1:
 
 update-expect-server:
 	cargo check --tests
-	UPDATE_EXPECT=1 cargo test --timimgs --features "allow-print" -- --test-threads 1 --nocapture
+	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh
@@ -82,6 +82,7 @@ save:
 # git add -A
 # git commit -m "save"
 # git push
+	cargo install --path crates/devtools/git-save
 	git-save
 
 save-clean:

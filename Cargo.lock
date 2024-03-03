@@ -4790,6 +4790,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",

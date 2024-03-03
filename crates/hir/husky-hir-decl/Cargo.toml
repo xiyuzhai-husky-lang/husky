@@ -41,6 +41,7 @@ salsa = { path = "../../abstractions/salsa", features = ["test_utils"] }
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
