@@ -26,7 +26,7 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Vn(_) => TypeItemKind::METHOD_VN,
             EntityKindKeywordGroup::Pn(_) => TypeItemKind::METHOD_PN,
             EntityKindKeywordGroup::Qn(_) => TypeItemKind::METHOD_QN,
-            EntityKindKeywordGroup::Bn(_) => TypeItemKind::METHOD_BN,
+            EntityKindKeywordGroup::Tn(_) => TypeItemKind::METHOD_TN,
             EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::ASSOC_FN,
             EntityKindKeywordGroup::FormalEntity(_) => TypeItemKind::AssocFormal,
             EntityKindKeywordGroup::MajorType(_) => {

@@ -33,7 +33,7 @@ pub(crate) fn reserved_cowords(_db: &::salsa::Db) -> VecPairMap<&'static str, Pr
             FugitiveKeyword::Vn,
             FugitiveKeyword::Pn,
             FugitiveKeyword::Qn,
-            FugitiveKeyword::Bn,
+            FugitiveKeyword::Tn,
             FugitiveKeyword::Theorem,
             FugitiveKeyword::Lemma,
             FugitiveKeyword::Proposition,

@@ -16,7 +16,7 @@ pub enum EntityKindKeywordGroup {
     /// `qn`
     Qn(QnToken),
     /// `vn`
-    Bn(BnToken),
+    Tn(TnToken),
     /// `static fn`
     StaticFn(StaticToken, FnToken),
     /// `val`
@@ -65,7 +65,7 @@ pub struct QnToken {
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct BnToken {
+pub struct TnToken {
     token_idx: TokenIdx,
 }
 
@@ -233,7 +233,7 @@ where
                 FugitiveKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FugitiveKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
                 FugitiveKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
-                FugitiveKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Bn(BnToken { token_idx }))),
+                FugitiveKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
                 FugitiveKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Def(DefToken { token_idx }),
                 ))),

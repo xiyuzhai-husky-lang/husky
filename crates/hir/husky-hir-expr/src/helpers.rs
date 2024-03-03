@@ -71,7 +71,7 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
             ItemPath::MajorItem(path) => match path {
                 MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(db) {
                     MajorFugitiveKind::GN | MajorFugitiveKind::QN => true,
-                    MajorFugitiveKind::Val | MajorFugitiveKind::VN | MajorFugitiveKind::BN => {
+                    MajorFugitiveKind::Val | MajorFugitiveKind::VN | MajorFugitiveKind::TN => {
                         sema_expr_region_requires_lazy(db, sema_expr_region)
                     }
                     _ => false,

@@ -5705,6 +5705,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-super-node"
+version = "0.1.0"
+dependencies = [
+ "husky-val",
+ "salsa",
+]
+
+[[package]]
 name = "husky-syn-decl"
 version = "0.1.0"
 dependencies = [
