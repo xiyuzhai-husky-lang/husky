@@ -5,7 +5,6 @@ use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_dec_signature::DecSignatureJar;
-use husky_dec_term::DecTermJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_eth_signature::EtherealSignatureJar;
 use husky_eth_term::EthTermJar;
@@ -39,9 +38,9 @@ use husky_toml_token::TomlTokenJar;
     SynDefnJar,
     SynExprJar,
     TermPreludeJar,
-    DecTermJar,
+    husky_dec_term::jar::DecTermJar,
     DecSignatureJar,
-    husky_dec_ty::db::DeclarativeTypeJar,
+    husky_dec_ty::jar::DeclarativeTypeJar,
     EthTermJar,
     EtherealSignatureJar,
     FlyTermJar,

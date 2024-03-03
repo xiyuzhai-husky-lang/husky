@@ -13,7 +13,7 @@ use thiserror::Error;
 use vec_like::VecSet;
 
 /// svar are variables defined in a stack-like top-down manner through generics
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecSvar {
     pub toolchain: Toolchain,
     pub ty: DecTermSymbolTypeResult<DecTerm>,

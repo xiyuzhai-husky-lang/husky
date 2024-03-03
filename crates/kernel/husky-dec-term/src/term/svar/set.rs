@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecTermSymbols {
     #[return_ref]
     symbols: VecSet<DecSvar>,
@@ -71,7 +71,7 @@ fn calc_declarative_term_symbols(
     }
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn declarative_term_curry_symbols(
     db: &::salsa::Db,
     declarative_term: DecCurry,
@@ -81,7 +81,7 @@ pub(crate) fn declarative_term_curry_symbols(
     DecTermSymbols::merge(db, parameter_ty_symbols, return_ty_symbols)
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn declarative_term_ritchie_symbols(
     db: &::salsa::Db,
     declarative_term: DecRitchie,
@@ -97,7 +97,7 @@ pub(crate) fn declarative_term_ritchie_symbols(
     )
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn application_declarative_term_symbols(
     db: &::salsa::Db,
     declarative_term: DecApplication,

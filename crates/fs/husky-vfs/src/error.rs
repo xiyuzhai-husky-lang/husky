@@ -2,8 +2,6 @@ use crate::*;
 use husky_fs_specs::FsSpecsError;
 use husky_minimal_toml_utils::MinimalTomlError;
 use husky_path_utils::PathUtilsError;
-use std::path::PathBuf;
-
 use thiserror::Error;
 
 // todo: make this copyable

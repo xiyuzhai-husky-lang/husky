@@ -14,6 +14,8 @@ impl TraitForTypeAssocTypeDecTemplate {
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssocTypeSynDecl,
     ) -> DecSignatureResult<Self> {
+        use husky_dec_term::jar::DecTermDb;
+
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let dec_term_menu = db.dec_term_menu(syn_expr_region.toolchain(db)).unwrap();

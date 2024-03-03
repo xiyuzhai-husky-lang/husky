@@ -2,16 +2,6 @@ use self::name::DecSvarNameMap;
 use crate::*;
 use salsa::DisplayWithDb;
 
-pub trait ShowDecSvar {
-    fn show_symbol(&self, symbol: DecSvar) -> &str;
-}
-
-impl ShowDecSvar for () {
-    fn show_symbol(&self, _symbol: DecSvar) -> &str {
-        todo!()
-    }
-}
-
 impl DecTerm {
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,

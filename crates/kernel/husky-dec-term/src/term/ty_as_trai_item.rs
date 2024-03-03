@@ -1,7 +1,6 @@
 use super::*;
-use husky_coword::Ident;
 
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecTypeAsTraitItem {
     parent: DecTerm,
     trai: DecTerm,

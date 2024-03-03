@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DecTermDb, jar = DecTermJar)]
+#[salsa::tracked]
 pub struct DecList {
     pub toolchain: Toolchain,
     #[return_ref]

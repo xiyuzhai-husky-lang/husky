@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::Ident;
 
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecAssocItem {
     parent: DecTerm,
     ident: Ident,

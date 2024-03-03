@@ -9,7 +9,7 @@ use crate::helpers::DecTermFamily;
 
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
-#[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct DecHvar {
     pub ty: DecTermSymbolTypeResult<DecTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type

@@ -1,13 +1,13 @@
 mod collect;
 mod convert;
-mod db;
 mod ext;
+mod jar;
 mod specs;
 #[cfg(test)]
 mod tests;
 pub mod token;
 
-pub use self::db::*;
+pub use self::jar::*;
 pub use self::specs::*;
 use husky_text_protocol::range::TextRange;
 

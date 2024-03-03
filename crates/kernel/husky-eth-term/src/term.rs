@@ -177,7 +177,7 @@ impl EthTerm {
             EthTerm::EntityPath(slf) => slf.into(),
             EthTerm::Category(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
-            EthTerm::Curry(slf) => DecCurry::new_inner(
+            EthTerm::Curry(slf) => DecCurry::new(
                 db,
                 slf.toolchain(db),
                 slf.curry_kind(db),

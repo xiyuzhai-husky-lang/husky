@@ -3,7 +3,7 @@ use super::*;
 /// wrappers are special applications
 ///
 /// we treat them separately because we need to apply special reduction and avoid toolchain
-#[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct DecWrapper {
     pub kind: DecTermWrapperKind,
     pub inner_ty: DecTerm,

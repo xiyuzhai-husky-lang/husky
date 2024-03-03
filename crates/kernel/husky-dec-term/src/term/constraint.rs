@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecTraitConstraint {
     ty: DecTerm,
     trai: DecTerm,
