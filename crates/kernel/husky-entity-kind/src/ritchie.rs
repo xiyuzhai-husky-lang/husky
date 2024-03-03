@@ -7,7 +7,7 @@ pub enum RitchieItemKind {
     Vn,
     Pn,
     Qn,
-    Bn,
+    Tn,
 }
 
 impl std::fmt::Display for RitchieItemKind {
@@ -24,7 +24,7 @@ impl RitchieItemKind {
             RitchieItemKind::Vn => "vn",
             RitchieItemKind::Pn => "pn",
             RitchieItemKind::Qn => "qn",
-            RitchieItemKind::Bn => "bn",
+            RitchieItemKind::Tn => "tn",
         }
     }
 
@@ -34,7 +34,7 @@ impl RitchieItemKind {
             RitchieItemKind::Gn
             | RitchieItemKind::Vn
             | RitchieItemKind::Qn
-            | RitchieItemKind::Bn => true,
+            | RitchieItemKind::Tn => true,
         }
     }
 
@@ -45,7 +45,7 @@ impl RitchieItemKind {
             RitchieItemKind::Vn => true,
             RitchieItemKind::Pn => false,
             RitchieItemKind::Qn => false,
-            RitchieItemKind::Bn => true,
+            RitchieItemKind::Tn => true,
         }
     }
 }

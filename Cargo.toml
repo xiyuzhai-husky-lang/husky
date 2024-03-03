@@ -18,6 +18,7 @@ members = [
     "crates/protocols/*",
     "crates/runtime/*",
     "crates/semantics/*",
+    "crates/super/*",
     "crates/syntax/*",
     "crates/tasks/*",
     "crates/tex/*",
@@ -26,6 +27,7 @@ members = [
     "crates/benchmarks/*",
     "library/core",
     "registry/*",
+    "crates/super/husky-super-node",
 ]
 resolver = "2"
 

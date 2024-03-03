@@ -12,7 +12,7 @@ pub enum FugitiveKeyword {
     Vn,
     Gn,
     Pn,
-    Bn,
+    Tn,
     Qn,
     Memo,
 }
@@ -32,7 +32,7 @@ impl FugitiveKeyword {
             FugitiveKeyword::Vn => "vn",
             FugitiveKeyword::Pn => "pn",
             FugitiveKeyword::Qn => "qn",
-            FugitiveKeyword::Bn => "bn",
+            FugitiveKeyword::Tn => "tn",
         }
     }
 }

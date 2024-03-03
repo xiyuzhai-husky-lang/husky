@@ -27,7 +27,7 @@ impl RitchieTypeKind {
                 RitchieClosureKind::Vn => todo!(),
                 RitchieClosureKind::Pn => todo!(),
                 RitchieClosureKind::Qn => todo!(),
-                RitchieClosureKind::Bn => todo!(),
+                RitchieClosureKind::Tn => todo!(),
             },
         }
     }
@@ -46,7 +46,7 @@ pub enum RitchieClosureKind {
     Vn,
     Pn,
     Qn,
-    Bn,
+    Tn,
 }
 
 impl From<RitchieItemKind> for RitchieKind {
@@ -67,7 +67,7 @@ impl RitchieKind {
     pub const RITCHIE_TYPE_VN: Self = RitchieKind::Type(RitchieTypeKind::Item(RitchieItemKind::Vn));
     pub const RITCHIE_TYPE_PN: Self = RitchieKind::Type(RitchieTypeKind::Item(RitchieItemKind::Pn));
     pub const RITCHIE_TYPE_QN: Self = RitchieKind::Type(RitchieTypeKind::Item(RitchieItemKind::Qn));
-    pub const RITCHIE_TYPE_BN: Self = RitchieKind::Type(RitchieTypeKind::Item(RitchieItemKind::Bn));
+    pub const RITCHIE_TYPE_TN: Self = RitchieKind::Type(RitchieTypeKind::Item(RitchieItemKind::Tn));
 
     pub fn code(self) -> &'static str {
         match self {
@@ -78,7 +78,7 @@ impl RitchieKind {
                     RitchieItemKind::Vn => "vn(",
                     RitchieItemKind::Pn => "pn(",
                     RitchieItemKind::Qn => "qn(",
-                    RitchieItemKind::Bn => "bn(",
+                    RitchieItemKind::Tn => "tn(",
                 },
                 RitchieTypeKind::Closure(ritchie_closure_kind) => match ritchie_closure_kind {
                     RitchieClosureKind::Fn => "#closure fn(",
@@ -86,7 +86,7 @@ impl RitchieKind {
                     RitchieClosureKind::Vn => "#closure vn(",
                     RitchieClosureKind::Pn => "#closure pn(",
                     RitchieClosureKind::Qn => "#closure qn(",
-                    RitchieClosureKind::Bn => "#closure bn(",
+                    RitchieClosureKind::Tn => "#closure tn(",
                 },
             },
             RitchieKind::Trait(ritchie_trai_kind) => match ritchie_trai_kind {

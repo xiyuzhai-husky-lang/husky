@@ -29,7 +29,7 @@ impl IsAstChildren for FugitiveBody {
             EntityKindKeywordGroup::Vn(_) => MajorFugitiveKind::VN.into(),
             EntityKindKeywordGroup::Pn(_) => MajorFugitiveKind::PN.into(),
             EntityKindKeywordGroup::Qn(_) => MajorFugitiveKind::QN.into(),
-            EntityKindKeywordGroup::Bn(_) => MajorFugitiveKind::BN.into(),
+            EntityKindKeywordGroup::Tn(_) => MajorFugitiveKind::TN.into(),
             EntityKindKeywordGroup::FormalEntity(_) => MajorFugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFugitiveKind::TypeAlias.into(),
