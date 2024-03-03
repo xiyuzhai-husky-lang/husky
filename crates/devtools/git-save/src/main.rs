@@ -11,7 +11,7 @@ fn main() {
     }
     exec_command("git status");
     exec_command_if_permited!("git add -A");
-    exec_command_if_permited!("git commit -m \"save\"");
+    exec_command_if_permited!("git commit -m save");
     exec_command_if_permited!("git push");
 }
 

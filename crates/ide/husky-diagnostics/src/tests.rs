@@ -5,7 +5,6 @@ use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_dec_signature::DecSignatureJar;
-
 use husky_entity_tree::EntityTreeJar;
 use husky_eth_signature::EtherealSignatureJar;
 use husky_eth_term::EthTermJar;
@@ -24,7 +23,7 @@ use husky_toml_token::TomlTokenJar;
 #[salsa::db(
     VfsJar,
     CowordJar,
-    husky_token_data::db::TokenDataJar,
+    husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_entity_path::jar::EntityPathJar,
     TomlTokenJar,
