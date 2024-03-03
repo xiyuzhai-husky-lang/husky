@@ -3939,25 +3939,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-any"
-version = "0.0.0"
-dependencies = [
- "cyclic-slice",
- "husky-check-utils",
- "husky-coword",
- "husky-eth-signature",
- "husky-eth-term",
- "husky-io-utils",
- "husky-path-utils",
- "husky-print-utils",
- "husky-vm-interface",
- "husky-write-utils",
- "indexmap 1.9.3",
- "serde",
- "vec-like",
-]
-
-[[package]]
 name = "husky-ast"
 version = "0.0.0"
 dependencies = [
@@ -4417,9 +4398,6 @@ dependencies = [
  "husky-vfs",
  "husky-visual-protocol",
  "husky-vm",
- "husky-vm-interface",
- "husky-vm-primitive-value",
- "husky-vm-register-method",
  "husky-wild-utils",
  "salsa",
  "serde",
@@ -6396,66 +6374,7 @@ dependencies = [
 
 [[package]]
 name = "husky-vm"
-version = "0.0.0"
-dependencies = [
- "arrayvec",
- "colored",
- "cyclic-slice",
- "enum-class",
- "husky-any",
- "husky-check-utils",
- "husky-coword",
- "husky-eth-signature",
- "husky-eth-term",
- "husky-path-utils",
- "husky-print-utils",
- "husky-standard-value",
- "husky-syn-expr",
- "husky-text-protocol",
- "husky-vm-binding",
- "husky-vm-interface",
- "husky-vm-primitive-value",
- "husky-vm-register-method",
- "indexmap 1.9.3",
- "serde",
- "serde_json",
- "vec-like",
-]
-
-[[package]]
-name = "husky-vm-binding"
-version = "0.0.0"
-
-[[package]]
-name = "husky-vm-interface"
-version = "0.0.0"
-dependencies = [
- "cyclic-slice",
- "husky-standard-value",
- "husky-vm-binding",
- "husky-vm-primitive-value",
- "husky-wild-utils",
- "ordered-float 4.2.0",
-]
-
-[[package]]
-name = "husky-vm-primitive-value"
-version = "0.0.0"
-dependencies = [
- "serde",
-]
-
-[[package]]
-name = "husky-vm-register-method"
-version = "0.0.0"
-dependencies = [
- "husky-any",
- "husky-eth-signature",
- "husky-eth-term",
- "husky-vm-binding",
- "husky-vm-interface",
- "serde_json",
-]
+version = "0.1.0"
 
 [[package]]
 name = "husky-vmir"

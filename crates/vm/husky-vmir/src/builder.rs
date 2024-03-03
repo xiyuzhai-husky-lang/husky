@@ -1,5 +1,3 @@
-mod expr;
-
 use crate::vmir::{VMStackIdx, VmirArena, VmirData, VmirIdxRange};
 use husky_coword::Ident;
 use husky_hir_eager_expr::HirEagerExprArena;

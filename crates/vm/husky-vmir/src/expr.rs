@@ -1,0 +1,3 @@
+pub enum VmirExprData {
+    Variable,
+}
