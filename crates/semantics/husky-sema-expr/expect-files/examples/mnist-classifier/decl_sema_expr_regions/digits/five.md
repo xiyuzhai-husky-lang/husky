@@ -328,7 +328,6 @@
                                             EthTerm(`(independent variable_ad_hoc_fmt: Type) -> independent variable_ad_hoc_fmt -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -399,7 +398,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -421,7 +419,6 @@
                                             EthTerm(`independent MnistLabel -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -477,7 +474,6 @@
                                             EthTerm(`MnistLabel`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -501,7 +497,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(

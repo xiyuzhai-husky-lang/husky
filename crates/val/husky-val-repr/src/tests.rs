@@ -51,6 +51,7 @@ use husky_vfs::VfsJar;
     EtherealSignatureJar,
     FlyTermJar,
     SemaExprJar,
+    husky_sema_place_contract::jar::SemaPlaceContractJar,
     husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::db::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,

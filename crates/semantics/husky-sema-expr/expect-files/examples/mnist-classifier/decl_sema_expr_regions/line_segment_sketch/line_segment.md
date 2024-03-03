@@ -165,9 +165,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -181,9 +183,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -232,7 +236,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -264,7 +267,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -430,7 +432,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -588,7 +589,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -769,9 +769,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -820,7 +822,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -852,7 +853,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(

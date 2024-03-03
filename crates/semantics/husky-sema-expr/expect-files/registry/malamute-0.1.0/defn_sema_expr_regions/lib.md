@@ -171,9 +171,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -352,7 +350,7 @@
                     arena: Arena {
                         data: [
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -377,7 +375,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -420,7 +417,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -457,7 +453,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -468,7 +463,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -493,7 +488,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -570,9 +564,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -588,9 +584,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -802,12 +800,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         3,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -832,7 +833,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -871,12 +872,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -901,7 +905,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -1055,12 +1059,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         7,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         36,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -1085,7 +1092,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -1175,9 +1182,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -1208,9 +1213,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -1235,6 +1238,7 @@
                                     match_target: SemaExprIdx(
                                         1,
                                     ),
+                                    match_contract: Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -1325,9 +1329,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -1349,9 +1355,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -1399,9 +1407,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -1801,9 +1811,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -1812,8 +1824,13 @@
                                             EthTerm(`OneVsAll Label label`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -1836,7 +1853,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1850,10 +1866,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -1897,7 +1911,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1911,10 +1924,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -1939,7 +1950,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -1966,7 +1977,6 @@
                                             EthTerm(`Label`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -1983,7 +1993,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -2010,7 +2020,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -2027,7 +2036,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -2052,7 +2061,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -2095,7 +2103,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -2132,7 +2139,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -2162,7 +2168,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -2176,10 +2181,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -2204,7 +2207,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -2229,7 +2232,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -2246,7 +2248,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -2271,7 +2273,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -2314,7 +2315,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -2351,7 +2351,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -2362,7 +2361,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -2387,7 +2386,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -2464,9 +2462,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -2482,9 +2482,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -2670,12 +2672,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         2,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -2700,7 +2705,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -2907,12 +2912,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         5,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         33,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -2937,7 +2945,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -3091,12 +3099,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         50,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Move,
                                                 ty: FlyTerm {
@@ -3121,7 +3132,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -3211,9 +3222,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3244,9 +3253,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3277,9 +3284,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3304,6 +3309,7 @@
                                     match_target: SemaExprIdx(
                                         1,
                                     ),
+                                    match_contract: Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -3419,9 +3425,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3443,9 +3451,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3467,9 +3477,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3517,9 +3529,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -4134,9 +4148,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4145,8 +4161,13 @@
                                             EthTerm(`OneVsAllResult Label label`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -4169,7 +4190,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -4183,10 +4203,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -4211,7 +4229,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4238,7 +4256,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4255,7 +4272,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4280,7 +4297,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4323,7 +4339,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4360,7 +4375,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4397,7 +4411,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4434,7 +4447,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4464,7 +4476,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -4478,10 +4489,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -4506,7 +4515,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4533,7 +4542,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4550,7 +4558,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4575,7 +4583,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4618,7 +4625,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4655,7 +4661,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4692,7 +4697,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4729,7 +4733,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4759,7 +4762,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -4773,10 +4775,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -4801,7 +4801,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4826,7 +4826,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4843,7 +4842,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4868,7 +4867,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -4911,7 +4909,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4948,7 +4945,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -4959,7 +4955,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -4984,7 +4980,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(

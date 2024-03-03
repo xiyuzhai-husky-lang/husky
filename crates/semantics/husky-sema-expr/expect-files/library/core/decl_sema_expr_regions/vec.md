@@ -340,7 +340,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -398,7 +397,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -422,7 +420,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -598,7 +595,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -741,9 +737,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -801,7 +799,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1157,7 +1154,6 @@
                                             EthTerm(`independent Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1213,7 +1209,6 @@
                                             EthTerm(`invariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1235,7 +1230,6 @@
                                             EthTerm(`invariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1293,7 +1287,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1317,7 +1310,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1673,7 +1665,6 @@
                                             EthTerm(`independent Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1729,7 +1720,6 @@
                                             EthTerm(`invariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1751,7 +1741,6 @@
                                             EthTerm(`invariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1809,7 +1798,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1833,7 +1821,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -2103,7 +2090,6 @@
                                             EthTerm(`independent Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -2161,7 +2147,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -2185,7 +2170,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -2308,7 +2292,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         2,
                                     ),
                                 },
@@ -2498,7 +2482,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -2556,7 +2539,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -2583,7 +2565,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -2607,7 +2588,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -2829,7 +2809,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         5,
                                     ),
                                 },
@@ -2996,9 +2976,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3012,9 +2994,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3070,7 +3054,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -3102,7 +3085,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -3132,7 +3114,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -3190,7 +3171,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -3217,7 +3197,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -3241,7 +3220,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -3362,11 +3340,11 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Prefix {
-                                    opr: Option,
+                                    opr: OptionType,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         2,
                                     ),
                                 },
@@ -3494,11 +3472,11 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Prefix {
-                                    opr: Option,
+                                    opr: OptionType,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         5,
                                     ),
                                 },
@@ -3655,9 +3633,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -3718,7 +3698,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -3751,7 +3730,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -3784,7 +3762,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -3814,7 +3791,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -3851,7 +3827,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -3881,7 +3856,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(

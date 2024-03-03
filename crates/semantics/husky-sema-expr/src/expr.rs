@@ -432,16 +432,10 @@ impl SemaExprIdx {
         self,
         sema_expr_region: &'a SemaExprRegionData,
     ) -> Option<&'a ExpectationOutcome> {
-        use husky_print_utils::p;
-        p!(sema_expr_region
-            .sema_expr_arena()
-            .index(self)
-            .expectation_idx_and_ty);
         let (expectation_idx, _) = sema_expr_region
             .sema_expr_arena()
             .index(self)
             .expectation_idx_and_ty?;
-        p!(sema_expr_region.fly_term_region()[expectation_idx]);
         sema_expr_region.fly_term_region()[expectation_idx]
             .resolve_progress()
             .outcome2()

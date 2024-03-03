@@ -270,13 +270,14 @@
                         FlyTerm {
                             place: Some(
                                 RefMut {
-                                    guard: Left(
+                                    place: Idx(
                                         PlaceIdx(
                                             ShiftedU32(
                                                 1,
                                             ),
                                         ),
                                     ),
+                                    lifetime: None,
                                 },
                             ),
                             base: FlyTermBase::Eth(
@@ -326,8 +327,13 @@
                                             EthTerm(`Trait`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -348,7 +354,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -406,7 +411,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -430,7 +434,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -834,13 +837,14 @@
                         FlyTerm {
                             place: Some(
                                 RefMut {
-                                    guard: Left(
+                                    place: Idx(
                                         PlaceIdx(
                                             ShiftedU32(
                                                 1,
                                             ),
                                         ),
                                     ),
+                                    lifetime: None,
                                 },
                             ),
                             base: FlyTermBase::Eth(
@@ -852,9 +856,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -868,9 +874,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            3,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                3,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -922,8 +930,13 @@
                                             EthTerm(`Trait`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -944,7 +957,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1002,7 +1014,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1026,7 +1037,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1058,7 +1068,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1090,7 +1099,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1549,13 +1557,14 @@
                         FlyTerm {
                             place: Some(
                                 RefMut {
-                                    guard: Left(
+                                    place: Idx(
                                         PlaceIdx(
                                             ShiftedU32(
                                                 1,
                                             ),
                                         ),
                                     ),
+                                    lifetime: None,
                                 },
                             ),
                             base: FlyTermBase::Eth(
@@ -1567,9 +1576,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -1583,9 +1594,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            3,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                3,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -1637,8 +1650,13 @@
                                             EthTerm(`Trait`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -1659,7 +1677,6 @@
                                             EthTerm(`covariant Type -> Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -1717,7 +1734,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Intact,
                                 },
                             },
@@ -1741,7 +1757,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1773,7 +1788,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1805,7 +1819,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(
@@ -1837,7 +1850,6 @@
                                             EthTerm(`Type`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsSort(

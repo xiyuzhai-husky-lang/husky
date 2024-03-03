@@ -329,12 +329,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -357,14 +360,14 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: Comma(
+                                                separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         4,
                                                     ),
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -387,7 +390,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -469,9 +472,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -541,7 +542,6 @@
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -553,10 +553,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -590,7 +588,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -615,7 +613,6 @@
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -632,7 +629,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -655,7 +652,6 @@
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -672,7 +668,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -695,7 +691,6 @@
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -712,7 +707,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -735,7 +730,6 @@
                                             EthTerm(`fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -752,7 +746,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -775,7 +769,6 @@
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -792,7 +785,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -815,7 +808,6 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -832,7 +824,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -855,7 +847,6 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -1031,7 +1022,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         2,
                                     ),
                                     owner_ty: FlyTerm {
@@ -1201,6 +1192,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         2,
@@ -1230,7 +1224,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             6,
                                                         ),
@@ -1249,7 +1243,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             8,
                                                         ),
@@ -1274,13 +1268,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         9,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         5,
                                                     ),
@@ -1293,7 +1281,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             12,
                                                         ),
@@ -1549,12 +1537,15 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         8,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Fn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -1577,14 +1568,14 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: Comma(
+                                                separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         21,
                                                     ),
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -1607,7 +1598,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -1653,9 +1644,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -1671,9 +1664,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -1688,15 +1683,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         12,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -1717,17 +1714,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -1763,9 +1764,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -1781,9 +1784,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -2011,7 +2016,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         17,
                                     ),
                                     owner_ty: FlyTerm {
@@ -2133,6 +2138,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         16,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         33,
@@ -2162,7 +2170,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             37,
                                                         ),
@@ -2187,13 +2195,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         38,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         19,
                                                     ),
@@ -2206,7 +2208,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             41,
                                                         ),
@@ -2373,7 +2375,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         22,
                                     ),
                                     owner_ty: FlyTerm {
@@ -2589,7 +2591,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         26,
                                     ),
                                     owner_ty: FlyTerm {
@@ -2889,7 +2891,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         31,
                                     ),
                                     owner_ty: FlyTerm {
@@ -3239,7 +3241,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         38,
                                     ),
                                     owner_ty: FlyTerm {
@@ -3345,7 +3347,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         39,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -3454,7 +3456,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         42,
                                     ),
                                     owner_ty: FlyTerm {
@@ -3560,7 +3562,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         43,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -3669,7 +3671,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         46,
                                     ),
                                     owner_ty: FlyTerm {
@@ -3775,7 +3777,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         47,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -3850,9 +3852,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -3868,9 +3872,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -3938,9 +3944,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -3956,9 +3964,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -3973,15 +3983,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         52,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4002,17 +4014,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4048,9 +4064,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -4066,9 +4084,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4262,9 +4282,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -4280,9 +4302,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4297,15 +4321,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         57,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4326,17 +4352,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4372,9 +4402,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -4390,9 +4422,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4423,17 +4457,21 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -4471,9 +4509,11 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
+                                                            place: Idx(
+                                                                PlaceIdx(
+                                                                    ShiftedU32(
+                                                                        1,
+                                                                    ),
                                                                 ),
                                                             ),
                                                         },
@@ -4559,6 +4599,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         56,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         111,
@@ -4588,7 +4631,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             119,
                                                         ),
@@ -4613,13 +4656,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         120,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         60,
                                                     ),
@@ -4632,7 +4669,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             123,
                                                         ),
@@ -4844,7 +4881,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         64,
                                     ),
                                     owner_ty: FlyTerm {
@@ -5019,7 +5056,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         67,
                                     ),
                                     owner_ty: FlyTerm {
@@ -5330,9 +5367,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -5348,9 +5387,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -5396,7 +5437,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         74,
                                     ),
                                     owner_ty: FlyTerm {
@@ -5583,9 +5624,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -5601,9 +5644,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -5649,7 +5694,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         78,
                                     ),
                                     owner_ty: FlyTerm {
@@ -5915,7 +5960,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         82,
                                     ),
                                     owner_ty: FlyTerm {
@@ -6325,7 +6370,7 @@
                                         173,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Regular(
+                                        SemaRitchieParameterArgumentMatch::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -6348,7 +6393,7 @@
                                                         ),
                                                     },
                                                 ),
-                                                separator: None,
+                                                separator: CallListSeparator::None,
                                             },
                                         ),
                                     ],
@@ -6428,7 +6473,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         90,
                                     ),
                                     owner_ty: FlyTerm {
@@ -6556,7 +6601,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         92,
                                     ),
                                     owner_ty: FlyTerm {
@@ -6684,7 +6729,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         94,
                                     ),
                                     owner_ty: FlyTerm {
@@ -6804,6 +6849,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         86,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         169,
@@ -6833,7 +6881,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             176,
                                                         ),
@@ -6852,7 +6900,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             180,
                                                         ),
@@ -6871,7 +6919,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             184,
                                                         ),
@@ -6890,7 +6938,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             188,
                                                         ),
@@ -6915,13 +6963,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         189,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         96,
                                                     ),
@@ -6934,7 +6976,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             192,
                                                         ),
@@ -7180,7 +7222,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         100,
                                     ),
                                     owner_ty: FlyTerm {
@@ -7286,7 +7328,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         101,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -7378,7 +7420,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         104,
                                     ),
                                     owner_ty: FlyTerm {
@@ -7506,7 +7548,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         106,
                                     ),
                                     owner_ty: FlyTerm {
@@ -7612,7 +7654,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         107,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -7704,7 +7746,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         110,
                                     ),
                                     owner_ty: FlyTerm {
@@ -7918,6 +7960,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         99,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         196,
@@ -7947,7 +7992,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             206,
                                                         ),
@@ -7966,7 +8011,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             220,
                                                         ),
@@ -7991,13 +8036,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         221,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         113,
                                                     ),
@@ -8010,7 +8049,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             224,
                                                         ),
@@ -8143,9 +8182,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -8161,9 +8202,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -8231,9 +8274,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -8249,9 +8294,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -8297,7 +8344,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         119,
                                     ),
                                     owner_ty: FlyTerm {
@@ -8484,9 +8531,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -8502,9 +8551,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -8550,7 +8601,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         123,
                                     ),
                                     owner_ty: FlyTerm {
@@ -8864,9 +8915,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -8882,9 +8935,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -8930,7 +8985,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         130,
                                     ),
                                     owner_ty: FlyTerm {
@@ -9009,9 +9064,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -9027,9 +9084,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9075,7 +9134,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         133,
                                     ),
                                     owner_ty: FlyTerm {
@@ -9330,7 +9389,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         131,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -9538,9 +9597,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -9556,9 +9617,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9573,15 +9636,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         141,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9602,17 +9667,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9633,9 +9702,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -9651,9 +9722,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9847,9 +9920,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -9865,9 +9940,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -9913,7 +9990,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         147,
                                     ),
                                     owner_ty: FlyTerm {
@@ -10007,9 +10084,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -10025,9 +10104,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10073,7 +10154,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         150,
                                     ),
                                     owner_ty: FlyTerm {
@@ -10167,9 +10248,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    3,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        3,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -10185,9 +10268,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10233,7 +10318,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         153,
                                     ),
                                     owner_ty: FlyTerm {
@@ -10447,6 +10532,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         145,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         289,
@@ -10476,7 +10564,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             294,
                                                         ),
@@ -10495,7 +10583,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             299,
                                                         ),
@@ -10514,7 +10602,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             308,
                                                         ),
@@ -10539,13 +10627,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         309,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         156,
                                                     ),
@@ -10558,7 +10640,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             312,
                                                         ),
@@ -10770,9 +10852,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -10788,9 +10872,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10821,17 +10907,21 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10869,9 +10959,11 @@
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableStackOwned {
-                                                            location: PlaceIdx(
-                                                                ShiftedU32(
-                                                                    6,
+                                                            place: Idx(
+                                                                PlaceIdx(
+                                                                    ShiftedU32(
+                                                                        6,
+                                                                    ),
                                                                 ),
                                                             ),
                                                         },
@@ -10931,9 +11023,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -10949,9 +11043,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10966,15 +11062,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         162,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -10995,17 +11093,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11026,9 +11128,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -11044,9 +11148,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11075,9 +11181,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -11093,9 +11201,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11110,15 +11220,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         164,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11139,17 +11251,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11170,9 +11286,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    6,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        6,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -11188,9 +11306,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11290,6 +11410,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         159,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         316,
@@ -11319,7 +11442,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             322,
                                                         ),
@@ -11338,7 +11461,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             330,
                                                         ),
@@ -11363,13 +11486,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         331,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         167,
                                                     ),
@@ -11382,7 +11499,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             334,
                                                         ),
@@ -11515,9 +11632,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    4,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        4,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -11533,9 +11652,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -11716,7 +11837,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         173,
                                     ),
                                     owner_ty: FlyTerm {
@@ -11822,7 +11943,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         174,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -11914,7 +12035,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         177,
                                     ),
                                     owner_ty: FlyTerm {
@@ -12042,7 +12163,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         179,
                                     ),
                                     owner_ty: FlyTerm {
@@ -12148,7 +12269,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         180,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -12240,7 +12361,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         183,
                                     ),
                                     owner_ty: FlyTerm {
@@ -12368,7 +12489,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         185,
                                     ),
                                     owner_ty: FlyTerm {
@@ -12474,7 +12595,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         186,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -12566,7 +12687,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         189,
                                     ),
                                     owner_ty: FlyTerm {
@@ -12780,6 +12901,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         172,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         346,
@@ -12809,7 +12933,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             356,
                                                         ),
@@ -12828,7 +12952,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             366,
                                                         ),
@@ -12847,7 +12971,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             380,
                                                         ),
@@ -12872,13 +12996,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         381,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         192,
                                                     ),
@@ -12891,7 +13009,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             384,
                                                         ),
@@ -13024,9 +13142,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    5,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        5,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -13042,9 +13162,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -13155,9 +13277,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -13173,9 +13297,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -13221,7 +13347,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         199,
                                     ),
                                     owner_ty: FlyTerm {
@@ -13300,9 +13426,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -13318,9 +13446,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -13366,7 +13496,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         202,
                                     ),
                                     owner_ty: FlyTerm {
@@ -13539,7 +13669,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         200,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -13747,9 +13877,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -13765,9 +13897,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -13813,7 +13947,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         209,
                                     ),
                                     owner_ty: FlyTerm {
@@ -13892,9 +14026,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    2,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        2,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -13910,9 +14046,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -13958,7 +14096,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         212,
                                     ),
                                     owner_ty: FlyTerm {
@@ -14213,7 +14351,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Index {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         210,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -14500,9 +14638,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    7,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        7,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -14518,9 +14658,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14535,15 +14677,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         221,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14564,17 +14708,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14595,9 +14743,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    7,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        7,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -14613,9 +14763,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14644,9 +14796,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    8,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        8,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -14662,9 +14816,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14679,15 +14835,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         223,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14708,17 +14866,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14739,9 +14901,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    8,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        8,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -14757,9 +14921,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -14814,6 +14980,9 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         220,
                                     ),
+                                    ritchie_ty_kind: Item(
+                                        Gn,
+                                    ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         444,
@@ -14839,9 +15008,11 @@
                                                             coersion: Trivial(
                                                                 TrivialFlyCoersion {
                                                                     expectee_place: ImmutableStackOwned {
-                                                                        location: PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                7,
+                                                                        place: Idx(
+                                                                            PlaceIdx(
+                                                                                ShiftedU32(
+                                                                                    7,
+                                                                                ),
                                                                             ),
                                                                         ),
                                                                     },
@@ -14849,7 +15020,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             448,
                                                         ),
@@ -14864,9 +15035,11 @@
                                                             coersion: Trivial(
                                                                 TrivialFlyCoersion {
                                                                     expectee_place: ImmutableStackOwned {
-                                                                        location: PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                8,
+                                                                        place: Idx(
+                                                                            PlaceIdx(
+                                                                                ShiftedU32(
+                                                                                    8,
+                                                                                ),
                                                                             ),
                                                                         ),
                                                                     },
@@ -14874,7 +15047,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: Comma(
+                                                    separator: CallListSeparator::Comma(
                                                         RegionalTokenIdx(
                                                             452,
                                                         ),
@@ -14899,13 +15072,7 @@
                                                     key_regional_token_idx: RegionalTokenIdx(
                                                         453,
                                                     ),
-                                                    key: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 295,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    key: `skip`,
                                                     argument_sema_expr_idx: SemaExprIdx(
                                                         225,
                                                     ),
@@ -14918,7 +15085,7 @@
                                                             ),
                                                         },
                                                     ),
-                                                    separator: None,
+                                                    separator: CallListSeparator::None,
                                                 },
                                             ),
                                         ),
@@ -15047,9 +15214,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    5,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        5,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15065,9 +15234,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15212,7 +15383,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         231,
                                     ),
                                     owner_ty: FlyTerm {
@@ -15342,7 +15513,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         233,
                                     ),
                                     owner_ty: FlyTerm {
@@ -15438,9 +15609,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    9,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        9,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15456,9 +15629,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15487,9 +15662,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    10,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        10,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15505,9 +15682,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15581,9 +15760,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    11,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        11,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15599,9 +15780,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15630,9 +15813,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    9,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        9,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15648,9 +15833,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15724,9 +15911,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    11,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        11,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15742,9 +15931,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -15808,7 +15999,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         489,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         242,
                                     ),
                                 },
@@ -15903,9 +16094,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    11,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        11,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -15921,9 +16114,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -16187,9 +16382,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16257,9 +16450,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16315,9 +16506,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16530,9 +16719,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16561,9 +16748,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16592,9 +16777,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16903,9 +17086,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -16934,9 +17115,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17244,9 +17423,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17506,9 +17683,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17539,9 +17714,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17745,9 +17918,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -17789,9 +17964,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            3,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                3,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -17855,9 +18032,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            4,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                4,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18847,9 +19026,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18863,9 +19044,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            2,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                2,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18879,9 +19062,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            3,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                3,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18895,9 +19080,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            4,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                4,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18911,9 +19098,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            5,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                5,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18937,9 +19126,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            6,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                6,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18963,9 +19154,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            7,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                7,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -18989,9 +19182,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            8,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                8,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -19005,9 +19200,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            9,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                9,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -19021,9 +19218,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            10,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                10,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -19037,9 +19236,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            11,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                11,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -19053,9 +19254,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            12,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                12,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -20746,9 +20949,11 @@
                                         FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            11,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                11,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -20763,9 +20968,11 @@
                                             target: FlyTerm {
                                                 place: Some(
                                                     ImmutableStackOwned {
-                                                        location: PlaceIdx(
-                                                            ShiftedU32(
-                                                                11,
+                                                        place: Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    11,
+                                                                ),
                                                             ),
                                                         ),
                                                     },
@@ -20897,7 +21104,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -20989,12 +21195,17 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21019,7 +21230,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21036,7 +21246,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21061,7 +21271,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21078,7 +21287,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21103,7 +21312,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21120,7 +21328,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -21145,7 +21353,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21188,7 +21395,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -21225,7 +21431,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -21236,7 +21441,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21259,7 +21464,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21293,7 +21497,6 @@
                                             EthTerm(`fn(( Leash Vec ConcaveComponent,  Vec fn(( Leash ConcaveComponent) -> Option f32) -> FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsFunctionCallType(
@@ -21305,10 +21508,8 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_kind: Type(
-                                                            Item(
-                                                                Fn,
-                                                            ),
+                                                        ritchie_ty_kind: Item(
+                                                            Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Regular(
@@ -21342,7 +21543,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21367,7 +21568,6 @@
                                             EthTerm(`Leash Vec ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21384,7 +21584,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21407,7 +21607,6 @@
                                             EthTerm(`Vec fn(( Leash ConcaveComponent) -> Option f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21439,8 +21638,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -21456,9 +21660,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -21467,8 +21673,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -21484,9 +21695,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -21495,20 +21708,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -21533,7 +21753,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21565,7 +21784,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -21597,7 +21815,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -21689,12 +21906,17 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21719,7 +21941,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21736,7 +21957,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21761,7 +21982,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21778,7 +21998,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -21803,7 +22023,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21846,7 +22065,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -21883,7 +22101,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -21894,7 +22111,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -21917,7 +22134,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -21951,8 +22167,13 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -21973,12 +22194,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22005,7 +22231,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22037,7 +22262,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -22067,8 +22291,13 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22089,12 +22318,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22121,7 +22355,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22153,7 +22386,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -22166,7 +22398,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -22191,7 +22423,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22234,7 +22465,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -22271,7 +22501,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -22299,8 +22528,13 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22321,12 +22555,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22353,7 +22592,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22385,7 +22623,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -22415,12 +22652,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22447,7 +22689,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22479,7 +22720,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -22509,8 +22749,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22531,8 +22776,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22555,12 +22805,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22587,7 +22842,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22621,8 +22875,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22643,8 +22902,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22665,8 +22929,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22689,12 +22958,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22721,7 +22995,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22755,8 +23028,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22777,8 +23055,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22799,8 +23082,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22823,12 +23111,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -22855,7 +23148,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -22889,8 +23181,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22906,9 +23203,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -22917,8 +23216,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22937,7 +23241,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -22962,9 +23265,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -22973,8 +23278,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -22990,9 +23300,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -23001,20 +23313,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -23039,7 +23358,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23071,7 +23389,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -23103,7 +23420,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -23190,9 +23506,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -23201,8 +23519,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23218,9 +23541,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -23229,12 +23554,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23257,7 +23587,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23274,7 +23603,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23299,7 +23628,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23316,7 +23644,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -23341,7 +23669,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23384,7 +23711,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -23421,7 +23747,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -23432,7 +23757,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23455,7 +23780,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23491,8 +23815,13 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23513,12 +23842,17 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23547,7 +23881,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23579,8 +23912,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23601,12 +23939,17 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23631,7 +23974,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23663,12 +24005,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -23693,7 +24040,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23725,7 +24071,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -23738,7 +24083,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -23763,7 +24108,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -23806,7 +24150,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -23843,7 +24186,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -23866,9 +24208,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -23877,8 +24221,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23897,8 +24246,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23919,8 +24273,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23939,8 +24298,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23956,9 +24320,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -23967,8 +24333,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -23987,8 +24358,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -24009,12 +24385,17 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24037,7 +24418,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24069,8 +24449,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -24091,8 +24476,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -24113,12 +24503,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24145,7 +24540,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24177,7 +24571,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -24209,7 +24602,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -24301,12 +24693,17 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24331,7 +24728,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24348,7 +24744,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24371,7 +24767,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24405,12 +24800,17 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24435,7 +24835,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24469,12 +24868,17 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24499,7 +24903,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24533,12 +24936,17 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24563,7 +24971,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24580,7 +24987,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24605,7 +25012,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24622,7 +25028,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -24647,7 +25053,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24690,7 +25095,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -24727,7 +25131,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -24738,7 +25141,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24761,7 +25164,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -24797,7 +25199,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -24889,8 +25290,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -24911,8 +25317,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -24935,12 +25346,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -24967,7 +25383,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25001,8 +25416,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25021,12 +25441,17 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25051,7 +25476,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25085,8 +25509,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25107,8 +25536,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25131,12 +25565,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25163,7 +25602,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25197,8 +25635,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25217,8 +25660,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25239,12 +25687,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25267,7 +25720,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25284,7 +25736,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25309,7 +25761,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25326,7 +25777,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -25351,7 +25802,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25394,7 +25844,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -25431,7 +25880,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -25442,7 +25890,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25465,7 +25913,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25494,9 +25941,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -25505,8 +25954,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25525,7 +25979,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -25550,9 +26003,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -25561,8 +26016,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25581,8 +26041,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25603,8 +26068,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25623,8 +26093,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25640,9 +26115,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -25651,8 +26128,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25671,8 +26153,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25693,12 +26180,17 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25721,7 +26213,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25753,12 +26244,17 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -25783,7 +26279,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -25815,7 +26310,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -25840,9 +26334,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -25851,8 +26347,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25871,8 +26372,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25893,8 +26399,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25910,9 +26421,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -25921,8 +26434,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25941,8 +26459,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25963,8 +26486,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -25983,12 +26511,17 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26013,7 +26546,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26045,8 +26577,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26067,8 +26604,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26089,8 +26631,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26109,8 +26656,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26126,9 +26678,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26137,8 +26691,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26154,9 +26713,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26165,20 +26726,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                6,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -26203,7 +26771,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26235,7 +26802,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -26267,7 +26833,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -26354,9 +26919,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26365,8 +26932,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26385,12 +26957,17 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26415,7 +26992,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26444,9 +27020,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26455,8 +27033,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26475,12 +27058,17 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26505,7 +27093,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26534,9 +27121,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26545,8 +27134,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26565,8 +27159,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -26587,12 +27186,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26615,7 +27219,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26632,7 +27235,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26657,7 +27260,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26674,7 +27276,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -26699,7 +27301,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26742,7 +27343,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -26779,7 +27379,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -26790,7 +27389,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26813,7 +27412,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -26849,7 +27447,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -26936,9 +27533,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -26947,12 +27546,17 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -26975,7 +27579,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27004,9 +27607,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -27015,8 +27620,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27032,9 +27642,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -27043,8 +27655,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27060,9 +27677,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -27071,20 +27690,27 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                6,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -27104,9 +27730,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -27115,7 +27743,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27123,9 +27750,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        6,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            6,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -27138,7 +27767,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27161,7 +27790,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27178,7 +27806,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27203,7 +27831,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27220,7 +27847,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -27245,7 +27872,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27288,7 +27914,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -27325,7 +27950,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -27336,7 +27960,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27359,7 +27983,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27388,9 +28011,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -27399,8 +28024,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27419,7 +28049,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -27451,7 +28080,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -27543,8 +28171,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27565,8 +28198,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27589,12 +28227,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27621,7 +28264,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27655,8 +28297,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27675,12 +28322,17 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27705,7 +28357,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27739,8 +28390,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27761,8 +28417,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27785,12 +28446,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27817,7 +28483,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27851,8 +28516,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27871,12 +28541,17 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -27901,7 +28576,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -27935,8 +28609,13 @@
                                             EthTerm(`FermiMatchResult`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27957,8 +28636,13 @@
                                             EthTerm(`Vec Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -27981,12 +28665,17 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -28013,7 +28702,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28047,8 +28735,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28067,8 +28760,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28089,12 +28787,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -28117,7 +28820,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28134,7 +28836,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -28159,7 +28861,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28176,7 +28877,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -28201,7 +28902,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28244,7 +28944,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -28281,7 +28980,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -28292,7 +28990,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -28315,7 +29013,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28344,9 +29041,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -28355,20 +29054,27 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            5,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                5,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -28393,7 +29099,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28425,7 +29130,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -28450,9 +29154,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -28461,8 +29167,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28481,8 +29192,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28503,8 +29219,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28520,9 +29241,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -28531,8 +29254,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28551,8 +29279,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28573,8 +29306,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28593,8 +29331,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28615,8 +29358,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28637,8 +29385,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28657,8 +29410,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28674,9 +29432,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -28685,8 +29445,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28705,8 +29470,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28727,8 +29497,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28744,9 +29519,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -28755,8 +29532,13 @@
                                             EthTerm(`Option Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28775,8 +29557,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28797,8 +29584,13 @@
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28817,12 +29609,17 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -28847,7 +29644,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -28879,8 +29675,13 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28901,8 +29702,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28923,8 +29729,13 @@
                                             EthTerm(`LineSegmentStroke`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28943,8 +29754,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -28967,7 +29783,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::EqsRitchieCallType(
@@ -29054,9 +29869,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29065,12 +29882,17 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -29090,9 +29912,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29101,7 +29925,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29109,9 +29932,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        7,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            7,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -29136,9 +29961,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29147,12 +29974,17 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -29172,9 +30004,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29183,7 +30017,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29191,9 +30024,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        8,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            8,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -29206,7 +30041,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -29231,7 +30066,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29248,7 +30082,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -29273,7 +30107,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29316,7 +30149,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -29353,7 +30185,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -29364,7 +30195,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
@@ -29387,7 +30218,6 @@
                                             EthTerm(`unit`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29416,9 +30246,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29427,20 +30259,27 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            5,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                5,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -29465,7 +30304,6 @@
                                             EthTerm(`i32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29497,7 +30335,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -29527,8 +30364,13 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29549,8 +30391,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29571,8 +30418,13 @@
                                             EthTerm(`Leash ConnectedComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29593,8 +30445,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29610,9 +30467,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29621,20 +30480,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            9,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                9,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -29654,9 +30520,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29665,7 +30533,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29673,9 +30540,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        10,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            10,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -29703,8 +30572,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29720,9 +30594,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29731,20 +30607,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            11,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                11,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -29764,9 +30647,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29775,7 +30660,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29783,9 +30667,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        9,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            9,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -29813,8 +30699,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29830,9 +30721,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29841,8 +30734,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -29865,20 +30763,27 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            11,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                11,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -29905,7 +30810,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -29937,7 +30841,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -29962,9 +30865,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -29973,20 +30878,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            11,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                11,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -30011,7 +30923,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -30043,7 +30954,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -30056,7 +30966,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -30081,7 +30991,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -30124,7 +31033,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -30161,7 +31069,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Subtype(
@@ -30172,7 +31079,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -30197,7 +31104,6 @@
                                             ),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -30264,9 +31170,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30282,9 +31190,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30315,9 +31225,11 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30415,9 +31327,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30433,9 +31347,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30450,15 +31366,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         3,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30479,17 +31397,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30510,9 +31432,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30528,9 +31452,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30645,9 +31571,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30663,9 +31591,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30680,15 +31610,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         7,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30709,17 +31641,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30740,9 +31676,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30758,9 +31696,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30786,9 +31726,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -30804,9 +31746,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -30901,18 +31845,18 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -31006,9 +31950,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -31024,9 +31970,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -31068,9 +32016,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31079,8 +32029,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -31099,8 +32054,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -31116,9 +32076,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31127,8 +32089,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -31144,9 +32111,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31155,20 +32124,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -31193,7 +32169,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -31225,7 +32200,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -31250,9 +32224,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31261,12 +32237,17 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -31286,9 +32267,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31297,7 +32280,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -31310,7 +32292,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -31330,9 +32312,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31341,7 +32325,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -31404,9 +32387,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -31422,9 +32407,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31455,9 +32442,11 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31555,9 +32544,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -31573,9 +32564,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31590,15 +32583,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         3,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31619,17 +32614,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31650,9 +32649,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -31668,9 +32669,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31785,9 +32788,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -31803,9 +32808,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31836,9 +32843,11 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -31922,7 +32931,7 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         8,
                                     ),
                                     owner_ty: FlyTerm {
@@ -31989,7 +32998,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         9,
                                     ),
                                 },
@@ -32135,9 +33144,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -32234,9 +33241,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -32252,9 +33261,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -32296,9 +33307,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32307,8 +33320,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -32327,8 +33345,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -32344,9 +33367,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32355,8 +33380,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -32372,9 +33402,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32383,20 +33415,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -32421,7 +33460,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -32453,7 +33491,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -32478,9 +33515,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32489,8 +33528,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -32509,8 +33553,13 @@
                                             EthTerm(`Point2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -32531,12 +33580,17 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -32561,7 +33615,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -32574,7 +33627,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -32599,7 +33652,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -32662,9 +33714,11 @@
                                 FlyTerm {
                                     place: Some(
                                         StackPure {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -32680,9 +33734,11 @@
                                     FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32713,9 +33769,11 @@
                                     dispatch: FlyDynamicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32813,9 +33871,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -32831,9 +33891,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32848,15 +33910,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         3,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32877,17 +33941,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -32908,9 +33976,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -32926,9 +33996,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33043,9 +34115,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33061,9 +34135,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33078,15 +34154,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         7,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33107,17 +34185,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33138,9 +34220,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33156,9 +34240,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33273,9 +34359,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33291,9 +34379,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33308,15 +34398,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         11,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33337,17 +34429,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33368,9 +34464,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33386,9 +34484,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33407,7 +34507,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
-                                    opd_sema_expr_idx: SemaExprIdx(
+                                    opd: SemaExprIdx(
                                         12,
                                     ),
                                 },
@@ -33416,9 +34516,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33434,9 +34536,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33465,9 +34569,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33483,9 +34589,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33500,15 +34608,17 @@
                         SemaExprEntry {
                             data_result: Ok(
                                 SemaExprData::Field {
-                                    owner_sema_expr_idx: SemaExprIdx(
+                                    owner: SemaExprIdx(
                                         14,
                                     ),
                                     owner_ty: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33529,17 +34639,21 @@
                                     dispatch: FlyFieldDyanmicDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33560,9 +34674,11 @@
                                 FlyTerm {
                                     place: Some(
                                         ImmutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        1,
+                                                    ),
                                                 ),
                                             ),
                                         },
@@ -33578,9 +34694,11 @@
                                     FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33775,9 +34893,7 @@
                                             },
                                         ),
                                     ),
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
+                                    eol_semicolon: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -33885,9 +35001,11 @@
                         FlyTerm {
                             place: Some(
                                 StackPure {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -33903,9 +35021,11 @@
                         FlyTerm {
                             place: Some(
                                 ImmutableStackOwned {
-                                    location: PlaceIdx(
-                                        ShiftedU32(
-                                            1,
+                                    place: Idx(
+                                        PlaceIdx(
+                                            ShiftedU32(
+                                                1,
+                                            ),
                                         ),
                                     ),
                                 },
@@ -33947,9 +35067,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -33958,8 +35080,13 @@
                                             EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -33978,8 +35105,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -33995,9 +35127,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34006,8 +35140,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -34023,9 +35162,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34034,20 +35175,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -34072,7 +35220,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -34104,7 +35251,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -34129,9 +35275,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34140,8 +35288,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -34157,9 +35310,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34168,20 +35323,27 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -34206,7 +35368,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -34238,7 +35399,6 @@
                                             EthTerm(`bool`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::ConditionType(
@@ -34263,9 +35423,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34274,8 +35436,13 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -34291,9 +35458,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34302,8 +35471,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -34319,9 +35493,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34330,8 +35506,13 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
@@ -34347,9 +35528,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34358,20 +35541,27 @@
                                             EthTerm(`Vector2d`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
-                                    resolve_progress: ExpectationProgress::Intact,
+                                    resolve_progress: ExpectationProgress::Resolved(
+                                        Ok(
+                                            ExpectationOutcome::AnyOriginal(
+                                                ExpectAnyOriginalOutcome,
+                                            ),
+                                        ),
+                                    ),
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableStackOwned {
-                                                    location: PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    place: Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -34391,9 +35581,11 @@
                                     expectee: FlyTerm {
                                         place: Some(
                                             ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -34402,7 +35594,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -34410,9 +35601,11 @@
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
-                                                                location: PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
+                                                                place: Idx(
+                                                                    PlaceIdx(
+                                                                        ShiftedU32(
+                                                                            1,
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -34425,7 +35618,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -34448,7 +35641,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(
@@ -34461,7 +35653,7 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::ImplicitlyConvertible(
+                                expectation: Expectation::Coersion(
                                     ExpectCoersion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
@@ -34484,7 +35676,6 @@
                                             EthTerm(`f32`),
                                         ),
                                     },
-                                    implicit_parameter_substitutions: [],
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coersion(

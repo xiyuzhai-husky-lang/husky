@@ -265,26 +265,36 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -293,7 +303,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -304,7 +317,10 @@
                                                 ropd: 3,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -315,13 +331,18 @@
                                                 ropd: 4,
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -330,7 +351,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -341,7 +365,10 @@
                                                 ropd: 6,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -350,7 +377,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -524,26 +554,36 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -554,13 +594,18 @@
                                                 ropd: 2,
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -569,7 +614,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -580,7 +628,10 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -589,7 +640,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -763,26 +817,36 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -791,7 +855,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -802,7 +869,10 @@
                                                 ropd: 3,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -813,13 +883,18 @@
                                                 ropd: 4,
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -828,7 +903,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -839,7 +917,10 @@
                                                 ropd: 6,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -848,7 +929,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -1043,26 +1127,36 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -1089,9 +1183,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                1,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -1113,9 +1209,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                3,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -1125,33 +1223,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -1178,9 +1289,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                2,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -1202,9 +1315,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                3,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -1214,33 +1329,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1255,7 +1383,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1270,12 +1401,18 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1290,20 +1427,28 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1318,7 +1463,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1333,7 +1481,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1348,25 +1499,36 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1381,7 +1543,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1396,17 +1561,26 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -1415,7 +1589,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -1974,13 +2151,18 @@
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
@@ -1994,20 +2176,28 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
@@ -2021,7 +2211,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -2032,7 +2225,10 @@
                                                 ropd: 4,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
@@ -2046,7 +2242,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -2055,7 +2254,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -2095,33 +2297,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::As {
@@ -2135,7 +2350,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -2144,7 +2362,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -2152,12 +2373,18 @@
                                                 opd_hir_expr_idx: 12,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -2166,7 +2393,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -2478,26 +2708,36 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -2524,9 +2764,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                1,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2548,9 +2790,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                3,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2560,33 +2804,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -2613,9 +2870,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                2,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2637,9 +2896,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                3,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -2649,33 +2910,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2690,7 +2964,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2705,25 +2982,36 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2738,7 +3026,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2753,20 +3044,28 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2781,7 +3080,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2796,12 +3098,18 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2816,25 +3124,36 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2849,20 +3168,28 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2877,7 +3204,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2892,30 +3222,44 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2930,7 +3274,10 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2945,17 +3292,26 @@
                                                 ),
                                             ),
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unreachable,
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -2964,7 +3320,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -3833,13 +4192,18 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -3883,33 +4247,46 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -3918,7 +4295,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -3929,7 +4309,10 @@
                                                 ropd: 5,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -3939,39 +4322,54 @@
                                                 ],
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -3980,7 +4378,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -3991,7 +4392,10 @@
                                                 ropd: 10,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -4001,20 +4405,7 @@
                                                 ],
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
-                                            },
-                                            is_ty_always_copyable: false,
-                                        },
-                                        HirEagerExprEntry {
-                                            data: HirEagerExprData::Variable(
-                                                3,
-                                            ),
-                                            ty_place: Ref {
-                                                guard: Left(
+                                                place: Idx(
                                                     PlaceIdx(
                                                         ShiftedU32(
                                                             1,
@@ -4022,7 +4413,30 @@
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
+                                        },
+                                        HirEagerExprEntry {
+                                            data: HirEagerExprData::Variable(
+                                                3,
+                                            ),
+                                            ty_place: Ref {
+                                                guard: Left(
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4038,14 +4452,19 @@
                                             },
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4053,14 +4472,19 @@
                                             ),
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4076,14 +4500,19 @@
                                             },
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4094,7 +4523,10 @@
                                                 ropd: 16,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4108,7 +4540,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4119,7 +4554,10 @@
                                                 ropd: 18,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4127,14 +4565,19 @@
                                             ),
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4150,14 +4593,19 @@
                                             },
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4165,14 +4613,19 @@
                                             ),
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4188,14 +4641,19 @@
                                             },
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4206,7 +4664,10 @@
                                                 ropd: 23,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4220,7 +4681,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4231,7 +4695,10 @@
                                                 ropd: 25,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorFnCall {
@@ -4280,7 +4747,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -4289,7 +4759,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -4521,7 +4994,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -4539,7 +5015,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4548,7 +5027,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4557,20 +5039,28 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4585,20 +5075,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4607,7 +5105,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4618,13 +5119,18 @@
                                                 ropd: 8,
                                             },
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -4634,20 +5140,28 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4662,20 +5176,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -4685,20 +5207,28 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4707,7 +5237,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4718,26 +5251,36 @@
                                                 ropd: 16,
                                             },
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -4746,7 +5289,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4757,39 +5303,54 @@
                                                 ropd: 19,
                                             },
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -4799,39 +5360,54 @@
                                                 ],
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4842,20 +5418,28 @@
                                                 ropd: 25,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4866,20 +5450,28 @@
                                                 ropd: 27,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4890,33 +5482,46 @@
                                                 ropd: 29,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4927,20 +5532,28 @@
                                                 ropd: 32,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            6,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4951,20 +5564,28 @@
                                                 ropd: 34,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            7,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4975,7 +5596,10 @@
                                                 ropd: 36,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -4983,7 +5607,10 @@
                                                 opd_hir_expr_idx: 37,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4994,7 +5621,10 @@
                                                 ropd: 38,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5003,7 +5633,10 @@
                                                 ropd: 39,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5012,7 +5645,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5021,33 +5657,46 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5057,13 +5706,18 @@
                                                 ],
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::NewList {
@@ -5077,46 +5731,64 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        8,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            8,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5126,13 +5798,18 @@
                                                 ],
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -5153,20 +5830,28 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -5181,20 +5866,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5203,7 +5896,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5214,13 +5910,18 @@
                                                 ropd: 55,
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5230,20 +5931,28 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -5258,20 +5967,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5281,46 +5998,64 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        12,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            12,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        13,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            13,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -5347,9 +6082,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            12,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                12,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5371,9 +6108,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            13,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                13,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5395,9 +6134,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5407,46 +6148,64 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        14,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            14,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5455,7 +6214,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5464,7 +6226,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5473,7 +6238,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5482,7 +6250,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -5490,7 +6261,10 @@
                                                 opd_hir_expr_idx: 72,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5499,7 +6273,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -5507,7 +6284,10 @@
                                                 opd_hir_expr_idx: 74,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -5516,7 +6296,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -5524,33 +6307,46 @@
                                                 opd_hir_expr_idx: 76,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 16,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        15,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            15,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5561,33 +6357,46 @@
                                                 ropd: 79,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 17,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        16,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            16,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5598,7 +6407,10 @@
                                                 ropd: 82,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5609,33 +6421,46 @@
                                                 ropd: 83,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        14,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            14,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 18,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        17,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            17,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5646,7 +6471,10 @@
                                                 ropd: 86,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5657,7 +6485,10 @@
                                                 ropd: 87,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -5665,59 +6496,82 @@
                                                 opd_hir_expr_idx: 88,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        12,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            12,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        13,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            13,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        14,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            14,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -5744,9 +6598,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            12,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                12,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5768,9 +6624,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            13,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                13,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5792,9 +6650,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5816,9 +6676,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            14,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                14,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5828,33 +6690,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        14,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            14,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        24,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            24,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -5881,9 +6756,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            14,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                14,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5905,9 +6782,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            24,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                24,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -5917,33 +6796,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5953,39 +6845,54 @@
                                                 ],
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -5995,13 +6902,18 @@
                                                 ],
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6010,20 +6922,28 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6034,7 +6954,10 @@
                                                 ropd: 105,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6042,7 +6965,10 @@
                                                 opd_hir_expr_idx: 106,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6053,7 +6979,10 @@
                                                 ropd: 107,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6062,33 +6991,46 @@
                                                 ropd: 108,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 26,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        25,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            25,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6097,7 +7039,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6105,7 +7050,10 @@
                                                 opd_hir_expr_idx: 112,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6116,20 +7064,28 @@
                                                 ropd: 113,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 20,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        19,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            19,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6138,7 +7094,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6146,7 +7105,10 @@
                                                 opd_hir_expr_idx: 116,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6157,7 +7119,10 @@
                                                 ropd: 117,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6168,20 +7133,28 @@
                                                 ropd: 118,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6190,7 +7163,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6201,7 +7177,10 @@
                                                 ropd: 121,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6212,20 +7191,28 @@
                                                 ropd: 122,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6234,7 +7221,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6242,7 +7232,10 @@
                                                 opd_hir_expr_idx: 125,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6253,7 +7246,10 @@
                                                 ropd: 126,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6264,20 +7260,28 @@
                                                 ropd: 127,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        22,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            22,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6286,7 +7290,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6297,7 +7304,10 @@
                                                 ropd: 130,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6308,20 +7318,28 @@
                                                 ropd: 131,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -6363,9 +7381,11 @@
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            9,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                9,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6379,33 +7399,46 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 134,
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionFnCall {
@@ -6432,9 +7465,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            9,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                9,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6444,7 +7479,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6453,46 +7491,64 @@
                                                 ropd: 137,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -6523,9 +7579,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            10,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                10,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6547,9 +7605,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6559,7 +7619,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -6628,20 +7691,28 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        22,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            22,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6650,7 +7721,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6658,7 +7732,10 @@
                                                 opd_hir_expr_idx: 145,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6667,20 +7744,28 @@
                                                 ropd: 146,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6689,7 +7774,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6697,7 +7785,10 @@
                                                 opd_hir_expr_idx: 149,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6706,20 +7797,28 @@
                                                 ropd: 150,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6728,7 +7827,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -6736,7 +7838,10 @@
                                                 opd_hir_expr_idx: 153,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6747,20 +7852,28 @@
                                                 ropd: 154,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6769,7 +7882,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6780,7 +7896,10 @@
                                                 ropd: 157,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6791,20 +7910,28 @@
                                                 ropd: 158,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -6813,7 +7940,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6824,7 +7954,10 @@
                                                 ropd: 161,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -6835,20 +7968,28 @@
                                                 ropd: 162,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -6890,9 +8031,11 @@
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            9,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                9,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -6906,46 +8049,64 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 165,
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -6976,9 +8137,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            10,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                10,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7000,9 +8163,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7012,7 +8177,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7021,33 +8189,46 @@
                                                 ropd: 169,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        22,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            22,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7056,33 +8237,46 @@
                                                 ropd: 172,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7091,20 +8285,28 @@
                                                 ropd: 175,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7113,7 +8315,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -7121,7 +8326,10 @@
                                                 opd_hir_expr_idx: 178,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7132,20 +8340,28 @@
                                                 ropd: 179,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7154,7 +8370,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7165,7 +8384,10 @@
                                                 ropd: 182,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7176,20 +8398,28 @@
                                                 ropd: 183,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7198,7 +8428,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7209,7 +8442,10 @@
                                                 ropd: 186,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7220,20 +8456,28 @@
                                                 ropd: 187,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7242,7 +8486,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7253,7 +8500,10 @@
                                                 ropd: 190,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7264,20 +8514,28 @@
                                                 ropd: 191,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -7319,9 +8577,11 @@
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
                                                                 MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            9,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                9,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7335,46 +8595,64 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
                                                 opd_hir_expr_idx: 194,
                                             },
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -7405,9 +8683,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            10,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                10,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7429,9 +8709,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7441,7 +8723,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7450,20 +8735,28 @@
                                                 ropd: 198,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        22,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            22,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7472,7 +8765,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -7480,7 +8776,10 @@
                                                 opd_hir_expr_idx: 201,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7489,20 +8788,28 @@
                                                 ropd: 202,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7511,7 +8818,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -7519,7 +8829,10 @@
                                                 opd_hir_expr_idx: 205,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7528,46 +8841,64 @@
                                                 ropd: 206,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -7598,9 +8929,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            10,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                10,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7622,9 +8955,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            11,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                11,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -7634,7 +8969,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -7703,33 +9041,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        22,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            22,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7738,33 +9089,46 @@
                                                 ropd: 214,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7773,20 +9137,28 @@
                                                 ropd: 217,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7795,7 +9167,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7804,33 +9179,46 @@
                                                 ropd: 220,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 20,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        19,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            19,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7839,33 +9227,46 @@
                                                 ropd: 223,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 26,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        25,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            25,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7874,46 +9275,64 @@
                                                 ropd: 226,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        24,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            24,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -7922,7 +9341,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7933,7 +9355,10 @@
                                                 ropd: 231,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7942,33 +9367,46 @@
                                                 ropd: 232,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        13,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            13,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        12,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            12,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -7977,33 +9415,46 @@
                                                 ropd: 235,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        12,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            12,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -8018,20 +9469,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8040,7 +9499,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8051,7 +9513,10 @@
                                                 ropd: 241,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -8061,7 +9526,10 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8070,33 +9538,46 @@
                                                 ropd: 243,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8105,7 +9586,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8116,7 +9600,10 @@
                                                 ropd: 247,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8125,33 +9612,46 @@
                                                 ropd: 248,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        12,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            12,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        13,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            13,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8160,33 +9660,46 @@
                                                 ropd: 251,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        13,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            13,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -8201,20 +9714,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        10,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            10,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -8224,7 +9745,10 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8233,33 +9757,46 @@
                                                 ropd: 257,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8268,7 +9805,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8279,7 +9819,10 @@
                                                 ropd: 261,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8288,33 +9831,46 @@
                                                 ropd: 262,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        11,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            11,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8323,7 +9879,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8334,7 +9893,10 @@
                                                 ropd: 266,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8343,33 +9905,46 @@
                                                 ropd: 267,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        14,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            14,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        24,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            24,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8378,20 +9953,28 @@
                                                 ropd: 270,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8400,7 +9983,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -8408,7 +9994,10 @@
                                                 opd_hir_expr_idx: 273,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8419,20 +10008,28 @@
                                                 ropd: 274,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Suffix {
@@ -8440,20 +10037,28 @@
                                                 opr: Incr,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        18,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            18,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8462,7 +10067,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
@@ -8470,7 +10078,10 @@
                                                 opd_hir_expr_idx: 279,
                                             },
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8481,20 +10092,28 @@
                                                 ropd: 280,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        23,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            23,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8503,7 +10122,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8514,7 +10136,10 @@
                                                 ropd: 283,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8525,20 +10150,28 @@
                                                 ropd: 284,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        21,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            21,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -8547,7 +10180,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8558,7 +10194,10 @@
                                                 ropd: 287,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -8569,20 +10208,28 @@
                                                 ropd: 288,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -8632,46 +10279,64 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        9,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            9,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorFnCall {
@@ -8696,9 +10361,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                1,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -8720,9 +10387,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            9,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                9,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -8732,7 +10401,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -8801,20 +10473,28 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -8823,7 +10503,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -9583,9 +11266,11 @@
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
                                                     expectee_place: MutableStackOwned {
-                                                        location: PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
+                                                        place: Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
                                                             ),
                                                         ),
                                                     },
@@ -10116,13 +11801,18 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10147,13 +11837,18 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::EmptyHtmlTag {
@@ -10172,7 +11867,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -10181,7 +11879,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -10357,7 +12058,10 @@
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -10371,7 +12075,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionFnCall {
@@ -10422,7 +12129,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -10431,7 +12141,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -10547,7 +12260,10 @@
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10572,7 +12288,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -10583,7 +12302,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -10593,14 +12315,20 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10615,14 +12343,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10637,14 +12371,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10659,14 +12399,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10681,14 +12427,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10713,7 +12465,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -10757,14 +12512,20 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10789,20 +12550,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -10812,40 +12581,56 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10860,7 +12645,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -10900,7 +12688,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -10909,40 +12700,56 @@
                                                 ropd: 24,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -10957,7 +12764,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -10997,7 +12807,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -11006,40 +12819,56 @@
                                                 ropd: 30,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -11054,7 +12883,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -11094,7 +12926,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -11103,40 +12938,56 @@
                                                 ropd: 36,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -11151,7 +13002,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -11191,7 +13045,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -11200,33 +13057,46 @@
                                                 ropd: 42,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorFnCall {
@@ -11251,9 +13121,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                1,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -11275,9 +13147,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                2,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -11287,33 +13161,46 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            4,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorFnCall {
@@ -11338,9 +13225,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                3,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -11362,9 +13251,11 @@
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: MutableStackOwned {
-                                                                    location: PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            4,
+                                                                    place: Idx(
+                                                                        PlaceIdx(
+                                                                            ShiftedU32(
+                                                                                4,
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 },
@@ -11374,7 +13265,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorFnCall {
@@ -11423,7 +13317,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -11432,7 +13329,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -11747,7 +13647,10 @@
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -11772,7 +13675,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
@@ -11783,7 +13689,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -11794,7 +13703,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -11804,7 +13716,10 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
@@ -11815,14 +13730,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
@@ -11833,7 +13754,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -11873,7 +13797,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -11882,7 +13809,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -12005,7 +13935,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -12014,14 +13947,20 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12046,7 +13985,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12090,14 +14032,20 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12122,20 +14070,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -12144,7 +14100,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12155,7 +14114,10 @@
                                                 ropd: 9,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -12165,14 +14127,20 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12197,20 +14165,28 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -12220,27 +14196,38 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12255,14 +14242,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12277,7 +14270,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12288,7 +14284,10 @@
                                                 ropd: 20,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12309,14 +14308,20 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12331,14 +14336,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12353,7 +14364,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12364,7 +14378,10 @@
                                                 ropd: 26,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12385,7 +14402,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12396,7 +14416,10 @@
                                                 ropd: 28,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12407,14 +14430,20 @@
                                                 ropd: 29,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12439,14 +14468,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12471,7 +14506,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12515,7 +14553,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -12524,7 +14565,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12535,7 +14579,10 @@
                                                 ropd: 36,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -12545,14 +14592,20 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12577,7 +14630,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -12588,7 +14644,10 @@
                                                 ),
                                             ),
                                             ty_place: Const,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -12598,27 +14657,38 @@
                                                 ],
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12633,14 +14703,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12655,7 +14731,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12666,7 +14745,10 @@
                                                 ropd: 47,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12687,14 +14769,20 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12709,14 +14797,20 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -12731,7 +14825,10 @@
                                                 ),
                                             },
                                             ty_place: Leashed,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12742,7 +14839,10 @@
                                                 ropd: 53,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -12763,7 +14863,10 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12774,7 +14877,10 @@
                                                 ropd: 55,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -12785,20 +14891,28 @@
                                                 ropd: 56,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: MutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -12807,7 +14921,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },
@@ -12916,9 +15033,11 @@
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
                                                     expectee_place: MutableStackOwned {
-                                                        location: PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
+                                                        place: Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
                                                             ),
                                                         ),
                                                     },
@@ -13151,13 +15270,18 @@
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -13182,13 +15306,18 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -13232,20 +15361,28 @@
                                                 item_groups: [],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -13270,39 +15407,54 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -13313,7 +15465,10 @@
                                                 ropd: 7,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -13323,26 +15478,36 @@
                                                 ],
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 1,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -13367,39 +15532,54 @@
                                                 ),
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            3,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
                                             ty_place: ImmutableStackOwned {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            2,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -13410,7 +15590,10 @@
                                                 ropd: 13,
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: true,
+                                            is_always_copyable: true,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -13420,13 +15603,18 @@
                                                 ],
                                             },
                                             ty_place: StackPure {
-                                                location: PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
+                                                place: Idx(
+                                                    PlaceIdx(
+                                                        ShiftedU32(
+                                                            1,
+                                                        ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -13434,14 +15622,19 @@
                                             ),
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -13449,14 +15642,19 @@
                                             ),
                                             ty_place: Ref {
                                                 guard: Left(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodFnCall {
@@ -13491,9 +15689,11 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: Ref {
                                                                     guard: Left(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
+                                                                        Idx(
+                                                                            PlaceIdx(
+                                                                                ShiftedU32(
+                                                                                    1,
+                                                                                ),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -13504,7 +15704,10 @@
                                                 ],
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -13513,7 +15716,10 @@
                                                 ),
                                             },
                                             ty_place: Transient,
-                                            is_ty_always_copyable: false,
+                                            is_always_copyable: false,
+                                            place_contracts: HirEagerPlaceContractSite {
+                                                data: [],
+                                            },
                                         },
                                     ],
                                 },

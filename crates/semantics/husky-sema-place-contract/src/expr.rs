@@ -23,7 +23,6 @@ impl<'a> PlaceContractEngine<'a> {
         outer_contract: Contract,
         outer_site: SemaPlaceContractSite,
     ) {
-        emit_note_on_sema_expr_codespan!(self, expr);
         let (contract, mut site) = if let ExpectationOutcome::Coersion(outcome) = expr
             .expectation_outcome(self.sema_expr_region_data())
             .expect("no semantic expr error at this stage")
@@ -192,14 +191,9 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_expr(arg.expr(), Contract::Pure, Default::default())
                 }
             }
-            SemaExprData::Closure {
-                closure_kind_regional_token_idx,
-                lvert_regional_token_idx,
-                ref parameter_obelisks,
-                rvert_regional_token,
-                return_ty,
-                body,
-            } => todo!(),
+            SemaExprData::Closure { body, .. } => {
+                self.infer_expr(body, Contract::Move, Default::default())
+            }
             // todo: macro arguments
             SemaExprData::Sorry { .. } => (),
             // todo: macro arguments

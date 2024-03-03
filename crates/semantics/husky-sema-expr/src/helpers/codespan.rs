@@ -28,12 +28,6 @@ macro_rules! emit_note_on_sema_expr_codespan {
     }};
 }
 
-#[test]
-fn emit_note_on_sema_expr_codespan_works() {
-    let _ = todo!();
-    let _ = todo!();
-}
-
 #[macro_export]
 macro_rules! convert_expr_message {
     (($expr: expr, $message: expr)) => {{

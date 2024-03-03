@@ -40,6 +40,8 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 # fs
+husky-manifest.workspace = true
+husky-corgi-config.workspace = true
 husky-vfs = { workspace = true, features = ["test_utils"] }
 # kernel
 husky-coword.workspace = true
@@ -51,8 +53,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 # semantics
-husky-manifest.workspace = true
-husky-corgi-config.workspace = true
+husky-sema-place-contract.workspace = true
 # lex
 husky-toml-token.workspace = true
 # syntax

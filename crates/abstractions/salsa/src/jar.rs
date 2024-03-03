@@ -50,11 +50,12 @@ impl Jars {
         let jar: &mut Jar = unsafe { std::mem::transmute(&mut jar_maybe_uninitialized) };
         Jar::initialize(jar, routes);
         let index = <Jar as HasJarIndex>::JAR_INDEX;
-        debug_assert!(self.map[index].is_none());
+        debug_assert!(self.map[index].is_none(), "expect `{index:?}` to be empty");
         self.map[index] =
             Some(unsafe { std::mem::transmute::<_, Box<Jar>>(Box::new(jar_maybe_uninitialized)) })
     }
 
+    #[track_caller]
     pub fn jar<Jar>(&self) -> &Jar
     where
         Jar: HasJarIndex + 'static,

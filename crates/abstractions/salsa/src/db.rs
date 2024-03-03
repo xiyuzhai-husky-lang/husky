@@ -40,6 +40,7 @@ impl Db {
         todo!()
     }
 
+    #[track_caller]
     pub fn jar<Jar>(&self) -> (&Jar, &Runtime)
     where
         Jar: HasJarIndex + 'static,

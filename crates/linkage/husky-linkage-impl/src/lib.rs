@@ -1,4 +1,3 @@
-#![feature(trait_upcasting)]
 #![feature(downcast_unchecked)]
 pub mod any;
 #[cfg(feature = "standard")]
