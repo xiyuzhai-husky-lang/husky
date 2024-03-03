@@ -3,7 +3,6 @@ mod dispatcher;
 use crate::{
     convert::from_lsp_types,
     event_loop::dispatch::dispatcher::{NotificationDispatcher, RequestDispatcher},
-    lsp_ext,
     server::{Server, TaskSet},
     *,
 };
