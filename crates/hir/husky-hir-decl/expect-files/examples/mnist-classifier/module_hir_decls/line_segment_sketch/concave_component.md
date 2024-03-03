@@ -62,7 +62,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -160,7 +160,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
@@ -234,7 +234,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -309,7 +309,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -375,7 +375,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -425,7 +425,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
@@ -477,7 +477,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
@@ -529,7 +529,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
@@ -581,7 +581,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
@@ -633,7 +633,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
@@ -685,7 +685,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
@@ -755,7 +755,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodRitchie(
@@ -827,7 +827,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodRitchie(
@@ -899,7 +899,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodRitchie(
@@ -971,7 +971,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodRitchie(
@@ -1043,7 +1043,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodRitchie(
@@ -1115,7 +1115,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodRitchie(

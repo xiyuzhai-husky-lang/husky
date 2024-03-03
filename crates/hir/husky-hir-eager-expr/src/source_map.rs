@@ -57,6 +57,11 @@ impl HirEagerExprSourceMapData {
             .copied()
     }
 
+    pub fn hir_eager_to_sema_expr_idx(&self, hir_eager_expr: HirEagerExprIdx) -> SemaExprIdx {
+        self.sema_to_hir_eager_expr_idx_map
+            .get_expr_by_value_copied(hir_eager_expr)
+    }
+
     pub fn sema_to_hir_eager_stmt_idx(
         &self,
         sema_stmt_idx: SemaStmtIdx,

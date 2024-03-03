@@ -15,6 +15,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 102,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 68,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -299,11 +326,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -317,11 +340,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -540,6 +559,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [],
@@ -607,6 +632,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 140,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -802,11 +854,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -820,11 +868,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -974,6 +1018,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 140,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1169,11 +1240,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -1187,11 +1254,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -1341,6 +1404,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 140,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1536,11 +1626,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -1554,11 +1640,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -1708,6 +1790,43 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 144,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 145,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 3,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    4,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1959,11 +2078,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -1977,11 +2092,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -1995,11 +2106,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -2180,6 +2287,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 150,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 151,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -2375,11 +2509,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -2393,11 +2523,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -2547,6 +2673,53 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 144,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 145,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 3,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 4,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 155,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    5,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -2854,11 +3027,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -2872,11 +3041,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -2890,11 +3055,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -2908,11 +3069,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                 },
                             ),
@@ -3120,6 +3277,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 157,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 158,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -3271,11 +3455,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -3289,11 +3469,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -3414,6 +3590,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 68,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -3641,11 +3834,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -3840,6 +4029,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 102,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -4112,11 +4318,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -4351,6 +4553,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -4596,6 +4804,14 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    SelfValue,
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -4761,6 +4977,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -4914,6 +5136,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5067,6 +5295,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5220,6 +5454,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5373,6 +5613,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5530,6 +5776,34 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    SelfValue,
+                    Parameter {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 122,
+                                },
+                            ),
+                        ),
+                    },
+                    Parameter {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 123,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    4,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5725,11 +5999,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -5743,11 +6013,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),

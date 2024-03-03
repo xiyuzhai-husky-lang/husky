@@ -22,6 +22,7 @@ parsec.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 # kernel

@@ -12,7 +12,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -97,7 +97,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
@@ -156,7 +156,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -241,7 +241,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
@@ -340,7 +340,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
@@ -399,7 +399,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),

@@ -5,42 +5,42 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                 ],
@@ -53,14 +53,10 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -69,19 +65,15 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -90,14 +82,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -106,24 +94,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -132,14 +116,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -148,14 +128,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -172,14 +148,10 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -188,19 +160,15 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -209,14 +177,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -225,24 +189,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -251,14 +211,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -267,14 +223,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -291,14 +243,10 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -307,19 +255,15 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -328,14 +272,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -344,24 +284,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -370,14 +306,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -386,14 +318,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Move,
                                 ),
@@ -410,115 +338,111 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -527,49 +451,45 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                5,
-                                            ),
-                                        ),
+                                        PlaceIdx(4),
                                     ),
                                     Pure,
                                 ),
@@ -578,24 +498,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -604,24 +520,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     Pure,
                                 ),
@@ -631,14 +543,10 @@
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                     Pure,
                                 ),
@@ -648,14 +556,10 @@
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                     At,
                                 ),
@@ -664,24 +568,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                6,
-                                            ),
-                                        ),
+                                        PlaceIdx(5),
                                     ),
                                     Pure,
                                 ),
@@ -690,29 +590,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     At,
                                 ),
@@ -721,34 +617,30 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     At,
                                 ),
@@ -757,29 +649,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     At,
                                 ),
@@ -788,29 +676,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     At,
                                 ),
@@ -819,29 +703,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     At,
                                 ),
@@ -850,29 +730,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                10,
-                                            ),
-                                        ),
+                                        PlaceIdx(9),
                                     ),
                                     Pure,
                                 ),
@@ -881,14 +757,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                11,
-                                            ),
-                                        ),
+                                        PlaceIdx(10),
                                     ),
                                     Pure,
                                 ),
@@ -897,34 +769,30 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                     At,
                                 ),
@@ -933,29 +801,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                     At,
                                 ),
@@ -964,29 +828,25 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                13,
-                                            ),
-                                        ),
+                                        PlaceIdx(12),
                                     ),
                                     Pure,
                                 ),
@@ -995,14 +855,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                14,
-                                            ),
-                                        ),
+                                        PlaceIdx(13),
                                     ),
                                     Pure,
                                 ),
@@ -1011,34 +867,30 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                12,
-                                            ),
-                                        ),
+                                        PlaceIdx(11),
                                     ),
                                     Pure,
                                 ),
@@ -1047,14 +899,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                15,
-                                            ),
-                                        ),
+                                        PlaceIdx(14),
                                     ),
                                     Pure,
                                 ),
@@ -1063,19 +911,15 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -1084,24 +928,20 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                     Pure,
                                 ),
@@ -1111,14 +951,10 @@
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                     Pure,
                                 ),
@@ -1128,14 +964,10 @@
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                     Pure,
                                 ),
@@ -1145,14 +977,10 @@
                     None,
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                     At,
                                 ),
@@ -1161,39 +989,35 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                     At,
                                 ),
@@ -1202,22 +1026,22 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                 ],

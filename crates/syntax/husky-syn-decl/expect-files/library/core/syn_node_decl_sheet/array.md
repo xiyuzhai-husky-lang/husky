@@ -189,7 +189,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         9,
@@ -211,7 +211,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         12,

@@ -1,7 +1,7 @@
 pub mod dev_paths;
 mod error;
 mod module_tree;
-mod rel;
+pub mod rel;
 pub mod rust;
 #[cfg(test)]
 mod tests;

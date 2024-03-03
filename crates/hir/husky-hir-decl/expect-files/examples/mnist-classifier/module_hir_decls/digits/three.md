@@ -12,7 +12,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
@@ -57,7 +57,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
@@ -142,7 +142,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
@@ -241,7 +241,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
@@ -340,7 +340,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::digits::three::back`, `Ritchie(

@@ -5,14 +5,10 @@
                 data: [
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -21,14 +17,10 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [
+                            place_contracts: [
                                 (
                                     Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     Pure,
                                 ),
@@ -37,12 +29,12 @@
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                     Some(
                         SemaPlaceContractSite {
-                            place_contract_map: [],
+                            place_contracts: [],
                         },
                     ),
                 ],

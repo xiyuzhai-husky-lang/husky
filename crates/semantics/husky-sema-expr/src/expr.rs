@@ -484,6 +484,18 @@ impl<V> SemaExprMap<V> {
         self.0.get(expr.0)
     }
 
+    pub fn get_expr_by_value_copied(&self, v: V) -> SemaExprIdx
+    where
+        V: PartialEq + Copy,
+    {
+        SemaExprIdx(
+            self.0
+                .key_value_iter()
+                .find_map(|(expr, &v1)| (v == v1).then_some(expr))
+                .unwrap(),
+        )
+    }
+
     pub fn iter(&self) -> impl Iterator<Item = (SemaExprIdx, &V)> {
         self.0
             .key_value_iter()

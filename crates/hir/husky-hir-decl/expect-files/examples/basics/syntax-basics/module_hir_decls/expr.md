@@ -20,7 +20,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
@@ -75,7 +75,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
@@ -130,7 +130,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(

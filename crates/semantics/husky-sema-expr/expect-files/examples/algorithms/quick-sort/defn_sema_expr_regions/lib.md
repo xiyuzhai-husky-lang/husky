@@ -19,6 +19,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -40,11 +57,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -61,11 +74,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -97,22 +106,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -151,11 +152,7 @@
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                             lifetime: None,
                                                         },
@@ -294,11 +291,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -315,11 +308,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -419,11 +408,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -439,11 +424,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -649,11 +630,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: RefMut {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                     lifetime: None,
                                                                 },
@@ -968,11 +945,7 @@
                             place: Some(
                                 RefMut {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     lifetime: None,
                                 },
@@ -989,11 +962,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -1150,11 +1119,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -1299,11 +1264,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -1320,11 +1281,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -1458,11 +1415,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -1487,11 +1440,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -1712,6 +1661,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1733,11 +1699,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -1753,11 +1715,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -1786,11 +1744,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -1806,11 +1760,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -1950,11 +1900,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -1971,11 +1917,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -2005,11 +1947,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -2025,11 +1963,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -2058,11 +1992,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -2078,11 +2008,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -2129,11 +2055,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: RefMut {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                     lifetime: None,
                                                                 },
@@ -2168,11 +2090,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -2206,11 +2124,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                3,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(2),
                                                                     ),
                                                                 },
                                                             },
@@ -2330,11 +2244,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -2351,11 +2261,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -2385,11 +2291,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -2405,11 +2307,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -2438,11 +2336,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -2458,11 +2352,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -2591,11 +2481,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: RefMut {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                     lifetime: None,
                                                                 },
@@ -2630,11 +2516,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -2784,11 +2666,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -2805,11 +2683,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -2839,11 +2713,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -2859,11 +2729,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -2974,11 +2840,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -2994,11 +2856,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -3045,11 +2903,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: RefMut {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                     lifetime: None,
                                                                 },
@@ -3114,11 +2968,7 @@
                                                             TrivialFlyCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                3,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(2),
                                                                     ),
                                                                 },
                                                             },
@@ -3427,11 +3277,7 @@
                             place: Some(
                                 RefMut {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     lifetime: None,
                                 },
@@ -3446,11 +3292,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -3464,11 +3306,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -3484,11 +3322,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -3859,11 +3693,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -3888,11 +3718,7 @@
                                             place: Some(
                                                 StackPure {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                2,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -3912,11 +3738,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -3932,11 +3754,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(2),
                                                                 ),
                                                             },
                                                         },
@@ -4076,11 +3894,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -4097,11 +3911,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -4171,11 +3981,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -4191,11 +3997,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -4228,11 +4030,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -4248,11 +4046,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(2),
                                                                 ),
                                                             },
                                                         },
@@ -4390,11 +4184,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -4411,11 +4201,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -4485,11 +4271,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -4505,11 +4287,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -4534,11 +4312,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -4563,11 +4337,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -4786,11 +4556,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -4807,11 +4573,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -4873,11 +4635,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -4902,11 +4660,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -5006,11 +4760,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -5026,11 +4776,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: StackPure {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(2),
                                                                 ),
                                                             },
                                                         },
@@ -5120,6 +4866,43 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 3,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    4,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -5174,11 +4957,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -5194,11 +4973,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -5270,11 +5045,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -5290,11 +5061,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -5405,11 +5172,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -5425,11 +5188,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -5493,11 +5252,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -5513,11 +5268,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -5628,11 +5379,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -5649,11 +5396,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -5716,11 +5459,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -5736,11 +5475,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -5818,22 +5553,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -5854,11 +5581,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -5875,11 +5598,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -5909,11 +5628,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -5930,11 +5645,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -5964,11 +5675,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -5984,11 +5691,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -6023,22 +5726,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6059,11 +5754,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -6080,11 +5771,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6159,11 +5846,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -6179,11 +5862,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -6294,11 +5973,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -6314,11 +5989,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -6429,11 +6100,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -6449,11 +6116,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -6564,11 +6227,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -6585,11 +6244,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6652,11 +6307,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -6672,11 +6323,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -6754,22 +6401,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6790,11 +6429,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -6811,11 +6446,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6845,11 +6476,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -6866,11 +6493,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6900,11 +6523,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -6920,11 +6539,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -6959,22 +6574,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -6995,11 +6602,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -7016,11 +6619,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -7140,11 +6739,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -7160,11 +6755,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -7275,11 +6866,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -7295,11 +6882,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -7328,11 +6911,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -7348,11 +6927,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -7426,11 +7001,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -7447,11 +7018,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -7514,11 +7081,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -7534,11 +7097,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -7643,11 +7202,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -7663,11 +7218,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -7741,22 +7292,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -7818,11 +7361,7 @@
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                             lifetime: None,
                                                         },
@@ -7956,11 +7495,7 @@
                                     place: Some(
                                         RefMut {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                             lifetime: None,
                                         },
@@ -7977,11 +7512,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -8044,11 +7575,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -8064,11 +7591,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -8173,11 +7696,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -8193,11 +7712,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -8271,22 +7786,14 @@
                                         indirections: FlyIndirections {
                                             initial_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
                                             indirections: [],
                                             final_place: RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -8348,11 +7855,7 @@
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                             lifetime: None,
                                                         },
@@ -8486,11 +7989,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -8506,11 +8005,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -8536,11 +8031,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -8556,11 +8047,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -9068,11 +8555,7 @@
                                                     TrivialFlyCoersion {
                                                         expectee_place: MutableStackOwned {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        2,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(1),
                                                             ),
                                                         },
                                                     },
@@ -9088,11 +8571,7 @@
                                     place: Some(
                                         MutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -9163,11 +8642,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -9241,11 +8716,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -9469,11 +8940,7 @@
                             place: Some(
                                 RefMut {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                     lifetime: None,
                                 },
@@ -9488,11 +8955,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -9506,11 +8969,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -9526,11 +8985,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -9544,11 +8999,7 @@
                             place: Some(
                                 MutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -9562,11 +9013,7 @@
                             place: Some(
                                 MutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -9653,11 +9100,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -9713,11 +9156,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -9742,11 +9181,7 @@
                                             place: Some(
                                                 StackPure {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                2,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -9824,11 +9259,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -9888,11 +9319,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10003,11 +9430,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10077,11 +9500,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10137,11 +9556,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10173,11 +9588,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10209,11 +9620,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -10238,11 +9645,7 @@
                                             place: Some(
                                                 RefMut {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                     lifetime: None,
                                                 },
@@ -10263,11 +9666,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10284,11 +9683,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -10341,11 +9736,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10456,11 +9847,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -10571,11 +9958,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -10600,11 +9983,7 @@
                                             place: Some(
                                                 MutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                3,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(2),
                                                     ),
                                                 },
                                             ),
@@ -10696,11 +10075,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10770,11 +10145,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -10830,11 +10201,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10866,11 +10233,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10902,11 +10265,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -10931,11 +10290,7 @@
                                             place: Some(
                                                 RefMut {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                     lifetime: None,
                                                 },
@@ -10956,11 +10311,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -10977,11 +10328,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: RefMut {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                                 lifetime: None,
                                                             },
@@ -11073,11 +10420,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -11188,11 +10531,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -11217,11 +10556,7 @@
                                             place: Some(
                                                 MutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                2,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -11241,11 +10576,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -11261,11 +10592,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            3,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(2),
                                                                 ),
                                                             },
                                                         },
@@ -11317,11 +10644,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -11391,11 +10714,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -11503,11 +10822,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -11616,11 +10931,7 @@
                                         place: Some(
                                             RefMut {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 lifetime: None,
                                             },
@@ -11690,11 +11001,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -11802,11 +11109,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -11923,11 +11226,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -11943,11 +11242,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -11980,11 +11275,7 @@
                                         place: Some(
                                             MutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -12000,11 +11291,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: MutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -12046,6 +11333,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -13019,11 +12323,7 @@
                             place: Some(
                                 MutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -13722,6 +13022,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -14261,11 +13578,7 @@
                             place: Some(
                                 MutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),

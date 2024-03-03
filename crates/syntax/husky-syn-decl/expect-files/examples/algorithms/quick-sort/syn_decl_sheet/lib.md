@@ -199,7 +199,7 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
@@ -220,7 +220,7 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         13,
@@ -603,7 +603,7 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
@@ -624,7 +624,7 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
@@ -635,7 +635,7 @@ SynDeclSheet {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
@@ -646,7 +646,7 @@ SynDeclSheet {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
@@ -1104,7 +1104,7 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
@@ -1125,7 +1125,7 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
@@ -1136,7 +1136,7 @@ SynDeclSheet {
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
@@ -1147,7 +1147,7 @@ SynDeclSheet {
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,

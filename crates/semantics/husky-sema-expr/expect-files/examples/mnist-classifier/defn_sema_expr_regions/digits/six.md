@@ -15,6 +15,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -695,6 +701,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1472,6 +1484,83 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 319,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 3,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 320,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 4,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 321,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 5,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 322,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 6,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 323,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 7,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 324,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 9,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 325,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    8,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -1708,11 +1797,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -1728,11 +1813,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -3272,11 +3353,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -3292,11 +3369,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -3452,11 +3525,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
-                                                    ),
-                                                ),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -3472,11 +3541,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -3497,11 +3562,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -3522,21 +3583,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         },
@@ -3557,11 +3610,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
-                                                    ),
-                                                ),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -3577,11 +3626,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -3610,11 +3655,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -3630,11 +3671,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -4180,11 +4217,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        3,
-                                                    ),
-                                                ),
+                                                PlaceIdx(2),
                                             ),
                                         },
                                     ),
@@ -4200,11 +4233,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -4272,11 +4301,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        5,
-                                                    ),
-                                                ),
+                                                PlaceIdx(4),
                                             ),
                                         },
                                     ),
@@ -4292,11 +4317,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            5,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -4668,11 +4689,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
-                                                    ),
-                                                ),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -4688,11 +4705,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -4775,11 +4788,7 @@
                                                                 TrivialFlyCoersion {
                                                                     expectee_place: ImmutableStackOwned {
                                                                         place: Idx(
-                                                                            PlaceIdx(
-                                                                                ShiftedU32(
-                                                                                    6,
-                                                                                ),
-                                                                            ),
+                                                                            PlaceIdx(5),
                                                                         ),
                                                                     },
                                                                 },
@@ -5168,11 +5177,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -5188,11 +5193,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -5560,11 +5561,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        6,
-                                                    ),
-                                                ),
+                                                PlaceIdx(5),
                                             ),
                                         },
                                     ),
@@ -5580,11 +5577,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -5661,11 +5654,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -5681,11 +5670,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -5988,11 +5973,7 @@
                                                                 TrivialFlyCoersion {
                                                                     expectee_place: ImmutableStackOwned {
                                                                         place: Idx(
-                                                                            PlaceIdx(
-                                                                                ShiftedU32(
-                                                                                    6,
-                                                                                ),
-                                                                            ),
+                                                                            PlaceIdx(5),
                                                                         ),
                                                                     },
                                                                 },
@@ -6034,11 +6015,7 @@
                                                                 TrivialFlyCoersion {
                                                                     expectee_place: ImmutableStackOwned {
                                                                         place: Idx(
-                                                                            PlaceIdx(
-                                                                                ShiftedU32(
-                                                                                    2,
-                                                                                ),
-                                                                            ),
+                                                                            PlaceIdx(1),
                                                                         ),
                                                                     },
                                                                 },
@@ -6232,11 +6209,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
-                                                    ),
-                                                ),
+                                                PlaceIdx(6),
                                             ),
                                         },
                                     ),
@@ -6252,11 +6225,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -6277,11 +6246,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -6302,21 +6267,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         },
@@ -6337,11 +6294,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        7,
-                                                    ),
-                                                ),
+                                                PlaceIdx(6),
                                             ),
                                         },
                                     ),
@@ -6357,11 +6310,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -8737,11 +8686,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -8757,11 +8702,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -10047,11 +9988,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -10171,11 +10108,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                 },
                             ),
@@ -10241,11 +10174,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -10418,11 +10347,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        4,
-                                                    ),
-                                                ),
+                                                PlaceIdx(3),
                                             ),
                                         },
                                     ),
@@ -10783,11 +10708,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -10811,11 +10732,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -10829,11 +10746,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                3,
-                                            ),
-                                        ),
+                                        PlaceIdx(2),
                                     ),
                                 },
                             ),
@@ -10847,11 +10760,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                4,
-                                            ),
-                                        ),
+                                        PlaceIdx(3),
                                     ),
                                 },
                             ),
@@ -10865,11 +10774,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                5,
-                                            ),
-                                        ),
+                                        PlaceIdx(4),
                                     ),
                                 },
                             ),
@@ -10883,11 +10788,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                6,
-                                            ),
-                                        ),
+                                        PlaceIdx(5),
                                     ),
                                 },
                             ),
@@ -10911,11 +10812,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                7,
-                                            ),
-                                        ),
+                                        PlaceIdx(6),
                                     ),
                                 },
                             ),
@@ -11170,11 +11067,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                5,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(4),
                                                     ),
                                                 },
                                             ),
@@ -11189,11 +11082,7 @@
                                                 place: Some(
                                                     ImmutableStackOwned {
                                                         place: Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    5,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(4),
                                                         ),
                                                     },
                                                 ),
@@ -12230,11 +12119,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -13250,11 +13135,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -13335,11 +13216,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -13370,11 +13247,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                         ),
@@ -13405,11 +13278,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -13695,11 +13564,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                         ),
@@ -13757,11 +13622,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            5,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                         ),
@@ -13815,11 +13676,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                5,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(4),
                                                     ),
                                                 },
                                             ),
@@ -14099,11 +13956,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -14119,11 +13972,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            6,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(5),
                                                                 ),
                                                             },
                                                         },
@@ -14508,11 +14357,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -14733,11 +14578,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            6,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(5),
                                                 ),
                                             },
                                         ),
@@ -14753,11 +14594,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            6,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(5),
                                                                 ),
                                                             },
                                                         },
@@ -14831,11 +14668,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -14851,11 +14684,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            2,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(1),
                                                                 ),
                                                             },
                                                         },
@@ -15180,11 +15009,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -15215,11 +15040,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            7,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(6),
                                                 ),
                                             },
                                         ),
@@ -15244,11 +15065,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                7,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(6),
                                                     ),
                                                 },
                                             ),
@@ -16932,11 +16749,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -16961,11 +16774,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                2,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -17216,6 +17025,23 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 230,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    2,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -17237,11 +17063,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17257,11 +17079,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17292,11 +17110,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -17394,11 +17208,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17414,11 +17224,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17439,11 +17245,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17464,21 +17266,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         },
@@ -17499,11 +17293,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17519,11 +17309,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17638,11 +17424,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17658,11 +17440,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17683,11 +17461,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17708,21 +17482,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         },
@@ -17743,11 +17509,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17763,11 +17525,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17793,11 +17551,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -17813,11 +17567,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -17919,11 +17669,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -18017,11 +17763,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -18037,11 +17779,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -18083,11 +17821,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18143,11 +17877,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18178,11 +17908,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18207,11 +17933,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -18291,11 +18013,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18334,11 +18052,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18379,11 +18093,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18433,6 +18143,33 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [
+                    Variable {
+                        current_syn_symbol_idx: 1,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 230,
+                                },
+                            ),
+                        ),
+                    },
+                    Variable {
+                        current_syn_symbol_idx: 2,
+                        ident: Ident(
+                            Coword(
+                                Id {
+                                    value: 326,
+                                },
+                            ),
+                        ),
+                    },
+                ],
+                next: ShiftedU32(
+                    3,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [
@@ -18454,11 +18191,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -18474,11 +18207,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18509,11 +18238,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -18611,11 +18336,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -18631,11 +18352,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18656,11 +18373,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18681,21 +18394,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         },
@@ -18716,11 +18421,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -18736,11 +18437,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18899,11 +18596,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -18919,11 +18612,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18944,11 +18633,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -18969,21 +18654,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         },
@@ -19004,11 +18681,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -19024,11 +18697,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19057,11 +18726,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -19077,11 +18742,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19102,11 +18763,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19127,21 +18784,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         },
@@ -19162,11 +18811,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -19182,11 +18827,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19474,11 +19115,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -19494,11 +19131,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19519,11 +19152,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19544,11 +19173,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -19805,11 +19430,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -19825,11 +19446,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19850,11 +19467,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -19875,11 +19488,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -20023,11 +19632,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -20043,11 +19648,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -20078,11 +19679,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -20313,11 +19910,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -20333,11 +19926,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -20358,11 +19947,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -20383,21 +19968,13 @@
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         },
@@ -20418,11 +19995,7 @@
                                     place: Some(
                                         ImmutableStackOwned {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        2,
-                                                    ),
-                                                ),
+                                                PlaceIdx(1),
                                             ),
                                         },
                                     ),
@@ -20438,11 +20011,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -20557,11 +20126,7 @@
                                     place: Some(
                                         StackPure {
                                             place: Idx(
-                                                PlaceIdx(
-                                                    ShiftedU32(
-                                                        1,
-                                                    ),
-                                                ),
+                                                PlaceIdx(0),
                                             ),
                                         },
                                     ),
@@ -20577,11 +20142,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -20612,11 +20173,7 @@
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             indirections: [
@@ -21219,11 +20776,7 @@
                             place: Some(
                                 StackPure {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -21239,11 +20792,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                1,
-                                            ),
-                                        ),
+                                        PlaceIdx(0),
                                     ),
                                 },
                             ),
@@ -21257,11 +20806,7 @@
                             place: Some(
                                 ImmutableStackOwned {
                                     place: Idx(
-                                        PlaceIdx(
-                                            ShiftedU32(
-                                                2,
-                                            ),
-                                        ),
+                                        PlaceIdx(1),
                                     ),
                                 },
                             ),
@@ -21294,11 +20839,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -21313,11 +20854,7 @@
                                                 place: Some(
                                                     ImmutableStackOwned {
                                                         place: Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                     },
                                                 ),
@@ -21353,11 +20890,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21413,11 +20946,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21448,11 +20977,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21506,11 +21031,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -21592,11 +21113,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21627,11 +21144,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21662,11 +21175,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21691,11 +21200,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                1,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(0),
                                                     ),
                                                 },
                                             ),
@@ -21715,11 +21220,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -21735,11 +21236,7 @@
                                                         TrivialFlyCoersion {
                                                             expectee_place: ImmutableStackOwned {
                                                                 place: Idx(
-                                                                    PlaceIdx(
-                                                                        ShiftedU32(
-                                                                            1,
-                                                                        ),
-                                                                    ),
+                                                                    PlaceIdx(0),
                                                                 ),
                                                             },
                                                         },
@@ -21907,11 +21404,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -22062,11 +21555,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -22151,11 +21640,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),
@@ -22250,11 +21735,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -22285,11 +21766,7 @@
                                         place: Some(
                                             ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                         ),
@@ -22314,11 +21791,7 @@
                                             place: Some(
                                                 ImmutableStackOwned {
                                                     place: Idx(
-                                                        PlaceIdx(
-                                                            ShiftedU32(
-                                                                2,
-                                                            ),
-                                                        ),
+                                                        PlaceIdx(1),
                                                     ),
                                                 },
                                             ),
@@ -22398,11 +21871,7 @@
                                         place: Some(
                                             StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                         ),

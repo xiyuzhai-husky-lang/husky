@@ -4,6 +4,7 @@ use husky_eth_term::{
     fmt::EthTermFmtContext,
     term::{svar::EthSvar, EthTerm},
 };
+use husky_place::PlaceRegistry;
 use husky_term_prelude::symbol::SymbolName;
 use salsa::fmt::WithFmtContext;
 use vec_like::{VecMap, VecPairMap};
@@ -73,6 +74,7 @@ fn sema_expr_region_eth_term_fmt_context(
 impl SemaExprRegion {
     pub(crate) fn new(
         path: RegionPath,
+        place_registry: PlaceRegistry,
         syn_expr_region: SynExprRegion,
         sema_expr_arena: SemaExprArena,
         sema_stmt_arena: SemaStmtArena,
@@ -93,6 +95,7 @@ impl SemaExprRegion {
             syn_expr_region,
             SemaExprRegionData {
                 path,
+                place_registry,
                 sema_expr_arena,
                 sema_stmt_arena,
                 sema_expr_roots,
@@ -113,6 +116,7 @@ impl SemaExprRegion {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRegionData {
     path: RegionPath,
+    place_registry: PlaceRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -207,6 +211,10 @@ impl SemaExprRegionData {
 
     pub fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
+    }
+
+    pub fn place_registry(&self) -> &PlaceRegistry {
+        &self.place_registry
     }
 }
 

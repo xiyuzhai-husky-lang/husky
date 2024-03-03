@@ -1,6 +1,6 @@
 use either::*;
 use husky_fly_term::{FlyLifetime, FlyQuary};
-use husky_place::{place::Place, PlaceIdx};
+use husky_place::place::Place;
 
 use crate::lifetime::HirLifetime;
 

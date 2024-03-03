@@ -28,7 +28,7 @@
                             ],
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::vec::Vec`, `Extern`),
@@ -129,7 +129,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -218,7 +218,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
@@ -326,7 +326,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
@@ -460,7 +460,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
@@ -581,7 +581,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
@@ -687,7 +687,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
@@ -803,7 +803,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
@@ -942,7 +942,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
@@ -1116,7 +1116,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(

@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_expr::{
-    AllowSelfValue, CurrentSynSymbol, CurrentSynSymbolData, InheritedSynSymbol,
+    AllowSelfValue, CurrentSynSymbolData, CurrentSynSymbolEntry, InheritedSynSymbol,
     InheritedSynSymbolKind, SynSymbolMap, VariableRegionData,
 };
 use idx_arena::ArenaIdx;
@@ -124,7 +124,7 @@ impl HirEagerRuntimeSvarEntry {
         Some(Self { name, data })
     }
 
-    fn from_current_syn(current_syn_symbol: &CurrentSynSymbol) -> Option<Self> {
+    fn from_current_syn(current_syn_symbol: &CurrentSynSymbolEntry) -> Option<Self> {
         let name = match current_syn_symbol.data() {
             CurrentSynSymbolData::SelfValue {
                 symbol_modifier_keyword_group: _,

@@ -34,7 +34,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -115,7 +115,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -196,7 +196,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -277,7 +277,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -358,7 +358,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -439,7 +439,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -507,7 +507,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -593,7 +593,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
@@ -656,7 +656,7 @@
                         (
                             10,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssocRitchie(
@@ -675,8 +675,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -685,23 +685,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -718,8 +710,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -735,8 +727,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -747,8 +739,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -757,23 +749,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -790,8 +774,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -807,8 +791,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -859,8 +843,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -871,8 +855,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -961,7 +945,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
@@ -1003,7 +987,7 @@
                         (
                             6,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodRitchie(
@@ -1020,23 +1004,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -1057,23 +1033,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -1086,23 +1054,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -1123,23 +1083,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -1170,11 +1122,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                 },
                                                             },
@@ -1196,11 +1144,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                 },
                                                             },
@@ -1210,8 +1154,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1222,8 +1166,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -1318,7 +1262,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
@@ -1371,7 +1315,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodRitchie(
@@ -1388,23 +1332,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1425,23 +1361,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1454,23 +1382,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1491,23 +1411,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1524,8 +1436,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1534,23 +1446,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1571,23 +1475,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1600,23 +1496,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1637,23 +1525,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1670,8 +1550,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1722,8 +1602,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1734,8 +1614,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -1824,7 +1704,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
@@ -1866,7 +1746,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodRitchie(
@@ -1883,23 +1763,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1920,23 +1792,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1949,23 +1813,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -1986,23 +1842,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2019,8 +1867,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2029,23 +1877,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2066,23 +1906,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2095,23 +1927,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2132,23 +1956,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2165,8 +1981,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2179,8 +1995,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2203,8 +2019,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2215,8 +2031,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -2311,7 +2127,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
@@ -2364,7 +2180,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodRitchie(
@@ -2381,23 +2197,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2410,23 +2218,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -2466,11 +2266,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -2480,8 +2276,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2504,8 +2300,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2516,8 +2312,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -2593,7 +2389,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -2666,7 +2462,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
@@ -2708,7 +2504,7 @@
                         (
                             6,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodRitchie(
@@ -2725,23 +2521,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -2762,23 +2550,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -2791,23 +2571,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -2828,23 +2600,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -2875,11 +2639,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                 },
                                                             },
@@ -2901,11 +2661,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                1,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(0),
                                                                     ),
                                                                 },
                                                             },
@@ -2915,8 +2671,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2927,8 +2683,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -3023,7 +2779,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
@@ -3076,7 +2832,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodRitchie(
@@ -3093,23 +2849,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3130,23 +2878,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3159,23 +2899,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3196,23 +2928,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3229,8 +2953,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3239,23 +2963,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3276,23 +2992,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3305,23 +3013,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3342,23 +3042,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3375,8 +3067,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3427,8 +3119,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3439,8 +3131,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -3529,7 +3221,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
@@ -3571,7 +3263,7 @@
                         (
                             13,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodRitchie(
@@ -3588,23 +3280,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3625,23 +3309,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3654,23 +3330,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3691,23 +3359,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3724,8 +3384,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3734,23 +3394,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3771,23 +3423,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3800,23 +3444,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3837,23 +3473,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -3870,8 +3498,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3884,8 +3512,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3908,8 +3536,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3920,8 +3548,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -4016,7 +3644,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
@@ -4069,7 +3697,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodRitchie(
@@ -4086,23 +3714,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4123,23 +3743,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4152,23 +3764,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4189,23 +3793,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4222,8 +3818,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4232,23 +3828,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4269,23 +3857,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4298,23 +3878,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4335,23 +3907,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4368,8 +3932,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4382,8 +3946,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4394,8 +3958,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -4496,7 +4060,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
@@ -4549,7 +4113,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodRitchie(
@@ -4566,23 +4130,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4603,23 +4159,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4632,23 +4180,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4669,23 +4209,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4702,8 +4234,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4712,23 +4244,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4749,23 +4273,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4778,23 +4294,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4815,23 +4323,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -4848,8 +4348,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4862,8 +4362,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4874,8 +4374,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -4976,7 +4476,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
@@ -5029,7 +4529,7 @@
                         (
                             28,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodRitchie(
@@ -5046,23 +4546,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5083,23 +4575,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5112,23 +4596,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5155,8 +4631,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5169,8 +4645,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5186,8 +4662,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5229,8 +4705,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5239,23 +4715,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5275,8 +4743,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5289,8 +4757,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5306,8 +4774,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5320,8 +4788,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5330,23 +4798,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5366,8 +4826,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5383,8 +4843,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5394,8 +4854,8 @@
                                             },
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5404,23 +4864,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5441,23 +4893,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5484,8 +4928,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5501,8 +4945,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5511,23 +4955,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5554,8 +4990,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5568,8 +5004,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5585,8 +5021,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5599,8 +5035,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5616,8 +5052,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5630,8 +5066,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5642,8 +5078,8 @@
                                             },
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -5824,7 +5260,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
@@ -5877,7 +5313,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodRitchie(
@@ -5894,23 +5330,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5923,23 +5351,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -5979,11 +5399,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -5993,8 +5409,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6017,8 +5433,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6029,8 +5445,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -6142,7 +5558,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
@@ -6205,7 +5621,7 @@
                         (
                             41,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodRitchie(
@@ -6222,23 +5638,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6265,8 +5673,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6275,23 +5683,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6311,8 +5711,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6325,8 +5725,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6335,23 +5735,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6378,8 +5770,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6388,23 +5780,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    3,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(2),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6424,8 +5808,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6438,8 +5822,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6448,23 +5832,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6477,23 +5853,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6533,11 +5901,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -6547,8 +5911,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6557,23 +5921,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6586,23 +5942,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    3,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(2),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6619,8 +5967,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6633,8 +5981,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6650,8 +5998,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6693,8 +6041,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6703,23 +6051,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    4,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(3),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6739,8 +6079,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6753,8 +6093,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6770,8 +6110,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6784,8 +6124,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6794,23 +6134,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    3,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(2),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6830,8 +6162,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6847,8 +6179,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6858,8 +6190,8 @@
                                             },
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6868,23 +6200,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6897,23 +6221,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -6953,11 +6269,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -6967,8 +6279,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6984,8 +6296,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6994,23 +6306,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    4,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(3),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7037,8 +6341,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7051,8 +6355,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7061,23 +6365,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            5,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(4),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    5,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(4),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7097,8 +6393,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7111,8 +6407,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7128,8 +6424,8 @@
                                             ),
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7142,8 +6438,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7154,8 +6450,8 @@
                                             },
                                             ty_place: Const,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -7386,7 +6682,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -7471,7 +6767,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
@@ -7524,7 +6820,7 @@
                         (
                             28,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodRitchie(
@@ -7541,23 +6837,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7578,23 +6866,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7607,23 +6887,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7644,23 +6916,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7677,8 +6941,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7687,23 +6951,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7724,23 +6980,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7753,23 +7001,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7790,23 +7030,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7823,8 +7055,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7833,23 +7065,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7870,23 +7094,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7899,23 +7115,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7936,23 +7144,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -7969,8 +7169,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7979,23 +7179,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8012,8 +7204,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8022,23 +7214,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8059,23 +7243,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8088,23 +7264,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8125,23 +7293,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8158,8 +7318,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8168,23 +7328,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8201,8 +7353,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8211,23 +7363,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            3,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(2),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    3,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(2),
                                                         ),
                                                         Move,
                                                     ),
@@ -8240,23 +7384,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            4,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(3),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    4,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(3),
                                                         ),
                                                         Move,
                                                     ),
@@ -8287,11 +7423,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                3,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(2),
                                                                     ),
                                                                 },
                                                             },
@@ -8313,11 +7445,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: ImmutableStackOwned {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                4,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(3),
                                                                     ),
                                                                 },
                                                             },
@@ -8327,8 +7455,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8339,8 +7467,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -8505,7 +7633,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
@@ -8558,7 +7686,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodRitchie(
@@ -8575,23 +7703,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8612,23 +7732,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8641,23 +7753,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8678,23 +7782,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8711,8 +7807,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8721,23 +7817,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8750,23 +7838,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8787,23 +7867,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8820,8 +7892,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8830,23 +7902,15 @@
                                             ),
                                             ty_place: ImmutableStackOwned {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -8863,8 +7927,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8875,8 +7939,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -8972,7 +8036,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -9057,7 +8121,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
@@ -9110,7 +8174,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodRitchie(
@@ -9127,23 +8191,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9164,23 +8220,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9193,23 +8241,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9230,23 +8270,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9286,11 +8318,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -9300,8 +8328,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9310,23 +8338,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9347,23 +8367,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9376,23 +8388,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9413,23 +8417,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9469,11 +8465,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -9483,8 +8475,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9535,8 +8527,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9547,8 +8539,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -9649,7 +8641,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
@@ -9702,7 +8694,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodRitchie(
@@ -9719,23 +8711,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9756,23 +8740,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9785,23 +8761,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9822,23 +8790,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9878,11 +8838,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -9892,8 +8848,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9902,23 +8858,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9939,23 +8887,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Pure,
                                                     ),
@@ -9968,23 +8908,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -10005,23 +8937,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            2,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(1),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    2,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(1),
                                                         ),
                                                         Pure,
                                                     ),
@@ -10061,11 +8985,7 @@
                                                             TrivialHirEagerCoersion {
                                                                 expectee_place: StackPure {
                                                                     place: Idx(
-                                                                        PlaceIdx(
-                                                                            ShiftedU32(
-                                                                                2,
-                                                                            ),
-                                                                        ),
+                                                                        PlaceIdx(1),
                                                                     ),
                                                                 },
                                                             },
@@ -10075,8 +8995,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10127,8 +9047,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10139,8 +9059,8 @@
                                             },
                                             ty_place: Transient,
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [],
                                             },
                                         },
                                     ],
@@ -10229,7 +9149,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
@@ -10271,7 +9191,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodRitchie(
@@ -10288,23 +9208,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10325,23 +9237,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10362,23 +9266,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10393,23 +9289,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10427,11 +9315,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -10504,7 +9388,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
@@ -10546,7 +9430,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodRitchie(
@@ -10563,23 +9447,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10600,23 +9476,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10637,23 +9505,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10668,23 +9528,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10702,11 +9554,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -10779,7 +9627,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
@@ -10821,7 +9669,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodRitchie(
@@ -10838,23 +9686,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10875,23 +9715,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10912,23 +9744,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10943,23 +9767,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -10977,11 +9793,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -11054,7 +9866,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
@@ -11096,7 +9908,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodRitchie(
@@ -11113,23 +9925,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11150,23 +9954,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11187,23 +9983,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11218,23 +10006,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11252,11 +10032,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -11316,7 +10092,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
@@ -11389,7 +10165,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
@@ -11431,7 +10207,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodRitchie(
@@ -11448,23 +10224,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11485,23 +10253,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11522,23 +10282,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11553,23 +10305,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11587,11 +10331,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -11664,7 +10404,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
@@ -11706,7 +10446,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodRitchie(
@@ -11723,23 +10463,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11760,23 +10492,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11797,23 +10521,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11828,23 +10544,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -11862,11 +10570,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -11939,7 +10643,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
@@ -11981,7 +10685,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodRitchie(
@@ -11998,23 +10702,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12035,23 +10731,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12072,23 +10760,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12103,23 +10783,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12137,11 +10809,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },
@@ -12214,7 +10882,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            path: RegionPath::Decl(
+                            region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
@@ -12256,7 +10924,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                path: RegionPath::Defn(
+                                region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodRitchie(
@@ -12273,23 +10941,15 @@
                                             ),
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12310,23 +10970,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12347,23 +10999,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12378,23 +11022,15 @@
                                             },
                                             ty_place: StackPure {
                                                 place: Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contracts: HirEagerPlaceContractSite {
-                                                data: [
+                                            place_contract_site: HirEagerPlaceContractSite {
+                                                place_contracts: [
                                                     (
                                                         Idx(
-                                                            PlaceIdx(
-                                                                ShiftedU32(
-                                                                    1,
-                                                                ),
-                                                            ),
+                                                            PlaceIdx(0),
                                                         ),
                                                         Move,
                                                     ),
@@ -12412,11 +11048,7 @@
                                                     TrivialHirEagerCoersion {
                                                         expectee_place: StackPure {
                                                             place: Idx(
-                                                                PlaceIdx(
-                                                                    ShiftedU32(
-                                                                        1,
-                                                                    ),
-                                                                ),
+                                                                PlaceIdx(0),
                                                             ),
                                                         },
                                                     },

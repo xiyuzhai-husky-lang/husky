@@ -90,7 +90,7 @@ pub enum InheritedTemplateParameterSynSymbol {
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct CurrentSynSymbol {
+pub struct CurrentSynSymbolEntry {
     modifier: SvarModifier,
     access_start: RegionalTokenIdx,
     /// this is none for template, parenate, lambda and field variable
@@ -98,7 +98,7 @@ pub struct CurrentSynSymbol {
     data: CurrentSynSymbolData,
 }
 
-impl CurrentSynSymbol {
+impl CurrentSynSymbolEntry {
     pub fn new(
         pattern_expr_region: &SynPatternExprRegion,
         access_start: RegionalTokenIdx,
@@ -115,7 +115,7 @@ impl CurrentSynSymbol {
 }
 
 /// # getters
-impl CurrentSynSymbol {
+impl CurrentSynSymbolEntry {
     pub fn modifier(&self) -> SvarModifier {
         self.modifier
     }
@@ -492,11 +492,11 @@ pub type InheritedSynSymbolIdxRange = ArenaIdxRange<InheritedSynSymbol>;
 pub(crate) type InheritedSynSymbolMap<V> = ArenaMap<InheritedSynSymbol, V>;
 pub(crate) type InheritedSynSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSynSymbol, V>;
 
-pub type CurrentVariableArena = Arena<CurrentSynSymbol>;
-pub type CurrentSynSymbolIdx = ArenaIdx<CurrentSynSymbol>;
-pub type CurrentSynSymbolIdxRange = ArenaIdxRange<CurrentSynSymbol>;
-pub(crate) type CurrentSynSymbolMap<V> = ArenaMap<CurrentSynSymbol, V>;
-pub(crate) type CurrentSynSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbol, V>;
+pub type CurrentVariableArena = Arena<CurrentSynSymbolEntry>;
+pub type CurrentSynSymbolIdx = ArenaIdx<CurrentSynSymbolEntry>;
+pub type CurrentSynSymbolIdxRange = ArenaIdxRange<CurrentSynSymbolEntry>;
+pub(crate) type CurrentSynSymbolMap<V> = ArenaMap<CurrentSynSymbolEntry, V>;
+pub(crate) type CurrentSynSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbolEntry, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParentSynSymbolIdx {

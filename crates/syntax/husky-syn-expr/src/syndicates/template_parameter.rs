@@ -59,7 +59,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentRegionalToken>()? {
             let access_start = ctx.state().next_regional_token_idx();
-            let parameter_symbol = CurrentSynSymbol::new(
+            let parameter_symbol = CurrentSynSymbolEntry::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
@@ -87,7 +87,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelRegionalToken>()? {
             let access_start = ctx.state().next_regional_token_idx();
             let symbols = ctx.define_symbols(
-                [CurrentSynSymbol::new(
+                [CurrentSynSymbolEntry::new(
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
@@ -109,7 +109,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
-                    [CurrentSynSymbol::new(
+                    [CurrentSynSymbolEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
@@ -142,7 +142,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             let access_start = ctx.state().next_regional_token_idx();
             let symbol = ctx
                 .define_symbols(
-                    [CurrentSynSymbol::new(
+                    [CurrentSynSymbolEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,

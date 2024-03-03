@@ -439,7 +439,7 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
@@ -724,7 +724,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -1261,7 +1261,7 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
@@ -1633,7 +1633,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -1844,7 +1844,7 @@
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
@@ -2338,7 +2338,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -2355,7 +2355,7 @@
                                             pattern_symbol_idx: 1,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             27,
@@ -4170,7 +4170,7 @@
                             },
                             current_syn_symbol_arena: Arena {
                                 data: [
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             9,
@@ -4187,7 +4187,7 @@
                                             pattern_symbol_idx: 1,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             32,
@@ -4204,7 +4204,7 @@
                                             pattern_symbol_idx: 3,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             47,
@@ -4221,7 +4221,7 @@
                                             pattern_symbol_idx: 4,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             61,
@@ -4238,7 +4238,7 @@
                                             pattern_symbol_idx: 5,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             81,
@@ -4255,7 +4255,7 @@
                                             pattern_symbol_idx: 6,
                                         },
                                     },
-                                    CurrentSynSymbol {
+                                    CurrentSynSymbolEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             111,

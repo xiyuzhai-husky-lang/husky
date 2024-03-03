@@ -15,6 +15,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [],
@@ -90,6 +96,12 @@
                     ),
                 ),
             ),
+            place_registry: PlaceRegistry {
+                infos: [],
+                next: ShiftedU32(
+                    1,
+                ),
+            },
             sema_expr_arena: SemaExprArena(
                 Arena {
                     data: [

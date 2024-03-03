@@ -52,7 +52,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -106,7 +106,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -182,7 +182,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
@@ -282,7 +282,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
@@ -382,7 +382,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
@@ -493,7 +493,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
@@ -603,7 +603,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
@@ -725,7 +725,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
@@ -834,7 +834,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -922,7 +922,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
@@ -1021,7 +1021,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
@@ -1095,7 +1095,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -1170,7 +1170,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1236,7 +1236,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1286,7 +1286,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
@@ -1338,7 +1338,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
@@ -1390,7 +1390,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
@@ -1442,7 +1442,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
@@ -1535,7 +1535,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodRitchie(

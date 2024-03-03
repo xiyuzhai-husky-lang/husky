@@ -3918,6 +3918,7 @@ dependencies = [
  "husky-syn-expr",
  "husky-syn-fmt",
  "husky-term-prelude",
+ "husky-text",
  "husky-text-protocol",
  "husky-token",
  "husky-token-data",
@@ -3954,6 +3955,7 @@ dependencies = [
  "husky-scope",
  "husky-scope-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-vfs",
@@ -4180,6 +4182,7 @@ dependencies = [
  "husky-syn-expr",
  "husky-syn-opr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -4201,6 +4204,7 @@ dependencies = [
  "husky-entity-tree",
  "husky-print-utils",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-unicode-symbols",
@@ -4233,6 +4237,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -4244,6 +4249,10 @@ dependencies = [
  "thiserror",
  "vec-like",
 ]
+
+[[package]]
+name = "husky-decl"
+version = "0.1.0"
 
 [[package]]
 name = "husky-decl-ast"
@@ -4258,6 +4267,9 @@ dependencies = [
 [[package]]
 name = "husky-decl-macro-utils"
 version = "0.1.0"
+dependencies = [
+ "husky-path-utils",
+]
 
 [[package]]
 name = "husky-defn-ast"
@@ -4436,6 +4448,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-text-protocol",
  "husky-token",
  "husky-token-data",
@@ -4585,6 +4598,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -4657,6 +4671,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -4682,6 +4697,7 @@ dependencies = [
  "husky-eth-term",
  "husky-folding-range",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-vfs",
@@ -4814,6 +4830,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -4828,10 +4845,14 @@ dependencies = [
 name = "husky-hir-eager-expr"
 version = "0.1.0"
 dependencies = [
+ "codespan-reporting",
  "either",
  "enum-class",
+ "expect-test",
  "husky-coword",
+ "husky-decl-macro-utils",
  "husky-entity-path",
+ "husky-entity-tree",
  "husky-eth-term",
  "husky-expr",
  "husky-fly-term",
@@ -4840,13 +4861,17 @@ dependencies = [
  "husky-hir-ty",
  "husky-place",
  "husky-print-utils",
+ "husky-regional-token",
  "husky-sema-expr",
  "husky-sema-opr",
  "husky-sema-place-contract",
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
+ "husky-token",
  "husky-token-data",
+ "husky-vfs",
  "idx-arena",
  "salsa",
  "smallvec",
@@ -5059,6 +5084,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -5106,6 +5132,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -5375,6 +5402,7 @@ dependencies = [
  "enum-class",
  "husky-coword",
  "husky-eth-term",
+ "husky-syn-expr",
  "salsa",
  "shifted-unsigned-int",
 ]
@@ -5424,6 +5452,7 @@ dependencies = [
  "husky-print-utils",
  "husky-regional-token",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-vfs",
@@ -5491,6 +5520,7 @@ dependencies = [
  "husky-task",
  "husky-task-interface",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -5529,6 +5559,7 @@ version = "0.1.0"
 dependencies = [
  "husky-opr",
  "husky-scope",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-vfs",
@@ -5622,6 +5653,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -5658,6 +5690,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-text-protocol",
  "husky-token",
  "husky-token-data",
@@ -5734,6 +5767,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
@@ -6072,6 +6106,7 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
+ "husky-text",
  "husky-text-protocol",
  "husky-token",
  "husky-token-data",
@@ -6320,6 +6355,7 @@ dependencies = [
  "husky-task",
  "husky-task-interface",
  "husky-term-prelude",
+ "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",

@@ -194,10 +194,7 @@ impl ValkyrieRides {
                     }
                 }
                 HirEagerExprData::NewTuple { items: _ } => (),
-                HirEagerExprData::Index {
-                    owner_hir_expr_idx: _,
-                    items: _,
-                } => (),
+                HirEagerExprData::Index { owner: _, items: _ } => (),
                 HirEagerExprData::NewList { element_ty, .. } => {
                     self.add_vec_constructor_ride(element_ty)
                 }

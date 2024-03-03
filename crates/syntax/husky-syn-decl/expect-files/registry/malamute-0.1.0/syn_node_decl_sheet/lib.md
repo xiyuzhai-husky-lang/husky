@@ -125,7 +125,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
@@ -343,7 +343,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
@@ -377,7 +377,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         15,
@@ -620,7 +620,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,
@@ -654,7 +654,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         15,
@@ -953,7 +953,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
@@ -974,7 +974,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         13,
@@ -1009,7 +1009,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         16,
@@ -1025,7 +1025,7 @@ SynNodeDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
@@ -1619,7 +1619,7 @@ SynNodeDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1653,7 +1653,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     13,
@@ -1999,7 +1999,7 @@ SynNodeDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
@@ -2033,7 +2033,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
@@ -2616,7 +2616,7 @@ SynNodeDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     4,
@@ -2637,7 +2637,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     11,
@@ -3040,7 +3040,7 @@ SynNodeDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
@@ -3061,7 +3061,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
@@ -3621,7 +3621,7 @@ SynNodeDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
@@ -3642,7 +3642,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
@@ -3967,7 +3967,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
@@ -4449,7 +4449,7 @@ SynNodeDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -4483,7 +4483,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                             },
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     13,
@@ -4907,7 +4907,7 @@ SynNodeDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
@@ -4941,7 +4941,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
@@ -5522,7 +5522,7 @@ SynNodeDeclSheet {
                                                     },
                                                     current_syn_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
@@ -5556,7 +5556,7 @@ SynNodeDeclSheet {
                                                                     },
                                                                 },
                                                             },
-                                                            CurrentSynSymbol {
+                                                            CurrentSynSymbolEntry {
                                                                 modifier: Const,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
@@ -5881,7 +5881,7 @@ SynNodeDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,

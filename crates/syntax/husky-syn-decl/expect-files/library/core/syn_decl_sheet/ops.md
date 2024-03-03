@@ -78,7 +78,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -201,7 +201,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -324,7 +324,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -447,7 +447,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -570,7 +570,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -693,7 +693,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -816,7 +816,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -939,7 +939,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1062,7 +1062,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1185,7 +1185,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1388,7 +1388,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1511,7 +1511,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1794,7 +1794,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -1917,7 +1917,7 @@ SynDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     6,
@@ -2054,7 +2054,7 @@ SynDeclSheet {
                                         },
                                         current_syn_symbol_arena: Arena {
                                             data: [
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
@@ -2075,7 +2075,7 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbol {
+                                                CurrentSynSymbolEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         8,

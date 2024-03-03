@@ -4,14 +4,18 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+codespan-reporting.workspace = true
+either.workspace = true
+expect-test.workspace = true
 smallvec.workspace = true
 thiserror.workspace = true
-either.workspace = true
 # abstractions
 salsa.workspace = true
 enum-class.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
+# fs
+husky-vfs.workspace = true
 # kernel
 husky-term-prelude.workspace = true
 husky-entity-path.workspace = true
@@ -24,17 +28,22 @@ husky-place.workspace = true
 husky-hir-ty.workspace = true
 husky-hir-opr.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
+husky-token.workspace = true
+husky-regional-token.workspace = true
 # semantics
 husky-sema-opr.workspace = true
 husky-sema-expr.workspace = true
 husky-sema-place-contract.workspace = true
 # syntax
+husky-entity-tree.workspace = true
 # todo: remove this?
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # utils
 husky-print-utils.workspace = true
+husky-decl-macro-utils.workspace = true
 
 [dev-dependencies]
 husky-hir-eager-expr = { path = ".", features = ["test_utils"] }

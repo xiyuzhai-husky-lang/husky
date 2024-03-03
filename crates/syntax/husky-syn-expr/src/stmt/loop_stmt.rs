@@ -193,7 +193,7 @@ impl<'a> SynExprContext<'a> {
                     .start()
                     .regional_token_idx();
                 let access_end = self.ast_token_idx_range(body.end() - 1).end();
-                let frame_var_symbol = CurrentSynSymbol::new(
+                let frame_var_symbol = CurrentSynSymbolEntry::new(
                     self.syn_pattern_expr_region(),
                     access_start,
                     Some(access_end),

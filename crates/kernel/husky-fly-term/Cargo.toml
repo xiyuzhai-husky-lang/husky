@@ -17,6 +17,7 @@ alt-option.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["test_utils"] }
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-regional-token.workspace = true
 # kernel

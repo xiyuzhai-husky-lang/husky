@@ -106,7 +106,7 @@ impl VariableRegionData {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbol,
+        variable: CurrentSynSymbolEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdx {
         let symbol = self.current_syn_symbol_arena.alloc_one(variable);
@@ -121,7 +121,7 @@ impl VariableRegionData {
     #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbol>,
+        variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         let symbols = self.current_syn_symbol_arena.alloc_batch(variables);
@@ -183,13 +183,15 @@ impl VariableRegionData {
         self.inherited_syn_symbol_arena.indexed_copy_iter()
     }
 
-    pub fn current_syn_symbols<'a>(&'a self) -> impl Iterator<Item = &'a CurrentSynSymbol> + 'a {
+    pub fn current_syn_symbols<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = &'a CurrentSynSymbolEntry> + 'a {
         self.current_syn_symbol_arena.iter()
     }
 
     pub fn indexed_current_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (CurrentSynSymbolIdx, &'a CurrentSynSymbol)> + 'a {
+    ) -> impl Iterator<Item = (CurrentSynSymbolIdx, &'a CurrentSynSymbolEntry)> + 'a {
         self.current_syn_symbol_arena.indexed_iter()
     }
 
@@ -273,7 +275,7 @@ impl std::ops::Index<InheritedSynSymbolIdx> for VariableRegionData {
 }
 
 impl std::ops::Index<CurrentSynSymbolIdx> for VariableRegionData {
-    type Output = CurrentSynSymbol;
+    type Output = CurrentSynSymbolEntry;
 
     fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
         &self.current_syn_symbol_arena[index]
