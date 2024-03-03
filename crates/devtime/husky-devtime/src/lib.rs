@@ -11,7 +11,7 @@ use husky_task::{
     helpers::{TaskDevLinkTime, TaskTraceProtocol},
     IsTask,
 };
-use husky_trace::{db::TraceDb, trace::Trace};
+use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
     server::ValVisualCache,

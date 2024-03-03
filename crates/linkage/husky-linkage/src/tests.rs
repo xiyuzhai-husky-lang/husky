@@ -51,7 +51,7 @@ use husky_toml_token::TomlTokenJar;
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
-    husky_hir_defn::db::HirDefnJar,
+    husky_hir_defn::jar::HirDefnJar,
     husky_javelin::jar::JavelinJar,
     crate::jar::LinkageJar
 )]

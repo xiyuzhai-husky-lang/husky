@@ -1,12 +1,12 @@
-pub mod db;
 mod helpers;
+pub mod jar;
 mod registry;
 #[cfg(test)]
 mod tests;
 mod token;
 pub mod trace;
 
-use self::db::*;
+use self::jar::*;
 #[cfg(test)]
 use self::tests::*;
 use self::token::*;

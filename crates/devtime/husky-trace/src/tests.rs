@@ -54,7 +54,7 @@ use husky_vfs::VfsJar;
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
-    husky_hir_defn::db::HirDefnJar,
+    husky_hir_defn::jar::HirDefnJar,
     // linkage
     husky_linkage::jar::LinkageJar,
     husky_javelin::jar::JavelinJar,
@@ -66,7 +66,7 @@ use husky_vfs::VfsJar;
     // lex
     husky_text::jar::TextJar,
     // devtimejar
-    crate::db::TraceJar,
+    crate::jar::TraceJar,
 )]
 #[derive(Default)]
 pub struct DB;

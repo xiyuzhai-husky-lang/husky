@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 //!
 //! Given `struct A { x: &mut T, ys: Vec<i32>, .. }` Regular Value Type
 //! - `struct __StaticA { x: &'static mut T, ys: Vec<i32>, .. }` Regular Value is its Stand version with every lifetime being static,
