@@ -1,38 +1,17 @@
 [package]
 name = "husky-vm"
-version = "0.0.0"
-edition = "2021"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
 
 [dependencies]
-serde.workspace = true
-serde_json.workspace = true
-arrayvec = "0.7.2"
-indexmap = "1.8.1"
-colored = "2.0.0"
-# abstractions
-cyclic-slice = { path = "../../abstractions/cyclic-slice" }
-vec-like.workspace = true
-enum-class.workspace = true
-# kernel
-husky-coword.workspace = true
-husky-eth-term.workspace = true
-husky-eth-signature.workspace = true
-husky-standard-value = { workspace = true, features = ["vm_support"] }
-# syntax
-husky-syn-expr.workspace = true
-# utils
-husky-check-utils.workspace = true
-husky-print-utils.workspace = true
-husky-path-utils.workspace = true
-# vm
-husky-any = { path = "../../vm/husky-any" }
-husky-text-protocol.workspace = true
-husky-vm-register-method = { path = "../husky-vm-register-method" }
-husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
-    "binding",
-    "extra",
-    "thin_fp",
-    "linkage_macro"
-] }
-husky-vm-binding = { path = "../husky-vm-binding" }
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
+
+[lints]
+workspace = true

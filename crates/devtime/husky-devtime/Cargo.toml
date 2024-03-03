@@ -48,6 +48,3 @@ husky-sync-utils.workspace = true
 husky-wild-utils.workspace = true
 # vm
 husky-vm.workspace = true
-husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
-husky-vm-interface = { path = "../../vm/husky-vm-interface" }
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
