@@ -216,7 +216,13 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_expr(arg.argument_expr_idx, param.contract, Default::default())
                 }
                 SemaRitchieParameterArgumentMatch::Variadic(param, args) => {
-                    todo!()
+                    for arg in args {
+                        self.infer_expr(
+                            arg.argument_expr_idx(),
+                            param.contract(),
+                            Default::default(),
+                        )
+                    }
                 }
                 SemaRitchieParameterArgumentMatch::Keyed(param, arg) => {
                     if let Some(arg) = arg {
