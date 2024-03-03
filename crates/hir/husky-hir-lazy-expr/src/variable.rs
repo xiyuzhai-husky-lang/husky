@@ -3,7 +3,6 @@ use husky_syn_expr::{
     CurrentSynSymbol, CurrentSynSymbolData, InheritedSynSymbol, InheritedSynSymbolKind,
     SynSymbolMap, VariableRegionData,
 };
-use idx_arena::ArenaIdx;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirLazyVariable {

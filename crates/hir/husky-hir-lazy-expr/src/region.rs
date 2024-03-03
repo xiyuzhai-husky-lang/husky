@@ -1,4 +1,4 @@
-use crate::{db::*, variable::HirLazyVariableRegion, *};
+use crate::{jar::*, *};
 
 /// this is interned on purpose
 #[salsa::interned(db = HirLazyExprDb, jar = HirLazyExprJar)]

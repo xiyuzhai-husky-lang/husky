@@ -12,7 +12,7 @@ use std::panic::RefUnwindSafe;
     husky_vfs::VfsJar,
     // hir
     husky_hir_eager_expr::jar::HirEagerExprJar,
-    husky_hir_lazy_expr::db::HirLazyExprJar,
+    husky_hir_lazy_expr::jar::HirLazyExprJar,
     husky_hir_expr::jar::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::jar::HirDefnJar,

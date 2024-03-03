@@ -188,11 +188,6 @@ impl<'a> HirLazyExprBuilder<'a> {
         )
     }
 
-    // pub fn build_hir_lazy_expr(&mut self, syn_expr_root: SynExprIdx) -> HirLazyExprIdx {
-    //     let sema_expr_idx = self.sema_expr_region_data.sema_expr_roots(syn_expr_root);
-    //     sema_expr_idx.to_hir_lazy(self)
-    // }
-
     pub(crate) fn hir_lazy_expr_arena(&self) -> &HirLazyExprArena {
         &self.hir_lazy_expr_arena
     }
