@@ -32,3 +32,11 @@ impl HirEagerPlaceContractSite {
         &self.place_contracts
     }
 }
+
+impl std::ops::Index<Place> for HirEagerPlaceContractSite {
+    type Output = HirEagerContract;
+
+    fn index(&self, place: Place) -> &Self::Output {
+        &self.place_contracts[place].1
+    }
+}

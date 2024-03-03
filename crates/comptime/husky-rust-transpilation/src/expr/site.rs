@@ -9,26 +9,13 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 pub(crate) struct HirEagerExprSite {
     pub(crate) rust_precedence_range: RustPrecedenceRange,
     pub(crate) rust_bindings: RustBindings,
-    pub(crate) place_contracts: SmallVecPairMap<Place, HirEagerContract, 2>,
 }
 
 impl HirEagerExprSite {
     /// generate self subexpr on site
     /// `self` refers to the parent expr on site
-    pub(crate) fn self_expr_on_site(
-        &self,
-        self_value_quary: HirQuary,
-        contract: HirEagerContract,
-        has_self_value_binding: bool,
-    ) -> Self {
-        let mut place_contracts = self.place_contracts.clone();
-        if let Some(place) = self_value_quary.place()
-            && contract != HirEagerContract::At
-        {
-            place_contracts.insert((place, contract))
-        }
+    pub(crate) fn self_expr_on_site(&self, has_self_value_binding: bool) -> Self {
         Self {
-            place_contracts,
             rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             // this is because `RustBinding::SelfValue` automatically covers the contract
             rust_bindings: if has_self_value_binding {
@@ -43,7 +30,6 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
-            place_contracts: Default::default(),
         }
     }
 
@@ -51,7 +37,6 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
-            place_contracts: Default::default(),
         }
     }
 
@@ -60,7 +45,6 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings: Default::default(),
-            place_contracts: Default::default(),
         }
     }
 
@@ -96,7 +80,6 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings,
-            place_contracts,
         }
     }
 
@@ -113,7 +96,6 @@ impl HirEagerExprSite {
                 },
                 None => Default::default(),
             },
-            place_contracts: Default::default(),
         }
     }
 
@@ -149,11 +131,6 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings,
-            place_contracts,
         }
-    }
-
-    pub(crate) fn place_contract(&self, place: Place) -> Option<HirEagerContract> {
-        self.place_contracts.get_value(place).copied()
     }
 }
