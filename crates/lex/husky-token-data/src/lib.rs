@@ -1,7 +1,7 @@
 mod convexity;
-pub mod db;
 pub mod delimiter;
 mod error;
+pub mod jar;
 mod keyword;
 mod literal;
 mod punctuation;
@@ -14,7 +14,7 @@ pub use self::literal::*;
 pub use self::punctuation::*;
 pub use self::wordopr::*;
 
-use self::db::*;
+use self::jar::*;
 use husky_coword::*;
 
 #[cfg(feature = "protocol_support")]

@@ -30,7 +30,7 @@ use std::panic::RefUnwindSafe;
     husky_fly_term::FlyTermJar,
     husky_hir_ty::db::HirTypeJar,
     // lex
-    husky_token_data::db::TokenDataJar,
+    husky_token_data::jar::TokenDataJar,
     husky_token::db::TokenJar,
     husky_toml_token::TomlTokenJar,
     husky_text::jar::TextJar,

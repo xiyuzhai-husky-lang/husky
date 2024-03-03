@@ -9,7 +9,7 @@ use salsa::DebugWithDb;
 #[salsa::db(
     CowordJar,
     VfsJar,
-    husky_token_data::db::TokenDataJar,
+    husky_token_data::jar::TokenDataJar,
     TokenJar,
     TermPreludeJar,
     husky_entity_path::jar::EntityPathJar

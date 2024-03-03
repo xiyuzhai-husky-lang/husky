@@ -17,7 +17,7 @@ use husky_vfs::snippet::Snippet;
     VfsJar,
     husky_entity_path::jar::EntityPathJar,
     TermPreludeJar,
-    husky_token_data::db::TokenDataJar,
+    husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
     EntityTreeJar,

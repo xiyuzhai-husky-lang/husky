@@ -24,7 +24,7 @@ use husky_toml_token::TomlTokenJar;
 #[salsa::db(
     VfsJar,
     CowordJar,
-    husky_token_data::db::TokenDataJar,
+    husky_token_data::jar::TokenDataJar,
     TokenJar,
     TokenInfoJar,
     husky_entity_path::jar::EntityPathJar,
