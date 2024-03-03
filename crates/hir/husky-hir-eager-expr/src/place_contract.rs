@@ -1,6 +1,7 @@
 use husky_hir_ty::{place::HirQuary, ritchie::HirEagerContract};
 use husky_place::place::Place;
 use husky_sema_place_contract::site::SemaPlaceContractSite;
+use husky_term_prelude::Contract;
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
@@ -12,25 +13,16 @@ pub struct HirEagerPlaceContractSite {
 impl HirEagerPlaceContractSite {
     pub(crate) fn from_sema(sema_site: &SemaPlaceContractSite) -> Self {
         HirEagerPlaceContractSite {
-            data: Default::default(),
+            data: SmallVecPairMap::from_iter(
+                sema_site
+                    .place_contracts()
+                    .iter()
+                    .copied()
+                    .filter_map(|(place, contract)| {
+                        (contract != Contract::At)
+                            .then_some((place, HirEagerContract::from_contract(contract)))
+                    }),
+            ),
         }
-    }
-
-    pub(crate) fn self_value_expr(
-        &self,
-        self_value_place: HirQuary,
-        contract: HirEagerContract,
-    ) -> Self {
-        let mut slf = self.clone();
-        if let Some(place) = self_value_place.place()
-            && contract != HirEagerContract::At
-        {
-            slf.insert(place, contract)
-        }
-        slf
-    }
-
-    fn insert(&mut self, place: Place, contract: HirEagerContract) {
-        todo!()
     }
 }

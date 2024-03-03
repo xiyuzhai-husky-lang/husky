@@ -191,7 +191,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Leash,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -296,7 +307,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Leash,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {

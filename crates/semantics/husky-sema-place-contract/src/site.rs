@@ -15,4 +15,8 @@ impl SemaPlaceContractSite {
             contract,
         )
     }
+
+    pub fn place_contracts(&self) -> &[(Place, Contract)] {
+        &self.place_contract_map
+    }
 }
