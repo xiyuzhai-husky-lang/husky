@@ -26,5 +26,35 @@ husky-sema-expr.workspace = true
 # syntax
 husky-syn-expr.workspace = true
 
+[dev-dependencies]
+# fs
+husky-vfs.workspace = true
+# kernel
+husky-coword.workspace = true
+husky-dec-signature.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
+husky-dec-ty.workspace = true
+husky-entity-path.workspace = true
+# infer
+husky-manifest.workspace = true
+husky-corgi-config.workspace = true
+# lex
+husky-toml-token.workspace = true
+husky-token.workspace = true
+husky-token-data.workspace = true
+# syntax
+husky-ast = { workspace = true, features = ["test_utils"] }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-entity-tree.workspace = true
+husky-corgi-config-ast.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-decl.workspace = true
+husky-syn-defn.workspace = true
+# kernel
+husky-dec-term.workspace = true
+husky-sema-expr.workspace = true
+
 [lints]
 workspace = true
