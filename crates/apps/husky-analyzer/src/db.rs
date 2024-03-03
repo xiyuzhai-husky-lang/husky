@@ -19,7 +19,7 @@ use salsa::snapshot::SnapshotClone;
     // lex
     husky_token_data::jar::TokenDataJar,
     husky_token::TokenJar,
-    husky_toml_token::TomlTokenJar,
+    husky_toml_token::jar::TomlTokenJar,
     // syntax
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,

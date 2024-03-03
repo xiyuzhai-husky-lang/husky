@@ -9,7 +9,7 @@ use husky_syn_decl::SynDeclJar;
 use husky_syn_expr::SynExprJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
-use husky_toml_token::TomlTokenJar;
+use husky_toml_token::jar::TomlTokenJar;
 
 #[salsa::db(
     husky_entity_path::jar::EntityPathJar,
@@ -19,7 +19,7 @@ use husky_toml_token::TomlTokenJar;
     TokenJar,
     husky_ast::jar::AstJar,
     EntityTreeJar,
-    TomlTokenJar,
+    husky_toml_token::jar::TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,
     CorgiConfigJar,
