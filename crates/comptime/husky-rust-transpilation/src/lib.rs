@@ -4,11 +4,11 @@
 #![feature(if_let_guard)]
 mod binding;
 mod builder;
-pub mod db;
 mod defn;
 mod expr;
 mod fmt;
 mod ingredient;
+pub mod jar;
 mod linkage;
 mod manifest;
 mod package;
@@ -19,7 +19,7 @@ pub mod transpile_to_fs;
 mod unit;
 
 use self::builder::*;
-use self::db::*;
+use self::jar::*;
 #[cfg(test)]
 use self::tests::*;
 use husky_vfs::{CratePath, ModulePath, PackagePath};

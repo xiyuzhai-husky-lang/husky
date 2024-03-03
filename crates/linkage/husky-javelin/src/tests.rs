@@ -47,10 +47,10 @@ use husky_toml_token::TomlTokenJar;
     SemaExprJar,
     husky_sema_place_contract::jar::SemaPlaceContractJar,
     husky_hir_ty::db::HirTypeJar,
-    husky_hir_eager_expr::db::HirEagerExprJar,
+    husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
-    husky_hir_decl::db::HirDeclJar,
+    husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::db::HirDefnJar,
     crate::jar::JavelinJar
 )]

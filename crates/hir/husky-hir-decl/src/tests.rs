@@ -1,7 +1,7 @@
 pub(crate) use husky_ast::test_utils::*;
 use husky_vfs::ModulePath;
 
-use crate::{db::*, *};
+use crate::{jar::*, *};
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
@@ -50,7 +50,7 @@ use husky_toml_token::TomlTokenJar;
     SemaExprJar,
     husky_sema_place_contract::jar::SemaPlaceContractJar,
     husky_hir_ty::db::HirTypeJar,
-    husky_hir_eager_expr::db::HirEagerExprJar,
+    husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
     HirDeclJar

@@ -3,7 +3,7 @@ use std::panic::RefUnwindSafe;
 #[salsa::db(
     // comptime
     husky_val_repr::jar::ValReprJar,
-    husky_rust_transpilation::db::RustTranspilationJar,
+    husky_rust_transpilation::jar::RustTranspilationJar,
     // devtime
     husky_trace::db::TraceJar,
     // fs
@@ -11,10 +11,10 @@ use std::panic::RefUnwindSafe;
     husky_manifest::ManifestJar,
     husky_vfs::VfsJar,
     // hir
-    husky_hir_eager_expr::db::HirEagerExprJar,
+    husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
-    husky_hir_decl::db::HirDeclJar,
+    husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::db::HirDefnJar,
     // ide
     husky_token_info::db::TokenInfoJar,

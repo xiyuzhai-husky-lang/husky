@@ -1,9 +1,9 @@
 #![feature(let_chains)]
 pub mod builder;
 pub mod coersion;
-pub mod db;
 pub mod expr;
 pub mod helpers;
+pub mod jar;
 pub mod pattern;
 pub mod pattern_expr;
 pub mod place_contract;
@@ -20,7 +20,7 @@ pub use self::source_map::*;
 pub use self::stmt::*;
 
 use self::builder::*;
-use self::db::*;
+use self::jar::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_term_prelude::*;
