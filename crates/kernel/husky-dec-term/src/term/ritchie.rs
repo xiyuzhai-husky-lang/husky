@@ -11,7 +11,7 @@ use husky_term_prelude::ritchie::RitchieKind;
 use smallvec::SmallVec;
 
 /// representing declarative_term `x -> y`
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]

@@ -1,7 +1,7 @@
 mod adversarial_test;
 pub mod config;
 pub mod db;
-mod domain;
+pub mod domain;
 mod expect_test;
 mod unit;
 

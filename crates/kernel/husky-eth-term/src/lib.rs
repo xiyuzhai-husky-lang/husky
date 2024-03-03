@@ -27,7 +27,7 @@ pub use self::ty::*;
 use self::term::EthTerm;
 use either::*;
 use husky_dec_signature::*;
-use husky_dec_term::{term::*, *};
+use husky_dec_term::{jar::DecTermDb, term::*, *};
 use husky_entity_path::*;
 use husky_term_prelude::*;
 use husky_vfs::*;

@@ -1,7 +1,7 @@
 #![feature(const_trait_impl)]
-pub mod db;
 mod error;
 mod field;
+pub mod jar;
 mod method;
 pub mod principal_item_path;
 mod term;
@@ -9,9 +9,9 @@ mod term;
 mod tests;
 pub mod variance;
 
-pub use self::db::*;
 pub use self::error::*;
 pub use self::field::*;
+pub use self::jar::*;
 pub use self::method::*;
 pub use self::term::*;
 
@@ -21,7 +21,7 @@ use self::tests::*;
 use self::variance::*;
 use husky_coword::*;
 use husky_dec_signature::*;
-use husky_dec_term::{term::*, *};
+use husky_dec_term::{jar::DecTermDb, term::*, *};
 use husky_entity_path::*;
 use husky_term_prelude::*;
 

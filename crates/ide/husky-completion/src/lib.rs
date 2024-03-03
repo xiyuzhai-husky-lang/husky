@@ -1,3 +1,3 @@
-mod db;
+mod jar;
 
-pub use db::*;
+pub use self::jar::*;

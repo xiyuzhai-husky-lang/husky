@@ -1,5 +1,3 @@
-use husky_rng_utils::XRng;
-
 use super::*;
 
 pub(super) struct VfsAdversarialGenerator {

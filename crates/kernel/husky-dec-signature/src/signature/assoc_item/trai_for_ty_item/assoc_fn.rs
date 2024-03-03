@@ -15,6 +15,8 @@ impl TraitForTypeAssocFnDecTemplate {
         db: &::salsa::Db,
         decl: TraitForTypeAssocFnSynDecl,
     ) -> DecSignatureResult<Self> {
+        use husky_dec_term::jar::DecTermDb;
+
         let self_ty = decl
             .path(db)
             .impl_block(db)

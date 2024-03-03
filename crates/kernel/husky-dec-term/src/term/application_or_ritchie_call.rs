@@ -1,7 +1,7 @@
 use super::*;
 use std::fmt::Debug;
 
-#[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct DecApplicationOrRitchieCall {
     pub function: DecTerm,
     #[return_ref]

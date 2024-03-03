@@ -39,7 +39,7 @@ impl DecTermMenu {
     }
 }
 
-#[salsa::tracked(jar = DecTermJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn dec_term_menu(db: &::salsa::Db, toolchain: Toolchain) -> DecTermResult<DecTermMenu> {
     DecTermMenu::new(db, toolchain)
 }

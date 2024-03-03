@@ -42,6 +42,8 @@ impl<'a> DecTermEngine<'a> {
         syn_expr_region: SynExprRegion,
         parent_term_symbol_region: Option<&'a DecSvarRegion>,
     ) -> Self {
+        use husky_dec_term::jar::DecTermDb;
+
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
         let _item_path_menu = item_path_menu(db, toolchain);

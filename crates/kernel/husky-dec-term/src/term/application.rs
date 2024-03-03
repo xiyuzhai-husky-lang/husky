@@ -14,7 +14,7 @@ use std::fmt::Debug;
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = DecTermDb, jar = DecTermJar)]
+#[salsa::interned]
 pub struct DecApplication {
     pub function: DecTerm,
     pub argument: DecTerm,

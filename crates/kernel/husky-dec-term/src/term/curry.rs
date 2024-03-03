@@ -3,7 +3,7 @@ use super::*;
 /// representing declarative_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 ///
 /// refraining from using `new_inner` except in conversion from ethereal term back to declarative term
-#[salsa::interned(db = DecTermDb, jar = DecTermJar, constructor = pub new_inner)]
+#[salsa::interned]
 pub struct DecCurry {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
@@ -31,7 +31,7 @@ impl DecCurry {
         return_ty: DecTerm,
     ) -> Self {
         let (return_ty, parameter_hvar) = return_ty.create_hvar(db, parameter_symbol);
-        DecCurry::new_inner(
+        DecCurry::new(
             db,
             toolchain,
             curry_kind,
@@ -50,7 +50,7 @@ impl DecCurry {
         parameter_ty: DecTerm,
         return_ty: DecTerm,
     ) -> Self {
-        DecCurry::new_inner(
+        DecCurry::new(
             db,
             toolchain,
             curry_kind,
@@ -67,7 +67,7 @@ impl DecCurry {
         symbol: DecSvar,
         variable: DecHvar,
     ) -> Self {
-        DecCurry::new_inner(
+        DecCurry::new(
             db,
             symbol.toolchain(db),
             self.curry_kind(db),
@@ -124,7 +124,7 @@ impl DecCurry {
     }
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn curry_parameter_count(db: &::salsa::Db, term: DecCurry) -> u8 {
     term.return_ty(db).curry_parameter_count(db) + 1
 }
@@ -143,7 +143,7 @@ impl DecTermRewriteCopy for DecCurry {
         {
             return self;
         }
-        Self::new_inner(
+        Self::new(
             db,
             self.toolchain(db),
             self.curry_kind(db),

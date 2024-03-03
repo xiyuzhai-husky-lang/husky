@@ -1,21 +1,21 @@
 #![feature(let_chains)]
 mod collector;
 mod context;
-mod db;
+mod jar;
 mod severity;
 mod sheet;
 #[cfg(test)]
 mod tests;
 
-pub use db::DiagnosticsDb;
+pub use self::jar::DiagnosticsDb;
 use husky_token::{RangedTokenSheet, TokenSheetData};
 pub use severity::DiagnosticSeverity;
 
-use collector::{ModuleDiagnosticsCollector, RegionDiagnosticsCollector};
-use context::*;
+use self::collector::{ModuleDiagnosticsCollector, RegionDiagnosticsCollector};
+use self::context::*;
+use self::sheet::*;
 use husky_text_protocol::range::TextRange;
 use husky_vfs::*;
-use sheet::*;
 #[cfg(test)]
 use tests::*;
 

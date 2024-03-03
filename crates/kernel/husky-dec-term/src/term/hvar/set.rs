@@ -6,7 +6,7 @@ use vec_like::VecSet;
 /// means different from None
 ///
 /// the former implies that hvars exists, but all accounted
-#[salsa::tracked(db = DecTermDb, jar = DecTermJar)]
+#[salsa::tracked]
 pub struct DecTermHvars {
     /// unaccounted means the hvar is not declared within this term
     #[return_ref]
@@ -77,7 +77,7 @@ impl DecTerm {
     }
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn declarative_term_curry_placeholders(
     db: &::salsa::Db,
     term: DecCurry,
@@ -90,7 +90,7 @@ pub(crate) fn declarative_term_curry_placeholders(
     )
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn declarative_term_ritchie_hvars(
     db: &::salsa::Db,
     term: DecRitchie,
@@ -102,7 +102,7 @@ pub(crate) fn declarative_term_ritchie_hvars(
     DecTermHvars::merge(hvars, term.return_ty(db).hvars(db))
 }
 
-#[salsa::tracked(jar = DecTermJar)]
+#[salsa::tracked]
 pub(crate) fn declarative_term_application_hvars(
     db: &::salsa::Db,
     term: DecApplication,
