@@ -4,12 +4,12 @@ use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 pub struct SemaPlaceContractSite {
-    place_contract_map: SmallVecPairMap<Place, Contract, 2>,
+    place_contracts: SmallVecPairMap<Place, Contract, 2>,
 }
 
 impl SemaPlaceContractSite {
     pub(crate) fn set(&mut self, place: Place, contract: Contract) {
-        self.place_contract_map.update_value_or_insert(
+        self.place_contracts.update_value_or_insert(
             place,
             |old_contract| *old_contract *= contract,
             contract,
@@ -17,6 +17,6 @@ impl SemaPlaceContractSite {
     }
 
     pub fn place_contracts(&self) -> &[(Place, Contract)] {
-        &self.place_contract_map
+        &self.place_contracts
     }
 }

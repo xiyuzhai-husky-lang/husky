@@ -28,9 +28,15 @@ use smallvec::SmallVec;
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let (slf, mut site) = self;
-        let _db = builder.db();
         let entry = slf.entry(builder.hir_eager_expr_arena());
         let data = entry.data();
+        {
+            assert_eq!(
+                entry.place_contract_site().place_contracts(),
+                &site.place_contracts as &[_]
+            );
+            let _ = slf;
+        }
         let precedence = hir_eager_expr_precedence(data);
         let needs_deref = site.hir_eager_expr_needs_deref(entry);
         if needs_deref {
