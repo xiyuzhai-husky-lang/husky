@@ -34,7 +34,7 @@ pub struct HirEagerExprEntry {
     data: HirEagerExprData,
     ty_place: HirQuary,
     is_always_copyable: bool,
-    place_contracts: HirEagerPlaceContractSite,
+    place_contract_site: HirEagerPlaceContractSite,
 }
 
 /// # getters
@@ -49,6 +49,10 @@ impl HirEagerExprEntry {
 
     pub fn is_always_copyable(&self) -> bool {
         self.is_always_copyable
+    }
+
+    pub fn place_contract_site(&self) -> &HirEagerPlaceContractSite {
+        &self.place_contract_site
     }
 }
 
@@ -512,7 +516,7 @@ impl ToHirEager for SemaExprIdx {
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
-            place_contracts,
+            place_contract_site: place_contracts,
         };
         builder.alloc_expr(*self, entry)
     }

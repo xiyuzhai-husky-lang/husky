@@ -17,12 +17,12 @@ impl HirEagerExprSite {
     /// `self` refers to the parent expr on site
     pub(crate) fn self_expr_on_site(
         &self,
-        self_value_place: HirQuary,
+        self_value_quary: HirQuary,
         contract: HirEagerContract,
         has_self_value_binding: bool,
     ) -> Self {
         let mut place_contracts = self.place_contracts.clone();
-        if let Some(place) = self_value_place.place()
+        if let Some(place) = self_value_quary.place()
             && contract != HirEagerContract::At
         {
             place_contracts.insert((place, contract))
