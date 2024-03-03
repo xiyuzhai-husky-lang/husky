@@ -1,8 +1,8 @@
 #![feature(try_trait_v2)]
 pub mod builder;
-pub mod db;
 pub mod expr;
 pub mod helpers;
+pub mod jar;
 mod pattern;
 mod pattern_expr;
 mod region;
@@ -17,7 +17,7 @@ pub use self::region::*;
 pub use self::stmt::*;
 
 use self::builder::*;
-use self::db::*;
+use self::jar::*;
 use self::variable::*;
 use husky_coword::*;
 use husky_eth_term::term::EthTerm;

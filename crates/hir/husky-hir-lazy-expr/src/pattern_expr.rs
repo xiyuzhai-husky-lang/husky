@@ -77,8 +77,6 @@ impl<'a> HirLazyExprBuilder<'a> {
             SynPatternExprData::Tuple { .. } => todo!(),
             SynPatternExprData::TupleStruct { .. } => todo!(),
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
-            SynPatternExprData::TupleStruct { .. } => todo!(),
-            SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name: _, fields: _ } => todo!(),
             SynPatternExprData::OneOf { options: _ } => todo!(),
             SynPatternExprData::Binding {
