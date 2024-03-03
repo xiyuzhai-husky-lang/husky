@@ -104,7 +104,6 @@ impl Jars {
 pub enum JarIndex {
     Jar,
     // comptime
-    VmirJar,
     RustTranspilationJar,
     // devtime
     TraceJar,
@@ -166,6 +165,8 @@ pub enum JarIndex {
     // val
     ValJar,
     ValReprJar,
+    // vm
+    VmirJar,
 }
 
 pub trait HasJarIndex {
