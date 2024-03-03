@@ -1090,6 +1090,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "cargo-rewrite"
+version = "0.1.0"
+
+[[package]]
 name = "cargo-util"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5456,6 +5460,13 @@ name = "husky-rng-utils"
 version = "0.0.0"
 dependencies = [
  "rand 0.8.5",
+]
+
+[[package]]
+name = "husky-rust-analysis-utils"
+version = "0.1.0"
+dependencies = [
+ "syn 2.0.50",
 ]
 
 [[package]]
