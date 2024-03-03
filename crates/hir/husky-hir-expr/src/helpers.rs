@@ -1,4 +1,4 @@
-use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,

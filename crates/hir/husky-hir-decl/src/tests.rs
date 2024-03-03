@@ -52,7 +52,7 @@ use husky_toml_token::TomlTokenJar;
     husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::db::HirLazyExprJar,
-    husky_hir_expr::db::HirExprJar,
+    husky_hir_expr::jar::HirExprJar,
     HirDeclJar
 )]
 pub(crate) struct DB;
