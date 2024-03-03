@@ -5,7 +5,6 @@ mod level;
 pub use self::action::*;
 pub use self::error::*;
 pub use self::level::*;
-use self::FillHole;
 
 use crate::*;
 

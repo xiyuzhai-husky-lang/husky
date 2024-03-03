@@ -290,9 +290,11 @@
                                     ),
                                     HirTermSvarResolution::SelfPlace(
                                         MutableStackOwned {
-                                            location: PlaceIdx(
-                                                ShiftedU32(
-                                                    9,
+                                            place: Idx(
+                                                PlaceIdx(
+                                                    ShiftedU32(
+                                                        9,
+                                                    ),
                                                 ),
                                             ),
                                         },

@@ -1106,7 +1106,7 @@ SynNodeDeclSheet {
                                             syn_expr_idx: 3,
                                         },
                                         SynExprRoot {
-                                            kind: SynExprRootKind::ExplicitParameterDefaultValue {
+                                            kind: SynExprRootKind::ParenateParameterDefaultValue {
                                                 ty_syn_expr_idx: 3,
                                             },
                                             syn_expr_idx: 4,

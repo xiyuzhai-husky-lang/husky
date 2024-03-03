@@ -35,8 +35,7 @@ pub(crate) fn package_linkages_transpilation(
         package_path.toolchain(db),
         setup,
         Some(format!(
-            r#"#![feature(trait_upcasting)]
-use husky_core::*;
+            r#"use husky_core::*;
 use {}::{{*, ugly::*}};
 use {}::*;
 "#,

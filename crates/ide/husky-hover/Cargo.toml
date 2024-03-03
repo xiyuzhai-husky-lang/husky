@@ -22,6 +22,8 @@ husky-text-protocol.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
+# semantics
+husky-sema-place-contract.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true

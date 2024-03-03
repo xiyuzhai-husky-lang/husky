@@ -1,6 +1,6 @@
 #![feature(step_trait)]
 #![feature(const_trait_impl)]
-mod db;
+pub mod db;
 mod helpers;
 pub mod indent;
 mod sheet;
