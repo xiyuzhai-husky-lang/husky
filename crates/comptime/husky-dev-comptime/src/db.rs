@@ -5,7 +5,7 @@ use std::panic::RefUnwindSafe;
     husky_val_repr::jar::ValReprJar,
     husky_rust_transpilation::jar::RustTranspilationJar,
     // devtime
-    husky_trace::db::TraceJar,
+    husky_trace::jar::TraceJar,
     // fs
     husky_corgi_config::CorgiConfigJar,
     husky_manifest::ManifestJar,
@@ -15,7 +15,7 @@ use std::panic::RefUnwindSafe;
     husky_hir_lazy_expr::db::HirLazyExprJar,
     husky_hir_expr::db::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
-    husky_hir_defn::db::HirDefnJar,
+    husky_hir_defn::jar::HirDefnJar,
     // ide
     husky_token_info::db::TokenInfoJar,
     // kernel

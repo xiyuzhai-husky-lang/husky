@@ -1,6 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 
-use crate::{db::*, *};
+use crate::{jar::*, *};
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;

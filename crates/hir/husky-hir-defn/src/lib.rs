@@ -1,14 +1,14 @@
-pub mod db;
 pub mod defn;
 mod dependencies;
+pub mod jar;
 #[cfg(test)]
 mod tests;
 pub mod version_stamp;
 
 pub use self::defn::*;
 
-use self::db::*;
 use self::dependencies::*;
+use self::jar::*;
 #[cfg(test)]
 use self::tests::*;
 use self::version_stamp::*;
