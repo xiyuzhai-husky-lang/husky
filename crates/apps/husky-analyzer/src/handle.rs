@@ -5,7 +5,7 @@ pub(crate) use semantic_tokens::*;
 use crate::{convert::from_lsp_types, *};
 use crate::{
     db::AnalyzerDBSnapshot,
-    lsp_ext::{self, InlayHint, InlayHintsParams, WorkspaceSymbolParams},
+    lsp_ext::{InlayHint, InlayHintsParams, WorkspaceSymbolParams},
 };
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::{HoverDb, HoverResult};
