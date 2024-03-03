@@ -1,5 +1,5 @@
 use crate::{
-    db::HirEagerExprJar, var::rvar::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternExprIdx,
+    jar::HirEagerExprJar, var::rvar::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternExprIdx,
     HirEagerStmtIdx,
 };
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
