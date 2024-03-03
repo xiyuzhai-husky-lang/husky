@@ -8,6 +8,7 @@ pub(crate) fn db(
     let input = syn::parse_macro_input!(input as syn::ItemStruct);
     let ident = &input.ident;
     let vis = &input.vis;
+    check_jar_paths(args.jar_paths.iter());
     let initialization: proc_macro2::TokenStream = args
         .jar_paths
         .iter()
@@ -51,6 +52,92 @@ pub(crate) fn db(
         }
     }
     .into()
+}
+
+fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
+    let jar_idents: Vec<String> = jar_paths
+        .map(|jar_path| jar_path.segments.last().unwrap().ident.to_string())
+        .collect();
+    for jar_ident in &jar_idents {
+        for &dep in jar_dependencies(jar_ident) {
+            assert!(
+                jar_idents.contains(&dep.to_string()),
+                "expect `{dep}` to be included as a dependency for `{jar_ident}`"
+            )
+        }
+    }
+
+    fn jar_dependencies(jar_ident: &str) -> &[&str] {
+        // todo: update this list
+        match jar_ident {
+            "Jar" => &[],
+            // comptime
+            "RustTranspilationJar" => &[],
+            // devtime
+            "TraceJar" => &[],
+            // fs
+            "CorgiConfigJar" => &[],
+            "ManifestJar" => &[],
+            "ToolchainConfigJar" => &[],
+            "VfsJar" => &[],
+            // hir
+            "HirDeclJar" => &[],
+            "HirDefnJar" => &[],
+            "HirEagerExprJar" => &[],
+            "HirExprJar" => &[],
+            "HirLazyExprJar" => &[],
+            "HirPreludeJar" => &[],
+            "HirTypeJar" => &[],
+            // ide
+            "CompletionJar" => &[],
+            "DiagnosticsJar" => &[],
+            "DocumentationJar" => &[],
+            "FoldingRangeJar" => &[],
+            "HoverJar" => &[],
+            "SemanticTokenJar" => &[],
+            "SyntaxFormatJar" => &[],
+            "TokenInfoJar" => &[],
+            // kernel
+            "CowordJar" => &[],
+            "DecSignatureJar" => &[],
+            "DecTermJar" => &[],
+            "DeclarativeTypeJar" => &[],
+            "EntityPathJar" => &[],
+            "EtherealSignatureJar" => &[],
+            "EthTermJar" => &["DecTermJar"],
+            "FlyTermJar" => &["EthTermJar"],
+            "TermPreludeJar" => &[],
+            "PlaceJar" => &[],
+            // lex
+            "TextJar" => &[],
+            "TokenDataJar" => &[],
+            "TokenJar" => &["TokenDataJar"],
+            "TomlTokenJar" => &[],
+            // linkage
+            "JavelinJar" => &[],
+            "LinkageJar" => &[],
+            // semantics
+            "SemaExprJar" => &[],
+            "SemaPlaceContractJar" => &[],
+            // super
+            "SuperNodeJar" => &[],
+            // syntax
+            "AstJar" => &["TokenJar"],
+            "EntityTreeJar" => &["AstJar"],
+            "ManifestAstJar" => &[],
+            "SynDeclJar" => &[],
+            "SynDefnJar" => &[],
+            "SynExprJar" => &[],
+            "TomlAstJar" => &[],
+            "CorgiConfigAstJar" => &[],
+            // val
+            "ValJar" => &[],
+            "ValReprJar" => &["ValJar"],
+            // vm
+            "VmirJar" => &[],
+            other => panic!("unknown jar ident `{other}`"),
+        }
+    }
 }
 
 pub struct Args {
