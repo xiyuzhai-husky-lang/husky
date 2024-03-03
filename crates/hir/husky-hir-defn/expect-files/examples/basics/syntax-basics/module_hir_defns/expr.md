@@ -245,7 +245,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -455,7 +466,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {

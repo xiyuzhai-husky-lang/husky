@@ -87,7 +87,7 @@ impl ToHirEager for SemaStmtIdx {
                 ..
             } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
-                contract: HirEagerContract::from_term(contract),
+                contract: HirEagerContract::from_contract(contract),
                 initial_value: initial_value_sema_expr_idx.to_hir_eager(builder),
                 coersion: coersion_outcome
                     .as_ref()

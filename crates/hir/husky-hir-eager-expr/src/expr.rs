@@ -405,7 +405,7 @@ impl ToHirEager for SemaExprIdx {
                 };
                 HirEagerExprData::MethodFnCall {
                     self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
-                    self_contract: HirEagerContract::from_term(self_contract),
+                    self_contract: HirEagerContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
                     instantiation: HirInstantiation::from_fly(

@@ -78,7 +78,7 @@ impl HirRitchieParameter {
 
     pub fn from_eth_regular(param: EthRitchieSimpleParameter, db: &::salsa::Db) -> Self {
         HirRitchieSimpleParameter {
-            contract: HirEagerContract::from_term(param.contract()),
+            contract: HirEagerContract::from_contract(param.contract()),
             ty: HirType::from_eth(param.ty(), db).unwrap(),
         }
         .into()
@@ -105,7 +105,7 @@ pub enum HirEagerContract {
 }
 
 impl HirEagerContract {
-    pub fn from_term(contract: Contract) -> Self {
+    pub fn from_contract(contract: Contract) -> Self {
         match contract {
             Contract::Pure => HirEagerContract::Pure,
             Contract::Move => HirEagerContract::Move,
@@ -133,7 +133,7 @@ impl HirRitchieSimpleParameter {
         fly_terms: &FlyTerms,
     ) -> Self {
         Self {
-            contract: HirEagerContract::from_term(param.contract),
+            contract: HirEagerContract::from_contract(param.contract),
             ty: HirType::from_fly(param.ty, db, fly_terms).unwrap(),
         }
     }

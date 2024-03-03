@@ -16,7 +16,7 @@ impl HirEagerSelfValueParameter {
     ) -> Self {
         HirEagerSelfValueParameter {
             self_ty,
-            contract: HirEagerContract::from_term(Contract::new(
+            contract: HirEagerContract::from_contract(Contract::new(
                 syndicate
                     .map(|syndicate| syndicate.ephem_symbol_modifier_token_verse())
                     .flatten(),

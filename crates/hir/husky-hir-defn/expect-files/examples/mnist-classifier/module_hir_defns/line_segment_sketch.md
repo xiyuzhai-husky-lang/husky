@@ -149,7 +149,18 @@
                                         },
                                         is_always_copyable: true,
                                         place_contracts: HirEagerPlaceContractSite {
-                                            data: [],
+                                            data: [
+                                                (
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    Pure,
+                                                ),
+                                            ],
                                         },
                                     },
                                     HirEagerExprEntry {
@@ -269,7 +280,18 @@
                                         },
                                         is_always_copyable: true,
                                         place_contracts: HirEagerPlaceContractSite {
-                                            data: [],
+                                            data: [
+                                                (
+                                                    Idx(
+                                                        PlaceIdx(
+                                                            ShiftedU32(
+                                                                1,
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    Pure,
+                                                ),
+                                            ],
                                         },
                                     },
                                     HirEagerExprEntry {
@@ -650,7 +672,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -676,7 +709,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -694,7 +738,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -720,7 +775,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -752,7 +818,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -778,7 +855,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -796,7 +884,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -822,7 +921,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -892,7 +1002,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -910,7 +1031,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -942,7 +1074,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -960,7 +1103,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -992,7 +1146,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1010,7 +1175,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1042,7 +1218,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1060,7 +1247,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1144,7 +1342,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1162,7 +1371,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1188,7 +1408,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1220,7 +1451,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1252,7 +1494,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1271,7 +1524,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1289,7 +1553,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1315,7 +1590,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1347,7 +1633,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1379,7 +1676,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1405,7 +1713,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1423,7 +1742,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1455,7 +1785,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1481,7 +1822,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1499,7 +1851,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1845,7 +2208,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1871,7 +2245,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1889,7 +2274,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1915,7 +2311,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1947,7 +2354,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1973,7 +2391,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -1991,7 +2420,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2017,7 +2457,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2087,7 +2538,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2105,7 +2567,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2137,7 +2610,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2155,7 +2639,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2187,7 +2682,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2205,7 +2711,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2237,7 +2754,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2255,7 +2783,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2339,7 +2878,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2358,7 +2908,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2376,7 +2937,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2402,7 +2974,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2434,7 +3017,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2466,7 +3060,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2484,7 +3089,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2510,7 +3126,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2542,7 +3169,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2574,7 +3212,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2600,7 +3249,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2618,7 +3278,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2650,7 +3321,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2676,7 +3358,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -2694,7 +3387,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3071,7 +3775,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3089,7 +3804,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3107,7 +3833,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3125,7 +3862,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3238,7 +3986,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3331,7 +4090,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3349,7 +4119,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3381,7 +4162,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3399,7 +4191,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3431,7 +4234,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3473,7 +4287,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3519,7 +4344,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3548,7 +4384,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3566,7 +4413,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3584,7 +4442,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3602,7 +4471,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3727,7 +4607,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3769,7 +4660,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3801,7 +4703,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3819,7 +4732,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3837,7 +4761,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3925,7 +4860,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -3943,7 +4889,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4048,7 +5005,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4066,7 +5034,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4098,7 +5077,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4116,7 +5106,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4225,7 +5226,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4243,7 +5255,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4352,7 +5375,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4394,7 +5428,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4412,7 +5457,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4430,7 +5486,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4476,7 +5543,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4494,7 +5572,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4526,7 +5615,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4544,7 +5644,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4574,7 +5685,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4592,7 +5714,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4624,7 +5757,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4642,7 +5786,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4730,7 +5885,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4748,7 +5914,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4836,7 +6013,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4854,7 +6042,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4949,7 +6148,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4967,7 +6177,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -4997,7 +6218,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5015,7 +6247,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5110,7 +6353,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5128,7 +6382,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5158,7 +6423,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5187,7 +6463,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5205,7 +6492,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5223,7 +6521,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5241,7 +6550,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5366,7 +6686,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5384,7 +6715,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -5416,7 +6758,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6070,7 +7423,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6088,7 +7452,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6106,7 +7481,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6124,7 +7510,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6237,7 +7634,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6255,7 +7663,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6362,7 +7781,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6380,7 +7810,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6412,7 +7853,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6454,7 +7906,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6500,7 +7963,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6529,7 +8003,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6547,7 +8032,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6565,7 +8061,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6583,7 +8090,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6708,7 +8226,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6750,7 +8279,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6782,7 +8322,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6800,7 +8351,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6869,7 +8431,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6887,7 +8460,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6975,7 +8559,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -6993,7 +8588,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7098,7 +8704,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7116,7 +8733,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7148,7 +8776,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7166,7 +8805,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7184,7 +8834,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7297,7 +8958,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7339,7 +9011,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7357,7 +9040,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7375,7 +9069,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7421,7 +9126,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7439,7 +9155,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7471,7 +9198,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7489,7 +9227,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7519,7 +9268,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7537,7 +9297,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7569,7 +9340,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7587,7 +9369,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7675,7 +9468,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7693,7 +9497,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7781,7 +9596,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7799,7 +9625,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7894,7 +9731,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7912,7 +9760,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    9,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7942,7 +9801,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -7960,7 +9830,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8055,7 +9936,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8073,7 +9965,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8103,7 +10006,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8121,7 +10035,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8216,7 +10141,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8234,7 +10170,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8266,7 +10213,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8284,7 +10242,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8379,7 +10348,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8397,7 +10377,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8531,7 +10522,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8560,7 +10562,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8578,7 +10591,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8610,7 +10634,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -8628,7 +10663,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9341,7 +11387,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9434,7 +11491,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9452,7 +11520,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9484,7 +11563,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9502,7 +11592,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9520,7 +11621,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9538,7 +11650,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9664,7 +11787,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9682,7 +11816,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9700,7 +11845,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9830,7 +11986,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9921,7 +12088,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -9963,7 +12141,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10026,7 +12215,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10044,7 +12244,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10086,7 +12297,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10104,7 +12326,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10228,7 +12461,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    7,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10246,7 +12490,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    8,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10360,7 +12615,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10453,7 +12719,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10516,7 +12793,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10534,7 +12822,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10552,7 +12851,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10570,7 +12880,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10633,7 +12954,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10651,7 +12983,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10697,7 +13040,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10762,7 +13116,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10884,7 +13249,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10926,7 +13302,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    6,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10944,7 +13331,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10962,7 +13360,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10980,7 +13389,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -10998,7 +13418,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11016,7 +13447,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11168,7 +13610,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11186,7 +13639,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11204,7 +13668,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11322,7 +13797,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11413,7 +13899,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11476,7 +13973,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11494,7 +14002,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11514,7 +14033,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11556,7 +14086,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11600,7 +14141,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11628,7 +14180,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11646,7 +14209,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11672,7 +14246,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11741,7 +14326,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    12,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11759,7 +14355,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    11,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11883,7 +14490,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    12,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -11901,7 +14519,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    11,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12015,7 +14644,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    12,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12033,7 +14673,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    13,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12171,7 +14822,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    12,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12189,7 +14851,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    13,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12303,7 +14976,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12384,7 +15068,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12402,7 +15097,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12420,7 +15126,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    14,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12466,7 +15183,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    14,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12531,7 +15259,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12577,7 +15316,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12738,7 +15488,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12756,7 +15517,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12774,7 +15546,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12893,7 +15676,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -12911,7 +15705,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    10,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13009,7 +15814,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13027,7 +15843,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13057,7 +15884,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13075,7 +15913,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13131,7 +15980,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13224,7 +16084,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13287,7 +16158,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13305,7 +16187,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13351,7 +16244,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13416,7 +16320,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13479,7 +16394,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13497,7 +16423,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13517,7 +16454,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13565,7 +16513,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13630,7 +16589,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    16,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13648,7 +16618,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    15,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13694,7 +16675,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13775,7 +16767,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13838,7 +16841,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13856,7 +16870,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13874,7 +16899,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13892,7 +16928,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    17,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -13938,7 +16985,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    17,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14003,7 +17061,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    15,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14035,7 +17104,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14098,7 +17178,18 @@
                                             ty_place: Transient,
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14116,7 +17207,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14162,7 +17264,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14349,7 +17462,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -14369,7 +17493,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                     ],
@@ -15211,7 +18346,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15237,7 +18383,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15255,7 +18412,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15281,7 +18449,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15601,7 +18780,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15619,7 +18809,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15651,7 +18852,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Leash,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15697,7 +18909,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -15715,7 +18938,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16048,7 +19282,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16074,7 +19319,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16092,7 +19348,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16118,7 +19385,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16418,7 +19696,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -16454,7 +19743,18 @@
                                             },
                                             is_always_copyable: false,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17199,7 +20499,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    5,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17248,7 +20559,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17266,7 +20588,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17367,7 +20700,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17385,7 +20729,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17486,7 +20841,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17504,7 +20870,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17605,7 +20982,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        BorrowMut,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17623,7 +21011,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17724,7 +21123,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17742,7 +21152,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17828,7 +21249,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    3,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -17846,7 +21278,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    4,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -18372,7 +21815,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Move,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -18390,7 +21844,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    1,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
@@ -18408,7 +21873,18 @@
                                             },
                                             is_always_copyable: true,
                                             place_contracts: HirEagerPlaceContractSite {
-                                                data: [],
+                                                data: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(
+                                                                ShiftedU32(
+                                                                    2,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                         },
                                         HirEagerExprEntry {
