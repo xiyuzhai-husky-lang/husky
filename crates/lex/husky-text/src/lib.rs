@@ -1,9 +1,9 @@
-pub mod db;
+pub mod jar;
 mod line_map;
 #[cfg(test)]
 mod tests;
 
-use self::db::*;
+use self::jar::*;
 use husky_text_protocol::{line_map::*, range::*};
 use husky_vfs::ModulePath;
 use line_map::module_text_line_map;

@@ -64,7 +64,7 @@ use husky_vfs::VfsJar;
     husky_token_info::db::TokenInfoJar,
     // lex
     husky_text::db::TextJar,
-    // devtime
+    // devtimejar
     crate::db::TraceJar,
 )]
 #[derive(Default)]
