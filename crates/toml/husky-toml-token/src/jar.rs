@@ -21,12 +21,5 @@ impl TomlTokenDb for ::salsa::Db {
     }
 }
 
-#[salsa::tracked(jar = TomlTokenJar, return_ref)]
-pub(crate) fn toml_token_sheet(
-    db: &::salsa::Db,
-    path: VirtualPath,
-) -> VfsResult<Option<TomlTokenSheet>> {
-    Ok(path
-        .text(db)?
-        .map(|text| TomlTokenSheet::new(db.toml_tokenize(text))))
-}
+#[salsa::jar]
+pub struct TomlTokenJar(crate::sheet::toml_token_sheet);

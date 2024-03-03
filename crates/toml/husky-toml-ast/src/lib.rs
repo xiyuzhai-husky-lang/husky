@@ -47,6 +47,8 @@ fn toml_ast_sheet(db: &::salsa::Db, path: VirtualPath) -> VfsResult<Option<&Toml
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
 fn toml_ast_sheet_aux(db: &::salsa::Db, path: VirtualPath) -> VfsResult<Option<TomlAstSheet>> {
+    use husky_toml_token::jar::TomlTokenDb;
+
     Ok(db
         .toml_token_sheet(path)
         .as_ref()?

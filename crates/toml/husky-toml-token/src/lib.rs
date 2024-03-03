@@ -1,7 +1,7 @@
 #![feature(const_trait_impl)]
 #![feature(try_trait_v2)]
-mod db;
 mod error;
+pub mod jar;
 mod line_group;
 mod sheet;
 mod special;
@@ -10,23 +10,20 @@ mod stream;
 mod tests;
 mod tokenize;
 
-pub use self::db::*;
 pub use self::error::*;
 pub use self::sheet::*;
 pub use self::special::*;
 pub use self::stream::*;
 
+use self::jar::TomlTokenJar as Jar;
+use crate::jar::TomlTokenDb;
 use husky_coword::Coword;
+use husky_text_protocol::range::TextRange;
 use husky_text_span::DocumentSpan;
 use std::char;
 use std::str;
 use std::sync::Arc;
-
-use husky_text_protocol::range::TextRange;
 use tokenize::*;
-
-#[salsa::jar]
-pub struct TomlTokenJar(toml_token_sheet);
 
 pub type StringValue = Arc<String>;
 

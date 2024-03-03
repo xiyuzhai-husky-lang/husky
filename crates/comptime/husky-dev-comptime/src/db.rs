@@ -32,7 +32,7 @@ use std::panic::RefUnwindSafe;
     // lex
     husky_token_data::jar::TokenDataJar,
     husky_token::db::TokenJar,
-    husky_toml_token::TomlTokenJar,
+    husky_toml_token::jar::TomlTokenJar,
     husky_text::jar::TextJar,
     // linkage
     husky_javelin::jar::JavelinJar,

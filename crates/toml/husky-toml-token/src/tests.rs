@@ -1,11 +1,9 @@
 use super::*;
 use expect_test::expect_file;
-
 use husky_coword::CowordJar;
 use husky_vfs::*;
-use std::sync::Arc;
 
-#[salsa::db(CowordJar, VfsJar, TomlTokenJar)]
+#[salsa::db(CowordJar, VfsJar, Jar)]
 struct DB;
 
 fn err(input: &str, err: TomlTokenError) {

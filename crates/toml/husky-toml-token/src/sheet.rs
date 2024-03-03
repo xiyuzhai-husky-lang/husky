@@ -1,5 +1,6 @@
 use crate::line_group::produce_line_group_starts;
 use crate::*;
+use husky_vfs::{error::VfsResult, VirtualPath};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlTokenSheet {
@@ -32,3 +33,13 @@ impl TomlTokenSheet {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TomlTokenIdx(usize);
+
+#[salsa::tracked(return_ref)]
+pub(crate) fn toml_token_sheet(
+    db: &::salsa::Db,
+    path: VirtualPath,
+) -> VfsResult<Option<TomlTokenSheet>> {
+    Ok(path
+        .text(db)?
+        .map(|text| TomlTokenSheet::new(db.toml_tokenize(text))))
+}
