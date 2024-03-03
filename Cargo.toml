@@ -299,10 +299,11 @@ husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }
-# vm
-husky-vmir = { path = "crates/vm/husky-vmir" }
+# value
 husky-standard-value = { path = "crates/vm/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/vm/husky-standard-value-macros" }
+# vm
+husky-vmir-expr = { path = "crates/vm/husky-vmir-expr" }
 husky-vm = { path = "crates/vm/husky-vm" }
 # library
 husky-core = { path = "library/core" }

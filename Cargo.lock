@@ -4357,7 +4357,7 @@ dependencies = [
  "husky-vfs",
  "husky-visual-protocol",
  "husky-vm",
- "husky-vmir",
+ "husky-vmir-expr",
  "idx-arena",
  "lsp-types 0.95.0",
  "relative-path",
@@ -6377,7 +6377,7 @@ name = "husky-vm"
 version = "0.1.0"
 
 [[package]]
-name = "husky-vmir"
+name = "husky-vmir-expr"
 version = "0.0.0"
 dependencies = [
  "husky-ast",
@@ -6395,7 +6395,7 @@ dependencies = [
  "husky-print-utils",
  "husky-standard-value",
  "husky-task-interface",
- "husky-vmir",
+ "husky-vmir-expr",
  "idx-arena",
  "salsa",
  "shifted-unsigned-int",
