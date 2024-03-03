@@ -6,6 +6,7 @@ mod macro_name;
 mod misc;
 mod proc_macro;
 mod punctuation;
+mod utils;
 
 pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
@@ -381,6 +382,10 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
 }
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
+    pub(crate) fn hir_eager_expr_region(&self) -> HirEagerExprRegion {
+        self.extension
+    }
+
     // todo: there is room for optimization
     pub(crate) fn hir_eager_expr_arena(&self) -> &'a HirEagerExprArena {
         self.extension.expr_arena(self.db)
@@ -406,7 +411,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
             let db = self.db;
             use salsa::DebugWithDb;
             p!(
-                self.extension.path(db).debug(db),
+                self.extension.region_path(db).debug(db),
                 hir_comptime_symbol.debug(db),
                 self.extension.comptime_symbol_region_data(db).debug(db)
             );

@@ -8,7 +8,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),

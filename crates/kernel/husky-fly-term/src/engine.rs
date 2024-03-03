@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
-use husky_place::{PlaceIdx, PlaceRegistry};
+use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
 
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
@@ -8,26 +8,26 @@ pub trait FlyTermEngine<'a>: Sized {
     fn fly_term_region(&self) -> &FlyTermRegion;
     fn item_path_menu(&self) -> &'a ItemPathMenu;
     fn term_menu(&self) -> &'a EthTermMenu;
-    fn expr_region_data(&self) -> &'a SynExprRegionData;
+    fn syn_expr_region_data(&self) -> &'a SynExprRegionData;
 
     fn fly_terms(&self) -> &FlyTerms {
         self.fly_term_region().terms()
     }
 
     fn path(&self) -> String {
-        format!("{:?}", self.expr_region_data().path().debug(self.db()))
+        format!("{:?}", self.syn_expr_region_data().path().debug(self.db()))
     }
 }
 
 pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
-    fn stack_place_registry_mut(&mut self) -> &mut PlaceRegistry;
+    fn place_registry_mut(&mut self) -> &mut PlaceRegistry;
     fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion;
     fn fly_terms_mut(&mut self) -> &mut FlyTerms {
         self.fly_term_region_mut().terms_mut()
     }
 
-    fn issue_new_stack_place_idx(&mut self) -> PlaceIdx {
-        self.stack_place_registry_mut().issue_new()
+    fn issue_new_place_idx(&mut self, place_data: PlaceInfo) -> PlaceIdx {
+        self.place_registry_mut().issue_new(place_data)
     }
 
     fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FlyTerm {

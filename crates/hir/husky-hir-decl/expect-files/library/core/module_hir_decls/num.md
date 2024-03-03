@@ -8,7 +8,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::i8`, `Extern`),
@@ -49,7 +49,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::i16`, `Extern`),
@@ -90,7 +90,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::i32`, `Extern`),
@@ -131,7 +131,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::i64`, `Extern`),
@@ -172,7 +172,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::i128`, `Extern`),
@@ -213,7 +213,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::isize`, `Extern`),
@@ -254,7 +254,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::u8`, `Extern`),
@@ -295,7 +295,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::u16`, `Extern`),
@@ -336,7 +336,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::u32`, `Extern`),
@@ -377,7 +377,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::u64`, `Extern`),
@@ -418,7 +418,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::u128`, `Extern`),
@@ -459,7 +459,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::usize`, `Extern`),
@@ -500,7 +500,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
@@ -541,7 +541,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::num::f64`, `Extern`),
@@ -594,7 +594,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -662,7 +662,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i8(0)::abs`, `MethodRitchie(
@@ -746,7 +746,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i8(0)::max`, `MethodRitchie(
@@ -836,7 +836,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -923,7 +923,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1000,7 +1000,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1068,7 +1068,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i16(0)::abs`, `MethodRitchie(
@@ -1152,7 +1152,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i16(0)::max`, `MethodRitchie(
@@ -1242,7 +1242,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -1329,7 +1329,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1406,7 +1406,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1474,7 +1474,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::abs`, `MethodRitchie(
@@ -1558,7 +1558,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::max`, `MethodRitchie(
@@ -1653,7 +1653,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i32(0)::min`, `MethodRitchie(
@@ -1743,7 +1743,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -1830,7 +1830,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1907,7 +1907,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1975,7 +1975,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i64(0)::abs`, `MethodRitchie(
@@ -2054,7 +2054,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -2141,7 +2141,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -2218,7 +2218,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -2286,7 +2286,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::i128(0)::abs`, `MethodRitchie(
@@ -2365,7 +2365,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -2452,7 +2452,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -2529,7 +2529,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -2597,7 +2597,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::isize(0)::abs`, `MethodRitchie(
@@ -2676,7 +2676,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -2763,7 +2763,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -2840,7 +2840,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -2908,7 +2908,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u8(0)::abs`, `MethodRitchie(
@@ -2987,7 +2987,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -3074,7 +3074,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -3151,7 +3151,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -3219,7 +3219,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u16(0)::abs`, `MethodRitchie(
@@ -3298,7 +3298,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -3385,7 +3385,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -3462,7 +3462,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -3530,7 +3530,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u32(0)::abs`, `MethodRitchie(
@@ -3609,7 +3609,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -3696,7 +3696,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -3773,7 +3773,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -3841,7 +3841,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u64(0)::abs`, `MethodRitchie(
@@ -3920,7 +3920,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -4007,7 +4007,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -4084,7 +4084,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -4152,7 +4152,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::u128(0)::abs`, `MethodRitchie(
@@ -4231,7 +4231,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -4318,7 +4318,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -4395,7 +4395,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -4463,7 +4463,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::usize(0)::abs`, `MethodRitchie(
@@ -4542,7 +4542,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -4629,7 +4629,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -4706,7 +4706,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -4774,7 +4774,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::abs`, `MethodRitchie(
@@ -4846,7 +4846,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodRitchie(
@@ -4930,7 +4930,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::max`, `MethodRitchie(
@@ -5025,7 +5025,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::min`, `MethodRitchie(
@@ -5108,7 +5108,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodRitchie(
@@ -5180,7 +5180,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::cos`, `MethodRitchie(
@@ -5252,7 +5252,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::sin`, `MethodRitchie(
@@ -5324,7 +5324,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f32(0)::acos`, `MethodRitchie(
@@ -5403,7 +5403,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -5490,7 +5490,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -5567,7 +5567,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -5635,7 +5635,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f64(0)::abs`, `MethodRitchie(
@@ -5707,7 +5707,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(core::num::f64(0)::acos`, `MethodRitchie(
@@ -5786,7 +5786,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -5873,7 +5873,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(

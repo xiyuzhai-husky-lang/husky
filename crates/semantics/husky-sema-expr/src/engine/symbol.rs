@@ -3,10 +3,10 @@ use husky_eth_term::term::svar::EthSvar;
 
 impl<'a> SemaExprEngine<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
-        for current_syn_symbol_idx in self
+        for (current_syn_symbol_idx, current_syn_symbol_entry) in self
             .syn_expr_region_data
             .symbol_region()
-            .current_syn_symbol_indices()
+            .indexed_current_syn_symbols()
         {
             let Some(signature) = self
                 .dec_term_region

@@ -190,7 +190,7 @@ impl std::ops::Index<SynStmtIdx> for SynExprRegionData {
     }
 }
 impl std::ops::Index<CurrentSynSymbolIdx> for SynExprRegionData {
-    type Output = CurrentSynSymbol;
+    type Output = CurrentSynSymbolEntry;
 
     fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
         &self.symbol_region[index]

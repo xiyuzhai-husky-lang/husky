@@ -55,6 +55,7 @@ husky-fly-term.workspace = true
 # semantics
 husky-sema-place-contract.workspace = true
 # lex
+husky-text.workspace = true
 husky-toml-token.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }

@@ -22,6 +22,7 @@ husky-coword.workspace = true
 husky-entity-kind.workspace = true
 husky-opr.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-regional-token.workspace = true
 # syntax

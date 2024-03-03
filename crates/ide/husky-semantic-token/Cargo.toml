@@ -48,6 +48,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 # lex
+husky-text.workspace = true
 husky-toml-token.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }

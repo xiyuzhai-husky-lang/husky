@@ -2,7 +2,7 @@ use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
 use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
-use husky_place::{place::Place, PlaceIdx};
+use husky_place::place::Place;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 #[derive(Debug, Default)]
@@ -43,7 +43,7 @@ impl HirEagerExprSite {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
-            place_contracts: self.place_contracts.clone(),
+            place_contracts: Default::default(),
         }
     }
 

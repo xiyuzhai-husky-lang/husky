@@ -14,7 +14,7 @@ use crate::*;
 use husky_entity_tree::helpers::TraitInUseItemsTable;
 use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{svar::EthSvar, EthTerm};
-use husky_place::PlaceRegistry;
+use husky_place::{PlaceInfo, PlaceRegistry};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_syn_decl::decl::{
     AssocItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
@@ -34,7 +34,7 @@ pub(crate) struct SemaExprEngine<'a> {
     syn_expr_region_data: &'a SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'a>,
     dec_term_region: &'a SynExprDecTermRegion,
-    stack_location_registry: PlaceRegistry,
+    place_registry: PlaceRegistry,
     sema_expr_arena: SemaExprArena,
     sema_stmt_arena: SemaStmtArena,
     pub(crate) sema_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
@@ -64,7 +64,7 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
         &self.fly_term_region
     }
 
-    fn expr_region_data(&self) -> &'a SynExprRegionData {
+    fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
 
@@ -82,8 +82,8 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
 }
 
 impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
-    fn stack_place_registry_mut(&mut self) -> &mut PlaceRegistry {
-        &mut self.stack_location_registry
+    fn place_registry_mut(&mut self) -> &mut PlaceRegistry {
+        &mut self.place_registry
     }
 
     fn fly_term_region_mut(&mut self) -> &mut FlyTermRegion {
@@ -164,7 +164,7 @@ impl<'a> SemaExprEngine<'a> {
             syn_expr_region,
             syn_expr_region_data,
             dec_term_region,
-            stack_location_registry,
+            place_registry: stack_location_registry,
             sema_expr_arena: SemaExprArena::default(),
             sema_stmt_arena: SemaStmtArena::default(),
             sema_expr_roots: Default::default(),
@@ -271,6 +271,7 @@ impl<'a> SemaExprEngine<'a> {
                 .path()
                 .region_path(db)
                 .expect("should be some"),
+            self.place_registry,
             self.syn_expr_region,
             self.sema_expr_arena,
             self.sema_stmt_arena,
@@ -360,24 +361,25 @@ fn calc_self_value_ty(
             }
         }
     }?;
+    let place_data = PlaceInfo::SelfValue;
     let place = match modifier {
         SvarModifier::Pure => FlyQuary::StackPure {
-            place: registry.issue_new().into(),
+            place: registry.issue_new(place_data).into(),
         },
         SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
-            place: registry.issue_new().into(),
+            place: registry.issue_new(place_data).into(),
         },
         SvarModifier::Mut => FlyQuary::MutableStackOwned {
-            place: registry.issue_new().into(),
+            place: registry.issue_new(place_data).into(),
         },
         SvarModifier::Ref => todo!(),
         SvarModifier::RefMut => todo!(),
         SvarModifier::Const => todo!(),
         SvarModifier::Ambersand(_) => FlyQuary::Ref {
-            guard: Left(registry.issue_new().into()),
+            guard: Left(registry.issue_new(place_data).into()),
         },
         SvarModifier::AmbersandMut(_) => FlyQuary::RefMut {
-            place: registry.issue_new().into(),
+            place: registry.issue_new(place_data).into(),
             lifetime: None,
         },
         SvarModifier::Le => FlyQuary::Leashed,

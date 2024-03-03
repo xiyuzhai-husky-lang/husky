@@ -40,6 +40,7 @@ husky-entity-path.workspace = true
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # lex
+husky-text.workspace = true
 husky-toml-token.workspace = true
 husky-token.workspace = true
 husky-token-data.workspace = true

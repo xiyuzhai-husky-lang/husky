@@ -4,6 +4,7 @@ pub use husky_ast::test_utils::*;
     husky_coword::CowordJar,
     husky_vfs::VfsJar,
     husky_entity_path::jar::EntityPathJar,
+    husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,
     husky_token::TokenJar,
     husky_ast::jar::AstJar,

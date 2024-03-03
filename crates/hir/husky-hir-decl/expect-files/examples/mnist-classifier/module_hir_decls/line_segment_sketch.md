@@ -115,7 +115,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -130,23 +130,15 @@
                                     ),
                                     ty_place: StackPure {
                                         place: Idx(
-                                            PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
+                                            PlaceIdx(0),
                                         ),
                                     },
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [
                                             (
                                                 Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 Pure,
                                             ),
@@ -196,18 +188,18 @@
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
-                                        opd_hir_expr_idx: 2,
+                                        opd: 2,
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                                 HirEagerExprEntry {
@@ -251,8 +243,8 @@
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: false,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                                 HirEagerExprEntry {
@@ -261,23 +253,15 @@
                                     ),
                                     ty_place: StackPure {
                                         place: Idx(
-                                            PlaceIdx(
-                                                ShiftedU32(
-                                                    1,
-                                                ),
-                                            ),
+                                            PlaceIdx(0),
                                         ),
                                     },
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [
                                             (
                                                 Idx(
-                                                    PlaceIdx(
-                                                        ShiftedU32(
-                                                            1,
-                                                        ),
-                                                    ),
+                                                    PlaceIdx(0),
                                                 ),
                                                 Pure,
                                             ),
@@ -327,18 +311,18 @@
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
-                                        opd_hir_expr_idx: 6,
+                                        opd: 6,
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: true,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                                 HirEagerExprEntry {
@@ -382,8 +366,8 @@
                                     },
                                     ty_place: Transient,
                                     is_always_copyable: false,
-                                    place_contracts: HirEagerPlaceContractSite {
-                                        data: [],
+                                    place_contract_site: HirEagerPlaceContractSite {
+                                        place_contracts: [],
                                     },
                                 },
                             ],
@@ -482,7 +466,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -571,7 +555,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
@@ -671,7 +655,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
@@ -792,7 +776,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
@@ -934,7 +918,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
@@ -1074,7 +1058,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
@@ -1158,7 +1142,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -1233,7 +1217,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1299,7 +1283,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1401,7 +1385,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssocRitchie(
@@ -1504,7 +1488,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodRitchie(
@@ -1573,7 +1557,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlock {
@@ -1648,7 +1632,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1714,7 +1698,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    path: RegionPath::Decl(
+                    region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
@@ -1774,7 +1758,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
@@ -1826,7 +1810,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
@@ -1919,7 +1903,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        path: RegionPath::Decl(
+                        region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssocRitchie(

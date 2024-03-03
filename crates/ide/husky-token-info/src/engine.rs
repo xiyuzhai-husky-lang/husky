@@ -532,7 +532,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     fn visit_current_syn_symbol(
         &mut self,
         current_syn_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol: &CurrentSynSymbol,
+        current_syn_symbol: &CurrentSynSymbolEntry,
     ) {
         let current_syn_symbol_kind = current_syn_symbol.kind();
         match current_syn_symbol_kind {

@@ -1,5 +1,6 @@
+use husky_coword::Ident;
 use husky_eth_term::term::svar::EthSvar;
-use husky_place::{place::Place, PlaceIdx};
+use husky_place::{place::Place, PlaceInfo};
 use thiserror::Error;
 
 use super::*;
@@ -42,17 +43,30 @@ impl SymbolType {
         modifier: SvarModifier,
         ty: FlyTerm,
     ) -> Self {
-        let new_place = match modifier {
+        let place_data = || {
+            let Some(ident) = engine.syn_expr_region_data()[current_syn_symbol_idx].ident() else {
+                let db = engine.db();
+                p!(engine.syn_expr_region_data()[current_syn_symbol_idx]
+                    .name()
+                    .debug(db));
+                unreachable!();
+            };
+            PlaceInfo::Parameter {
+                current_syn_symbol_idx,
+                ident,
+            }
+        };
+        let quary = match modifier {
             SvarModifier::Pure => FlyQuary::StackPure {
-                place: engine.issue_new_stack_place_idx().into(),
+                place: engine.issue_new_place_idx(place_data()).into(),
             },
             SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
-                place: engine.issue_new_stack_place_idx().into(),
+                place: engine.issue_new_place_idx(place_data()).into(),
             },
             SvarModifier::Mut => todo!(),
             SvarModifier::Ref => todo!(),
             SvarModifier::RefMut => FlyQuary::RefMut {
-                place: engine.issue_new_stack_place_idx().into(),
+                place: engine.issue_new_place_idx(place_data()).into(),
                 lifetime: None,
             },
             SvarModifier::Const => FlyQuary::Const,
@@ -62,7 +76,7 @@ impl SymbolType {
             SvarModifier::Tilde => todo!(),
             SvarModifier::At => todo!(),
         };
-        Self(ty.with_quary(new_place))
+        Self(ty.with_quary(quary))
     }
 
     pub fn new_variable_ty(
@@ -71,14 +85,21 @@ impl SymbolType {
         modifier: SvarModifier,
         ty: FlyTerm,
     ) -> FlyTermResult<Self> {
-        let new_place = match modifier {
+        let ident = engine.syn_expr_region_data()[current_syn_symbol_idx]
+            .ident()
+            .unwrap();
+        let place_data = PlaceInfo::Variable {
+            current_syn_symbol_idx,
+            ident,
+        };
+        let quary = match modifier {
             SvarModifier::Pure => match ty.place {
                 Some(FlyQuary::Transient) | None => FlyQuary::ImmutableStackOwned {
-                    place: engine.issue_new_stack_place_idx().into(),
+                    place: engine.issue_new_place_idx(place_data).into(),
                 },
                 Some(quary) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::ImmutableStackOwned {
-                        place: engine.issue_new_stack_place_idx().into(),
+                        place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => match quary {
                         FlyQuary::Const => todo!(),
@@ -100,11 +121,11 @@ impl SymbolType {
             SvarModifier::Owned => todo!(),
             SvarModifier::Mut => match ty.place {
                 Some(FlyQuary::Transient) | None => FlyQuary::MutableStackOwned {
-                    place: engine.issue_new_stack_place_idx().into(),
+                    place: engine.issue_new_place_idx(place_data).into(),
                 },
                 Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::MutableStackOwned {
-                        place: engine.issue_new_stack_place_idx().into(),
+                        place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => {
                         p!(ty.show(engine.db(), engine.fly_terms()));
@@ -122,7 +143,7 @@ impl SymbolType {
             SvarModifier::Tilde => todo!(),
             SvarModifier::At => todo!(),
         };
-        Ok(Self(ty.with_quary(new_place)))
+        Ok(Self(ty.with_quary(quary)))
     }
 }
 
@@ -303,31 +324,14 @@ impl FlyLifetime {
                 Literal::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),
             },
-            FlyTermData::TypeOntology {
-                ty_path,
-                refined_ty_path,
-                ty_arguments,
-                ty_ethereal_term,
-            } => todo!(),
-            FlyTermData::Curry {
-                toolchain,
-                curry_kind,
-                variance,
-                parameter_hvar,
-                parameter_ty,
-                return_ty,
-                ty_ethereal_term,
-            } => todo!(),
+            FlyTermData::TypeOntology { .. } => todo!(),
+            FlyTermData::Curry { .. } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
-            FlyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-            } => todo!(),
-            FlyTermData::Symbol { term, ty } => todo!(),
+            FlyTermData::Ritchie { .. } => todo!(),
+            FlyTermData::Symbol { .. } => todo!(),
             FlyTermData::Hvar { .. } => todo!(),
-            FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::TypeVariant { .. } => todo!(),
         }
     }
 }

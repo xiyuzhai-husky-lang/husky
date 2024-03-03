@@ -74,7 +74,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             // comptime
             "RustTranspilationJar" => &[],
             // devtime
-            "TraceJar" => &[],
+            "TraceJar" => &["TextJar"],
             // fs
             "CorgiConfigJar" => &[],
             "ManifestJar" => &[],
@@ -83,7 +83,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             // hir
             "HirDeclJar" => &[],
             "HirDefnJar" => &[],
-            "HirEagerExprJar" => &[],
+            "HirEagerExprJar" => &["TextJar"],
             "HirExprJar" => &[],
             "HirLazyExprJar" => &[],
             "HirPreludeJar" => &[],
@@ -117,7 +117,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             "JavelinJar" => &[],
             "LinkageJar" => &[],
             // semantics
-            "SemaExprJar" => &[],
+            "SemaExprJar" => &["TextJar"],
             "SemaPlaceContractJar" => &[],
             // super
             "SuperNodeJar" => &[],

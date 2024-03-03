@@ -124,7 +124,7 @@ SynNodeDeclSheet {
                                     },
                                     current_syn_symbol_arena: Arena {
                                         data: [
-                                            CurrentSynSymbol {
+                                            CurrentSynSymbolEntry {
                                                 modifier: Const,
                                                 access_start: RegionalTokenIdx(
                                                     5,

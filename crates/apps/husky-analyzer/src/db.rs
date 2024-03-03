@@ -17,6 +17,7 @@ use salsa::snapshot::SnapshotClone;
     husky_eth_signature::EtherealSignatureJar,
     husky_fly_term::FlyTermJar,
     // lex
+    husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,
     husky_token::TokenJar,
     husky_toml_token::jar::TomlTokenJar,

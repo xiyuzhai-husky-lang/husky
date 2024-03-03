@@ -28,6 +28,7 @@ husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-scope.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 # syntax
 husky-entity-tree.workspace = true

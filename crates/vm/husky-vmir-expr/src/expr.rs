@@ -36,7 +36,9 @@ impl ToVmir for HirEagerExprIdx {
                 return_ty,
                 opd_hir_expr_idx,
             } => todo!(),
-            HirEagerExprData::Unwrap { opd_hir_expr_idx } => todo!(),
+            HirEagerExprData::Unwrap {
+                opd: opd_hir_expr_idx,
+            } => todo!(),
             HirEagerExprData::As { opd, ty } => todo!(),
             HirEagerExprData::TypeConstructorFnCall {
                 path,
@@ -78,7 +80,7 @@ impl ToVmir for HirEagerExprIdx {
             } => todo!(),
             HirEagerExprData::NewTuple { ref items } => todo!(),
             HirEagerExprData::Index {
-                owner_hir_expr_idx,
+                owner: owner_hir_expr_idx,
                 ref items,
             } => todo!(),
             HirEagerExprData::NewList {

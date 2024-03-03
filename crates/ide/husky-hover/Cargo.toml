@@ -16,6 +16,7 @@ husky-documentation = { path = "../../ide/husky-documentation" }
 # infer
 husky-token-info.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-text-protocol.workspace = true

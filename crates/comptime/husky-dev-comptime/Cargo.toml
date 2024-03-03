@@ -38,10 +38,10 @@ husky-fly-term.workspace = true
 husky-coword.workspace = true
 husky-task.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
-husky-text.workspace = true
 # linkage
 husky-javelin.workspace = true
 husky-linkage.workspace = true

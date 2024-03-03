@@ -21,7 +21,6 @@ use husky_syn_expr::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
-use husky_toml_token::jar::TomlTokenJar;
 use husky_vfs::VfsJar;
 
 #[salsa::db(
@@ -33,6 +32,7 @@ use husky_vfs::VfsJar;
     TokenJar,
     husky_ast::jar::AstJar,
     EntityTreeJar,
+    husky_text::jar::TextJar,
     husky_toml_token::jar::TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

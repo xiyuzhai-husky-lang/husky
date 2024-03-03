@@ -28,6 +28,7 @@ use husky_toml_token::jar::TomlTokenJar;
     TokenJar,
     husky_ast::jar::AstJar,
     EntityTreeJar,
+    husky_text::jar::TextJar,
     husky_toml_token::jar::TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

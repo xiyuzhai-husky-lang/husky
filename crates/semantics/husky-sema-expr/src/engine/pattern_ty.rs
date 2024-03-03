@@ -1,3 +1,5 @@
+use husky_coword::Ident;
+
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {

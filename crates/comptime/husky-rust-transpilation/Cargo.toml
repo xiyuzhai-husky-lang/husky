@@ -58,6 +58,7 @@ husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 husky-fly-term.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true

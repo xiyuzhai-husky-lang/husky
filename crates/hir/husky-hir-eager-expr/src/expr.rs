@@ -92,7 +92,7 @@ pub enum HirEagerExprData {
         opd_hir_expr_idx: HirEagerExprIdx,
     },
     Unwrap {
-        opd_hir_expr_idx: HirEagerExprIdx,
+        opd: HirEagerExprIdx,
     },
     As {
         opd: HirEagerExprIdx,
@@ -141,7 +141,7 @@ pub enum HirEagerExprData {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Index {
-        owner_hir_expr_idx: HirEagerExprIdx,
+        owner: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     NewList {
@@ -292,7 +292,7 @@ impl ToHirEager for SemaExprIdx {
             SemaExprData::Unwrap {
                 opd_sema_expr_idx, ..
             } => HirEagerExprData::Unwrap {
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
+                opd: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::FunctionApplication { .. } => {
                 use husky_print_utils::p;
@@ -435,7 +435,7 @@ impl ToHirEager for SemaExprIdx {
                 ref index_sema_list_items,
                 ..
             } => HirEagerExprData::Index {
-                owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                owner: owner_sema_expr_idx.to_hir_eager(builder),
                 items: index_sema_list_items
                     .iter()
                     .map(|item| item.sema_expr_idx.to_hir_eager(builder))
@@ -507,7 +507,7 @@ impl ToHirEager for SemaExprIdx {
             .quary()
             .map(|place| HirQuary::from_fly(place))
             .unwrap_or(HirQuary::Transient);
-        let place_contracts =
+        let place_contract_site =
             HirEagerPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let entry = HirEagerExprEntry {
             data,
@@ -516,7 +516,7 @@ impl ToHirEager for SemaExprIdx {
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
-            place_contract_site: place_contracts,
+            place_contract_site,
         };
         builder.alloc_expr(*self, entry)
     }

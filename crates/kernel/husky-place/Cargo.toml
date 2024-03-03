@@ -11,3 +11,5 @@ shifted-unsigned-int.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-eth-term.workspace = true
+# syn
+husky-syn-expr.workspace = true

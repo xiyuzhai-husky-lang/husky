@@ -6,9 +6,9 @@ edition = "2021"
 [dependencies]
 codespan-reporting.workspace = true
 either.workspace = true
-thiserror.workspace = true
-smallvec.workspace = true
 expect-test.workspace = true
+smallvec.workspace = true
+thiserror.workspace = true
 # abstractions
 salsa.workspace = true
 enum-class.workspace = true
@@ -17,7 +17,7 @@ vec-like.workspace = true
 original-error.workspace = true
 maybe-result.workspace = true
 # fs
-husky-vfs = { workspace = true, features = ["test_utils"] }
+husky-vfs.workspace = true
 # kernel
 husky-term-prelude.workspace = true
 husky-dec-signature.workspace = true
@@ -28,7 +28,7 @@ husky-entity-path.workspace = true
 husky-entity-kind.workspace = true
 husky-coword.workspace = true
 husky-fly-term.workspace = true
-husky-expr = { path = "../../kernel/husky-expr" }
+husky-expr.workspace = true
 husky-place.workspace = true
 # lex
 husky-text.workspace = true
@@ -36,7 +36,7 @@ husky-token-data.workspace = true
 husky-token.workspace = true
 husky-regional-token.workspace = true
 # semantics
-husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
+husky-sema-opr.workspace = true
 # syntax
 husky-opr.workspace = true
 husky-entity-tree.workspace = true

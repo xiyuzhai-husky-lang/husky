@@ -19,7 +19,7 @@ use husky_hir_decl::{
     decl::HirDecl,
     parameter::{parenate::eager::HirEagerParenateParameter, template::HirTemplateParameters},
 };
-use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
+use husky_hir_eager_expr::helpers::region::hir_eager_body_with_expr_region;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

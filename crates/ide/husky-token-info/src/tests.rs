@@ -22,6 +22,7 @@ use husky_toml_token::jar::TomlTokenJar;
     VfsJar,
     CowordJar,
     husky_token_data::jar::TokenDataJar,
+    husky_text::jar::TextJar,
     TokenJar,
     husky_entity_path::jar::EntityPathJar,
     husky_toml_token::jar::TomlTokenJar,

@@ -75,7 +75,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for PropsFi
                 None
             };
         let access_start = ctx.state().next_regional_token_idx();
-        let symbol = CurrentSynSymbol::new(
+        let symbol = CurrentSynSymbolEntry::new(
             ctx.pattern_expr_region(),
             access_start,
             None,

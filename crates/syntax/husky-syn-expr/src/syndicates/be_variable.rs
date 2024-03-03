@@ -28,7 +28,7 @@ where
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                CurrentSynSymbol::new(
+                CurrentSynSymbolEntry::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
