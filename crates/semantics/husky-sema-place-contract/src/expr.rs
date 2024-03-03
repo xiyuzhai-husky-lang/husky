@@ -215,7 +215,7 @@ impl<'a> PlaceContractEngine<'a> {
                 SemaRitchieParameterArgumentMatch::Simple(param, arg) => {
                     self.infer_expr(arg.argument_expr_idx, param.contract, Default::default())
                 }
-                SemaRitchieParameterArgumentMatch::Variadic(_, _) => {
+                SemaRitchieParameterArgumentMatch::Variadic(param, args) => {
                     todo!()
                 }
                 SemaRitchieParameterArgumentMatch::Keyed(param, arg) => {
