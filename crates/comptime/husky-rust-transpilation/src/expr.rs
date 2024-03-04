@@ -147,8 +147,8 @@ impl HirEagerExprSite {
         precedence: RustPrecedence,
         builder: &mut RustTranspilationBuilder<HirEagerExprRegion>,
     ) {
-        let subexpr_geq = |slf: &Self| slf.subexpr(RustPrecedenceRange::Geq(precedence));
-        let subexpr_greater = |slf: &Self| slf.subexpr(RustPrecedenceRange::Greater(precedence));
+        let subexpr_geq = || Self::subexpr(RustPrecedenceRange::Geq(precedence));
+        let subexpr_greater = || Self::subexpr(RustPrecedenceRange::Greater(precedence));
         let db = builder.db();
         match *data {
             HirEagerExprData::Literal(term_literal) => term_literal.transpile_to_rust(builder),
@@ -171,32 +171,32 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
                 HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
-                    (lopd, self.self_expr_on_site(false)).transpile_to_rust(builder);
+                    (lopd, Self::self_expr_on_site(false)).transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.rem_eulid();
                     builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                        (ropd, self.any_precedence()).transpile_to_rust(builder)
+                        (ropd, Self::any_precedence()).transpile_to_rust(builder)
                     })
                 }
                 HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
-                    (lopd, self.self_expr_on_site(false)).transpile_to_rust(builder);
+                    (lopd, Self::self_expr_on_site(false)).transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::Dot);
                     builder.pow();
                     builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                        (ropd, self.any_precedence()).transpile_to_rust(builder)
+                        (ropd, Self::any_precedence()).transpile_to_rust(builder)
                     })
                 }
                 HirBinaryOpr::Assign
                 | HirBinaryOpr::AssignClosed(_)
                 | HirBinaryOpr::AssignShift(_) => {
-                    (lopd, self.self_expr_on_site(false)).transpile_to_rust(builder);
+                    (lopd, Self::self_expr_on_site(false)).transpile_to_rust(builder);
                     opr.transpile_to_rust(builder);
-                    (ropd, subexpr_greater(self)).transpile_to_rust(builder)
+                    (ropd, subexpr_greater()).transpile_to_rust(builder)
                 }
                 _ => {
-                    (lopd, subexpr_geq(self)).transpile_to_rust(builder);
+                    (lopd, subexpr_geq()).transpile_to_rust(builder);
                     opr.transpile_to_rust(builder);
-                    (ropd, subexpr_greater(self)).transpile_to_rust(builder)
+                    (ropd, subexpr_greater()).transpile_to_rust(builder)
                 }
             },
             HirEagerExprData::Be { src: _, target: _ } => {
@@ -210,7 +210,7 @@ impl HirEagerExprSite {
                     HirPrefixOpr::NotInt => builder.bracketed(RustDelimiter::Par, |builder| {
                         (
                             opd_hir_expr_idx,
-                            self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::EqComparison)),
+                            Self::subexpr(RustPrecedenceRange::Geq(RustPrecedence::EqComparison)),
                         )
                             .transpile_to_rust(builder);
                         builder.eq_zero()
@@ -218,7 +218,7 @@ impl HirEagerExprSite {
                     _ => {
                         // todo: check some details
                         opr.transpile_to_rust(builder);
-                        (opd_hir_expr_idx, subexpr_geq(self)).transpile_to_rust(builder)
+                        (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder)
                     }
                 }
             }
@@ -227,7 +227,7 @@ impl HirEagerExprSite {
                 opr,
             } => match opr {
                 HirSuffixOpr::Incr | HirSuffixOpr::Decr => {
-                    (opd_hir_expr_idx, subexpr_geq(self)).transpile_to_rust(builder);
+                    (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
                     opr.transpile_to_rust(builder)
                 }
             },
@@ -241,7 +241,7 @@ impl HirEagerExprSite {
                 builder.bracketed(RustDelimiter::Par, |builder| {
                     return_ty.transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
-                    (opd_hir_expr_idx, subexpr_geq(self)).transpile_to_rust(builder);
+                    (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
                     let runtime_constants: SmallVec<[HirTermSvarResolution; 2]> = instantiation
                         .symbol_map()
@@ -258,7 +258,7 @@ impl HirEagerExprSite {
                 })
             }
             HirEagerExprData::Unwrap { opd } => {
-                (opd, self.self_expr_on_site(false)).transpile_to_rust(builder);
+                (opd, Self::self_expr_on_site(false)).transpile_to_rust(builder);
                 builder.call_unwrap()
             }
             HirEagerExprData::TypeConstructorFnCall {
@@ -310,7 +310,7 @@ impl HirEagerExprSite {
                 ident,
                 field_ty: _,
             } => {
-                (owner_hir_expr_idx, self.self_expr_on_site(true)).transpile_to_rust(builder);
+                (owner_hir_expr_idx, Self::self_expr_on_site(true)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 ident.transpile_to_rust(builder)
             }
@@ -319,7 +319,7 @@ impl HirEagerExprSite {
                 ident,
                 ..
             } => {
-                (owner_hir_expr_idx, subexpr_geq(self)).transpile_to_rust(builder);
+                (owner_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 ident.transpile_to_rust(builder);
                 builder.bracketed(RustDelimiter::Par, |_| ())
@@ -332,7 +332,7 @@ impl HirEagerExprSite {
                 ref instantiation,
                 ref item_groups,
             } => {
-                (self_argument, self.self_expr_on_site(true)).transpile_to_rust(builder);
+                (self_argument, Self::self_expr_on_site(true)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 let places = instantiation.places();
                 match places.len() {
@@ -367,11 +367,11 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::Index { owner, ref items } => {
                 // ad hoc
-                (owner, self.self_expr_on_site(true)).transpile_to_rust(builder);
+                (owner, Self::self_expr_on_site(true)).transpile_to_rust(builder);
                 builder.bracketed(RustDelimiter::Box, |builder| {
                     (
                         items[0],
-                        self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                        Self::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
                     )
                         .transpile_to_rust(builder);
                     builder.keyword(RustKeyword::As);
@@ -385,7 +385,7 @@ impl HirEagerExprSite {
                     items
                         .iter()
                         .copied()
-                        .map(|item| (item, self.any_precedence())),
+                        .map(|item| (item, Self::any_precedence())),
                 )
             }
             HirEagerExprData::Block { stmts } => stmts.transpile_to_rust(builder),
@@ -416,7 +416,7 @@ impl HirEagerExprSite {
             HirEagerExprData::As { opd, ty } => {
                 (
                     opd,
-                    self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                    Self::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
                 )
                     .transpile_to_rust(builder);
                 builder.keyword(RustKeyword::As);
@@ -434,14 +434,14 @@ impl HirEagerExprSite {
                         builder.punctuation(RustPunctuation::LightArrow);
                         return_ty.transpile_to_rust(builder);
                         builder.bracketed(RustDelimiter::Curl, |builder| {
-                            (body, self.subexpr(RustPrecedenceRange::Any))
+                            (body, Self::subexpr(RustPrecedenceRange::Any))
                                 .transpile_to_rust(builder)
                         })
                     }
                     None => {
                         (
                             body,
-                            self.subexpr(RustPrecedenceRange::Geq(RustPrecedence::Closure)),
+                            Self::subexpr(RustPrecedenceRange::Geq(RustPrecedence::Closure)),
                         )
                             .transpile_to_rust(builder);
                     }
