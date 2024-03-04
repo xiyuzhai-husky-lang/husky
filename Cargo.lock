@@ -6407,6 +6407,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-virtual-value"
+version = "0.1.0"
+
+[[package]]
+name = "husky-virtual-value-macros"
+version = "0.1.0"
+
+[[package]]
 name = "husky-visual-protocol"
 version = "0.1.0"
 dependencies = [
