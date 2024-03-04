@@ -14,7 +14,7 @@ pub(crate) struct HirEagerExprSite {
 impl HirEagerExprSite {
     /// generate self subexpr on site
     /// `self` refers to the parent expr on site
-    pub(crate) fn self_expr_on_site(&self, has_self_value_binding: bool) -> Self {
+    pub(crate) fn self_expr_on_site(has_self_value_binding: bool) -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             // this is because `RustBinding::SelfValue` automatically covers the contract
@@ -26,7 +26,7 @@ impl HirEagerExprSite {
         }
     }
 
-    pub(crate) fn subexpr(&self, rust_precedence_range: RustPrecedenceRange) -> Self {
+    pub(crate) fn subexpr(rust_precedence_range: RustPrecedenceRange) -> Self {
         Self {
             rust_precedence_range,
             rust_bindings: Default::default(),
@@ -41,7 +41,7 @@ impl HirEagerExprSite {
     }
 
     #[track_caller]
-    pub(crate) fn any_precedence(&self) -> Self {
+    pub(crate) fn any_precedence() -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings: Default::default(),
@@ -73,10 +73,6 @@ impl HirEagerExprSite {
             HirEagerCoersion::PlaceToLeash => rust_bindings.push(RustBinding::Reref),
             HirEagerCoersion::Deref(_) => rust_bindings.push(RustBinding::Deref),
         }
-        let mut place_contracts: SmallVecPairMap<Place, HirEagerContract, 2> = Default::default();
-        if let Some(place) = coersion.quary_after_coersion().place() {
-            place_contracts.insert((place, param.contract))
-        }
         Self {
             rust_precedence_range: RustPrecedenceRange::ANY,
             rust_bindings,
@@ -105,12 +101,6 @@ impl HirEagerExprSite {
         initial_value_entry: &HirEagerExprEntry,
         coersion: Option<HirEagerCoersion>,
     ) -> Self {
-        let mut place_contracts: SmallVecPairMap<Place, HirEagerContract, 2> = Default::default();
-        if let Some(place) = initial_value_entry.quary().place()
-            && contract != HirEagerContract::At
-        {
-            place_contracts.insert((place, contract))
-        };
         let rust_bindings: RustBindings = match initial_value_entry.quary() {
             HirQuary::Transient => Default::default(),
             _ => match contract {

@@ -128,7 +128,7 @@
                                     data: HirEagerExprData::Variable(
                                         1,
                                     ),
-                                    ty_place: StackPure {
+                                    quary: StackPure {
                                         place: Idx(
                                             PlaceIdx(0),
                                         ),
@@ -186,7 +186,7 @@
                                         },
                                         item_groups: [],
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: true,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],
@@ -196,7 +196,7 @@
                                     data: HirEagerExprData::Unwrap {
                                         opd: 2,
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: true,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],
@@ -241,7 +241,7 @@
                                         },
                                         item_groups: [],
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: false,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],
@@ -251,7 +251,7 @@
                                     data: HirEagerExprData::Variable(
                                         1,
                                     ),
-                                    ty_place: StackPure {
+                                    quary: StackPure {
                                         place: Idx(
                                             PlaceIdx(0),
                                         ),
@@ -309,7 +309,7 @@
                                         },
                                         item_groups: [],
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: true,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],
@@ -319,7 +319,7 @@
                                     data: HirEagerExprData::Unwrap {
                                         opd: 6,
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: true,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],
@@ -364,7 +364,7 @@
                                         },
                                         item_groups: [],
                                     },
-                                    ty_place: Transient,
+                                    quary: Transient,
                                     is_always_copyable: false,
                                     place_contract_site: HirEagerPlaceContractSite {
                                         place_contracts: [],

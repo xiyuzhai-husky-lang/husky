@@ -32,7 +32,7 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
-    ty_place: HirQuary,
+    quary: HirQuary,
     is_always_copyable: bool,
     place_contract_site: HirEagerPlaceContractSite,
 }
@@ -44,7 +44,7 @@ impl HirEagerExprEntry {
     }
 
     pub fn quary(&self) -> HirQuary {
-        self.ty_place
+        self.quary
     }
 
     pub fn is_always_copyable(&self) -> bool {
@@ -511,7 +511,7 @@ impl ToHirEager for SemaExprIdx {
             HirEagerPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let entry = HirEagerExprEntry {
             data,
-            ty_place,
+            quary: ty_place,
             is_always_copyable: ty
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
