@@ -1,6 +1,4 @@
 use crate::ingredient::Ingredient;
-use crate::runtime::Runtime;
-use crate::IngredientIndex;
 use crate::*;
 use parking_lot::Condvar;
 use std::sync::Arc;
