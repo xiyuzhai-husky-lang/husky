@@ -24,6 +24,7 @@ members = [
     "crates/tasks/*",
     "crates/tex/*",
     "crates/utils/*",
+    "crates/value/*",
     "crates/vm/*",
     "library/core",
     "registry/*",
@@ -299,8 +300,8 @@ husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
 # value
-husky-standard-value = { path = "crates/vm/husky-standard-value" }
-husky-standard-value-macros = { path = "crates/vm/husky-standard-value-macros" }
+husky-standard-value = { path = "crates/value/husky-standard-value" }
+husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 # vm
 husky-vmir-expr = { path = "crates/vm/husky-vmir-expr" }
 husky-vm = { path = "crates/vm/husky-vm" }
