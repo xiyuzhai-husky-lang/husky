@@ -27,5 +27,5 @@ husky-visual-protocol.workspace = true
 husky-task-interface.workspace = true
 husky-task.workspace = true
 husky-ml-task-interface.workspace = true
-# val
+# ki
 husky-val.workspace = true

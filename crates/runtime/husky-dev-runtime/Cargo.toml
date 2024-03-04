@@ -50,7 +50,7 @@ husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 husky-sync-utils.workspace = true
 husky-vm.workspace = true
-# val
+# ki
 husky-val.workspace = true
 husky-val-repr.workspace = true
 # vm

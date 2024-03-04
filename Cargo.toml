@@ -3,6 +3,7 @@ members = [
     "crates/abstractions/*",
     "crates/apps/*",
     "crates/archs/*",
+    "crates/benchmarks/*",
     "crates/bc/*",
     "crates/comptime/*",
     "crates/corgi/*",
@@ -12,22 +13,20 @@ members = [
     "crates/gui/*",
     "crates/ide/*",
     "crates/kernel/*",
+    "crates/ki/*",
     "crates/lex/*",
     "crates/linkage/*",
     "crates/linktime/*",
     "crates/protocols/*",
     "crates/runtime/*",
     "crates/semantics/*",
-    "crates/super/*",
     "crates/syntax/*",
     "crates/tasks/*",
     "crates/tex/*",
     "crates/utils/*",
     "crates/vm/*",
-    "crates/benchmarks/*",
     "library/core",
     "registry/*",
-    "crates/super/husky-super-node",
 ]
 resolver = "2"
 
@@ -214,6 +213,9 @@ husky-opr = { path = "crates/kernel/husky-opr" }
 husky-scope = { path = "crates/kernel/husky-scope" }
 husky-place = { path = "crates/kernel/husky-place" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
+# ki
+husky-val = { path = "crates/ki/husky-val" }
+husky-val-repr = { path = "crates/ki/husky-val-repr" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }
@@ -296,9 +298,6 @@ husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }
 husky-unicode-symbols = { path = "crates/utils/husky-unicode-symbols" }
 husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
-# val
-husky-val = { path = "crates/val/husky-val" }
-husky-val-repr = { path = "crates/val/husky-val-repr" }
 # value
 husky-standard-value = { path = "crates/vm/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/vm/husky-standard-value-macros" }
