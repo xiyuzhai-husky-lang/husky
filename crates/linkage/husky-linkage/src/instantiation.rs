@@ -1,6 +1,6 @@
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirTemplateSvarClass, HirTemplateVar,
+    HirTemplateSvar, HirTemplateSvarClass,
 };
 use husky_javelin::{
     instantiation::{JavInstantiation, JavTermSymbolResolution},
@@ -11,18 +11,18 @@ use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
-    constant::LinConstant, place::LinPlace, ty::LinType, LinTemplateArgument,
+    constant::LinConstant, quary::LinQuary, ty::LinType, LinTemplateArgument,
 };
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LinInstantiation {
-    symbol_resolutions: SmallVecPairMap<HirTemplateVar, LinTermSymbolResolution, 4>,
+    symbol_resolutions: SmallVecPairMap<HirTemplateSvar, LinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Deref for LinInstantiation {
-    type Target = [(HirTemplateVar, LinTermSymbolResolution)];
+    type Target = [(HirTemplateSvar, LinTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_resolutions
@@ -33,7 +33,7 @@ impl std::ops::Deref for LinInstantiation {
 pub enum LinTermSymbolResolution {
     Explicit(LinTemplateArgument),
     SelfLifetime,
-    SelfPlace(LinPlace),
+    SelfQuary(LinQuary),
 }
 
 impl LinInstantiation {
@@ -53,7 +53,7 @@ impl LinInstantiation {
             SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
                 |&(symbol, resolution)| {
                     match symbol {
-                        HirTemplateVar::Const(symbol)
+                        HirTemplateSvar::Const(symbol)
                             if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
                         {
                             return None
@@ -77,16 +77,16 @@ impl LinInstantiation {
     }
 
     #[track_caller]
-    pub(crate) fn resolve(&self, symbol: HirTemplateVar) -> LinTermSymbolResolution {
+    pub(crate) fn resolve(&self, symbol: HirTemplateSvar) -> LinTermSymbolResolution {
         self.symbol_resolutions[symbol].1
     }
 
-    pub fn places(&self) -> SmallVec<[(HirTemplateVar, LinTermSymbolResolution); 2]> {
+    pub fn places(&self) -> SmallVec<[(HirTemplateSvar, LinTermSymbolResolution); 2]> {
         self.symbol_resolutions
             .iter()
             .filter_map(|&(symbol, resolution)| match resolution {
-                LinTermSymbolResolution::Explicit(LinTemplateArgument::Place(_))
-                | LinTermSymbolResolution::SelfPlace(_) => Some((symbol, resolution)),
+                LinTermSymbolResolution::Explicit(LinTemplateArgument::Quary(_))
+                | LinTermSymbolResolution::SelfQuary(_) => Some((symbol, resolution)),
                 LinTermSymbolResolution::Explicit(_) | LinTermSymbolResolution::SelfLifetime => {
                     None
                 }
@@ -94,7 +94,7 @@ impl LinInstantiation {
             .collect()
     }
 
-    pub fn symbol_resolutions(&self) -> &[(HirTemplateVar, LinTermSymbolResolution)] {
+    pub fn symbol_resolutions(&self) -> &[(HirTemplateSvar, LinTermSymbolResolution)] {
         self.symbol_resolutions.as_ref()
     }
 
@@ -179,8 +179,8 @@ impl LinTermSymbolResolution {
             }
             JavTermSymbolResolution::SelfPlace => {
                 smallvec![
-                    LinTermSymbolResolution::SelfPlace(LinPlace::Ref),
-                    LinTermSymbolResolution::SelfPlace(LinPlace::RefMut),
+                    LinTermSymbolResolution::SelfQuary(LinQuary::Ref),
+                    LinTermSymbolResolution::SelfQuary(LinQuary::RefMut),
                 ]
             }
         }

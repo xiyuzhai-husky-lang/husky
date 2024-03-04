@@ -7,7 +7,7 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Const(
+                                symbol: HirTemplateSvar::Const(
                                     HirConstSvar {
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
@@ -37,7 +37,7 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -80,7 +80,7 @@
                                             `L`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVar::Const(
+                                        hir_comptime_symbol: HirTemplateSvar::Const(
                                             HirConstSvar {
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -104,7 +104,7 @@
                                             `E`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,

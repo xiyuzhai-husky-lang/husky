@@ -15,7 +15,7 @@ use husky_fly_term::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, place::HirQuary, ritchie::HirEagerContract, HirType,
+    instantiation::HirInstantiation, quary::HirQuary, ritchie::HirEagerContract, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};

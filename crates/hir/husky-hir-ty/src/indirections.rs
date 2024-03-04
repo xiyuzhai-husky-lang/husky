@@ -1,4 +1,4 @@
-use crate::place::HirQuary;
+use crate::quary::HirQuary;
 use husky_fly_term::dispatch::{FlyIndirection, FlyIndirections};
 use smallvec::SmallVec;
 

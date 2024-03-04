@@ -150,7 +150,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -172,7 +172,7 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVar::Const(
+                                    HirTemplateSvar::Const(
                                         HirConstSvar {
                                             ty: HirType::Svar(
                                                 HirTypeSvar::Type {

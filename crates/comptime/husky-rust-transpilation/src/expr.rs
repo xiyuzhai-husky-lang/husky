@@ -20,8 +20,8 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSvarResolution, place::HirQuary, ritchie::HirEagerContract,
-    HirTemplateSvarClass, HirTemplateVar,
+    instantiation::HirTermSvarResolution, quary::HirQuary, ritchie::HirEagerContract,
+    HirTemplateSvar, HirTemplateSvarClass,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -203,7 +203,7 @@ fn transpile_hir_eager_expr_to_rust(
                     .symbol_map()
                     .iter()
                     .filter_map(|&(symbol, resolution)| match symbol {
-                        HirTemplateVar::Const(symbol) => (symbol.index(db).class()
+                        HirTemplateSvar::Const(symbol) => (symbol.index(db).class()
                             == HirTemplateSvarClass::Runtime)
                             .then_some(resolution),
                         _ => None,

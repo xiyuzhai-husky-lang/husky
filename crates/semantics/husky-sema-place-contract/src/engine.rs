@@ -1,5 +1,5 @@
 use crate::{region::SemaPlaceContractRegion, site::SemaPlaceContractSite};
-use husky_place::place::Place;
+use husky_place::place::EthPlace;
 use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData};
 
 pub struct PlaceContractEngine<'a> {
@@ -32,7 +32,7 @@ impl<'a> PlaceContractEngine<'a> {
         self.sema_expr_region_data
     }
 
-    pub(crate) fn place(&self, expr: SemaExprIdx) -> Option<Place> {
+    pub(crate) fn place(&self, expr: SemaExprIdx) -> Option<EthPlace> {
         match expr
             .ty(self.sema_expr_region_data.sema_expr_arena2())
             .quary()

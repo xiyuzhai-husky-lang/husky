@@ -205,7 +205,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
         match res {
             LinTermSymbolResolution::Explicit(arg) => self.add_template_argument(arg),
             LinTermSymbolResolution::SelfLifetime => (),
-            LinTermSymbolResolution::SelfPlace(_) => (),
+            LinTermSymbolResolution::SelfQuary(_) => (),
         }
     }
 
@@ -222,7 +222,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
             LinTemplateArgument::Type(linkage_ty) => self.add(linkage_ty),
             LinTemplateArgument::Constant(_) => (),
             LinTemplateArgument::Lifetime => (),
-            LinTemplateArgument::Place(_) => (),
+            LinTemplateArgument::Quary(_) => (),
         }
     }
 

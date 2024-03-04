@@ -91,7 +91,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
             HirTemplateArgument::Type(hir_ty) => hir_ty.transpile_to_rust(builder),
             HirTemplateArgument::Constant(hir_constant) => hir_constant.transpile_to_rust(builder),
             HirTemplateArgument::Lifetime(_) => todo!(),
-            HirTemplateArgument::Place(_) => todo!(),
+            HirTemplateArgument::Quary(_) => todo!(),
         }
     }
 }

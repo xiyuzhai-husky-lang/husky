@@ -17,7 +17,7 @@ use husky_hir_lazy_expr::{
 
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirConstant, HirTemplateArgument, HirTemplateSvarClass, HirTemplateVar,
+    HirConstant, HirTemplateArgument, HirTemplateSvar, HirTemplateSvarClass,
 };
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 
@@ -721,7 +721,7 @@ fn runtime_constants(
     instantiation
         .iter()
         .filter_map(|&(symbol, res)| match symbol {
-            HirTemplateVar::Const(symbol)
+            HirTemplateSvar::Const(symbol)
                 if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
             {
                 Some(match res {
@@ -758,7 +758,7 @@ fn runtime_constants(
                             HirConstant::StaticLifetime => todo!(),
                         },
                         HirTemplateArgument::Lifetime(_) => todo!(),
-                        HirTemplateArgument::Place(_) => todo!(),
+                        HirTemplateArgument::Quary(_) => todo!(),
                     },
                     HirTermSvarResolution::SelfLifetime => {
                         todo!()

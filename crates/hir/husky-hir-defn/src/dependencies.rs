@@ -214,7 +214,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
             HirTemplateArgument::Type(hir_ty) => self.add_hir_ty(hir_ty),
             HirTemplateArgument::Constant(_) => (),
             HirTemplateArgument::Lifetime(_) => (),
-            HirTemplateArgument::Place(_) => (),
+            HirTemplateArgument::Quary(_) => (),
         }
     }
 

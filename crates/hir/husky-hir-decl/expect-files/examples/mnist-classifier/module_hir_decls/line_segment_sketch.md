@@ -158,7 +158,7 @@
                                         instantiation: HirInstantiation {
                                             symbol_map: [
                                                 (
-                                                    HirTemplateVar::Type(
+                                                    HirTemplateSvar::Type(
                                                         HirTypeSvar::Type {
                                                             attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
@@ -219,7 +219,7 @@
                                         instantiation: HirInstantiation {
                                             symbol_map: [
                                                 (
-                                                    HirTemplateVar::Type(
+                                                    HirTemplateSvar::Type(
                                                         HirTypeSvar::SelfType,
                                                     ),
                                                     HirTermSvarResolution::Explicit(
@@ -281,7 +281,7 @@
                                         instantiation: HirInstantiation {
                                             symbol_map: [
                                                 (
-                                                    HirTemplateVar::Type(
+                                                    HirTemplateSvar::Type(
                                                         HirTypeSvar::Type {
                                                             attrs: HirTemplateSvarAttrs {
                                                                 class: Comptime,
@@ -342,7 +342,7 @@
                                         instantiation: HirInstantiation {
                                             symbol_map: [
                                                 (
-                                                    HirTemplateVar::Type(
+                                                    HirTemplateSvar::Type(
                                                         HirTypeSvar::SelfType,
                                                     ),
                                                     HirTermSvarResolution::Explicit(

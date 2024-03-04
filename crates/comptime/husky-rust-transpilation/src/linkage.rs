@@ -13,7 +13,7 @@ use husky_linkage::{
     linkage::LinkageStructField,
     template_argument::{
         constant::LinConstant,
-        place,
+        quary,
         ty::{LinType, LinkageRitchieParameter, LinkageRitchieType},
         LinTemplateArgument,
     },
@@ -175,7 +175,7 @@ fn turbo_fish_instantiation<E>(
             instantiation.iter().map(|&(_, res)| match res {
                 LinTermSymbolResolution::Explicit(arg) => arg,
                 LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfPlace(_) => todo!(),
+                LinTermSymbolResolution::SelfQuary(_) => todo!(),
             }),
         )
     }
@@ -234,13 +234,13 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
             1 => {
                 let (_symbol, place) = places[0];
                 match place {
-                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Place(_)) => {
+                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Quary(_)) => {
                         todo!()
                     }
-                    LinTermSymbolResolution::SelfPlace(place) => match place {
-                        place::LinPlace::Ref => ident.transpile_to_rust(builder),
-                        place::LinPlace::RefMut => builder.method_fn_ident_mut(ident),
-                        place::LinPlace::Transient => todo!(),
+                    LinTermSymbolResolution::SelfQuary(place) => match place {
+                        quary::LinQuary::Ref => ident.transpile_to_rust(builder),
+                        quary::LinQuary::RefMut => builder.method_fn_ident_mut(ident),
+                        quary::LinQuary::Transient => todo!(),
                     },
                     _ => unreachable!(),
                 }
@@ -302,7 +302,7 @@ impl<E> TranspileToRustWith<E> for LinTemplateArgument {
             LinTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
             LinTemplateArgument::Constant(constant) => constant.transpile_to_rust(builder),
             LinTemplateArgument::Lifetime => todo!(),
-            LinTemplateArgument::Place(_) => todo!(),
+            LinTemplateArgument::Quary(_) => todo!(),
         }
     }
 }

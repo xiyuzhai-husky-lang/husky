@@ -11,7 +11,7 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -80,7 +80,7 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -95,7 +95,7 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Const(
+                                symbol: HirTemplateSvar::Const(
                                     HirConstSvar {
                                         ty: HirType::Svar(
                                             HirTypeSvar::Type {
@@ -204,7 +204,7 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -219,7 +219,7 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Const(
+                                symbol: HirTemplateSvar::Const(
                                     HirConstSvar {
                                         ty: HirType::Svar(
                                             HirTypeSvar::Type {
@@ -314,7 +314,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -354,7 +354,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -388,7 +388,7 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -426,7 +426,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -460,7 +460,7 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -571,7 +571,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -593,7 +593,7 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -631,7 +631,7 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -653,7 +653,7 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVar::Type(
+                                    HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,

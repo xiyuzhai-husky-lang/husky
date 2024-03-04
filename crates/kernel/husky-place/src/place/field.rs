@@ -3,7 +3,7 @@ use crate::jar::PlaceJar;
 
 #[salsa::interned(jar = PlaceJar)]
 pub struct FieldPlace {
-    pub parent: Place,
+    pub parent: EthPlace,
     pub field_name: FieldName,
 }
 

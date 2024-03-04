@@ -2,19 +2,19 @@ use crate::template_argument::{ty::JavelinType, JavTemplateArgument};
 use husky_entity_path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSvarResolution},
-    HirTemplateSvarClass, HirTemplateVar,
+    HirTemplateSvar, HirTemplateSvarClass,
 };
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavInstantiation {
-    pub symbol_resolutions: SmallVecPairMap<HirTemplateVar, JavTermSymbolResolution, 4>,
+    pub symbol_resolutions: SmallVecPairMap<HirTemplateSvar, JavTermSymbolResolution, 4>,
     pub separator: Option<u8>,
 }
 
 impl std::ops::Deref for JavInstantiation {
-    type Target = [(HirTemplateVar, JavTermSymbolResolution)];
+    type Target = [(HirTemplateSvar, JavTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_resolutions
@@ -33,7 +33,7 @@ impl JavInstantiation {
                 .iter()
                 .filter_map(|&(symbol, resolution)| {
                     match symbol {
-                        HirTemplateVar::Const(symbol)
+                        HirTemplateSvar::Const(symbol)
                             if symbol.index(db).class() == HirTemplateSvarClass::Runtime =>
                         {
                             return None
@@ -70,12 +70,12 @@ impl JavInstantiation {
             .all(|(_, res)| res.is_univalent())
     }
 
-    pub fn resolve(&self, symbol: impl Into<HirTemplateVar>) -> JavTermSymbolResolution {
+    pub fn resolve(&self, symbol: impl Into<HirTemplateSvar>) -> JavTermSymbolResolution {
         self.symbol_resolutions[symbol.into()].1
     }
 
     #[track_caller]
-    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateVar>) -> JavelinType {
+    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateSvar>) -> JavelinType {
         match self.symbol_resolutions[symbol.into()].1 {
             JavTermSymbolResolution::Explicit(JavTemplateArgument::Type(ty)) => ty,
             _ => unreachable!("expect type"),

@@ -7,7 +7,7 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -50,7 +50,7 @@
                                             `E`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -84,7 +84,7 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -127,7 +127,7 @@
                                             `E`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -166,7 +166,7 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
-                            symbol: HirTemplateVar::Type(
+                            symbol: HirTemplateSvar::Type(
                                 HirTypeSvar::Type {
                                     attrs: HirTemplateSvarAttrs {
                                         class: Comptime,
@@ -232,7 +232,7 @@
                                         `E`,
                                     ),
                                     data: Current,
-                                    hir_comptime_symbol: HirTemplateVar::Type(
+                                    hir_comptime_symbol: HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -312,7 +312,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -432,7 +432,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -491,7 +491,7 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
-                            symbol: HirTemplateVar::Type(
+                            symbol: HirTemplateSvar::Type(
                                 HirTypeSvar::Type {
                                     attrs: HirTemplateSvarAttrs {
                                         class: Comptime,
@@ -564,7 +564,7 @@
                                         `E`,
                                     ),
                                     data: Current,
-                                    hir_comptime_symbol: HirTemplateVar::Type(
+                                    hir_comptime_symbol: HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -641,7 +641,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -678,7 +678,7 @@
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
-                            symbol: HirTemplateVar::Type(
+                            symbol: HirTemplateSvar::Type(
                                 HirTypeSvar::Type {
                                     attrs: HirTemplateSvarAttrs {
                                         class: Comptime,
@@ -744,7 +744,7 @@
                                         `E`,
                                     ),
                                     data: Current,
-                                    hir_comptime_symbol: HirTemplateVar::Type(
+                                    hir_comptime_symbol: HirTemplateSvar::Type(
                                         HirTypeSvar::Type {
                                             attrs: HirTemplateSvarAttrs {
                                                 class: Comptime,
@@ -824,7 +824,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -912,7 +912,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -1000,7 +1000,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -1110,7 +1110,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,
@@ -1220,7 +1220,7 @@
                                             `E`,
                                         ),
                                         data: Inherited,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,

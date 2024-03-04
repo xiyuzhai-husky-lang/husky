@@ -2821,7 +2821,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             Ref,
                         ),
                     ),
@@ -2867,7 +2867,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             RefMut,
                         ),
                     ),
@@ -3205,7 +3205,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             Ref,
                         ),
                     ),
@@ -3251,7 +3251,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             RefMut,
                         ),
                     ),
@@ -3461,7 +3461,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             Ref,
                         ),
                     ),
@@ -3507,7 +3507,7 @@
                         Type(
                             SelfPlace,
                         ),
-                        SelfPlace(
+                        SelfQuary(
                             RefMut,
                         ),
                     ),
