@@ -1,6 +1,5 @@
 use super::*;
 use crate::jar::PlaceJar;
-use husky_coword::Ident;
 
 #[salsa::interned(jar = PlaceJar)]
 pub struct FieldPlace {

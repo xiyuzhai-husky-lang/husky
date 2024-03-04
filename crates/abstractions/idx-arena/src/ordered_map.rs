@@ -1,7 +1,5 @@
 use crate::*;
 
-use std::marker::PhantomData;
-
 /// expect entries to be inserted in order
 #[derive(Clone)]
 pub struct ArenaOrderedMap<T, V> {
