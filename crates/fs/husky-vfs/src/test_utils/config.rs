@@ -1,7 +1,6 @@
 pub mod domain;
 pub mod extension;
 
-
 pub use self::extension::*;
 
 use super::*;

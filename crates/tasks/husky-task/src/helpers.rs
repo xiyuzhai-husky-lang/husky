@@ -1,4 +1,4 @@
-use husky_task_interface::{IsLinkageImpl, LinkageImplValControlFlow};
+use husky_task_interface::{IsLinkageImpl, LinkageImplKiControlFlow};
 
 use crate::*;
 
@@ -16,7 +16,7 @@ pub type TaskLinkageImpl<Task> =
 pub type TaskValue<Task> = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value;
 pub type TaskError<Task> = <TaskLinkageImpl<Task> as IsLinkageImpl>::Error;
 pub type TaskTraceProtocol<Task> = <TaskDevAscension<Task> as IsDevAscension>::TraceProtocol;
-pub type TaskValueResult<Task> = LinkageImplValControlFlow<TaskLinkageImpl<Task>>;
+pub type TaskValueResult<Task> = LinkageImplKiControlFlow<TaskLinkageImpl<Task>>;
 
-pub type TaskValControlFlow<Task, C = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value> =
-    LinkageImplValControlFlow<TaskLinkageImpl<Task>, C>;
+pub type TaskKiControlFlow<Task, C = <TaskLinkageImpl<Task> as IsLinkageImpl>::Value> =
+    LinkageImplKiControlFlow<TaskLinkageImpl<Task>, C>;

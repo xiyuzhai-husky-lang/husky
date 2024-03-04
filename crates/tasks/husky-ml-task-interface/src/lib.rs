@@ -3,10 +3,10 @@ pub mod pedestal;
 pub mod ugly;
 
 use self::pedestal::MlPedestal;
-use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
+use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 use husky_standard_value::{ugly::__ValueStands, FromValue};
-use husky_task_interface::val_repr::{
-    ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
+use husky_task_interface::ki_repr::{
+    KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface,
 };
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
@@ -63,15 +63,15 @@ pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R
     r
 }
 
-pub fn eval_val_repr_interface<T>(
-    val_repr: ValReprInterface,
+pub fn eval_ki_repr_interface<T>(
+    ki_repr: KiReprInterface,
     value_stands: Option<&mut __ValueStands>,
-) -> StandardLinkageImplValControlFlow<T>
+) -> StandardLinkageImplKiControlFlow<T>
 where
     T: FromValue + 'static,
 {
-    let value = dev_eval_context().eval_val_repr_interface(val_repr)?;
-    StandardLinkageImplValControlFlow::Continue(<T as FromValue>::from_value_aux(
+    let value = dev_eval_context().eval_ki_repr_interface(ki_repr)?;
+    StandardLinkageImplKiControlFlow::Continue(<T as FromValue>::from_value_aux(
         value,
         value_stands,
     ))
@@ -79,33 +79,33 @@ where
 
 pub fn eval_val_domain_repr_interface(
     val_domain_repr_interface: ValDomainReprInterface,
-) -> StandardLinkageImplValControlFlow<(), Infallible> {
+) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     dev_eval_context().eval_val_domain_repr_interface(val_domain_repr_interface)
 }
 
-pub fn eval_val_repr_interface_at_input<T>(
-    val_repr_interface: ValReprInterface,
+pub fn eval_ki_repr_interface_at_input<T>(
+    ki_repr_interface: KiReprInterface,
     input_id: InputId,
     value_stands: Option<&mut __ValueStands>,
-) -> StandardLinkageImplValControlFlow<T>
+) -> StandardLinkageImplKiControlFlow<T>
 where
     T: FromValue + 'static,
 {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_val_repr_interface(val_repr_interface, value_stands)
+        eval_ki_repr_interface(ki_repr_interface, value_stands)
     })
 }
 
 pub fn eval_val_domain_repr_interface_at_input(
     val_domain_repr_interface: ValDomainReprInterface,
     input_id: InputId,
-) -> StandardLinkageImplValControlFlow<(), Infallible> {
+) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
         eval_val_domain_repr_interface(val_domain_repr_interface)
     })
 }
 
-pub fn eval_val_runtime_constant<T>(val_runtime_constant: ValRuntimeConstantInterface) -> T
+pub fn eval_val_runtime_constant<T>(val_runtime_constant: KiRuntimeConstantInterface) -> T
 where
     T: FromValue,
 {

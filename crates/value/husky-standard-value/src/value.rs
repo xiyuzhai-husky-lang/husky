@@ -7,7 +7,7 @@ use crate::{
     *,
 };
 use husky_decl_macro_utils::*;
-use husky_task_interface::{val_control_flow::ValControlFlow, value::IsValue};
+use husky_task_interface::{ki_control_flow::KiControlFlow, value::IsValue};
 #[cfg(feature = "constant")]
 use husky_term_prelude::literal::StringLiteralTokenData;
 use husky_value_protocol::presentation::{

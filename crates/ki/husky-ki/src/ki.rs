@@ -6,16 +6,16 @@ use husky_linkage::linkage::Linkage;
 use husky_term_prelude::literal::Literal;
 use smallvec::SmallVec;
 
-#[salsa::interned(db = ValDb, jar = ValJar)]
+#[salsa::interned(jar = KiJar)]
 pub struct Ki {
     pub domain: ValDomain,
     pub opn: ValOpn,
     #[return_ref]
-    pub arguments: SmallVec<[ValArgument; 4]>,
+    pub arguments: SmallVec<[KiArgument; 4]>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum ValArgument {
+pub enum KiArgument {
     Simple(Ki),
     Keyed(Option<Ki>),
     Variadic(Vec<Ki>),
@@ -23,26 +23,26 @@ pub enum ValArgument {
         condition: Option<Ki>,
         stmts: SmallVec<[Ki; 4]>,
     },
-    RuntimeConstants(SmallVec<[ValRuntimeConstant; 4]>),
+    RuntimeConstants(SmallVec<[KiRuntimeConstant; 4]>),
 }
 
-#[salsa::interned(jar = ValJar)]
-pub struct ValRuntimeConstant {
-    pub data: ValRuntimeConstantData,
+#[salsa::interned(jar = KiJar)]
+pub struct KiRuntimeConstant {
+    pub data: KiRuntimeConstantData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum ValRuntimeConstantData {
+pub enum KiRuntimeConstantData {
     TypeVariantPath(TypeVariantPath),
 }
 
 #[test]
 fn val_runtime_constants_works() {
-    use husky_task_interface::val_repr::ValRuntimeConstantInterface;
+    use husky_task_interface::ki_repr::KiRuntimeConstantInterface;
 
     assert_eq!(
-        std::mem::size_of::<ValRuntimeConstant>(),
-        std::mem::size_of::<ValRuntimeConstantInterface>(),
+        std::mem::size_of::<KiRuntimeConstant>(),
+        std::mem::size_of::<KiRuntimeConstantInterface>(),
     )
 }
 
@@ -85,8 +85,8 @@ pub enum ValOpn {
     Index,
 }
 
-#[salsa::interned(jar = ValJar)]
-pub struct ValPattern {
+#[salsa::interned(jar = KiJar)]
+pub struct KiPattern {
     data: ValPatternData,
 }
 

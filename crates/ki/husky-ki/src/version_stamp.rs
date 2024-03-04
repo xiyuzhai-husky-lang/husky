@@ -1,11 +1,11 @@
 use crate::*;
 
 // ad hoc
-#[salsa::interned(db = ValDb, jar = ValJar)]
-pub struct ValVersionStamp {}
+#[salsa::interned(db = ValDb, jar = KiJar)]
+pub struct KiVersionStamp {}
 
 impl Ki {
-    pub fn version_stamp(self, db: &::salsa::Db) -> ValVersionStamp {
-        ValVersionStamp::new(db)
+    pub fn version_stamp(self, db: &::salsa::Db) -> KiVersionStamp {
+        KiVersionStamp::new(db)
     }
 }

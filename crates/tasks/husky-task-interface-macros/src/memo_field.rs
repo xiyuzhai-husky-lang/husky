@@ -38,7 +38,7 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
                     #ingredient_index,
                     |slf| {
                         // todo: catch unwind
-                        __ValControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                        __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
                     }
                 )
             }
@@ -54,7 +54,7 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
                     #ingredient_index,
                     |slf| {
                         // todo: catch unwind
-                        __ValControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                        __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
                     }
                 )
             }

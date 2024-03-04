@@ -12,19 +12,19 @@ pub struct SpecificGraphics2dFigure {
 /// # constructor
 impl SpecificGraphics2dFigure {
     pub(super) fn new(
-        followed_visual: Option<(TraceId, ValReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
-        mut f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        followed_visual: Option<(TraceId, KiReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
+        mut f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         Self::new_aux(
-            followed_visual.map(|(trace_id, val_repr_interface)| {
-                (trace_id, f(val_repr_interface, visual_synchrotron))
+            followed_visual.map(|(trace_id, ki_repr_interface)| {
+                (trace_id, f(ki_repr_interface, visual_synchrotron))
             }),
             accompanyings
                 .iter()
-                .map(|&(trace_id, val_repr_interface)| {
-                    (trace_id, f(val_repr_interface, visual_synchrotron))
+                .map(|&(trace_id, ki_repr_interface)| {
+                    (trace_id, f(ki_repr_interface, visual_synchrotron))
                 })
                 .collect::<Vec<_>>(),
             visual_synchrotron,

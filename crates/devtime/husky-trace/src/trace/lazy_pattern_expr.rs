@@ -4,7 +4,7 @@ use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
 };
-use husky_ki_repr::expansion::ValReprExpansion;
+use husky_ki_repr::expansion::KiReprExpansion;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -99,8 +99,8 @@ impl LazyPatternExprTraceData {
         )
     }
 
-    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
-        let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
+    pub(super) fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+        let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
             [self.hir_lazy_pattern_expr_idx?]
         {
@@ -109,7 +109,7 @@ impl LazyPatternExprTraceData {
                 let hir_lazy_variable_idxs = &self.hir_lazy_variable_idxs;
                 debug_assert_eq!(hir_lazy_variable_idxs.len(), 1);
                 let hir_lazy_variable_idx = hir_lazy_variable_idxs.data()[0].1?;
-                Some(val_repr_expansion.hir_lazy_variable_val_repr_map(db)[hir_lazy_variable_idx])
+                Some(ki_repr_expansion.hir_lazy_variable_ki_repr_map(db)[hir_lazy_variable_idx])
             }
             HirLazyPatternExpr::Unit(_) => todo!(),
             HirLazyPatternExpr::Tuple { path: _, fields: _ } => todo!(),
@@ -120,7 +120,7 @@ impl LazyPatternExprTraceData {
         }
     }
 
-    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
-        self.biological_parent.val_repr_expansion(db)
+    pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
+        self.biological_parent.ki_repr_expansion(db)
     }
 }

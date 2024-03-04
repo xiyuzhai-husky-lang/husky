@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
     TraceProtocol: IsTraceProtocol,

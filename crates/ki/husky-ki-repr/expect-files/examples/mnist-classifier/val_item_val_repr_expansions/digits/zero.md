@@ -6,8 +6,8 @@
     (
         FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
         Some(
-            ValReprExpansion {
-                hir_lazy_variable_val_repr_map: ArenaMap {
+            KiReprExpansion {
+                hir_lazy_variable_ki_repr_map: ArenaMap {
                     data: [
                         Some(
                             KiRepr(
@@ -67,7 +67,7 @@
                         ),
                     ],
                 },
-                hir_lazy_expr_val_repr_map: [
+                hir_lazy_expr_ki_repr_map: [
                     KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Linkage(
@@ -82,7 +82,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -113,14 +113,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -185,14 +185,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -211,14 +211,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -252,14 +252,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -284,7 +284,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -321,14 +321,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -371,14 +371,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -408,14 +408,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -455,14 +455,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -487,7 +487,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -528,14 +528,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -562,14 +562,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -605,14 +605,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -637,7 +637,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -702,14 +702,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -734,14 +734,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -781,14 +781,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -813,7 +813,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -854,14 +854,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -888,14 +888,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -931,14 +931,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -967,14 +967,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1022,14 +1022,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1077,14 +1077,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1132,14 +1132,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1169,14 +1169,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1216,14 +1216,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1252,14 +1252,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1284,7 +1284,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -1339,14 +1339,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1397,14 +1397,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1455,14 +1455,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1505,14 +1505,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1563,14 +1563,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1613,14 +1613,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1671,14 +1671,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1721,14 +1721,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1753,14 +1753,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1854,14 +1854,14 @@
                                 ],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1911,14 +1911,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -1969,14 +1969,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2019,14 +2019,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2056,14 +2056,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2103,14 +2103,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2135,7 +2135,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -2172,14 +2172,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2226,14 +2226,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2260,14 +2260,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2303,14 +2303,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2335,7 +2335,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -2372,14 +2372,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2426,14 +2426,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2460,14 +2460,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2503,14 +2503,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2535,7 +2535,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -2572,14 +2572,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2626,14 +2626,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2660,14 +2660,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2703,14 +2703,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2746,14 +2746,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2782,14 +2782,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2832,14 +2832,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2887,14 +2887,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2930,14 +2930,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -2966,14 +2966,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3016,14 +3016,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3071,14 +3071,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3118,14 +3118,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3150,7 +3150,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -3187,14 +3187,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3242,14 +3242,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3274,7 +3274,7 @@
                             },
                         ),
                         arguments: [],
-                        source: ValReprSource::ValItem(
+                        source: KiReprSource::ValItem(
                             FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
                         caching_class: ValItem,
@@ -3311,14 +3311,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3366,14 +3366,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3413,14 +3413,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3460,14 +3460,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3507,14 +3507,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3554,14 +3554,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3601,14 +3601,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3638,14 +3638,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3685,14 +3685,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3743,14 +3743,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3793,14 +3793,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3829,14 +3829,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3848,7 +3848,7 @@
                         caching_class: Expr,
                     },
                 ],
-                hir_lazy_stmt_val_repr_map: [
+                hir_lazy_stmt_ki_repr_map: [
                     KiRepr {
                         val_domain_repr: ConditionSatisfied(
                             KiRepr(
@@ -3874,14 +3874,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3917,14 +3917,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -3960,14 +3960,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4003,14 +4003,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4039,14 +4039,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4098,14 +4098,14 @@
                                 ],
                             },
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4141,14 +4141,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4184,14 +4184,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4227,14 +4227,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4270,14 +4270,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4289,7 +4289,7 @@
                         caching_class: Stmt,
                     },
                 ],
-                root_hir_lazy_stmt_val_reprs: [
+                root_hir_lazy_stmt_ki_reprs: [
                     KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::Branches,
@@ -4331,14 +4331,14 @@
                                 ],
                             },
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4388,14 +4388,14 @@
                                 [],
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4431,14 +4431,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4474,14 +4474,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4517,14 +4517,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4560,14 +4560,14 @@
                                 ),
                             ),
                         ],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,
@@ -4596,14 +4596,14 @@
                             ),
                         ),
                         arguments: [],
-                        source: ValReprSource::Expansion {
-                            parent_val_repr: KiRepr {
+                        source: KiReprSource::Expansion {
+                            parent_ki_repr: KiRepr {
                                 val_domain_repr: Omni,
                                 opn: ValOpn::ValItemLazilyDefined(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 arguments: [],
-                                source: ValReprSource::ValItem(
+                                source: KiReprSource::ValItem(
                                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                                 caching_class: ValItem,

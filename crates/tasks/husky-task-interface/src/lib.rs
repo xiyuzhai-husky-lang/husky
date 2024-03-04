@@ -1,21 +1,21 @@
 #![feature(try_trait_v2)]
 #![feature(try_trait_v2_residual)]
+pub mod ki_control_flow;
+pub mod ki_repr;
 pub mod linkage_impl;
 pub mod pedestal;
 pub mod ugly;
-pub mod val_control_flow;
-pub mod val_repr;
 pub mod value;
 pub mod vm_control_flow;
 
 use std::convert::Infallible;
 
+pub use self::ki_control_flow::KiControlFlow;
 pub use self::linkage_impl::*;
-pub use self::val_control_flow::ValControlFlow;
 pub use husky_task_interface_macros::*;
 
-use self::val_repr::{
-    ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface,
+use self::ki_repr::{
+    KiArgumentReprInterface, KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface,
 };
 use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
@@ -37,7 +37,7 @@ macro_rules! init_crate {
 
         pub(crate) fn __eval_eager_val_item_with<T>(
             ingredient_index: usize,
-            f: fn() -> __ValControlFlow,
+            f: fn() -> __KiControlFlow,
         ) -> T
         where
             T: __FromValue + 'static,
@@ -62,7 +62,7 @@ macro_rules! init_crate {
         pub(crate) fn __eval_memo_field_with<Slf, T>(
             slf: &'static Slf,
             ingredient_index: usize,
-            f: fn(&'static Slf) -> __ValControlFlow,
+            f: fn(&'static Slf) -> __KiControlFlow,
         ) -> T
         where
             T: __FromValue + 'static,
@@ -78,7 +78,7 @@ macro_rules! init_crate {
         pub(crate) fn __eval_memo_field_return_ref_with<Slf, T>(
             slf: &'static Slf,
             ingredient_index: usize,
-            f: fn(&'static Slf) -> __ValControlFlow,
+            f: fn(&'static Slf) -> __KiControlFlow,
         ) -> &'static T
         where
             T: 'static,
@@ -164,7 +164,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
+        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
         self.runtime
             .eval_eager_val_item_dyn(jar_index, ingredient_index, self.pedestal, f)
@@ -181,38 +181,37 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .unwrap()
     }
 
-    pub fn eval_val_repr_interface_at_generic_pedestal_with(
+    pub fn eval_ki_repr_interface_at_generic_pedestal_with(
         &self,
-        val_repr_interface: ValReprInterface,
+        ki_repr_interface: KiReprInterface,
         generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             ValDomainReprInterface,
-            &[ValArgumentReprInterface],
-        ) -> LinkageImplValControlFlow<LinkageImpl>,
-        val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.runtime
-            .eval_val_repr_interface_at_generic_pedestal_dyn(
-                val_repr_interface,
-                generic_pedestal(self.pedestal),
-                gn_generic_wrapper,
-                val_argument_reprs,
-            )
+            &[KiArgumentReprInterface],
+        ) -> LinkageImplKiControlFlow<LinkageImpl>,
+        val_argument_reprs: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+        self.runtime.eval_ki_repr_interface_at_generic_pedestal_dyn(
+            ki_repr_interface,
+            generic_pedestal(self.pedestal),
+            gn_generic_wrapper,
+            val_argument_reprs,
+        )
     }
 
-    pub fn eval_val_repr_interface(
+    pub fn eval_ki_repr_interface(
         self,
-        val_repr_interface: ValReprInterface,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        ki_repr_interface: KiReprInterface,
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
         self.runtime
-            .eval_val_repr_interface_dyn(val_repr_interface, self.pedestal)
+            .eval_ki_repr_interface_dyn(ki_repr_interface, self.pedestal)
     }
 
     pub fn eval_val_domain_repr_interface(
         self,
         val_domain_repr_interface: ValDomainReprInterface,
-    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error> {
         self.runtime
             .eval_val_domain_repr_interface_dyn(val_domain_repr_interface, self.pedestal)
     }
@@ -222,10 +221,10 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         slf: &'static Slf,
-        f: fn(&'static Slf) -> LinkageImplValControlFlow<LinkageImpl>,
+        f: fn(&'static Slf) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
         let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(slf) };
-        let f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl> =
+        let f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl> =
             unsafe { std::mem::transmute(f) };
         self.runtime
             .eval_memo_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
@@ -234,7 +233,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
 
     pub fn eval_val_runtime_constant(
         &self,
-        val_runtime_constant: ValRuntimeConstantInterface,
+        val_runtime_constant: KiRuntimeConstantInterface,
     ) -> LinkageImpl::Value {
         self.runtime
             .eval_val_runtime_constant_dyn(val_runtime_constant)
@@ -253,8 +252,8 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
     /// returns `Value` because there is guaranteed to be no control flow
@@ -263,30 +262,30 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
-    /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_val_repr_interface_at_pedestal(
+    /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
+    fn eval_ki_repr_interface_at_pedestal(
         &self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_val_domain_repr_interface_at_pedestal(
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error>;
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error>;
 
     /// the computation is done by `f`
-    /// returns `LinkageImplValControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_val_repr_with(
+    /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
+    fn eval_ki_repr_with(
         &self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_memo_field_with(
         &self,
@@ -294,12 +293,12 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_val_runtime_constant(
         &self,
-        val_runtime_constant: ValRuntimeConstantInterface,
+        val_runtime_constant: KiRuntimeConstantInterface,
     ) -> LinkageImpl::Value;
 }
 
@@ -309,39 +308,39 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_lazy_val_item_dyn(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_val_repr_interface_dyn(
+    fn eval_ki_repr_interface_dyn(
         &self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_val_domain_repr_interface_dyn(
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error>;
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error>;
 
-    fn eval_val_repr_interface_at_generic_pedestal_dyn(
+    fn eval_ki_repr_interface_at_generic_pedestal_dyn(
         &self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             ValDomainReprInterface,
-            &[ValArgumentReprInterface],
-        ) -> LinkageImplValControlFlow<LinkageImpl>,
-        val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+            &[KiArgumentReprInterface],
+        ) -> LinkageImplKiControlFlow<LinkageImpl>,
+        val_argument_reprs: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_memo_field_with_dyn(
         &self,
@@ -349,12 +348,12 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_val_runtime_constant_dyn(
         &self,
-        val_runtime_constant: ValRuntimeConstantInterface,
+        val_runtime_constant: KiRuntimeConstantInterface,
     ) -> LinkageImpl::Value;
 }
 
@@ -367,8 +366,8 @@ where
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
-        f: fn() -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
         self.eval_ingredient_at_pedestal_with(jar_index, ingredient_index, pedestal, f)
     }
 
@@ -377,39 +376,39 @@ where
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
         self.eval_ingredient_at_pedestal(jar_index, ingredient_index, pedestal)
     }
 
-    fn eval_val_repr_interface_dyn(
+    fn eval_ki_repr_interface_dyn(
         &self,
-        val_repr_interface: ValReprInterface,
+        ki_repr_interface: KiReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_interface_at_pedestal(val_repr_interface, pedestal)
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+        self.eval_ki_repr_interface_at_pedestal(ki_repr_interface, pedestal)
     }
 
     fn eval_val_domain_repr_interface_dyn(
         &self,
         val_domain_repr_interface: ValDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
-    ) -> ValControlFlow<(), Infallible, LinkageImpl::Error> {
+    ) -> KiControlFlow<(), Infallible, LinkageImpl::Error> {
         self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr_interface, pedestal)
     }
 
-    fn eval_val_repr_interface_at_generic_pedestal_dyn(
+    fn eval_ki_repr_interface_at_generic_pedestal_dyn(
         &self,
-        val_repr_interface: ValReprInterface,
+        ki_repr_interface: KiReprInterface,
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
             ValDomainReprInterface,
-            &[ValArgumentReprInterface],
-        ) -> LinkageImplValControlFlow<LinkageImpl>,
-        val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
-        self.eval_val_repr_with(
-            val_repr_interface,
+            &[KiArgumentReprInterface],
+        ) -> LinkageImplKiControlFlow<LinkageImpl>,
+        val_argument_reprs: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+        self.eval_ki_repr_with(
+            ki_repr_interface,
             generic_pedestal,
             |val_domain_repr: ValDomainReprInterface| {
                 gn_generic_wrapper(
@@ -434,14 +433,14 @@ where
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl> {
+        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl> {
         self.eval_memo_field_with(jar_index, ingredient_index, pedestal, slf, f)
     }
 
     fn eval_val_runtime_constant_dyn(
         &self,
-        val_runtime_constant: ValRuntimeConstantInterface,
+        val_runtime_constant: KiRuntimeConstantInterface,
     ) -> <LinkageImpl as IsLinkageImpl>::Value {
         self.eval_val_runtime_constant(val_runtime_constant)
     }

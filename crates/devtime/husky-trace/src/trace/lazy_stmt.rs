@@ -10,7 +10,7 @@ use husky_hir_lazy_expr::{
 };
 use husky_hir_lazy_expr::{source_map::HirLazyExprSourceMapData, HirLazyStmtIdx};
 
-use husky_ki_repr::expansion::ValReprExpansion;
+use husky_ki_repr::expansion::KiReprExpansion;
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange,
@@ -184,17 +184,17 @@ impl LazyStmtTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
-        let val_repr_expansion = trace_val_repr_expansion(db, trace);
-        val_repr_expansion
-            .hir_lazy_stmt_val_repr_map(db)
+    pub(super) fn ki_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+        let ki_repr_expansion = trace_ki_repr_expansion(db, trace);
+        ki_repr_expansion
+            .hir_lazy_stmt_ki_repr_map(db)
             .get(self.hir_lazy_stmt_idx?)
             .copied()
     }
 
-    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
+    pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         // todo: handle loops
-        self.biological_parent.val_repr_expansion(db)
+        self.biological_parent.ki_repr_expansion(db)
     }
 }
 

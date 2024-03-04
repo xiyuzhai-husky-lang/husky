@@ -1,6 +1,4 @@
-
 use crate::trace::{Trace, TraceSelection};
-
 
 pub struct TracesView<'a> {
     trace_selection: &'a mut TraceSelection,
@@ -18,7 +16,7 @@ impl<'a> egui::Widget for TracesView<'a> {
 
         ui.vertical(|ui| {
             let set = self.trace_selection.set_mut();
-            
+
             for trace in Trace::all() {
                 let mut selected = set.contains(trace);
                 let old_selected = selected;

@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::jar]
-pub struct ValReprJar(
+pub struct KiReprJar(
     KiRepr,
-    val_repr_val,
-    val_item_val_repr,
-    ValReprExpansion,
-    val_repr_expansion,
+    ki_repr_ki,
+    val_item_ki_repr,
+    KiReprExpansion,
+    ki_repr_expansion,
 );

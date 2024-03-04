@@ -6,9 +6,9 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_interface::{val_control_flow::ValControlFlow, LinkageImplValControlFlow};
+use husky_task_interface::{ki_control_flow::KiControlFlow, LinkageImplKiControlFlow};
 use husky_task_interface::{
-    val_repr::{ValArgumentReprInterface, ValReprInterface},
+    ki_repr::{KiArgumentReprInterface, KiReprInterface},
     DevEvalContext, IsLinkageImpl,
 };
 
@@ -19,16 +19,16 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
         self,
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            &[ValArgumentReprInterface],
-        ) -> LinkageImplValControlFlow<LinkageImpl>,
+            &[KiArgumentReprInterface],
+        ) -> LinkageImplKiControlFlow<LinkageImpl>,
         fn_pointer: FnPointer,
     ) -> LinkageImpl;
 
     fn fn_wrapper_aux(
         self,
         ctx: DevEvalContext<LinkageImpl>,
-        arguments: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<LinkageImpl, Self::FnOutput>;
+        arguments: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<LinkageImpl, Self::FnOutput>;
 }
 
 #[macro_export]
@@ -51,11 +51,11 @@ macro_rules! fn_linkage_impl {
     ($fn_item: expr) => {{
         fn fn_wrapper(
             ctx: __DevEvalContext,
-            arguments: &[__ValArgumentReprInterface],
-        ) -> __ValControlFlow {
+            arguments: &[__KiArgumentReprInterface],
+        ) -> __KiControlFlow {
             __with_dev_eval_context(ctx, || {
                 // todo: catch unwind
-                __ValControlFlow::Continue(
+                __KiControlFlow::Continue(
                     __ValueLeashTest(
                         FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
                             .fn_wrapper_aux(ctx, arguments)?,
@@ -92,8 +92,8 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 self,
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
-                    &[ValArgumentReprInterface],
-                ) -> StandardLinkageImplValControlFlow,
+                    &[KiArgumentReprInterface],
+                ) -> StandardLinkageImplKiControlFlow,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
@@ -107,31 +107,31 @@ macro_rules! impl_is_fn_linkage_impl_source {
             fn fn_wrapper_aux(
                 self,
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
-                arguments: &[ValArgumentReprInterface],
-            ) -> StandardLinkageImplValControlFlow<Self::FnOutput> {
+                arguments: &[KiArgumentReprInterface],
+            ) -> StandardLinkageImplKiControlFlow<Self::FnOutput> {
                 let mut arguments = arguments.iter();
                 let value_stands = &mut ValueStands::default();
-                ValControlFlow::Continue(self.1(
+                KiControlFlow::Continue(self.1(
                     $({
                         let argument = arguments.next().unwrap();
                         match *argument {
-                            ValArgumentReprInterface::Simple(val_repr_interface) => {
+                            KiArgumentReprInterface::Simple(ki_repr_interface) => {
                                 <$input as FromValue>::from_value_temp(
-                                    ctx.eval_val_repr_interface(val_repr_interface)?,
+                                    ctx.eval_ki_repr_interface(ki_repr_interface)?,
                                     (value_stands)
                                 )
                             },
-                            ValArgumentReprInterface::Keyed(argument) => todo!("ValArgumentReprInterface::Keyed(argument)"),
-                            ValArgumentReprInterface::Variadic(ref val_repr_interfaces) => {
+                            KiArgumentReprInterface::Keyed(argument) => todo!("KiArgumentReprInterface::Keyed(argument)"),
+                            KiArgumentReprInterface::Variadic(ref ki_repr_interfaces) => {
                                 <$input as FromValue>::from_variadic_values(
-                                    val_repr_interfaces.iter().map(
-                                        |&val_repr_interface| ctx.eval_val_repr_interface(val_repr_interface)
+                                    ki_repr_interfaces.iter().map(
+                                        |&ki_repr_interface| ctx.eval_ki_repr_interface(ki_repr_interface)
                                     ),
                                     Some(value_stands)
                                 )?
                             },
-                            ValArgumentReprInterface::Branch { .. } => unreachable!(),
-                            ValArgumentReprInterface::RuntimeConstants(ref argument) => todo!(),
+                            KiArgumentReprInterface::Branch { .. } => unreachable!(),
+                            KiArgumentReprInterface::RuntimeConstants(ref argument) => todo!(),
                         }},)*
                 ))
             }
@@ -155,16 +155,16 @@ pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPoin
         self,
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            arguments: &[ValArgumentReprInterface],
-        ) -> LinkageImplValControlFlow<LinkageImpl>,
+            arguments: &[KiArgumentReprInterface],
+        ) -> LinkageImplKiControlFlow<LinkageImpl>,
         fn_pointer: FnPointer,
     ) -> LinkageImpl;
 
     fn unveil_fn_wrapper_aux(
         self,
         ctx: DevEvalContext<LinkageImpl>,
-        arguments: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<LinkageImpl, Self::FnOutput>;
+        arguments: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<LinkageImpl, Self::FnOutput>;
 }
 
 #[macro_export]
@@ -172,11 +172,11 @@ macro_rules! unveil_fn_linkage_impl {
     ($fn_item: expr) => {{
         fn fn_wrapper(
             ctx: __DevEvalContext,
-            arguments: &[__ValArgumentReprInterface],
-        ) -> __ValControlFlow {
+            arguments: &[__KiArgumentReprInterface],
+        ) -> __KiControlFlow {
             __with_dev_eval_context(ctx, || {
                 // todo: catch unwind
-                __ValControlFlow::Continue(
+                __KiControlFlow::Continue(
                     __ValueLeashTest(
                         UnveilFnLinkageImplSource(
                             std::marker::PhantomData::<__LinkageImpl>,
@@ -222,8 +222,8 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 self,
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
-                    &[ValArgumentReprInterface],
-                ) -> StandardLinkageImplValControlFlow,
+                    &[KiArgumentReprInterface],
+                ) -> StandardLinkageImplKiControlFlow,
                 fn_pointer: fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieUnveilFn {
@@ -237,13 +237,13 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
             fn unveil_fn_wrapper_aux(
                 self,
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
-                arguments: &[ValArgumentReprInterface],
-            ) -> StandardLinkageImplValControlFlow<Self::FnOutput> {
+                arguments: &[KiArgumentReprInterface],
+            ) -> StandardLinkageImplKiControlFlow<Self::FnOutput> {
                 debug_assert_eq!(arguments.len(), 2);
-                let ValArgumentReprInterface::Simple(target) = arguments[0] else {
+                let KiArgumentReprInterface::Simple(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")
                 };
-                let ValArgumentReprInterface::RuntimeConstants(
+                let KiArgumentReprInterface::RuntimeConstants(
                     ref runtime_constants
                 ) = arguments[1] else {
                     unreachable!("expect runtime constants, but got {:?} instead", arguments[1])
@@ -252,7 +252,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                 let mut runtime_constants = runtime_constants.iter();
                 match self.1(
                     <Target as FromValue>::from_value_temp(
-                        ctx.eval_val_repr_interface(target)?,
+                        ctx.eval_ki_repr_interface(target)?,
                         value_stands
                     ),
                     ($(<$runtime_constant as FromValue>::from_value_temp(
@@ -262,8 +262,8 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
                         value_stands
                     ),)*)
                 ) {
-                    std::ops::ControlFlow::Continue(c) => ValControlFlow::Continue(c),
-                    std::ops::ControlFlow::Break(b) => ValControlFlow::Return(b.into_value()),
+                    std::ops::ControlFlow::Continue(c) => KiControlFlow::Continue(c),
+                    std::ops::ControlFlow::Break(b) => KiControlFlow::Return(b.into_value()),
                 }
             }
         }

@@ -11,8 +11,8 @@ use husky_task::{
     IsTask,
 };
 use husky_task_interface::{
-    val_control_flow::ValControlFlow,
-    val_repr::{ValDomainReprInterface, ValReprInterface},
+    ki_control_flow::KiControlFlow,
+    ki_repr::{KiReprInterface, ValDomainReprInterface},
     IsDevRuntime,
 };
 use husky_trace_protocol::{
@@ -74,8 +74,8 @@ where
     }
 
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
+        followed: Option<(TraceId, KiReprInterface, ValDomainReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -93,9 +93,9 @@ where
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_specific(
                     followed ,
                     accompanyings,
-                    |val_repr, visual_synchrotron| {
+                    |ki_repr, visual_synchrotron| {
                         Self::get_val_visual(
-                            val_repr,
+                            ki_repr,
                             pedestal,
                             runtime,
                             visual_synchrotron,
@@ -115,21 +115,21 @@ where
                             val_domain_repr_interface,
                             pedestal
                         ) {
-                            ValControlFlow::Continue(_) => Some(pedestal),
-                            ValControlFlow::LoopContinue => todo!(),
-                            ValControlFlow::LoopExit(_) => todo!(),
-                            ValControlFlow::Return(_) => todo!(),
-                            ValControlFlow::Undefined => todo!(),
-                            ValControlFlow::Err(_) => todo!(),
+                            KiControlFlow::Continue(_) => Some(pedestal),
+                            KiControlFlow::LoopContinue => todo!(),
+                            KiControlFlow::LoopExit(_) => todo!(),
+                            KiControlFlow::Return(_) => todo!(),
+                            KiControlFlow::Undefined => todo!(),
+                            KiControlFlow::Err(_) => todo!(),
                         }
                     });
                 <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_generic(
                     followed,
                     accompanyings,
                     pedestals,
-                    |val_repr, pedestal, visual_synchrotron| {
+                    |ki_repr, pedestal, visual_synchrotron| {
                         Self::get_val_visual(
-                            val_repr,
+                            ki_repr,
                             pedestal,
                             runtime,
                             visual_synchrotron,

@@ -1,5 +1,3 @@
-
-
 use self::visual::primitive::PrimitiveVisual;
 use super::*;
 

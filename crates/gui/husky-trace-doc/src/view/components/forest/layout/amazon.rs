@@ -171,16 +171,16 @@ where
                             match entry.stalk(pedestal) {
                                 TraceStalk::None => (),
                                 TraceStalk::Ki(value_control_flow) => match value_control_flow {
-                                    ValControlFlow::Continue(value) => self.render_value(value, ui),
-                                    ValControlFlow::LoopContinue => todo!(),
-                                    ValControlFlow::LoopExit(_) => todo!(),
-                                    ValControlFlow::Return(value) => {
+                                    KiControlFlow::Continue(value) => self.render_value(value, ui),
+                                    KiControlFlow::LoopContinue => todo!(),
+                                    KiControlFlow::LoopExit(_) => todo!(),
+                                    KiControlFlow::Return(value) => {
                                         self.render_space_chars(1, ui);
                                         ui.label("return");
                                         self.render_value(value, ui)
                                     }
-                                    ValControlFlow::Undefined => todo!(),
-                                    ValControlFlow::Err(_) => todo!(),
+                                    KiControlFlow::Undefined => todo!(),
+                                    KiControlFlow::Err(_) => todo!(),
                                 },
                                 TraceStalk::Vm(_) => todo!(),
                             }

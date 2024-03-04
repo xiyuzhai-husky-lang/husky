@@ -1,8 +1,7 @@
-use crate::{val_control_flow::ValControlFlow, val_repr::ValReprInterface, value::IsValue};
-use crate::{val_repr::ValArgumentReprInterface, DevEvalContext};
+use crate::{ki_control_flow::KiControlFlow, ki_repr::KiReprInterface, value::IsValue};
+use crate::{ki_repr::KiArgumentReprInterface, DevEvalContext};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use serde::Serialize;
-
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
     type Pedestal: std::fmt::Debug + Copy + 'static;
@@ -12,13 +11,13 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     /// assumed that pedestal has already been
     fn eval(
         self,
-        val_repr_interface: ValReprInterface,
+        ki_repr_interface: KiReprInterface,
         ctx: DevEvalContext<Self>,
-        arguments: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<Self>;
+        arguments: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<Self>;
 
     fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter;
 }
 
-pub type LinkageImplValControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
-    ValControlFlow<C, <LinkageImpl as IsLinkageImpl>::Value, <LinkageImpl as IsLinkageImpl>::Error>;
+pub type LinkageImplKiControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
+    KiControlFlow<C, <LinkageImpl as IsLinkageImpl>::Value, <LinkageImpl as IsLinkageImpl>::Error>;

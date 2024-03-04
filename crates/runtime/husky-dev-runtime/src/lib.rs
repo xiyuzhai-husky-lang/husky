@@ -7,20 +7,20 @@ pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_entity_path::TypeVariantIndex;
-use husky_ki::{ValRuntimeConstant, ValRuntimeConstantData};
+use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_task::{
     dev_ascension::IsRuntimeStorage,
-    helpers::{TaskDevAscension, TaskLinkageImpl, TaskValControlFlow, TaskValueResult},
+    helpers::{TaskDevAscension, TaskKiControlFlow, TaskLinkageImpl, TaskValueResult},
 };
 use husky_task::{
     helpers::{DevRuntimeStorage, TaskDevLinkTime, TaskDevPedestal},
     IsTask,
 };
 use husky_task_interface::{
-    val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
-    IsDevRuntime, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
+    ki_repr::{KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface},
+    IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
 
@@ -91,7 +91,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         ingredient_index: TaskIngredientIndex,
         base_point: TaskDevPedestal<Task>,
         f: impl FnOnce() -> TaskValueResult<Task>,
-    ) -> TaskValControlFlow<Task> {
+    ) -> TaskKiControlFlow<Task> {
         self.storage.get_or_try_init_val_value(
             self.comptime.ingredient_val(jar_index, ingredient_index),
             base_point,
@@ -105,27 +105,27 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-    ) -> TaskValControlFlow<Task> {
-        self.eval_val_repr_at_pedestal(
+    ) -> TaskKiControlFlow<Task> {
+        self.eval_ki_repr_at_pedestal(
             self.comptime
-                .ingredient_val_repr(jar_index, ingredient_index),
+                .ingredient_ki_repr(jar_index, ingredient_index),
             pedestal,
         )
     }
 
-    fn eval_val_repr_interface_at_pedestal(
+    fn eval_ki_repr_interface_at_pedestal(
         &self,
-        val_repr_interface: ValReprInterface,
+        ki_repr_interface: KiReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
-        self.eval_val_repr_at_pedestal(val_repr_interface.into(), pedestal)
+    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
+        self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
     }
 
     fn eval_val_domain_repr_interface_at_pedestal(
         &self,
         val_domain_repr: ValDomainReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-    ) -> husky_task_interface::val_control_flow::ValControlFlow<
+    ) -> husky_task_interface::ki_control_flow::KiControlFlow<
         (),
         Infallible,
         <TaskLinkageImpl<Task> as IsLinkageImpl>::Error,
@@ -133,22 +133,18 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         self.eval_val_domain_repr_at_pedestal(val_domain_repr.into(), pedestal)
     }
 
-    fn eval_val_repr_with(
+    fn eval_ki_repr_with(
         &self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
-    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
+        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
+    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
         let db = self.db();
-        let val_repr: KiRepr = unsafe { std::mem::transmute(val_repr) };
+        let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let val_domain_repr: ValDomainReprInterface =
-            unsafe { std::mem::transmute(val_repr.val_domain_repr(db)) };
-        self.storage.get_or_try_init_val_value(
-            val_repr.val(db),
-            pedestal,
-            || f(val_domain_repr),
-            db,
-        )
+            unsafe { std::mem::transmute(ki_repr.val_domain_repr(db)) };
+        self.storage
+            .get_or_try_init_val_value(ki_repr.val(db), pedestal, || f(val_domain_repr), db)
     }
 
     fn eval_memo_field_with(
@@ -157,22 +153,22 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         ingredient_index: TaskIngredientIndex,
         pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
-    ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
+        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
+    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
         self.storage
             .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
     }
 
     fn eval_val_runtime_constant(
         &self,
-        val_runtime_constant: ValRuntimeConstantInterface,
+        val_runtime_constant: KiRuntimeConstantInterface,
     ) -> <TaskLinkageImpl<Task> as IsLinkageImpl>::Value {
         use husky_task_interface::value::IsValue;
         let db = self.db();
-        let val_runtime_constant: ValRuntimeConstant =
+        let val_runtime_constant: KiRuntimeConstant =
             unsafe { std::mem::transmute(val_runtime_constant) };
         match val_runtime_constant.data(db) {
-            ValRuntimeConstantData::TypeVariantPath(path) => {
+            KiRuntimeConstantData::TypeVariantPath(path) => {
                 let presenter = self
                     .comptime
                     .linkage_impl(Linkage::new_enum_u8_presenter(path.parent_ty_path(db), db))

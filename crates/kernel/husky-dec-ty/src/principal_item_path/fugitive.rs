@@ -26,9 +26,7 @@ pub fn fugitive_path_declarative_ty(
         FugitiveDecTemplate::Gn(signature) => {
             gn_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
-        FugitiveDecTemplate::Ki(signature) => {
-            val_path_declarative_ty(db, signature, dec_term_menu)
-        }
+        FugitiveDecTemplate::Ki(signature) => val_path_declarative_ty(db, signature, dec_term_menu),
         FugitiveDecTemplate::TypeAlias(_) => todo!(),
     }
 }

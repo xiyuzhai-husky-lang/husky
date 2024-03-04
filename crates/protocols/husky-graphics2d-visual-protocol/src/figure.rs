@@ -3,8 +3,8 @@ mod specific;
 use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_task_interface::{
+    ki_repr::KiReprInterface,
     pedestal::{IsPedestal, IsPedestalFull},
-    val_repr::{ValReprInterface},
 };
 use husky_trace_protocol::{
     figure::{FigureUi, FigureUiCache, IsFigure},
@@ -31,19 +31,19 @@ pub enum Graphics2dFigure<Pedestal: IsPedestal> {
 /// # impl IsFigure
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal> {
     fn new_specific(
-        followed_visual: Option<(TraceId, ValReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
-        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        followed_visual: Option<(TraceId, KiReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
+        f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         SpecificGraphics2dFigure::new(followed_visual, accompanyings, f, visual_synchrotron).into()
     }
 
     fn new_generic(
-        followed_visual: Option<(TraceId, ValReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
+        followed_visual: Option<(TraceId, KiReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
         pedestals: impl Iterator<Item = Pedestal>,
-        f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         GenericGraphics2dFigure::new(

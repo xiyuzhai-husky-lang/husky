@@ -97,13 +97,13 @@ impl ValItemTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, db: &::salsa::Db) -> KiRepr {
+    pub(super) fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
         KiRepr::new_val_item(self.val_item_path, db)
     }
 
-    pub(super) fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {
+    pub(super) fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
         trace_id
-            .val_repr(db)
+            .ki_repr(db)
             .expect("should be some")
             .expansion(db)
             .expect("should be some")

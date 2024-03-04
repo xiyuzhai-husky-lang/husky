@@ -79,7 +79,6 @@ impl ExternTypeSynDecl {
 
 #[test]
 fn extern_ty_decl_works() {
-    
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();

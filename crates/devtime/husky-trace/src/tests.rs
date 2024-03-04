@@ -24,8 +24,7 @@ use husky_vfs::VfsJar;
 #[salsa::db(
     CowordJar,
     VfsJar,
-   
- husky_entity_path::jar::EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
@@ -58,8 +57,8 @@ use husky_vfs::VfsJar;
     husky_linkage::jar::LinkageJar,
     husky_javelin::jar::JavelinJar,
     // val
-    husky_ki::jar::ValJar,
-    husky_ki_repr::jar::ValReprJar,
+    husky_ki::jar::KiJar,
+    husky_ki_repr::jar::KiReprJar,
     // ide
     husky_token_info::db::TokenInfoJar,
     // lex

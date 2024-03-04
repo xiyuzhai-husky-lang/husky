@@ -131,8 +131,8 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             "TomlAstJar" => &[],
             "CorgiConfigAstJar" => &[],
             // val
-            "ValJar" => &[],
-            "ValReprJar" => &["ValJar"],
+            "KiJar" => &[],
+            "KiReprJar" => &["KiJar"],
             // vm
             "VmirJar" => &[],
             other => panic!("unknown jar ident `{other}`"),

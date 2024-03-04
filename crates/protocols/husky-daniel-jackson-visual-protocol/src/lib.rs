@@ -5,10 +5,7 @@
 //! So this visualization serves mainly for linguistics.
 pub mod action;
 
-use husky_task_interface::{
-    pedestal::IsPedestalFull,
-    val_repr::{ValReprInterface},
-};
+use husky_task_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use serde::{Deserialize, Serialize};
@@ -18,19 +15,19 @@ pub struct DanielJacksonFigure;
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for DanielJacksonFigure {
     fn new_specific(
-        _followed_visual: Option<(TraceId, ValReprInterface)>,
-        _accompanyings: &[(TraceId, ValReprInterface)],
-        _f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        _followed_visual: Option<(TraceId, KiReprInterface)>,
+        _accompanyings: &[(TraceId, KiReprInterface)],
+        _f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         todo!()
     }
 
     fn new_generic(
-        _followed_visual: Option<(TraceId, ValReprInterface)>,
-        _accompanyings: &[(TraceId, ValReprInterface)],
+        _followed_visual: Option<(TraceId, KiReprInterface)>,
+        _accompanyings: &[(TraceId, KiReprInterface)],
         _pedestals: impl Iterator<Item = Pedestal>,
-        _f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        _f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         todo!()

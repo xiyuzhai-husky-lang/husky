@@ -94,10 +94,10 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         if !pedestal.is_closed() {
             return TraceStalk::None;
         }
-        if let Some(val_repr) = trace.val_repr(db) {
+        if let Some(ki_repr) = trace.ki_repr(db) {
             TraceStalk::Ki(
                 self.runtime
-                    .eval_val_repr_at_pedestal(val_repr, pedestal)
+                    .eval_ki_repr_at_pedestal(ki_repr, pedestal)
                     .present(value_presenter_cache, value_presentation_synchrotron),
             )
         } else {
@@ -116,11 +116,11 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
         let followed = match followed_trace {
-            Some(followed_trace) => followed_trace.val_repr(db).map(|val_repr| {
+            Some(followed_trace) => followed_trace.ki_repr(db).map(|ki_repr| {
                 (
                     followed_trace.into(),
-                    val_repr.into(),
-                    val_repr.val_domain_repr(db).into(),
+                    ki_repr.into(),
+                    ki_repr.val_domain_repr(db).into(),
                 )
             }),
             None => None,
@@ -129,7 +129,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
-                Some((trace.into(), trace.val_repr(db)?.into()))
+                Some((trace.into(), trace.ki_repr(db)?.into()))
             })
             .collect::<Vec<_>>();
         <Task::DevAscension as IsDevAscension>::calc_figure(
