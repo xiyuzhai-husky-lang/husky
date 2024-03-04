@@ -20,7 +20,7 @@ pub enum EntityKindKeywordGroup {
     /// `static fn`
     StaticFn(StaticToken, FnToken),
     /// `val`
-    Val(ValToken),
+    Ki(ValToken),
     /// `memo`
     Memo(MemoToken),
     /// husky will have the capacities of theorem proving
@@ -226,7 +226,7 @@ where
         match kw {
             Keyword::Fugitive(kw) => match kw {
                 FugitiveKeyword::Val => {
-                    Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx })))
+                    Ok(Some(EntityKindKeywordGroup::Ki(ValToken { token_idx })))
                 }
                 FugitiveKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
                 FugitiveKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),

@@ -58,8 +58,8 @@ use husky_vfs::VfsJar;
     husky_linkage::jar::LinkageJar,
     husky_javelin::jar::JavelinJar,
     // val
-    husky_val::jar::ValJar,
-    husky_val_repr::jar::ValReprJar,
+    husky_ki::jar::ValJar,
+    husky_ki_repr::jar::ValReprJar,
     // ide
     husky_token_info::db::TokenInfoJar,
     // lex

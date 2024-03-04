@@ -2,6 +2,8 @@ use crate::*;
 
 use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
+use husky_ki::{ValOpn, ValPatternData};
+use husky_ki_repr::repr::{KiRepr, ValArgumentRepr, ValDomainRepr};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point, IsDevAscension},
@@ -11,13 +13,11 @@ use husky_task::{
 use husky_task_interface::{val_control_flow::ValControlFlow, IsLinkageImpl};
 use husky_task_interface::{val_repr::ValArgumentReprInterface, value::IsValue};
 use husky_term_prelude::literal::Literal;
-use husky_val::{ValOpn, ValPatternData};
-use husky_val_repr::repr::{ValArgumentRepr, ValDomainRepr, ValRepr};
 
 impl<Task: IsTask> DevRuntime<Task> {
     pub fn eval_val_repr_at_pedestal(
         &self,
-        val_repr: ValRepr,
+        val_repr: KiRepr,
         pedestal: TaskDevPedestal<Task>,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         with_runtime_and_base_point::<TaskDevAscension<Task>, _, _>(self, pedestal, || {
@@ -75,7 +75,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
     fn eval_val_repr(
         &self,
-        val_repr: ValRepr,
+        val_repr: KiRepr,
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         // todo: consider domain
         let db = self.db();
@@ -283,7 +283,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
     fn eval_root_stmts(
         &self,
-        stmt_val_reprs: &[ValRepr],
+        stmt_val_reprs: &[KiRepr],
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         match self.eval_stmts(stmt_val_reprs) {
             ValControlFlow::Continue(value) | ValControlFlow::Return(value) => {
@@ -298,7 +298,7 @@ impl<Task: IsTask> DevRuntime<Task> {
 
     fn eval_stmts(
         &self,
-        stmt_val_reprs: &[ValRepr],
+        stmt_val_reprs: &[KiRepr],
     ) -> ValControlFlow<TaskValue<Task>, TaskValue<Task>, TaskError<Task>> {
         for &stmt_val_repr in &stmt_val_reprs[..stmt_val_reprs.len() - 1] {
             let _: () = self.eval_val_repr(stmt_val_repr)?.into();
@@ -350,7 +350,7 @@ fn val_repr_eval_works() {
         if fugitive_path.major_fugitive_kind(db) != MajorFugitiveKind::Val {
             continue;
         }
-        let val_repr = ValRepr::new_val_item(fugitive_path, db);
+        let val_repr = KiRepr::new_val_item(fugitive_path, db);
         runtime.eval_val_repr_at_pedestal(val_repr, InputId::from_index(0).into());
     }
 }

@@ -8,7 +8,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
@@ -112,7 +112,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

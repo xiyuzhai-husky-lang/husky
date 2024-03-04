@@ -214,8 +214,8 @@ husky-scope = { path = "crates/kernel/husky-scope" }
 husky-place = { path = "crates/kernel/husky-place" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 # ki
-husky-val = { path = "crates/ki/husky-val" }
-husky-val-repr = { path = "crates/ki/husky-val-repr" }
+husky-ki = { path = "crates/ki/husky-ki" }
+husky-ki-repr = { path = "crates/ki/husky-ki-repr" }
 # lex
 husky-regional-token = { path = "crates/lex/husky-regional-token" }
 husky-token-data = { path = "crates/lex/husky-token-data" }

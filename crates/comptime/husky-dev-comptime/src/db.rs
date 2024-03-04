@@ -2,7 +2,7 @@ use std::panic::RefUnwindSafe;
 
 #[salsa::db(
     // comptime
-    husky_val_repr::jar::ValReprJar,
+    husky_ki_repr::jar::ValReprJar,
     husky_rust_transpilation::jar::RustTranspilationJar,
     // devtime
     husky_trace::jar::TraceJar,
@@ -50,7 +50,7 @@ use std::panic::RefUnwindSafe;
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // val
-    husky_val::jar::ValJar
+    husky_ki::jar::ValJar
 )]
 pub struct DevComptimeDb;
 

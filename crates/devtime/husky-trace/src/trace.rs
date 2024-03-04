@@ -34,6 +34,8 @@ use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
+use husky_ki_repr::expansion::ValReprExpansion;
+use husky_ki_repr::repr::KiRepr;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{
@@ -41,8 +43,6 @@ use husky_trace_protocol::{
     protocol::{IsTrace, TraceBundle},
     view::TraceViewData,
 };
-use husky_val_repr::expansion::ValReprExpansion;
-use husky_val_repr::repr::ValRepr;
 
 use vec_like::VecPairMap;
 
@@ -174,7 +174,7 @@ impl Trace {
         trace_subtraces(db, self)
     }
 
-    pub fn val_repr(self, db: &::salsa::Db) -> Option<ValRepr> {
+    pub fn val_repr(self, db: &::salsa::Db) -> Option<KiRepr> {
         self.data(db).val_repr(self, db)
     }
 
@@ -201,7 +201,7 @@ impl TraceData {
         }
     }
 
-    pub fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+    pub fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         match self {
             TraceData::ValItem(slf) => Some(slf.val_repr(db)),
             TraceData::LazyExpr(slf) => slf.val_repr(trace_id, db),

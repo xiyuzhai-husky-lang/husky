@@ -8,7 +8,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -128,7 +128,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::three::is_three`, `Val`, (0)),
                             colon_token: Ok(

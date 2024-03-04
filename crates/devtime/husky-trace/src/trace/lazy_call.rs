@@ -69,7 +69,7 @@ impl LazyCallTraceData {
         )
     }
 
-    pub fn val_repr(&self, db: &::salsa::Db) -> ValRepr {
+    pub fn val_repr(&self, db: &::salsa::Db) -> KiRepr {
         self.biological_parent.val_repr(db).expect("should be some")
     }
 }

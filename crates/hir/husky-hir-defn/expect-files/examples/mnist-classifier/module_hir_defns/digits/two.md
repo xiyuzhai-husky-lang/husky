@@ -1,7 +1,7 @@
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
@@ -1206,7 +1206,7 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                     hir_decl: ValFugitiveHirDecl {

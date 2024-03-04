@@ -8,7 +8,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -397,7 +397,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -1055,7 +1055,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                             colon_token: Ok(

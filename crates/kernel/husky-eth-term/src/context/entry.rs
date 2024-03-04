@@ -57,7 +57,7 @@ impl TermSymbolShowEntry {
                     1 => f.write_str("s"),
                     idx => f.write_fmt(format_args!("t{}", idx)),
                 },
-                TermSymbolShowKind::Kind => match self.idx {
+                TermSymbolShowKind::Valnd => match self.idx {
                     0 => f.write_str("α"),
                     1 => f.write_str("β"),
                     2 => f.write_str("γ"),
@@ -152,7 +152,7 @@ fn symbol_show_kind(symbol: EthSvar, db: &::salsa::Db) -> TermSymbolShowKind {
         }
         EthTerm::Category(cat) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
         EthTerm::Category(cat) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
-        EthTerm::Category(_) => TermSymbolShowKind::Kind,
+        EthTerm::Category(_) => TermSymbolShowKind::Valnd,
         _ => TermSymbolShowKind::Other,
     }
 }

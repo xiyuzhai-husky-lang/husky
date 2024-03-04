@@ -4306,6 +4306,8 @@ dependencies = [
  "husky-hir-lazy-expr",
  "husky-hir-ty",
  "husky-javelin",
+ "husky-ki",
+ "husky-ki-repr",
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
@@ -4328,8 +4330,6 @@ dependencies = [
  "husky-toml-token",
  "husky-toolchain-config",
  "husky-trace",
- "husky-val",
- "husky-val-repr",
  "husky-vfs",
  "husky-vm",
  "salsa",
@@ -4350,6 +4350,8 @@ dependencies = [
  "husky-eth-term",
  "husky-fly-term",
  "husky-hir-opr",
+ "husky-ki",
+ "husky-ki-repr",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-ml-task",
@@ -4364,8 +4366,6 @@ dependencies = [
  "husky-term-prelude",
  "husky-text-protocol",
  "husky-token",
- "husky-val",
- "husky-val-repr",
  "husky-vfs",
  "husky-visual-protocol",
  "husky-vm",
@@ -4394,6 +4394,7 @@ dependencies = [
  "husky-entity-kind",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-ki-repr",
  "husky-opr",
  "husky-print-utils",
  "husky-syn-decl",
@@ -4405,7 +4406,6 @@ dependencies = [
  "husky-text-protocol",
  "husky-trace",
  "husky-trace-protocol",
- "husky-val-repr",
  "husky-value-protocol",
  "husky-vfs",
  "husky-visual-protocol",
@@ -5021,10 +5021,10 @@ version = "0.1.0"
 dependencies = [
  "dashmap",
  "either",
+ "husky-ki",
  "husky-mono-linktime",
  "husky-standard-value",
  "husky-task",
- "husky-val",
  "husky-vm",
 ]
 
@@ -5094,6 +5094,76 @@ dependencies = [
  "smallvec",
  "vec-like",
  "version-stamp",
+]
+
+[[package]]
+name = "husky-ki"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "husky-entity-path",
+ "husky-hir-opr",
+ "husky-ki",
+ "husky-linkage",
+ "husky-task-interface",
+ "husky-term-prelude",
+ "salsa",
+ "smallvec",
+]
+
+[[package]]
+name = "husky-ki-repr"
+version = "0.0.0"
+dependencies = [
+ "husky-ast",
+ "husky-check-utils",
+ "husky-corgi-config",
+ "husky-corgi-config-ast",
+ "husky-coword",
+ "husky-dec-signature",
+ "husky-dec-term",
+ "husky-dec-ty",
+ "husky-entity-kind",
+ "husky-entity-path",
+ "husky-entity-tree",
+ "husky-eth-signature",
+ "husky-eth-term",
+ "husky-fly-term",
+ "husky-hir-decl",
+ "husky-hir-defn",
+ "husky-hir-eager-expr",
+ "husky-hir-expr",
+ "husky-hir-lazy-expr",
+ "husky-hir-opr",
+ "husky-hir-ty",
+ "husky-javelin",
+ "husky-ki",
+ "husky-ki-repr",
+ "husky-linkage",
+ "husky-manifest",
+ "husky-manifest-ast",
+ "husky-ml-task",
+ "husky-print-utils",
+ "husky-regional-token",
+ "husky-sema-expr",
+ "husky-sema-place-contract",
+ "husky-syn-decl",
+ "husky-syn-defn",
+ "husky-syn-expr",
+ "husky-task",
+ "husky-task-interface",
+ "husky-term-prelude",
+ "husky-text",
+ "husky-token",
+ "husky-token-data",
+ "husky-toml-ast",
+ "husky-toml-token",
+ "husky-vfs",
+ "husky-visual-protocol",
+ "lsp-types 0.95.0",
+ "rustc-hash",
+ "salsa",
+ "smallvec",
 ]
 
 [[package]]
@@ -5228,6 +5298,7 @@ version = "0.1.0"
 dependencies = [
  "dashmap",
  "either",
+ "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-ml-task-interface",
@@ -5237,7 +5308,6 @@ dependencies = [
  "husky-task",
  "husky-task-interface",
  "husky-trace-protocol",
- "husky-val",
  "husky-vfs",
  "husky-visual-protocol",
  "salsa",
@@ -5873,11 +5943,11 @@ name = "husky-task"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-task-interface",
  "husky-trace-protocol",
- "husky-val",
  "husky-vfs",
  "husky-visual-protocol",
  "salsa",
@@ -6202,6 +6272,8 @@ dependencies = [
  "husky-hir-opr",
  "husky-hir-ty",
  "husky-javelin",
+ "husky-ki",
+ "husky-ki-repr",
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
@@ -6221,8 +6293,6 @@ dependencies = [
  "husky-toml-ast",
  "husky-toml-token",
  "husky-trace-protocol",
- "husky-val",
- "husky-val-repr",
  "husky-vfs",
  "salsa",
  "serde",
@@ -6291,76 +6361,6 @@ version = "0.1.0"
 [[package]]
 name = "husky-unwind-utils"
 version = "0.1.0"
-
-[[package]]
-name = "husky-val"
-version = "0.1.0"
-dependencies = [
- "husky-coword",
- "husky-entity-path",
- "husky-hir-opr",
- "husky-linkage",
- "husky-task-interface",
- "husky-term-prelude",
- "husky-val",
- "salsa",
- "smallvec",
-]
-
-[[package]]
-name = "husky-val-repr"
-version = "0.0.0"
-dependencies = [
- "husky-ast",
- "husky-check-utils",
- "husky-corgi-config",
- "husky-corgi-config-ast",
- "husky-coword",
- "husky-dec-signature",
- "husky-dec-term",
- "husky-dec-ty",
- "husky-entity-kind",
- "husky-entity-path",
- "husky-entity-tree",
- "husky-eth-signature",
- "husky-eth-term",
- "husky-fly-term",
- "husky-hir-decl",
- "husky-hir-defn",
- "husky-hir-eager-expr",
- "husky-hir-expr",
- "husky-hir-lazy-expr",
- "husky-hir-opr",
- "husky-hir-ty",
- "husky-javelin",
- "husky-linkage",
- "husky-manifest",
- "husky-manifest-ast",
- "husky-ml-task",
- "husky-print-utils",
- "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-place-contract",
- "husky-syn-decl",
- "husky-syn-defn",
- "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
- "husky-term-prelude",
- "husky-text",
- "husky-token",
- "husky-token-data",
- "husky-toml-ast",
- "husky-toml-token",
- "husky-val",
- "husky-val-repr",
- "husky-vfs",
- "husky-visual-protocol",
- "lsp-types 0.95.0",
- "rustc-hash",
- "salsa",
- "smallvec",
-]
 
 [[package]]
 name = "husky-value-protocol"

@@ -7,6 +7,8 @@ pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_entity_path::TypeVariantIndex;
+use husky_ki::{ValRuntimeConstant, ValRuntimeConstantData};
+use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_task::{
     dev_ascension::IsRuntimeStorage,
@@ -20,8 +22,6 @@ use husky_task_interface::{
     val_repr::{ValDomainReprInterface, ValReprInterface, ValRuntimeConstantInterface},
     IsDevRuntime, IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_val::{ValRuntimeConstant, ValRuntimeConstantData};
-use husky_val_repr::repr::ValRepr;
 use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
 
 use std::{convert::Infallible, path::Path};
@@ -140,7 +140,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         f: impl FnOnce(ValDomainReprInterface) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>>,
     ) -> LinkageImplValControlFlow<TaskLinkageImpl<Task>> {
         let db = self.db();
-        let val_repr: ValRepr = unsafe { std::mem::transmute(val_repr) };
+        let val_repr: KiRepr = unsafe { std::mem::transmute(val_repr) };
         let val_domain_repr: ValDomainReprInterface =
             unsafe { std::mem::transmute(val_repr.val_domain_repr(db)) };
         self.storage.get_or_try_init_val_value(

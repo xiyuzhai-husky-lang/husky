@@ -17,14 +17,14 @@ pub enum FugitiveDecTemplate {
     Fn(MajorFnDecTemplate),
     Gn(MajorGnDecTemplate),
     TypeAlias(TypeAliasDecTemplate),
-    Val(MajorValDecTemplate),
+    Ki(MajorValDecTemplate),
 }
 
 impl FugitiveDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             FugitiveDecTemplate::Fn(decl) => decl.template_parameters(db),
-            FugitiveDecTemplate::Val(decl) => decl.template_parameters(db),
+            FugitiveDecTemplate::Ki(decl) => decl.template_parameters(db),
             FugitiveDecTemplate::Gn(decl) => decl.template_parameters(db),
             FugitiveDecTemplate::TypeAlias(decl) => decl.template_parameters(db),
         }
@@ -47,7 +47,7 @@ pub(crate) fn fugitive_syn_dec_template(
     let decl = path.syn_decl(db)?;
     match decl {
         FugitiveSynDecl::Fn(decl) => MajorFnDecTemplate::from_decl(db, decl).map(Into::into),
-        FugitiveSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
+        FugitiveSynDecl::Ki(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FugitiveSynDecl::FunctionGn(decl) => {
             MajorGnDecTemplate::from_decl(db, decl).map(Into::into)
         }

@@ -338,7 +338,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
                             colon_token: Ok(

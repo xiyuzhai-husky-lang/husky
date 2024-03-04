@@ -4,8 +4,8 @@ use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
 };
+use husky_ki_repr::expansion::ValReprExpansion;
 use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
-use husky_val_repr::expansion::ValReprExpansion;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyPatternExprTracePath(TracePath);
@@ -99,7 +99,7 @@ impl LazyPatternExprTraceData {
         )
     }
 
-    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
             [self.hir_lazy_pattern_expr_idx?]

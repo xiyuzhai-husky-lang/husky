@@ -26,7 +26,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {

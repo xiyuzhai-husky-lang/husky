@@ -84,7 +84,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -242,7 +242,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -351,7 +351,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -430,40 +430,40 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 8,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 14,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 20,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 37,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 39,
                                 },
@@ -472,7 +472,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -608,9 +608,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 8,
                         },
@@ -619,14 +619,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 13,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 11,
                             },
@@ -634,7 +634,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -711,9 +711,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 14,
                         },
@@ -722,14 +722,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 19,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 15,
                             },
@@ -737,7 +737,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -814,9 +814,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 20,
                         },
@@ -825,14 +825,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 25,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 21,
                             },
@@ -840,7 +840,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -976,9 +976,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 26,
                         },
@@ -987,14 +987,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 36,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 34,
                             },
@@ -1002,7 +1002,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1079,9 +1079,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 37,
                         },
@@ -1090,7 +1090,7 @@
                 opn: ValOpn::Return,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 38,
                             },
@@ -1098,7 +1098,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1144,7 +1144,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -1217,7 +1217,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -1236,7 +1236,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -1244,7 +1244,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1315,7 +1315,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -1359,7 +1359,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 5,
                             },
@@ -1370,7 +1370,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1550,9 +1550,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -1573,14 +1573,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -1591,7 +1591,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1637,7 +1637,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -1710,9 +1710,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -1733,14 +1733,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -1751,7 +1751,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1873,9 +1873,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -1920,17 +1920,17 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 44,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 46,
                                 },
@@ -1939,7 +1939,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 47,
                                 },
@@ -1957,7 +1957,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2028,9 +2028,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2051,14 +2051,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -2069,7 +2069,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2140,9 +2140,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2165,7 +2165,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -2173,7 +2173,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2244,9 +2244,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2267,14 +2267,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -2285,7 +2285,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2356,9 +2356,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2381,7 +2381,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -2389,7 +2389,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2460,9 +2460,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2483,14 +2483,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -2501,7 +2501,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2572,9 +2572,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2597,7 +2597,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -2605,7 +2605,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2676,9 +2676,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2723,17 +2723,17 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 44,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 46,
                                 },
@@ -2742,7 +2742,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 47,
                                 },
@@ -2760,7 +2760,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2829,9 +2829,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 49,
                         },
@@ -2840,14 +2840,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 53,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 50,
                             },
@@ -2855,7 +2855,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -2926,9 +2926,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -2949,14 +2949,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -2967,7 +2967,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3038,9 +3038,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 49,
                         },
@@ -3063,7 +3063,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -3071,7 +3071,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3140,9 +3140,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -3151,14 +3151,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 60,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 55,
                             },
@@ -3166,7 +3166,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3212,7 +3212,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -3285,9 +3285,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -3310,7 +3310,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -3318,7 +3318,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3389,9 +3389,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -3418,7 +3418,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 56,
                             },
@@ -3426,7 +3426,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3495,9 +3495,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -3506,14 +3506,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 67,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 62,
                             },
@@ -3521,7 +3521,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3567,7 +3567,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -3640,9 +3640,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -3665,7 +3665,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -3673,7 +3673,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3744,9 +3744,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -3773,7 +3773,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 63,
                             },
@@ -3781,7 +3781,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -3936,7 +3936,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -4009,9 +4009,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4034,7 +4034,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -4042,7 +4042,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4113,9 +4113,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4142,7 +4142,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 69,
                             },
@@ -4150,7 +4150,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4330,9 +4330,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4341,14 +4341,14 @@
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 71,
                             },
@@ -4356,7 +4356,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4427,9 +4427,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4452,7 +4452,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 74,
                             },
@@ -4460,7 +4460,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4531,9 +4531,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4558,7 +4558,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 75,
                             },
@@ -4569,7 +4569,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4640,9 +4640,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4651,14 +4651,14 @@
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 71,
                             },
@@ -4666,7 +4666,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4737,9 +4737,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4762,7 +4762,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 77,
                             },
@@ -4770,7 +4770,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -4841,9 +4841,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -4868,7 +4868,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 78,
                             },
@@ -4879,7 +4879,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5034,7 +5034,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -5107,9 +5107,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5132,7 +5132,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 82,
                             },
@@ -5140,7 +5140,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5211,9 +5211,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5238,7 +5238,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 83,
                             },
@@ -5249,7 +5249,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5295,7 +5295,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -5368,9 +5368,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5393,7 +5393,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 82,
                             },
@@ -5401,7 +5401,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5472,9 +5472,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5499,7 +5499,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 85,
                             },
@@ -5510,7 +5510,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5690,9 +5690,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5705,14 +5705,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 76,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 79,
                             },
@@ -5720,7 +5720,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5791,9 +5791,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5806,14 +5806,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 84,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 86,
                             },
@@ -5821,7 +5821,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5890,9 +5890,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -5901,14 +5901,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 93,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 91,
                             },
@@ -5916,7 +5916,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -5987,9 +5987,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -6002,14 +6002,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 81,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 88,
                             },
@@ -6017,7 +6017,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -6197,9 +6197,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -6220,14 +6220,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -6238,7 +6238,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -6309,9 +6309,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 94,
                         },
@@ -6334,7 +6334,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -6342,7 +6342,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -6468,7 +6468,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -6626,7 +6626,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -6735,7 +6735,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -6851,7 +6851,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -6892,12 +6892,12 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 100,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 101,
                                 },
@@ -6906,7 +6906,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 102,
                                 },
@@ -6924,7 +6924,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -6970,7 +6970,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -7043,7 +7043,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -7062,7 +7062,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -7070,7 +7070,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -7116,7 +7116,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -7189,7 +7189,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -7230,12 +7230,12 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 100,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 101,
                                 },
@@ -7244,7 +7244,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 102,
                                 },
@@ -7262,7 +7262,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -7442,9 +7442,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -7465,14 +7465,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -7483,7 +7483,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -7529,7 +7529,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -7602,9 +7602,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -7625,14 +7625,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -7643,7 +7643,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -7728,9 +7728,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -7740,24 +7740,24 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 110,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 114,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 123,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 124,
                                 },
@@ -7767,72 +7767,72 @@
                     Branch {
                         condition: None,
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 129,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 133,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 168,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 181,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 189,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 203,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 249,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 270,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 274,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 299,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 303,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 316,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 320,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 321,
                                 },
@@ -7841,7 +7841,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -7993,9 +7993,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 114,
                         },
@@ -8005,14 +8005,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 117,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 122,
                                 },
@@ -8021,7 +8021,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8151,9 +8151,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -8174,14 +8174,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -8192,7 +8192,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8263,9 +8263,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -8288,7 +8288,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 107,
                             },
@@ -8296,7 +8296,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8381,9 +8381,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -8393,24 +8393,24 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 110,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 114,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 123,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 124,
                                 },
@@ -8420,72 +8420,72 @@
                     Branch {
                         condition: None,
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 129,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 133,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 168,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 181,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 189,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 203,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 249,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 270,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 274,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 299,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 303,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 316,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 320,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 321,
                                 },
@@ -8494,7 +8494,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8571,9 +8571,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionNotSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 110,
                         },
@@ -8582,14 +8582,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 128,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 125,
                             },
@@ -8597,7 +8597,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8674,9 +8674,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 129,
                         },
@@ -8685,14 +8685,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 132,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 130,
                             },
@@ -8700,7 +8700,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -8970,9 +8970,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 133,
                         },
@@ -8982,29 +8982,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 146,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 151,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 156,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 165,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 167,
                                 },
@@ -9013,7 +9013,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -9149,9 +9149,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 168,
                         },
@@ -9160,14 +9160,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 180,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 177,
                             },
@@ -9175,7 +9175,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -9386,9 +9386,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 203,
                         },
@@ -9398,29 +9398,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 204,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 215,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 231,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 241,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 248,
                                 },
@@ -9429,7 +9429,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -9522,9 +9522,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 249,
                         },
@@ -9534,14 +9534,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 250,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 269,
                                 },
@@ -9550,7 +9550,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -9627,9 +9627,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 270,
                         },
@@ -9638,14 +9638,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 273,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 271,
                             },
@@ -9653,7 +9653,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -10025,9 +10025,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 299,
                         },
@@ -10036,14 +10036,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 302,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 300,
                             },
@@ -10051,7 +10051,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -10364,9 +10364,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 303,
                         },
@@ -10375,14 +10375,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 315,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 312,
                             },
@@ -10390,7 +10390,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -10467,9 +10467,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 316,
                         },
@@ -10478,14 +10478,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 319,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 317,
                             },
@@ -10493,7 +10493,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -10627,7 +10627,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -10785,7 +10785,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -10894,7 +10894,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -11052,7 +11052,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -11161,7 +11161,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -11310,7 +11310,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -11383,7 +11383,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -11406,7 +11406,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -11414,7 +11414,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -11483,19 +11483,19 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 331,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 330,
                             },
@@ -11503,7 +11503,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -11574,19 +11574,19 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 326,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 327,
                             },
@@ -11594,7 +11594,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -11749,7 +11749,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -11822,9 +11822,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -11847,7 +11847,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -11855,7 +11855,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -12010,7 +12010,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -12083,9 +12083,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -12108,7 +12108,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -12116,7 +12116,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -12162,7 +12162,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -12235,9 +12235,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -12260,7 +12260,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -12268,7 +12268,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -12353,9 +12353,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -12365,39 +12365,39 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 342,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 347,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 367,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 383,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 393,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 399,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 401,
                                 },
@@ -12406,7 +12406,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -12837,9 +12837,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 347,
                         },
@@ -12848,14 +12848,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 366,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 363,
                             },
@@ -12863,7 +12863,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -12956,9 +12956,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 367,
                         },
@@ -12968,29 +12968,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 368,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 373,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 377,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 380,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 382,
                                 },
@@ -12999,7 +12999,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13210,9 +13210,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 393,
                         },
@@ -13222,14 +13222,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 396,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 398,
                                 },
@@ -13238,7 +13238,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13315,9 +13315,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 399,
                         },
@@ -13326,7 +13326,7 @@
                 opn: ValOpn::Return,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 400,
                             },
@@ -13334,7 +13334,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13405,9 +13405,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -13430,7 +13430,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -13438,7 +13438,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13509,9 +13509,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -13538,7 +13538,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -13546,7 +13546,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13668,9 +13668,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -13715,7 +13715,7 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 403,
                                 },
@@ -13724,7 +13724,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 404,
                                 },
@@ -13742,7 +13742,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13788,7 +13788,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -13861,9 +13861,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -13886,7 +13886,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -13894,7 +13894,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -13965,9 +13965,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -14012,7 +14012,7 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 403,
                                 },
@@ -14021,7 +14021,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 404,
                                 },
@@ -14039,7 +14039,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14124,9 +14124,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 406,
                         },
@@ -14136,14 +14136,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 409,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 414,
                                 },
@@ -14152,7 +14152,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14229,9 +14229,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 409,
                         },
@@ -14240,14 +14240,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 413,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 410,
                             },
@@ -14255,7 +14255,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14301,7 +14301,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -14374,9 +14374,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 406,
                         },
@@ -14399,7 +14399,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -14407,7 +14407,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14476,9 +14476,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -14487,14 +14487,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 424,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 416,
                             },
@@ -14502,7 +14502,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14573,9 +14573,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -14598,7 +14598,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -14606,7 +14606,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14677,9 +14677,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -14706,7 +14706,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -14714,7 +14714,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14785,9 +14785,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -14810,7 +14810,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 420,
                             },
@@ -14818,7 +14818,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -14889,9 +14889,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -14916,7 +14916,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 421,
                             },
@@ -14927,7 +14927,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15012,9 +15012,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 425,
                         },
@@ -15024,14 +15024,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 429,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 439,
                                 },
@@ -15040,7 +15040,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15117,9 +15117,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 429,
                         },
@@ -15128,14 +15128,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 438,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 430,
                             },
@@ -15143,7 +15143,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15214,9 +15214,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -15239,7 +15239,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -15247,7 +15247,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15318,9 +15318,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 425,
                         },
@@ -15347,7 +15347,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -15355,7 +15355,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15424,9 +15424,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 440,
                         },
@@ -15435,14 +15435,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 443,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 441,
                             },
@@ -15450,7 +15450,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15521,9 +15521,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -15536,14 +15536,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 335,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 336,
                             },
@@ -15551,7 +15551,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -15677,7 +15677,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -15835,7 +15835,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -15944,7 +15944,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -16041,7 +16041,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -16199,7 +16199,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -16409,7 +16409,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -16619,7 +16619,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -16829,7 +16829,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -18673,7 +18673,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19031,7 +19031,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19189,7 +19189,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19298,7 +19298,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19456,7 +19456,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19565,7 +19565,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19723,7 +19723,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19832,7 +19832,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -19929,7 +19929,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -20087,7 +20087,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -20297,7 +20297,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -20678,7 +20678,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -21282,7 +21282,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -21391,7 +21391,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -22561,7 +22561,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -22687,7 +22687,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -22845,7 +22845,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -22954,7 +22954,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -23112,7 +23112,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -23221,7 +23221,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -23318,7 +23318,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -23528,7 +23528,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -24297,7 +24297,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -24507,7 +24507,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -24743,7 +24743,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -24901,7 +24901,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25010,7 +25010,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25159,7 +25159,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25268,7 +25268,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25556,7 +25556,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25804,7 +25804,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -25962,7 +25962,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -26071,7 +26071,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -26229,7 +26229,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -26338,7 +26338,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -26487,7 +26487,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -26868,7 +26868,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -27472,7 +27472,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -27581,7 +27581,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -28751,7 +28751,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -28909,7 +28909,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -29018,7 +29018,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -29167,7 +29167,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -29377,7 +29377,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -29758,7 +29758,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -29968,7 +29968,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -30178,7 +30178,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -30498,7 +30498,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -30607,7 +30607,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -32087,7 +32087,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -32345,7 +32345,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -32554,7 +32554,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -32972,7 +32972,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -33486,7 +33486,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -33745,7 +33745,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -33903,7 +33903,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -34229,7 +34229,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -34458,7 +34458,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -34778,7 +34778,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -35101,7 +35101,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -35198,7 +35198,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -35521,7 +35521,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -35618,7 +35618,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -35941,7 +35941,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36038,7 +36038,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36196,7 +36196,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36293,7 +36293,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36451,7 +36451,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36548,7 +36548,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -36664,7 +36664,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36705,12 +36705,12 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 100,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 101,
                                 },
@@ -36719,7 +36719,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 102,
                                 },
@@ -36737,7 +36737,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -36783,7 +36783,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36856,7 +36856,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -36875,7 +36875,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -36883,7 +36883,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -36929,7 +36929,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -37002,7 +37002,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -37043,12 +37043,12 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 100,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 101,
                                 },
@@ -37057,7 +37057,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 102,
                                 },
@@ -37075,7 +37075,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -37255,9 +37255,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -37278,14 +37278,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -37296,7 +37296,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -37342,7 +37342,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -37415,9 +37415,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -37438,14 +37438,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -37456,7 +37456,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -37541,9 +37541,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -37553,24 +37553,24 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 110,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 114,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 123,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 124,
                                 },
@@ -37580,72 +37580,72 @@
                     Branch {
                         condition: None,
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 129,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 133,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 168,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 181,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 189,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 203,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 249,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 270,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 274,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 299,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 303,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 316,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 320,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 321,
                                 },
@@ -37654,7 +37654,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -37806,9 +37806,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 114,
                         },
@@ -37818,14 +37818,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 117,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 122,
                                 },
@@ -37834,7 +37834,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -37964,9 +37964,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -37987,14 +37987,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 105,
                             },
@@ -38005,7 +38005,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38076,9 +38076,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -38101,7 +38101,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 107,
                             },
@@ -38109,7 +38109,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38194,9 +38194,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 104,
                         },
@@ -38206,24 +38206,24 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 110,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 114,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 123,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 124,
                                 },
@@ -38233,72 +38233,72 @@
                     Branch {
                         condition: None,
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 129,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 133,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 168,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 181,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 189,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 203,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 249,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 270,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 274,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 299,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 303,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 316,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 320,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 321,
                                 },
@@ -38307,7 +38307,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38384,9 +38384,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionNotSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 110,
                         },
@@ -38395,14 +38395,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 128,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 125,
                             },
@@ -38410,7 +38410,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38487,9 +38487,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 129,
                         },
@@ -38498,14 +38498,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 132,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 130,
                             },
@@ -38513,7 +38513,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38783,9 +38783,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 133,
                         },
@@ -38795,29 +38795,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 146,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 151,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 156,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 165,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 167,
                                 },
@@ -38826,7 +38826,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -38962,9 +38962,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 168,
                         },
@@ -38973,14 +38973,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 180,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 177,
                             },
@@ -38988,7 +38988,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -39199,9 +39199,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 203,
                         },
@@ -39211,29 +39211,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 204,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 215,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 231,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 241,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 248,
                                 },
@@ -39242,7 +39242,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -39335,9 +39335,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 249,
                         },
@@ -39347,14 +39347,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 250,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 269,
                                 },
@@ -39363,7 +39363,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -39440,9 +39440,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 270,
                         },
@@ -39451,14 +39451,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 273,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 271,
                             },
@@ -39466,7 +39466,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -39838,9 +39838,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 299,
                         },
@@ -39849,14 +39849,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 302,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 300,
                             },
@@ -39864,7 +39864,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -40177,9 +40177,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 303,
                         },
@@ -40188,14 +40188,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 315,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 312,
                             },
@@ -40203,7 +40203,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -40280,9 +40280,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 316,
                         },
@@ -40291,14 +40291,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 319,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 317,
                             },
@@ -40306,7 +40306,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -40460,7 +40460,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -40609,7 +40609,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -40682,7 +40682,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -40705,7 +40705,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -40713,7 +40713,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -40782,19 +40782,19 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 331,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 330,
                             },
@@ -40802,7 +40802,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -40873,19 +40873,19 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 326,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 327,
                             },
@@ -40893,7 +40893,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -41048,7 +41048,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -41121,9 +41121,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -41146,7 +41146,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -41154,7 +41154,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -41309,7 +41309,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -41382,9 +41382,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -41407,7 +41407,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -41415,7 +41415,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -41461,7 +41461,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -41534,9 +41534,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -41559,7 +41559,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -41567,7 +41567,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -41652,9 +41652,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -41664,39 +41664,39 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 342,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 347,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 367,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 383,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 393,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 399,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 401,
                                 },
@@ -41705,7 +41705,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42136,9 +42136,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 347,
                         },
@@ -42147,14 +42147,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 366,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 363,
                             },
@@ -42162,7 +42162,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42255,9 +42255,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 367,
                         },
@@ -42267,29 +42267,29 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 368,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 373,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 377,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 380,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 382,
                                 },
@@ -42298,7 +42298,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42509,9 +42509,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 393,
                         },
@@ -42521,14 +42521,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 396,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 398,
                                 },
@@ -42537,7 +42537,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42614,9 +42614,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 399,
                         },
@@ -42625,7 +42625,7 @@
                 opn: ValOpn::Return,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 400,
                             },
@@ -42633,7 +42633,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42704,9 +42704,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -42729,7 +42729,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -42737,7 +42737,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42808,9 +42808,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -42837,7 +42837,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -42845,7 +42845,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -42967,9 +42967,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -43014,7 +43014,7 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 403,
                                 },
@@ -43023,7 +43023,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 404,
                                 },
@@ -43041,7 +43041,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43087,7 +43087,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -43160,9 +43160,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -43185,7 +43185,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -43193,7 +43193,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43264,9 +43264,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 402,
                         },
@@ -43311,7 +43311,7 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 403,
                                 },
@@ -43320,7 +43320,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 404,
                                 },
@@ -43338,7 +43338,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43423,9 +43423,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 406,
                         },
@@ -43435,14 +43435,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 409,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 414,
                                 },
@@ -43451,7 +43451,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43528,9 +43528,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 409,
                         },
@@ -43539,14 +43539,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 413,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 410,
                             },
@@ -43554,7 +43554,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43600,7 +43600,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -43673,9 +43673,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 406,
                         },
@@ -43698,7 +43698,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 323,
                             },
@@ -43706,7 +43706,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43775,9 +43775,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -43786,14 +43786,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 424,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 416,
                             },
@@ -43801,7 +43801,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43872,9 +43872,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -43897,7 +43897,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -43905,7 +43905,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -43976,9 +43976,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -44005,7 +44005,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -44013,7 +44013,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44084,9 +44084,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -44109,7 +44109,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 420,
                             },
@@ -44117,7 +44117,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44188,9 +44188,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 415,
                         },
@@ -44215,7 +44215,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 421,
                             },
@@ -44226,7 +44226,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44311,9 +44311,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 425,
                         },
@@ -44323,14 +44323,14 @@
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 429,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 439,
                                 },
@@ -44339,7 +44339,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44416,9 +44416,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 429,
                         },
@@ -44427,14 +44427,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 438,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 430,
                             },
@@ -44442,7 +44442,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44513,9 +44513,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -44538,7 +44538,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -44546,7 +44546,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44617,9 +44617,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 425,
                         },
@@ -44646,7 +44646,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 334,
                             },
@@ -44654,7 +44654,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44723,9 +44723,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 440,
                         },
@@ -44734,14 +44734,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 443,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 441,
                             },
@@ -44749,7 +44749,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44820,9 +44820,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 332,
                         },
@@ -44835,14 +44835,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 335,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 336,
                             },
@@ -44850,7 +44850,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -44996,7 +44996,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::ValItemLazilyDefined(
                     FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45075,40 +45075,40 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Branches,
                 arguments: [
                     Branch {
                         condition: Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 8,
                                 },
                             ),
                         ),
                         stmts: [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 14,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 20,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 37,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 39,
                                 },
@@ -45117,7 +45117,7 @@
                     },
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45253,9 +45253,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: ConditionSatisfied(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 8,
                         },
@@ -45264,14 +45264,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 13,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 11,
                             },
@@ -45279,7 +45279,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45356,9 +45356,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 14,
                         },
@@ -45367,14 +45367,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 19,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 15,
                             },
@@ -45382,7 +45382,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45459,9 +45459,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 20,
                         },
@@ -45470,14 +45470,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 25,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 21,
                             },
@@ -45485,7 +45485,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45621,9 +45621,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 26,
                         },
@@ -45632,14 +45632,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 36,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 34,
                             },
@@ -45647,7 +45647,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45724,9 +45724,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 37,
                         },
@@ -45735,7 +45735,7 @@
                 opn: ValOpn::Return,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 38,
                             },
@@ -45743,7 +45743,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45789,7 +45789,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -45862,7 +45862,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -45881,7 +45881,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -45889,7 +45889,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -45960,7 +45960,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -46004,7 +46004,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 5,
                             },
@@ -46015,7 +46015,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46195,9 +46195,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46218,14 +46218,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -46236,7 +46236,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46282,7 +46282,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -46355,9 +46355,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46378,14 +46378,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -46396,7 +46396,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46518,9 +46518,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46565,17 +46565,17 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 44,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 46,
                                 },
@@ -46584,7 +46584,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 47,
                                 },
@@ -46602,7 +46602,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46673,9 +46673,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46696,14 +46696,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -46714,7 +46714,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46785,9 +46785,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46810,7 +46810,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -46818,7 +46818,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -46889,9 +46889,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -46912,14 +46912,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -46930,7 +46930,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47001,9 +47001,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -47026,7 +47026,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -47034,7 +47034,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47105,9 +47105,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -47128,14 +47128,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -47146,7 +47146,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47217,9 +47217,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -47242,7 +47242,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -47250,7 +47250,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47321,9 +47321,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -47368,17 +47368,17 @@
                 arguments: [
                     Variadic(
                         [
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 44,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 46,
                                 },
@@ -47387,7 +47387,7 @@
                     ),
                     Keyed(
                         Some(
-                            ValRepr(
+                            KiRepr(
                                 Id {
                                     value: 47,
                                 },
@@ -47405,7 +47405,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47474,9 +47474,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 49,
                         },
@@ -47485,14 +47485,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 53,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 50,
                             },
@@ -47500,7 +47500,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47571,9 +47571,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -47594,14 +47594,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -47612,7 +47612,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47683,9 +47683,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 49,
                         },
@@ -47708,7 +47708,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -47716,7 +47716,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47785,9 +47785,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -47796,14 +47796,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 60,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 55,
                             },
@@ -47811,7 +47811,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -47857,7 +47857,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -47930,9 +47930,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -47955,7 +47955,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -47963,7 +47963,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48034,9 +48034,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 54,
                         },
@@ -48063,7 +48063,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 56,
                             },
@@ -48071,7 +48071,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48140,9 +48140,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -48151,14 +48151,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 67,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 62,
                             },
@@ -48166,7 +48166,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48212,7 +48212,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -48285,9 +48285,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -48310,7 +48310,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -48318,7 +48318,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48389,9 +48389,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 61,
                         },
@@ -48418,7 +48418,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 63,
                             },
@@ -48426,7 +48426,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48581,7 +48581,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -48654,9 +48654,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -48679,7 +48679,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 4,
                             },
@@ -48687,7 +48687,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48758,9 +48758,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -48787,7 +48787,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 69,
                             },
@@ -48795,7 +48795,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -48975,9 +48975,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -48986,14 +48986,14 @@
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 71,
                             },
@@ -49001,7 +49001,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49072,9 +49072,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49097,7 +49097,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 74,
                             },
@@ -49105,7 +49105,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49176,9 +49176,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49203,7 +49203,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 75,
                             },
@@ -49214,7 +49214,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49285,9 +49285,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49296,14 +49296,14 @@
                 opn: ValOpn::Index,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 70,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 71,
                             },
@@ -49311,7 +49311,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49382,9 +49382,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49407,7 +49407,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 77,
                             },
@@ -49415,7 +49415,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49486,9 +49486,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49513,7 +49513,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 78,
                             },
@@ -49524,7 +49524,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49679,7 +49679,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -49752,9 +49752,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49777,7 +49777,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 82,
                             },
@@ -49785,7 +49785,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49856,9 +49856,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -49883,7 +49883,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 83,
                             },
@@ -49894,7 +49894,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -49940,7 +49940,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -50013,9 +50013,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50038,7 +50038,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 82,
                             },
@@ -50046,7 +50046,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50117,9 +50117,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50144,7 +50144,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 85,
                             },
@@ -50155,7 +50155,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50335,9 +50335,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50350,14 +50350,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 76,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 79,
                             },
@@ -50365,7 +50365,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50436,9 +50436,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50451,14 +50451,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 84,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 86,
                             },
@@ -50466,7 +50466,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50535,9 +50535,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50546,14 +50546,14 @@
                 opn: ValOpn::Require,
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 93,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 91,
                             },
@@ -50561,7 +50561,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50632,9 +50632,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 68,
                         },
@@ -50647,14 +50647,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 81,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 88,
                             },
@@ -50662,7 +50662,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50842,9 +50842,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 40,
                         },
@@ -50865,14 +50865,14 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 2,
                             },
                         ),
                     ),
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 41,
                             },
@@ -50883,7 +50883,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -50954,9 +50954,9 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: StmtNotReturned(
-                    ValRepr(
+                    KiRepr(
                         Id {
                             value: 94,
                         },
@@ -50979,7 +50979,7 @@
                 ),
                 arguments: [
                     Simple(
-                        ValRepr(
+                        KiRepr(
                             Id {
                                 value: 43,
                             },
@@ -50987,7 +50987,7 @@
                     ),
                 ],
                 source: ValReprSource::Expansion {
-                    parent_val_repr: ValRepr {
+                    parent_val_repr: KiRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItemLazilyDefined(
                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -51133,7 +51133,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -51230,7 +51230,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -51440,7 +51440,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -52209,7 +52209,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -52419,7 +52419,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -52675,7 +52675,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -52824,7 +52824,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -52933,7 +52933,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -53221,7 +53221,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -53489,7 +53489,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -53586,7 +53586,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -53744,7 +53744,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -53954,7 +53954,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -54164,7 +54164,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -54374,7 +54374,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -56218,7 +56218,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -56596,7 +56596,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -56745,7 +56745,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -57126,7 +57126,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -57730,7 +57730,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -57839,7 +57839,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -59029,7 +59029,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -59175,7 +59175,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -59324,7 +59324,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -59534,7 +59534,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -59915,7 +59915,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -60125,7 +60125,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -60335,7 +60335,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -60655,7 +60655,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {
@@ -60764,7 +60764,7 @@
             ),
         },
         Some(
-            ValRepr {
+            KiRepr {
                 val_domain_repr: Omni,
                 opn: ValOpn::Linkage(
                     Linkage {

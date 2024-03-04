@@ -32,7 +32,7 @@ husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-val-repr.workspace = true
+husky-ki-repr.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
