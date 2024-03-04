@@ -795,7 +795,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
                                             ),
@@ -811,7 +811,7 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -888,7 +888,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
                                             ),
@@ -904,7 +904,7 @@
                                     7,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -1074,7 +1074,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
                                             ),
@@ -1090,7 +1090,7 @@
                                     10,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -1119,7 +1119,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
                                             ),
@@ -1137,7 +1137,7 @@
                                     11,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -1213,7 +1213,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
                                             ),
@@ -1231,7 +1231,7 @@
                                     13,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -1262,7 +1262,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
                                             ),
@@ -1278,7 +1278,7 @@
                                     14,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -1350,7 +1350,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -1368,7 +1368,7 @@
                                     16,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1399,7 +1399,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
                                             ),
@@ -1415,7 +1415,7 @@
                                     17,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -1535,7 +1535,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -1553,7 +1553,7 @@
                                     20,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -2124,7 +2124,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                MutableStackOwned {
+                                MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
                                     ),
@@ -2140,7 +2140,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                MutableStackOwned {
+                                MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
                                     ),
@@ -2156,7 +2156,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(2),
                                     ),
@@ -2170,7 +2170,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(3),
                                     ),
@@ -2203,7 +2203,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
                                                     ),
@@ -2218,7 +2218,7 @@
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
                                                 place: Some(
-                                                    ImmutableStackOwned {
+                                                    ImmutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(2),
                                                         ),
@@ -2244,7 +2244,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(3),
                                                     ),
@@ -2259,7 +2259,7 @@
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
                                                 place: Some(
-                                                    ImmutableStackOwned {
+                                                    ImmutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(3),
                                                         ),
@@ -2399,7 +2399,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
                                                     ),
@@ -2419,7 +2419,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -2435,7 +2435,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: ImmutableStackOwned {
+                                                            expectee_place: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
                                                                 ),
@@ -2487,7 +2487,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -2572,7 +2572,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -2597,7 +2597,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(3),
                                                     ),
@@ -2617,7 +2617,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -2635,7 +2635,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: MutableStackOwned {
+                                                            expectee_place: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
                                                                 ),
@@ -2687,7 +2687,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -2732,7 +2732,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -2748,7 +2748,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: ImmutableStackOwned {
+                                                            expectee_place: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
                                                                 ),
@@ -2812,7 +2812,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -2857,7 +2857,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -2873,7 +2873,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: ImmutableStackOwned {
+                                                            expectee_place: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
                                                                 ),
@@ -2964,7 +2964,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -3329,7 +3329,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
                                             ),
@@ -3345,7 +3345,7 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -3374,7 +3374,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -3392,7 +3392,7 @@
                                     5,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -3471,7 +3471,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
                                             ),
@@ -3487,7 +3487,7 @@
                                     7,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -3702,7 +3702,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -3720,7 +3720,7 @@
                                     11,
                                     FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -4174,7 +4174,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                MutableStackOwned {
+                                MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
                                     ),
@@ -4190,7 +4190,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
                                     ),
@@ -4341,7 +4341,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(1),
                                                     ),
@@ -4361,7 +4361,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -4377,7 +4377,7 @@
                                                 ExpectCoersionOutcome {
                                                     coersion: Trivial(
                                                         TrivialFlyCoersion {
-                                                            expectee_place: ImmutableStackOwned {
+                                                            expectee_place: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
                                                                 ),
@@ -4402,7 +4402,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -4462,7 +4462,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -4514,7 +4514,7 @@
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                MutableStackOwned {
+                                                MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(0),
                                                     ),
@@ -4608,7 +4608,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            MutableStackOwned {
+                                            MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -4662,7 +4662,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                MutableStackOwned {
+                                                MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(0),
                                                     ),

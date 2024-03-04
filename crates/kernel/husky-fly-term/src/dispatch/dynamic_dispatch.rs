@@ -55,8 +55,8 @@ impl FlyIndirection {
             FlyIndirection::QualifiedPlace(qualified_place) => match qualified_place {
                 FlyQuary::Const => todo!(),
                 FlyQuary::StackPure { .. } => todo!(),
-                FlyQuary::ImmutableStackOwned { .. } => todo!(),
-                FlyQuary::MutableStackOwned { .. } => todo!(),
+                FlyQuary::ImmutableOnStack { .. } => todo!(),
+                FlyQuary::MutableOnStack { .. } => todo!(),
                 FlyQuary::Transient => todo!(),
                 FlyQuary::Ref { guard } => todo!(),
                 FlyQuary::RefMut { .. } => todo!(),

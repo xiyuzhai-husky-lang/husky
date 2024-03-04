@@ -8,17 +8,17 @@ use crate::lifetime::HirLifetime;
 pub enum HirQuary {
     Const,
     /// reduce to
-    /// - ImmutableStackOwned if base type is known to be copyable
+    /// - ImmutableOnStack if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
         place: Place,
     },
     /// lvalue nonreference
-    ImmutableStackOwned {
+    ImmutableOnStack {
         place: Place,
     },
     /// lvalue nonreference
-    MutableStackOwned {
+    MutableOnStack {
         place: Place,
     },
     // rvalue
@@ -87,8 +87,8 @@ impl HirQuary {
         match place {
             FlyQuary::Const => HirQuary::Const,
             FlyQuary::StackPure { place } => HirQuary::StackPure { place },
-            FlyQuary::ImmutableStackOwned { place } => HirQuary::ImmutableStackOwned { place },
-            FlyQuary::MutableStackOwned { place } => HirQuary::MutableStackOwned { place },
+            FlyQuary::ImmutableOnStack { place } => HirQuary::ImmutableOnStack { place },
+            FlyQuary::MutableOnStack { place } => HirQuary::MutableOnStack { place },
             FlyQuary::Transient => HirQuary::Transient,
             FlyQuary::Ref { guard } => HirQuary::Ref {
                 guard: hir_place_guard_from_fly(guard),
@@ -106,8 +106,8 @@ impl HirQuary {
     pub fn place(self) -> Option<Place> {
         match self {
             HirQuary::StackPure { place }
-            | HirQuary::ImmutableStackOwned { place }
-            | HirQuary::MutableStackOwned { place }
+            | HirQuary::ImmutableOnStack { place }
+            | HirQuary::MutableOnStack { place }
             | HirQuary::Ref { guard: Left(place) }
             | HirQuary::RefMut { place, .. } => Some(place),
             _ => None,

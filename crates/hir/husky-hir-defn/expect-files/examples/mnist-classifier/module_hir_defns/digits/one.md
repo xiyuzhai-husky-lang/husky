@@ -287,7 +287,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -316,7 +316,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -368,7 +368,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -397,7 +397,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -420,7 +420,7 @@
                                                     1..4,
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -668,7 +668,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -697,7 +697,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1062,7 +1062,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1091,7 +1091,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1143,7 +1143,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1172,7 +1172,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1224,7 +1224,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1253,7 +1253,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1275,7 +1275,7 @@
                                                 opr: Minus,
                                                 opd_hir_expr_idx: 12,
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1296,7 +1296,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1325,7 +1325,7 @@
                                                     },
                                                 ),
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),

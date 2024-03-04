@@ -474,7 +474,7 @@
                                         HirTypeSvar::SelfPlace,
                                     ),
                                     HirTermSvarResolution::SelfPlace(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -678,7 +678,7 @@
                                         HirTypeSvar::SelfPlace,
                                     ),
                                     HirTermSvarResolution::SelfPlace(
-                                        MutableStackOwned {
+                                        MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),

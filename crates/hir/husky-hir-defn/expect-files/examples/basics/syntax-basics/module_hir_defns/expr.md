@@ -234,7 +234,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -447,7 +447,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),

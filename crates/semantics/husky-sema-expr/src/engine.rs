@@ -366,10 +366,10 @@ fn calc_self_value_ty(
         SvarModifier::Pure => FlyQuary::StackPure {
             place: registry.issue_new(place_data).into(),
         },
-        SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
+        SvarModifier::Owned => FlyQuary::ImmutableOnStack {
             place: registry.issue_new(place_data).into(),
         },
-        SvarModifier::Mut => FlyQuary::MutableStackOwned {
+        SvarModifier::Mut => FlyQuary::MutableOnStack {
             place: registry.issue_new(place_data).into(),
         },
         SvarModifier::Ref => todo!(),

@@ -60,7 +60,7 @@ impl SymbolType {
             SvarModifier::Pure => FlyQuary::StackPure {
                 place: engine.issue_new_place_idx(place_data()).into(),
             },
-            SvarModifier::Owned => FlyQuary::ImmutableStackOwned {
+            SvarModifier::Owned => FlyQuary::ImmutableOnStack {
                 place: engine.issue_new_place_idx(place_data()).into(),
             },
             SvarModifier::Mut => todo!(),
@@ -94,18 +94,18 @@ impl SymbolType {
         };
         let quary = match modifier {
             SvarModifier::Pure => match ty.place {
-                Some(FlyQuary::Transient) | None => FlyQuary::ImmutableStackOwned {
+                Some(FlyQuary::Transient) | None => FlyQuary::ImmutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
                 Some(quary) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
-                    Some(true) => FlyQuary::ImmutableStackOwned {
+                    Some(true) => FlyQuary::ImmutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => match quary {
                         FlyQuary::Const => todo!(),
                         FlyQuary::StackPure { place }
-                        | FlyQuary::ImmutableStackOwned { place }
-                        | FlyQuary::MutableStackOwned { place } => {
+                        | FlyQuary::ImmutableOnStack { place }
+                        | FlyQuary::MutableOnStack { place } => {
                             FlyQuary::Ref { guard: Left(place) }
                         }
                         FlyQuary::Transient => unreachable!(),
@@ -120,11 +120,11 @@ impl SymbolType {
             },
             SvarModifier::Owned => todo!(),
             SvarModifier::Mut => match ty.place {
-                Some(FlyQuary::Transient) | None => FlyQuary::MutableStackOwned {
+                Some(FlyQuary::Transient) | None => FlyQuary::MutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
                 Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
-                    Some(true) => FlyQuary::MutableStackOwned {
+                    Some(true) => FlyQuary::MutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => {
@@ -160,17 +160,17 @@ pub struct PlaceTypeData {
 pub enum FlyQuary {
     Const,
     /// reduce to
-    /// - ImmutableStackOwned if base type is known to be copyable
+    /// - ImmutableOnStack if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
         place: Place,
     },
     /// lvalue nonreference
-    ImmutableStackOwned {
+    ImmutableOnStack {
         place: Place,
     },
     /// lvalue nonreference
-    MutableStackOwned {
+    MutableOnStack {
         place: Place,
     },
     // rvalue
@@ -246,8 +246,8 @@ impl FlyQuary {
             (Contract::Pure, _) => Ok(()),
             (Contract::Move, FlyQuary::Const) => Ok(()),
             (Contract::Move, FlyQuary::StackPure { place }) => Ok(()),
-            (Contract::Move, FlyQuary::ImmutableStackOwned { place }) => Ok(()),
-            (Contract::Move, FlyQuary::MutableStackOwned { place }) => Ok(()),
+            (Contract::Move, FlyQuary::ImmutableOnStack { place }) => Ok(()),
+            (Contract::Move, FlyQuary::MutableOnStack { place }) => Ok(()),
             (Contract::Move, FlyQuary::Transient) => Ok(()),
             (Contract::Move, FlyQuary::Ref { guard }) => Ok(()), // ad hoc
             (Contract::Move, FlyQuary::RefMut { .. }) => todo!(),
@@ -255,8 +255,8 @@ impl FlyQuary {
             (Contract::Move, FlyQuary::Todo) => todo!(),
             (Contract::Borrow, FlyQuary::Const) => todo!(),
             (Contract::Borrow, FlyQuary::StackPure { place }) => todo!(),
-            (Contract::Borrow, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (Contract::Borrow, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::Borrow, FlyQuary::ImmutableOnStack { place }) => todo!(),
+            (Contract::Borrow, FlyQuary::MutableOnStack { place }) => todo!(),
             (Contract::Borrow, FlyQuary::Transient) => todo!(),
             (Contract::Borrow, FlyQuary::Ref { guard }) => todo!(),
             (Contract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
@@ -264,8 +264,8 @@ impl FlyQuary {
             (Contract::Borrow, FlyQuary::Todo) => todo!(),
             (Contract::BorrowMut, FlyQuary::Const) => todo!(),
             (Contract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
-            (Contract::BorrowMut, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (Contract::BorrowMut, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::ImmutableOnStack { place }) => todo!(),
+            (Contract::BorrowMut, FlyQuary::MutableOnStack { place }) => todo!(),
             (Contract::BorrowMut, FlyQuary::Transient) => Ok(()),
             (Contract::BorrowMut, FlyQuary::Ref { guard }) => todo!(),
             (Contract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
@@ -273,8 +273,8 @@ impl FlyQuary {
             (Contract::BorrowMut, FlyQuary::Todo) => todo!(),
             (Contract::At, FlyQuary::Const) => todo!(),
             (Contract::At, FlyQuary::StackPure { place }) => todo!(),
-            (Contract::At, FlyQuary::ImmutableStackOwned { place }) => todo!(),
-            (Contract::At, FlyQuary::MutableStackOwned { place }) => todo!(),
+            (Contract::At, FlyQuary::ImmutableOnStack { place }) => todo!(),
+            (Contract::At, FlyQuary::MutableOnStack { place }) => todo!(),
             (Contract::At, FlyQuary::Transient) => todo!(),
             (Contract::At, FlyQuary::Ref { guard }) => todo!(),
             (Contract::At, FlyQuary::RefMut { .. }) => todo!(),
@@ -290,8 +290,8 @@ impl FlyQuary {
     pub fn place(self) -> Option<Place> {
         match self {
             FlyQuary::StackPure { place }
-            | FlyQuary::ImmutableStackOwned { place }
-            | FlyQuary::MutableStackOwned { place }
+            | FlyQuary::ImmutableOnStack { place }
+            | FlyQuary::MutableOnStack { place }
             | FlyQuary::Ref { guard: Left(place) }
             | FlyQuary::RefMut { place, .. } => Some(place),
             FlyQuary::EtherealSymbol(svar) => Some(svar.into()),

@@ -299,7 +299,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
                                     ),
@@ -576,7 +576,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -592,7 +592,7 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -974,7 +974,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
                                     ),
@@ -988,7 +988,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
                                     ),
@@ -1092,7 +1092,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1117,7 +1117,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(0),
                                                     ),
@@ -1374,7 +1374,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        ImmutableStackOwned {
+                                        ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
                                             ),
@@ -1390,7 +1390,7 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1833,7 +1833,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
                                     ),
@@ -1847,7 +1847,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                ImmutableStackOwned {
+                                ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
                                     ),
@@ -1951,7 +1951,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            ImmutableStackOwned {
+                                            ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1976,7 +1976,7 @@
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
-                                                ImmutableStackOwned {
+                                                ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(0),
                                                     ),
