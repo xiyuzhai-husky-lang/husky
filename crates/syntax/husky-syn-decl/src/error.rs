@@ -1,7 +1,6 @@
 use crate::*;
 
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenStreamState};
-use husky_syn_expr::OriginalSynExprError;
 use husky_token_data::TokenDataError;
 
 use original_error::OriginalError;

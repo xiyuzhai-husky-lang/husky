@@ -3,10 +3,10 @@ use crate::{
     ingredient::{fmt_index, Ingredient, IngredientRequiresReset},
     ingredient_list::IngredientList,
     interned::{InternedData, InternedId, InternedIngredient},
-    key::{DatabaseKeyIndex, DependencyIndex},
-    runtime::{local_state::QueryOrigin, Runtime},
+    key::DependencyIndex,
+    runtime::local_state::QueryOrigin,
     salsa_struct::SalsaStructInDb,
-    Event, IngredientIndex, Revision, *,
+    *,
 };
 use std::fmt;
 
