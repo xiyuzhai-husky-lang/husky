@@ -140,6 +140,9 @@ pub enum JarIndex {
     FlyTermJar,
     TermPreludeJar,
     PlaceJar,
+    // ki
+    KiJar,
+    KiReprJar,
     // lex
     TextJar,
     TokenJar,
@@ -162,9 +165,6 @@ pub enum JarIndex {
     SynExprJar,
     TomlAstJar,
     CorgiConfigAstJar,
-    // val
-    ValJar,
-    ValReprJar,
     // vm
     VmirJar,
 }

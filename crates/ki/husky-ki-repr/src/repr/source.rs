@@ -10,21 +10,21 @@ use salsa::DebugWithDb;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ValReprSource {
+pub enum KiReprSource {
     ValItem(FugitivePath),
     Expansion {
-        parent_val_repr: KiRepr,
-        source: ValReprExpansionSource,
+        parent_ki_repr: KiRepr,
+        source: KiReprExpansionSource,
     },
 }
 
-impl ValReprSource {
+impl KiReprSource {
     pub fn debug_info(self, db: &::salsa::Db) -> String {
         // ad hoc
         let extra = match self {
-            ValReprSource::ValItem(_) => "".to_string(),
-            ValReprSource::Expansion {
-                parent_val_repr,
+            KiReprSource::ValItem(_) => "".to_string(),
+            KiReprSource::Expansion {
+                parent_ki_repr,
                 source,
             } => format!(
                 r#"regional_token_idx_range = {:?}"#,
@@ -40,11 +40,11 @@ impl ValReprSource {
 
     pub fn regional_token_idx_range(self, db: &::salsa::Db) -> RegionalTokenIdxRange {
         match self {
-            ValReprSource::ValItem(_) => todo!(),
-            ValReprSource::Expansion {
-                parent_val_repr,
+            KiReprSource::ValItem(_) => todo!(),
+            KiReprSource::Expansion {
+                parent_ki_repr,
                 source,
-            } => match parent_val_repr.opn(db) {
+            } => match parent_ki_repr.opn(db) {
                 ValOpn::Require => todo!(),
                 ValOpn::Assert => todo!(),
                 ValOpn::ValItemLazilyDefined(path) => {
@@ -57,16 +57,16 @@ impl ValReprSource {
                     let source_map_data =
                         hir_lazy_expr_source_map_from_syn(syn_expr_region, db).data(db);
                     match source {
-                        ValReprExpansionSource::LetVariable { stmt } => todo!(),
-                        ValReprExpansionSource::RequireDefault { stmt } => todo!(),
-                        ValReprExpansionSource::RequireCondition { stmt } => todo!(),
-                        ValReprExpansionSource::AssertCondition { stmt } => todo!(),
-                        ValReprExpansionSource::IfCondition { stmt } => todo!(),
-                        ValReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
-                        ValReprExpansionSource::Expr { expr } => {
+                        KiReprExpansionSource::LetVariable { stmt } => todo!(),
+                        KiReprExpansionSource::RequireDefault { stmt } => todo!(),
+                        KiReprExpansionSource::RequireCondition { stmt } => todo!(),
+                        KiReprExpansionSource::AssertCondition { stmt } => todo!(),
+                        KiReprExpansionSource::IfCondition { stmt } => todo!(),
+                        KiReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
+                        KiReprExpansionSource::Expr { expr } => {
                             sema_expr_range_region_data[source_map_data.sema_expr_idx(expr)]
                         }
-                        ValReprExpansionSource::Stmt { stmt } => todo!(),
+                        KiReprExpansionSource::Stmt { stmt } => todo!(),
                     }
                 }
                 ValOpn::FunctionGn(_) => todo!(),
@@ -78,7 +78,7 @@ impl ValReprSource {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ValReprExpansionSource {
+pub enum KiReprExpansionSource {
     LetVariable {
         stmt: HirLazyStmtIdx,
     },
@@ -106,26 +106,26 @@ pub enum ValReprExpansionSource {
     },
 }
 
-impl ValReprSource {
+impl KiReprSource {
     pub(crate) fn caching_class(self) -> ValCachingClass {
         match self {
-            ValReprSource::ValItem(_) => ValCachingClass::ValItem,
-            ValReprSource::Expansion { source, .. } => source.caching_class(),
+            KiReprSource::ValItem(_) => ValCachingClass::ValItem,
+            KiReprSource::Expansion { source, .. } => source.caching_class(),
         }
     }
 }
 
-impl ValReprExpansionSource {
+impl KiReprExpansionSource {
     pub(crate) fn caching_class(self) -> ValCachingClass {
         match self {
-            ValReprExpansionSource::LetVariable { .. } => ValCachingClass::Variable,
-            ValReprExpansionSource::RequireDefault { .. } => ValCachingClass::Expr,
-            ValReprExpansionSource::RequireCondition { .. }
-            | ValReprExpansionSource::AssertCondition { .. }
-            | ValReprExpansionSource::IfCondition { .. }
-            | ValReprExpansionSource::ElifCondition { .. } => ValCachingClass::Condition,
-            ValReprExpansionSource::Expr { .. } => ValCachingClass::Expr,
-            ValReprExpansionSource::Stmt { .. } => ValCachingClass::Stmt,
+            KiReprExpansionSource::LetVariable { .. } => ValCachingClass::Variable,
+            KiReprExpansionSource::RequireDefault { .. } => ValCachingClass::Expr,
+            KiReprExpansionSource::RequireCondition { .. }
+            | KiReprExpansionSource::AssertCondition { .. }
+            | KiReprExpansionSource::IfCondition { .. }
+            | KiReprExpansionSource::ElifCondition { .. } => ValCachingClass::Condition,
+            KiReprExpansionSource::Expr { .. } => ValCachingClass::Expr,
+            KiReprExpansionSource::Stmt { .. } => ValCachingClass::Stmt,
         }
     }
 }

@@ -1,8 +1,6 @@
-
 use super::*;
 use crate::trace::optimal_transport::OptimalTransport;
 use husky_visual_protocol::visual::shape::{Color, Point};
-
 
 pub struct OptimalTransportAverage {
     source_points: Vec<Point>,

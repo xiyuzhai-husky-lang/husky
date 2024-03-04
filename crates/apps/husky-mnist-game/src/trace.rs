@@ -7,7 +7,7 @@ pub mod skeleton;
 use crate::{op::history::OpTime, MnistDb, *};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 use husky_ml_task_interface::InputId;
-use husky_task_interface::val_repr::ValReprInterface;
+use husky_task_interface::ki_repr::KiReprInterface;
 use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
 
@@ -45,23 +45,23 @@ fn trace_from_into_trace_id_works() {
     t(OptimalTransport);
 }
 
-impl From<ValReprInterface> for Trace {
-    fn from(id: ValReprInterface) -> Self {
+impl From<KiReprInterface> for Trace {
+    fn from(id: KiReprInterface) -> Self {
         Self::from_index(id.index())
     }
 }
 
-impl Into<ValReprInterface> for Trace {
-    fn into(self) -> ValReprInterface {
-        ValReprInterface::from_index(self.index())
+impl Into<KiReprInterface> for Trace {
+    fn into(self) -> KiReprInterface {
+        KiReprInterface::from_index(self.index())
     }
 }
 
 #[test]
-fn trace_from_into_val_repr_interface_works() {
+fn trace_from_into_ki_repr_interface_works() {
     fn t(trace: Trace) {
-        let val_repr_interface: ValReprInterface = trace.into();
-        let trace1: Trace = val_repr_interface.into();
+        let ki_repr_interface: KiReprInterface = trace.into();
+        let trace1: Trace = ki_repr_interface.into();
         assert_eq!(trace, trace1)
     }
 

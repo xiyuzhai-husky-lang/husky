@@ -139,7 +139,7 @@ pub(crate) fn ty_item_eth_templates_map(
                                 _ => unreachable!(),
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
-                            .map(TypeItemEthTemplates::AssocFn), 
+                            .map(TypeItemEthTemplates::AssocFn),
                         TypeItemKind::AssocVal => todo!(),
                         TypeItemKind::AssocType => todo!(),
                         TypeItemKind::MemoizedField => paths

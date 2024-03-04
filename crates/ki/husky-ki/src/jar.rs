@@ -1,4 +1,4 @@
-use crate::{version_stamp::ValVersionStamp, *};
+use crate::{version_stamp::KiVersionStamp, *};
 
 #[salsa::jar]
-pub struct ValJar(Ki, ValPattern, ValRuntimeConstant, ValVersionStamp);
+pub struct KiJar(Ki, KiPattern, KiRuntimeConstant, KiVersionStamp);

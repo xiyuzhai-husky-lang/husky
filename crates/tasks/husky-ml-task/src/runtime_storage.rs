@@ -1,8 +1,8 @@
 use crate::*;
 use dashmap::DashMap;
-use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
+use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 
-use husky_ki::{version_stamp::ValVersionStamp, Ki};
+use husky_ki::{version_stamp::KiVersionStamp, Ki};
 use husky_task::dev_ascension::IsRuntimeStorage;
 use husky_task_interface::{TaskIngredientIndex, TaskJarIndex};
 use std::sync::{Arc, Mutex};
@@ -11,11 +11,11 @@ use std::sync::{Arc, Mutex};
 pub struct MlDevRuntimeStorage {
     ki_values: DashMap<
         MlDevRuntimeValStorageKey,
-        Arc<Mutex<Option<(ValVersionStamp, StandardLinkageImplValControlFlow)>>>,
+        Arc<Mutex<Option<(KiVersionStamp, StandardLinkageImplKiControlFlow)>>>,
     >,
     memo_field_values: DashMap<
         MlDevRuntimeMemoizedFieldStorageKey,
-        Arc<Mutex<Option<StandardLinkageImplValControlFlow>>>,
+        Arc<Mutex<Option<StandardLinkageImplKiControlFlow>>>,
     >,
 }
 
@@ -43,9 +43,9 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         &self,
         val: Ki,
         pedestal: MlPedestal,
-        f: impl FnOnce() -> StandardLinkageImplValControlFlow,
+        f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
-    ) -> StandardLinkageImplValControlFlow {
+    ) -> StandardLinkageImplKiControlFlow {
         let key = MlDevRuntimeValStorageKey { ki: val, pedestal };
         let mu = self.ki_values.entry(key).or_default().clone();
         let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
@@ -73,8 +73,8 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         ingredient_index: TaskIngredientIndex,
         pedestal: MlPedestal,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplValControlFlow,
-    ) -> StandardLinkageImplValControlFlow {
+        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplKiControlFlow,
+    ) -> StandardLinkageImplKiControlFlow {
         // todo: maybe add version stamp?
         let key = MlDevRuntimeMemoizedFieldStorageKey {
             jar_index,

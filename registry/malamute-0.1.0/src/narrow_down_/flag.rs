@@ -1,6 +1,6 @@
 use super::*;
 use ad_hoc_task_dependency::IsLabel;
-use ad_hoc_task_dependency::{ugly::__InputId, val_control_flow::ValControlFlow};
+use ad_hoc_task_dependency::{ki_control_flow::KiControlFlow, ugly::__InputId};
 use smallvec::*;
 
 pub struct FlagVectorField<Label> {
@@ -21,7 +21,7 @@ where
 {
     pub fn from_features(
         val_domain_repr: __ValDomainReprInterface,
-        arguments: &[__ValReprInterface],
+        arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Self, ()> {
         let mut stalks: Vec<Stalk> = vec![];
@@ -39,26 +39,26 @@ where
     fn from_features_aux(
         val_domain_repr: __ValDomainReprInterface,
         input_id: __InputId,
-        arguments: &[__ValReprInterface],
+        arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
         match __eval_val_domain_repr_interface_at_input(val_domain_repr, input_id) {
-            ValControlFlow::Continue(_) => (),
-            ValControlFlow::LoopContinue => todo!(),
-            ValControlFlow::LoopExit(_) => todo!(),
-            ValControlFlow::Return(_) => todo!(),
-            ValControlFlow::Undefined => return Ok(None),
-            ValControlFlow::Err(_) => todo!(),
+            KiControlFlow::Continue(_) => (),
+            KiControlFlow::LoopContinue => todo!(),
+            KiControlFlow::LoopExit(_) => todo!(),
+            KiControlFlow::Return(_) => todo!(),
+            KiControlFlow::Undefined => return Ok(None),
+            KiControlFlow::Err(_) => todo!(),
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
-            let feature = match __eval_val_repr_interface_at_input(argument, input_id, None) {
-                ValControlFlow::Continue(feature) => feature,
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => todo!(),
-                ValControlFlow::Err(_) => todo!(),
+            let feature = match __eval_ki_repr_interface_at_input(argument, input_id, None) {
+                KiControlFlow::Continue(feature) => feature,
+                KiControlFlow::LoopContinue => todo!(),
+                KiControlFlow::LoopExit(_) => todo!(),
+                KiControlFlow::Return(_) => todo!(),
+                KiControlFlow::Undefined => todo!(),
+                KiControlFlow::Err(_) => todo!(),
             };
             let feature = match NotNan::new(feature) {
                 Ok(feature) => feature,

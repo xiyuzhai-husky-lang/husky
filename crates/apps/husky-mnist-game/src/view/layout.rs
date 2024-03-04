@@ -36,9 +36,7 @@ impl MnistApp {
                                 let channel = &self.channels[i * number_of_columns + j];
                                 let _set = channel.trace_selection().set();
                                 // debug:
-                                
-                                
-                                
+
                                 channel
                                     .figure(
                                         pedestal,

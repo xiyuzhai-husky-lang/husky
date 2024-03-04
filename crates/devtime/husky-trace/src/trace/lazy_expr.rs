@@ -4,7 +4,7 @@ use husky_hir_lazy_expr::{
     source_map::{HirLazyExprSourceMap, HirLazyExprSourceMapData},
     HirLazyExprData, HirLazyExprIdx, HirLazyExprRegion,
 };
-use husky_ki_repr::expansion::ValReprExpansion;
+use husky_ki_repr::expansion::KiReprExpansion;
 use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion,
     SemaRitchieParameterArgumentMatch,
@@ -227,16 +227,16 @@ impl LazyExprTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
-        let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
-        val_repr_expansion
-            .hir_lazy_expr_val_repr_map(db)
+    pub(super) fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+        let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
+        ki_repr_expansion
+            .hir_lazy_expr_ki_repr_map(db)
             .get(self.hir_lazy_expr_idx?)
             .copied()
     }
 
-    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
-        self.biological_parent.val_repr_expansion(db)
+    pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
+        self.biological_parent.ki_repr_expansion(db)
     }
 }
 

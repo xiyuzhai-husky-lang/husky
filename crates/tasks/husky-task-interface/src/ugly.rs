@@ -1,8 +1,8 @@
 pub use crate::{
-    val_repr::{
-        ValArgumentReprInterface as __ValArgumentReprInterface,
-        ValDomainReprInterface as __ValDomainReprInterface, ValReprInterface as __ValReprInterface,
-        ValRuntimeConstantInterface as __ValRuntimeConstantInterface,
+    ki_repr::{
+        KiArgumentReprInterface as __KiArgumentReprInterface, KiReprInterface as __KiReprInterface,
+        KiRuntimeConstantInterface as __ValRuntimeConstantInterface,
+        ValDomainReprInterface as __ValDomainReprInterface,
     },
     TaskIngredientIndex as __TaskIngredientIndex, TaskJarIndex as __TaskJarIndex,
     TaskJarIndexOnceCell as __TaskJarIndexOnceCell,

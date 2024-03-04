@@ -7,7 +7,7 @@ use egui::{
     vec2, Color32, FontFamily, Frame, Label, Margin, RichText, Sense, SidePanel, TextStyle,
     TopBottomPanel, Ui, Vec2, Widget,
 };
-use husky_task_interface::{pedestal::IsPedestal, val_control_flow::ValControlFlow};
+use husky_task_interface::{ki_control_flow::KiControlFlow, pedestal::IsPedestal};
 use husky_trace_protocol::{
     figure::{FigureUi, FigureUiCache},
     id::{TraceId, TraceKind},

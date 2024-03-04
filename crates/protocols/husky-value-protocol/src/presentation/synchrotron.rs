@@ -1,6 +1,6 @@
 pub mod action;
 
-use self::action::{ValuePresentationSynchrotronActionsDiff};
+use self::action::ValuePresentationSynchrotronActionsDiff;
 use super::*;
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

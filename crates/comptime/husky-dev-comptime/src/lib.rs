@@ -97,7 +97,7 @@ impl<Task: IsTask> DevComptime<Task> {
             .unwrap()
     }
 
-    pub fn ingredient_val_repr(
+    pub fn ingredient_ki_repr(
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
@@ -130,7 +130,7 @@ fn ingredient_vals(
                     .ingredient_paths(db)
                     .iter()
                     .map(|&ingredient_path| {
-                        let val_repr = match ingredient_path.item_path() {
+                        let ki_repr = match ingredient_path.item_path() {
                             ItemPath::MajorItem(MajorItemPath::Fugitive(path))
                                 if path.major_fugitive_kind(db) == MajorFugitiveKind::Val =>
                             {
@@ -152,8 +152,8 @@ fn ingredient_vals(
                             },
                             _ => None,
                         };
-                        let val = val_repr.map(|val_repr| val_repr.val(db));
-                        (ingredient_path, val_repr, val)
+                        let val = ki_repr.map(|ki_repr| ki_repr.val(db));
+                        (ingredient_path, ki_repr, val)
                     })
                     .collect(),
             )

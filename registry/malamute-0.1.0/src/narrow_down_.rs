@@ -2,7 +2,7 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
-use ad_hoc_task_dependency::val_control_flow::ValControlFlow;
+use ad_hoc_task_dependency::ki_control_flow::KiControlFlow;
 use smallvec::SmallVec;
 
 #[allow(warnings, non_snake_case)]
@@ -87,20 +87,20 @@ where
 
     fn train(
         val_domain_repr: __ValDomainReprInterface,
-        val_argument_reprs: &[__ValArgumentReprInterface],
-    ) -> __ValControlFlow<Self::ValueAtGenericPedestal> {
+        val_argument_reprs: &[__KiArgumentReprInterface],
+    ) -> __KiControlFlow<Self::ValueAtGenericPedestal> {
         debug_assert_eq!(val_argument_reprs.len(), 3);
-        let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
             unreachable!()
         };
-        let __ValArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
+        let __KiArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
             unreachable!()
         };
         let skip: i32 = match skip {
-            Some(skip) => __eval_val_repr_interface(skip, None)?,
+            Some(skip) => __eval_ki_repr_interface(skip, None)?,
             None => 5,
         };
-        let __ValArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
+        let __KiArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
             val_argument_reprs[2]
         else {
             unreachable!()
@@ -110,7 +110,7 @@ where
         let fvf = FlagVectorField::from_features(val_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();
-        __ValControlFlow::Continue(NarrowDownInternal {
+        __KiControlFlow::Continue(NarrowDownInternal {
             label0: fvf.label0(),
             flag_ranges: fvf.flag_ranges(skip, 0.1),
         })
@@ -119,10 +119,10 @@ where
     type EvalOutput = OneVsAllResult;
 
     fn eval(
-        val_argument_reprs: &[__ValArgumentReprInterface],
+        val_argument_reprs: &[__KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> OneVsAllResult {
-        let __ValArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
             unreachable!()
         };
         debug_assert_eq!(features.len(), value_at_generic_pedestal.flag_ranges.len());
@@ -132,13 +132,13 @@ where
             let Some(flag_range) = flag_range else {
                 continue;
             };
-            let v: f32 = match __eval_val_repr_interface(feature, None) {
-                ValControlFlow::Continue(v) => v,
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => todo!(),
-                ValControlFlow::Err(_) => todo!(),
+            let v: f32 = match __eval_ki_repr_interface(feature, None) {
+                KiControlFlow::Continue(v) => v,
+                KiControlFlow::LoopContinue => todo!(),
+                KiControlFlow::LoopExit(_) => todo!(),
+                KiControlFlow::Return(_) => todo!(),
+                KiControlFlow::Undefined => todo!(),
+                KiControlFlow::Err(_) => todo!(),
             };
             let v = NotNan::new(v).unwrap();
             let apply_result = flag_range.apply(v);

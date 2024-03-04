@@ -31,24 +31,28 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
 update-expect:
+	cargo fmt
 	cargo check --tests
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
 
 update-expect-local:
+	cargo fmt
 	cargo check --tests
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
 
 update-expect-local-job-1:
+	cargo fmt
 	cargo check --tests -j 1
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
 
 update-expect-server:
+	cargo fmt
 	cargo check --tests
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture
 
@@ -82,20 +86,24 @@ save:
 # git add -A
 # git commit -m "save"
 # git push
+	cargo fmt
 	cargo install --path crates/devtools/git-save
 	git-save
 
 save-clean:
+	cargo fmt
 	git add -A
 	git commit -m "clean"
 	git push
 
 save-improve-debug:
+	cargo fmt
 	git add -A
 	git commit -m "improve-debug"
 	git push
 
 syn-tree-build-timings:
+	cargo fmt
 	cargo clean
 	cargo build -p husky-entity-tree --timings
 	cp target/cargo-timings/cargo-timing.html benchmarks/syn-tree-build-timings.html

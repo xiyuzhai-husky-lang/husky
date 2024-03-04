@@ -1,5 +1,5 @@
 use crate::TraceId;
-use husky_task_interface::{pedestal::IsPedestalFull, val_repr::ValReprInterface};
+use husky_task_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, Visual},
@@ -16,36 +16,36 @@ pub trait IsFigure<Pedestal: IsPedestalFull>:
 {
     /// construct a figure for a specific datapoint
     fn new_specific(
-        followed_visual: Option<(TraceId, ValReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
-        f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        followed_visual: Option<(TraceId, KiReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
+        f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self;
 
     fn new_generic(
-        followed_visual: Option<(TraceId, ValReprInterface)>,
-        accompanyings: &[(TraceId, ValReprInterface)],
+        followed_visual: Option<(TraceId, KiReprInterface)>,
+        accompanyings: &[(TraceId, KiReprInterface)],
         pedestals: impl Iterator<Item = Pedestal>,
-        f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self;
 }
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
     fn new_specific(
-        _followed_visual: Option<(TraceId, ValReprInterface)>,
-        _accompanyings: &[(TraceId, ValReprInterface)],
-        _f: impl FnMut(ValReprInterface, &mut VisualSynchrotron) -> Visual,
+        _followed_visual: Option<(TraceId, KiReprInterface)>,
+        _accompanyings: &[(TraceId, KiReprInterface)],
+        _f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         ()
     }
 
     fn new_generic(
-        _followed_visual: Option<(TraceId, ValReprInterface)>,
-        _accompanyings: &[(TraceId, ValReprInterface)],
+        _followed_visual: Option<(TraceId, KiReprInterface)>,
+        _accompanyings: &[(TraceId, KiReprInterface)],
         _pedestals: impl Iterator<Item = Pedestal>,
-        _f: impl FnMut(ValReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        _f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         _visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         ()

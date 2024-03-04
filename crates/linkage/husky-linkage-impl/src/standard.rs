@@ -6,14 +6,14 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::{val_repr::ValDomainReprInterface, DevEvalContext};
+use husky_task_interface::{ki_repr::ValDomainReprInterface, DevEvalContext};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 
 // ad hoc
 pub type Error = ();
 
-pub type StandardLinkageImplValControlFlow<C = Value, B = Value> =
-    husky_task_interface::val_control_flow::ValControlFlow<C, B, Error>;
+pub type StandardLinkageImplKiControlFlow<C = Value, B = Value> =
+    husky_task_interface::ki_control_flow::KiControlFlow<C, B, Error>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>
@@ -24,8 +24,8 @@ where
         /// it's the wrapper's responsibility to properly set ctx
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
-            &[ValArgumentReprInterface],
-        ) -> StandardLinkageImplValControlFlow,
+            &[KiArgumentReprInterface],
+        ) -> StandardLinkageImplKiControlFlow,
         fn_pointer: fn(),
     },
     StructField {
@@ -35,8 +35,8 @@ where
         /// it's the wrapper's responsibility to properly set ctx
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
-            &[ValArgumentReprInterface],
-        ) -> StandardLinkageImplValControlFlow,
+            &[KiArgumentReprInterface],
+        ) -> StandardLinkageImplKiControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
@@ -45,11 +45,11 @@ where
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             ValDomainReprInterface,
-            &[ValArgumentReprInterface],
-        ) -> StandardLinkageImplValControlFlow,
+            &[KiArgumentReprInterface],
+        ) -> StandardLinkageImplKiControlFlow,
         /// no need to set ctx
         gn_specific_wrapper:
-            fn(&[ValArgumentReprInterface], Value) -> StandardLinkageImplValControlFlow,
+            fn(&[KiArgumentReprInterface], Value) -> StandardLinkageImplKiControlFlow,
     },
     /// used to get the json value of an enum u8-represented given only the index
     EnumU8ValuePresenter { presenter: EnumU8ValuePresenter },
@@ -65,10 +65,10 @@ where
 
     fn eval(
         self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         ctx: DevEvalContext<Self>,
-        val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> StandardLinkageImplValControlFlow {
+        val_argument_reprs: &[KiArgumentReprInterface],
+    ) -> StandardLinkageImplKiControlFlow {
         match self {
             LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
             LinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
@@ -78,8 +78,8 @@ where
                 gn_specific_wrapper,
             } => {
                 let value_at_generic_pedestal = ctx
-                    .eval_val_repr_interface_at_generic_pedestal_with(
-                        val_repr,
+                    .eval_ki_repr_interface_at_generic_pedestal_with(
+                        ki_repr,
                         generic_pedestal,
                         gn_generic_wrapper,
                         val_argument_reprs,
@@ -90,11 +90,11 @@ where
                 struct_field_wrapper,
             } => {
                 debug_assert_eq!(val_argument_reprs.len(), 1);
-                let ValArgumentReprInterface::Simple(owner) = val_argument_reprs[0] else {
+                let KiArgumentReprInterface::Simple(owner) = val_argument_reprs[0] else {
                     unreachable!()
                 };
-                let owner = ctx.eval_val_repr_interface(owner)?;
-                StandardLinkageImplValControlFlow::Continue(struct_field_wrapper(owner))
+                let owner = ctx.eval_ki_repr_interface(owner)?;
+                StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
             LinkageImpl::EnumU8ValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")
@@ -130,13 +130,13 @@ pub trait IsGnItem {
     /// compute `generic_pedestal` here for efficiency
     fn train(
         val_domain_repr: ValDomainReprInterface,
-        val_argument_reprs: &[ValArgumentReprInterface],
-    ) -> LinkageImplValControlFlow<Self::LinkageImpl, Self::ValueAtGenericPedestal>;
+        val_argument_reprs: &[KiArgumentReprInterface],
+    ) -> LinkageImplKiControlFlow<Self::LinkageImpl, Self::ValueAtGenericPedestal>;
 
     type EvalOutput;
 
     fn eval(
-        val_argument_reprs: &[ValArgumentReprInterface],
+        val_argument_reprs: &[KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> Self::EvalOutput;
 }
@@ -150,10 +150,10 @@ macro_rules! gn_linkage_impl {
         fn gn_generic_wrapper(
             ctx: __DevEvalContext,
             val_domain_repr: __ValDomainReprInterface,
-            val_argument_reprs: &[__ValArgumentReprInterface],
-        ) -> __ValControlFlow {
+            val_argument_reprs: &[__KiArgumentReprInterface],
+        ) -> __KiControlFlow {
             __with_dev_eval_context(ctx, || {
-                __ValControlFlow::Continue(
+                __KiControlFlow::Continue(
                     __ValueLeashTest(<$gn_item as __IsGnItem>::train(
                         val_domain_repr,
                         val_argument_reprs,
@@ -163,9 +163,9 @@ macro_rules! gn_linkage_impl {
             })
         }
         fn gn_specific_wrapper(
-            val_argument_reprs: &[__ValArgumentReprInterface],
+            val_argument_reprs: &[__KiArgumentReprInterface],
             value_at_generic_pedestal: __Value,
-        ) -> __ValControlFlow {
+        ) -> __KiControlFlow {
             let value_stands = &mut Default::default();
             let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
                 <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
@@ -173,7 +173,7 @@ macro_rules! gn_linkage_impl {
                     value_stands,
                 );
             // todo: catch unwind
-            __ValControlFlow::Continue(
+            __KiControlFlow::Continue(
                 __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
                     val_argument_reprs,
                     value_at_generic_pedestal,

@@ -53,7 +53,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> &'static #return_ty {
                     __eval_eager_val_item_with(
                         #ingredient_index,
-                        || __ValControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
                     )
                 }
 
@@ -65,7 +65,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_item_with(
                         #ingredient_index,
-                        || __ValControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
                     )
                 }
 

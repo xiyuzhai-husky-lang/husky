@@ -7,7 +7,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_task_interface::{pedestal::IsPedestalFull, val_repr::ValReprInterface};
+use husky_task_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -29,17 +29,17 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 ///
 /// but the client doesn't need to know about this
 pub struct ValVisualCache<Pedestal: IsPedestalFull> {
-    visuals: FxHashMap<(ValReprInterface, Pedestal), Visual>,
+    visuals: FxHashMap<(KiReprInterface, Pedestal), Visual>,
 }
 
 impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
     pub fn get_visual(
         &mut self,
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: Pedestal,
         f: impl FnOnce() -> Visual,
     ) -> Visual {
-        *self.visuals.entry((val_repr, pedestal)).or_insert_with(f)
+        *self.visuals.entry((ki_repr, pedestal)).or_insert_with(f)
     }
 }
 

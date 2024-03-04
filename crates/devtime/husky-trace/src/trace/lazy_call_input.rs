@@ -63,7 +63,7 @@ impl LazyCallInputTraceData {
         vec![]
     }
 
-    pub(super) fn val_repr(&self, _db: &::salsa::Db) -> KiRepr {
+    pub(super) fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
 }

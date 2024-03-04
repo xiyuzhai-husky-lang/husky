@@ -1,13 +1,13 @@
 use crate::*;
 use husky_ki::Ki;
 use husky_task_interface::{
+    ki_control_flow::KiControlFlow,
+    ki_repr::{KiReprInterface, ValDomainReprInterface},
     pedestal::IsPedestalFull,
-    val_control_flow::ValControlFlow,
-    val_repr::{ValDomainReprInterface, ValReprInterface},
     DevEvalContext, IsDevRuntime,
 };
 use husky_task_interface::{
-    IsLinkageImpl, LinkageImplValControlFlow, TaskIngredientIndex, TaskJarIndex,
+    IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
 use husky_trace_protocol::{
     id::TraceId,
@@ -26,8 +26,8 @@ pub trait IsDevAscension {
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed: Option<(TraceId, ValReprInterface, ValDomainReprInterface)>,
-        accompanyings_except_followed: &[(TraceId, ValReprInterface)],
+        followed: Option<(TraceId, KiReprInterface, ValDomainReprInterface)>,
+        accompanyings_except_followed: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
@@ -43,21 +43,21 @@ pub trait IsDevAscension {
 
     /// final
     fn get_val_visual<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        val_repr: ValReprInterface,
+        ki_repr: KiReprInterface,
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> Visual {
-        val_visual_cache.get_visual(val_repr, pedestal, || {
+        val_visual_cache.get_visual(ki_repr, pedestal, || {
             use husky_task_interface::value::IsValue;
-            match runtime.eval_val_repr_interface_at_pedestal(val_repr, pedestal) {
-                ValControlFlow::Continue(value) => value.visualize(visual_synchrotron),
-                ValControlFlow::LoopContinue => todo!(),
-                ValControlFlow::LoopExit(_) => todo!(),
-                ValControlFlow::Return(_) => todo!(),
-                ValControlFlow::Undefined => todo!(),
-                ValControlFlow::Err(_) => todo!(),
+            match runtime.eval_ki_repr_interface_at_pedestal(ki_repr, pedestal) {
+                KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),
+                KiControlFlow::LoopContinue => todo!(),
+                KiControlFlow::LoopExit(_) => todo!(),
+                KiControlFlow::Return(_) => todo!(),
+                KiControlFlow::Undefined => todo!(),
+                KiControlFlow::Err(_) => todo!(),
             }
         })
     }
@@ -69,9 +69,9 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         &self,
         val: Ki,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
+        f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
         db: &::salsa::Db,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn get_or_try_init_memo_field_value(
         &self,
@@ -79,8 +79,8 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         ingredient_index: TaskIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplValControlFlow<LinkageImpl>,
-    ) -> LinkageImplValControlFlow<LinkageImpl>;
+        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn debug_drop(self);
 }

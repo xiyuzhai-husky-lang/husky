@@ -26,8 +26,7 @@ use husky_vfs::VfsJar;
 #[salsa::db(
     CowordJar,
     VfsJar,
-   
- husky_entity_path::jar::EntityPathJar,
+    husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
@@ -61,8 +60,8 @@ use husky_vfs::VfsJar;
     husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,
     // val
-    husky_ki::jar::ValJar,
-    crate::jar::ValReprJar,
+    husky_ki::jar::KiJar,
+    crate::jar::KiReprJar,
 )]
 #[derive(Default)]
 pub struct DB;

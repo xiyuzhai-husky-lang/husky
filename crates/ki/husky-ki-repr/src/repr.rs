@@ -9,46 +9,46 @@ use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
-use husky_ki::{Ki, ValArgument, ValDomain, ValOpn, ValRuntimeConstant};
+use husky_ki::{Ki, KiArgument, KiRuntimeConstant, ValDomain, ValOpn};
 use husky_linkage::linkage::Linkage;
-use husky_task_interface::val_repr::{
-    ValArgumentReprInterface, ValDomainReprInterface, ValReprInterface,
+use husky_task_interface::ki_repr::{
+    KiArgumentReprInterface, KiReprInterface, ValDomainReprInterface,
 };
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = ValReprDb, jar = ValReprJar, constructor = new_inner)]
+#[salsa::tracked(db = KiReprDb, jar = KiReprJar, constructor = new_inner)]
 pub struct KiRepr {
     pub val_domain_repr: ValDomainRepr,
     pub opn: ValOpn,
     #[return_ref]
-    pub arguments: SmallVec<[ValArgumentRepr; 4]>,
+    pub arguments: SmallVec<[KiArgumentRepr; 4]>,
     /// the source tells the code and the dependent variables that generates this val
-    pub source: ValReprSource,
+    pub source: KiReprSource,
     pub caching_class: ValCachingClass,
 }
 
-impl Into<ValReprInterface> for KiRepr {
-    fn into(self) -> ValReprInterface {
+impl Into<KiReprInterface> for KiRepr {
+    fn into(self) -> KiReprInterface {
         unsafe { std::mem::transmute(self) }
     }
 }
 
-impl From<ValReprInterface> for KiRepr {
-    fn from(val_repr: ValReprInterface) -> Self {
-        unsafe { std::mem::transmute(val_repr) }
+impl From<KiReprInterface> for KiRepr {
+    fn from(ki_repr: KiReprInterface) -> Self {
+        unsafe { std::mem::transmute(ki_repr) }
     }
 }
 
 #[test]
-fn val_repr_size_works() {
+fn ki_repr_size_works() {
     assert_eq!(
         std::mem::size_of::<KiRepr>(),
-        std::mem::size_of::<ValReprInterface>()
+        std::mem::size_of::<KiReprInterface>()
     )
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum ValArgumentRepr {
+pub enum KiArgumentRepr {
     Simple(KiRepr),
     Keyed(Option<KiRepr>),
     Variadic(SmallVec<[KiRepr; 4]>),
@@ -57,14 +57,14 @@ pub enum ValArgumentRepr {
         stmts: SmallVec<[KiRepr; 4]>,
     },
     // `None` means no runtime constants
-    RuntimeConstants(SmallVec<[ValRuntimeConstant; 4]>),
+    RuntimeConstants(SmallVec<[KiRuntimeConstant; 4]>),
 }
 
 #[test]
 fn val_argument_repr_size_works() {
     assert_eq!(
-        std::mem::size_of::<ValArgumentRepr>(),
-        std::mem::size_of::<ValArgumentReprInterface>()
+        std::mem::size_of::<KiArgumentRepr>(),
+        std::mem::size_of::<KiArgumentReprInterface>()
     )
 }
 
@@ -72,8 +72,8 @@ impl KiRepr {
     pub fn new(
         val_domain_repr: ValDomainRepr,
         opn: ValOpn,
-        arguments: SmallVec<[ValArgumentRepr; 4]>,
-        source: ValReprSource,
+        arguments: SmallVec<[KiArgumentRepr; 4]>,
+        source: KiReprSource,
         db: &::salsa::Db,
     ) -> Self {
         Self::new_inner(
@@ -87,10 +87,10 @@ impl KiRepr {
     }
 
     pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Self {
-        val_item_val_repr(db, path)
+        val_item_ki_repr(db, path)
     }
 
-    pub(crate) fn with_source(self, source: ValReprSource, db: &::salsa::Db) -> Self {
+    pub(crate) fn with_source(self, source: KiReprSource, db: &::salsa::Db) -> Self {
         Self::new(
             self.val_domain_repr(db),
             self.opn(db),
@@ -101,8 +101,8 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = ValReprJar)]
-fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> KiRepr {
+#[salsa::tracked(jar = KiReprJar)]
+fn val_item_ki_repr(db: &::salsa::Db, path: FugitivePath) -> KiRepr {
     let domain = ValDomainRepr::Omni;
     let FugitiveHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
@@ -113,7 +113,7 @@ fn val_item_val_repr(db: &::salsa::Db, path: FugitivePath) -> KiRepr {
     };
     let opds = smallvec![];
     let caching_class = ValCachingClass::ValItem;
-    KiRepr::new(domain, opn, opds, ValReprSource::ValItem(path), db)
+    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -161,43 +161,43 @@ pub enum ValCachingClass {
 
 impl KiRepr {
     pub fn val(self, db: &::salsa::Db) -> Ki {
-        val_repr_val(db, self)
+        ki_repr_ki(db, self)
     }
 }
 
-#[salsa::tracked(jar = ValReprJar)]
-fn val_repr_val(db: &::salsa::Db, val_repr: KiRepr) -> Ki {
+#[salsa::tracked(jar = KiReprJar)]
+fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
     Ki::new(
         db,
-        val_repr.val_domain_repr(db).val(db),
-        val_repr.opn(db),
-        val_repr
+        ki_repr.val_domain_repr(db).val(db),
+        ki_repr.opn(db),
+        ki_repr
             .arguments(db)
             .iter()
-            .map(|val_repr| val_repr.val_argument(db))
+            .map(|ki_repr| ki_repr.val_argument(db))
             .collect(),
     )
 }
 
-impl ValArgumentRepr {
-    fn val_argument(&self, db: &::salsa::Db) -> ValArgument {
+impl KiArgumentRepr {
+    fn val_argument(&self, db: &::salsa::Db) -> KiArgument {
         match *self {
-            ValArgumentRepr::Simple(val_repr) => ValArgument::Simple(val_repr.val(db)),
-            ValArgumentRepr::Keyed(val_repr) => {
-                ValArgument::Keyed(val_repr.map(|val_repr| val_repr.val(db)))
+            KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.val(db)),
+            KiArgumentRepr::Keyed(ki_repr) => {
+                KiArgument::Keyed(ki_repr.map(|ki_repr| ki_repr.val(db)))
             }
-            ValArgumentRepr::Variadic(ref val_reprs) => {
-                ValArgument::Variadic(val_reprs.iter().map(|val_repr| val_repr.val(db)).collect())
+            KiArgumentRepr::Variadic(ref ki_reprs) => {
+                KiArgument::Variadic(ki_reprs.iter().map(|ki_repr| ki_repr.val(db)).collect())
             }
-            ValArgumentRepr::Branch {
+            KiArgumentRepr::Branch {
                 condition,
                 ref stmts,
-            } => ValArgument::Branch {
+            } => KiArgument::Branch {
                 condition: condition.map(|condition| condition.val(db)),
                 stmts: stmts.iter().map(|&stmt| stmt.val(db)).collect(),
             },
-            ValArgumentRepr::RuntimeConstants(ref val_reprs) => {
-                ValArgument::RuntimeConstants(val_reprs.clone())
+            KiArgumentRepr::RuntimeConstants(ref ki_reprs) => {
+                KiArgument::RuntimeConstants(ki_reprs.clone())
             }
         }
     }
@@ -207,22 +207,20 @@ impl ValDomainRepr {
     pub fn val(self, db: &::salsa::Db) -> ValDomain {
         match self {
             ValDomainRepr::Omni => ValDomain::Omni,
-            ValDomainRepr::ConditionSatisfied(val_repr) => {
-                ValDomain::ConditionSatisfied(val_repr.val(db))
+            ValDomainRepr::ConditionSatisfied(ki_repr) => {
+                ValDomain::ConditionSatisfied(ki_repr.val(db))
             }
-            ValDomainRepr::ConditionNotSatisfied(val_repr) => {
-                ValDomain::ConditionNotSatisfied(val_repr.val(db))
+            ValDomainRepr::ConditionNotSatisfied(ki_repr) => {
+                ValDomain::ConditionNotSatisfied(ki_repr.val(db))
             }
-            ValDomainRepr::StmtNotReturned(val_repr) => {
-                ValDomain::StmtNotReturned(val_repr.val(db))
-            }
+            ValDomainRepr::StmtNotReturned(ki_repr) => ValDomain::StmtNotReturned(ki_repr.val(db)),
             ValDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 }
 
 #[cfg(test)]
-pub(crate) fn val_item_val_reprs(
+pub(crate) fn val_item_ki_reprs(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(FugitivePath, KiRepr)> {
@@ -245,12 +243,12 @@ pub(crate) fn val_item_val_reprs(
 }
 
 #[test]
-fn val_item_val_repr_works() {
+fn val_item_ki_repr_works() {
     let _db = DB::default();
     DB::ast_expect_test_debug_with_db(
-        val_item_val_reprs,
+        val_item_ki_reprs,
         &AstTestConfig::new(
-            "val_item_val_reprs",
+            "val_item_ki_reprs",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::VAL,
         ),

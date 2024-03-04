@@ -81,9 +81,9 @@ pub(crate) fn value(
             /// this is useful for variadic argument,
             // only implement this for Vec, SmallVec
             fn from_variadic_values<E>(
-                values: impl Iterator<Item = ValControlFlow<Value, Value, E>>,
+                values: impl Iterator<Item = KiControlFlow<Value, Value, E>>,
                 value_stands: Option<&mut ValueStands>,
-            ) -> ValControlFlow<Self, Value, E> {
+            ) -> KiControlFlow<Self, Value, E> {
                 panic!("can't be constructed from value iter")
             }
         }
@@ -171,9 +171,9 @@ pub(crate) fn value(
             /// this is useful for variadic argument,
             // only implement this for Vec, SmallVec
             fn from_variadic_values<E>(
-                values: impl Iterator<Item = ValControlFlow<Value, Value, E>>,
+                values: impl Iterator<Item = KiControlFlow<Value, Value, E>>,
                 value_stands: Option<&mut ValueStands>,
-            ) -> ValControlFlow<Self, Value, E> {
+            ) -> KiControlFlow<Self, Value, E> {
                 match value_stands {
                     Some(value_stands) => values.map(
                         |val_control_flow| val_control_flow.map(

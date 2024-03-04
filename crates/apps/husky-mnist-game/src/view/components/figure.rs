@@ -20,8 +20,8 @@ impl MnistChannel {
             MlPedestal::Specific(input_id) => Figure::new_specific(
                 None,
                 &accompanyings_except_followed,
-                |val_repr_interface, _visual_synchrotron| {
-                    let trace: Trace = val_repr_interface.into();
+                |ki_repr_interface, _visual_synchrotron| {
+                    let trace: Trace = ki_repr_interface.into();
                     trace.visual(db, input_id, op_time)
                 },
                 visual_synchrotron,
@@ -34,7 +34,7 @@ impl MnistChannel {
         &self,
     ) -> Vec<(
         husky_trace_protocol::id::TraceId,
-        husky_task_interface::val_repr::ValReprInterface,
+        husky_task_interface::ki_repr::KiReprInterface,
     )> {
         self.trace_selection()
             .set()

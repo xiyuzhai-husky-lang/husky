@@ -34,7 +34,7 @@ use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
-use husky_ki_repr::expansion::ValReprExpansion;
+use husky_ki_repr::expansion::KiReprExpansion;
 use husky_ki_repr::repr::KiRepr;
 use husky_sema_expr::SemaExprIdx;
 use husky_trace_protocol::id::TraceId;
@@ -174,12 +174,12 @@ impl Trace {
         trace_subtraces(db, self)
     }
 
-    pub fn val_repr(self, db: &::salsa::Db) -> Option<KiRepr> {
-        self.data(db).val_repr(self, db)
+    pub fn ki_repr(self, db: &::salsa::Db) -> Option<KiRepr> {
+        self.data(db).ki_repr(self, db)
     }
 
-    pub fn val_repr_expansion(self, db: &::salsa::Db) -> ValReprExpansion {
-        trace_val_repr_expansion(db, self)
+    pub fn ki_repr_expansion(self, db: &::salsa::Db) -> KiReprExpansion {
+        trace_ki_repr_expansion(db, self)
     }
 }
 
@@ -201,14 +201,14 @@ impl TraceData {
         }
     }
 
-    pub fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+    pub fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         match self {
-            TraceData::ValItem(slf) => Some(slf.val_repr(db)),
-            TraceData::LazyExpr(slf) => slf.val_repr(trace_id, db),
-            TraceData::LazyPatternExpr(slf) => slf.val_repr(trace_id, db),
-            TraceData::LazyCall(slf) => Some(slf.val_repr(db)),
-            TraceData::LazyCallInput(slf) => Some(slf.val_repr(db)),
-            TraceData::LazyStmt(slf) => slf.val_repr(trace_id, db),
+            TraceData::ValItem(slf) => Some(slf.ki_repr(db)),
+            TraceData::LazyExpr(slf) => slf.ki_repr(trace_id, db),
+            TraceData::LazyPatternExpr(slf) => slf.ki_repr(trace_id, db),
+            TraceData::LazyCall(slf) => Some(slf.ki_repr(db)),
+            TraceData::LazyCallInput(slf) => Some(slf.ki_repr(db)),
+            TraceData::LazyStmt(slf) => slf.ki_repr(trace_id, db),
             TraceData::Submodule(_) => None,
             TraceData::EagerExpr(_) => None,
             TraceData::EagerPatternExpr(_) => None,
@@ -235,8 +235,8 @@ fn trace_subtraces(db: &::salsa::Db, trace_id: Trace) -> Vec<Trace> {
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_val_repr_expansion(db: &::salsa::Db, trace_id: Trace) -> ValReprExpansion {
-    trace_id.data(db).val_repr_expansion(trace_id, db)
+fn trace_ki_repr_expansion(db: &::salsa::Db, trace_id: Trace) -> KiReprExpansion {
+    trace_id.data(db).ki_repr_expansion(trace_id, db)
 }
 
 impl TraceData {
@@ -291,15 +291,15 @@ impl TraceData {
         }
     }
 
-    fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {
+    fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
         match self {
             TraceData::Submodule(_) => unreachable!(),
-            TraceData::ValItem(slf) => slf.val_repr_expansion(trace_id, db),
+            TraceData::ValItem(slf) => slf.ki_repr_expansion(trace_id, db),
             TraceData::LazyCallInput(_) => todo!(),
             TraceData::LazyCall(_) => todo!(),
-            TraceData::LazyExpr(slf) => slf.val_repr_expansion(db),
-            TraceData::LazyPatternExpr(slf) => slf.val_repr_expansion(db),
-            TraceData::LazyStmt(slf) => slf.val_repr_expansion(db),
+            TraceData::LazyExpr(slf) => slf.ki_repr_expansion(db),
+            TraceData::LazyPatternExpr(slf) => slf.ki_repr_expansion(db),
+            TraceData::LazyStmt(slf) => slf.ki_repr_expansion(db),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),
@@ -419,11 +419,11 @@ fn trace_view_data_works() {
 }
 
 #[test]
-fn trace_val_repr_works() {
+fn trace_ki_repr_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.val_repr(db)),
+        |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.ki_repr(db)),
         &AstTestConfig::new(
-            "trace_val_repr",
+            "trace_ki_repr",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::DEVTIME,
         ),
