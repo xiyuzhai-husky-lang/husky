@@ -22,8 +22,8 @@ impl<'a> SemaExprEngine<'a> {
                     Some(quary) => match quary {
                         FlyQuary::Const => todo!(),
                         FlyQuary::StackPure { place } => todo!(),
-                        FlyQuary::ImmutableStackOwned { place } => todo!(),
-                        FlyQuary::MutableStackOwned { .. } => (),
+                        FlyQuary::ImmutableOnStack { place } => todo!(),
+                        FlyQuary::MutableOnStack { .. } => (),
                         FlyQuary::Transient => todo!(),
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { place, lifetime } => todo!(),

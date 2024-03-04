@@ -29,8 +29,8 @@ impl<'a> SemaExprEngine<'a> {
                             ()
                         }
                         FlyQuary::StackPure { place } => todo!(),
-                        FlyQuary::ImmutableStackOwned { place } => todo!(),
-                        FlyQuary::MutableStackOwned { .. } => (),
+                        FlyQuary::ImmutableOnStack { place } => todo!(),
+                        FlyQuary::MutableOnStack { .. } => (),
                         FlyQuary::Transient => {
                             // ad hoc
                             // should return err

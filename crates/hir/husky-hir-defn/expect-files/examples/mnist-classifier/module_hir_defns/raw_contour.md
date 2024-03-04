@@ -1361,7 +1361,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -1382,7 +1382,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -1465,7 +1465,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -1548,7 +1548,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -2347,7 +2347,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -2368,7 +2368,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -2962,7 +2962,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -2983,7 +2983,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -3048,7 +3048,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -3196,7 +3196,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -3308,7 +3308,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -4344,7 +4344,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -4436,7 +4436,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -5196,7 +5196,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -5233,7 +5233,7 @@
                                                 ),
                                                 ropd: 8,
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -5306,7 +5306,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -5340,7 +5340,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -5377,7 +5377,7 @@
                                                 ),
                                                 ropd: 16,
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -5398,7 +5398,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
                                                 ),
@@ -5435,7 +5435,7 @@
                                                 ),
                                                 ropd: 19,
                                             },
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
                                                 ),
@@ -5456,7 +5456,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -5477,7 +5477,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -5501,7 +5501,7 @@
                                                     22,
                                                 ],
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -5522,7 +5522,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -5543,7 +5543,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
                                                 ),
@@ -5578,7 +5578,7 @@
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
                                                 ),
@@ -5613,7 +5613,7 @@
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
                                                 ),
@@ -5648,7 +5648,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -5669,7 +5669,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
                                                 ),
@@ -5704,7 +5704,7 @@
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
                                                 ),
@@ -5739,7 +5739,7 @@
                                             data: HirEagerExprData::Variable(
                                                 8,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
                                                 ),
@@ -5835,7 +5835,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -5856,7 +5856,7 @@
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
                                                 ),
@@ -5880,7 +5880,7 @@
                                                     44,
                                                 ],
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -5918,7 +5918,7 @@
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
                                                 ),
@@ -5939,7 +5939,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -5960,7 +5960,7 @@
                                             data: HirEagerExprData::Variable(
                                                 9,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
                                                 ),
@@ -5984,7 +5984,7 @@
                                                     49,
                                                 ],
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -6068,7 +6068,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -6105,7 +6105,7 @@
                                                 ),
                                                 ropd: 55,
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -6178,7 +6178,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -6212,7 +6212,7 @@
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(11),
                                                 ),
@@ -6233,7 +6233,7 @@
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(12),
                                                 ),
@@ -6254,7 +6254,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -6295,7 +6295,7 @@
                                                         62,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(11),
                                                                     ),
@@ -6317,7 +6317,7 @@
                                                         63,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(12),
                                                                     ),
@@ -6339,7 +6339,7 @@
                                                         64,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -6359,7 +6359,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -6380,7 +6380,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -6401,7 +6401,7 @@
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(13),
                                                 ),
@@ -6527,7 +6527,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -6548,7 +6548,7 @@
                                             data: HirEagerExprData::Variable(
                                                 16,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(14),
                                                 ),
@@ -6583,7 +6583,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -6604,7 +6604,7 @@
                                             data: HirEagerExprData::Variable(
                                                 17,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(15),
                                                 ),
@@ -6653,7 +6653,7 @@
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(13),
                                                 ),
@@ -6674,7 +6674,7 @@
                                             data: HirEagerExprData::Variable(
                                                 18,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(16),
                                                 ),
@@ -6734,7 +6734,7 @@
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(11),
                                                 ),
@@ -6755,7 +6755,7 @@
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(12),
                                                 ),
@@ -6776,7 +6776,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -6797,7 +6797,7 @@
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(13),
                                                 ),
@@ -6838,7 +6838,7 @@
                                                         90,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(11),
                                                                     ),
@@ -6860,7 +6860,7 @@
                                                         91,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(12),
                                                                     ),
@@ -6882,7 +6882,7 @@
                                                         92,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -6904,7 +6904,7 @@
                                                         93,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(13),
                                                                     ),
@@ -6924,7 +6924,7 @@
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(13),
                                                 ),
@@ -6945,7 +6945,7 @@
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(23),
                                                 ),
@@ -6986,7 +6986,7 @@
                                                         95,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(13),
                                                                     ),
@@ -7008,7 +7008,7 @@
                                                         96,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: ImmutableStackOwned {
+                                                                expectee_place: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(23),
                                                                     ),
@@ -7028,7 +7028,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -7049,7 +7049,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -7073,7 +7073,7 @@
                                                     99,
                                                 ],
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -7094,7 +7094,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -7115,7 +7115,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -7139,7 +7139,7 @@
                                                     102,
                                                 ],
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -7172,7 +7172,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -7244,7 +7244,7 @@
                                             data: HirEagerExprData::Variable(
                                                 26,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(24),
                                                 ),
@@ -7265,7 +7265,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -7323,7 +7323,7 @@
                                             data: HirEagerExprData::Variable(
                                                 20,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(18),
                                                 ),
@@ -7395,7 +7395,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -7456,7 +7456,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -7528,7 +7528,7 @@
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(21),
                                                 ),
@@ -7589,7 +7589,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -7645,7 +7645,7 @@
                                                                 HirTypeSvar::SelfPlace,
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
-                                                                MutableStackOwned {
+                                                                MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
                                                                     ),
@@ -7676,7 +7676,7 @@
                                             data: HirEagerExprData::Unwrap {
                                                 opd: 134,
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -7697,7 +7697,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -7738,7 +7738,7 @@
                                                         136,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
                                                                     ),
@@ -7770,7 +7770,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -7791,7 +7791,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -7812,7 +7812,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -7857,7 +7857,7 @@
                                                         140,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
                                                                     ),
@@ -7879,7 +7879,7 @@
                                                         141,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -7971,7 +7971,7 @@
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(21),
                                                 ),
@@ -8027,7 +8027,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8083,7 +8083,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -8141,7 +8141,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8202,7 +8202,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8263,7 +8263,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -8319,7 +8319,7 @@
                                                                 HirTypeSvar::SelfPlace,
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
-                                                                MutableStackOwned {
+                                                                MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
                                                                     ),
@@ -8350,7 +8350,7 @@
                                             data: HirEagerExprData::Unwrap {
                                                 opd: 165,
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -8371,7 +8371,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -8392,7 +8392,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -8437,7 +8437,7 @@
                                                         167,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
                                                                     ),
@@ -8459,7 +8459,7 @@
                                                         168,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -8491,7 +8491,7 @@
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(21),
                                                 ),
@@ -8512,7 +8512,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8545,7 +8545,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8566,7 +8566,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -8599,7 +8599,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -8657,7 +8657,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8718,7 +8718,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -8779,7 +8779,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -8840,7 +8840,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -8896,7 +8896,7 @@
                                                                 HirTypeSvar::SelfPlace,
                                                             ),
                                                             HirTermSvarResolution::SelfPlace(
-                                                                MutableStackOwned {
+                                                                MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
                                                                     ),
@@ -8927,7 +8927,7 @@
                                             data: HirEagerExprData::Unwrap {
                                                 opd: 194,
                                             },
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -8948,7 +8948,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -8969,7 +8969,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -9014,7 +9014,7 @@
                                                         196,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
                                                                     ),
@@ -9036,7 +9036,7 @@
                                                         197,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -9068,7 +9068,7 @@
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(21),
                                                 ),
@@ -9124,7 +9124,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -9180,7 +9180,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -9201,7 +9201,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -9222,7 +9222,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -9267,7 +9267,7 @@
                                                         209,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
                                                                     ),
@@ -9289,7 +9289,7 @@
                                                         210,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
                                                                     ),
@@ -9381,7 +9381,7 @@
                                             data: HirEagerExprData::Variable(
                                                 23,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(21),
                                                 ),
@@ -9402,7 +9402,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -9435,7 +9435,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -9456,7 +9456,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -9489,7 +9489,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -9534,7 +9534,7 @@
                                             data: HirEagerExprData::Variable(
                                                 20,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(18),
                                                 ),
@@ -9555,7 +9555,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -9588,7 +9588,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -9609,7 +9609,7 @@
                                             data: HirEagerExprData::Variable(
                                                 26,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(24),
                                                 ),
@@ -9642,7 +9642,7 @@
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(23),
                                                 ),
@@ -9663,7 +9663,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -9684,7 +9684,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -9743,7 +9743,7 @@
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(12),
                                                 ),
@@ -9764,7 +9764,7 @@
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(11),
                                                 ),
@@ -9797,7 +9797,7 @@
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(11),
                                                 ),
@@ -9857,7 +9857,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -9929,7 +9929,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -9950,7 +9950,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -10009,7 +10009,7 @@
                                             data: HirEagerExprData::Variable(
                                                 13,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(11),
                                                 ),
@@ -10030,7 +10030,7 @@
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(12),
                                                 ),
@@ -10063,7 +10063,7 @@
                                             data: HirEagerExprData::Variable(
                                                 14,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(12),
                                                 ),
@@ -10123,7 +10123,7 @@
                                             data: HirEagerExprData::Variable(
                                                 11,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(9),
                                                 ),
@@ -10169,7 +10169,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -10190,7 +10190,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -10249,7 +10249,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -10270,7 +10270,7 @@
                                             data: HirEagerExprData::Variable(
                                                 12,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(10),
                                                 ),
@@ -10329,7 +10329,7 @@
                                             data: HirEagerExprData::Variable(
                                                 15,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(13),
                                                 ),
@@ -10350,7 +10350,7 @@
                                             data: HirEagerExprData::Variable(
                                                 25,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(23),
                                                 ),
@@ -10383,7 +10383,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -10441,7 +10441,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -10473,7 +10473,7 @@
                                             data: HirEagerExprData::Variable(
                                                 19,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(17),
                                                 ),
@@ -10531,7 +10531,7 @@
                                             data: HirEagerExprData::Variable(
                                                 24,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(22),
                                                 ),
@@ -10592,7 +10592,7 @@
                                             data: HirEagerExprData::Variable(
                                                 22,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(20),
                                                 ),
@@ -10653,7 +10653,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -10727,7 +10727,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -10769,7 +10769,7 @@
                                             data: HirEagerExprData::Variable(
                                                 10,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(8),
                                                 ),
@@ -10830,7 +10830,7 @@
                                                         294,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
                                                                     ),
@@ -10922,7 +10922,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -11708,7 +11708,7 @@
                                             result: 297,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: MutableStackOwned {
+                                                    expectee_place: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
                                                         ),
@@ -13004,7 +13004,7 @@
                                             data: HirEagerExprData::Variable(
                                                 7,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
                                                 ),
@@ -13038,7 +13038,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -13059,7 +13059,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -13163,7 +13163,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -13184,7 +13184,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -13288,7 +13288,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -13309,7 +13309,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -13413,7 +13413,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -13434,7 +13434,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -13538,7 +13538,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -13559,7 +13559,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -13598,7 +13598,7 @@
                                                         44,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
                                                                     ),
@@ -13620,7 +13620,7 @@
                                                         45,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
                                                                     ),
@@ -13640,7 +13640,7 @@
                                             data: HirEagerExprData::Variable(
                                                 5,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
                                                 ),
@@ -13661,7 +13661,7 @@
                                             data: HirEagerExprData::Variable(
                                                 6,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
                                                 ),
@@ -13700,7 +13700,7 @@
                                                         47,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
                                                                     ),
@@ -13722,7 +13722,7 @@
                                                         48,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableStackOwned {
+                                                                expectee_place: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
                                                                     ),
@@ -14547,7 +14547,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -14645,7 +14645,7 @@
                                             data: HirEagerExprData::Variable(
                                                 3,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -14679,7 +14679,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -15143,7 +15143,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -15380,7 +15380,7 @@
                                             data: HirEagerExprData::Variable(
                                                 2,
                                             ),
-                                            ty_place: MutableStackOwned {
+                                            ty_place: MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
                                                 ),
@@ -15515,7 +15515,7 @@
                                             result: 58,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: MutableStackOwned {
+                                                    expectee_place: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
                                                         ),
@@ -15936,7 +15936,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
@@ -16076,7 +16076,7 @@
                                             data: HirEagerExprData::Variable(
                                                 4,
                                             ),
-                                            ty_place: ImmutableStackOwned {
+                                            ty_place: ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
                                                 ),
