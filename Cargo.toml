@@ -26,6 +26,7 @@ members = [
     "crates/utils/*",
     "crates/value/*",
     "crates/vm/*",
+    "crates/vmir/*",
     "library/core",
     "registry/*",
 ]
@@ -303,8 +304,9 @@ husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
 husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
 # vm
-husky-vmir-expr = { path = "crates/vm/husky-vmir-expr" }
 husky-vm = { path = "crates/vm/husky-vm" }
+# vmir
+husky-vmir-expr = { path = "crates/vmir/husky-vmir-expr" }
 # library
 husky-core = { path = "library/core" }
 # registry
