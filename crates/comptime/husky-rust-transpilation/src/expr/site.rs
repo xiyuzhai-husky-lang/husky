@@ -2,7 +2,7 @@ use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coersion::HirEagerCoersion;
 use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
-use husky_place::place::Place;
+use husky_place::place::EthPlace;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 #[derive(Debug, Default)]

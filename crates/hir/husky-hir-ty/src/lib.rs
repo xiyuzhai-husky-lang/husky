@@ -4,7 +4,7 @@ pub mod indirections;
 pub mod instantiation;
 pub mod lifetime;
 pub mod menu;
-pub mod place;
+pub mod quary;
 pub mod svar;
 pub mod template_argument;
 #[cfg(test)]

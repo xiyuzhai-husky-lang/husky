@@ -8,7 +8,7 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVar::Type(
+                                symbol: HirTemplateSvar::Type(
                                     HirTypeSvar::Type {
                                         attrs: HirTemplateSvarAttrs {
                                             class: Comptime,
@@ -49,7 +49,7 @@
                                             `B`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVar::Type(
+                                        hir_comptime_symbol: HirTemplateSvar::Type(
                                             HirTypeSvar::Type {
                                                 attrs: HirTemplateSvarAttrs {
                                                     class: Comptime,

@@ -2,7 +2,6 @@ pub mod jar;
 pub mod place;
 
 use husky_coword::Ident;
-use husky_eth_term::term::svar::EthSvar;
 use husky_syn_expr::CurrentSynSymbolIdx;
 use shifted_unsigned_int::ShiftedU32;
 

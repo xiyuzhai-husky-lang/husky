@@ -1,10 +1,10 @@
 pub mod constant;
-pub mod place;
+pub mod quary;
 pub mod ty;
 
 use self::{constant::LinConstant, ty::*};
 use super::*;
-use crate::{instantiation::LinInstantiation, template_argument::place::LinPlace};
+use crate::{instantiation::LinInstantiation, template_argument::quary::LinQuary};
 use husky_hir_ty::HirTemplateArgument;
 use husky_javelin::template_argument::JavTemplateArgument;
 
@@ -15,7 +15,7 @@ pub enum LinTemplateArgument {
     Type(LinType),
     Constant(LinConstant),
     Lifetime,
-    Place(LinPlace),
+    Quary(LinQuary),
 }
 
 impl LinTemplateArgument {
@@ -46,7 +46,7 @@ impl LinTemplateArgument {
                 LinTemplateArgument::Constant(LinConstant::from_hir(hir_constant, instantiation))
             }
             HirTemplateArgument::Lifetime(_) => LinTemplateArgument::Lifetime,
-            HirTemplateArgument::Place(_) => LinTemplateArgument::Place(todo!()),
+            HirTemplateArgument::Quary(_) => LinTemplateArgument::Quary(todo!()),
         }
     }
 

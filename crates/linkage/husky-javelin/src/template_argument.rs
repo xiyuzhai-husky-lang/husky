@@ -45,7 +45,7 @@ impl JavTemplateArgument {
                 JavelinConstant::from_hir(hir_constant, javelin_instantiation),
             ),
             HirTemplateArgument::Lifetime(_) => JavTemplateArgument::Lifetime,
-            HirTemplateArgument::Place(_) => JavTemplateArgument::Place,
+            HirTemplateArgument::Quary(_) => JavTemplateArgument::Place,
         }
     }
 }

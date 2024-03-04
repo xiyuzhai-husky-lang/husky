@@ -371,7 +371,7 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateVar::Type(
+                                                            HirTemplateSvar::Type(
                                                                 HirTypeSvar::SelfType,
                                                             ),
                                                             HirTermSvarResolution::Explicit(

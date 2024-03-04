@@ -3,7 +3,7 @@ use either::*;
 use husky_entity_path::PreludeTraitPath;
 use husky_entity_tree::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
-use husky_hir_ty::{HirConstSvar, HirTemplateSvarClass, HirTemplateVar};
+use husky_hir_ty::{HirConstSvar, HirTemplateSvar, HirTemplateSvarClass};
 use smallvec::SmallVec;
 
 impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
@@ -23,7 +23,7 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
             .template_parameters(db)
             .iter()
             .filter_map(|param| match param.symbol() {
-                HirTemplateVar::Const(symbol) => {
+                HirTemplateSvar::Const(symbol) => {
                     (symbol.index(db).class() == HirTemplateSvarClass::Runtime).then_some(symbol)
                 }
                 _ => None,

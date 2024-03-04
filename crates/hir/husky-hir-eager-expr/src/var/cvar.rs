@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
-use husky_hir_ty::HirTemplateVar;
+use husky_hir_ty::HirTemplateSvar;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
     CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, VariableRegionData,
@@ -19,7 +19,7 @@ pub struct HirEagerComptimeSvarRegionData {
 pub struct HirEagerComptimeSvarEntry {
     name: HirEagerComptimeSvarName,
     data: HirEagerComptimeSvarData,
-    hir_comptime_symbol: HirTemplateVar,
+    hir_comptime_symbol: HirTemplateSvar,
 }
 
 pub type HirEagerComptimeSvarArena = Arena<HirEagerComptimeSvarEntry>;
@@ -48,7 +48,7 @@ impl HirEagerComptimeSvarEntry {
         &self.data
     }
 
-    pub fn symbol(&self) -> HirTemplateVar {
+    pub fn symbol(&self) -> HirTemplateSvar {
         self.hir_comptime_symbol
     }
 }
@@ -70,7 +70,7 @@ impl HirEagerComptimeSvarRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateVar::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateSvar::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
@@ -96,7 +96,7 @@ impl HirEagerComptimeSvarRegionData {
             };
             match term {
                 EthTerm::Symbol(term_symbol) => {
-                    let Some(hir_comptime_symbol) = HirTemplateVar::from_eth(term_symbol, db)
+                    let Some(hir_comptime_symbol) = HirTemplateSvar::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
@@ -177,7 +177,7 @@ impl HirEagerComptimeSvarRegionData {
 
     pub fn symbol_name(
         &self,
-        hir_comptime_symbol: HirTemplateVar,
+        hir_comptime_symbol: HirTemplateSvar,
     ) -> Option<HirEagerComptimeSvarName> {
         self.arena.iter().find_map(|entry| {
             (entry.hir_comptime_symbol == hir_comptime_symbol).then_some(entry.name)

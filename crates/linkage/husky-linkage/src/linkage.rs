@@ -507,7 +507,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                             .map(|(_, res)| match *res {
                                                 LinTermSymbolResolution::Explicit(arg) => arg,
                                                 LinTermSymbolResolution::SelfLifetime => todo!(),
-                                                LinTermSymbolResolution::SelfPlace(_) => todo!(),
+                                                LinTermSymbolResolution::SelfQuary(_) => todo!(),
                                             })
                                             .collect(),
                                     );

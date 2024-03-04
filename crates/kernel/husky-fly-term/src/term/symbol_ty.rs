@@ -1,5 +1,5 @@
 use husky_eth_term::term::svar::EthSvar;
-use husky_place::{place::Place, PlaceInfo};
+use husky_place::{place::EthPlace, PlaceInfo};
 use thiserror::Error;
 
 use super::*;
@@ -162,15 +162,15 @@ pub enum FlyQuary {
     /// - ImmutableOnStack if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
     StackPure {
-        place: Place,
+        place: EthPlace,
     },
     /// lvalue nonreference
     ImmutableOnStack {
-        place: Place,
+        place: EthPlace,
     },
     /// lvalue nonreference
     MutableOnStack {
-        place: Place,
+        place: EthPlace,
     },
     // rvalue
     Transient,
@@ -194,7 +194,7 @@ pub enum FlyQuary {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<Place, FlyLifetime>,
+        guard: Either<EthPlace, FlyLifetime>,
     },
     /// a place accessed through ref mut
     ///
@@ -224,7 +224,7 @@ pub enum FlyQuary {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        place: Place,
+        place: EthPlace,
         lifetime: Option<FlyLifetime>,
     },
     /// stored in database
@@ -286,7 +286,7 @@ impl FlyQuary {
         }
     }
 
-    pub fn place(self) -> Option<Place> {
+    pub fn place(self) -> Option<EthPlace> {
         match self {
             FlyQuary::StackPure { place }
             | FlyQuary::ImmutableOnStack { place }

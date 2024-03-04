@@ -1,10 +1,10 @@
 mod r#const;
 mod lifetime;
-mod place;
+mod quary;
 mod ty;
 
 pub use self::lifetime::*;
-pub use self::place::*;
+pub use self::quary::*;
 pub use self::r#const::*;
 pub use self::ty::*;
 
@@ -15,11 +15,11 @@ use husky_term_prelude::template_var_class::TemplateSvarClass;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirTemplateVar {
+pub enum HirTemplateSvar {
     Type(HirTypeSvar),
     Const(HirConstSvar),
     Lifetime(HirLifetimeSvar),
-    Place(HirPlaceSvar),
+    Quary(HirQuarySvar),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -51,14 +51,14 @@ impl HirTemplateSvarAttrs {
     }
 }
 
-impl HirTemplateVar {
+impl HirTemplateSvar {
     pub fn from_eth(symbol: EthSvar, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_eth(db, symbol)
     }
 }
 
 #[salsa::tracked(jar = HirTypeJar)]
-fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<HirTemplateVar> {
+fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<HirTemplateSvar> {
     match symbol.index(db).inner() {
         EthTermSymbolIndexImpl::ExplicitLifetime {
             attrs,
@@ -77,7 +77,7 @@ fn hir_template_symbol_from_eth(db: &::salsa::Db, symbol: EthSvar) -> Option<Hir
             variance,
             disambiguator,
         } => Some(
-            HirPlaceSvar {
+            HirQuarySvar {
                 attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,

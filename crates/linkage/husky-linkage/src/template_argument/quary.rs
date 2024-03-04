@@ -1,5 +1,5 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinPlace {
+pub enum LinQuary {
     Ref,
     RefMut,
     Transient,

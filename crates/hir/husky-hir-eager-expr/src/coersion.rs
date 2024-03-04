@@ -1,7 +1,7 @@
 use crate::*;
 use either::*;
 use husky_fly_term::{deref::DerefFlyCoersion, trival::TrivialFlyCoersion, FlyCoersion};
-use husky_hir_ty::{lifetime::HirLifetime, place::HirQuary};
+use husky_hir_ty::{lifetime::HirLifetime, quary::HirQuary};
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

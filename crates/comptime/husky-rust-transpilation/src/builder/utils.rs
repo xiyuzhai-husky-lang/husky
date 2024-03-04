@@ -1,9 +1,9 @@
-use husky_place::place::Place;
+use husky_place::place::EthPlace;
 
 use super::*;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
-    pub(crate) fn show_place_info(&self, place: Place) -> String {
+    pub(crate) fn show_place_info(&self, place: EthPlace) -> String {
         let db = self.db;
         let place_registry = self
             .hir_eager_expr_region()

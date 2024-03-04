@@ -1,5 +1,5 @@
 use super::*;
-use crate::place::HirQuary;
+use crate::quary::HirQuary;
 use husky_eth_term::instantiation::EthInstantiation;
 use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
@@ -13,12 +13,12 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
-    symbol_map: SmallVecPairMap<HirTemplateVar, HirTermSvarResolution, 4>,
+    symbol_map: SmallVecPairMap<HirTemplateSvar, HirTermSvarResolution, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Deref for HirInstantiation {
-    type Target = [(HirTemplateVar, HirTermSvarResolution)];
+    type Target = [(HirTemplateSvar, HirTermSvarResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_map
@@ -41,7 +41,7 @@ impl HirTermSvarResolution {
                 HirTemplateArgument::Type(_) => false,
                 HirTemplateArgument::Constant(_) => false,
                 HirTemplateArgument::Lifetime(_) => true,
-                HirTemplateArgument::Place(_) => true,
+                HirTemplateArgument::Quary(_) => true,
             },
             HirTermSvarResolution::SelfLifetime => true,
             HirTermSvarResolution::SelfPlace(_) => true,
@@ -52,7 +52,7 @@ impl HirTermSvarResolution {
 impl HirInstantiation {
     pub fn from_fly(instantiation: &FlyInstantiation, db: &::salsa::Db, terms: &FlyTerms) -> Self {
         let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
-        let t = |&(symbol, resolution)| match HirTemplateVar::from_eth(symbol, db) {
+        let t = |&(symbol, resolution)| match HirTemplateSvar::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 match resolution {
@@ -67,7 +67,7 @@ impl HirInstantiation {
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<(HirTemplateVar, HirTermSvarResolution), 4> =
+        let mut symbol_map: SmallVecMap<(HirTemplateSvar, HirTermSvarResolution), 4> =
             symbol_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
         match symbol_map1 {
@@ -85,7 +85,7 @@ impl HirInstantiation {
 
     pub fn from_eth(ethereal_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
         let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
-        let t = |&(symbol, term)| match HirTemplateVar::from_eth(symbol, db) {
+        let t = |&(symbol, term)| match HirTemplateSvar::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
                 HirTermSvarResolution::Explicit(
@@ -94,7 +94,7 @@ impl HirInstantiation {
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<(HirTemplateVar, HirTermSvarResolution), 4> =
+        let mut symbol_map: SmallVecMap<(HirTemplateSvar, HirTermSvarResolution), 4> =
             symbol_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
         match symbol_map1 {
@@ -110,7 +110,7 @@ impl HirInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(HirTemplateVar, HirTermSvarResolution)] {
+    pub fn symbol_map(&self) -> &[(HirTemplateSvar, HirTermSvarResolution)] {
         self.symbol_map.as_ref()
     }
 
