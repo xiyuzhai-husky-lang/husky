@@ -1,5 +1,4 @@
 use super::*;
-use husky_entity_tree::HasSynNodePath;
 use husky_hir_lazy_expr::{
     helpers::hir_lazy_expr_source_map_from_syn, HirLazyExprIdx, HirLazyStmtIdx,
 };

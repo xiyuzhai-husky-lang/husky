@@ -1,7 +1,6 @@
 use super::*;
-use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
-use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
+use husky_term_prelude::ritchie::RitchieKind;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct FunctionFnEthTemplate {

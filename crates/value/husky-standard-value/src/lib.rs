@@ -49,8 +49,6 @@ pub use self::value::*;
 pub use self::weak_static::*;
 pub use husky_standard_value_macros::*;
 
-#[cfg(feature = "constant")]
-use husky_term_prelude::*;
 use serde_impl::IsSerdeImpl;
 use std::{
     panic::{RefUnwindSafe, UnwindSafe},

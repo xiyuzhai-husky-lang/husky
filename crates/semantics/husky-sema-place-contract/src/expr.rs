@@ -182,7 +182,7 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_expr(item.sema_expr_idx, Contract::Move, Default::default())
                 }
             }
-            SemaExprData::BoxColonList { ref items, .. } => (),
+            SemaExprData::BoxColonList { .. } => (),
             SemaExprData::VecFunctor { .. } => (),
             SemaExprData::ArrayFunctor { .. } => (),
             SemaExprData::Block { stmts } => self.infer_stmts(stmts, contract, site.clone()),

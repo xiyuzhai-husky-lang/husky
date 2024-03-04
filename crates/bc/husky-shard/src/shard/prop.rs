@@ -1,5 +1,3 @@
-use super::*;
-
 pub struct PropShardPath {}
 
 pub struct PropShardPathData {}

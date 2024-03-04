@@ -1,7 +1,7 @@
 use husky_git_utils::dirty::assert_husky_git_dir_clean;
 use husky_path_utils::{
     rust::{collect_rust_source_paths_with, husky_cargo_workspace_manifest_dir},
-    Path, PathBuf,
+    Path,
 };
 use std::fs;
 

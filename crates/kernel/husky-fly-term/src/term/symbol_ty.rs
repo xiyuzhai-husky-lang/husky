@@ -1,4 +1,3 @@
-use husky_coword::Ident;
 use husky_eth_term::term::svar::EthSvar;
 use husky_place::{place::Place, PlaceInfo};
 use thiserror::Error;

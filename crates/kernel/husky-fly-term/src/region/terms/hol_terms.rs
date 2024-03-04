@@ -58,7 +58,7 @@ impl HolTerms {
     }
 
     pub(crate) fn add_hole_constraint(&mut self, hole: Hole, hole_constraint: HoleConstraint) {
-        let mut hole_entry = &mut self.entries[hole.idx()];
+        let hole_entry = &mut self.entries[hole.idx()];
         match hole_entry.data {
             HolTermData::Hole {
                 ref mut constraints,
@@ -274,7 +274,7 @@ impl FlyTerms {
     }
 
     fn fill_hole_aux(&mut self, hole_idx: usize, term: FlyTerm, db: &::salsa::Db) {
-        let mut hole_entry = &mut self.hollow_terms.entries[hole_idx];
+        let hole_entry = &mut self.hollow_terms.entries[hole_idx];
         match hole_entry.data {
             HolTermData::Hole { fill: Some(_), .. } => unreachable!(),
             HolTermData::Hole { ref mut fill, .. } => *fill = Some(term),
@@ -300,13 +300,8 @@ impl FlyTerms {
         db: &::salsa::Db,
         term_menu: &EthTermMenu,
     ) {
-        let mut hole_entry = &mut self.hollow_terms.entries[hole.idx()];
-        let HolTermData::Hole {
-            hole_kind,
-            ref constraints,
-            ..
-        } = hole_entry.data
-        else {
+        let hole_entry = &mut self.hollow_terms.entries[hole.idx()];
+        let HolTermData::Hole { hole_kind, .. } = hole_entry.data else {
             unreachable!()
         };
         // todo: for constraint in constraints

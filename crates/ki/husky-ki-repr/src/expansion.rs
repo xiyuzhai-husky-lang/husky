@@ -574,7 +574,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
             HirLazyExprData::MemoizedField {
                 owner,
                 path,
-                ref indirections,
+
                 ref instantiation,
                 ..
             } => (
@@ -591,7 +591,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
             HirLazyExprData::MethodFnCall {
                 self_argument,
                 path,
-                ref indirections,
+
                 ref instantiation,
                 ref item_groups,
                 ..

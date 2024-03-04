@@ -13,10 +13,7 @@ use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 pub use husky_print_utils::eshow;
 use husky_regional_token::RegionalTokenIdxBase;
 use husky_sema_expr::{
-    helpers::{
-        range::{sema_expr_range_region, SemaExprRangeRegionData},
-        region::sema_expr_region_from_region_path,
-    },
+    helpers::range::{sema_expr_range_region, SemaExprRangeRegionData},
     SemaExprIdx, SemaExprRegionData,
 };
 use husky_text::{HasText, Text};

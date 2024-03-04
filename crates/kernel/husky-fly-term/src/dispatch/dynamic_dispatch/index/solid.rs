@@ -15,7 +15,7 @@ impl SolTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
-        mut indirections: FlyIndirections,
+        indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
         let db = engine.db();
         match self.data(engine) {

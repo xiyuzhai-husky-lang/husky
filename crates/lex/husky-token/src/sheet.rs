@@ -1,8 +1,6 @@
 use crate::{
     tokenize,
-    verse::{
-        idx::TokenVerseIdx, iter::TokenVerseIter, start::TokenVerseStart, TokenVerse, TokenVerses,
-    },
+    verse::{idx::TokenVerseIdx, iter::TokenVerseIter, start::TokenVerseStart, TokenVerses},
     TokenIdx, TokenIdxRange, TokenJar, TokenStreamState,
 };
 use husky_text_protocol::{position::TextPosition, range::TextRange};

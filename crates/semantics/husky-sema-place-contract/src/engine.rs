@@ -1,12 +1,6 @@
-use crate::{
-    error::{SemaPlaceContractError, SemaPlaceContractResult},
-    region::SemaPlaceContractRegion,
-    site::SemaPlaceContractSite,
-};
+use crate::{region::SemaPlaceContractRegion, site::SemaPlaceContractSite};
 use husky_place::place::Place;
-use husky_sema_expr::{
-    SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData, SemaStmtIdx, SemaStmtMap,
-};
+use husky_sema_expr::{SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData};
 
 pub struct PlaceContractEngine<'a> {
     db: &'a ::salsa::Db,

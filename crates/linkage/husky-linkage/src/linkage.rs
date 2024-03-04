@@ -4,7 +4,7 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
-use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
+use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{AssocItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};

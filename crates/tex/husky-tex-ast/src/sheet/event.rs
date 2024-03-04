@@ -1,8 +1,5 @@
 use super::*;
-use time_capsule::{
-    capsule::TimeCapsule,
-    event::{IsTimeCapsuleEvent, IsTimeCapsuleEventBuffer},
-};
+use time_capsule::event::{IsTimeCapsuleEvent, IsTimeCapsuleEventBuffer};
 
 pub struct MathAstEvent {}
 
