@@ -49,7 +49,6 @@ impl HirEagerExprSite {
     }
 
     pub(crate) fn regular_call_item(
-        &self,
         param: HirRitchieSimpleParameter,
         coersion: HirEagerCoersion,
         db: &::salsa::Db,
