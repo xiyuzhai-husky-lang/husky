@@ -1,89 +1,89 @@
-
 # abstraction
 
- abstraction of data structure and traits.
+abstraction of data structure and traits.
 
- # apps
+# apps
 
- applications for language users.
+applications for language users.
 
- # benchmarks
+# benchmarks
 
- benchmarks.
+benchmarks.
 
- # comptime
-  everything about compilation.
+# comptime
 
- # devtime
+everything about compilation.
 
- everything about development in husky.
+# devtime
 
- # devtools
+everything about development in husky.
 
- simple tools for language develepment
+# devtools
 
- # fs
+simple tools for language develepment
 
- Everything about file system, such as toolchain, workspace, package, crate, module, etc.
+# fs
 
- # gui
+Everything about file system, such as toolchain, workspace, package, crate, module, etc.
 
- Graphics user interface for husky debugger.
+# gui
 
- # hir
+Graphics user interface for husky debugger.
 
- High-level intermediate representation.
+# hir
 
- # ide
+High-level intermediate representation.
 
- IDE support, such as auto completion, diagnostics et al.
+# ide
 
- # kernel
+IDE support, such as auto completion, diagnostics et al.
 
- a minimal set of axioms for the language.
+# kernel
 
- # lex
+a minimal set of axioms for the language.
 
- lexical analysis.
+# ki
 
- decomposed source code to tokens.
+`Ki` is a the function a generalized computation graph node represents.
 
- # linkage
+This crate group is about its definition, representation, etc.
 
- Linkage is the way that runtime or interpreter is able to run compiled code.
+# lex
 
- # linktime
+lexical analysis.
 
- Linktime is the struct that stores dynamic libraries and provides up-to-date linkages.
+decomposed source code to tokens.
 
- # protocols
+# linkage
 
- Protocols are communication standards between husky debugger server and client.
+Linkage is the way that runtime or interpreter is able to run compiled code.
 
- # runtime
+# linktime
 
- Runtime.
+Linktime is the struct that stores dynamic libraries and provides up-to-date linkages.
 
- # semantics
+# protocols
 
- everything about semantics, such as type inference, implicit augment inference.
+Protocols are communication standards between husky debugger server and client.
 
- # syntax
+# runtime
 
- # tasks
+Runtime.
 
- The definition of task trait and various implementations.
+# semantics
 
- # toml
+everything about semantics, such as type inference, implicit augment inference.
 
- Everything about toml. Husky implements its own toml parser to provide the best error messages.
+# syntax
 
- # utils
+# tasks
 
- # val
+The definition of task trait and various implementations.
 
- `Val` is a the function a generalized computation graph node represents.
+# toml
 
- This crate group is about its definition, representation, etc.
+Everything about toml. Husky implements its own toml parser to provide the best error messages.
 
- # vm
+# utils
+
+# vm

@@ -40,7 +40,7 @@ husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true
 # task
 husky-task-interface.workspace = true
-# val
+# ki
 husky-val.workspace = true
 # utils
 husky-check-utils.workspace = true
@@ -82,11 +82,9 @@ husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # tasks
 husky-ml-task.workspace = true
-# val
+# ki
 husky-val.workspace = true
-husky-val-repr = { path = "../../val/husky-val-repr", features = [
-    "test_utils"
-] }
+husky-val-repr = { path = "../../ki/husky-val-repr", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]
