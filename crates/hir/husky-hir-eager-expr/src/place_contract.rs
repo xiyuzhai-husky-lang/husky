@@ -1,4 +1,4 @@
-use husky_hir_ty::{place::HirQuary, ritchie::HirEagerContract};
+use husky_hir_ty::ritchie::HirEagerContract;
 use husky_place::place::Place;
 use husky_sema_place_contract::site::SemaPlaceContractSite;
 use husky_term_prelude::Contract;

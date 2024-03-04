@@ -1,5 +1,4 @@
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
-use husky_fly_term::FlyCoersion;
 use husky_sema_expr::{
     stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
 };
@@ -44,8 +43,7 @@ impl<'a> PlaceContractEngine<'a> {
             }
             SemaStmtData::ForBetween {
                 ref particulars,
-                for_loop_var_symbol_idx,
-                eol_colon,
+
                 stmts,
                 ..
             } => {
@@ -61,7 +59,7 @@ impl<'a> PlaceContractEngine<'a> {
                     .map(|expr| self.infer_expr(expr, Contract::Pure, Default::default()));
                 self.infer_stmts(stmts, Contract::Pure, Default::default());
             }
-            SemaStmtData::ForIn { range, stmts, .. } => {
+            SemaStmtData::ForIn { .. } => {
                 todo!()
             }
             SemaStmtData::Forext {

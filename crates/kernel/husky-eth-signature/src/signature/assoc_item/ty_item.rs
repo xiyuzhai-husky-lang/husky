@@ -12,7 +12,7 @@ pub use self::method_fn::*;
 pub use self::method_function::*;
 
 use super::*;
-use husky_entity_kind::{AssocItemKind, TypeItemKind};
+use husky_entity_kind::TypeItemKind;
 use husky_entity_tree::HasItemPathsMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -1,7 +1,4 @@
-use crate::{
-    r#static::{Static, StaticDyn},
-    *,
-};
+use crate::r#static::{Static, StaticDyn};
 
 pub trait __Regular: std::fmt::Debug {
     type Static: Static;

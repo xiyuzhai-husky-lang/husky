@@ -5,7 +5,6 @@ use husky_decl_macro_utils::{
 };
 use husky_value_protocol::presentation::ValuePresentation;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
-use serde::Serialize;
 
 /// Stand is the static version of a type
 pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {

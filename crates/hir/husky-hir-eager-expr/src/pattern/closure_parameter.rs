@@ -17,7 +17,7 @@ impl ToHirEager for ClosureParameterObelisk {
         match *self {
             ClosureParameterObelisk::Simple {
                 syn_pattern_root,
-                variables,
+
                 ty,
                 ..
             } => HirEagerClosureParameterPattern::Simple {

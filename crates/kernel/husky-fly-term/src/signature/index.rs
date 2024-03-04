@@ -74,12 +74,7 @@ fn list_like_index_signature(
             HoleKind::AnyDerived => todo!(),
         },
         FlyTermData::Sort(_) => todo!(),
-        FlyTermData::Ritchie {
-            ritchie_kind,
-            parameter_contracted_tys,
-            return_ty,
-            ..
-        } => todo!(),
+        FlyTermData::Ritchie { .. } => todo!(),
         FlyTermData::Symbol { .. } => todo!(),
         FlyTermData::Hvar { .. } => todo!(),
         FlyTermData::TypeVariant { path } => todo!(),

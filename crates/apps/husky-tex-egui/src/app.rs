@@ -1,4 +1,4 @@
-use egui::{CentralPanel, Color32, Galley, Label, Widget};
+use egui::{CentralPanel, Color32, Galley};
 use std::sync::Arc;
 
 #[derive(Default)]

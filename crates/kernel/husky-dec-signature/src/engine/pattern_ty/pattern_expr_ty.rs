@@ -38,10 +38,8 @@ impl<'a> DecTermEngine<'a> {
             SynPatternExprData::TupleTypeVariant { .. } => todo!(),
             SynPatternExprData::Props { name, ref fields } => todo!(),
             SynPatternExprData::OneOf { ref options } => todo!(),
-            SynPatternExprData::Binding {
-                ident_token, src, ..
-            } => todo!(),
-            SynPatternExprData::Range { start, end, .. } => todo!(),
+            SynPatternExprData::Binding { .. } => todo!(),
+            SynPatternExprData::Range { .. } => todo!(),
         }
     }
 

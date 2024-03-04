@@ -6,7 +6,7 @@ impl SolTerm {
         engine: &mut impl FlyTermEngineMut,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FlyIndirections,
+        indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {

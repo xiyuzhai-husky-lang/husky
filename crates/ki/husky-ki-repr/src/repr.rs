@@ -5,10 +5,8 @@ pub(crate) use self::val_domain_repr_guard::ValDomainReprGuard;
 
 use self::source::*;
 use crate::*;
-use husky_coword::Ident;
 use husky_entity_path::FugitivePath;
 use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
-use husky_hir_expr::HirExprIdx;
 use husky_ki::{Ki, KiArgument, KiRuntimeConstant, ValDomain, ValOpn};
 use husky_linkage::linkage::Linkage;
 use husky_task_interface::ki_repr::{

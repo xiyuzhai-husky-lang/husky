@@ -1,4 +1,4 @@
-use crate::{ritchie::RitchieKind, *};
+use crate::ritchie::RitchieKind;
 
 /// final destination of `A1 -> ... -> An` is equal to that of `An`
 ///

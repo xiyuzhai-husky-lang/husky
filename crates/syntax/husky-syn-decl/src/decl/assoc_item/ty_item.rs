@@ -12,7 +12,7 @@ pub use self::method_fn::*;
 
 use super::*;
 
-use husky_entity_kind::{AssocItemKind, TypeItemKind};
+use husky_entity_kind::TypeItemKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]

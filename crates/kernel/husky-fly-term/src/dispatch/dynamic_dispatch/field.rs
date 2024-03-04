@@ -57,7 +57,7 @@ impl FlyTerm {
         engine: &mut impl FlyTermEngineMut,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: FlyIndirections,
+        indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(term) => {

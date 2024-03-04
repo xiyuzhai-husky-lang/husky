@@ -18,10 +18,6 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{primitive::PrimitiveVisual, Visual},
 };
-use ordered_float::OrderedFloat;
-use serde::Serialize;
-use serde_impl::json::SerdeJson;
-use serde_impl::IsSerdeImpl;
 use std::cmp::Ordering;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
@@ -301,7 +297,6 @@ impl IsValue for Value {
             Value::OptionSizedMut(opt) => opt.is_none(),
             Value::Leash(opt) => opt.is_none_dyn(),
             _ => {
-                use husky_print_utils::p;
                 unreachable!()
             }
         }

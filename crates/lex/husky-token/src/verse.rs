@@ -12,7 +12,6 @@ use crate::{
     verse::sequence::{MainTokenVerseSequence, NestedTokenVerseSequence},
     *,
 };
-use shifted_unsigned_int::ShiftedU32;
 use vec_like::{AsVecMapEntry, VecMap};
 
 /// 0-based

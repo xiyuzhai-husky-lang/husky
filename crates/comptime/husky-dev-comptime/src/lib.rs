@@ -2,7 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
-use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssocItemPath, ItemPath, MajorItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_ki::Ki;
