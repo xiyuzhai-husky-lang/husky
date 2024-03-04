@@ -234,8 +234,8 @@ impl HirEagerExprSite {
             HirEagerExprData::Unveil {
                 opd_hir_expr_idx,
                 return_ty,
-                unveil_assoc_fn_path: _,
                 ref instantiation,
+                ..
             } => {
                 builder.macro_name(RustMacroName::Unveil);
                 builder.bracketed(RustDelimiter::Par, |builder| {
@@ -296,8 +296,8 @@ impl HirEagerExprSite {
             }
             HirEagerExprData::AssocFunctionFnCall {
                 path,
-                instantiation: _,
                 ref item_groups,
+                ..
             } => {
                 path.transpile_to_rust(builder);
                 builder.bracketed_comma_list(
@@ -308,7 +308,7 @@ impl HirEagerExprSite {
             HirEagerExprData::PropsStructField {
                 owner_hir_expr_idx,
                 ident,
-                field_ty: _,
+                ..
             } => {
                 (owner_hir_expr_idx, Self::self_expr_on_site(true)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
