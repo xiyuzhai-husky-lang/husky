@@ -9,6 +9,6 @@ pub type JsonValue = serde_json::Value;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TraceStalk {
     None,
-    Val(ValuePresentationValControlFlow),
+    Ki(ValuePresentationValControlFlow),
     Vm(ValuePresentationVmControlFlow),
 }

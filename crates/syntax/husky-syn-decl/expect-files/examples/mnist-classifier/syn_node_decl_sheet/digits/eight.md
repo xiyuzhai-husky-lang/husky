@@ -8,7 +8,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -128,7 +128,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                             colon_token: Ok(

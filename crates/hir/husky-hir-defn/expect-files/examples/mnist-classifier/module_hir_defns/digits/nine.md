@@ -1,7 +1,7 @@
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
@@ -63,7 +63,7 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
@@ -125,7 +125,7 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     hir_decl: ValFugitiveHirDecl {

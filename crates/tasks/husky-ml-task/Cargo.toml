@@ -28,4 +28,4 @@ husky-task-interface.workspace = true
 husky-task.workspace = true
 husky-ml-task-interface.workspace = true
 # ki
-husky-val.workspace = true
+husky-ki.workspace = true

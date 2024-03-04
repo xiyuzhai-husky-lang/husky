@@ -8,7 +8,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

@@ -2,14 +2,14 @@ use crate::*;
 use dashmap::DashMap;
 use husky_linkage_impl::standard::StandardLinkageImplValControlFlow;
 
+use husky_ki::{version_stamp::ValVersionStamp, Ki};
 use husky_task::dev_ascension::IsRuntimeStorage;
 use husky_task_interface::{TaskIngredientIndex, TaskJarIndex};
-use husky_val::{version_stamp::ValVersionStamp, Val};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct MlDevRuntimeStorage {
-    val_values: DashMap<
+    ki_values: DashMap<
         MlDevRuntimeValStorageKey,
         Arc<Mutex<Option<(ValVersionStamp, StandardLinkageImplValControlFlow)>>>,
     >,
@@ -21,7 +21,7 @@ pub struct MlDevRuntimeStorage {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct MlDevRuntimeValStorageKey {
-    val: Val,
+    ki: Ki,
     pedestal: MlPedestal,
 }
 
@@ -41,15 +41,15 @@ unsafe impl Send for AnyPointer {}
 impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
     fn get_or_try_init_val_value(
         &self,
-        val: Val,
+        val: Ki,
         pedestal: MlPedestal,
         f: impl FnOnce() -> StandardLinkageImplValControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplValControlFlow {
-        let key = MlDevRuntimeValStorageKey { val, pedestal };
-        let mu = self.val_values.entry(key).or_default().clone();
+        let key = MlDevRuntimeValStorageKey { ki: val, pedestal };
+        let mu = self.ki_values.entry(key).or_default().clone();
         let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
-        let new_version_stamp = key.val.version_stamp(db);
+        let new_version_stamp = key.ki.version_stamp(db);
         unsafe {
             match *opt_stored_val_control_flow_store_guard {
                 Some((old_version_stamp, ref val_control_flow))
@@ -99,8 +99,8 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
     }
 
     fn debug_drop(self) {
-        println!("{}", self.val_values.len());
-        self.val_values.iter().for_each(|_| ());
+        println!("{}", self.ki_values.len());
+        self.ki_values.iter().for_each(|_| ());
         // forget(self.val_item_values);
         // forget(self.memo_field_values);
         // todo!();

@@ -92,7 +92,7 @@ pub enum LinkageStructField {
 impl Linkage {
     /// gives a linkage if the item is eagerly defined or extern
     pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
-        let FugitiveHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
+        let FugitiveHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
         match hir_defn.body_with_hir_expr_region(db) {

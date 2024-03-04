@@ -10,6 +10,7 @@ use husky_hir_lazy_expr::{
 };
 use husky_hir_lazy_expr::{source_map::HirLazyExprSourceMapData, HirLazyStmtIdx};
 
+use husky_ki_repr::expansion::ValReprExpansion;
 use husky_regional_token::{
     ElifRegionalToken, ElseRegionalToken, EolColonRegionalToken, IfRegionalToken,
     RegionalTokenIdxRange,
@@ -20,7 +21,6 @@ use husky_sema_expr::{
 };
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
-use husky_val_repr::expansion::ValReprExpansion;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -184,7 +184,7 @@ impl LazyStmtTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace);
         val_repr_expansion
             .hir_lazy_stmt_val_repr_map(db)

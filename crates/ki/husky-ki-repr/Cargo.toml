@@ -1,0 +1,90 @@
+[package]
+name = "husky-ki-repr"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+doctest = false
+
+[dependencies]
+rustc-hash.workspace = true
+lsp-types.workspace = true
+smallvec.workspace = true
+# abstractions
+salsa.workspace = true
+# fs
+husky-vfs.workspace = true
+# hir
+husky-hir-opr.workspace = true
+husky-hir-ty.workspace = true
+husky-hir-lazy-expr.workspace = true
+husky-hir-expr.workspace = true
+husky-hir-defn.workspace = true
+# kernel
+husky-entity-kind.workspace = true
+husky-entity-path.workspace = true
+husky-coword.workspace = true
+husky-term-prelude.workspace = true
+husky-task.workspace = true
+# lex
+husky-regional-token.workspace = true
+# linkage
+husky-linkage.workspace = true
+# semantics
+husky-sema-expr.workspace = true
+# syntax
+husky-entity-tree.workspace = true
+husky-syn-defn.workspace = true
+# task
+husky-task-interface.workspace = true
+# ki
+husky-ki.workspace = true
+# utils
+husky-check-utils.workspace = true
+husky-print-utils.workspace = true
+
+[dev-dependencies]
+# hir
+husky-hir-eager-expr.workspace = true
+husky-hir-decl.workspace = true
+# kernel
+husky-coword.workspace = true
+husky-eth-signature.workspace = true
+husky-eth-term.workspace = true
+husky-dec-term.workspace = true
+husky-dec-ty.workspace = true
+husky-dec-signature.workspace = true
+husky-fly-term.workspace = true
+# lex
+husky-text.workspace = true
+husky-token-data.workspace = true
+husky-token.workspace = true
+husky-toml-token.workspace = true
+# linkage
+husky-javelin.workspace = true
+# protocols
+husky-visual-protocol.workspace = true
+# semantics
+husky-manifest.workspace = true
+husky-corgi-config.workspace = true
+husky-sema-expr.workspace = true
+husky-sema-place-contract.workspace = true
+# syntax
+husky-ast = { workspace = true, features = ["test_utils"] }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-syn-decl.workspace = true
+husky-corgi-config-ast.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-defn.workspace = true
+# tasks
+husky-ml-task.workspace = true
+# ki
+husky-ki.workspace = true
+husky-ki-repr = { path = "../../ki/husky-ki-repr", features = ["test_utils"] }
+
+[features]
+test_utils = ["salsa/test_utils"]

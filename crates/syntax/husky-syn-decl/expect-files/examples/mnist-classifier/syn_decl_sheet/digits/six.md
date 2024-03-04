@@ -8,7 +8,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
@@ -112,7 +112,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
@@ -216,7 +216,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

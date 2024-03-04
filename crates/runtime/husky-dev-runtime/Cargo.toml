@@ -51,8 +51,8 @@ husky-print-utils.workspace = true
 husky-sync-utils.workspace = true
 husky-vm.workspace = true
 # ki
-husky-val.workspace = true
-husky-val-repr.workspace = true
+husky-ki.workspace = true
+husky-ki-repr.workspace = true
 # vm
 husky-vmir-expr.workspace = true
 

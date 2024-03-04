@@ -5,6 +5,8 @@ use self::db::DevComptimeDb;
 use husky_entity_kind::{AssocItemKind, MajorFugitiveKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{AssocItemPath, ItemPath, MajorItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
+use husky_ki::Ki;
+use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_manifest::HasAllPackages;
 use husky_task::{
@@ -15,8 +17,6 @@ use husky_task::{
 use husky_task_interface::TaskIngredientIndex;
 use husky_task_interface::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
-use husky_val::Val;
-use husky_val_repr::repr::ValRepr;
 use husky_vfs::{
     error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
 };
@@ -29,7 +29,7 @@ pub struct DevComptime<Task: IsTask> {
     linktime: TaskDevLinkTime<Task>,
     ingredient_vals: Vec<(
         PackagePath,
-        Vec<(IngredientPath, Option<ValRepr>, Option<Val>)>,
+        Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
     )>,
 }
 
@@ -91,7 +91,7 @@ impl<Task: IsTask> DevComptime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-    ) -> Val {
+    ) -> Ki {
         self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
             .2
             .unwrap()
@@ -101,7 +101,7 @@ impl<Task: IsTask> DevComptime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-    ) -> ValRepr {
+    ) -> KiRepr {
         self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
             .1
             .unwrap()
@@ -113,7 +113,7 @@ fn ingredient_vals(
     db: &::salsa::Db,
 ) -> Vec<(
     PackagePath,
-    Vec<(IngredientPath, Option<ValRepr>, Option<Val>)>,
+    Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
 )> {
     target_path
         .all_packages(db)
@@ -134,7 +134,7 @@ fn ingredient_vals(
                             ItemPath::MajorItem(MajorItemPath::Fugitive(path))
                                 if path.major_fugitive_kind(db) == MajorFugitiveKind::Val =>
                             {
-                                Some(ValRepr::new_val_item(path, db))
+                                Some(KiRepr::new_val_item(path, db))
                             }
                             ItemPath::AssocItem(path) => match path {
                                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {

@@ -17,7 +17,7 @@ pub enum FugitiveEthTemplate {
     FunctionFn(FunctionFnEthTemplate),
     FunctionGn(GnFugitiveEthTemplate),
     TypeAlias(TypeAliasEthTemplate),
-    Val(ValFugitiveEthTemplate),
+    Ki(ValFugitiveEthTemplate),
 }
 
 impl FugitiveEthTemplate {
@@ -26,7 +26,7 @@ impl FugitiveEthTemplate {
             FugitiveEthTemplate::FunctionFn(template) => template.template_parameters(db),
             FugitiveEthTemplate::FunctionGn(template) => template.template_parameters(db),
             FugitiveEthTemplate::TypeAlias(template) => template.template_parameters(db),
-            FugitiveEthTemplate::Val(_template) => &[],
+            FugitiveEthTemplate::Ki(_template) => &[],
         }
     }
 }
@@ -54,7 +54,7 @@ fn fugitive_eth_template(
         FugitiveDecTemplate::TypeAlias(dec_template) => {
             TypeAliasEthTemplate::from_dec(db, path, dec_template)?.into()
         }
-        FugitiveDecTemplate::Val(dec_template) => {
+        FugitiveDecTemplate::Ki(dec_template) => {
             ValFugitiveEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })

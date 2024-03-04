@@ -97,8 +97,8 @@ impl ValItemTraceData {
         }
     }
 
-    pub(super) fn val_repr(&self, db: &::salsa::Db) -> ValRepr {
-        ValRepr::new_val_item(self.val_item_path, db)
+    pub(super) fn val_repr(&self, db: &::salsa::Db) -> KiRepr {
+        KiRepr::new_val_item(self.val_item_path, db)
     }
 
     pub(super) fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {

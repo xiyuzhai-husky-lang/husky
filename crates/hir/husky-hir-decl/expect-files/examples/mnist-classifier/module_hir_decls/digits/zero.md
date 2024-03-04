@@ -1,7 +1,7 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     return_ty: HirType::PathLeading(
@@ -145,7 +145,7 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     return_ty: HirType::PathLeading(

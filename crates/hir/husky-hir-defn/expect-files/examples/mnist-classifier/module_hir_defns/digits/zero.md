@@ -1,7 +1,7 @@
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     hir_decl: ValFugitiveHirDecl {
@@ -422,7 +422,7 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     hir_decl: ValFugitiveHirDecl {

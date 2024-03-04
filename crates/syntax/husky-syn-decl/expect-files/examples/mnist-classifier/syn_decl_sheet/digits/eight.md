@@ -8,7 +8,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
@@ -112,7 +112,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

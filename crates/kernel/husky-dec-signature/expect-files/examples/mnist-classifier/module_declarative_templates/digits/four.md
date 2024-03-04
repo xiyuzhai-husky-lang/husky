@@ -8,7 +8,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Val(
+                    FugitiveDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -81,7 +81,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Val(
+                    FugitiveDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -109,7 +109,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Val(
+                    FugitiveDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -137,7 +137,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Val(
+                    FugitiveDecTemplate::Ki(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(

@@ -35,7 +35,7 @@ husky-regional-token.workspace = true
 husky-text-protocol.workspace = true
 husky-trace-protocol.workspace = true
 # ki
-husky-val-repr.workspace = true
+husky-ki-repr.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
@@ -93,8 +93,8 @@ husky-corgi-config-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-toml-ast.workspace = true
 # ki
-husky-val = { path = "../../ki/husky-val", features = ["test_utils"] }
-husky-val-repr = { path = "../../ki/husky-val-repr", features = ["test_utils"] }
+husky-ki = { path = "../../ki/husky-ki", features = ["test_utils"] }
+husky-ki-repr = { path = "../../ki/husky-ki-repr", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]

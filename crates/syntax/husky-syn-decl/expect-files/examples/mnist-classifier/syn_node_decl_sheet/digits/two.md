@@ -8,7 +8,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -935,7 +935,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Val(
+                    FugitiveSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                             colon_token: Ok(

@@ -49,7 +49,7 @@
 // #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 // pub enum DevInput {
 //     Train(),
-//     Val(),
+//     Ki(),
 // }
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy)]

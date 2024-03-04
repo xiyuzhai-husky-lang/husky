@@ -64,7 +64,7 @@ husky-task-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 # ki
-husky-val.workspace = true
-husky-val-repr.workspace = true
+husky-ki.workspace = true
+husky-ki-repr.workspace = true
 # vm
 husky-vm.workspace = true

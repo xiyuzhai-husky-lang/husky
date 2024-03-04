@@ -9,7 +9,7 @@ either.workspace = true
 # abstractions
 # comptime
 # kernel
-husky-val.workspace = true
+husky-ki.workspace = true
 husky-task.workspace = true
 husky-standard-value.workspace = true
 # linktime

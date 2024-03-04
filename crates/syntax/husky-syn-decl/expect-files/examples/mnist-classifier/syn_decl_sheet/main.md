@@ -169,7 +169,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::main`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

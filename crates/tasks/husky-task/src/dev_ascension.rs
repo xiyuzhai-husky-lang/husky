@@ -1,4 +1,5 @@
 use crate::*;
+use husky_ki::Ki;
 use husky_task_interface::{
     pedestal::IsPedestalFull,
     val_control_flow::ValControlFlow,
@@ -13,7 +14,6 @@ use husky_trace_protocol::{
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     server::ValVisualCache,
 };
-use husky_val::Val;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 use std::{cell::Cell, thread::LocalKey};
@@ -67,7 +67,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     // todo: consider caching policy
     fn get_or_try_init_val_value(
         &self,
-        val: Val,
+        val: Ki,
         pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplValControlFlow<LinkageImpl>,
         db: &::salsa::Db,

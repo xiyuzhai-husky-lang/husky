@@ -22,7 +22,7 @@ impl IsAstChildren for MajorItems {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
             EntityKindKeywordGroup::Const(_) => MajorFugitiveKind::Const.into(),
-            EntityKindKeywordGroup::Val(_) => MajorFugitiveKind::Val.into(),
+            EntityKindKeywordGroup::Ki(_) => MajorFugitiveKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
             EntityKindKeywordGroup::FormalEntity(_) => MajorFugitiveKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),

@@ -1,7 +1,7 @@
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                     return_ty: HirType::PathLeading(
@@ -145,7 +145,7 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     return_ty: HirType::PathLeading(
@@ -190,7 +190,7 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     return_ty: HirType::PathLeading(
@@ -235,7 +235,7 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                     return_ty: HirType::PathLeading(

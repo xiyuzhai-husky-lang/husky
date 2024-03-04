@@ -96,7 +96,7 @@ impl EagerCallInputTraceData {
         vec![]
     }
 
-    pub fn val_repr(&self, _db: &::salsa::Db) -> ValRepr {
+    pub fn val_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
 }

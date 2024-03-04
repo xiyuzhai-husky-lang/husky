@@ -8,7 +8,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
@@ -802,7 +802,7 @@ SynDeclSheet {
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Val(
+                    FugitiveSynDecl::Ki(
                         MajorValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {

@@ -124,7 +124,7 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Val(
+            FugitiveHirDecl::Ki(
                 ValFugitiveHirDecl {
                     path: FugitivePath(`mnist::input`, `Val`),
                     return_ty: HirType::PathLeading(

@@ -16,7 +16,7 @@ use husky_entity_kind::MajorFugitiveKind;
 #[enum_class::from_variants]
 pub enum FugitiveSynNodeDecl {
     Fn(MajorFnSynNodeDecl),
-    Val(MajorValSynNodeDecl),
+    Ki(MajorValSynNodeDecl),
     Gn(MajorGnSynNodeDecl),
     TypeAlias(TypeAliasSynNodeDecl),
 }
@@ -25,7 +25,7 @@ impl FugitiveSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             FugitiveSynNodeDecl::Fn(slf) => slf.syn_expr_region(db),
-            FugitiveSynNodeDecl::Val(slf) => slf.syn_expr_region(db),
+            FugitiveSynNodeDecl::Ki(slf) => slf.syn_expr_region(db),
             FugitiveSynNodeDecl::Gn(slf) => slf.syn_expr_region(db),
             FugitiveSynNodeDecl::TypeAlias(slf) => slf.syn_expr_region(db),
         }
@@ -34,7 +34,7 @@ impl FugitiveSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
             FugitiveSynNodeDecl::Fn(slf) => slf.errors(db),
-            FugitiveSynNodeDecl::Val(slf) => slf.errors(db),
+            FugitiveSynNodeDecl::Ki(slf) => slf.errors(db),
             FugitiveSynNodeDecl::Gn(slf) => slf.errors(db),
             FugitiveSynNodeDecl::TypeAlias(slf) => slf.errors(db),
         }
@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a> {
 #[enum_class::from_variants]
 pub enum FugitiveSynDecl {
     Fn(MajorFnSynDecl),
-    Val(MajorValSynDecl),
+    Ki(MajorValSynDecl),
     FunctionGn(MajorGnSynDecl),
     TypeAlias(TypeAliasSynDecl),
 }
@@ -96,7 +96,7 @@ impl FugitiveSynDecl {
             FugitiveSynNodeDecl::Fn(syn_node_decl) => {
                 MajorFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            FugitiveSynNodeDecl::Val(syn_node_decl) => {
+            FugitiveSynNodeDecl::Ki(syn_node_decl) => {
                 MajorValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FugitiveSynNodeDecl::Gn(syn_node_decl) => {
@@ -111,7 +111,7 @@ impl FugitiveSynDecl {
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
             FugitiveSynDecl::Fn(decl) => decl.template_parameters(db),
-            FugitiveSynDecl::Val(_decl) => &[],
+            FugitiveSynDecl::Ki(_decl) => &[],
             FugitiveSynDecl::FunctionGn(decl) => decl.template_parameters(db),
             FugitiveSynDecl::TypeAlias(_) => todo!(),
         }
@@ -120,7 +120,7 @@ impl FugitiveSynDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
             FugitiveSynDecl::Fn(slf) => slf.syn_expr_region(db),
-            FugitiveSynDecl::Val(slf) => slf.syn_expr_region(db),
+            FugitiveSynDecl::Ki(slf) => slf.syn_expr_region(db),
             FugitiveSynDecl::FunctionGn(slf) => slf.syn_expr_region(db),
             FugitiveSynDecl::TypeAlias(slf) => slf.syn_expr_region(db),
         }
@@ -129,7 +129,7 @@ impl FugitiveSynDecl {
     pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveSynDecl::Fn(slf) => slf.path(db),
-            FugitiveSynDecl::Val(slf) => slf.path(db),
+            FugitiveSynDecl::Ki(slf) => slf.path(db),
             FugitiveSynDecl::FunctionGn(slf) => slf.path(db),
             FugitiveSynDecl::TypeAlias(_) => todo!(),
         }

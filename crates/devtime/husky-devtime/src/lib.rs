@@ -95,7 +95,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
             return TraceStalk::None;
         }
         if let Some(val_repr) = trace.val_repr(db) {
-            TraceStalk::Val(
+            TraceStalk::Ki(
                 self.runtime
                     .eval_val_repr_at_pedestal(val_repr, pedestal)
                     .present(value_presenter_cache, value_presentation_synchrotron),

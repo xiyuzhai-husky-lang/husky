@@ -34,7 +34,7 @@ impl IsAstChildren for FugitiveBody {
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFugitiveKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::Val(_) => MajorFugitiveKind::Val.into(),
+            EntityKindKeywordGroup::Ki(_) => MajorFugitiveKind::Val.into(),
             EntityKindKeywordGroup::Const(_) => MajorFugitiveKind::Const.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderFugitive)?,
         };

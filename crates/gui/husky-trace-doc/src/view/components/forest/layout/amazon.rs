@@ -170,7 +170,7 @@ where
                             self.render_line(lines_data.last().unwrap(), trace_id, entry, ui);
                             match entry.stalk(pedestal) {
                                 TraceStalk::None => (),
-                                TraceStalk::Val(value_control_flow) => match value_control_flow {
+                                TraceStalk::Ki(value_control_flow) => match value_control_flow {
                                     ValControlFlow::Continue(value) => self.render_value(value, ui),
                                     ValControlFlow::LoopContinue => todo!(),
                                     ValControlFlow::LoopExit(_) => todo!(),

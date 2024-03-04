@@ -35,7 +35,7 @@ impl IsAstChildren for TraitForTypeItems {
             }
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssocType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
-            EntityKindKeywordGroup::Val(_) => TraitItemKind::ASSOC_VAL,
+            EntityKindKeywordGroup::Ki(_) => TraitItemKind::ASSOC_VAL,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => todo!(),
         };

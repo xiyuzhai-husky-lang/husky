@@ -92,7 +92,7 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Val(
+            FugitiveHirDefn::Ki(
                 ValHirDefn {
                     path: FugitivePath(`mnist_classifier::main`, `Val`),
                     hir_decl: ValFugitiveHirDecl {

@@ -83,7 +83,7 @@ impl<'a> SemaExprEngine<'a> {
                                 &instantiation,
                             ),
                             FugitiveEthTemplate::TypeAlias(_) => todo!(),
-                            FugitiveEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
+                            FugitiveEthTemplate::Ki(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.return_ty(db),
                                 self,
                                 syn_expr_idx,

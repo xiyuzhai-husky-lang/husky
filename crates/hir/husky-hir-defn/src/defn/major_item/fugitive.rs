@@ -18,7 +18,7 @@ use super::*;
 pub enum FugitiveHirDefn {
     FunctionFn(FunctionFnHirDefn),
     // Function(FunctionDefn),
-    Val(ValHirDefn),
+    Ki(ValHirDefn),
     FunctionGn(FunctionGnHirDefn),
     TypeAlias(TypeAliasHirDefn),
 }
@@ -33,7 +33,7 @@ impl FugitiveHirDefn {
     pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.path(db),
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.path(db),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn.path(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.path(db),
             FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.path(db),
         }
@@ -42,7 +42,7 @@ impl FugitiveHirDefn {
     pub fn hir_decl(self, db: &::salsa::Db) -> FugitiveHirDecl {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.hir_decl(db).into(),
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.hir_decl(db).into(),
             FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.hir_decl(db).into(),
         }
@@ -53,7 +53,7 @@ impl FugitiveHirDefn {
             FugitiveHirDefn::FunctionFn(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)
             }
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_expr_region(db),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn.hir_expr_region(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => {
                 hir_defn.hir_lazy_expr_region(db).map(Into::into)
             }
@@ -66,7 +66,7 @@ impl FugitiveHirDefn {
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.dependencies(db),
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.dependencies(db),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn.dependencies(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.dependencies(db),
             FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.dependencies(db),
         }
@@ -75,7 +75,7 @@ impl FugitiveHirDefn {
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.version_stamp(db),
-            FugitiveHirDefn::Val(hir_defn) => hir_defn.version_stamp(db),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn.version_stamp(db),
             FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn.version_stamp(db),
             FugitiveHirDefn::TypeAlias(hir_defn) => hir_defn.version_stamp(db),
         }
@@ -96,7 +96,7 @@ pub(crate) fn fugitive_hir_defn(db: &::salsa::Db, path: FugitivePath) -> Option<
         FugitiveHirDecl::FunctionFn(hir_decl) => {
             Some(FunctionFnHirDefn::new(db, path, hir_decl).into())
         }
-        FugitiveHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
+        FugitiveHirDecl::Ki(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
         FugitiveHirDecl::FunctionGn(hir_decl) => {
             Some(FunctionGnHirDefn::new(db, path, hir_decl).into())
         }

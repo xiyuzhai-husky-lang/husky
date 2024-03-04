@@ -16,7 +16,7 @@ use husky_syn_decl::decl::FugitiveSynDecl;
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
     FunctionFn(FunctionMajorFnHirDecl),
-    Val(ValFugitiveHirDecl),
+    Ki(ValFugitiveHirDecl),
     FunctionGn(FunctionGnFugitiveHirDecl),
     TypeAlias(TypeAliasHirDecl),
 }
@@ -25,7 +25,7 @@ impl FugitiveHirDecl {
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => Some(decl.template_parameters(db)),
-            FugitiveHirDecl::Val(_decl) => None,
+            FugitiveHirDecl::Ki(_decl) => None,
             FugitiveHirDecl::FunctionGn(decl) => Some(decl.template_parameters(db)),
             FugitiveHirDecl::TypeAlias(_) => todo!(),
         }
@@ -34,7 +34,7 @@ impl FugitiveHirDecl {
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.hir_eager_expr_region(db).into(),
-            FugitiveHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
+            FugitiveHirDecl::Ki(decl) => decl.hir_eager_expr_region(db).into(),
             FugitiveHirDecl::FunctionGn(decl) => decl.hir_lazy_expr_region(db).into(),
             FugitiveHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
         }
@@ -43,7 +43,7 @@ impl FugitiveHirDecl {
     pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {
             FugitiveHirDecl::FunctionFn(decl) => decl.path(db),
-            FugitiveHirDecl::Val(decl) => decl.path(db),
+            FugitiveHirDecl::Ki(decl) => decl.path(db),
             FugitiveHirDecl::FunctionGn(decl) => decl.path(db),
             FugitiveHirDecl::TypeAlias(decl) => decl.path(db),
         }
@@ -64,7 +64,7 @@ fn fugitive_hir_decl(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHir
         FugitiveSynDecl::Fn(syn_decl) => {
             Some(FunctionMajorFnHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FugitiveSynDecl::Val(syn_decl) => {
+        FugitiveSynDecl::Ki(syn_decl) => {
             Some(ValFugitiveHirDecl::from_syn(path, syn_decl, db).into())
         }
         FugitiveSynDecl::FunctionGn(syn_decl) => {
