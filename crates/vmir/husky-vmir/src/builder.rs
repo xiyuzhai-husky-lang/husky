@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_coword::Ident;
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerExprIdx, HirEagerStmtArena};
-use husky_hir_expr::HirExprRegion;
+use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 
 pub(crate) struct VmirExprBuilder<'db> {
@@ -14,20 +14,21 @@ pub(crate) struct VmirExprBuilder<'db> {
     instantiation: &'db LinInstantiation,
     vmir_expr_arena: VmirExprArena,
     vmir_stmt_arena: VmirStmtArena,
-    variables: Vec<Ident>,
 }
 
 impl<'db> VmirExprBuilder<'db> {
-    pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(Self, HirEagerExprIdx)> {
+    pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(HirEagerExprIdx, Self)> {
         use husky_hir_defn::defn::HasHirDefn;
 
         let (path, instantiation) = linkage.path_and_instantiation(db)?;
         let hir_defn = path.hir_defn(db).unwrap();
-        let HirExprRegion::Eager(hir_eager_expr_region) = hir_defn.hir_expr_region(db)? else {
+        let (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) =
+            hir_defn.hir_expr_body_and_region(db)?
+        else {
             unreachable!()
         };
-        let root_hir_eager_expr_idx = todo!();
         Some((
+            body,
             Self {
                 db,
                 hir_eager_expr_arena: hir_eager_expr_region.expr_arena(db),
@@ -35,9 +36,7 @@ impl<'db> VmirExprBuilder<'db> {
                 instantiation,
                 vmir_expr_arena: Default::default(),
                 vmir_stmt_arena: Default::default(),
-                variables: todo!(),
             },
-            root_hir_eager_expr_idx,
         ))
     }
 
