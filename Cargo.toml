@@ -306,7 +306,7 @@ husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir
-husky-vmir-expr = { path = "crates/vmir/husky-vmir-expr" }
+husky-vmir = { path = "crates/vmir/husky-vmir" }
 # library
 husky-core = { path = "library/core" }
 # registry

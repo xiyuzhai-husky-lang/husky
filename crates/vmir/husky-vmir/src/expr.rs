@@ -1,8 +1,9 @@
-use crate::ToVmir;
+use crate::{builder::VmirExprBuilder, ToVmir};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 pub enum VmirExprData {
+    Literal,
     Variable,
 }
 
@@ -13,9 +14,9 @@ pub type VmirExprIdxRange = ArenaIdxRange<VmirExprData>;
 impl ToVmir for HirEagerExprIdx {
     type Output = VmirExprIdx;
 
-    fn to_vmir(self, builder: &mut crate::builder::VmirExprBuilder) -> Self::Output {
-        match *builder.hir_eager_expr_arena()[self].data() {
-            HirEagerExprData::Literal(_) => todo!(),
+    fn to_vmir(self, builder: &mut VmirExprBuilder) -> Self::Output {
+        let expr_data = match *builder.hir_eager_expr_arena()[self].data() {
+            HirEagerExprData::Literal(_) => VmirExprData::Literal,
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSvar { ident } => todo!(),
@@ -99,6 +100,7 @@ impl ToVmir for HirEagerExprIdx {
             } => todo!(),
             HirEagerExprData::Todo => todo!(),
             HirEagerExprData::Unreachable => todo!(),
-        }
+        };
+        builder.alloc_expr(expr_data)
     }
 }
