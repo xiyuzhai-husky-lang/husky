@@ -1,26 +1,28 @@
-use husky_entity_path::ItemPath;
+use crate::{
+    expr::{VmirExprArena, VmirExprIdx},
+    stmt::VmirStmtArena,
+    *,
+};
 use husky_linkage::linkage::Linkage;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VmirRegion {
-    // Block(Vmirs),
+#[salsa::tracked]
+pub struct VmirRegion {
+    pub root_expr: VmirExprIdx,
+    #[return_ref]
+    pub vmir_expr_arena: VmirExprArena,
+    #[return_ref]
+    pub vmir_stmt_arena: VmirStmtArena,
 }
 
-fn item_instruction_region(_db: &::salsa::Db, _item_path: ItemPath) -> Option<VmirRegion> {
-    todo!()
-}
-
-fn method_linkage_instruction_region(
-    _db: &::salsa::Db,
-    _member_route: Linkage,
-) -> Option<VmirRegion> {
-    todo!()
-}
-
-fn dataset_config_instruction_region(_db: &::salsa::Db, _target_entrance: ItemPath) -> VmirRegion {
-    todo!()
-}
-
-fn enum_literal_to_i32(_db: &::salsa::Db, _item_path: ItemPath) -> i32 {
-    todo!()
+#[salsa::tracked]
+pub fn linkage_vmir_region(db: &::salsa::Db, linkage: Linkage) -> Option<VmirRegion> {
+    let (mut builder, root_hir_eager_expr_idx) = VmirExprBuilder::new(linkage, db)?;
+    let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
+    let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
+    Some(VmirRegion::new(
+        db,
+        root_expr,
+        vmir_expr_arena,
+        vmir_stmt_arena,
+    ))
 }

@@ -2,6 +2,7 @@ use crate::ToVmir;
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdx};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum VmirStmtData {
     Let,
     Require,

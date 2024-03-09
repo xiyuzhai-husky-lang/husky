@@ -17,6 +17,8 @@ shifted-unsigned-int.workspace = true
 # hir
 husky-hir-opr.workspace = true
 husky-hir-eager-expr.workspace = true
+husky-hir-expr.workspace = true
+husky-hir-defn.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-eth-term.workspace = true
