@@ -17,6 +17,7 @@ members = [
     "crates/lex/*",
     "crates/linkage/*",
     "crates/linktime/*",
+    "crates/mir/*",
     "crates/protocols/*",
     "crates/runtime/*",
     "crates/semantics/*",
@@ -28,7 +29,7 @@ members = [
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
-    "registry/*",
+    "registry/*", "crates/mir/husky-mir", "crates/mir/husky-mir-pass",
 ]
 resolver = "2"
 
