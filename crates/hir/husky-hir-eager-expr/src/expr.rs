@@ -79,17 +79,17 @@ pub enum HirEagerExprData {
     },
     Prefix {
         opr: HirPrefixOpr,
-        opd_hir_expr_idx: HirEagerExprIdx,
+        opd: HirEagerExprIdx,
     },
     Suffix {
-        opd_hir_expr_idx: HirEagerExprIdx,
+        opd: HirEagerExprIdx,
         opr: HirSuffixOpr,
     },
     Unveil {
         unveil_assoc_fn_path: TraitForTypeItemPath,
         instantiation: HirInstantiation,
         return_ty: HirType,
-        opd_hir_expr_idx: HirEagerExprIdx,
+        opd: HirEagerExprIdx,
     },
     Unwrap {
         opd: HirEagerExprIdx,
@@ -119,7 +119,7 @@ pub enum HirEagerExprData {
         item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
     },
     PropsStructField {
-        owner_hir_expr_idx: HirEagerExprIdx,
+        owner: HirEagerExprIdx,
         ident: Ident,
         field_ty: HirType,
     },
@@ -257,7 +257,7 @@ impl ToHirEager for SemaExprIdx {
                     builder.db(),
                     builder.fly_terms(),
                 ),
-                opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
+                opd: opd_sema_expr_idx.to_hir_eager(builder),
             },
             SemaExprData::Suffix {
                 opd: opd_sema_expr_idx,
@@ -268,7 +268,7 @@ impl ToHirEager for SemaExprIdx {
                 SemaSuffixOpr::ComposeWithNot => unreachable!(),
                 SemaSuffixOpr::Incr | SemaSuffixOpr::Decr => HirEagerExprData::Suffix {
                     opr: HirSuffixOpr::from_sema(opr),
-                    opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
+                    opd: opd_sema_expr_idx.to_hir_eager(builder),
                 },
             },
             SemaExprData::Unveil {
@@ -285,7 +285,7 @@ impl ToHirEager for SemaExprIdx {
                         unveil_output_ty_signature.instantiation(),
                         db,
                     ),
-                    opd_hir_expr_idx: opd_sema_expr_idx.to_hir_eager(builder),
+                    opd: opd_sema_expr_idx.to_hir_eager(builder),
                     return_ty: HirType::from_eth(return_ty, db).unwrap(),
                 }
             }
@@ -377,7 +377,7 @@ impl ToHirEager for SemaExprIdx {
                 ..
             } => match *dispatch.signature() {
                 FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
-                    owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                    owner: owner_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },

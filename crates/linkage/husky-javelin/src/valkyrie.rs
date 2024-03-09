@@ -171,7 +171,7 @@ impl ValkyrieRides {
                     }
                 }
                 HirEagerExprData::PropsStructField {
-                    owner_hir_expr_idx: _,
+                    owner: _,
                     ident: _,
                     field_ty: _,
                 } => (),

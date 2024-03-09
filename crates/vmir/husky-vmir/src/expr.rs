@@ -5,6 +5,16 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 pub enum VmirExprData {
     Literal,
     Variable,
+    Binary,
+    Be,
+    Prefix,
+    Suffix,
+    Unveil,
+    Linkage,
+    Block,
+    Closure,
+    Todo,
+    Unreachable,
 }
 
 pub type VmirExprArena = Arena<VmirExprData>;
@@ -20,57 +30,49 @@ impl ToVmir for HirEagerExprIdx {
             HirEagerExprData::PrincipalEntityPath(_) => todo!(),
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
             HirEagerExprData::ConstSvar { ident } => todo!(),
-            HirEagerExprData::Variable(_) => todo!(),
-            HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
-            HirEagerExprData::Be { src, ref target } => todo!(),
-            HirEagerExprData::Prefix {
-                opr,
-                opd_hir_expr_idx,
-            } => todo!(),
-            HirEagerExprData::Suffix {
-                opd_hir_expr_idx,
-                opr,
-            } => todo!(),
+            HirEagerExprData::Variable(_) => VmirExprData::Variable,
+            HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary,
+            HirEagerExprData::Be { src, ref target } => VmirExprData::Be,
+            HirEagerExprData::Prefix { opr, opd } => VmirExprData::Prefix,
+            HirEagerExprData::Suffix { opd, opr } => VmirExprData::Suffix,
             HirEagerExprData::Unveil {
                 unveil_assoc_fn_path,
                 ref instantiation,
                 return_ty,
-                opd_hir_expr_idx,
-            } => todo!(),
-            HirEagerExprData::Unwrap {
-                opd: opd_hir_expr_idx,
-            } => todo!(),
+                opd,
+            } => VmirExprData::Unveil,
+            HirEagerExprData::Unwrap { opd } => todo!(),
             HirEagerExprData::As { opd, ty } => todo!(),
             HirEagerExprData::TypeConstructorFnCall {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::TypeVariantConstructorCall {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::FunctionFnCall {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::AssocFunctionFnCall {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::PropsStructField {
-                owner_hir_expr_idx,
+                owner,
                 ident,
                 field_ty,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::MemoizedField {
                 owner_hir_expr_idx,
                 ident,
                 path,
-            } => todo!(),
+            } => VmirExprData::Linkage,
             HirEagerExprData::MethodFnCall {
                 self_argument,
                 self_contract,
@@ -78,28 +80,25 @@ impl ToVmir for HirEagerExprIdx {
                 path,
                 ref instantiation,
                 ref item_groups,
-            } => todo!(),
-            HirEagerExprData::NewTuple { ref items } => todo!(),
-            HirEagerExprData::Index {
-                owner: owner_hir_expr_idx,
-                ref items,
-            } => todo!(),
+            } => VmirExprData::Linkage,
+            HirEagerExprData::NewTuple { .. } => VmirExprData::Linkage,
+            HirEagerExprData::Index { owner, ref items } => VmirExprData::Linkage,
             HirEagerExprData::NewList {
                 ref items,
                 element_ty,
-            } => todo!(),
-            HirEagerExprData::Block { stmts } => todo!(),
+            } => VmirExprData::Linkage,
+            HirEagerExprData::Block { stmts } => VmirExprData::Block,
             HirEagerExprData::Closure {
                 ref parameters,
                 return_ty,
                 body,
-            } => todo!(),
+            } => VmirExprData::Closure,
             HirEagerExprData::EmptyHtmlTag {
                 function_ident,
                 ref arguments,
-            } => todo!(),
-            HirEagerExprData::Todo => todo!(),
-            HirEagerExprData::Unreachable => todo!(),
+            } => VmirExprData::Linkage,
+            HirEagerExprData::Todo => VmirExprData::Todo,
+            HirEagerExprData::Unreachable => VmirExprData::Unreachable,
         };
         builder.alloc_expr(expr_data)
     }

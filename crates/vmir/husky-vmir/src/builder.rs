@@ -1,6 +1,6 @@
 use crate::{
-    expr::{VmirExprArena, VmirExprData, VmirExprIdx},
-    stmt::VmirStmtArena,
+    expr::{VmirExprArena, VmirExprData, VmirExprIdx, VmirExprIdxRange},
+    stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdx, VmirStmtIdxRange},
     vmir::VmirData,
 };
 use husky_coword::Ident;
@@ -29,5 +29,17 @@ impl<'db> VmirExprBuilder<'db> {
 
     pub(crate) fn alloc_expr(&mut self, expr_data: VmirExprData) -> VmirExprIdx {
         self.vmir_expr_arena.alloc_one(expr_data)
+    }
+
+    pub(crate) fn alloc_exprs(&mut self, expr_data: Vec<VmirExprData>) -> VmirExprIdxRange {
+        self.vmir_expr_arena.alloc_batch(expr_data)
+    }
+
+    pub(crate) fn alloc_stmt(&mut self, stmt_data: VmirStmtData) -> VmirStmtIdx {
+        self.vmir_stmt_arena.alloc_one(stmt_data)
+    }
+
+    pub(crate) fn alloc_stmts(&mut self, stmt_data: Vec<VmirStmtData>) -> VmirStmtIdxRange {
+        self.vmir_stmt_arena.alloc_batch(stmt_data)
     }
 }
