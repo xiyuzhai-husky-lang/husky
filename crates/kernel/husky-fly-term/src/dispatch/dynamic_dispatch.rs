@@ -8,6 +8,7 @@ pub use self::field::*;
 pub use self::index::*;
 pub use self::method::*;
 
+use self::quary::FlyQuary;
 use super::*;
 
 #[salsa::debug_with_db]

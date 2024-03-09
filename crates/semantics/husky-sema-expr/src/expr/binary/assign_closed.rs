@@ -1,3 +1,5 @@
+use husky_fly_term::quary::FlyQuary;
+
 use super::*;
 
 impl<'a> SemaExprEngine<'a> {

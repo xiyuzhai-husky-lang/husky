@@ -1,3 +1,5 @@
+use crate::quary::FlyQuary;
+
 use super::*;
 use husky_eth_term::{
     instantiation::EthInstantiation,

@@ -1,3 +1,5 @@
+use self::quary::FlyQuary;
+
 use super::*;
 
 #[salsa::debug_with_db]

@@ -2,8 +2,11 @@ use super::*;
 use either::*;
 use husky_eth_signature::{FugitiveEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
 use husky_eth_term::instantiation::EthInstantiate;
-use husky_fly_term::instantiation::{
-    FlyInstantiate, FlyInstantiation, FlyInstantiationEnvironment, FlyTermSymbolResolution,
+use husky_fly_term::{
+    instantiation::{
+        FlyInstantiate, FlyInstantiation, FlyInstantiationEnvironment, FlyTermSymbolResolution,
+    },
+    quary::FlyQuary,
 };
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;

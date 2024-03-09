@@ -4046,6 +4046,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-chicago-typewriter"
+version = "0.1.0"
+dependencies = [
+ "eframe",
+ "egui",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "husky-cli-utils"
 version = "0.1.0"
 dependencies = [
