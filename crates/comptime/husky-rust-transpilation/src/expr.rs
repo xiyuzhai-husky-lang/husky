@@ -158,7 +158,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::Be { src: _, target: _ } => builder.macro_name(RustMacroName::Matches),
         HirEagerExprData::Prefix {
             opr,
-            opd_hir_expr_idx,
+            opd: opd_hir_expr_idx,
         } => {
             match opr {
                 HirPrefixOpr::NotInt => builder.bracketed(RustDelimiter::Par, |builder| {
@@ -179,7 +179,7 @@ fn transpile_hir_eager_expr_to_rust(
             }
         }
         HirEagerExprData::Suffix {
-            opd_hir_expr_idx,
+            opd: opd_hir_expr_idx,
             opr,
         } => match opr {
             HirSuffixOpr::Incr | HirSuffixOpr::Decr => {
@@ -188,7 +188,7 @@ fn transpile_hir_eager_expr_to_rust(
             }
         },
         HirEagerExprData::Unveil {
-            opd_hir_expr_idx,
+            opd,
             return_ty,
             ref instantiation,
             ..
@@ -197,7 +197,7 @@ fn transpile_hir_eager_expr_to_rust(
             builder.bracketed(RustDelimiter::Par, |builder| {
                 return_ty.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
-                (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
+                (opd, subexpr_geq()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 let runtime_constants: SmallVec<[HirTermSvarResolution; 2]> = instantiation
                     .symbol_map()
@@ -249,7 +249,7 @@ fn transpile_hir_eager_expr_to_rust(
             builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::PropsStructField {
-            owner_hir_expr_idx,
+            owner: owner_hir_expr_idx,
             ident,
             ..
         } => {
