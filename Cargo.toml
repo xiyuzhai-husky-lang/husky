@@ -29,7 +29,7 @@ members = [
     "crates/vm/*",
     "crates/vmir/*",
     "library/core",
-    "registry/*", "crates/mir/husky-mir", "crates/mir/husky-mir-pass",
+    "registry/*",
 ]
 resolver = "2"
 
