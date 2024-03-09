@@ -5302,6 +5302,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-mir"
+version = "0.1.0"
+
+[[package]]
+name = "husky-mir-pass"
+version = "0.1.0"
+
+[[package]]
 name = "husky-ml-task"
 version = "0.1.0"
 dependencies = [
