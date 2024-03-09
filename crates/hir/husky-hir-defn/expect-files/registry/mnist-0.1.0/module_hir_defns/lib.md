@@ -175,7 +175,7 @@
                             },
                         },
                     },
-                    body_with_hir_expr_region: None,
+                    hir_expr_body_and_region: None,
                 },
             ),
         ),

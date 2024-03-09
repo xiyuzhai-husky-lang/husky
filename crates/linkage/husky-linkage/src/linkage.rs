@@ -95,7 +95,7 @@ impl Linkage {
         let FugitiveHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
-        match hir_defn.body_with_hir_expr_region(db) {
+        match hir_defn.hir_expr_body_and_region(db) {
             Some((HirExprIdx::Lazy(_), _)) => None,
             Some((HirExprIdx::Eager(_), _)) | None => Some(Self::new(
                 db,

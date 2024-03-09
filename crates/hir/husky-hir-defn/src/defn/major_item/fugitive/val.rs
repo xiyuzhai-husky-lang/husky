@@ -6,7 +6,7 @@ use husky_hir_expr::helpers::hir_body_with_expr_region;
 pub struct ValHirDefn {
     pub path: FugitivePath,
     pub hir_decl: ValFugitiveHirDecl,
-    pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
+    pub hir_expr_body_and_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
 impl From<ValHirDefn> for MajorItemHirDefn {
@@ -32,7 +32,7 @@ impl ValHirDefn {
     }
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
-        self.body_with_hir_expr_region(db).map(|v| v.1)
+        self.hir_expr_body_and_region(db).map(|v| v.1)
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {

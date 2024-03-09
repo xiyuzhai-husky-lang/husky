@@ -49,6 +49,17 @@ impl HirDefn {
         self.hir_decl(db).template_parameters(db)
     }
 
+    pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
+        match self {
+            HirDefn::Submodule(_) => None,
+            HirDefn::MajorItem(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+            HirDefn::AssocItem(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+            HirDefn::TypeVariant(_defn) => None,
+            HirDefn::ImplBlock(_) => None,
+            HirDefn::Attr(_) => None,
+        }
+    }
+
     pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
             HirDefn::Submodule(_) => None,

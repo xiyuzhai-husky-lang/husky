@@ -70,6 +70,22 @@ impl TypeItemHirDefn {
         }
     }
 
+    pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
+        match self {
+            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn
+                .eager_body_with_hir_eager_expr_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn
+                .eager_body_with_hir_eager_expr_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+            TypeItemHirDefn::AssocType(_hir_defn) => todo!(),
+            TypeItemHirDefn::AssocVal(_hir_defn) => todo!(),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn
+                .eager_body_with_hir_eager_expr_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+        }
+    }
+
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.dependencies(db),
