@@ -22,6 +22,7 @@ pub use self::final_destination::*;
 pub use self::function_ty::*;
 pub use self::int_ty::*;
 pub use self::num_ty::*;
+use self::quary::FlyPlaceError;
 pub use self::ritchie_ty::*;
 pub use self::sort::*;
 pub use self::subtype::*;

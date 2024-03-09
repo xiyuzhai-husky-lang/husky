@@ -7,8 +7,8 @@ pub mod reref;
 pub mod trival;
 pub mod wrap_in_some;
 
-use self::deref::DerefFlyCoersion;
 use self::trival::TrivialFlyCoersion;
+use self::{deref::DerefFlyCoersion, quary::FlyQuary};
 
 use super::*;
 

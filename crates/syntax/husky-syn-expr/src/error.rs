@@ -20,7 +20,6 @@ impl From<TokenDataError> for SynExprError {
 
 #[derive(Error, Debug, PartialEq, Eq)]
 #[salsa::debug_with_db]
-// #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalSynExprError {
     #[error("expected `>`")]
     ExpectedRightAngleDelimiter {

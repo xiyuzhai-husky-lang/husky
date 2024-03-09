@@ -1,13 +1,15 @@
-mod application;
-mod curry;
-mod hole;
+pub mod application;
+pub mod curry;
+pub mod hole;
 pub mod hvar;
-mod ritchie;
+pub mod quary;
+pub mod ritchie;
 pub mod symbol_ty;
 mod utils;
 
 pub use self::hole::*;
 pub use self::hvar::*;
+use self::quary::FlyQuary;
 pub use self::ritchie::*;
 pub use self::symbol_ty::*;
 

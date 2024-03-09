@@ -13,7 +13,7 @@ mod region;
 mod resolve;
 mod rewite;
 pub mod signature;
-mod term;
+pub mod term;
 #[cfg(test)]
 mod tests;
 mod utils;

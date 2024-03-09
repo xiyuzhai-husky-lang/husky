@@ -136,3 +136,6 @@ typst-egui:
 
 eliminate-mods:
 	cargo run -p cargo-eliminate-mods
+
+chicago-typewriter:
+	cargo run -p husky-chicago-typewriter

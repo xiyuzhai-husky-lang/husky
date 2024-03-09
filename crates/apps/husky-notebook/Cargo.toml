@@ -4,11 +4,11 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
-tracing-subscriber = "0.3.16"
 eframe.workspace = true
 egui.workspace = true
 egui_dock.workspace = true
 tokio.workspace = true
+tracing-subscriber = "0.3.16"
 # abstractions
 ui = { path = "../../abstractions/ui" }
 enum-index = { path = "../../abstractions/enum-index" }

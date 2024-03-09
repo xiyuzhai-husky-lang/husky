@@ -2,6 +2,7 @@ mod ethereal;
 
 pub(crate) use self::ethereal::*;
 
+use self::quary::FlyQuary;
 use super::*;
 
 #[salsa::debug_with_db]

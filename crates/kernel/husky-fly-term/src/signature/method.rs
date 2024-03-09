@@ -1,6 +1,6 @@
 pub(crate) mod method_fn;
 
-use self::method_fn::MethodFnFlySignature;
+use self::{method_fn::MethodFnFlySignature, quary::FlyQuary};
 use super::*;
 
 #[salsa::debug_with_db]

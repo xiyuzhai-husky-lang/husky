@@ -58,7 +58,6 @@ impl eframe::App for NotebookApp {
             self.init_done = true;
         }
         self.render_panels(ctx)
-        // egui::CentralPanel::default().show(ctx, |ui|);
     }
 }
 

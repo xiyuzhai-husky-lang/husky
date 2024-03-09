@@ -1,3 +1,4 @@
+use self::quary::FlyQuary;
 use super::*;
 
 #[salsa::debug_with_db]
@@ -7,7 +8,7 @@ pub enum SemaBinaryOprFlySignature {
 }
 
 impl MemberSignature for SemaBinaryOprFlySignature {
-    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
+    fn expr_ty(&self, self_value_final_quary: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }

@@ -1,4 +1,4 @@
-use husky_fly_term::dispatch::HasFlyMethodDispatch;
+use husky_fly_term::{dispatch::HasFlyMethodDispatch, quary::FlyQuary};
 
 use super::*;
 

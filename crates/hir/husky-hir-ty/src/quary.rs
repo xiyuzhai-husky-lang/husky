@@ -1,5 +1,5 @@
 use either::*;
-use husky_fly_term::{FlyLifetime, FlyQuary};
+use husky_fly_term::{term::quary::FlyQuary, FlyLifetime};
 use husky_place::place::EthPlace;
 
 use crate::{lifetime::HirLifetime, HirQuarySvar};
