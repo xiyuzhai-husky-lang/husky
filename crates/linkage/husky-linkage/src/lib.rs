@@ -1,4 +1,5 @@
 #![feature(associated_type_bounds)]
+mod helpers;
 pub mod instantiation;
 pub mod jar;
 pub mod linkage;

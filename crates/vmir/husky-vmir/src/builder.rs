@@ -1,11 +1,11 @@
 use crate::{
     expr::{VmirExprArena, VmirExprData, VmirExprIdx, VmirExprIdxRange},
     stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdx, VmirStmtIdxRange},
-    vmir::VmirData,
 };
 use husky_coword::Ident;
-use husky_hir_eager_expr::{HirEagerExprArena, HirEagerStmtArena};
-use husky_linkage::instantiation::LinInstantiation;
+use husky_hir_eager_expr::{HirEagerExprArena, HirEagerExprIdx, HirEagerStmtArena};
+use husky_hir_expr::HirExprRegion;
+use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 
 pub(crate) struct VmirExprBuilder<'db> {
     db: &'db ::salsa::Db,
@@ -14,11 +14,33 @@ pub(crate) struct VmirExprBuilder<'db> {
     instantiation: &'db LinInstantiation,
     vmir_expr_arena: VmirExprArena,
     vmir_stmt_arena: VmirStmtArena,
-    buffer: Vec<VmirData>,
     variables: Vec<Ident>,
 }
 
 impl<'db> VmirExprBuilder<'db> {
+    pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(Self, HirEagerExprIdx)> {
+        use husky_hir_defn::defn::HasHirDefn;
+
+        let (path, instantiation) = linkage.path_and_instantiation(db)?;
+        let hir_defn = path.hir_defn(db).unwrap();
+        let HirExprRegion::Eager(hir_eager_expr_region) = hir_defn.hir_expr_region(db)? else {
+            unreachable!()
+        };
+        let root_hir_eager_expr_idx = todo!();
+        Some((
+            Self {
+                db,
+                hir_eager_expr_arena: hir_eager_expr_region.expr_arena(db),
+                hir_eager_stmt_arena: hir_eager_expr_region.stmt_arena(db),
+                instantiation,
+                vmir_expr_arena: Default::default(),
+                vmir_stmt_arena: Default::default(),
+                variables: todo!(),
+            },
+            root_hir_eager_expr_idx,
+        ))
+    }
+
     pub(crate) fn hir_eager_expr_arena(&self) -> &'db HirEagerExprArena {
         self.hir_eager_expr_arena
     }
@@ -41,5 +63,9 @@ impl<'db> VmirExprBuilder<'db> {
 
     pub(crate) fn alloc_stmts(&mut self, stmt_data: Vec<VmirStmtData>) -> VmirStmtIdxRange {
         self.vmir_stmt_arena.alloc_batch(stmt_data)
+    }
+
+    pub(crate) fn finish(self) -> (VmirExprArena, VmirStmtArena) {
+        (self.vmir_expr_arena, self.vmir_stmt_arena)
     }
 }
