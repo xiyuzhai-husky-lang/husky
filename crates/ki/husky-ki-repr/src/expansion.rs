@@ -51,7 +51,7 @@ fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansio
             };
             debug_assert!(ki_repr.arguments(db).is_empty());
             let (HirExprIdx::Lazy(body), HirExprRegion::Lazy(hir_lazy_expr_region)) =
-                hir_defn.body_with_hir_expr_region(db)?
+                hir_defn.hir_expr_body_and_region(db)?
             else {
                 return None;
             };

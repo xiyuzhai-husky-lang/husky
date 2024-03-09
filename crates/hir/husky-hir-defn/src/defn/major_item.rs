@@ -42,6 +42,13 @@ impl MajorItemHirDefn {
         }
     }
 
+    pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
+        match self {
+            MajorItemHirDefn::Type(_) | MajorItemHirDefn::Trait(_) => None,
+            MajorItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+        }
+    }
+
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             MajorItemHirDefn::Type(hir_defn) => hir_defn.dependencies(db),

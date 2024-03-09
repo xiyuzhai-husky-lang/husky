@@ -43,6 +43,14 @@ impl AssocItemHirDefn {
         }
     }
 
+    pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
+        match self {
+            AssocItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+            AssocItemHirDefn::TraitItem(_) => todo!(),
+            AssocItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.hir_expr_body_and_region(db),
+        }
+    }
+
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             AssocItemHirDefn::TypeItem(hir_defn) => hir_defn.dependencies(db),

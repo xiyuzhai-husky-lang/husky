@@ -43,7 +43,7 @@
                             },
                         },
                     },
-                    body_with_hir_expr_region: Some(
+                    hir_expr_body_and_region: Some(
                         (
                             Eager(
                                 6,
@@ -332,7 +332,7 @@
                             },
                         },
                     },
-                    body_with_hir_expr_region: Some(
+                    hir_expr_body_and_region: Some(
                         (
                             Eager(
                                 5,
@@ -394,7 +394,7 @@
                             },
                         },
                     },
-                    body_with_hir_expr_region: Some(
+                    hir_expr_body_and_region: Some(
                         (
                             Eager(
                                 5,
@@ -456,7 +456,7 @@
                             },
                         },
                     },
-                    body_with_hir_expr_region: Some(
+                    hir_expr_body_and_region: Some(
                         (
                             Eager(
                                 86,

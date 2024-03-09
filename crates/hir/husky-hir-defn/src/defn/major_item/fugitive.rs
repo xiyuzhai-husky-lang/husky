@@ -63,6 +63,21 @@ impl FugitiveHirDefn {
         }
     }
 
+    pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
+        match self {
+            FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn
+                .eager_body_with_hir_eager_expr_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+            FugitiveHirDefn::Ki(hir_defn) => hir_defn
+                .hir_expr_body_and_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+            FugitiveHirDefn::FunctionGn(hir_defn) => hir_defn
+                .lazy_body_with_hir_lazy_expr_region(db)
+                .map(|(body, region)| (body.into(), region.into())),
+            FugitiveHirDefn::TypeAlias(hir_defn) => None,
+        }
+    }
+
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
             FugitiveHirDefn::FunctionFn(hir_defn) => hir_defn.dependencies(db),
