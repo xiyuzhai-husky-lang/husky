@@ -2,7 +2,7 @@ use crate::region::VmirRegion;
 use husky_coword::Ident;
 use husky_hir_ty::HirType;
 use husky_linkage::linkage::Linkage;
-use husky_task_interface::value::LiteralValue;
+use husky_literal_value::LiteralValue;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 // ad hoc

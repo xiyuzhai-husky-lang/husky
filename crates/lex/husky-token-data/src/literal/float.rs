@@ -1,12 +1,12 @@
 use super::*;
-use husky_term_prelude::literal::float::{TermF32Literal, TermF64Literal};
+use husky_term_prelude::literal::float::{F32Literal, F64Literal};
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum FloatLiteralTokenData {
     Unspecified(UnspecifiedFloatLiteral),
-    F32(TermF32Literal),
-    F64(TermF64Literal),
+    F32(F32Literal),
+    F64(F64Literal),
 }
 
 #[salsa::tracked(db = TokenDataDb, jar = TokenDataJar)]
@@ -26,12 +26,12 @@ impl FloatLiteralTokenData {
             FloatLiteralTokenData::F32(slf) => {
                 let mut text = "-".to_string();
                 text += slf.text(db);
-                TermF32Literal::new(db, -slf.value(db), text).into()
+                F32Literal::new(db, -slf.value(db), text).into()
             }
             FloatLiteralTokenData::F64(slf) => {
                 let mut text = "-".to_string();
                 text += slf.text(db);
-                TermF64Literal::new(db, -slf.value(db), text).into()
+                F64Literal::new(db, -slf.value(db), text).into()
             }
         }
     }

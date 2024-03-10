@@ -4,13 +4,13 @@ use std::num::ParseFloatError;
 
 /// allowing representing very large number
 #[salsa::interned(jar = TermPreludeJar)]
-pub struct TermF32Literal {
+pub struct F32Literal {
     pub value: OrderedFloat<f32>,
     #[return_ref]
     pub text: String,
 }
 
-impl TermF32Literal {
+impl F32Literal {
     pub fn try_new(mut text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
         if !text.ends_with("f32") {
             if text.ends_with(".") {
@@ -32,13 +32,13 @@ impl TermF32Literal {
 
 /// allowing representing very large number
 #[salsa::interned(jar = TermPreludeJar)]
-pub struct TermF64Literal {
+pub struct F64Literal {
     pub value: OrderedFloat<f64>,
     #[return_ref]
     pub text: String,
 }
 
-impl TermF64Literal {
+impl F64Literal {
     pub fn try_new(mut text: String, db: &::salsa::Db) -> Result<Self, ParseFloatError> {
         if !text.ends_with("f64") {
             if text.ends_with(".") {

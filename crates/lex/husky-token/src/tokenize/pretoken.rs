@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::{is_char_valid_ident_first_char, Label};
 use husky_term_prelude::literal::{
-    float::{TermF32Literal, TermF64Literal},
+    float::{F32Literal, F64Literal},
     StringLiteralTokenData,
 };
 
@@ -270,7 +270,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     let Ok(f): Result<f32, _> = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    FloatLiteralTokenData::F32(TermF32Literal::new(
+                    FloatLiteralTokenData::F32(F32Literal::new(
                         db,
                         f.into(),
                         std::mem::take(&mut self.buffer),
@@ -281,7 +281,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     let Ok(f): Result<f64, _> = self.buffer.parse() else {
                         return Pretoken::Err(TokenDataError::ParseIntError);
                     };
-                    FloatLiteralTokenData::F64(TermF64Literal::new(
+                    FloatLiteralTokenData::F64(F64Literal::new(
                         db,
                         f.into(),
                         std::mem::take(&mut self.buffer),

@@ -3,8 +3,8 @@ use husky_eth_term::term::EthTerm;
 use husky_syn_expr::{PatternSynExprIdx, SynPatternExprData, SynPatternExprRoot};
 use husky_term_prelude::literal::{
     int::{
-        TermI128Literal, TermI64Literal, TermISizeLiteral, TermR128Literal, TermR64Literal,
-        TermRSizeLiteral, TermU128Literal, TermU64Literal, TermUSizeLiteral,
+        I128Literal, I64Literal, ISizeLiteral, R128Literal, R64Literal, RSizeLiteral, U128Literal,
+        U64Literal, USizeLiteral,
     },
     Literal,
 };
@@ -97,37 +97,37 @@ impl<'a> HirEagerExprBuilder<'a> {
                         IntegerLikeLiteralTokenData::I16(val) => Literal::I16(val),
                         IntegerLikeLiteralTokenData::I32(val) => Literal::I32(val),
                         IntegerLikeLiteralTokenData::I64(val) => {
-                            Literal::I64(TermI64Literal::new(db, val))
+                            Literal::I64(I64Literal::new(db, val))
                         }
                         IntegerLikeLiteralTokenData::I128(val) => {
-                            Literal::I128(TermI128Literal::new(db, val))
+                            Literal::I128(I128Literal::new(db, val))
                         }
                         IntegerLikeLiteralTokenData::ISize(val) => {
-                            Literal::ISize(TermISizeLiteral::new(db, val as i64))
+                            Literal::ISize(ISizeLiteral::new(db, val as i64))
                         }
                         IntegerLikeLiteralTokenData::R8(val) => Literal::R8(val),
                         IntegerLikeLiteralTokenData::R16(val) => Literal::R16(val),
                         IntegerLikeLiteralTokenData::R32(val) => Literal::R32(val),
                         IntegerLikeLiteralTokenData::R64(val) => {
-                            Literal::R64(TermR64Literal::new(db, val as u64))
+                            Literal::R64(R64Literal::new(db, val as u64))
                         }
                         IntegerLikeLiteralTokenData::R128(val) => {
-                            Literal::R128(TermR128Literal::new(db, val as u128))
+                            Literal::R128(R128Literal::new(db, val as u128))
                         }
                         IntegerLikeLiteralTokenData::RSize(val) => {
-                            Literal::RSize(TermRSizeLiteral::new(db, val as u64))
+                            Literal::RSize(RSizeLiteral::new(db, val as u64))
                         }
                         IntegerLikeLiteralTokenData::U8(val) => Literal::U8(val),
                         IntegerLikeLiteralTokenData::U16(val) => Literal::U16(val),
                         IntegerLikeLiteralTokenData::U32(val) => Literal::U32(val),
                         IntegerLikeLiteralTokenData::U64(val) => {
-                            Literal::U64(TermU64Literal::new(db, val as u64))
+                            Literal::U64(U64Literal::new(db, val as u64))
                         }
                         IntegerLikeLiteralTokenData::U128(val) => {
-                            Literal::U128(TermU128Literal::new(db, val as u128))
+                            Literal::U128(U128Literal::new(db, val as u128))
                         }
                         IntegerLikeLiteralTokenData::USize(val) => {
-                            Literal::USize(TermUSizeLiteral::new(db, val as u64))
+                            Literal::USize(USizeLiteral::new(db, val as u64))
                         }
                     },
                     LiteralTokenData::Float(_) => todo!(),

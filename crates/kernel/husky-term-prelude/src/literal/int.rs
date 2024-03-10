@@ -1,12 +1,12 @@
 use super::*;
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermI64Literal {
+pub struct I64Literal {
     pub value: i64,
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermI128Literal {
+pub struct I128Literal {
     pub value: i128,
 }
 
@@ -16,17 +16,17 @@ pub struct TermI256Literal {
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermISizeLiteral {
+pub struct ISizeLiteral {
     pub value: i64,
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermU64Literal {
+pub struct U64Literal {
     pub value: u64,
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermU128Literal {
+pub struct U128Literal {
     pub value: u128,
 }
 
@@ -36,17 +36,17 @@ pub struct TermU256Literal {
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermUSizeLiteral {
+pub struct USizeLiteral {
     pub value: u64,
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermR64Literal {
+pub struct R64Literal {
     pub value: u64,
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermR128Literal {
+pub struct R128Literal {
     pub value: u128,
 }
 
@@ -56,7 +56,7 @@ pub struct TermR256Literal {
 }
 
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermRSizeLiteral {
+pub struct RSizeLiteral {
     pub value: u64,
 }
 
@@ -72,13 +72,13 @@ impl Literal {
             PreludeIntTypePath::I16 => Literal::I16(val.try_into().expect("todo")),
             PreludeIntTypePath::I32 => Literal::I32(val.try_into().expect("todo")),
             PreludeIntTypePath::I64 => {
-                Literal::I64(TermI64Literal::new(db, val.try_into().expect("todo")))
+                Literal::I64(I64Literal::new(db, val.try_into().expect("todo")))
             }
             PreludeIntTypePath::I128 => {
-                Literal::I128(TermI128Literal::new(db, val.try_into().expect("todo")))
+                Literal::I128(I128Literal::new(db, val.try_into().expect("todo")))
             }
             PreludeIntTypePath::ISize => {
-                Literal::ISize(TermISizeLiteral::new(db, val.try_into().expect("ok")))
+                Literal::ISize(ISizeLiteral::new(db, val.try_into().expect("ok")))
             }
             // Unsigned integer types
             PreludeIntTypePath::U8 => {
@@ -91,14 +91,14 @@ impl Literal {
                 Literal::U32(val.try_into().expect("value out of range for u32"))
             }
             PreludeIntTypePath::U64 => {
-                Literal::U64(TermU64Literal::new(db, val.try_into().expect("todo")))
+                Literal::U64(U64Literal::new(db, val.try_into().expect("todo")))
             }
             PreludeIntTypePath::U128 => {
-                Literal::U128(TermU128Literal::new(db, val.try_into().expect("todo")))
+                Literal::U128(U128Literal::new(db, val.try_into().expect("todo")))
             }
 
             PreludeIntTypePath::USize => {
-                Literal::USize(TermUSizeLiteral::new(db, val.try_into().expect("ok")))
+                Literal::USize(USizeLiteral::new(db, val.try_into().expect("ok")))
             }
             // raw bits
             PreludeIntTypePath::R8 => {
@@ -111,13 +111,13 @@ impl Literal {
                 Literal::R32(val.try_into().expect("value out of range for r32"))
             }
             PreludeIntTypePath::R64 => {
-                Literal::R64(TermR64Literal::new(db, val.try_into().expect("todo")))
+                Literal::R64(R64Literal::new(db, val.try_into().expect("todo")))
             }
             PreludeIntTypePath::R128 => {
-                Literal::R128(TermR128Literal::new(db, val.try_into().expect("todo")))
+                Literal::R128(R128Literal::new(db, val.try_into().expect("todo")))
             }
             PreludeIntTypePath::RSize => {
-                Literal::RSize(TermRSizeLiteral::new(db, val.try_into().expect("ok")))
+                Literal::RSize(RSizeLiteral::new(db, val.try_into().expect("ok")))
             }
         }
     }

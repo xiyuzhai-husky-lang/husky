@@ -10,6 +10,7 @@ pub mod storage;
 #[cfg(test)]
 mod tests;
 mod variable;
+#[deprecated]
 pub mod vmir;
 
 use self::jar::VmirJar as Jar;

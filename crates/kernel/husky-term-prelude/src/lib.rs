@@ -25,21 +25,21 @@ use husky_entity_path::*;
 
 #[salsa::jar]
 pub struct TermPreludeJar(
-    crate::literal::int::TermI64Literal,
-    crate::literal::int::TermI128Literal,
+    crate::literal::int::I64Literal,
+    crate::literal::int::I128Literal,
     crate::literal::int::TermI256Literal,
-    crate::literal::int::TermISizeLiteral,
-    crate::literal::int::TermU64Literal,
-    crate::literal::int::TermU128Literal,
+    crate::literal::int::ISizeLiteral,
+    crate::literal::int::U64Literal,
+    crate::literal::int::U128Literal,
     crate::literal::int::TermU256Literal,
-    crate::literal::int::TermUSizeLiteral,
-    crate::literal::int::TermR64Literal,
-    crate::literal::int::TermR128Literal,
+    crate::literal::int::USizeLiteral,
+    crate::literal::int::R64Literal,
+    crate::literal::int::R128Literal,
     crate::literal::int::TermR256Literal,
-    crate::literal::int::TermRSizeLiteral,
-    crate::literal::float::TermF32Literal,
-    crate::literal::float::TermF64Literal,
-    crate::literal::TermNatLiteral,
+    crate::literal::int::RSizeLiteral,
+    crate::literal::float::F32Literal,
+    crate::literal::float::F64Literal,
+    crate::literal::NatLiteral,
     crate::literal::StringLiteralTokenData,
 );
 

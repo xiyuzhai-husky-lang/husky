@@ -336,7 +336,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
-                                                    TermF32Literal {
+                                                    F32Literal {
                                                         value: OrderedFloat(
                                                             0.0,
                                                         ),
@@ -793,7 +793,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
-                                                    TermF32Literal {
+                                                    F32Literal {
                                                         value: OrderedFloat(
                                                             0.0,
                                                         ),
@@ -1250,7 +1250,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
-                                                    TermF32Literal {
+                                                    F32Literal {
                                                         value: OrderedFloat(
                                                             0.0,
                                                         ),
