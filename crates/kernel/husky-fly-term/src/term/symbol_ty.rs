@@ -1,10 +1,5 @@
-use husky_eth_term::term::svar::EthSvar;
-use husky_place::{place::EthPlace, PlaceInfo};
-use thiserror::Error;
-
-use self::quary::FlyQuary;
-
 use super::*;
+use husky_place::PlaceInfo;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
