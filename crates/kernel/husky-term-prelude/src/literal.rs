@@ -22,11 +22,11 @@ pub enum Literal {
     /// 32-bit integer literal
     I32(i32),
     /// 64-bit integer literal
-    I64(TermI64Literal),
+    I64(I64Literal),
     /// 128-bit integer literal
-    I128(TermI128Literal),
+    I128(I128Literal),
     /// for cross compilation
-    ISize(TermISizeLiteral),
+    ISize(ISizeLiteral),
     /// 8-bit unsigned integer literal
     U8(u8),
     /// 16-bit unsigned integer liteUal
@@ -34,11 +34,11 @@ pub enum Literal {
     /// 32-bit unsigned integer liteUal
     U32(u32),
     /// 64-bit unsigned integer liteUal
-    U64(TermU64Literal),
+    U64(U64Literal),
     /// 128-bit unsigned integer liteUal
-    U128(TermU128Literal),
+    U128(U128Literal),
     /// for cross compilation
-    USize(TermUSizeLiteral),
+    USize(USizeLiteral),
     /// 8-bit raw bit literal
     R8(u8),
     /// 16-bit raw bit literal
@@ -46,17 +46,17 @@ pub enum Literal {
     /// 32-bit raw bit literal
     R32(u32),
     /// 64-bit raw bit literal
-    R64(TermR64Literal),
+    R64(R64Literal),
     /// 128-bit raw bit literal
-    R128(TermR128Literal),
+    R128(R128Literal),
     /// for cross compilation
-    RSize(TermRSizeLiteral),
+    RSize(RSizeLiteral),
     /// natural number literal
-    Nat(TermNatLiteral),
+    Nat(NatLiteral),
     /// 32-bit float literal
-    F32(TermF32Literal),
+    F32(F32Literal),
     /// 64-bit float literal
-    F64(TermF64Literal),
+    F64(F64Literal),
     /// string literal
     String(StringLiteralTokenData),
     /// static lifetime
@@ -115,7 +115,7 @@ impl Literal {
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermNatLiteral {
+pub struct NatLiteral {
     pub bits: Vec<usize>,
 }
 

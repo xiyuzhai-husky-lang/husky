@@ -22,6 +22,8 @@ husky-task-interface.workspace = true
 husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
 husky-print-utils.workspace = true
+# value
+husky-literal-value.workspace = true
 # vm
 husky-standard-value-macros.workspace = true
 

@@ -241,7 +241,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 0,
                                                     },
                                                 ),
@@ -276,7 +276,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::USize(
-                                                    TermUSizeLiteral {
+                                                    USizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -992,7 +992,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -1169,7 +1169,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -1694,7 +1694,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -1776,7 +1776,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -1992,7 +1992,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -2041,7 +2041,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),
@@ -2090,7 +2090,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 0,
                                                     },
                                                 ),
@@ -2320,7 +2320,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
                                                 Literal::ISize(
-                                                    TermISizeLiteral {
+                                                    ISizeLiteral {
                                                         value: 1,
                                                     },
                                                 ),

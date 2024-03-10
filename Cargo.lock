@@ -5238,6 +5238,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-literal-value"
+version = "0.1.0"
+
+[[package]]
 name = "husky-log-utils"
 version = "0.1.0"
 dependencies = [
@@ -5797,6 +5801,7 @@ version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
  "husky-hir-prelude",
+ "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
  "husky-task-interface",
@@ -5977,6 +5982,7 @@ name = "husky-task-interface"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
+ "husky-literal-value",
  "husky-task-interface-macros",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -6476,6 +6482,7 @@ dependencies = [
  "husky-hir-ty",
  "husky-javelin",
  "husky-linkage",
+ "husky-literal-value",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",

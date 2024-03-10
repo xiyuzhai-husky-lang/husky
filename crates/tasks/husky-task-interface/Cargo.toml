@@ -17,3 +17,5 @@ husky-visual-protocol.workspace = true
 husky-task-interface-macros.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
+# value
+husky-literal-value.workspace = true
