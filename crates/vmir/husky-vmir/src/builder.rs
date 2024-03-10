@@ -1,8 +1,8 @@
 use crate::{
+    destroyer::{VmirDestroyerArena, VmirDestroyerData, VmirDestroyerIdxRange},
     expr::{VmirExprArena, VmirExprData, VmirExprIdx, VmirExprIdxRange},
-    stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdx, VmirStmtIdxRange},
+    stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdxRange},
 };
-use husky_coword::Ident;
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerExprIdx, HirEagerStmtArena};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
@@ -14,6 +14,7 @@ pub(crate) struct VmirExprBuilder<'db> {
     instantiation: &'db LinInstantiation,
     vmir_expr_arena: VmirExprArena,
     vmir_stmt_arena: VmirStmtArena,
+    vmir_destroyer_arena: VmirDestroyerArena,
 }
 
 /// # constructor
@@ -37,6 +38,7 @@ impl<'db> VmirExprBuilder<'db> {
                 instantiation,
                 vmir_expr_arena: Default::default(),
                 vmir_stmt_arena: Default::default(),
+                vmir_destroyer_arena: Default::default(),
             },
         ))
     }
@@ -67,16 +69,19 @@ impl<'db> VmirExprBuilder<'db> {
         self.vmir_expr_arena.alloc_one(expr_data)
     }
 
-    pub(crate) fn alloc_exprs(&mut self, expr_data: Vec<VmirExprData>) -> VmirExprIdxRange {
-        self.vmir_expr_arena.alloc_batch(expr_data)
+    pub(crate) fn alloc_exprs(&mut self, expr_datas: Vec<VmirExprData>) -> VmirExprIdxRange {
+        self.vmir_expr_arena.alloc_batch(expr_datas)
     }
 
-    pub(crate) fn alloc_stmt(&mut self, stmt_data: VmirStmtData) -> VmirStmtIdx {
-        self.vmir_stmt_arena.alloc_one(stmt_data)
+    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VmirStmtData>) -> VmirStmtIdxRange {
+        self.vmir_stmt_arena.alloc_batch(stmts)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, stmt_data: Vec<VmirStmtData>) -> VmirStmtIdxRange {
-        self.vmir_stmt_arena.alloc_batch(stmt_data)
+    pub(crate) fn alloc_destroyers(
+        &mut self,
+        destroyer_datas: Vec<VmirDestroyerData>,
+    ) -> VmirDestroyerIdxRange {
+        self.vmir_destroyer_arena.alloc_batch(destroyer_datas)
     }
 
     pub(crate) fn finish(self) -> (VmirExprArena, VmirStmtArena) {

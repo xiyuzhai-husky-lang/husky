@@ -1,4 +1,6 @@
-use crate::{builder::VmirExprBuilder, ToVmir};
+use crate::{
+    builder::VmirExprBuilder, destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, ToVmir,
+};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -13,7 +15,10 @@ pub enum VmirExprData {
     Suffix,
     Unveil,
     Linkage,
-    Block,
+    Block {
+        stmts: VmirStmtIdxRange,
+        destroyers: VmirDestroyerIdxRange,
+    },
     Closure,
     Todo,
     Unreachable,
@@ -89,7 +94,13 @@ impl ToVmir for HirEagerExprIdx {
                 ref items,
                 element_ty,
             } => VmirExprData::Linkage,
-            HirEagerExprData::Block { stmts } => VmirExprData::Block,
+            HirEagerExprData::Block { stmts } => {
+                VmirExprData::Block {
+                    stmts: stmts.to_vmir(builder),
+                    // ad hoc, todo: find destroyers
+                    destroyers: builder.alloc_destroyers(vec![]),
+                }
+            }
             HirEagerExprData::Closure {
                 ref parameters,
                 return_ty,

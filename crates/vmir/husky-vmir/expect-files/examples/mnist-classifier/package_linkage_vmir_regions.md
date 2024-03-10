@@ -23,11 +23,29 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..11,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -184,11 +202,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -253,11 +282,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -290,11 +331,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -331,11 +384,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -372,11 +434,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -413,11 +489,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -454,11 +542,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -495,11 +594,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -536,11 +646,30 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..12,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Forext,
+                        VmirStmtData::Let,
+                        VmirStmtData::Forext,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -577,11 +706,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -618,11 +756,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -663,11 +810,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Forext,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -708,11 +869,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Forext,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -805,11 +980,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -842,11 +1026,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -879,11 +1072,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -916,11 +1118,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Match,
+                    ],
                 },
             },
         ),
@@ -953,11 +1166,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Match,
+                    ],
                 },
             },
         ),
@@ -990,11 +1213,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Match,
+                    ],
                 },
             },
         ),
@@ -1079,11 +1313,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1116,11 +1362,24 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -1157,11 +1416,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1198,11 +1466,26 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..8,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -1239,11 +1522,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1280,11 +1572,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -1325,11 +1631,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1682,11 +2000,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1727,11 +2054,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1772,11 +2108,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1817,11 +2162,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1862,11 +2216,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1907,11 +2270,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1952,11 +2324,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -1997,11 +2378,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2042,11 +2432,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2087,11 +2486,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2132,11 +2540,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                    ],
                 },
             },
         ),
@@ -2177,11 +2595,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2222,11 +2649,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                    ],
                 },
             },
         ),
@@ -2267,11 +2708,24 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2312,11 +2766,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2357,11 +2821,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2402,11 +2875,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2447,11 +2929,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2492,11 +2983,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2537,11 +3037,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2582,11 +3091,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2627,11 +3145,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2672,11 +3199,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2717,11 +3253,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2762,11 +3307,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2923,11 +3477,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2960,11 +3528,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -2997,11 +3579,31 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..13,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::Assert,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3034,11 +3636,29 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..11,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::IfElse,
+                    ],
                 },
             },
         ),
@@ -3071,11 +3691,29 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..11,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3116,11 +3754,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Assert,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3161,11 +3809,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3202,11 +3859,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3243,11 +3909,26 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..8,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3288,11 +3969,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3377,11 +4067,27 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..9,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::Let,
+                        VmirStmtData::While,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3418,11 +4124,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3459,11 +4174,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3500,11 +4224,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3541,11 +4279,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3582,11 +4332,26 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..8,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -3623,11 +4388,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3668,11 +4442,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3713,11 +4496,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3758,11 +4550,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3803,11 +4604,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3848,11 +4658,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3893,11 +4712,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -3982,11 +4810,24 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..6,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                    ],
                 },
             },
         ),
@@ -4079,11 +4920,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4124,11 +4974,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                    ],
                 },
             },
         ),
@@ -4213,11 +5074,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -4254,11 +5127,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -4295,11 +5179,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -4336,11 +5231,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -4369,11 +5275,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4406,11 +5321,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4451,11 +5376,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4500,11 +5434,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4537,11 +5482,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4574,11 +5530,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4607,11 +5575,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4640,11 +5617,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4689,11 +5675,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4726,11 +5723,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4759,11 +5770,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4792,11 +5812,36 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..18,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4829,11 +5874,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4866,11 +5922,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4903,11 +5970,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4936,11 +6014,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -4973,11 +6060,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5006,11 +6102,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5039,11 +6144,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5072,11 +6186,30 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..12,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5109,11 +6242,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5146,11 +6290,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5179,11 +6335,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5212,11 +6377,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5249,11 +6423,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5282,11 +6467,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5319,11 +6513,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5356,11 +6562,25 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..7,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5389,11 +6609,27 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..9,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5422,11 +6658,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5455,11 +6700,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5492,11 +6748,21 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..3,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5525,11 +6791,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5558,11 +6833,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5591,11 +6875,28 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..10,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5628,11 +6929,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5665,11 +6977,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5698,11 +7022,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5735,11 +7068,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5772,11 +7116,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5809,11 +7164,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5842,11 +7208,31 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..13,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::Let,
+                        VmirStmtData::Require,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::IfElse,
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5875,11 +7261,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -5908,11 +7303,23 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..5,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -5941,11 +7348,22 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..4,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                        VmirStmtData::ForBetween,
+                        VmirStmtData::Return,
+                    ],
                 },
             },
         ),
@@ -5974,11 +7392,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -6007,11 +7434,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -6040,11 +7476,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -6073,11 +7518,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Eval,
+                    ],
                 },
             },
         ),
@@ -6172,11 +7626,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Match,
+                    ],
                 },
             },
         ),
@@ -6267,11 +7730,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Match,
+                    ],
                 },
             },
         ),

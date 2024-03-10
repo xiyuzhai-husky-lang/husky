@@ -1,68 +1,82 @@
 use crate::ToVmir;
-use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdx};
+use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirStmtData {
     Let,
-    Require,
     Return,
+    Require,
+    Assert,
+    Break,
+    Eval,
+    ForBetween,
+    Forext,
+    ForIn,
+    While,
+    DoWhile,
+    IfElse,
+    Match,
 }
 
 pub type VmirStmtArena = Arena<VmirStmtData>;
 pub type VmirStmtIdx = ArenaIdx<VmirStmtData>;
 pub type VmirStmtIdxRange = ArenaIdxRange<VmirStmtData>;
 
-impl ToVmir for HirEagerStmtIdx {
-    type Output = VmirStmtIdx;
+impl ToVmir for HirEagerStmtIdxRange {
+    type Output = VmirStmtIdxRange;
 
     fn to_vmir(self, builder: &mut crate::builder::VmirExprBuilder) -> Self::Output {
-        match builder.hir_eager_stmt_arena()[self] {
-            HirEagerStmtData::Let {
-                pattern,
-                contract,
-                initial_value,
-                coersion,
-            } => todo!(),
-            HirEagerStmtData::Return { result, coersion } => todo!(),
-            HirEagerStmtData::Require { ref condition } => todo!(),
-            HirEagerStmtData::Assert { ref condition } => todo!(),
-            HirEagerStmtData::Break => todo!(),
-            HirEagerStmtData::Eval {
-                expr_idx,
-                coersion,
-                discarded,
-            } => todo!(),
-            HirEagerStmtData::ForBetween {
-                ref particulars,
-                block,
-            } => todo!(),
-            HirEagerStmtData::Forext {
-                ref particulars,
-                block,
-            } => todo!(),
-            HirEagerStmtData::ForIn {
-                ref condition,
-                block,
-            } => todo!(),
-            HirEagerStmtData::While {
-                ref condition,
-                stmts,
-            } => todo!(),
-            HirEagerStmtData::DoWhile {
-                ref condition,
-                block,
-            } => todo!(),
-            HirEagerStmtData::IfElse {
-                ref if_branch,
-                ref elif_branches,
-                ref else_branch,
-            } => todo!(),
-            HirEagerStmtData::Match {
-                ref case_branches,
-                ref match_target,
-            } => todo!(),
-        }
+        let stmts = self
+            .into_iter()
+            .map(|stmt| match builder.hir_eager_stmt_arena()[stmt] {
+                HirEagerStmtData::Let {
+                    pattern,
+                    contract,
+                    initial_value,
+                    coersion,
+                } => VmirStmtData::Let,
+                HirEagerStmtData::Return { result, coersion } => VmirStmtData::Return,
+                HirEagerStmtData::Require { ref condition } => VmirStmtData::Require,
+                HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
+                HirEagerStmtData::Break => VmirStmtData::Break,
+                HirEagerStmtData::Eval {
+                    expr_idx,
+                    coersion,
+                    discarded,
+                } => VmirStmtData::Eval,
+                HirEagerStmtData::ForBetween {
+                    ref particulars,
+                    block,
+                } => VmirStmtData::ForBetween,
+                HirEagerStmtData::Forext {
+                    ref particulars,
+                    block,
+                } => VmirStmtData::Forext,
+                HirEagerStmtData::ForIn {
+                    ref condition,
+                    block,
+                } => VmirStmtData::ForIn,
+                HirEagerStmtData::While {
+                    ref condition,
+                    stmts,
+                } => VmirStmtData::While,
+                HirEagerStmtData::DoWhile {
+                    ref condition,
+                    block,
+                } => VmirStmtData::DoWhile,
+                HirEagerStmtData::IfElse {
+                    ref if_branch,
+                    ref elif_branches,
+                    ref else_branch,
+                } => VmirStmtData::IfElse,
+                HirEagerStmtData::Match {
+                    ref case_branches,
+                    ref match_target,
+                } => VmirStmtData::Match,
+            })
+            .collect();
+        builder.alloc_stmts(stmts)
     }
 }
