@@ -25,6 +25,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-hir-ty.workspace = true
 husky-coword.workspace = true
+husky-place.workspace = true
 husky-standard-value = { workspace = true, features = ["constant"] }
 # linkage
 husky-linkage.workspace = true
