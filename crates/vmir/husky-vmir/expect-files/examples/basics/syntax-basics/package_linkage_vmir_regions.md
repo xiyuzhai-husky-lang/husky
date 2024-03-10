@@ -27,11 +27,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                    ],
                 },
             },
         ),
@@ -64,11 +73,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                    ],
                 },
             },
         ),
@@ -101,11 +119,20 @@
                 root_expr: 1,
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::Block,
+                        VmirExprData::Block {
+                            stmts: ArenaIdxRange(
+                                1..2,
+                            ),
+                            destroyers: ArenaIdxRange(
+                                1..1,
+                            ),
+                        },
                     ],
                 },
                 vmir_stmt_arena: Arena {
-                    data: [],
+                    data: [
+                        VmirStmtData::Let,
+                    ],
                 },
             },
         ),
