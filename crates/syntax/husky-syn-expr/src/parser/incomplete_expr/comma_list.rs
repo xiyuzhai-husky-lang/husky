@@ -26,11 +26,10 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
     },
-    #[deprecated(note = "move this to CallList")]
     MethodApplicationOrCall {
         self_expr: SynExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        generic_arguments: Option<SynTemplateArguments>,
+        template_arguments: Option<SynTemplateArguments>,
     },
 }
