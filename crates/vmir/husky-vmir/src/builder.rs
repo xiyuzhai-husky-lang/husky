@@ -16,6 +16,7 @@ pub(crate) struct VmirExprBuilder<'db> {
     vmir_stmt_arena: VmirStmtArena,
 }
 
+/// # constructor
 impl<'db> VmirExprBuilder<'db> {
     pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(HirEagerExprIdx, Self)> {
         use husky_hir_defn::defn::HasHirDefn;
@@ -39,6 +40,13 @@ impl<'db> VmirExprBuilder<'db> {
             },
         ))
     }
+}
+
+/// # getters
+impl<'db> VmirExprBuilder<'db> {
+    pub(crate) fn db(&self) -> &'db ::salsa::Db {
+        self.db
+    }
 
     pub(crate) fn hir_eager_expr_arena(&self) -> &'db HirEagerExprArena {
         self.hir_eager_expr_arena
@@ -48,6 +56,13 @@ impl<'db> VmirExprBuilder<'db> {
         self.hir_eager_stmt_arena
     }
 
+    pub(crate) fn instantiation(&self) -> &'db LinInstantiation {
+        self.instantiation
+    }
+}
+
+/// # actions
+impl<'db> VmirExprBuilder<'db> {
     pub(crate) fn alloc_expr(&mut self, expr_data: VmirExprData) -> VmirExprIdx {
         self.vmir_expr_arena.alloc_one(expr_data)
     }

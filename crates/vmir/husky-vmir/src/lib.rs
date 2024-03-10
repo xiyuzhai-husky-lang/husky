@@ -1,6 +1,7 @@
 pub mod block;
 mod builder;
 pub mod destroyer;
+pub mod eval;
 pub mod expr;
 pub mod jar;
 pub mod region;

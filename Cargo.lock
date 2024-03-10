@@ -6479,6 +6479,7 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
+ "husky-place",
  "husky-print-utils",
  "husky-sema-expr",
  "husky-sema-place-contract",
