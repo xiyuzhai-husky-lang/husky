@@ -25,7 +25,7 @@ impl<'db> VmirExprBuilder<'db> {
         let (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) =
             hir_defn.hir_expr_body_and_region(db)?
         else {
-            unreachable!()
+            return None;
         };
         Some((
             body,

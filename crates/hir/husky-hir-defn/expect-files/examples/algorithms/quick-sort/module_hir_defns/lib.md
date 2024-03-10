@@ -3199,7 +3199,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 4,
+                                                opd: 4,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,

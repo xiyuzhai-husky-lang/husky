@@ -262,7 +262,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 5,
+                                                opd: 5,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -322,7 +322,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 9,
+                                                opd: 9,
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
