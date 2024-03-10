@@ -1,5 +1,4 @@
 use super::*;
-use husky_defn_ast::DefnAst;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynIfBranch {

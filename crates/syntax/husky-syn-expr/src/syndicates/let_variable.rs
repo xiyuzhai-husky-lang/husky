@@ -1,5 +1,3 @@
-use parsec::HasStreamState;
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]

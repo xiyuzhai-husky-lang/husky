@@ -1,5 +1,3 @@
-use parsec::{parse_consecutive_list, HasStreamState};
-
 use super::*;
 
 #[salsa::debug_with_db]

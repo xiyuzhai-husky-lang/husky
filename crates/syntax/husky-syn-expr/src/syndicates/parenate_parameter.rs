@@ -1,7 +1,6 @@
 use super::*;
 use either::*;
 use husky_token_data::delimiter::Delimiter;
-use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]

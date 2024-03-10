@@ -1,5 +1,3 @@
-use idx_arena::ordered_map::ArenaOrderedMap;
-
 use super::*;
 
 #[salsa::debug_with_db]

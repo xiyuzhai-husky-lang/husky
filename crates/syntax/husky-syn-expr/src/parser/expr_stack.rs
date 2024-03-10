@@ -1,8 +1,5 @@
-use husky_token_data::delimiter::Delimiter;
-
-use crate::SynKeyedCallListItem;
-
 use super::*;
+use husky_token_data::delimiter::Delimiter;
 
 /// stack based expression parsing.
 ///
