@@ -1,5 +1,3 @@
-use parsec::HasStreamState;
-
 use super::*;
 
 #[salsa::debug_with_db]

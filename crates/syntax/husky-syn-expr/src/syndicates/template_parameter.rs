@@ -1,10 +1,6 @@
-use husky_regional_token::IdentRegionalToken;
-use husky_token_data::delimiter::Delimiter;
-use parsec::HasStreamState;
-
-use crate::syndicates::trais::TraitsSyndicate;
-
 use super::*;
+use crate::syndicates::trais::TraitsSyndicate;
+use husky_token_data::delimiter::Delimiter;
 
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]

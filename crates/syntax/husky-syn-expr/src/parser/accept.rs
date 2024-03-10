@@ -1,11 +1,9 @@
-use crate::SynRegularOrVariadicCallListItem;
-
 use super::*;
 use husky_entity_tree::helpers::tokra_region::TokraRegionDataRef;
 use husky_print_utils::p;
 use husky_term_prelude::ritchie::RitchieKind;
 use husky_token_data::delimiter::Delimiter;
-use parsec::{parse_consecutive_vec_map, IsStreamParser};
+use parsec::parse_consecutive_vec_map;
 use smallvec::smallvec;
 
 impl<'a, C> SynExprParser<'a, C>

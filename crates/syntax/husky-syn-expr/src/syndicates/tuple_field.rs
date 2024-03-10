@@ -1,5 +1,3 @@
-use parsec::parse_consecutive_list;
-
 use super::*;
 
 #[salsa::debug_with_db]
