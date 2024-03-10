@@ -355,7 +355,7 @@ where
                                         self_expr: _,
                                         dot_regional_token_idx: _,
                                         ident_token: _,
-                                        generic_arguments: _,
+                                        template_arguments: _,
                                     },
                                 bra: _,
                                 bra_regional_token_idx: _,
