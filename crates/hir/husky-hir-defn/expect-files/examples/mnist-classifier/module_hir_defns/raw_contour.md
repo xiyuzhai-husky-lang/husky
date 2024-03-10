@@ -2417,7 +2417,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 12,
+                                                opd: 12,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -4528,7 +4528,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 13,
+                                                owner: 13,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -4582,7 +4582,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 15,
+                                                owner: 15,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -4681,7 +4681,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 20,
+                                                owner: 20,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -4735,7 +4735,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 22,
+                                                owner: 22,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -5176,7 +5176,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 5,
+                                                owner: 5,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -5286,7 +5286,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 11,
+                                                owner: 11,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -5773,7 +5773,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: BitNot,
-                                                opd_hir_expr_idx: 37,
+                                                opd: 37,
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -6048,7 +6048,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 52,
+                                                owner: 52,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -6158,7 +6158,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 58,
+                                                owner: 58,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -6469,7 +6469,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 72,
+                                                opd: 72,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -6492,7 +6492,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 74,
+                                                opd: 74,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -6515,7 +6515,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 76,
+                                                opd: 76,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -6722,7 +6722,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: NotBool,
-                                                opd_hir_expr_idx: 88,
+                                                opd: 88,
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -7206,7 +7206,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: BitNot,
-                                                opd_hir_expr_idx: 106,
+                                                opd: 106,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -7297,7 +7297,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 112,
+                                                opd: 112,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -7355,7 +7355,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 116,
+                                                opd: 116,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -7488,7 +7488,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 125,
+                                                opd: 125,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -8003,7 +8003,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 145,
+                                                opd: 145,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -8059,7 +8059,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 149,
+                                                opd: 149,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -8115,7 +8115,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 153,
+                                                opd: 153,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -8631,7 +8631,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 178,
+                                                opd: 178,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -9100,7 +9100,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 201,
+                                                opd: 201,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -9156,7 +9156,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 205,
+                                                opd: 205,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -9837,7 +9837,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 238,
+                                                owner: 238,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -10103,7 +10103,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 254,
+                                                owner: 254,
                                                 ident: `mask`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -10415,7 +10415,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 273,
+                                                opd: 273,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -10460,7 +10460,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Suffix {
-                                                opd_hir_expr_idx: 276,
+                                                opd: 276,
                                                 opr: Incr,
                                             },
                                             quary: Transient,
@@ -10505,7 +10505,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 279,
+                                                opd: 279,
                                             },
                                             quary: Const,
                                             is_always_copyable: true,
@@ -12258,7 +12258,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12712,7 +12712,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12777,7 +12777,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 5,
+                                                owner: 5,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12805,7 +12805,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 7,
+                                                owner: 7,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12833,7 +12833,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 9,
+                                                owner: 9,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12861,7 +12861,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 11,
+                                                owner: 11,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12889,7 +12889,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 13,
+                                                owner: 13,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -12974,7 +12974,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 16,
+                                                owner: 16,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -13088,7 +13088,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 22,
+                                                owner: 22,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -13213,7 +13213,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 28,
+                                                owner: 28,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -13338,7 +13338,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 34,
+                                                owner: 34,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -13463,7 +13463,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 40,
+                                                owner: 40,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14122,7 +14122,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `cc`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14432,7 +14432,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14517,7 +14517,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 6,
+                                                owner: 6,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14615,7 +14615,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 12,
+                                                owner: 12,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14708,7 +14708,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 17,
+                                                owner: 17,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14736,7 +14736,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 19,
+                                                owner: 19,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14802,7 +14802,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 23,
+                                                owner: 23,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14830,7 +14830,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 25,
+                                                owner: 25,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14924,7 +14924,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 31,
+                                                owner: 31,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -14962,7 +14962,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 33,
+                                                owner: 33,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15086,7 +15086,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 39,
+                                                owner: 39,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15172,7 +15172,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 44,
+                                                owner: 44,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15200,7 +15200,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 46,
+                                                owner: 46,
                                                 ident: `x`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15266,7 +15266,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 50,
+                                                owner: 50,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15294,7 +15294,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 52,
+                                                owner: 52,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15767,7 +15767,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -15874,7 +15874,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 4,
+                                                owner: 4,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -16014,7 +16014,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 10,
+                                                owner: 10,
                                                 ident: `points`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {

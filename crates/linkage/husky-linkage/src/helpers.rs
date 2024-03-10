@@ -43,11 +43,12 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::StructField { self_ty, field } => todo!(),
-            LinkageData::Index => return None,
-            LinkageData::VecConstructor { element_ty } => todo!(),
-            LinkageData::TypeDefault { ty } => todo!(),
-            LinkageData::EnumU8ToJsonValue { ty_path } => todo!(),
+            // ad hoc
+            LinkageData::StructField { .. }
+            | LinkageData::Index
+            | LinkageData::VecConstructor { .. }
+            | LinkageData::TypeDefault { .. }
+            | LinkageData::EnumU8ToJsonValue { .. } => return None,
         })
     }
 }

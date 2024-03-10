@@ -40,8 +40,43 @@ husky-print-utils.workspace = true
 husky-check-utils.workspace = true
 
 [dev-dependencies]
+# fs
+husky-manifest.workspace = true
+husky-vfs.workspace = true
+# hir
+husky-hir-ty.workspace = true
+husky-hir-eager-expr.workspace = true
+husky-hir-lazy-expr.workspace = true
+husky-hir-expr.workspace = true
+husky-hir-decl.workspace = true
+# kernel
+husky-eth-signature.workspace = true
+husky-term-prelude.workspace = true
+husky-dec-term.workspace = true
+husky-dec-ty.workspace = true
+husky-dec-signature.workspace = true
+husky-eth-term.workspace = true
+husky-fly-term.workspace = true
+# lex
+husky-text.workspace = true
+husky-token-data.workspace = true
+husky-token.workspace = true
+husky-toml-token.workspace = true
+# linkage
+husky-javelin.workspace = true
+husky-linkage.workspace = true
+# semantics
+husky-corgi-config.workspace = true
+husky-sema-expr.workspace = true
+husky-sema-place-contract.workspace = true
+# syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
-husky-vmir = { path = ".", features = ["test_utils"] }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-syn-decl.workspace = true
+husky-corgi-config-ast.workspace = true
+husky-entity-tree.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-defn.workspace = true
 
 [features]
-test_utils = ["salsa/test_utils"]

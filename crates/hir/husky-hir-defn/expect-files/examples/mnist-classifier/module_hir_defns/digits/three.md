@@ -306,7 +306,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -426,7 +426,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 9,
+                                                opd: 9,
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -763,7 +763,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -883,7 +883,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 9,
+                                                opd: 9,
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
@@ -1220,7 +1220,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `y`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -1340,7 +1340,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Prefix {
                                                 opr: Minus,
-                                                opd_hir_expr_idx: 9,
+                                                opd: 9,
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,

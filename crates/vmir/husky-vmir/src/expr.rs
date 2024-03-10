@@ -2,6 +2,7 @@ use crate::{builder::VmirExprBuilder, ToVmir};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData {
     Literal,

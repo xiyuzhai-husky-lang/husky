@@ -307,7 +307,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `line_segments`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {

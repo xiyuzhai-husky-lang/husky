@@ -251,7 +251,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 1,
+                                                owner: 1,
                                                 ident: `start`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -301,7 +301,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `end`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -611,7 +611,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 3,
+                                                owner: 3,
                                                 ident: `start`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -894,7 +894,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                owner_hir_expr_idx: 14,
+                                                owner: 14,
                                                 ident: `end`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
