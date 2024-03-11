@@ -1,10 +1,10 @@
 use super::*;
-use husky_hir_decl::decl::TupleStructTypeHirDecl;
+use husky_hir_decl::decl::TupleStructHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TupleStructHirDefn {
     pub path: TypePath,
-    pub hir_decl: TupleStructTypeHirDecl,
+    pub hir_decl: TupleStructHirDecl,
 }
 
 impl From<TupleStructHirDefn> for MajorItemHirDefn {

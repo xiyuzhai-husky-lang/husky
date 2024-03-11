@@ -20,10 +20,10 @@ use husky_syn_decl::decl::TypeSynDecl;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeHirDecl {
-    Enum(EnumTypeHirDecl),
-    PropsStruct(PropsStructTypeHirDecl),
+    Enum(EnumHirDecl),
+    PropsStruct(PropsStructHirDecl),
     UnitStruct(UnitStructHirDecl),
-    TupleStruct(TupleStructTypeHirDecl),
+    TupleStruct(TupleStructHirDecl),
     Extern(ExternTypeHirDecl),
     Union(UnionHirDecl),
 }
@@ -74,15 +74,15 @@ impl HasHirDecl for TypePath {
 #[salsa::tracked(jar = HirDeclJar)]
 fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
-        TypeSynDecl::Enum(syn_decl) => Some(EnumTypeHirDecl::from_syn(path, syn_decl, db).into()),
+        TypeSynDecl::Enum(syn_decl) => Some(EnumHirDecl::from_syn(path, syn_decl, db).into()),
         TypeSynDecl::PropsStruct(syn_decl) => {
-            Some(PropsStructTypeHirDecl::from_syn(path, syn_decl, db).into())
+            Some(PropsStructHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeSynDecl::UnitStruct(syn_decl) => {
             Some(UnitStructHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeSynDecl::TupleStruct(syn_decl) => {
-            Some(TupleStructTypeHirDecl::from_syn(path, syn_decl, db).into())
+            Some(TupleStructHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeSynDecl::Inductive(_syn_decl) => None,
         TypeSynDecl::Structure(_syn_decl) => None,

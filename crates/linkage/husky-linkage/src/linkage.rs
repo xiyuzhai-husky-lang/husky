@@ -65,34 +65,37 @@ pub enum LinkageData {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
-    StructTypeConstructor {
+    StructConstructor {
         path: TypePath,
         instantiation: LinInstantiation,
     },
-    StructTypeDestructor {
+    StructDestructor {
         path: TypePath,
         instantiation: LinInstantiation,
-        qual: LinQual,
     },
-    EnumTypeVariantConstructor {
+    EnumVariantConstructor {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
     },
     /// tells if a value is of a certain variant, returns bool
-    EnumTypeVariantDiscriminator {
+    EnumVariantDiscriminator {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
     },
     /// destruct a value with `qual` assuming it is of a certain variant,
     /// panic otherwise
-    EnumTypeVariantDestructor {
+    EnumVariantDestructor {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
-        qual: LinQual,
     },
     StructField {
         self_ty: LinTypePathLeading,
-        field: LinkageStructField,
+        field: LinkageField,
+    },
+    EnumVariantField {
+        path: TypeVariantPath,
+        instantiation: LinInstantiation,
+        field: LinkageField,
     },
     Index,
     VecConstructor {
@@ -107,8 +110,8 @@ pub enum LinkageData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinkageStructField {
-    Tuple,
+pub enum LinkageField {
+    Tuple { index: u8 },
     Props { ident: Ident },
 }
 
@@ -145,7 +148,7 @@ impl Linkage {
         };
         let data = LinkageData::StructField {
             self_ty,
-            field: LinkageStructField::Props { ident },
+            field: LinkageField::Props { ident },
         };
         Self::new(db, data)
     }
@@ -193,7 +196,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::StructTypeConstructor {
+            LinkageData::StructConstructor {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -208,7 +211,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::EnumTypeVariantConstructor {
+            LinkageData::EnumVariantConstructor {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },

@@ -1,11 +1,11 @@
 use super::*;
 use husky_entity_tree::HasTypeVariantPaths;
-use husky_hir_decl::decl::EnumTypeHirDecl;
+use husky_hir_decl::decl::EnumHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = pub(super) new)]
 pub struct EnumHirDefn {
     pub path: TypePath,
-    pub hir_decl: EnumTypeHirDecl,
+    pub hir_decl: EnumHirDecl,
 }
 
 impl From<EnumHirDefn> for MajorItemHirDefn {

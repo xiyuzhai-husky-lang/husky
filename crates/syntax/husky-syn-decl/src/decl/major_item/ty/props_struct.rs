@@ -5,7 +5,7 @@ use husky_regional_token::{
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct PropsStructTypeSynNodeDecl {
+pub struct PropsStructSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
@@ -21,7 +21,7 @@ pub struct PropsStructTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl PropsStructTypeSynNodeDecl {
+impl PropsStructSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -67,7 +67,7 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for PropsStructRcurlRegionalT
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct PropsStructTypeSynDecl {
+pub struct PropsStructSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -77,11 +77,11 @@ pub struct PropsStructTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl PropsStructTypeSynDecl {
+impl PropsStructSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypePath,
-        syn_node_decl: PropsStructTypeSynNodeDecl,
+        syn_node_decl: PropsStructSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)

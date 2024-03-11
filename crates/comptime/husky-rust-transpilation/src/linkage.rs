@@ -10,7 +10,7 @@ use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
     instantiation::{LinInstantiation, LinTermSymbolResolution, LinkageInstantiate},
-    linkage::LinkageStructField,
+    linkage::LinkageField,
     template_argument::{
         constant::LinConstant,
         qual,
@@ -83,40 +83,38 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::StructTypeConstructor {
+            LinkageData::StructConstructor {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 builder.struct_ty_constructor_path(path);
                 turbo_fish_instantiation(instantiation, builder);
             }),
-            LinkageData::StructTypeDestructor {
+            LinkageData::StructDestructor {
                 path,
                 ref instantiation,
-                qual,
-            } => builder.macro_call(RustMacroName::DestructorFnLinkageImpl, |builder| {
-                builder.struct_ty_destructor_path(path, qual);
+            } => builder.macro_call(RustMacroName::DestructorLinkageImpl, |builder| {
+                builder.struct_ty_destructor_path(path);
                 turbo_fish_instantiation(instantiation, builder);
             }),
-            LinkageData::EnumTypeVariantConstructor {
+            LinkageData::EnumVariantConstructor {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::EnumTypeVariantDiscriminator {
+            LinkageData::EnumVariantDiscriminator {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 builder.enum_ty_variant_discriminator_path(path);
                 turbo_fish_instantiation(instantiation, builder);
             }),
-            LinkageData::EnumTypeVariantDestructor {
+            LinkageData::EnumVariantDestructor {
                 path,
                 ref instantiation,
-                qual,
-            } => builder.macro_call(RustMacroName::DestructorFnLinkageImpl, |builder| {
-                builder.enum_ty_variant_destructor_path(path, qual);
+            } => builder.macro_call(RustMacroName::DestructorLinkageImpl, |builder| {
+                builder.enum_ty_variant_destructor_path(path);
                 turbo_fish_instantiation(instantiation, builder);
             }),
             LinkageData::EnumU8ToJsonValue { ty_path } => builder
@@ -132,7 +130,7 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::UnveilAssocFn {
                 path,
                 ref instantiation,
-            } => builder.macro_call(RustMacroName::UnveilFnLinkageImpl, |builder| {
+            } => builder.macro_call(RustMacroName::UnveilLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
             LinkageData::MemoizedField {
@@ -147,11 +145,33 @@ impl TranspileToRustWith<()> for Linkage {
                     self_ty.transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
                     match field {
-                        LinkageStructField::Tuple => todo!(),
-                        LinkageStructField::Props { ident } => ident.transpile_to_rust(builder),
+                        LinkageField::Tuple { index } => todo!(),
+                        LinkageField::Props { ident } => ident.transpile_to_rust(builder),
                     }
                 })
             }
+            LinkageData::EnumVariantField {
+                path,
+                ref instantiation,
+                field,
+            } => builder.macro_call(RustMacroName::EnumFieldLinkageImpl, |builder| {
+                path.parent_ty_path(db).transpile_to_rust(builder);
+                builder.bracketed_comma_list(
+                    RustDelimiter::Angle,
+                    instantiation.iter().map(|(_, res)| match res {
+                        LinTermSymbolResolution::Explicit(arg) => arg,
+                        LinTermSymbolResolution::SelfLifetime
+                        | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
+                    }),
+                );
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                path.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                match field {
+                    LinkageField::Tuple { index } => builder.tuple_field(index),
+                    LinkageField::Props { ident } => ident.transpile_to_rust(builder),
+                }
+            }),
             LinkageData::TypeDefault { ty } => builder
                 .macro_call(RustMacroName::TypeDefault, |builder| {
                     ty.transpile_to_rust(builder)

@@ -1,17 +1,17 @@
 use super::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct EnumTypeDecTemplate {
+pub struct EnumDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
     pub self_ty: DecTerm,
 }
 
-impl EnumTypeDecTemplate {
+impl EnumDecTemplate {
     pub fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: EnumTypeSynDecl,
+        decl: EnumSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
@@ -28,4 +28,4 @@ impl EnumTypeDecTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct EnumTypeDecSignature {}
+pub struct EnumDecSignature {}

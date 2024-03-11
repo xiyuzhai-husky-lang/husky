@@ -3,7 +3,7 @@ use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
 pub struct EnumPropsVariantDecTemplate {
-    pub parent_ty_template: EnumTypeDecTemplate,
+    pub parent_ty_template: EnumDecTemplate,
     pub field_tys: SmallVec<[EnumPropsVariantFieldDecTemplate; 4]>,
     pub return_ty: DecTerm,
     pub instance_constructor_ty: DecRitchie,
@@ -18,7 +18,7 @@ pub struct EnumPropsVariantFieldDecTemplate {
 impl EnumPropsVariantDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        parent_ty_template: EnumTypeDecTemplate,
+        parent_ty_template: EnumDecTemplate,
         decl: TypePropsVariantSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);

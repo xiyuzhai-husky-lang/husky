@@ -16,7 +16,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         todo!()
     };
     match signature {
-        TypeDecTemplate::Enum(_) => Err(OriginalDeclarativeTypeError::EnumTypeNoConstructor)?,
+        TypeDecTemplate::Enum(_) => Err(OriginalDeclarativeTypeError::EnumNoConstructor)?,
         TypeDecTemplate::PropsStruct(signature) => {
             Ok(props_struct_ty_instance_constructor_path_declarative_ty(
                 db, path, variances, signature,
@@ -41,7 +41,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     variances: &[Variance],
-    tmpl: PropsStructTypeDecTemplate,
+    tmpl: PropsStructDecTemplate,
 ) -> DeclarativeTypeResult<DecTerm> {
     let template_parameters = &tmpl.template_parameters(db);
     let self_ty = tmpl.self_ty(db);
@@ -67,7 +67,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
     variances: &[Variance],
-    signature: TupleStructTypeDecTemplate,
+    signature: TupleStructDecTemplate,
 ) -> DeclarativeTypeResult<DecTerm> {
     let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);

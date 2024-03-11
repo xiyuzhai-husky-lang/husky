@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct EnumTypeSynNodeDecl {
+pub struct EnumSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
@@ -9,7 +9,7 @@ pub struct EnumTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl EnumTypeSynNodeDecl {
+impl EnumSynNodeDecl {
     pub fn template_parameters(self, _db: &::salsa::Db) -> &[TemplateSynParameterData] {
         todo!()
         // self.template_parameter_decl_list(db)
@@ -32,16 +32,16 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_enum_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,
-    ) -> EnumTypeSynNodeDecl {
+    ) -> EnumSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
-        EnumTypeSynNodeDecl::new(db, syn_node_path, template_parameters, parser.finish())
+        EnumSynNodeDecl::new(db, syn_node_path, template_parameters, parser.finish())
     }
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct EnumTypeSynDecl {
+pub struct EnumSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -49,12 +49,12 @@ pub struct EnumTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl EnumTypeSynDecl {
+impl EnumSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypePath,
-        syn_node_decl: EnumTypeSynNodeDecl,
+        syn_node_decl: EnumSynNodeDecl,
     ) -> DeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)

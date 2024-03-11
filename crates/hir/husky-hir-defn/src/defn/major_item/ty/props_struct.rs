@@ -1,10 +1,10 @@
 use super::*;
-use husky_hir_decl::decl::PropsStructTypeHirDecl;
+use husky_hir_decl::decl::PropsStructHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct PropsStructHirDefn {
     pub path: TypePath,
-    pub hir_decl: PropsStructTypeHirDecl,
+    pub hir_decl: PropsStructHirDecl,
 }
 
 impl From<PropsStructHirDefn> for MajorItemHirDefn {

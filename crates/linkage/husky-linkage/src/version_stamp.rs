@@ -98,7 +98,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::StructTypeConstructor {
+        LinkageData::StructConstructor {
             path,
             ref instantiation,
         } => {
@@ -106,7 +106,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::StructTypeDestructor {
+        LinkageData::StructDestructor {
             path,
             ref instantiation,
             ..
@@ -115,25 +115,34 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::EnumTypeVariantConstructor {
+        LinkageData::EnumVariantConstructor {
             path,
             ref instantiation,
         }
-        | LinkageData::EnumTypeVariantDiscriminator {
+        | LinkageData::EnumVariantDiscriminator {
             path,
             ref instantiation,
         }
-        | LinkageData::EnumTypeVariantDestructor {
+        | LinkageData::EnumVariantDestructor {
             path,
             ref instantiation,
             ..
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
-            builder.add_instantiation(instantiation)
+            builder.add_instantiation(instantiation);
         }
         LinkageData::EnumU8ToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
         LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
+        LinkageData::EnumVariantField {
+            path,
+            ref instantiation,
+            ..
+        } => {
+            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
+            builder.add(hir_defn);
+            builder.add_instantiation(instantiation);
+        }
         LinkageData::TypeDefault { ty } => builder.add_ty(ty),
         LinkageData::VecConstructor { element_ty } => builder.add(element_ty),
         LinkageData::Index => todo!(),

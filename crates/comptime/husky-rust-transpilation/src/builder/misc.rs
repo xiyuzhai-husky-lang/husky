@@ -42,10 +42,9 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         }
     }
 
-    pub(crate) fn struct_ty_destructor_path(&mut self, ty_path: TypePath, qual: LinQual) {
+    pub(crate) fn struct_ty_destructor_path(&mut self, ty_path: TypePath) {
         ty_path.transpile_to_rust(self);
         self.write_str("::__destructor");
-        self.qual_suffix(qual);
     }
 
     pub(crate) fn struct_ty_constructor_ident(&mut self) {
@@ -54,7 +53,6 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
 
     pub(crate) fn struct_ty_destructor_ident(&mut self, qual: LinQual) {
         self.write_str("__destructor");
-        self.qual_suffix(qual);
     }
 
     pub(crate) fn enum_ty_variant_constructor_path(&mut self, path: TypeVariantPath) {
@@ -69,10 +67,10 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.enum_ty_variant_discriminator_ident(path)
     }
 
-    pub(crate) fn enum_ty_variant_destructor_path(&mut self, path: TypeVariantPath, qual: LinQual) {
+    pub(crate) fn enum_ty_variant_destructor_path(&mut self, path: TypeVariantPath) {
         path.parent_ty_path(self.db).transpile_to_rust(self);
         self.punctuation(RustPunctuation::ColonColon);
-        self.enum_ty_variant_destructor_ident(path, qual)
+        self.enum_ty_variant_destructor_ident(path)
     }
 
     pub(crate) fn enum_ty_variant_constructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
@@ -89,16 +87,11 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str("_discriminator");
     }
 
-    pub(crate) fn enum_ty_variant_destructor_ident(
-        &mut self,
-        ty_variant_path: TypeVariantPath,
-        qual: LinQual,
-    ) {
+    pub(crate) fn enum_ty_variant_destructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
         let db = self.db;
         self.write_str("__");
         self.write_str(ty_variant_path.ident(db).data(db));
         self.write_str("_destructor");
-        self.qual_suffix(qual);
     }
 
     fn qual_suffix(&mut self, qual: LinQual) {
@@ -263,5 +256,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn visual_synchrotron_argument(&mut self) {
         self.result += "__visual_synchrotron"
+    }
+
+    pub(crate) fn tuple_field(&mut self, index: u8) {
+        use std::fmt::Write;
+
+        write!(self.result, ".{index}").unwrap();
     }
 }

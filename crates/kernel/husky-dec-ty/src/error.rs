@@ -31,8 +31,8 @@ impl From<&DeclError> for DeclarativeTypeError {
 pub enum OriginalDeclarativeTypeError {
     #[error("declarative_term error")]
     DecTerm(#[from] DecTermError),
-    #[error("EnumTypeHasNoConstructor")]
-    EnumTypeNoConstructor,
+    #[error("EnumHasNoConstructor")]
+    EnumNoConstructor,
     #[error("InductiveTypeHasNoConstructor")]
     InductiveTypeHasNoConstructor,
     #[error("todo")]

@@ -1,4 +1,4 @@
-use husky_syn_decl::decl::UnitStructTypeSynDecl;
+use husky_syn_decl::decl::UnitStructSynDecl;
 
 use super::*;
 
@@ -11,11 +11,7 @@ pub struct UnitStructHirDecl {
 }
 
 impl UnitStructHirDecl {
-    pub(super) fn from_syn(
-        _path: TypePath,
-        syn_decl: UnitStructTypeSynDecl,
-        db: &::salsa::Db,
-    ) -> Self {
+    pub(super) fn from_syn(_path: TypePath, syn_decl: UnitStructSynDecl, db: &::salsa::Db) -> Self {
         let _builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         todo!()
     }

@@ -1,4 +1,5 @@
 use husky_entity_tree::HasTypeVariantPaths;
+use husky_hir_decl::decl::TypeVariantHirDecl;
 
 use super::*;
 
@@ -27,29 +28,56 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
     }
     for instantiation in LinInstantiation::from_javelin(instantiation, db) {
         for &(_, path) in path.ty_variant_paths(db) {
+            let hir_defn = path.hir_decl(db).unwrap();
             linkages.push(Linkage::new(
                 db,
-                LinkageData::EnumTypeVariantConstructor {
+                LinkageData::EnumVariantConstructor {
                     path,
                     instantiation: instantiation.clone(),
                 },
             ));
             linkages.push(Linkage::new(
                 db,
-                LinkageData::EnumTypeVariantDiscriminator {
+                LinkageData::EnumVariantDiscriminator {
                     path,
                     instantiation: instantiation.clone(),
                 },
             ));
-            for &qual in LinQual::ALL {
-                linkages.push(Linkage::new(
-                    db,
-                    LinkageData::EnumTypeVariantDestructor {
-                        path,
-                        instantiation: instantiation.clone(),
-                        qual,
-                    },
-                ))
+            match hir_defn {
+                TypeVariantHirDecl::Props(hir_defn) => {
+                    linkages.push(Linkage::new(
+                        db,
+                        LinkageData::EnumVariantDestructor {
+                            path,
+                            instantiation: instantiation.clone(),
+                        },
+                    ));
+                    for field in hir_defn.fields(db) {
+                        todo!()
+                    }
+                }
+                TypeVariantHirDecl::Tuple(hir_defn) => {
+                    linkages.push(Linkage::new(
+                        db,
+                        LinkageData::EnumVariantDestructor {
+                            path,
+                            instantiation: instantiation.clone(),
+                        },
+                    ));
+                    for (index, field) in hir_defn.fields(db).iter().enumerate() {
+                        linkages.push(Linkage::new(
+                            db,
+                            LinkageData::EnumVariantField {
+                                path,
+                                instantiation: instantiation.clone(),
+                                field: LinkageField::Tuple {
+                                    index: index.try_into().unwrap(),
+                                },
+                            },
+                        ));
+                    }
+                }
+                TypeVariantHirDecl::Unit(_) => (),
             }
         }
     }
@@ -62,11 +90,11 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
     db: &::salsa::Db,
 ) -> SmallVec<[Linkage; 4]> {
     let mut linkages: SmallVec<[Linkage; 4]> = smallvec![];
-    let fields: Vec<LinkageStructField> = match path.hir_decl(db).unwrap() {
+    let fields: Vec<LinkageField> = match path.hir_decl(db).unwrap() {
         TypeHirDecl::PropsStruct(hir_decl) => hir_decl
             .fields(db)
             .iter()
-            .map(|field| LinkageStructField::Props {
+            .map(|field| LinkageField::Props {
                 ident: field.ident(),
             })
             .collect(),
@@ -91,21 +119,18 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
         );
         linkages.push(Linkage::new(
             db,
-            LinkageData::StructTypeConstructor {
+            LinkageData::StructConstructor {
                 path,
                 instantiation: instantiation.clone(),
             },
         ));
-        for &qual in LinQual::ALL {
-            linkages.push(Linkage::new(
-                db,
-                LinkageData::StructTypeDestructor {
-                    path,
-                    instantiation: instantiation.clone(),
-                    qual,
-                },
-            ))
-        }
+        linkages.push(Linkage::new(
+            db,
+            LinkageData::StructDestructor {
+                path,
+                instantiation: instantiation.clone(),
+            },
+        ));
         for &field in &fields {
             linkages.push(Linkage::new(
                 db,
