@@ -23,10 +23,10 @@ use husky_entity_kind::TypeKind;
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeSynNodeDecl {
-    Enum(EnumTypeSynNodeDecl),
-    PropsStruct(PropsStructTypeSynNodeDecl),
-    UnitStruct(UnitStructTypeSynNodeDecl),
-    TupleStruct(TupleStructTypeSynNodeDecl),
+    Enum(EnumSynNodeDecl),
+    PropsStruct(PropsStructSynNodeDecl),
+    UnitStruct(UnitStructSynNodeDecl),
+    TupleStruct(TupleStructSynNodeDecl),
     Inductive(InductiveTypeSynNodeDecl),
     Structure(StructureTypeSynNodeDecl),
     Extern(ExternTypeSynNodeDecl),
@@ -116,7 +116,7 @@ impl<'a> DeclParser<'a> {
         if let Some(lpar) = parser.try_parse_err_as_none::<LparRegionalToken>() {
             let field_comma_list = parser.try_parse();
             let rpar = parser.try_parse();
-            TupleStructTypeSynNodeDecl::new(
+            TupleStructSynNodeDecl::new(
                 db,
                 syn_node_path,
                 template_parameters,
@@ -133,7 +133,7 @@ impl<'a> DeclParser<'a> {
             let lcurl = parser.try_parse();
             let field_comma_list = parser.try_parse();
             let rcurl = parser.try_parse();
-            PropsStructTypeSynNodeDecl::new(
+            PropsStructSynNodeDecl::new(
                 db,
                 syn_node_path,
                 template_parameters,
@@ -151,10 +151,10 @@ impl<'a> DeclParser<'a> {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeSynDecl {
-    Enum(EnumTypeSynDecl),
-    PropsStruct(PropsStructTypeSynDecl),
-    UnitStruct(UnitStructTypeSynDecl),
-    TupleStruct(TupleStructTypeSynDecl),
+    Enum(EnumSynDecl),
+    PropsStruct(PropsStructSynDecl),
+    UnitStruct(UnitStructSynDecl),
+    TupleStruct(TupleStructSynDecl),
     Inductive(InductiveTypeSynDecl),
     Structure(StructureTypeSynDecl),
     Extern(ExternTypeSynDecl),
@@ -209,16 +209,16 @@ impl TypeSynDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             TypeSynNodeDecl::Enum(syn_node_decl) => {
-                EnumTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                EnumSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => {
-                PropsStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                PropsStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => {
-                UnitStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                UnitStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => {
-                TupleStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TupleStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Inductive(syn_node_decl) => {
                 InductiveTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()

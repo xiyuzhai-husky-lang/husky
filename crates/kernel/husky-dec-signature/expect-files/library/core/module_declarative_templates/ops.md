@@ -611,7 +611,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Enum(
-                        EnumTypeDecTemplate {
+                        EnumDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {

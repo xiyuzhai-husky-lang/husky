@@ -21,10 +21,10 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 pub enum TypeDecSignature {
-    Enum(EnumTypeDecSignature),
+    Enum(EnumDecSignature),
     PropsStruct(PropsStructDecSignature),
-    UnitStruct(UnitStructTypeDecSignature),
-    TupleStruct(TupleStructTypeDecSignature),
+    UnitStruct(UnitStructDecSignature),
+    TupleStruct(TupleStructDecSignature),
     Inductive(InductiveTypeDecSignature),
     Structure(StructureTypeDecSignature),
     Extern(ExternTypeDecSignature),
@@ -35,10 +35,10 @@ pub enum TypeDecSignature {
 #[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeDecTemplate {
-    Enum(EnumTypeDecTemplate),
-    PropsStruct(PropsStructTypeDecTemplate),
-    UnitStruct(UnitStructTypeDecTemplate),
-    TupleStruct(TupleStructTypeDecTemplate),
+    Enum(EnumDecTemplate),
+    PropsStruct(PropsStructDecTemplate),
+    UnitStruct(UnitStructDecTemplate),
+    TupleStruct(TupleStructDecTemplate),
     Inductive(InductiveTypeDecTemplate),
     Structure(StructureTypeDecTemplate),
     Extern(ExternTypeDecTemplate),
@@ -76,16 +76,10 @@ pub(crate) fn ty_dec_template(
 ) -> DecSignatureResult<TypeDecTemplate> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
-        TypeSynDecl::Enum(decl) => EnumTypeDecTemplate::from_decl(db, path, decl)?.into(),
-        TypeSynDecl::PropsStruct(decl) => {
-            PropsStructTypeDecTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::UnitStruct(decl) => {
-            UnitStructTypeDecTemplate::from_decl(db, path, decl)?.into()
-        }
-        TypeSynDecl::TupleStruct(decl) => {
-            TupleStructTypeDecTemplate::from_decl(db, path, decl)?.into()
-        }
+        TypeSynDecl::Enum(decl) => EnumDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::PropsStruct(decl) => PropsStructDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::UnitStruct(decl) => UnitStructDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::TupleStruct(decl) => TupleStructDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::Inductive(decl) => InductiveTypeDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::Structure(decl) => StructureTypeDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::Extern(decl) => ExternTypeDecTemplate::from_decl(db, path, decl)?.into(),

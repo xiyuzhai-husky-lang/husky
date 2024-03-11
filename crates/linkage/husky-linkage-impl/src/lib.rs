@@ -151,7 +151,7 @@ macro_rules! ty_default_linkage_impl {
 pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPointer> {
     type FnOutput;
 
-    fn into_unveil_fn_linkage_impl(
+    fn into_unveil_linkage_impl(
         self,
         fn_wrapper: fn(
             DevEvalContext<LinkageImpl>,
@@ -168,7 +168,7 @@ pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPoin
 }
 
 #[macro_export]
-macro_rules! unveil_fn_linkage_impl {
+macro_rules! unveil_linkage_impl {
     ($fn_item: expr) => {{
         fn fn_wrapper(
             ctx: __DevEvalContext,
@@ -192,13 +192,13 @@ macro_rules! unveil_fn_linkage_impl {
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coersion
         UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-            .into_unveil_fn_linkage_impl(fn_wrapper, $fn_item)
+            .into_unveil_linkage_impl(fn_wrapper, $fn_item)
     }};
 }
 
 /// meant to be used in `LinkageImpl` definition
 #[macro_export]
-macro_rules! impl_is_unveil_fn_linkage_impl_source {
+macro_rules! impl_is_unveil_linkage_impl_source {
     (
         [$($runtime_constant: ident),*], $output:ident
     ) => {
@@ -218,7 +218,7 @@ macro_rules! impl_is_unveil_fn_linkage_impl_source {
         {
             type FnOutput = $output;
 
-            fn into_unveil_fn_linkage_impl(
+            fn into_unveil_linkage_impl(
                 self,
                 fn_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,

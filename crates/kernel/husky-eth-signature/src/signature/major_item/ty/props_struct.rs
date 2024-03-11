@@ -1,9 +1,9 @@
 use super::*;
-use husky_dec_signature::{PropsStructFieldDecTemplate, PropsStructTypeDecTemplate};
+use husky_dec_signature::{PropsStructDecTemplate, PropsStructFieldDecTemplate};
 use husky_eth_term::term::ritchie::EthRitchie;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct PropsStructTypeEthTemplate {
+pub struct PropsStructEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
@@ -12,7 +12,7 @@ pub struct PropsStructTypeEthTemplate {
     pub instance_constructor_ritchie_ty: EthRitchie,
 }
 
-impl HasPropsFieldEtherealSignature for PropsStructTypeEthTemplate {
+impl HasPropsFieldEtherealSignature for PropsStructEthTemplate {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
@@ -32,11 +32,11 @@ impl HasPropsFieldEtherealSignature for PropsStructTypeEthTemplate {
     }
 }
 
-impl PropsStructTypeEthTemplate {
+impl PropsStructEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
-        tmpl: PropsStructTypeDecTemplate,
+        tmpl: PropsStructDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;

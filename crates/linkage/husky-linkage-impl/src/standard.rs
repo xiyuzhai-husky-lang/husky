@@ -116,7 +116,7 @@ for_all_ritchie_tys! {impl_is_fn_linkage_impl_source}
 
 pub struct UnveilFnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
 
-for_all_ritchie_tys! {impl_is_unveil_fn_linkage_impl_source}
+for_all_ritchie_tys! {impl_is_unveil_linkage_impl_source}
 
 pub trait IsGnItem {
     type LinkageImpl: IsLinkageImpl;

@@ -1,19 +1,19 @@
 use super::*;
-use husky_dec_signature::UnitStructTypeDecTemplate;
+use husky_dec_signature::UnitStructDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct UnitStructTypeEthTemplate {
+pub struct UnitStructEthTemplate {
     pub path: TypePath,
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
     pub self_ty: EthTerm,
 }
 
-impl UnitStructTypeEthTemplate {
+impl UnitStructEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
-        tmpl: UnitStructTypeDecTemplate,
+        tmpl: UnitStructDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
@@ -22,7 +22,7 @@ impl UnitStructTypeEthTemplate {
     }
 }
 
-impl UnitStructTypeEthTemplate {
+impl UnitStructEthTemplate {
     pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {
         self.self_ty(db)
     }

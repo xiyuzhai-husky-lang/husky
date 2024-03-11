@@ -27,10 +27,10 @@ pub struct HirDeclJar(
     crate::decl::TraitForTypeMethodFnHirDecl,
     // ty
     crate::decl::ty_hir_decl,
-    crate::decl::EnumTypeHirDecl,
+    crate::decl::EnumHirDecl,
     crate::decl::ExternTypeHirDecl,
-    crate::decl::PropsStructTypeHirDecl,
-    crate::decl::TupleStructTypeHirDecl,
+    crate::decl::PropsStructHirDecl,
+    crate::decl::TupleStructHirDecl,
     crate::decl::UnionHirDecl,
     crate::decl::UnitStructHirDecl,
     // trai

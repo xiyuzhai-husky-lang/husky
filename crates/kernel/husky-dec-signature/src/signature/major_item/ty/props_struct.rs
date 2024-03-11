@@ -3,7 +3,7 @@ use husky_term_prelude::ritchie::RitchieKind;
 use super::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct PropsStructTypeDecTemplate {
+pub struct PropsStructDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
     pub self_ty: DecTerm,
@@ -20,11 +20,11 @@ pub struct PropsStructFieldDecTemplate {
     has_initialization: bool,
 }
 
-impl PropsStructTypeDecTemplate {
+impl PropsStructDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: PropsStructTypeSynDecl,
+        decl: PropsStructSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);

@@ -34,14 +34,14 @@ pub struct EtherealSignatureJar(
     TypeAliasEthTemplate,
     ValFugitiveEthTemplate,
     // ty
-    EnumTypeEthTemplate,
+    EnumEthTemplate,
     ExternTypeEthTemplate,
     InductiveTypeEthTemplate,
-    PropsStructTypeEthTemplate,
+    PropsStructEthTemplate,
     StructureTypeEthTemplate,
-    TupleStructTypeEthTemplate,
+    TupleStructEthTemplate,
     UnionTypeEthTemplate,
-    UnitStructTypeEthTemplate,
+    UnitStructEthTemplate,
     ty_eth_template,
     // ty variant
     EnumTupleVariantEthTemplate,

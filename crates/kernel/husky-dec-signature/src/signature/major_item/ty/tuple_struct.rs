@@ -2,7 +2,7 @@ use super::*;
 use husky_term_prelude::ritchie::RitchieKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct TupleStructTypeDecTemplate {
+pub struct TupleStructDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
     pub self_ty: DecTerm,
@@ -17,11 +17,11 @@ pub struct TupleStructFieldDecTemplate {
     ty: DecTerm,
 }
 
-impl TupleStructTypeDecTemplate {
+impl TupleStructDecTemplate {
     pub fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: TupleStructTypeSynDecl,
+        decl: TupleStructSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
@@ -81,4 +81,4 @@ impl TupleStructFieldDecTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
-pub struct TupleStructTypeDecSignature {}
+pub struct TupleStructDecSignature {}

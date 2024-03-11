@@ -35,12 +35,13 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::StructTypeConstructor { .. }
-            | LinkageData::EnumTypeVariantConstructor { .. }
-            | LinkageData::EnumTypeVariantDiscriminator { .. }
-            | LinkageData::StructTypeDestructor { .. }
-            | LinkageData::EnumTypeVariantDestructor { .. }
+            LinkageData::StructConstructor { .. }
+            | LinkageData::EnumVariantConstructor { .. }
+            | LinkageData::EnumVariantDiscriminator { .. }
+            | LinkageData::StructDestructor { .. }
+            | LinkageData::EnumVariantDestructor { .. }
             | LinkageData::StructField { .. }
+            | LinkageData::EnumVariantField { .. }
             | LinkageData::Index
             | LinkageData::VecConstructor { .. }
             | LinkageData::TypeDefault { .. }

@@ -25,10 +25,10 @@ use husky_entity_path::TypePath;
 #[enum_class::from_variants]
 #[salsa::debug_with_db]
 pub enum TypeEthTemplate {
-    Enum(EnumTypeEthTemplate),
-    PropsStruct(PropsStructTypeEthTemplate),
-    UnitStruct(UnitStructTypeEthTemplate),
-    TupleStruct(TupleStructTypeEthTemplate),
+    Enum(EnumEthTemplate),
+    PropsStruct(PropsStructEthTemplate),
+    UnitStruct(UnitStructEthTemplate),
+    TupleStruct(TupleStructEthTemplate),
     Inductive(InductiveTypeEthTemplate),
     Structure(StructureTypeEthTemplate),
     Extern(ExternTypeEthTemplate),
@@ -75,16 +75,16 @@ impl HasEthTemplate for TypePath {
 fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {
-            EnumTypeEthTemplate::from_dec(db, path, dec_template)?.into()
+            EnumEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::PropsStruct(dec_template) => {
-            PropsStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
+            PropsStructEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::UnitStruct(dec_template) => {
-            UnitStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
+            UnitStructEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::TupleStruct(dec_template) => {
-            TupleStructTypeEthTemplate::from_dec(db, path, dec_template)?.into()
+            TupleStructEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TypeDecTemplate::Inductive(dec_template) => {
             InductiveTypeEthTemplate::from_dec(db, path, dec_template)?.into()
