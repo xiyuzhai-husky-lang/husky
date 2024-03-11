@@ -22,7 +22,7 @@ impl<'db> VmirExprBuilder<'db> {
     pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(HirEagerExprIdx, Self)> {
         use husky_hir_defn::defn::HasHirDefn;
 
-        let (path, instantiation) = linkage.path_and_instantiation(db)?;
+        let (path, instantiation) = linkage.path_and_instantiation_for_definition(db)?;
         let hir_defn = path.hir_defn(db).unwrap();
         let (HirExprIdx::Eager(body), HirExprRegion::Eager(hir_eager_expr_region)) =
             hir_defn.hir_expr_body_and_region(db)?

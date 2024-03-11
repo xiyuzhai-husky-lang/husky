@@ -221,7 +221,7 @@ fn transpile_hir_eager_expr_to_rust(
             instantiation: _,
             ref item_groups,
         } => {
-            builder.ty_constructor_linkage(path);
+            builder.ty_constructor_path(path);
             builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::TypeVariantConstructorCall {

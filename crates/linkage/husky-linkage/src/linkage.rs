@@ -1,5 +1,8 @@
 use crate::{
-    template_argument::ty::{LinType, LinTypePathLeading},
+    template_argument::{
+        qual::LinQual,
+        ty::{LinType, LinTypePathLeading},
+    },
     *,
 };
 use either::*;
@@ -59,13 +62,30 @@ pub enum LinkageData {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
-    TypeConstructor {
+    StructTypeConstructor {
         path: TypePath,
         instantiation: LinInstantiation,
     },
-    TypeVariantConstructor {
+    StructTypeDestructor {
+        path: TypePath,
+        instantiation: LinInstantiation,
+        qual: LinQual,
+    },
+    EnumTypeVariantConstructor {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
+    },
+    /// tells if a value is of a certain variant, returns bool
+    EnumTypeVariantDiscriminator {
+        path: TypeVariantPath,
+        instantiation: LinInstantiation,
+    },
+    /// destruct a value with `qual` assuming it is of a certain variant,
+    /// panic otherwise
+    EnumTypeVariantDestructor {
+        path: TypeVariantPath,
+        instantiation: LinInstantiation,
+        qual: LinQual,
     },
     StructField {
         self_ty: LinTypePathLeading,
@@ -170,7 +190,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::TypeConstructor {
+            LinkageData::StructTypeConstructor {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -185,7 +205,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::TypeVariantConstructor {
+            LinkageData::EnumTypeVariantConstructor {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -513,7 +533,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                     );
                                     [Linkage::new(
                                         db,
-                                        LinkageData::TypeConstructor {
+                                        LinkageData::StructTypeConstructor {
                                             path,
                                             instantiation,
                                         },
@@ -541,7 +561,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         .flat_map(|instantiation| {
                             [Linkage::new(
                                 db,
-                                LinkageData::TypeVariantConstructor {
+                                LinkageData::EnumTypeVariantConstructor {
                                     path,
                                     instantiation,
                                 },

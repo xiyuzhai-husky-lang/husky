@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::ItemPath;
 
 impl Linkage {
-    pub fn path_and_instantiation<'db>(
+    pub fn path_and_instantiation_for_definition<'db>(
         self,
         db: &'db salsa::Db,
     ) -> Option<(ItemPath, &LinInstantiation)> {
@@ -35,16 +35,12 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::TypeConstructor {
-                path,
-                ref instantiation,
-            } => (path.into(), instantiation),
-            LinkageData::TypeVariantConstructor {
-                path,
-                ref instantiation,
-            } => (path.into(), instantiation),
-            // ad hoc
-            LinkageData::StructField { .. }
+            LinkageData::StructTypeConstructor { .. }
+            | LinkageData::EnumTypeVariantConstructor { .. }
+            | LinkageData::EnumTypeVariantDiscriminator { .. }
+            | LinkageData::StructTypeDestructor { .. }
+            | LinkageData::EnumTypeVariantDestructor { .. }
+            | LinkageData::StructField { .. }
             | LinkageData::Index
             | LinkageData::VecConstructor { .. }
             | LinkageData::TypeDefault { .. }

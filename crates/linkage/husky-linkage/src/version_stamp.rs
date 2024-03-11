@@ -41,10 +41,10 @@ impl HasVersionStamp for Linkage {
 #[salsa::tracked(jar = LinkageJar)]
 fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(linkage, db);
-    match linkage.data(db) {
+    match *linkage.data(db) {
         LinkageData::MajorRitchieEager {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -52,7 +52,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::MajorRitchieLazy {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -60,7 +60,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::MajorVal {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -68,7 +68,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::MemoizedField {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -76,7 +76,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::MethodRitchie {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -84,7 +84,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::AssocRitchie {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
@@ -92,32 +92,50 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
         }
         LinkageData::UnveilAssocFn {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::TypeConstructor {
+        LinkageData::StructTypeConstructor {
             path,
-            instantiation,
+            ref instantiation,
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        &LinkageData::EnumU8ToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
-        &LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
-        &LinkageData::TypeDefault { ty } => builder.add_ty(ty),
-        LinkageData::TypeVariantConstructor {
+        LinkageData::StructTypeDestructor {
             path,
-            instantiation,
+            ref instantiation,
+            ..
         } => {
             let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        &LinkageData::VecConstructor { element_ty } => builder.add(element_ty),
+        LinkageData::EnumTypeVariantConstructor {
+            path,
+            ref instantiation,
+        }
+        | LinkageData::EnumTypeVariantDiscriminator {
+            path,
+            ref instantiation,
+        }
+        | LinkageData::EnumTypeVariantDestructor {
+            path,
+            ref instantiation,
+            ..
+        } => {
+            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
+            builder.add(hir_defn);
+            builder.add_instantiation(instantiation)
+        }
+        LinkageData::EnumU8ToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
+        LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
+        LinkageData::TypeDefault { ty } => builder.add_ty(ty),
+        LinkageData::VecConstructor { element_ty } => builder.add(element_ty),
         LinkageData::Index => todo!(),
     }
     builder.finish()
@@ -222,7 +240,7 @@ impl<'a> LinkageVersionStampBuilder<'a> {
             LinTemplateArgument::Type(linkage_ty) => self.add(linkage_ty),
             LinTemplateArgument::Constant(_) => (),
             LinTemplateArgument::Lifetime => (),
-            LinTemplateArgument::Quary(_) => (),
+            LinTemplateArgument::Qual(_) => (),
         }
     }
 

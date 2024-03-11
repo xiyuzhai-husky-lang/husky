@@ -65,7 +65,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
@@ -125,7 +125,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
