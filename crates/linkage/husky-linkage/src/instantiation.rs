@@ -11,7 +11,7 @@ use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 use crate::template_argument::{
-    constant::LinConstant, quary::LinQuary, ty::LinType, LinTemplateArgument,
+    constant::LinConstant, qual::LinQual, ty::LinType, LinTemplateArgument,
 };
 
 #[salsa::debug_with_db]
@@ -33,7 +33,7 @@ impl std::ops::Deref for LinInstantiation {
 pub enum LinTermSymbolResolution {
     Explicit(LinTemplateArgument),
     SelfLifetime,
-    SelfQuary(LinQuary),
+    SelfQuary(LinQual),
 }
 
 impl LinInstantiation {
@@ -85,7 +85,7 @@ impl LinInstantiation {
         self.symbol_resolutions
             .iter()
             .filter_map(|&(symbol, resolution)| match resolution {
-                LinTermSymbolResolution::Explicit(LinTemplateArgument::Quary(_))
+                LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_))
                 | LinTermSymbolResolution::SelfQuary(_) => Some((symbol, resolution)),
                 LinTermSymbolResolution::Explicit(_) | LinTermSymbolResolution::SelfLifetime => {
                     None
@@ -179,8 +179,8 @@ impl LinTermSymbolResolution {
             }
             JavTermSymbolResolution::SelfPlace => {
                 smallvec![
-                    LinTermSymbolResolution::SelfQuary(LinQuary::Ref),
-                    LinTermSymbolResolution::SelfQuary(LinQuary::RefMut),
+                    LinTermSymbolResolution::SelfQuary(LinQual::Ref),
+                    LinTermSymbolResolution::SelfQuary(LinQual::RefMut),
                 ]
             }
         }

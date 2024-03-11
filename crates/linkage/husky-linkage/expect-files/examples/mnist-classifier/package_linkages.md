@@ -9,7 +9,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -86,7 +86,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -123,7 +123,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -305,7 +305,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -419,7 +419,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -551,7 +551,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -594,7 +594,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -637,7 +637,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -680,7 +680,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -723,7 +723,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -766,7 +766,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1184,7 +1184,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1244,7 +1244,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1413,7 +1413,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1635,7 +1635,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1689,7 +1689,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1762,7 +1762,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeConstructor {
+        data: LinkageData::StructTypeConstructor {
             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -4186,7 +4186,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
@@ -4224,7 +4224,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
@@ -4262,7 +4262,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
@@ -4322,7 +4322,7 @@
         },
     },
     Linkage {
-        data: LinkageData::TypeVariantConstructor {
+        data: LinkageData::EnumTypeVariantConstructor {
             path: TypeVariantPath(
                 ItemPathId(
                     Id {

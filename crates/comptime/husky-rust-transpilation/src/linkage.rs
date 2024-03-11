@@ -13,7 +13,7 @@ use husky_linkage::{
     linkage::LinkageStructField,
     template_argument::{
         constant::LinConstant,
-        quary,
+        qual,
         ty::{LinType, LinkageRitchieParameter, LinkageRitchieType},
         LinTemplateArgument,
     },
@@ -83,12 +83,32 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::TypeConstructor {
+            LinkageData::StructTypeConstructor {
                 path,
-                instantiation: _,
+                ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                builder.ty_constructor_linkage(path)
+                builder.ty_constructor_path(path)
             }),
+            LinkageData::StructTypeDestructor {
+                path,
+                ref instantiation,
+                qual,
+            } => todo!(),
+            LinkageData::EnumTypeVariantConstructor {
+                path,
+                ref instantiation,
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                (path, instantiation).transpile_to_rust(builder)
+            }),
+            LinkageData::EnumTypeVariantDiscriminator {
+                path,
+                ref instantiation,
+            } => todo!(),
+            LinkageData::EnumTypeVariantDestructor {
+                path,
+                ref instantiation,
+                ..
+            } => todo!(),
             LinkageData::EnumU8ToJsonValue { ty_path } => builder
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)
@@ -112,12 +132,6 @@ impl TranspileToRustWith<()> for Linkage {
                 path.transpile_to_rust(builder)
             }),
             LinkageData::Index => todo!(),
-            LinkageData::TypeVariantConstructor {
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
-            }),
             LinkageData::StructField { self_ty, field } => {
                 builder.macro_call(RustMacroName::StructFieldLinkageImpl, |builder| {
                     self_ty.transpile_to_rust(builder);
@@ -234,13 +248,13 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
             1 => {
                 let (_symbol, place) = places[0];
                 match place {
-                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Quary(_)) => {
+                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_)) => {
                         todo!()
                     }
                     LinTermSymbolResolution::SelfQuary(place) => match place {
-                        quary::LinQuary::Ref => ident.transpile_to_rust(builder),
-                        quary::LinQuary::RefMut => builder.method_fn_ident_mut(ident),
-                        quary::LinQuary::Transient => todo!(),
+                        qual::LinQual::Ref => ident.transpile_to_rust(builder),
+                        qual::LinQual::RefMut => builder.method_fn_ident_mut(ident),
+                        qual::LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),
                 }
@@ -302,7 +316,7 @@ impl<E> TranspileToRustWith<E> for LinTemplateArgument {
             LinTemplateArgument::Type(linkage_ty) => linkage_ty.transpile_to_rust(builder),
             LinTemplateArgument::Constant(constant) => constant.transpile_to_rust(builder),
             LinTemplateArgument::Lifetime => todo!(),
-            LinTemplateArgument::Quary(_) => todo!(),
+            LinTemplateArgument::Qual(_) => todo!(),
         }
     }
 }
