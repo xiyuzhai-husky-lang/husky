@@ -155,7 +155,7 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
                 HirEagerExprData::FunctionFnCall {
                     path,
                     ref instantiation,
@@ -261,7 +261,7 @@ impl ValkyrieRides {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
                 HirLazyExprData::FunctionFnItemCall {
                     path,
                     ref instantiation,

@@ -1,4 +1,7 @@
+mod ty;
+
 use crate::{
+    linkage::ty::ty_linkages_emancipated_by_javelin,
     template_argument::{
         qual::LinQual,
         ty::{LinType, LinTypePathLeading},
@@ -490,90 +493,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TraitItemKind::AssocFormal => todo!(),
                     TraitItemKind::AssocConst => todo!(),
                 },
-                JavPath::TypeConstructor(path) => {
-                    match path.ty_kind(db) {
-                        TypeKind::Enum => {
-                            if enum_ty_has_only_unit_variants(db, path) {
-                                smallvec![Linkage::new_enum_u8_presenter(path, db)]
-                            } else {
-                                smallvec![]
-                            }
-                        }
-                        TypeKind::Inductive => unreachable!(),
-                        TypeKind::Record => unreachable!(),
-                        TypeKind::Struct => {
-                            let fields: Vec<LinkageStructField> = match path.hir_decl(db).unwrap() {
-                                TypeHirDecl::PropsStruct(hir_decl) => hir_decl
-                                    .fields(db)
-                                    .iter()
-                                    .map(|field| LinkageStructField::Props {
-                                        ident: field.ident(),
-                                    })
-                                    .collect(),
-                                TypeHirDecl::UnitStruct(_) => vec![],
-                                TypeHirDecl::TupleStruct(_) => todo!(),
-                                TypeHirDecl::Union(_) => todo!(),
-                                _ => unreachable!(),
-                            };
-                            LinInstantiation::from_javelin(instantiation, db)
-                                .into_iter()
-                                .flat_map(|instantiation| {
-                                    let self_ty = LinTypePathLeading::new(
-                                        db,
-                                        path,
-                                        instantiation
-                                            .symbol_resolutions()
-                                            .iter()
-                                            .map(|(_, res)| match *res {
-                                                LinTermSymbolResolution::Explicit(arg) => arg,
-                                                LinTermSymbolResolution::SelfLifetime => todo!(),
-                                                LinTermSymbolResolution::SelfQuary(_) => todo!(),
-                                            })
-                                            .collect(),
-                                    );
-                                    [Linkage::new(
-                                        db,
-                                        LinkageData::StructTypeConstructor {
-                                            path,
-                                            instantiation,
-                                        },
-                                    )]
-                                    .into_iter()
-                                    .chain(fields.iter().map(move |&field| {
-                                        Linkage::new(
-                                            db,
-                                            LinkageData::StructField { self_ty, field },
-                                        )
-                                    }))
-                                })
-                                .collect()
-                        }
-                        TypeKind::Structure => unreachable!(),
-                        TypeKind::Extern => {
-                            p!(path.debug(db));
-                            unreachable!()
-                        }
-                    }
-                }
-                JavPath::TypeVariantConstructor(path) => {
-                    LinInstantiation::from_javelin(instantiation, db)
-                        .into_iter()
-                        .flat_map(|instantiation| {
-                            [Linkage::new(
-                                db,
-                                LinkageData::EnumTypeVariantConstructor {
-                                    path,
-                                    instantiation,
-                                },
-                            )]
-                            .into_iter()
-                            // todo: chain with pattern matcher
-                            // .chain(fields.iter().map(move |&field| {
-                            //     Linkage::new(db, LinkageData::StructField { self_ty, field })
-                            // }))
-                        })
-                        .collect()
-                }
+                JavPath::Type(path) => ty_linkages_emancipated_by_javelin(path, instantiation, db),
             }
         }
         JavelinData::VecConstructor { element_ty } => smallvec![Linkage::new(

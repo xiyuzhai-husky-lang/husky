@@ -87,13 +87,17 @@ impl TranspileToRustWith<()> for Linkage {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                builder.ty_constructor_path(path)
+                builder.struct_ty_constructor_path(path);
+                turbo_fish_instantiation(instantiation, builder);
             }),
             LinkageData::StructTypeDestructor {
                 path,
                 ref instantiation,
                 qual,
-            } => todo!(),
+            } => builder.macro_call(RustMacroName::DestructorFnLinkageImpl, |builder| {
+                builder.struct_ty_destructor_path(path, qual);
+                turbo_fish_instantiation(instantiation, builder);
+            }),
             LinkageData::EnumTypeVariantConstructor {
                 path,
                 ref instantiation,
@@ -103,12 +107,18 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::EnumTypeVariantDiscriminator {
                 path,
                 ref instantiation,
-            } => todo!(),
+            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                builder.enum_ty_variant_discriminator_path(path);
+                turbo_fish_instantiation(instantiation, builder);
+            }),
             LinkageData::EnumTypeVariantDestructor {
                 path,
                 ref instantiation,
-                ..
-            } => todo!(),
+                qual,
+            } => builder.macro_call(RustMacroName::DestructorFnLinkageImpl, |builder| {
+                builder.enum_ty_variant_destructor_path(path, qual);
+                turbo_fish_instantiation(instantiation, builder);
+            }),
             LinkageData::EnumU8ToJsonValue { ty_path } => builder
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)

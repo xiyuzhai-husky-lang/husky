@@ -1,7 +1,7 @@
 use super::*;
-use husky_entity_path::{SubmoduleItemPath, TraitPath};
+use husky_entity_path::{SubmoduleItemPath, TraitPath, TypeVariantPath};
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
-use husky_linkage::template_argument::ty::LinType;
+use husky_linkage::template_argument::{qual::LinQual, ty::LinType};
 use husky_manifest::PackageDependency;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
@@ -33,7 +33,7 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str(".rev()")
     }
 
-    pub(crate) fn ty_constructor_path(&mut self, ty_path: TypePath) {
+    pub(crate) fn struct_ty_constructor_path(&mut self, ty_path: TypePath) {
         ty_path.transpile_to_rust(self);
         match ty_path.hir_defn(self.db).unwrap() {
             TypeHirDefn::PropsStruct(_) => self.write_str("::__constructor"),
@@ -42,8 +42,71 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         }
     }
 
-    pub(crate) fn ty_constructor_ident(&mut self) {
+    pub(crate) fn struct_ty_destructor_path(&mut self, ty_path: TypePath, qual: LinQual) {
+        ty_path.transpile_to_rust(self);
+        self.write_str("::__destructor");
+        self.qual_suffix(qual);
+    }
+
+    pub(crate) fn struct_ty_constructor_ident(&mut self) {
         self.write_str("__constructor")
+    }
+
+    pub(crate) fn struct_ty_destructor_ident(&mut self, qual: LinQual) {
+        self.write_str("__destructor");
+        self.qual_suffix(qual);
+    }
+
+    pub(crate) fn enum_ty_variant_constructor_path(&mut self, path: TypeVariantPath) {
+        path.parent_ty_path(self.db).transpile_to_rust(self);
+        self.punctuation(RustPunctuation::ColonColon);
+        self.enum_ty_variant_constructor_ident(path)
+    }
+
+    pub(crate) fn enum_ty_variant_discriminator_path(&mut self, path: TypeVariantPath) {
+        path.parent_ty_path(self.db).transpile_to_rust(self);
+        self.punctuation(RustPunctuation::ColonColon);
+        self.enum_ty_variant_discriminator_ident(path)
+    }
+
+    pub(crate) fn enum_ty_variant_destructor_path(&mut self, path: TypeVariantPath, qual: LinQual) {
+        path.parent_ty_path(self.db).transpile_to_rust(self);
+        self.punctuation(RustPunctuation::ColonColon);
+        self.enum_ty_variant_destructor_ident(path, qual)
+    }
+
+    pub(crate) fn enum_ty_variant_constructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
+        let db = self.db;
+        self.write_str("__");
+        self.write_str(ty_variant_path.ident(db).data(db));
+        self.write_str("_constructor");
+    }
+
+    pub(crate) fn enum_ty_variant_discriminator_ident(&mut self, ty_variant_path: TypeVariantPath) {
+        let db = self.db;
+        self.write_str("__");
+        self.write_str(ty_variant_path.ident(db).data(db));
+        self.write_str("_discriminator");
+    }
+
+    pub(crate) fn enum_ty_variant_destructor_ident(
+        &mut self,
+        ty_variant_path: TypeVariantPath,
+        qual: LinQual,
+    ) {
+        let db = self.db;
+        self.write_str("__");
+        self.write_str(ty_variant_path.ident(db).data(db));
+        self.write_str("_destructor");
+        self.qual_suffix(qual);
+    }
+
+    fn qual_suffix(&mut self, qual: LinQual) {
+        self.write_str(match qual {
+            LinQual::Ref => "_ref",
+            LinQual::RefMut => "_mut",
+            LinQual::Transient => "",
+        });
     }
 
     pub(crate) fn use_all_in_crate(&mut self) {

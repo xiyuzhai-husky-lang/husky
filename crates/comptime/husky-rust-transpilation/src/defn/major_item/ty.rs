@@ -81,7 +81,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
                     builder.on_fresh_line(|builder| {
                         builder.keyword(RustKeyword::Pub);
                         builder.keyword(RustKeyword::Fn);
-                        builder.ty_constructor_ident();
+                        builder.struct_ty_constructor_ident();
                         builder.bracketed_comma_list(
                             RustDelimiter::Par,
                             fields
