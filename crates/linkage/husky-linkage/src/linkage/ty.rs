@@ -27,11 +27,13 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
         linkages.push(Linkage::new_enum_u8_presenter(path, db))
     }
     for instantiation in LinInstantiation::from_javelin(instantiation, db) {
+        let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         for &(_, path) in path.ty_variant_paths(db) {
             let hir_defn = path.hir_decl(db).unwrap();
             linkages.push(Linkage::new(
                 db,
                 LinkageData::EnumVariantConstructor {
+                    self_ty,
                     path,
                     instantiation: instantiation.clone(),
                 },
@@ -39,6 +41,7 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
             linkages.push(Linkage::new(
                 db,
                 LinkageData::EnumVariantDiscriminator {
+                    self_ty,
                     path,
                     instantiation: instantiation.clone(),
                 },
@@ -48,6 +51,7 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
                     linkages.push(Linkage::new(
                         db,
                         LinkageData::EnumVariantDestructor {
+                            self_ty,
                             path,
                             instantiation: instantiation.clone(),
                         },
@@ -60,6 +64,7 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
                     linkages.push(Linkage::new(
                         db,
                         LinkageData::EnumVariantDestructor {
+                            self_ty,
                             path,
                             instantiation: instantiation.clone(),
                         },
@@ -104,19 +109,7 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
         _ => unreachable!(),
     };
     for instantiation in LinInstantiation::from_javelin(instantiation, db) {
-        let self_ty = LinTypePathLeading::new(
-            db,
-            path,
-            instantiation
-                .symbol_resolutions()
-                .iter()
-                .map(|(_, res)| match *res {
-                    LinTermSymbolResolution::Explicit(arg) => arg,
-                    LinTermSymbolResolution::SelfLifetime => todo!(),
-                    LinTermSymbolResolution::SelfQuary(_) => todo!(),
-                })
-                .collect(),
-        );
+        let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         linkages.push(Linkage::new(
             db,
             LinkageData::StructConstructor {
@@ -124,13 +117,7 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
                 instantiation: instantiation.clone(),
             },
         ));
-        linkages.push(Linkage::new(
-            db,
-            LinkageData::StructDestructor {
-                path,
-                instantiation: instantiation.clone(),
-            },
-        ));
+        linkages.push(Linkage::new(db, LinkageData::StructDestructor { self_ty }));
         for &field in &fields {
             linkages.push(Linkage::new(
                 db,
