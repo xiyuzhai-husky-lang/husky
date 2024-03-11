@@ -10,7 +10,7 @@ pub struct SemaCaseBranch {
     pub stmts: SemaStmtIdxRange,
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_match_stmt(
         &mut self,
         match_token: MatchRegionalToken,

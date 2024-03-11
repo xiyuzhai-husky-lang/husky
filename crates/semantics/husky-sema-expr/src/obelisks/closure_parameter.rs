@@ -12,7 +12,7 @@ pub enum ClosureParameterObelisk {
     },
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_closure_parameter_obelisk(
         &mut self,
         closure_pattern_syndicate: &ClosureParameterSyndicate,

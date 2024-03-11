@@ -1,7 +1,7 @@
 use super::*;
 use husky_eth_term::term::svar::EthSvar;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
         for (current_syn_symbol_idx, current_syn_symbol_entry) in self
             .syn_expr_region_data

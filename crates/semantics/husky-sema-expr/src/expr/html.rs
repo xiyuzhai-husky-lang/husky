@@ -55,7 +55,7 @@ impl vec_like::AsVecMapEntry for SemaHtmlArgumentExpr {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_html_argument_expr(
         &mut self,
         expr: SynHtmlArgumentExpr,

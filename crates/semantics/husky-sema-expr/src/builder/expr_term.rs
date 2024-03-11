@@ -18,7 +18,7 @@ use husky_token_data::{BoolLiteralTokenData, FloatLiteralTokenData};
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     /// perform this during finish stage
     pub(crate) fn infer_expr_term(&mut self, sema_expr_idx: SemaExprIdx) -> Option<FlyTerm> {
         if let Some(term_result) = self.sema_expr_term_results.get_value(sema_expr_idx) {

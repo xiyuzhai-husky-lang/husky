@@ -260,7 +260,7 @@ impl<V> std::ops::Index<SemaStmtIdx> for SemaStmtMap<V> {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         stmts: SynStmtIdxRange,
@@ -325,7 +325,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref let_variables_pattern,
                 ref assign_token,
                 initial_value,
-            } => self.calc_let_stmt(
+            } => self.build_let_stmt(
                 let_token,
                 let_variables_pattern,
                 assign_token,

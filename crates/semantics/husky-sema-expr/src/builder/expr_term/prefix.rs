@@ -2,7 +2,7 @@ use husky_sema_opr::prefix::SemaPrefixOpr;
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_prefix_expr_term(
         &mut self,
         expr_idx: SemaExprIdx,

@@ -26,7 +26,7 @@ impl SemaIfBranch {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_if_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_if_branch: &'a SynIfBranch,
@@ -63,7 +63,7 @@ impl SemaElifBranch {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_elif_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_elif_branch: &'a SynElifBranch,
@@ -99,7 +99,7 @@ impl SemaElseBranch {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_if_else_stmt(
         &mut self,
         syn_if_branch: &'a SynIfBranch,

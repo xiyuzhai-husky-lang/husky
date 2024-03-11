@@ -26,7 +26,7 @@ use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 use vec_like::VecPairMap;
 
-pub(crate) struct SemaExprEngine<'a> {
+pub(crate) struct SemaExprBuilder<'a> {
     db: &'a ::salsa::Db,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
@@ -56,7 +56,7 @@ pub(crate) struct SemaExprEngine<'a> {
     trai_in_use_items_table: TraitInUseItemsTable<'a>,
 }
 
-impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
+impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
     fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
@@ -82,7 +82,7 @@ impl<'a> FlyTermEngine<'a> for SemaExprEngine<'a> {
     }
 }
 
-impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
+impl<'a> FlyTermEngineMut<'a> for SemaExprBuilder<'a> {
     fn place_registry_mut(&mut self) -> &mut PlaceRegistry {
         &mut self.place_registry
     }
@@ -92,7 +92,7 @@ impl<'a> FlyTermEngineMut<'a> for SemaExprEngine<'a> {
     }
 }
 
-impl<'a> std::ops::Index<SynExprIdx> for SemaExprEngine<'a> {
+impl<'a> std::ops::Index<SynExprIdx> for SemaExprBuilder<'a> {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
@@ -100,7 +100,7 @@ impl<'a> std::ops::Index<SynExprIdx> for SemaExprEngine<'a> {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = syn_expr_region.data(db);
         // todo: improve this

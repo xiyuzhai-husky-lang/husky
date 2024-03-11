@@ -1,3 +1,3 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {}
+impl<'a> SemaExprBuilder<'a> {}

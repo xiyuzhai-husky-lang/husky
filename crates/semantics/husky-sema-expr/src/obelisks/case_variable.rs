@@ -17,7 +17,7 @@ impl CaseVariableObelisk {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_case_pattern_sema_obelisk(
         &mut self,
         case_pattern_syn_obelisk: &CasePatternSyndicate,

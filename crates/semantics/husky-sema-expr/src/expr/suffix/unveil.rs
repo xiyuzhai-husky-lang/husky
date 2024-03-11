@@ -13,7 +13,7 @@ use husky_eth_term::term::{
 use maybe_result::*;
 use vec_like::VecMapGetEntry;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd_syn_expr_idx: SynExprIdx,

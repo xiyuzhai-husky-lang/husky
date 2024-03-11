@@ -27,7 +27,7 @@ impl LetVariableObelisk {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_let_pattern_obelisk(
         &mut self,
         let_pattern_syn_obelisk: &'a LetPatternSyndicate,

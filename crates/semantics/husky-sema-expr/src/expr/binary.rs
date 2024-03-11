@@ -14,7 +14,7 @@ use husky_syn_opr::SynBinaryOpr;
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     /// .
     ///
     /// # Errors

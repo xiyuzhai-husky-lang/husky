@@ -511,7 +511,7 @@ impl<V> std::ops::Index<SemaExprIdx> for SemaExprMap<V> {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_all_exprs(&mut self) {
         for root in self.syn_expr_region_data().syn_expr_roots() {
             let sema_expr_idx = match root.kind() {
