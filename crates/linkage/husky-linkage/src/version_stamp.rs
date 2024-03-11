@@ -106,22 +106,16 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::StructDestructor {
-            path,
-            ref instantiation,
-            ..
-        } => {
-            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
-            builder.add(hir_defn);
-            builder.add_instantiation(instantiation)
-        }
+        LinkageData::StructDestructor { self_ty } => builder.add_ty_path_leading(self_ty),
         LinkageData::EnumVariantConstructor {
             path,
             ref instantiation,
+            ..
         }
         | LinkageData::EnumVariantDiscriminator {
             path,
             ref instantiation,
+            ..
         }
         | LinkageData::EnumVariantDestructor {
             path,

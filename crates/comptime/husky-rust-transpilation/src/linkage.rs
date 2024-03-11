@@ -6,6 +6,7 @@ use husky_entity_path::{
     TypeItemPath, TypeVariantPath,
 };
 use husky_eth_signature::signature::HasEthTemplate;
+use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl, TypeVariantHirDecl};
 use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
@@ -90,33 +91,74 @@ impl TranspileToRustWith<()> for Linkage {
                 builder.struct_ty_constructor_path(path);
                 turbo_fish_instantiation(instantiation, builder);
             }),
-            LinkageData::StructDestructor {
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::DestructorLinkageImpl, |builder| {
-                builder.struct_ty_destructor_path(path);
-                turbo_fish_instantiation(instantiation, builder);
-            }),
+            LinkageData::StructDestructor { self_ty } => {
+                builder.macro_call(RustMacroName::StructDestructorLinkageImpl, |builder| {
+                    self_ty.transpile_to_rust(builder);
+                    match self_ty.ty_path(db).hir_decl(db).unwrap() {
+                        TypeHirDecl::PropsStruct(hir_decl) => {
+                            for field in hir_decl.fields(db) {
+                                builder.punctuation(RustPunctuation::CommaSpaced);
+                                field.ident().transpile_to_rust(builder)
+                            }
+                        }
+                        TypeHirDecl::TupleStruct(hir_decl) => todo!(),
+                        TypeHirDecl::Enum(_)
+                        | TypeHirDecl::UnitStruct(_)
+                        | TypeHirDecl::Extern(_)
+                        | TypeHirDecl::Union(_) => unreachable!(),
+                    }
+                })
+            }
             LinkageData::EnumVariantConstructor {
+                self_ty,
                 path,
                 ref instantiation,
-            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
+            } => match path.hir_decl(db).unwrap() {
+                TypeVariantHirDecl::Props(_) => todo!(),
+                TypeVariantHirDecl::Unit(_) => builder.macro_call(
+                    RustMacroName::EnumVariantUnitConstructorLinkageImpl,
+                    |builder| path.transpile_to_rust(builder),
+                ),
+                TypeVariantHirDecl::Tuple(_) => builder.macro_call(
+                    RustMacroName::EnumVariantTupleConstructorLinkageImpl,
+                    |builder| path.transpile_to_rust(builder),
+                ),
+            },
+            LinkageData::EnumVariantDestructor {
+                self_ty,
+                path,
+                ref instantiation,
+            } => builder.macro_call(RustMacroName::EnumVariantDestructorLinkageImpl, |builder| {
+                self_ty.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                builder.enum_ty_variant_destructor_path(path);
+                match path.hir_decl(db).unwrap() {
+                    TypeVariantHirDecl::Props(hir_defn) => {
+                        for field in hir_defn.fields(db) {
+                            todo!()
+                        }
+                    }
+                    TypeVariantHirDecl::Tuple(hir_defn) => {
+                        for (i, _) in hir_defn.fields(db).iter().enumerate() {
+                            builder.punctuation(RustPunctuation::CommaSpaced);
+                            builder.enum_tuple_variant_field(i)
+                        }
+                    }
+                    TypeVariantHirDecl::Unit(_) => unreachable!(),
+                }
             }),
             LinkageData::EnumVariantDiscriminator {
+                self_ty,
                 path,
                 ref instantiation,
-            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                builder.enum_ty_variant_discriminator_path(path);
-                turbo_fish_instantiation(instantiation, builder);
-            }),
-            LinkageData::EnumVariantDestructor {
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::DestructorLinkageImpl, |builder| {
-                builder.enum_ty_variant_destructor_path(path);
-                turbo_fish_instantiation(instantiation, builder);
-            }),
+            } => builder.macro_call(
+                RustMacroName::EnumVariantDiscriminatorLinkageImpl,
+                |builder| {
+                    self_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    builder.enum_ty_variant_discriminator_path(path);
+                },
+            ),
             LinkageData::EnumU8ToJsonValue { ty_path } => builder
                 .macro_call(RustMacroName::EnumU8Presenter, |builder| {
                     ty_path.transpile_to_rust(builder)
@@ -154,7 +196,7 @@ impl TranspileToRustWith<()> for Linkage {
                 path,
                 ref instantiation,
                 field,
-            } => builder.macro_call(RustMacroName::EnumFieldLinkageImpl, |builder| {
+            } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
                 builder.bracketed_comma_list(
                     RustDelimiter::Angle,

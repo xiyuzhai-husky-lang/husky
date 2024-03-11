@@ -13,10 +13,14 @@ pub enum RustMacroName {
     LinkageImpls,
     FnLinkageImpl,
     GnLinkageImpl,
-    DestructorLinkageImpl,
-    UnveilLinkageImpl,
+    EnumVariantTupleConstructorLinkageImpl,
+    EnumVariantUnitConstructorLinkageImpl,
+    EnumVariantDestructorLinkageImpl,
+    EnumVariantDiscriminatorLinkageImpl,
+    EnumVariantFieldLinkageImpl,
+    StructDestructorLinkageImpl,
     StructFieldLinkageImpl,
-    EnumFieldLinkageImpl,
+    UnveilLinkageImpl,
     TypeDefault,
     EnumU8Presenter,
     HtmlTag(husky_coword::Ident),
@@ -42,11 +46,23 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::Unveil => "unveil!",
             RustMacroName::LinkageImpls => "linkage_impls!",
             RustMacroName::FnLinkageImpl => "fn_linkage_impl!",
-            RustMacroName::DestructorLinkageImpl => "destructor_linkage_impl!",
+            RustMacroName::StructDestructorLinkageImpl => "struct_destructor_linkage_impl!",
+            RustMacroName::EnumVariantUnitConstructorLinkageImpl => {
+                "enum_variant_unit_constructor_linkage_impl!"
+            }
+            RustMacroName::EnumVariantTupleConstructorLinkageImpl => {
+                "enum_variant_tuple_constructor_linkage_impl!"
+            }
+            RustMacroName::EnumVariantDestructorLinkageImpl => {
+                "enum_variant_destructor_linkage_impl!"
+            }
+            RustMacroName::EnumVariantDiscriminatorLinkageImpl => {
+                "enum_variant_discriminator_linkage_impl!"
+            }
+            RustMacroName::EnumVariantFieldLinkageImpl => "enum_field_linkage_impl!",
             RustMacroName::UnveilLinkageImpl => "unveil_linkage_impl!",
             RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
             RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
-            RustMacroName::EnumFieldLinkageImpl => "enum_field_linkage_impl!",
             RustMacroName::TypeDefault => "ty_default_linkage_impl!",
             RustMacroName::EnumU8Presenter => "enum_u8_presenter_linkage_impl!",
             RustMacroName::HtmlTag(ident) => {

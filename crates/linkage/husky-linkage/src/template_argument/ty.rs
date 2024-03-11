@@ -61,6 +61,28 @@ pub struct LinTypePathLeading {
     pub template_arguments: LinTemplateArguments,
 }
 
+impl LinTypePathLeading {
+    pub(crate) fn from_path_instantiation(
+        ty_path: TypePath,
+        instantiation: &LinInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        LinTypePathLeading::new(
+            db,
+            ty_path,
+            instantiation
+                .symbol_resolutions()
+                .iter()
+                .map(|(_, res)| match *res {
+                    LinTermSymbolResolution::Explicit(arg) => arg,
+                    LinTermSymbolResolution::SelfLifetime
+                    | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
+                })
+                .collect(),
+        )
+    }
+}
+
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
 pub struct LinkageRitchieType {
     pub parameters: SmallVec<[LinkageRitchieParameter; 4]>,

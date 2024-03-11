@@ -42,17 +42,8 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         }
     }
 
-    pub(crate) fn struct_ty_destructor_path(&mut self, ty_path: TypePath) {
-        ty_path.transpile_to_rust(self);
-        self.write_str("::__destructor");
-    }
-
     pub(crate) fn struct_ty_constructor_ident(&mut self) {
         self.write_str("__constructor")
-    }
-
-    pub(crate) fn struct_ty_destructor_ident(&mut self, qual: LinQual) {
-        self.write_str("__destructor");
     }
 
     pub(crate) fn enum_ty_variant_constructor_path(&mut self, path: TypeVariantPath) {
@@ -262,5 +253,11 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         use std::fmt::Write;
 
         write!(self.result, ".{index}").unwrap();
+    }
+
+    pub(crate) fn enum_tuple_variant_field(&mut self, index: usize) {
+        use std::fmt::Write;
+
+        write!(self.result, "v{index}").unwrap();
     }
 }

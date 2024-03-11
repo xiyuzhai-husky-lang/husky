@@ -70,21 +70,23 @@ pub enum LinkageData {
         instantiation: LinInstantiation,
     },
     StructDestructor {
-        path: TypePath,
-        instantiation: LinInstantiation,
+        self_ty: LinTypePathLeading,
     },
     EnumVariantConstructor {
+        self_ty: LinTypePathLeading,
         path: TypeVariantPath,
         instantiation: LinInstantiation,
     },
     /// tells if a value is of a certain variant, returns bool
     EnumVariantDiscriminator {
+        self_ty: LinTypePathLeading,
         path: TypeVariantPath,
         instantiation: LinInstantiation,
     },
     /// destruct a value with `qual` assuming it is of a certain variant,
     /// panic otherwise
     EnumVariantDestructor {
+        self_ty: LinTypePathLeading,
         path: TypeVariantPath,
         instantiation: LinInstantiation,
     },
@@ -209,11 +211,18 @@ impl Linkage {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
+        let instantiation = LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db);
+        let self_ty = LinTypePathLeading::from_path_instantiation(
+            path.parent_ty_path(db),
+            &instantiation,
+            db,
+        );
         Self::new(
             db,
             LinkageData::EnumVariantConstructor {
                 path,
-                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
+                instantiation,
+                self_ty,
             },
         )
     }
