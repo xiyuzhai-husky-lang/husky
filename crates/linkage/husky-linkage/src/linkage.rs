@@ -2,10 +2,7 @@ mod ty;
 
 use crate::{
     linkage::ty::ty_linkages_emancipated_by_javelin,
-    template_argument::{
-        qual::LinQual,
-        ty::{LinType, LinTypePathLeading},
-    },
+    template_argument::ty::{LinType, LinTypePathLeading},
     *,
 };
 use either::*;
@@ -23,9 +20,7 @@ use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavPath,
 };
-use husky_print_utils::p;
 use husky_vfs::PackagePath;
-use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(jar = LinkageJar, constructor = pub(crate) new)]

@@ -1,4 +1,8 @@
-use crate::ToVmir;
+mod ifelse;
+mod r#loop;
+mod r#match;
+
+use crate::{expr::VmirExprIdx, pattern::VmirPattern, ToVmir};
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -80,3 +84,20 @@ impl ToVmir for HirEagerStmtIdxRange {
         builder.alloc_stmts(stmts)
     }
 }
+
+pub enum VmirCondition {
+    /// `be` condition with syntactically correct pattern.
+    /// This requires special handling for many cases.
+    Be {
+        src: VmirExprIdx,
+        target: VmirPattern,
+    },
+    /// all other conditions.
+    /// for simplicity, `be` with a syntactically broken pattern is also included in there
+    Other {
+        expr: VmirExprIdx,
+        conversion: VmirConditionConversion,
+    },
+}
+
+pub enum VmirConditionConversion {}

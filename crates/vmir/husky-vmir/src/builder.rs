@@ -69,10 +69,6 @@ impl<'db> VmirExprBuilder<'db> {
         self.vmir_expr_arena.alloc_one(expr_data)
     }
 
-    pub(crate) fn alloc_exprs(&mut self, expr_datas: Vec<VmirExprData>) -> VmirExprIdxRange {
-        self.vmir_expr_arena.alloc_batch(expr_datas)
-    }
-
     pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VmirStmtData>) -> VmirStmtIdxRange {
         self.vmir_stmt_arena.alloc_batch(stmts)
     }
