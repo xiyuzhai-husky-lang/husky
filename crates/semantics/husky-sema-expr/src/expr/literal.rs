@@ -3,7 +3,7 @@ use husky_fly_term::quary::FlyQuary;
 use husky_regional_token::RegionalTokenIdx;
 use husky_token_data::FloatLiteralTokenData;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_literal_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,

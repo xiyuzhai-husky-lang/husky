@@ -4,7 +4,7 @@ use husky_eth_signature::{HasEthTemplate, TypeVariantEthTemplate};
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_assoc_item_ty(
         &mut self,
         expr_idx: SynExprIdx,

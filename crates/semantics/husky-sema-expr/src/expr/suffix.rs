@@ -11,7 +11,7 @@ use husky_sema_opr::suffix::SemaSuffixOpr;
 use husky_syn_opr::SynSuffixOpr;
 use maybe_result::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_suffix_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,

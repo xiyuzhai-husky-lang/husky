@@ -2,7 +2,7 @@ use husky_fly_term::quary::FlyQuary;
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_binary_assign_closed_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,

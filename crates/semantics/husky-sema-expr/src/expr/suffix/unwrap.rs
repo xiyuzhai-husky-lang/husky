@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_unwrap_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FlyTerm,

@@ -7,7 +7,7 @@ pub struct SemaCommaListItem {
     pub comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_comma_list_item<E: ExpectFlyTerm>(
         &mut self,
         syn_comma_list_item: SynCommaListItem,
@@ -150,7 +150,7 @@ impl SemaKeyedCallListItem {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_keyed_call_list_item(
         &mut self,
         item: SynKeyedCallListItem,

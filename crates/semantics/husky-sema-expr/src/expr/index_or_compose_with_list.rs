@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_index_or_compose_with_list_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,

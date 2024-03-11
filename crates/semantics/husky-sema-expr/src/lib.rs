@@ -4,7 +4,7 @@
 #![feature(if_let_guard)]
 #![feature(const_trait_impl)]
 #![allow(unused, warnings)]
-mod engine;
+mod builder;
 mod error;
 pub mod expr;
 pub mod jar;
@@ -16,7 +16,7 @@ pub mod stmt;
 #[cfg(test)]
 mod tests;
 
-pub use self::engine::*;
+pub use self::builder::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::jar::*;

@@ -1,7 +1,7 @@
 use super::*;
 use husky_sema_opr::suffix::SemaSuffixOpr;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_ambiguous_suffix_expr_ty<F1, F2, F3>(
         &mut self,
         opd: SynExprIdx,

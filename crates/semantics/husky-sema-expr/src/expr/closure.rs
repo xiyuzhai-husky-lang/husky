@@ -3,7 +3,7 @@ use husky_syn_expr::closure_parameter::ClosureParameterSyndicate;
 use husky_term_prelude::ritchie::RitchieClosureKind;
 
 // todo: closure types are unique
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn build_closure_expr(
         &mut self,
         closure_kind_regional_token_idx: Option<RegionalTokenIdx>,

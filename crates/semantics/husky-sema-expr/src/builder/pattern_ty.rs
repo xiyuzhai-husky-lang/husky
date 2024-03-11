@@ -2,7 +2,7 @@ use husky_coword::Ident;
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     /// used for defn body variables
     pub(crate) fn infer_variable_pattern_root_and_symbols_ty(
         &mut self,

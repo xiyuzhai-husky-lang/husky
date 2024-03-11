@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_explicit_application_expr_term(
         &mut self,
         function: SemaExprIdx,

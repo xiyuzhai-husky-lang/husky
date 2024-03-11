@@ -2,7 +2,7 @@ pub use self::matcher::*;
 
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_ritchie_arguments_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -64,7 +64,7 @@ mod matcher {
         ritchie_parameters: &'b [FlyRitchieParameter],
         ritchie_call_items: std::iter::Peekable<Arguments>,
         ritchie_matches: RitchieParameterArgumentMatches,
-        engine: &'b mut SemaExprEngine<'a>,
+        engine: &'b mut SemaExprBuilder<'a>,
     }
 
     impl<'a, 'b, Arguments: Iterator<Item = SynCallListItem>>
@@ -73,7 +73,7 @@ mod matcher {
         pub(super) fn new(
             ritchie_parameters: &'b [FlyRitchieParameter],
             ritchie_arguments: Arguments,
-            engine: &'b mut SemaExprEngine<'a>,
+            engine: &'b mut SemaExprBuilder<'a>,
         ) -> RitchieParameterArgumentMatcher<'a, 'b, impl Iterator<Item = SynCallListItem>>
         {
             RitchieParameterArgumentMatcher {

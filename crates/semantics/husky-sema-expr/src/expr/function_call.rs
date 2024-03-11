@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn build_function_application_or_call_sema_expr(
         &mut self,
         syn_expr_idx: SynExprIdx,

@@ -31,7 +31,7 @@ impl SemaForBetweenParticulars {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_for_between_particulars(
         &mut self,
         particulars: &'a SynForBetweenParticulars,
@@ -157,7 +157,7 @@ impl SemaForextParticulars {
     }
 }
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn build_sema_forext_particulars(
         &mut self,
         particulars: &'a SynForextParticulars,

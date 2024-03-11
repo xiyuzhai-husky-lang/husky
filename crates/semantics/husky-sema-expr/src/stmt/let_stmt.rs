@@ -1,8 +1,8 @@
 use super::*;
 use husky_regional_token::{EqRegionalToken, LetRegionalToken};
 
-impl<'a> SemaExprEngine<'a> {
-    pub(super) fn calc_let_stmt(
+impl<'a> SemaExprBuilder<'a> {
+    pub(super) fn build_let_stmt(
         &mut self,
         let_token: LetRegionalToken,
         let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSyndicate>,

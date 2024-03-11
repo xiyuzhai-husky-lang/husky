@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     #[inline(always)]
     pub(crate) fn expect_unit(&self) -> ExpectCoersion {
         ExpectCoersion::new_pure_unit(self)

@@ -1,7 +1,7 @@
 use super::*;
 use husky_regional_token::IdentRegionalToken;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_field_expr_ty(
         &mut self,
         owner: SynExprIdx,

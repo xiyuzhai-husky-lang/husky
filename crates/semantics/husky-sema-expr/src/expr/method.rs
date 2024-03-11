@@ -2,7 +2,7 @@ use super::*;
 use husky_fly_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
 use husky_regional_token::IdentRegionalToken;
 
-impl<'a> SemaExprEngine<'a> {
+impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_method_application_or_call_ty(
         &mut self,
         expr_idx: SynExprIdx,
