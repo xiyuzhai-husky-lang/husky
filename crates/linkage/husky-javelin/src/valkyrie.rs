@@ -4,7 +4,6 @@ use crate::{
 };
 use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
-use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_decl::{decl::HasHirDecl, parameter::template::HirTemplateParameters};
 use husky_hir_defn::HasHirDefn;
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};
@@ -361,6 +360,8 @@ impl ValkyrieRides {
 
 #[test]
 fn item_valkyrie_rides_works() {
+    use husky_entity_tree::helpers::paths::module_item_paths;
+
     DB::ast_expect_test_debug_with_db(
         |db, module_path| -> Vec<_> {
             module_item_paths(db, module_path)
