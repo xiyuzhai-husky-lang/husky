@@ -11,8 +11,7 @@ pub enum JavPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
     TraitForTypeItem(TraitForTypeItemPath),
-    TypeConstructor(TypePath),
-    TypeVariantConstructor(TypeVariantPath),
+    Type(TypePath),
 }
 
 impl std::ops::Deref for JavPath {
@@ -71,7 +70,7 @@ impl JavPath {
                 AssocItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
                 AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
-            ItemPath::TypeVariant(_, path) => Some(path.into()),
+            ItemPath::TypeVariant(_, path) => Some(path.parent_ty_path(db).into()),
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
         }
