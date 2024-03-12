@@ -23,9 +23,9 @@ linkage_impls![
     enum_variant_tuple_constructor_linkage_impl!(husky_core::ops::ControlFlow::Continue),
     enum_variant_discriminator_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::__Continue_discriminator),
     enum_variant_destructor_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::__Continue_destructor, v0),
-    enum_field_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Continue, .0),
+    enum_variant_field_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Continue, .0),
     enum_variant_tuple_constructor_linkage_impl!(husky_core::ops::ControlFlow::Break),
     enum_variant_discriminator_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::__Break_discriminator),
     enum_variant_destructor_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::__Break_destructor, v0),
-    enum_field_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Break, .0),
+    enum_variant_field_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Break, .0),
 ];

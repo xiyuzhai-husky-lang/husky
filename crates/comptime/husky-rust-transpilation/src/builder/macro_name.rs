@@ -59,7 +59,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::EnumVariantDiscriminatorLinkageImpl => {
                 "enum_variant_discriminator_linkage_impl!"
             }
-            RustMacroName::EnumVariantFieldLinkageImpl => "enum_field_linkage_impl!",
+            RustMacroName::EnumVariantFieldLinkageImpl => "enum_variant_field_linkage_impl!",
             RustMacroName::UnveilLinkageImpl => "unveil_linkage_impl!",
             RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
             RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
