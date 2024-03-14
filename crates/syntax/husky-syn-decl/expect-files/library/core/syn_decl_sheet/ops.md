@@ -1971,7 +1971,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             template_parameters: [
                                 TemplateSynParameterData {

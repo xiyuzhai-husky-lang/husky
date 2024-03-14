@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             template_parameters: [],
                             fields: [

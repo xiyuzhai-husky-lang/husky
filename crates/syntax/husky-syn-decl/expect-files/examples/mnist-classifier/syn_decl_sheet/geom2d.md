@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -276,7 +276,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -543,7 +543,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -810,7 +810,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -1077,7 +1077,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -1360,7 +1360,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             template_parameters: [],
                             fields: [

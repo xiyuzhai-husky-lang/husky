@@ -74,10 +74,10 @@ where
             DisambiguatedTokenData::SynSuffixOpr(regional_token_idx, opr) => {
                 self.accept_suffix_opr(opr, regional_token_idx)
             }
-            DisambiguatedTokenData::LeftDelimiter(regional_token_idx, Delimiter::BlockCurl) => {
+            DisambiguatedTokenData::LeftDelimiter(regional_token_idx, Delimiter::NestedCurl) => {
                 self.accept_block_lcurl(regional_token_idx)
             }
-            DisambiguatedTokenData::RightDelimiter(_, Delimiter::BlockCurl) => {
+            DisambiguatedTokenData::RightDelimiter(_, Delimiter::NestedCurl) => {
                 unreachable!()
             }
             DisambiguatedTokenData::LeftDelimiter(regional_token_idx, bra) => {
@@ -552,7 +552,7 @@ where
                         .into(),
                         None => todo!(),
                     },
-                    Delimiter::BlockCurl => todo!(),
+                    Delimiter::NestedCurl => todo!(),
                     Delimiter::InlineCurl => SynExprData::Err(
                         OriginalSynExprError::UnexpectedInlineLcurl(bra_regional_token_idx).into(),
                     )

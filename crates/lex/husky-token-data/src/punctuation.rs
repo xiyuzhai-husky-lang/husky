@@ -25,8 +25,8 @@ impl Punctuation {
         match self.0 {
             PunctuationMapped::Binary(_) => Convexity::Concave,
             PunctuationMapped::Suffix(_) => Convexity::Convex,
-            PunctuationMapped::Bra(_) => Convexity::Concave,
-            PunctuationMapped::Ket(_) => Convexity::Convex,
+            PunctuationMapped::LeftDelimiter(_) => Convexity::Concave,
+            PunctuationMapped::RightDelimiter(_) => Convexity::Convex,
             PunctuationMapped::LaOrLt => Convexity::Concave,
             PunctuationMapped::ColonColonLa => Convexity::Concave,
             PunctuationMapped::RaOrGt => Convexity::Any,
@@ -70,21 +70,21 @@ impl Punctuation {
     /// `;`
     pub const SEMICOLON: Self = Self(PunctuationMapped::Semicolon);
     /// `(`
-    pub const LPAR: Self = Self(PunctuationMapped::Bra(Delimiter::Par));
+    pub const LPAR: Self = Self(PunctuationMapped::LeftDelimiter(Delimiter::Par));
     /// `)`
-    pub const RPAR: Self = Self(PunctuationMapped::Ket(Delimiter::Par));
+    pub const RPAR: Self = Self(PunctuationMapped::RightDelimiter(Delimiter::Par));
     /// `[`
-    pub const LBOX: Self = Self(PunctuationMapped::Bra(Delimiter::Box));
+    pub const LBOX: Self = Self(PunctuationMapped::LeftDelimiter(Delimiter::Box));
     /// `]`
-    pub const RBOX: Self = Self(PunctuationMapped::Ket(Delimiter::Box));
+    pub const RBOX: Self = Self(PunctuationMapped::RightDelimiter(Delimiter::Box));
     /// `{`
-    pub const INLINE_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::InlineCurl));
+    pub const INLINE_LCURL: Self = Self(PunctuationMapped::LeftDelimiter(Delimiter::InlineCurl));
     /// `}`
-    pub const INLINE_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::InlineCurl));
+    pub const INLINE_RCURL: Self = Self(PunctuationMapped::RightDelimiter(Delimiter::InlineCurl));
     /// `{`
-    pub const NESTED_LCURL: Self = Self(PunctuationMapped::Bra(Delimiter::BlockCurl));
+    pub const NESTED_LCURL: Self = Self(PunctuationMapped::LeftDelimiter(Delimiter::NestedCurl));
     /// `}`
-    pub const NESTED_RCURL: Self = Self(PunctuationMapped::Ket(Delimiter::BlockCurl));
+    pub const NESTED_RCURL: Self = Self(PunctuationMapped::RightDelimiter(Delimiter::NestedCurl));
     /// `<`
     pub const LA_OR_LT: Self = Self(PunctuationMapped::LaOrLt);
     /// `>`
@@ -215,8 +215,8 @@ impl std::fmt::Display for Punctuation {
 pub enum PunctuationMapped {
     // predetermined
     Binary(SynBinaryOpr),
-    Bra(Delimiter),
-    Ket(Delimiter),
+    LeftDelimiter(Delimiter),
+    RightDelimiter(Delimiter),
     Suffix(SynSuffixOpr),
     /// `=`
     ///
@@ -269,8 +269,8 @@ impl PunctuationMapped {
     pub fn code(self) -> &'static str {
         match self {
             PunctuationMapped::Binary(opr) => opr.code(),
-            PunctuationMapped::Bra(bra) => bra.bra_code(),
-            PunctuationMapped::Ket(ket) => ket.ket_code(),
+            PunctuationMapped::LeftDelimiter(bra) => bra.bra_code(),
+            PunctuationMapped::RightDelimiter(ket) => ket.ket_code(),
             PunctuationMapped::Suffix(opr) => opr.code(),
             PunctuationMapped::LaOrLt => "<",
             PunctuationMapped::ColonColonLa => "::<",
@@ -307,7 +307,7 @@ impl PunctuationMapped {
     pub fn opt_bra(self) -> Option<Delimiter> {
         match self {
             PunctuationMapped::LaOrLt => Some(Delimiter::TurboFish),
-            PunctuationMapped::Bra(bracket) => Some(bracket),
+            PunctuationMapped::LeftDelimiter(bracket) => Some(bracket),
             _ => None,
         }
     }

@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`malamute::Class`, `Enum`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -134,7 +134,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -359,7 +359,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                             template_parameters: [
                                 TemplateSynParameterData {

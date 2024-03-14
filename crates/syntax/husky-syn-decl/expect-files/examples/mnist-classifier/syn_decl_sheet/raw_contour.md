@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -296,7 +296,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -2511,7 +2511,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             template_parameters: [],
                             fields: [

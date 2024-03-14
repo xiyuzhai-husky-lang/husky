@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
