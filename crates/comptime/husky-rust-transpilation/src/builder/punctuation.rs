@@ -38,7 +38,7 @@ pub(crate) enum RustDelimiter {
 }
 
 impl RustDelimiter {
-    pub(crate) fn bra_code(self) -> &'static str {
+    pub(crate) fn left_code(self) -> &'static str {
         match self {
             RustDelimiter::Par => "(",
             RustDelimiter::Box => "[",
@@ -50,7 +50,7 @@ impl RustDelimiter {
         }
     }
 
-    pub(crate) fn ket_code(self) -> &'static str {
+    pub(crate) fn right_code(self) -> &'static str {
         match self {
             RustDelimiter::Par => ")",
             RustDelimiter::Box => "]",
@@ -66,8 +66,8 @@ impl RustDelimiter {
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn punctuation(&mut self, punctuation: RustPunctuation) {
         let s = match punctuation {
-            RustPunctuation::Bra(bracket) => bracket.bra_code(),
-            RustPunctuation::Ket(bracket) => bracket.ket_code(),
+            RustPunctuation::Bra(bracket) => bracket.left_code(),
+            RustPunctuation::Ket(bracket) => bracket.right_code(),
             RustPunctuation::Assign => " = ",
             RustPunctuation::Colon => ": ",
             RustPunctuation::Dot => ".",

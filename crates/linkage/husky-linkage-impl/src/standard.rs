@@ -8,7 +8,7 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::{ki_repr::ValDomainReprInterface, DevEvalContext};
+use husky_task_interface::ki_repr::ValDomainReprInterface;
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 
 // ad hoc
@@ -29,6 +29,15 @@ where
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
         fn_pointer: fn(),
+    },
+    EnumVariantDestructor {
+        enum_variant_destructor_wrapper: fn(Value) -> Vec<Value>,
+    },
+    EnumVariantDiscriminator {
+        enum_variant_discriminator_wrapper: fn(Value) -> bool,
+    },
+    EnumVariantField {
+        enum_variant_field_wrapper: fn(Value) -> Value,
     },
     StructField {
         struct_field_wrapper: fn(Value) -> Value,
@@ -101,6 +110,9 @@ where
             LinkageImpl::EnumU8ValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")
             }
+            LinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
+            LinkageImpl::EnumVariantDestructor { .. } => todo!(),
+            LinkageImpl::EnumVariantField { .. } => todo!(),
         }
     }
 

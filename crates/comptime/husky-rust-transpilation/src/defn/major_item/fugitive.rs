@@ -78,7 +78,7 @@ impl TranspileToRustWith for ValFugitiveHirDecl {
             builder.keyword(RustKeyword::Fn);
             let db = builder.db();
             self.path(db).ident(db).transpile_to_rust(builder);
-            builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |_| ());
+            builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |_| ());
             builder.return_ty(self.return_ty(db))
         })
     }

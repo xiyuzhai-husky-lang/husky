@@ -82,7 +82,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
             }
         }
         if !site.rust_precedence_range.include(precedence) {
-            builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+            builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                 transpile_hir_eager_expr_to_rust(data, place_contract_site, precedence, builder)
             })
         } else {
@@ -116,7 +116,7 @@ fn transpile_hir_eager_expr_to_rust(
                 PrincipalEntityPath::Module(_) => unreachable!(),
                 PrincipalEntityPath::MajorItem(MajorItemPath::Fugitive(path)) => {
                     if let MajorFugitiveKind::Val = path.major_fugitive_kind(db) {
-                        builder.bracketed(RustDelimiter::Par, |_| ())
+                        builder.delimited(RustDelimiter::Par, |_| ())
                     }
                 }
                 PrincipalEntityPath::TypeVariant(_) => (),
@@ -132,7 +132,7 @@ fn transpile_hir_eager_expr_to_rust(
                 (lopd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.rem_eulid();
-                builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                     (ropd, HirEagerExprSite::any_precedence()).transpile_to_rust(builder)
                 })
             }
@@ -140,7 +140,7 @@ fn transpile_hir_eager_expr_to_rust(
                 (lopd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.pow();
-                builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                     (ropd, HirEagerExprSite::any_precedence()).transpile_to_rust(builder)
                 })
             }
@@ -161,7 +161,7 @@ fn transpile_hir_eager_expr_to_rust(
             opd: opd_hir_expr_idx,
         } => {
             match opr {
-                HirPrefixOpr::NotInt => builder.bracketed(RustDelimiter::Par, |builder| {
+                HirPrefixOpr::NotInt => builder.delimited(RustDelimiter::Par, |builder| {
                     (
                         opd_hir_expr_idx,
                         HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(
@@ -194,7 +194,7 @@ fn transpile_hir_eager_expr_to_rust(
             ..
         } => {
             builder.macro_name(RustMacroName::Unveil);
-            builder.bracketed(RustDelimiter::Par, |builder| {
+            builder.delimited(RustDelimiter::Par, |builder| {
                 return_ty.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 (opd, subexpr_geq()).transpile_to_rust(builder);
@@ -209,7 +209,7 @@ fn transpile_hir_eager_expr_to_rust(
                         _ => None,
                     })
                     .collect();
-                builder.bracketed_comma_list_with_last_comma(RustDelimiter::Par, runtime_constants)
+                builder.delimited_comma_list_with_last_comma(RustDelimiter::Par, runtime_constants)
             })
         }
         HirEagerExprData::Unwrap { opd } => {
@@ -222,7 +222,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             builder.struct_ty_constructor_path(path);
-            builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::TypeVariantConstructorCall {
             path,
@@ -230,7 +230,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             path.transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::FunctionFnCall {
             path,
@@ -238,7 +238,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             path.transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::AssocFunctionFnCall {
             path,
@@ -246,7 +246,7 @@ fn transpile_hir_eager_expr_to_rust(
             ..
         } => {
             path.transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
         HirEagerExprData::PropsStructField {
             owner: owner_hir_expr_idx,
@@ -269,7 +269,7 @@ fn transpile_hir_eager_expr_to_rust(
             (owner_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
             ident.transpile_to_rust(builder);
-            builder.bracketed(RustDelimiter::Par, |_| ())
+            builder.delimited(RustDelimiter::Par, |_| ())
         }
         HirEagerExprData::MethodFnCall {
             self_argument,
@@ -300,10 +300,10 @@ fn transpile_hir_eager_expr_to_rust(
             }
             match path.ident(db).unwrap().data(db) {
                 // ad hoc, should use path menu instead
-                "visualize" => builder.bracketed(RustDelimiter::Par, |builder| {
+                "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
                     builder.visual_synchrotron_argument()
                 }),
-                _ => builder.bracketed_comma_list(RustDelimiter::Par, item_groups),
+                _ => builder.delimited_comma_list(RustDelimiter::Par, item_groups),
             }
         }
         HirEagerExprData::NewTuple { items: _ } => {
@@ -312,7 +312,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::Index { owner, ref items } => {
             // ad hoc
             (owner, HirEagerExprSite::self_expr_on_site(true)).transpile_to_rust(builder);
-            builder.bracketed(RustDelimiter::Box, |builder| {
+            builder.delimited(RustDelimiter::Box, |builder| {
                 (
                     items[0],
                     HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
@@ -324,7 +324,7 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::NewList { ref items, .. } => {
             builder.macro_name(RustMacroName::Vec);
-            builder.bracketed_comma_list(
+            builder.delimited_comma_list(
                 RustDelimiter::Box,
                 items
                     .iter()
@@ -339,7 +339,7 @@ fn transpile_hir_eager_expr_to_rust(
         } => {
             let macro_name = RustMacroName::HtmlTag(function_ident);
             builder.macro_name(macro_name);
-            builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+            builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                 builder.heterogeneous_comma_list_items(arguments.iter());
                 builder.heterogeneous_comma_list_item_with(|builder| {
                     builder.visual_synchrotron_argument()
@@ -348,11 +348,11 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::Todo => {
             builder.macro_name(RustMacroName::Todo);
-            builder.bracketed(RustDelimiter::Par, |_| ())
+            builder.delimited(RustDelimiter::Par, |_| ())
         }
         HirEagerExprData::Unreachable => {
             builder.macro_name(RustMacroName::Unreachable);
-            builder.bracketed(RustDelimiter::Par, |_| ())
+            builder.delimited(RustDelimiter::Par, |_| ())
         }
         HirEagerExprData::AssocFn { assoc_item_path } => assoc_item_path.transpile_to_rust(builder),
         HirEagerExprData::As { opd, ty } => {
@@ -370,12 +370,12 @@ fn transpile_hir_eager_expr_to_rust(
             body,
             ..
         } => {
-            builder.bracketed_comma_list(RustDelimiter::Vert, parameters);
+            builder.delimited_comma_list(RustDelimiter::Vert, parameters);
             match return_ty {
                 Some(return_ty) => {
                     builder.punctuation(RustPunctuation::LightArrow);
                     return_ty.transpile_to_rust(builder);
-                    builder.bracketed(RustDelimiter::Curl, |builder| {
+                    builder.delimited(RustDelimiter::Curl, |builder| {
                         (body, HirEagerExprSite::subexpr(RustPrecedenceRange::Any))
                             .transpile_to_rust(builder)
                     })

@@ -13,8 +13,7 @@ pub enum RustMacroName {
     LinkageImpls,
     FnLinkageImpl,
     GnLinkageImpl,
-    EnumVariantTupleConstructorLinkageImpl,
-    EnumVariantUnitConstructorLinkageImpl,
+    EnumVariantConstructorLinkageImpl,
     EnumVariantDestructorLinkageImpl,
     EnumVariantDiscriminatorLinkageImpl,
     EnumVariantFieldLinkageImpl,
@@ -47,11 +46,8 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::LinkageImpls => "linkage_impls!",
             RustMacroName::FnLinkageImpl => "fn_linkage_impl!",
             RustMacroName::StructDestructorLinkageImpl => "struct_destructor_linkage_impl!",
-            RustMacroName::EnumVariantUnitConstructorLinkageImpl => {
-                "enum_variant_unit_constructor_linkage_impl!"
-            }
-            RustMacroName::EnumVariantTupleConstructorLinkageImpl => {
-                "enum_variant_tuple_constructor_linkage_impl!"
+            RustMacroName::EnumVariantConstructorLinkageImpl => {
+                "enum_variant_constructor_linkage_impl!"
             }
             RustMacroName::EnumVariantDestructorLinkageImpl => {
                 "enum_variant_destructor_linkage_impl!"
@@ -75,6 +71,6 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn macro_call(&mut self, macro_name: RustMacroName, f: impl FnOnce(&mut Self)) {
         self.macro_name(macro_name);
-        self.bracketed(RustDelimiter::Par, f)
+        self.delimited(RustDelimiter::Par, f)
     }
 }

@@ -151,7 +151,7 @@ impl<'a> TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameters {
         if self.is_empty() {
             return;
         }
-        builder.bracketed_comma_list(RustDelimiter::Angle, self.as_ref())
+        builder.delimited_comma_list(RustDelimiter::Angle, self.as_ref())
     }
 }
 
@@ -215,7 +215,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
 
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerParenateParameters {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        builder.bracketed_comma_list(RustDelimiter::Par, self.iter());
+        builder.delimited_comma_list(RustDelimiter::Par, self.iter());
     }
 }
 

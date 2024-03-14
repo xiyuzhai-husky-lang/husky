@@ -36,7 +36,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             HirEagerStmtData::Require { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| {
                     builder.macro_name(RustMacroName::Require);
-                    builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                    builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                         condition.transpile_to_rust(builder)
                     })
                 })
@@ -49,7 +49,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         conversion,
                     } => {
                         builder.macro_name(RustMacroName::Assert);
-                        builder.bracketed_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                        builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                             (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
                                 .transpile_to_rust(builder);
                             match conversion {
@@ -98,7 +98,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                 LoopBoundaryKind::LowerOpen => {
                                     match range.initial_boundary.bound_expr {
                                         Some(initial_bound) => {
-                                            builder.bracketed(RustDelimiter::Par, |builder| {
+                                            builder.delimited(RustDelimiter::Par, |builder| {
                                                 (
                                                     initial_bound,
                                                     HirEagerExprSite::new(
@@ -136,14 +136,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                             }
                         }
                         -1 => {
-                            builder.bracketed(RustDelimiter::Par, |builder| {
+                            builder.delimited(RustDelimiter::Par, |builder| {
                                 match range.final_boundary.kind {
                                     LoopBoundaryKind::UpperOpen => unreachable!(),
                                     LoopBoundaryKind::UpperClosed => unreachable!(),
                                     LoopBoundaryKind::LowerOpen => {
                                         match range.final_boundary.bound_expr {
                                             Some(final_bound) => {
-                                                builder.bracketed(RustDelimiter::Par, |builder| {
+                                                builder.delimited(RustDelimiter::Par, |builder| {
                                                     (
                                                         final_bound,
                                                         HirEagerExprSite::new(
