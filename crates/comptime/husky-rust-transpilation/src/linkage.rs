@@ -25,6 +25,8 @@ use husky_linkage::{
     template_argument::ty::LinTypePathLeading,
 };
 
+use self::helpers::TupleFieldVariable;
+
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn package_linkages_transpilation(
     db: &::salsa::Db,
@@ -51,7 +53,7 @@ use {}::*;
         builder.rustfmt_skip();
         builder.macro_name(RustMacroName::LinkageImpls);
         builder
-            .bracketed_multiline_comma_list(RustDelimiter::Box, package_linkages(db, package_path))
+            .delimited_multiline_comma_list(RustDelimiter::Box, package_linkages(db, package_path))
     });
     builder_base.finish()
 }
@@ -114,14 +116,31 @@ impl TranspileToRustWith<()> for Linkage {
                 path,
                 ref instantiation,
             } => match path.hir_decl(db).unwrap() {
-                TypeVariantHirDecl::Props(_) => todo!(),
+                TypeVariantHirDecl::Props(_) => builder.macro_call(
+                    RustMacroName::EnumVariantConstructorLinkageImpl,
+                    |builder| {
+                        path.transpile_to_rust(builder);
+                        todo!("fields")
+                    },
+                ),
                 TypeVariantHirDecl::Unit(_) => builder.macro_call(
-                    RustMacroName::EnumVariantUnitConstructorLinkageImpl,
+                    RustMacroName::EnumVariantConstructorLinkageImpl,
                     |builder| path.transpile_to_rust(builder),
                 ),
-                TypeVariantHirDecl::Tuple(_) => builder.macro_call(
-                    RustMacroName::EnumVariantTupleConstructorLinkageImpl,
-                    |builder| path.transpile_to_rust(builder),
+                TypeVariantHirDecl::Tuple(hir_decl) => builder.macro_call(
+                    RustMacroName::EnumVariantConstructorLinkageImpl,
+                    |builder| {
+                        path.transpile_to_rust(builder);
+                        builder.punctuation(RustPunctuation::CommaSpaced);
+                        builder.delimited_comma_list(
+                            RustDelimiter::Par,
+                            hir_decl
+                                .fields(db)
+                                .iter()
+                                .enumerate()
+                                .map(|(i, _)| TupleFieldVariable(i)),
+                        );
+                    },
                 ),
             },
             LinkageData::EnumVariantDestructor {
@@ -131,7 +150,7 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::EnumVariantDestructorLinkageImpl, |builder| {
                 self_ty.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
-                builder.enum_ty_variant_destructor_path(path);
+                path.transpile_to_rust(builder);
                 match path.hir_decl(db).unwrap() {
                     TypeVariantHirDecl::Props(hir_defn) => {
                         for field in hir_defn.fields(db) {
@@ -156,7 +175,7 @@ impl TranspileToRustWith<()> for Linkage {
                 |builder| {
                     self_ty.transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
-                    builder.enum_ty_variant_discriminator_path(path);
+                    path.transpile_to_rust(builder);
                 },
             ),
             LinkageData::EnumU8ToJsonValue { ty_path } => builder
@@ -198,7 +217,7 @@ impl TranspileToRustWith<()> for Linkage {
                 field,
             } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
-                builder.bracketed_comma_list(
+                builder.delimited_comma_list(
                     RustDelimiter::Angle,
                     instantiation.iter().map(|(_, res)| match res {
                         LinTermSymbolResolution::Explicit(arg) => arg,
@@ -220,7 +239,7 @@ impl TranspileToRustWith<()> for Linkage {
                 }),
             LinkageData::VecConstructor { element_ty } => {
                 builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                    builder.bracketed(RustDelimiter::Vert, |builder| {
+                    builder.delimited(RustDelimiter::Vert, |builder| {
                         builder.v();
                         builder.punctuation(RustPunctuation::Colon);
                         builder.vec_ty(element_ty)
@@ -256,7 +275,7 @@ fn turbo_fish_instantiation<E>(
     builder: &mut RustTranspilationBuilder<'_, '_, E>,
 ) {
     if !instantiation.is_empty() {
-        builder.bracketed_comma_list(
+        builder.delimited_comma_list(
             RustDelimiter::TurboFish,
             instantiation.iter().map(|&(_, res)| match res {
                 LinTermSymbolResolution::Explicit(arg) => arg,
@@ -286,12 +305,14 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
         .unwrap()
         .linkage_instantiate(lin_instantiation, db);
         let ident = path.ident(db).unwrap();
-        builder.bracketed(RustDelimiter::Angle, |builder| {
+        builder.delimited(RustDelimiter::Angle, |builder| {
             match self_ty {
                 LinType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
                     Left(PreludeTypePath::VEC) => match ident.data(db) {
                         "first" | "last" => {
-                            builder.bracketed_comma_list(
+                            // `first` or `last` are methods from slice,
+                            // so we write down Rust's slice type `[T]` instead
+                            builder.delimited_comma_list(
                                 RustDelimiter::Box,
                                 self_ty.template_arguments(db),
                             );
@@ -301,7 +322,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     },
                     Left(PreludeTypePath::CYCLIC_SLICE) => {
                         builder.cyclic_slice_leashed_ty();
-                        builder.bracketed_comma_list(
+                        builder.delimited_comma_list(
                             RustDelimiter::Angle,
                             self_ty.template_arguments(db),
                         );
@@ -352,7 +373,7 @@ impl<E> TranspileToRustWith<E> for LinkageTrait {
         self.trai_path(db).transpile_to_rust(builder);
         let template_arguments = self.template_arguments(db);
         if !template_arguments.is_empty() {
-            builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
+            builder.delimited_comma_list(RustDelimiter::Angle, template_arguments)
         }
     }
 }
@@ -374,7 +395,7 @@ impl<E> TranspileToRustWith<E> for LinTypePathLeading {
                 self.ty_path(db).transpile_to_rust(builder);
                 let template_arguments = self.template_arguments(db);
                 if !template_arguments.is_empty() {
-                    builder.bracketed_comma_list(RustDelimiter::Angle, template_arguments)
+                    builder.delimited_comma_list(RustDelimiter::Angle, template_arguments)
                 }
             }
         }
@@ -397,7 +418,7 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.keyword(RustKeyword::Fn);
-        builder.bracketed_comma_list(RustDelimiter::Par, self.parameters(db).iter());
+        builder.delimited_comma_list(RustDelimiter::Par, self.parameters(db).iter());
         builder.punctuation(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)
     }
@@ -434,7 +455,7 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, lin_instantiation) = self;
         let db = builder.db;
-        builder.bracketed(RustDelimiter::Angle, |builder| {
+        builder.delimited(RustDelimiter::Angle, |builder| {
             let trait_for_type_impl_block_eth_template =
                 path.impl_block(db).eth_template(db).unwrap();
             let self_ty = HirType::from_eth(trait_for_type_impl_block_eth_template.self_ty(db), db)

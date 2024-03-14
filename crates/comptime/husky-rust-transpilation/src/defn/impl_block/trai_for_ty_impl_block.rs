@@ -49,7 +49,7 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
                     builder.with_hir_eager_expr_region(
                         hir_decl.hir_eager_expr_region(db),
                         |builder| {
-                            builder.bracketed_comma_list(
+                            builder.delimited_comma_list(
                                 RustDelimiter::Par,
                                 runtime_const_symbols.iter().map(|symbol| symbol.ty(db)),
                             )

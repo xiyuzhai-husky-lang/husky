@@ -1,3 +1,4 @@
+pub(crate) mod helpers;
 mod hir_ty;
 pub(crate) mod keyword;
 mod lin_ty;
@@ -198,21 +199,21 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         f(self)
     }
 
-    pub(crate) fn bracketed(&mut self, bracket: RustDelimiter, f: impl FnOnce(&mut Self)) {
-        self.write_str(bracket.bra_code());
+    pub(crate) fn delimited(&mut self, delimiter: RustDelimiter, f: impl FnOnce(&mut Self)) {
+        self.write_str(delimiter.left_code());
         f(self);
-        self.write_str(bracket.ket_code());
+        self.write_str(delimiter.right_code());
     }
 
-    pub(crate) fn bracketed_heterogeneous_list_with(
+    pub(crate) fn delimited_heterogeneous_list_with(
         &mut self,
         delimiter: RustDelimiter,
         f: impl FnOnce(&mut Self),
     ) {
         let is_list_start = std::mem::replace(&mut self.is_list_start, Some(true));
-        self.write_str(delimiter.bra_code());
+        self.write_str(delimiter.left_code());
         f(self);
-        self.write_str(delimiter.ket_code());
+        self.write_str(delimiter.right_code());
         self.is_list_start = is_list_start
     }
 
@@ -264,24 +265,24 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         f(self)
     }
 
-    pub(crate) fn bracketed_comma_list<A: TranspileToRustWith<E>>(
+    pub(crate) fn delimited_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustDelimiter,
+        delimiter: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
-        self.write_str(bracket.bra_code());
+        self.write_str(delimiter.left_code());
         self.punctuated_list(items, RustPunctuation::CommaSpaced);
-        self.write_str(bracket.ket_code());
+        self.write_str(delimiter.right_code());
     }
 
-    pub(crate) fn bracketed_comma_list_with_last_comma<A: TranspileToRustWith<E>>(
+    pub(crate) fn delimited_comma_list_with_last_comma<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustDelimiter,
+        delimiter: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
-        self.write_str(bracket.bra_code());
+        self.write_str(delimiter.left_code());
         self.punctuated_list_with_last_comma(items, RustPunctuation::CommaSpaced);
-        self.write_str(bracket.ket_code());
+        self.write_str(delimiter.right_code());
     }
 
     pub(crate) fn punctuated_list<A: TranspileToRustWith<E>>(
@@ -311,12 +312,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
     }
 
-    pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRustWith<E>>(
+    pub(crate) fn delimited_multiline_comma_list<A: TranspileToRustWith<E>>(
         &mut self,
-        bracket: RustDelimiter,
+        delimiter: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
-        self.write_str(bracket.bra_code());
+        self.write_str(delimiter.left_code());
         self.current_indent += INDENT_UNIT;
         for item in items {
             self.fresh_line();
@@ -325,15 +326,15 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
         self.current_indent -= INDENT_UNIT;
         self.fresh_line();
-        self.write_str(bracket.ket_code());
+        self.write_str(delimiter.right_code());
     }
 
-    pub(crate) fn bracketed_multiline_comma_list_without_last_comma<A: TranspileToRustWith<E>>(
+    pub(crate) fn delimited_multiline_comma_list_without_last_comma<A: TranspileToRustWith<E>>(
         &mut self,
         bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
-        self.write_str(bracket.bra_code());
+        self.write_str(bracket.left_code());
         self.current_indent += INDENT_UNIT;
         let mut start = true;
         for item in items {
@@ -347,7 +348,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
         self.current_indent -= INDENT_UNIT;
         self.fresh_line();
-        self.write_str(bracket.ket_code());
+        self.write_str(bracket.right_code());
     }
 
     pub(crate) fn bracketed_multiline_list<A: TranspileToRustWith<E>>(
@@ -355,7 +356,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         bracket: RustDelimiter,
         items: impl IntoIterator<Item = A>,
     ) {
-        self.write_str(bracket.bra_code());
+        self.write_str(bracket.left_code());
         self.current_indent += INDENT_UNIT;
         for item in items {
             self.fresh_line();
@@ -363,7 +364,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         }
         self.current_indent -= INDENT_UNIT;
         self.fresh_line();
-        self.write_str(bracket.ket_code());
+        self.write_str(bracket.right_code());
     }
 
     // ad hoc

@@ -52,37 +52,11 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.enum_ty_variant_constructor_ident(path)
     }
 
-    pub(crate) fn enum_ty_variant_discriminator_path(&mut self, path: TypeVariantPath) {
-        path.parent_ty_path(self.db).transpile_to_rust(self);
-        self.punctuation(RustPunctuation::ColonColon);
-        self.enum_ty_variant_discriminator_ident(path)
-    }
-
-    pub(crate) fn enum_ty_variant_destructor_path(&mut self, path: TypeVariantPath) {
-        path.parent_ty_path(self.db).transpile_to_rust(self);
-        self.punctuation(RustPunctuation::ColonColon);
-        self.enum_ty_variant_destructor_ident(path)
-    }
-
     pub(crate) fn enum_ty_variant_constructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
         let db = self.db;
         self.write_str("__");
         self.write_str(ty_variant_path.ident(db).data(db));
         self.write_str("_constructor");
-    }
-
-    pub(crate) fn enum_ty_variant_discriminator_ident(&mut self, ty_variant_path: TypeVariantPath) {
-        let db = self.db;
-        self.write_str("__");
-        self.write_str(ty_variant_path.ident(db).data(db));
-        self.write_str("_discriminator");
-    }
-
-    pub(crate) fn enum_ty_variant_destructor_ident(&mut self, ty_variant_path: TypeVariantPath) {
-        let db = self.db;
-        self.write_str("__");
-        self.write_str(ty_variant_path.ident(db).data(db));
-        self.write_str("_destructor");
     }
 
     fn qual_suffix(&mut self, qual: LinQual) {
@@ -178,7 +152,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn derive(&mut self, trais: &[TraitPath]) {
         self.on_fresh_line(|builder| {
             builder.write_str("#[derive");
-            builder.bracketed_comma_list(RustDelimiter::Par, trais);
+            builder.delimited_comma_list(RustDelimiter::Par, trais);
             builder.write_str("]\n")
         })
     }
@@ -232,7 +206,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn vec_ty(&mut self, element_ty: LinType) {
         self.result += "Vec";
-        self.bracketed(RustDelimiter::Angle, |builder| {
+        self.delimited(RustDelimiter::Angle, |builder| {
             element_ty.transpile_to_rust(builder)
         })
     }
