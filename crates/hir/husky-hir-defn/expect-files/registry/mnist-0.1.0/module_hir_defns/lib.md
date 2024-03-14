@@ -4,7 +4,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [],

@@ -57,7 +57,16 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
                         },
                     ));
                     for field in hir_defn.fields(db) {
-                        todo!()
+                        linkages.push(Linkage::new(
+                            db,
+                            LinkageData::EnumVariantField {
+                                path,
+                                instantiation: instantiation.clone(),
+                                field: LinkageField::Props {
+                                    ident: field.ident(),
+                                },
+                            },
+                        ));
                     }
                 }
                 TypeVariantHirDecl::Tuple(hir_defn) => {
@@ -117,7 +126,9 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
                 instantiation: instantiation.clone(),
             },
         ));
-        linkages.push(Linkage::new(db, LinkageData::StructDestructor { self_ty }));
+        if !fields.is_empty() {
+            linkages.push(Linkage::new(db, LinkageData::StructDestructor { self_ty }));
+        }
         for &field in &fields {
             linkages.push(Linkage::new(
                 db,

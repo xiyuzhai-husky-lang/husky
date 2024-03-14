@@ -2,7 +2,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`syntax_errors::ast::A`, `Struct`),
                 ),
                 instantiation: JavInstantiation {

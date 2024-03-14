@@ -300,7 +300,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
                 (match_target, HirEagerExprSite::new_root(None)).transpile_to_rust(builder);
-                builder.bracketed_multiline_list(RustDelimiter::Curl, case_branches)
+                builder.delimited_multiline_list(RustDelimiter::Curl, case_branches)
             }),
         }
     }

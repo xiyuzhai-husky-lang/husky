@@ -302,14 +302,8 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`malamute::Class`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -342,86 +336,8 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 101,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSvarResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                    template_arguments: [
-                                                        HirTemplateArgument::Type(
-                                                            HirType::Svar(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
-                                                                        class: Comptime,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 1,
-                                        },
-                                    ),
-                                    HirTermSvarResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: None,
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 100,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -559,74 +475,8 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 101,
-                                    },
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSvarResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 1,
-                                        },
-                                    ),
-                                    HirTermSvarResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: None,
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 100,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

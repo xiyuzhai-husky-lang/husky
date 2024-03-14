@@ -4,7 +4,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`core::option::Option`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`core::option::Option`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [

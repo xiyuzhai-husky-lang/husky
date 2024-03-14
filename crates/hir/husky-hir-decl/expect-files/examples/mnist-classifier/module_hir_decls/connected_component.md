@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -114,7 +114,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -304,7 +304,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],

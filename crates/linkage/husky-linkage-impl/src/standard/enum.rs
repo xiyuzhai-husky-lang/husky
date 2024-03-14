@@ -3,14 +3,51 @@ use super::*;
 
 /// # constructor
 
+#[macro_export]
 macro_rules! enum_variant_constructor_linkage_impl {
     ($self_ty: ty, $variant_path: path) => {{
-        // ad hoc
-        fn enum_variant_constructor_wrapper(owner: Value) -> Vec<Value> {
+        fn enum_variant_constructor_ki_wrapper(
+            ctx: __DevEvalContext,
+            args: &[__KiArgumentReprInterface],
+        ) -> __Value {
             todo!()
         }
-        LinkageImpl::EnumVariantConstructor {
-            enum_variant_constructor_wrapper,
+        fn enum_variant_constructor_vm_wrapper(_args: Vec<__Value>) -> __Value {
+            todo!()
+        }
+        __LinkageImpl::EnumVariantConstructor {
+            enum_variant_constructor_ki_wrapper,
+            enum_variant_constructor_vm_wrapper,
+        }
+    }}; // todo: props and tuple variant
+    ($self_ty: ty, $variant_path: path, {$($fields: ident),* $(,)?}) => {{
+        fn enum_variant_constructor_ki_wrapper(
+            ctx: __DevEvalContext,
+            args: &[__KiArgumentReprInterface],
+        ) -> __Value {
+            todo!()
+        }
+        fn enum_variant_constructor_vm_wrapper(args: Vec<__Value>) -> __Value {
+            todo!()
+        }
+        __LinkageImpl::EnumVariantConstructor {
+            enum_variant_constructor_ki_wrapper,
+            enum_variant_constructor_vm_wrapper,
+        }
+    }};
+    ($self_ty: ty, $variant_path: path, ($($fields: ident),* $(,)?)) => {{
+        fn enum_variant_constructor_ki_wrapper(
+            ctx: __DevEvalContext,
+            args: &[__KiArgumentReprInterface],
+        ) -> __Value {
+            todo!()
+        }
+        fn enum_variant_constructor_vm_wrapper(_args: Vec<__Value>) -> __Value {
+            todo!()
+        }
+        __LinkageImpl::EnumVariantConstructor {
+            enum_variant_constructor_ki_wrapper,
+            enum_variant_constructor_vm_wrapper,
         }
     }};
 }
@@ -85,6 +122,29 @@ fn enum_tuple_variant_destructor_linkage_impl_works() {
 
 #[macro_export]
 macro_rules! enum_variant_discriminator_linkage_impl {
+    ($self_ty: ty, $variant_path: path) => {{
+        fn enum_variant_discriminator_wrapper(owner: Value) -> bool {
+            match owner {
+                Value::Owned(owner) => {
+                    matches!(owner.downcast_into_owned::<$self_ty>(), $variant_path)
+                }
+                Value::Leash(owner) => {
+                    matches!(
+                        (owner as &'static dyn std::any::Any)
+                            .downcast_ref::<$self_ty>()
+                            .unwrap(),
+                        $variant_path
+                    )
+                }
+                Value::Ref(owner) => todo!("enum_props_variant_field_wrapper Ref"),
+                Value::Mut(owner) => todo!("enum_props_variant_field_wrapper Mut"),
+                _ => unreachable!(),
+            }
+        }
+        LinkageImpl::EnumVariantDiscriminator {
+            enum_variant_discriminator_wrapper,
+        }
+    }};
     ($self_ty: ty, $variant_path: path, {}) => {{
         fn enum_variant_discriminator_wrapper(owner: Value) -> bool {
             match owner {

@@ -132,14 +132,8 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 206,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -190,14 +184,8 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 206,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -248,14 +236,8 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeVariantConstructor(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 206,
-                                    },
-                                ),
-                            ),
+                        javelin_item_path: JavPath::Type(
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

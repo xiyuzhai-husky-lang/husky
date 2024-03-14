@@ -24,23 +24,11 @@ where
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_wrapper: fn(
+        fn_ki_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
-        fn_pointer: fn(),
-    },
-    EnumVariantDestructor {
-        enum_variant_destructor_wrapper: fn(Value) -> Vec<Value>,
-    },
-    EnumVariantDiscriminator {
-        enum_variant_discriminator_wrapper: fn(Value) -> bool,
-    },
-    EnumVariantField {
-        enum_variant_field_wrapper: fn(Value) -> Value,
-    },
-    StructField {
-        struct_field_wrapper: fn(Value) -> Value,
+        fn_ki_pointer: fn(),
     },
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
@@ -62,8 +50,28 @@ where
         gn_specific_wrapper:
             fn(&[KiArgumentReprInterface], Value) -> StandardLinkageImplKiControlFlow,
     },
+    EnumVariantConstructor {
+        enum_variant_constructor_ki_wrapper:
+            fn(DevEvalContext<LinkageImpl<Pedestal>>, &[KiArgumentReprInterface]) -> Value,
+        enum_variant_constructor_vm_wrapper: fn(Vec<Value>) -> Value,
+    },
+    EnumVariantDestructor {
+        enum_variant_destructor_wrapper: fn(Value) -> Vec<Value>,
+    },
+    EnumVariantDiscriminator {
+        enum_variant_discriminator_wrapper: fn(Value) -> bool,
+    },
+    EnumVariantField {
+        enum_variant_field_wrapper: fn(Value) -> Value,
+    },
     /// used to get the json value of an enum u8-represented given only the index
     EnumU8ValuePresenter { presenter: EnumU8ValuePresenter },
+    StructDestructor {
+        struct_destructor_wrapper: fn(Value) -> Vec<Value>,
+    },
+    StructField {
+        struct_field_wrapper: fn(Value) -> Value,
+    },
 }
 
 impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
@@ -74,15 +82,15 @@ where
     type Value = Value;
     type Error = Error;
 
-    fn eval(
+    fn eval_ki(
         self,
         ki_repr: KiReprInterface,
         ctx: DevEvalContext<Self>,
-        val_argument_reprs: &[KiArgumentReprInterface],
+        ki_argument_reprs: &[KiArgumentReprInterface],
     ) -> StandardLinkageImplKiControlFlow {
         match self {
-            LinkageImpl::RitchieFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
-            LinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ctx, val_argument_reprs),
+            LinkageImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ctx, ki_argument_reprs),
+            LinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ctx, ki_argument_reprs),
             LinkageImpl::RitchieGn {
                 generic_pedestal,
                 gn_generic_wrapper,
@@ -93,26 +101,30 @@ where
                         ki_repr,
                         generic_pedestal,
                         gn_generic_wrapper,
-                        val_argument_reprs,
+                        ki_argument_reprs,
                     )?;
-                gn_specific_wrapper(val_argument_reprs, value_at_generic_pedestal)
+                gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
             }
+            LinkageImpl::EnumVariantConstructor { .. } => todo!(),
+            LinkageImpl::EnumVariantDestructor { .. } => todo!(),
+            LinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
+            LinkageImpl::EnumVariantField { .. } => todo!(),
+            LinkageImpl::EnumU8ValuePresenter { .. } => {
+                unreachable!("this linkage is not meant to be evaluated like this")
+            }
+            LinkageImpl::StructDestructor {
+                struct_destructor_wrapper,
+            } => todo!(),
             LinkageImpl::StructField {
                 struct_field_wrapper,
             } => {
-                debug_assert_eq!(val_argument_reprs.len(), 1);
-                let KiArgumentReprInterface::Simple(owner) = val_argument_reprs[0] else {
+                debug_assert_eq!(ki_argument_reprs.len(), 1);
+                let KiArgumentReprInterface::Simple(owner) = ki_argument_reprs[0] else {
                     unreachable!()
                 };
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
-            LinkageImpl::EnumU8ValuePresenter { .. } => {
-                unreachable!("this linkage is not meant to be evaluated like this")
-            }
-            LinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
-            LinkageImpl::EnumVariantDestructor { .. } => todo!(),
-            LinkageImpl::EnumVariantField { .. } => todo!(),
         }
     }
 

@@ -4,7 +4,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -119,7 +119,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -546,7 +546,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

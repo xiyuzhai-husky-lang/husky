@@ -4,7 +4,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -85,7 +85,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -166,7 +166,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -247,7 +247,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -328,7 +328,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -409,7 +409,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

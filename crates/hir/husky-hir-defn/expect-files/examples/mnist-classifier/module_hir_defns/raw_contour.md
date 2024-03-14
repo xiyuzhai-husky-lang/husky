@@ -4,7 +4,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -105,7 +105,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -4070,7 +4070,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

@@ -1,4 +1,29 @@
+#[cfg(test)]
 use super::*;
+
+/// # destructor
+
+#[macro_export]
+macro_rules! struct_destructor_linkage_impl {
+    ($self_ty: ty, $ty_path: path, $($fields: ident),* $(,)?) => {{
+        fn struct_destructor_wrapper(owner: Value) -> Vec<Value> {
+            match owner {
+                Value::Owned(owner) => {
+                    let $ty_path { $($fields),* } = owner.downcast_into_owned::<$self_ty>() else {
+                        unreachable!()
+                    };
+                    vec![$($fields.into_value()),*]
+                }
+                _ => unreachable!(),
+            }
+        }
+        LinkageImpl::StructDestructor {
+            struct_destructor_wrapper,
+        }
+    }};
+}
+
+// # field
 
 #[macro_export]
 macro_rules! struct_field_linkage_impl {
