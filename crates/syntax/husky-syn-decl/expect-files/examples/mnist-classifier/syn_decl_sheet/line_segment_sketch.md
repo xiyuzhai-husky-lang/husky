@@ -101,7 +101,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             template_parameters: [],
                             fields: [
@@ -647,7 +647,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
-                        PropsStructTypeSynDecl {
+                        PropsStructSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             template_parameters: [],
                             fields: [

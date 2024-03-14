@@ -10,14 +10,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -42,8 +42,8 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
-                    Delimiter::BlockCurl,
+                PunctuationMapped::LeftDelimiter(
+                    Delimiter::NestedCurl,
                 ),
             ),
         ),
@@ -56,8 +56,8 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
-                    Delimiter::BlockCurl,
+                PunctuationMapped::RightDelimiter(
+                    Delimiter::NestedCurl,
                 ),
             ),
         ),
@@ -71,14 +71,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -151,14 +151,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -204,8 +204,8 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
-                    Delimiter::BlockCurl,
+                PunctuationMapped::LeftDelimiter(
+                    Delimiter::NestedCurl,
                 ),
             ),
         ),
@@ -230,8 +230,8 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
-                    Delimiter::BlockCurl,
+                PunctuationMapped::RightDelimiter(
+                    Delimiter::NestedCurl,
                 ),
             ),
         ),

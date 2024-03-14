@@ -27,7 +27,8 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantRcurlRegi
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRcurl)?;
+        let rcurl =
+            sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedRcurlForTypePropsVariant)?;
         Ok(Self(rcurl))
     }
 }

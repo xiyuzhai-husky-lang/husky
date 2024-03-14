@@ -16,14 +16,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::InlineCurl,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::InlineCurl,
                 ),
             ),

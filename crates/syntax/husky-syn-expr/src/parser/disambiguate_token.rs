@@ -89,10 +89,10 @@ where
                 PunctuationMapped::Binary(binary) => {
                     DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, binary)
                 }
-                PunctuationMapped::Bra(bra) => {
+                PunctuationMapped::LeftDelimiter(bra) => {
                     DisambiguatedTokenData::LeftDelimiter(regional_token_idx, bra)
                 }
-                PunctuationMapped::Ket(ket) => match self.last_bra() {
+                PunctuationMapped::RightDelimiter(ket) => match self.last_bra() {
                     Some(bra) => {
                         if bra != ket {
                             todo!()

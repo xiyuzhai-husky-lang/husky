@@ -51,8 +51,10 @@ pub enum OriginalSynNodeDeclError {
     ExpectedCurry(RegionalTokenStreamState),
     #[error("expect `:` at end of line")]
     ExpectedEolColon(RegionalTokenStreamState),
-    #[error("expect `}}`")]
-    ExpectedRcurl(RegionalTokenStreamState),
+    #[error("expected `}}` for struct")]
+    ExpectedRcurlForStruct(RegionalTokenStreamState),
+    #[error("expected `}}` for type props variant")]
+    ExpectedRcurlForTypePropsVariant(RegionalTokenStreamState),
     #[error("expect `>` for implicit parameters")]
     ExpectedRightAngleDelimiterForImplicitParameterDeclList {
         langle_regional_token_idx: RegionalTokenIdx,

@@ -9,7 +9,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
-                        EnumTypeSynDecl {
+                        EnumSynDecl {
                             path: TypePath(`mnist::MnistLabel`, `Enum`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

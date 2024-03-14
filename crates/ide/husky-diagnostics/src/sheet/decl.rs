@@ -47,7 +47,10 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
-            OriginalSynNodeDeclError::ExpectedRcurl(_) => {
+            OriginalSynNodeDeclError::ExpectedRcurlForStruct(_) => {
+                format!("Syntax Error: expect `}}`",)
+            }
+            OriginalSynNodeDeclError::ExpectedRcurlForTypePropsVariant(_) => {
                 format!("Syntax Error: expect `}}`",)
             }
             OriginalSynNodeDeclError::ExpectedRightAngleDelimiterForImplicitParameterDeclList {
@@ -93,7 +96,10 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedOutputType(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedCurry(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedEolColon(regional_token_stream_state)
-            | OriginalSynNodeDeclError::ExpectedRcurl(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRcurlForStruct(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedRcurlForTypePropsVariant(
+                regional_token_stream_state,
+            )
             | OriginalSynNodeDeclError::ExpectedRightAngleDelimiterForImplicitParameterDeclList {
                 regional_token_stream_state,
                 ..

@@ -33,7 +33,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::InlineCurl,
                 ),
             ),
@@ -48,14 +48,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -88,14 +88,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -115,7 +115,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::InlineCurl,
                 ),
             ),
@@ -225,14 +225,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -263,7 +263,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -283,7 +283,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -293,7 +293,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -308,7 +308,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -415,14 +415,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -453,7 +453,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -473,7 +473,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -483,7 +483,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -498,7 +498,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -605,14 +605,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -643,7 +643,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -663,7 +663,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -673,7 +673,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -696,21 +696,21 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -736,7 +736,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -756,14 +756,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -786,21 +786,21 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -812,7 +812,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -827,7 +827,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -849,14 +849,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -907,14 +907,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -939,14 +939,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -971,14 +971,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -1009,14 +1009,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -1044,7 +1044,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -1054,7 +1054,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Box,
                 ),
             ),
@@ -1072,7 +1072,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -1090,7 +1090,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -1100,14 +1100,14 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -1122,7 +1122,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Bra(
+                PunctuationMapped::LeftDelimiter(
                     Delimiter::Par,
                 ),
             ),
@@ -1140,7 +1140,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Ket(
+                PunctuationMapped::RightDelimiter(
                     Delimiter::Par,
                 ),
             ),
