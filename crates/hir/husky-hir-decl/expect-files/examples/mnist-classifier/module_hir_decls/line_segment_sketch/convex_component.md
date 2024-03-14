@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],

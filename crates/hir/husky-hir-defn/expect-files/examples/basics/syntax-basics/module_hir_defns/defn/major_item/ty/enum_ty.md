@@ -4,7 +4,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [],

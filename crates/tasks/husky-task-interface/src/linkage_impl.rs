@@ -9,7 +9,7 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     type Error: std::fmt::Debug + Serialize;
 
     /// assumed that pedestal has already been
-    fn eval(
+    fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
         ctx: DevEvalContext<Self>,

@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`core::result::Result`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [

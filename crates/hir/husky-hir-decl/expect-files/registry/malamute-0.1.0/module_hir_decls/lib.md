@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`malamute::Class`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [
@@ -75,7 +75,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -116,7 +116,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [],

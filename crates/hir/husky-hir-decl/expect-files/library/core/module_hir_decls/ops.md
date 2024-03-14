@@ -1113,7 +1113,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [

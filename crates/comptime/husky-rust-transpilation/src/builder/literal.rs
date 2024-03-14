@@ -68,4 +68,12 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         use std::fmt::Write;
         write!(self.result, "{:?}", s).unwrap()
     }
+
+    pub(crate) fn curl_unit(&mut self) {
+        self.result += "{}"
+    }
+
+    pub(crate) fn par_unit(&mut self) {
+        self.result += "()"
+    }
 }

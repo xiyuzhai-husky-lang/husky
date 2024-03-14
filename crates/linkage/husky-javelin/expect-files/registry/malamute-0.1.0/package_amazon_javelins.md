@@ -2,7 +2,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`malamute::OneVsAll`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
@@ -15,7 +15,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                 ),
                 instantiation: JavInstantiation {

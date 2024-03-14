@@ -1166,7 +1166,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [

@@ -4,7 +4,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`malamute::Class`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`malamute::Class`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [
@@ -80,7 +80,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -124,7 +124,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [],

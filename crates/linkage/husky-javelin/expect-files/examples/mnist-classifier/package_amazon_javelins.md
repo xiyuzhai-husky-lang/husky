@@ -15,7 +15,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -28,7 +28,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -56,7 +56,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -253,7 +253,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -266,7 +266,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
@@ -369,7 +369,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -489,7 +489,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -502,7 +502,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -515,7 +515,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -528,7 +528,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -541,7 +541,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -554,7 +554,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -992,7 +992,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -1005,7 +1005,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -1174,7 +1174,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -1394,7 +1394,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -1422,7 +1422,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
@@ -1469,7 +1469,7 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::TypeConstructor(
+                path: JavPath::Type(
                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 ),
                 instantiation: JavInstantiation {

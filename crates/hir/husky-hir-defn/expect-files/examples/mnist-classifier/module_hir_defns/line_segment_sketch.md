@@ -56,7 +56,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],
@@ -429,7 +429,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

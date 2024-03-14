@@ -46,7 +46,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -416,7 +416,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],

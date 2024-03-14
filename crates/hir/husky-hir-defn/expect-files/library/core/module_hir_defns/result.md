@@ -4,7 +4,7 @@
             TypeHirDefn::Enum(
                 EnumHirDefn {
                     path: TypePath(`core::result::Result`, `Enum`),
-                    hir_decl: EnumTypeHirDecl {
+                    hir_decl: EnumHirDecl {
                         path: TypePath(`core::result::Result`, `Enum`),
                         template_parameters: HirTemplateParameters(
                             [

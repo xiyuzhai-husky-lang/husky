@@ -86,6 +86,124 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
+            LinkageData::EnumVariantConstructor {
+                self_ty,
+                path,
+                ref instantiation,
+            } => builder.macro_call(
+                RustMacroName::EnumVariantConstructorLinkageImpl,
+                |builder| {
+                    self_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    path.transpile_to_rust(builder);
+                    match path.hir_decl(db).unwrap() {
+                        TypeVariantHirDecl::Props(hir_decl) => {
+                            builder.punctuation(RustPunctuation::CommaSpaced);
+                            builder.delimited_comma_list(
+                                RustDelimiter::Par,
+                                hir_decl.fields(db).iter().map(|field| field.ident()),
+                            );
+                        }
+                        TypeVariantHirDecl::Unit(_) => (),
+                        TypeVariantHirDecl::Tuple(hir_decl) => {
+                            builder.punctuation(RustPunctuation::CommaSpaced);
+                            builder.delimited_comma_list(
+                                RustDelimiter::Par,
+                                hir_decl
+                                    .fields(db)
+                                    .iter()
+                                    .enumerate()
+                                    .map(|(i, _)| TupleFieldVariable(i)),
+                            );
+                        }
+                    }
+                },
+            ),
+            LinkageData::EnumVariantDestructor {
+                self_ty,
+                path,
+                ref instantiation,
+            } => builder.macro_call(RustMacroName::EnumVariantDestructorLinkageImpl, |builder| {
+                self_ty.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                path.transpile_to_rust(builder);
+                match path.hir_decl(db).unwrap() {
+                    TypeVariantHirDecl::Props(hir_decl) => {
+                        builder.punctuation(RustPunctuation::CommaSpaced);
+                        builder.delimited_comma_list(
+                            RustDelimiter::Curl,
+                            hir_decl.fields(db).iter().map(|field| field.ident()),
+                        );
+                    }
+                    TypeVariantHirDecl::Tuple(hir_decl) => {
+                        builder.punctuation(RustPunctuation::CommaSpaced);
+                        builder.delimited_comma_list(
+                            RustDelimiter::Par,
+                            hir_decl
+                                .fields(db)
+                                .iter()
+                                .enumerate()
+                                .map(|(i, _)| TupleFieldVariable(i)),
+                        );
+                    }
+                    TypeVariantHirDecl::Unit(_) => unreachable!(),
+                }
+            }),
+            LinkageData::EnumVariantDiscriminator {
+                self_ty,
+                path,
+                ref instantiation,
+            } => builder.macro_call(
+                RustMacroName::EnumVariantDiscriminatorLinkageImpl,
+                |builder| {
+                    self_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    path.transpile_to_rust(builder);
+                    match path.hir_decl(db).unwrap() {
+                        TypeVariantHirDecl::Props(_) => {
+                            builder.punctuation(RustPunctuation::CommaSpaced);
+                            builder.curl_unit();
+                        }
+                        TypeVariantHirDecl::Tuple(_) => {
+                            builder.punctuation(RustPunctuation::CommaSpaced);
+                            builder.par_unit();
+                        }
+                        TypeVariantHirDecl::Unit(_) => (),
+                    }
+                },
+            ),
+            LinkageData::EnumVariantField {
+                path,
+                ref instantiation,
+                field,
+            } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
+                path.parent_ty_path(db).transpile_to_rust(builder);
+                builder.delimited_comma_list(
+                    RustDelimiter::Angle,
+                    instantiation.iter().map(|(_, res)| match res {
+                        LinTermSymbolResolution::Explicit(arg) => arg,
+                        LinTermSymbolResolution::SelfLifetime
+                        | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
+                    }),
+                );
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                path.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                match field {
+                    LinkageField::Tuple { index } => builder
+                        .delimited(RustDelimiter::Par, |builder| {
+                            TupleFieldVariable(index.into()).transpile_to_rust(builder)
+                        }),
+                    LinkageField::Props { ident } => builder
+                        .delimited(RustDelimiter::Curl, |builder| {
+                            ident.transpile_to_rust(builder)
+                        }),
+                }
+            }),
+            LinkageData::EnumU8ToJsonValue { ty_path } => builder
+                .macro_call(RustMacroName::EnumU8Presenter, |builder| {
+                    ty_path.transpile_to_rust(builder)
+                }),
             LinkageData::StructConstructor {
                 path,
                 ref instantiation,
@@ -96,6 +214,8 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::StructDestructor { self_ty } => {
                 builder.macro_call(RustMacroName::StructDestructorLinkageImpl, |builder| {
                     self_ty.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    self_ty.ty_path(db).transpile_to_rust(builder);
                     match self_ty.ty_path(db).hir_decl(db).unwrap() {
                         TypeHirDecl::PropsStruct(hir_decl) => {
                             for field in hir_decl.fields(db) {
@@ -111,77 +231,16 @@ impl TranspileToRustWith<()> for Linkage {
                     }
                 })
             }
-            LinkageData::EnumVariantConstructor {
-                self_ty,
-                path,
-                ref instantiation,
-            } => match path.hir_decl(db).unwrap() {
-                TypeVariantHirDecl::Props(_) => builder.macro_call(
-                    RustMacroName::EnumVariantConstructorLinkageImpl,
-                    |builder| {
-                        path.transpile_to_rust(builder);
-                        todo!("fields")
-                    },
-                ),
-                TypeVariantHirDecl::Unit(_) => builder.macro_call(
-                    RustMacroName::EnumVariantConstructorLinkageImpl,
-                    |builder| path.transpile_to_rust(builder),
-                ),
-                TypeVariantHirDecl::Tuple(hir_decl) => builder.macro_call(
-                    RustMacroName::EnumVariantConstructorLinkageImpl,
-                    |builder| {
-                        path.transpile_to_rust(builder);
-                        builder.punctuation(RustPunctuation::CommaSpaced);
-                        builder.delimited_comma_list(
-                            RustDelimiter::Par,
-                            hir_decl
-                                .fields(db)
-                                .iter()
-                                .enumerate()
-                                .map(|(i, _)| TupleFieldVariable(i)),
-                        );
-                    },
-                ),
-            },
-            LinkageData::EnumVariantDestructor {
-                self_ty,
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::EnumVariantDestructorLinkageImpl, |builder| {
-                self_ty.transpile_to_rust(builder);
-                builder.punctuation(RustPunctuation::CommaSpaced);
-                path.transpile_to_rust(builder);
-                match path.hir_decl(db).unwrap() {
-                    TypeVariantHirDecl::Props(hir_defn) => {
-                        for field in hir_defn.fields(db) {
-                            todo!()
-                        }
-                    }
-                    TypeVariantHirDecl::Tuple(hir_defn) => {
-                        for (i, _) in hir_defn.fields(db).iter().enumerate() {
-                            builder.punctuation(RustPunctuation::CommaSpaced);
-                            builder.enum_tuple_variant_field(i)
-                        }
-                    }
-                    TypeVariantHirDecl::Unit(_) => unreachable!(),
-                }
-            }),
-            LinkageData::EnumVariantDiscriminator {
-                self_ty,
-                path,
-                ref instantiation,
-            } => builder.macro_call(
-                RustMacroName::EnumVariantDiscriminatorLinkageImpl,
-                |builder| {
+            LinkageData::StructField { self_ty, field } => {
+                builder.macro_call(RustMacroName::StructFieldLinkageImpl, |builder| {
                     self_ty.transpile_to_rust(builder);
                     builder.punctuation(RustPunctuation::CommaSpaced);
-                    path.transpile_to_rust(builder);
-                },
-            ),
-            LinkageData::EnumU8ToJsonValue { ty_path } => builder
-                .macro_call(RustMacroName::EnumU8Presenter, |builder| {
-                    ty_path.transpile_to_rust(builder)
-                }),
+                    match field {
+                        LinkageField::Tuple { index } => todo!(),
+                        LinkageField::Props { ident } => ident.transpile_to_rust(builder),
+                    }
+                })
+            }
             LinkageData::AssocRitchie {
                 path,
                 ref instantiation,
@@ -201,38 +260,6 @@ impl TranspileToRustWith<()> for Linkage {
                 path.transpile_to_rust(builder)
             }),
             LinkageData::Index => todo!(),
-            LinkageData::StructField { self_ty, field } => {
-                builder.macro_call(RustMacroName::StructFieldLinkageImpl, |builder| {
-                    self_ty.transpile_to_rust(builder);
-                    builder.punctuation(RustPunctuation::CommaSpaced);
-                    match field {
-                        LinkageField::Tuple { index } => todo!(),
-                        LinkageField::Props { ident } => ident.transpile_to_rust(builder),
-                    }
-                })
-            }
-            LinkageData::EnumVariantField {
-                path,
-                ref instantiation,
-                field,
-            } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
-                path.parent_ty_path(db).transpile_to_rust(builder);
-                builder.delimited_comma_list(
-                    RustDelimiter::Angle,
-                    instantiation.iter().map(|(_, res)| match res {
-                        LinTermSymbolResolution::Explicit(arg) => arg,
-                        LinTermSymbolResolution::SelfLifetime
-                        | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
-                    }),
-                );
-                builder.punctuation(RustPunctuation::CommaSpaced);
-                path.transpile_to_rust(builder);
-                builder.punctuation(RustPunctuation::CommaSpaced);
-                match field {
-                    LinkageField::Tuple { index } => builder.tuple_field(index),
-                    LinkageField::Props { ident } => ident.transpile_to_rust(builder),
-                }
-            }),
             LinkageData::TypeDefault { ty } => builder
                 .macro_call(RustMacroName::TypeDefault, |builder| {
                     ty.transpile_to_rust(builder)

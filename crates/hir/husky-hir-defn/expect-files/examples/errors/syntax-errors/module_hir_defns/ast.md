@@ -4,7 +4,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`syntax_errors::ast::A`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`syntax_errors::ast::A`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

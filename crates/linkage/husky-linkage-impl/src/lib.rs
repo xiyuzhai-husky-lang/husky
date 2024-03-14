@@ -90,16 +90,16 @@ macro_rules! impl_is_fn_linkage_impl_source {
 
             fn into_fn_linkage_impl(
                 self,
-                fn_wrapper: fn(
+                fn_ki_wrapper: fn(
                     DevEvalContext<LinkageImpl<Pedestal>>,
                     &[KiArgumentReprInterface],
                 ) -> StandardLinkageImplKiControlFlow,
-                fn_pointer: fn($($input,)*) -> $output
+                fn_ki_pointer: fn($($input,)*) -> $output
             ) -> LinkageImpl<Pedestal> {
                 LinkageImpl::RitchieFn {
-                    fn_wrapper,
-                    fn_pointer: unsafe {
-                        std::mem::transmute(fn_pointer)
+                    fn_ki_wrapper,
+                    fn_ki_pointer: unsafe {
+                        std::mem::transmute(fn_ki_pointer)
                     },
                 }
             }
@@ -109,7 +109,9 @@ macro_rules! impl_is_fn_linkage_impl_source {
                 ctx: DevEvalContext<LinkageImpl<Pedestal>>,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardLinkageImplKiControlFlow<Self::FnOutput> {
+                #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
+                #[allow(unused_variables)]
                 let value_stands = &mut ValueStands::default();
                 KiControlFlow::Continue(self.1(
                     $({

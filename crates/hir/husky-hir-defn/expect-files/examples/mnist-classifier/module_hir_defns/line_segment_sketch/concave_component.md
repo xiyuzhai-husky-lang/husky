@@ -4,7 +4,7 @@
             TypeHirDefn::PropsStruct(
                 PropsStructHirDefn {
                     path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                    hir_decl: PropsStructTypeHirDecl {
+                    hir_decl: PropsStructHirDecl {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         template_parameters: HirTemplateParameters(
                             [],

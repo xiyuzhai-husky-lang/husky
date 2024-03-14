@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -100,7 +100,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
-                EnumTypeHirDecl {
+                EnumHirDecl {
                     path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -804,7 +804,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],

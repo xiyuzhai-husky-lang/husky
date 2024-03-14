@@ -143,7 +143,7 @@ impl<Task: IsTask> DevRuntime<Task> {
             }
             ValOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                let control_flow = linkage_impl.eval(
+                let control_flow = linkage_impl.eval_ki(
                     ki_repr.into(),
                     dev_eval_context::<Task::DevAscension>(),
                     unsafe {

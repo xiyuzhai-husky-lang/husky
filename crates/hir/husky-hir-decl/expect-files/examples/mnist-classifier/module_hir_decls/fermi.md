@@ -2,7 +2,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(
-                PropsStructTypeHirDecl {
+                PropsStructHirDecl {
                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     template_parameters: HirTemplateParameters(
                         [],
