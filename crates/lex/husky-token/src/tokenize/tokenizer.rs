@@ -92,7 +92,7 @@ impl<'token> Tokenizer<'token> {
                     let token = match self.last_token_in_unfinished_line() {
                         None
                         | Some(TokenData::EQ | TokenData::VERTICAL | TokenData::Keyword(_)) => {
-                            TokenData::BLOCK_LCURL
+                            TokenData::NESTED_LCURL
                         }
                         _ => TokenData::INLINE_LCURL,
                     };
@@ -103,7 +103,7 @@ impl<'token> Tokenizer<'token> {
                         Some(_) => TokenData::INLINE_RCURL,
                         None => {
                             debug_assert_eq!(self.token_datas.len(), self.token_ranges.len());
-                            let mut token_data = TokenData::INLINE_LCURL;
+                            let mut token_data = TokenData::INLINE_RCURL;
                             for i in (0..self.token_datas.len()).into_iter().rev() {
                                 let token_range = self.token_ranges[i];
                                 if token_range.start.col <= ranged_pretoken.range.start.col {
@@ -115,7 +115,7 @@ impl<'token> Tokenizer<'token> {
                                     token_data = match i {
                                         0 => TokenData::Error(TokenDataError::MissingLcurl),
                                         _ => match self.token_datas[i - 1] {
-                                            TokenData::BLOCK_LCURL => TokenData::BLOCK_RCURL,
+                                            TokenData::NESTED_LCURL => TokenData::NESTED_RCURL,
                                             _ => TokenData::INLINE_RCURL,
                                         },
                                     };
