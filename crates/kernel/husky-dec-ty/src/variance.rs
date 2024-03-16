@@ -31,13 +31,13 @@ impl From<OriginalVarianceError> for VarianceError {
 pub type VarianceResult<T> = Result<T, VarianceError>;
 pub type VarianceResultRef<'a, T> = Result<T, &'a VarianceError>;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum OriginalVarianceError {
     Todo,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum DerivedVarianceError {
     DeclError,

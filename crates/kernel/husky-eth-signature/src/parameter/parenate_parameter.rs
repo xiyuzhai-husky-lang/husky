@@ -3,7 +3,7 @@ use husky_dec_signature::DeclarativeParenateParameters;
 use husky_eth_term::term::ritchie::EtherealRitchieParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EtherealParenateParameters {
     data: SmallVec<[EtherealRitchieParameter; 4]>,
 }

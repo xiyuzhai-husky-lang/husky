@@ -2,7 +2,7 @@ use super::*;
 use husky_term_prelude::ritchie::RitchieTypeKind;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct ExpectEqsFunctionType {
     final_destination: FinalDestination,
 }
@@ -87,7 +87,7 @@ impl ExpectFlyTerm for ExpectEqsFunctionType {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ExpectEqsFunctionTypeOutcome {
     pub(crate) return_ty: FlyTerm,
@@ -104,7 +104,7 @@ impl ExpectEqsFunctionTypeOutcome {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExpectEqsFunctionTypeOutcomeData {
     TypeRitchie {

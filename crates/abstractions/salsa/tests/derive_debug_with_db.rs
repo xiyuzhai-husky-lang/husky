@@ -1,7 +1,7 @@
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 struct A(usize, usize);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[allow(dead_code)]
 enum Enum {
     PropsStructVariant { a: i32 },

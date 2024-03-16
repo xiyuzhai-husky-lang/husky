@@ -6,7 +6,7 @@ use thiserror::Error;
 pub type DeclarativeTypeResult<T> = Result<T, DeclarativeTypeError>;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DeclarativeTypeError {
     #[error("original `{0}`")]
     Original(#[from] OriginalDeclarativeTypeError),
@@ -27,7 +27,7 @@ impl From<&DeclError> for DeclarativeTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum OriginalDeclarativeTypeError {
     #[error("declarative_term error")]
     DecTerm(#[from] DecTermError),
@@ -42,7 +42,7 @@ pub enum OriginalDeclarativeTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DerivedDeclarativeTypeError {
     #[error("signature error")]
     SignatureError,

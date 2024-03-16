@@ -12,7 +12,7 @@ use crate::*;
 use husky_eth_term::term::svar::{EthSvar, EthTemplateSymbolAttrs, EthTermSymbolIndexImpl};
 use husky_term_prelude::template_var_class::TemplateSvarClass;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirTemplateSvar {

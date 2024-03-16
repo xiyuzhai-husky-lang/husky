@@ -15,7 +15,7 @@ use parsec::{HasStreamState, IsStreamParser};
 
 use thiserror::Error;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ImplBlockSynNodePath {
@@ -33,7 +33,7 @@ impl std::ops::Deref for ImplBlockSynNodePath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodePathData {
@@ -97,7 +97,7 @@ impl HasSynNodePath for ImplBlockPath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub(crate) enum ImplBlockSynNode {

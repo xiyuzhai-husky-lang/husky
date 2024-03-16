@@ -1,7 +1,7 @@
 use crate::*;
 use husky_opr::precedence::{HasPrecedence, Precedence};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum SynBinaryOpr {
     Closed(BinaryClosedOpr),

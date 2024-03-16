@@ -3,7 +3,7 @@ pub(crate) mod method_fn;
 use self::{method_fn::MethodFnFlySignature, quary::FlyQuary};
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum MethodFlySignature {

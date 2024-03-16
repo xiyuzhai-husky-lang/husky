@@ -8,14 +8,14 @@ use husky_syn_expr::{
 };
 use smallvec::SmallVec;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTemplateParameter {
     symbol: HirTemplateSvar,
     data: HirTemplateParameterData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirTemplateParameterData {
     Type {
@@ -110,7 +110,7 @@ impl HirTemplateParameter {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTemplateParameters(SmallVec<[HirTemplateParameter; 2]>);
 

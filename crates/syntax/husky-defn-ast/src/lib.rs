@@ -7,7 +7,7 @@ use idx_arena::*;
 /// asts that forms the body of a definition
 ///
 /// everything is regional, in the sense that the token indices are counted relative to the starting token
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum DefnAst {
     Err,

@@ -1,7 +1,7 @@
 use crate::*;
 
 /// syntax tree down to TokenVerse level
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum AstData {
     Err {

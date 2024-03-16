@@ -1,7 +1,7 @@
 use super::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SynPrincipalEntityPathExpr {
     Root {

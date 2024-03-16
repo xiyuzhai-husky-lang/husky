@@ -64,7 +64,7 @@ fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     })
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TraitForTypeAssocTypeEtherealSignature {
     path: TraitForTypeItemPath,

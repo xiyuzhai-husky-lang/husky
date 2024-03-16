@@ -10,7 +10,7 @@ use husky_term_prelude::ritchie::RitchieKind;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::PunctuatedSmallList;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralTokenData),

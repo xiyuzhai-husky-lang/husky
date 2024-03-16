@@ -7,7 +7,7 @@ pub use self::ty_impl_block::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum ImplBlockDecTemplate {
     TypeImpl(TypeImplBlockDecTemplate),

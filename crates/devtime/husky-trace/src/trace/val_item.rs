@@ -6,13 +6,13 @@ use husky_sema_expr::{
 };
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct ValItemTracePathData {
     val_item_path: FugitivePath,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValItemTraceData {
     path: TracePath,

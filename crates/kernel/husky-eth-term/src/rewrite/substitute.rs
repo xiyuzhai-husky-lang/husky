@@ -1,7 +1,7 @@
 use super::*;
 use crate::term::hvar::EthHvar;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EthTermSubstitution {
     src: EthHvar,

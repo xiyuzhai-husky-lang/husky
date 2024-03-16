@@ -14,7 +14,7 @@ use husky_term_prelude::literal::StringLiteralTokenData;
 
 /// follows mainly from <https://doc.rust-lang.org/reference/tokens.html#literals/>
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum LiteralTokenData {
     Unit,
     Char(CharLiteralTokenData),

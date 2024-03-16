@@ -7,7 +7,7 @@ use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 use salsa::DebugWithDb;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum KiReprSource {
     ValItem(FugitivePath),

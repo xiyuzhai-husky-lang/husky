@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolMap<V> {
     inherited_syn_symbol_map: InheritedSynSymbolMap<V>,

@@ -1,7 +1,7 @@
 use super::*;
 use idx_arena::Arena;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct Expectations {
     arena: Arena<FlyTermExpectationEntry>,
@@ -74,14 +74,14 @@ impl ExpectationSource {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTermExpectationEntry {
     expectation: Expectation,
     state: ExpectationState,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct ExpectationState {
     idx: FlyTermExpectationIdx,

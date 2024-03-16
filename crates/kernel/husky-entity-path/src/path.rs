@@ -47,7 +47,7 @@ impl ItemPathId {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum ItemPathData {
@@ -107,7 +107,7 @@ impl ItemPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum EntityPath {
     Module(ModulePath),
@@ -199,7 +199,7 @@ impl From<TraitPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum IdentifiableEntityPath {
     Module(ModulePath),
@@ -208,7 +208,7 @@ pub enum IdentifiableEntityPath {
     TypeVariant(TypeVariantPath),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemPath {
@@ -296,7 +296,7 @@ impl From<TraitPath> for ItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum PatternPath {
     Type(TypePath),
@@ -304,7 +304,7 @@ pub enum PatternPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorEntityPath {
     Module(ModulePath),
@@ -339,7 +339,7 @@ impl MajorEntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum PrincipalEntityPath {
     Module(ModulePath),
@@ -387,7 +387,7 @@ impl From<PrincipalEntityPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
     Submodule(SubmoduleItemPath),

@@ -4,7 +4,7 @@ use husky_entity_kind::{TraitItemKind, TypeItemKind};
 use husky_entity_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ItemSynNodeDefn {
     pub body: SynExprIdx,
@@ -75,7 +75,7 @@ pub fn item_syn_node_defn(
     })
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ItemSynDefn {
     pub body: SynExprIdx,

@@ -1,11 +1,11 @@
 use super::*;
 use husky_expr::stmt::ConditionConversion;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectConditionType;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectConditionTypeOutcome {
     pub conversion: ConditionConversion,

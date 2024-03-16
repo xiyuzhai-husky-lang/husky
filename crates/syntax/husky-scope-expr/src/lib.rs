@@ -7,7 +7,7 @@ use husky_token::*;
 use husky_vfs::ModulePath;
 use parsec::IsStreamParser;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {
     data: VisibilityExprData,
@@ -70,7 +70,7 @@ impl VisibilityExpr {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VisibilityExprData {
     Protected,

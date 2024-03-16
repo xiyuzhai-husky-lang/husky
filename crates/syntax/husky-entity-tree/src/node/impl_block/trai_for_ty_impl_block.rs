@@ -3,13 +3,13 @@ use vec_like::SmallVecPairMap;
 
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntityTreeJar)]
 #[salsa::deref_id]
 pub struct TraitForTypeImplBlockSynNodePath(ItemSynNodePathId);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntityTreeJar)]
 pub struct TraitForTypeImplBlockSynNodePathData {
@@ -106,7 +106,7 @@ impl HasSynNodePath for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitForTypeImplBlockSynNode {
     syn_node_path: TraitForTypeImplBlockSynNodePath,

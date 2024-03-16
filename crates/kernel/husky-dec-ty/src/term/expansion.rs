@@ -20,7 +20,7 @@ pub(crate) fn application_expansion_salsa(
     application_expansion_aux(db, function).apply(db, argument)
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ApplicationExpansion {
     f: DecTerm,

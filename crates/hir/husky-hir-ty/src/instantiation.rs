@@ -10,7 +10,7 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 /// `HirInstantiation` maps each hir symbol to its hir resolution.
 ///
 /// hir resolution might still contain hir symbols.
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
     symbol_map: SmallVecPairMap<HirTemplateSvar, HirTermSvarResolution, 4>,
@@ -25,7 +25,7 @@ impl std::ops::Deref for HirInstantiation {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirTermSvarResolution {
     Explicit(HirTemplateArgument),

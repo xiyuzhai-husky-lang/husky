@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct RegionalTokenIdx(NonZeroU32);
 

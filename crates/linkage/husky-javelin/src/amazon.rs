@@ -11,7 +11,7 @@ use vec_like::VecSet;
 /// an Amazon javelin is one with univalent instantiation
 #[salsa::as_id]
 #[salsa::deref_id]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct AmazonJavelin(Javelin);
 

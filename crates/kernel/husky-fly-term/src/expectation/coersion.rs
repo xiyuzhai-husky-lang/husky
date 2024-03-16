@@ -36,7 +36,7 @@ impl FlyCoersion {
 
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct ExpectCoersion {
     contract: Contract,
     ty_expected: FlyTerm,

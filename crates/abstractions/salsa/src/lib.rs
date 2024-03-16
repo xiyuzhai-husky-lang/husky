@@ -51,5 +51,5 @@ pub use self::storage::Storage;
 pub use self::tracked_struct::TrackedStructData;
 pub use self::tracked_struct::TrackedStructId;
 pub use salsa_macros::{
-    accumulator, as_id, db, debug_with_db, deref_id, input, interned, jar, test_db, tracked,
+    accumulator, as_id, db, deref_id, derive_debug_with_db, input, interned, jar, test_db, tracked,
 };

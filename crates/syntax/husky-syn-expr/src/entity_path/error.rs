@@ -1,7 +1,7 @@
 use super::*;
 use original_error::OriginalError;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum SynExprError {
     #[error("original `{0}`")]
@@ -28,7 +28,7 @@ impl From<DerivedPrincipalEntityPathExprError> for SynExprError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSynExprError {
     #[error("item tree")]
@@ -50,7 +50,7 @@ impl From<OriginalSynExprError> for OriginalSynExprError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedPrincipalEntityPathExprError {
     #[error("derived from expr error {0}")]

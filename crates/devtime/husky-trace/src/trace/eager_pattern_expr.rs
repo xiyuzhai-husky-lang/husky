@@ -21,7 +21,7 @@ pub enum EagerPatternExprEssence {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct EagerPatternExprTrace(Trace);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerPatternExprTraceData {
     path: TracePath,

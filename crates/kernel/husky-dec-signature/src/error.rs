@@ -4,7 +4,7 @@ use thiserror::Error;
 use crate::*;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DecSignatureError {
     #[error("todo")]
     DecTermError,

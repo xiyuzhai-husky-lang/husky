@@ -4,7 +4,7 @@ use husky_sema_place_contract::site::SemaPlaceContractSite;
 use husky_term_prelude::Contract;
 use vec_like::SmallVecPairMap;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerPlaceContractSite {
     place_contracts: SmallVecPairMap<EthPlace, HirEagerContract, 2>,

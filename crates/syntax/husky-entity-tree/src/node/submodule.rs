@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct SubmoduleSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct SubmoduleSynNodePathData {
     maybe_ambiguous_path: MaybeAmbiguousPath<SubmoduleItemPath>,
 }
@@ -79,7 +79,7 @@ impl HasSynNodePath for SubmoduleItemPath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct SubmoduleSynNode {
     pub(crate) syn_node_path: SubmoduleSynNodePath,

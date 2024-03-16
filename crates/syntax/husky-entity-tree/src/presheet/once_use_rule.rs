@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_token::{IdentToken, PathNameToken, SelfModToken};
 
 /// a use rule that only needs to be applied once
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 pub(crate) struct OnceUseRules(Vec<OnceUseRule>);
 
@@ -50,7 +50,7 @@ impl OnceUseRules {
 }
 
 /// a use rule that only needs to be applied once
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct OnceUseRule {
     ast_idx: AstIdx,
@@ -61,7 +61,7 @@ pub struct OnceUseRule {
     state: UseOneRuleState,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum OnceUseRuleVariant {
     Parent {
@@ -79,7 +79,7 @@ pub enum OnceUseRuleVariant {
     },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum UseOneRuleState {
     Unresolved,

@@ -69,7 +69,7 @@ impl<'a> TokenVerse<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenVerses {
     main_sequence: MainTokenVerseSequence,
@@ -160,7 +160,7 @@ impl std::ops::Index<TokenVerseIdx> for TokenVerses {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenVerseData {
     start: TokenVerseStart,

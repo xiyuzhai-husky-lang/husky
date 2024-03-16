@@ -2,16 +2,19 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
-use crate::{expr::VmirExprIdx, pattern::VmirPattern, ToVmir};
+use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPattern, ToVmir};
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
-use husky_linkage::linkage::Linkage;
 use husky_task_interface::IsLinkageImpl;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Let,
-    Return { expr: VmirExprIdx<LinkageImpl> },
+    Return {
+        result: VmirExprIdx<LinkageImpl>,
+        coersion: VmirCoersion,
+    },
     Require,
     Assert,
     Break,
@@ -42,9 +45,10 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     initial_value,
                     coersion,
                 } => VmirStmtData::Let,
-                HirEagerStmtData::Return { result, coersion } => {
-                    VmirStmtData::Return { expr: todo!() }
-                }
+                HirEagerStmtData::Return { result, coersion } => VmirStmtData::Return {
+                    result: result.to_vmir(builder),
+                    coersion: coersion.to_vmir(builder),
+                },
                 HirEagerStmtData::Require { ref condition } => VmirStmtData::Require,
                 HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
                 HirEagerStmtData::Break => VmirStmtData::Break,

@@ -17,7 +17,7 @@ fn package_ident_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum PackagePathSource {
     Library,
     Registry {
@@ -126,7 +126,7 @@ fn is_package_path_virtual(db: &::salsa::Db, package_path: PackagePath) -> bool 
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct RegistryPath(VirtualPath);
 

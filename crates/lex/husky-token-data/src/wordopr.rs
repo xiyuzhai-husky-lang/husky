@@ -1,7 +1,7 @@
 use std::ops::Deref;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum WordOpr {
     And,
     Or,

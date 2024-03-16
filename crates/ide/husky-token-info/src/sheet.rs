@@ -3,7 +3,7 @@ use husky_token_data::TokenData;
 
 use crate::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenInfoSheet {
     token_infos: Vec<Option<TokenInfo>>,

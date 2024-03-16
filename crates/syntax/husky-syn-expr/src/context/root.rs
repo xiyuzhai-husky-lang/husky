@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynExprRoot {
     kind: SynExprRootKind,
@@ -21,7 +21,7 @@ impl SynExprRoot {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynExprRootKind {
     SelfType,
@@ -46,7 +46,7 @@ pub enum SynExprRootKind {
     TypeAliasTypeTerm,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynPatternExprRoot {
     kind: SynPatternExprRootKind,
@@ -98,7 +98,7 @@ impl From<CaseSynPatternExprRoot> for SynPatternExprRoot {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynPatternExprRootKind {
     Parenate,

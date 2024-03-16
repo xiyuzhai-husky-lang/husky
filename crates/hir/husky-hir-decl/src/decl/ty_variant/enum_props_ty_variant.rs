@@ -10,7 +10,7 @@ pub struct EnumPropsVariantHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EnumPropsVariantField {
     ident: Ident,

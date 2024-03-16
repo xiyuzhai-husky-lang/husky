@@ -1,7 +1,7 @@
 use super::*;
 use husky_eth_term::term::ritchie::EtherealRitchieVariadicParameter;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyRitchieVariadicParameter {
     contract: Contract,

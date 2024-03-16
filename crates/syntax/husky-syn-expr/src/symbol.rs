@@ -14,7 +14,7 @@ use husky_term_prelude::symbol::SymbolName;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, TryParseFromStream};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
@@ -22,7 +22,7 @@ pub enum Symbol {
     Current(CurrentSynSymbolIdx, CurrentSynSymbolKind),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ImplicitParameterSymbol {
     Lifetime {
@@ -34,7 +34,7 @@ pub enum ImplicitParameterSymbol {
     Const {},
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
@@ -71,7 +71,7 @@ impl InheritedSynSymbol {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedSynSymbolKind {
     TemplateParameter(InheritedTemplateParameterSynSymbol),
@@ -79,7 +79,7 @@ pub enum InheritedSynSymbolKind {
     FieldVariable { ident: Ident },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedTemplateParameterSynSymbol {
     Lifetime { label: Label },
@@ -88,7 +88,7 @@ pub enum InheritedTemplateParameterSynSymbol {
     Constant { ident: Ident },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct CurrentSynSymbolEntry {
     modifier: SvarModifier,
@@ -190,7 +190,7 @@ impl CurrentSynSymbolEntry {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentSynSymbolKind {
     TemplateParameter {
@@ -220,7 +220,7 @@ pub enum CurrentSynSymbolKind {
     LoopVariable(SynExprIdx),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentTemplateParameterSynSymbolKind {
     Type {
@@ -237,7 +237,7 @@ pub enum CurrentTemplateParameterSynSymbolKind {
     },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum CurrentSynSymbolData {
     TemplateParameter {
@@ -359,7 +359,7 @@ impl CurrentSynSymbolData {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
 pub enum CurrentTemplateParameterSynSymbolVariant {

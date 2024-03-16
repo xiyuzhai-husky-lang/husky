@@ -3,7 +3,7 @@ use crate::*;
 macro_rules! define_specific_punctuation_regional_token {
     ($ty: ident, $punc: ident) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-        #[salsa::debug_with_db]
+        #[salsa::derive_debug_with_db]
         pub struct $ty(pub(crate) RegionalTokenIdx);
 
         impl $ty {
@@ -27,7 +27,7 @@ macro_rules! define_specific_punctuation_regional_token {
     };
     ($ty: ident, $punc: ident, $test_name: ident, $s: literal) => {
         #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-        #[salsa::debug_with_db]
+        #[salsa::derive_debug_with_db]
         pub struct $ty(pub(crate) RegionalTokenIdx);
 
         impl $ty {
@@ -259,14 +259,14 @@ define_specific_punctuation_regional_token!(
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum EolRegionalToken {
     Colon(EolColonRegionalToken),
     Semicolon(EolSemicolonRegionalToken),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EolColonRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -308,7 +308,7 @@ where
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EolSemicolonRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }

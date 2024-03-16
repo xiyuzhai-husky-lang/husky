@@ -25,5 +25,5 @@ impl InductiveTypeDecTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct InductiveTypeDecSignature {}

@@ -7,7 +7,7 @@ use super::*;
 use crate::instantiation::JavInstantiation;
 use husky_hir_ty::HirTemplateArgument;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavTemplateArgument {
     Vacant,

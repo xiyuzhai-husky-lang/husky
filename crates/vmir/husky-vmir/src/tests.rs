@@ -53,7 +53,8 @@ use husky_toml_ast::TomlAstJar;
     husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::jar::HirDefnJar,
     husky_javelin::jar::JavelinJar,
-    husky_linkage::jar::LinkageJar
+    husky_linkage::jar::LinkageJar,
+    Jar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

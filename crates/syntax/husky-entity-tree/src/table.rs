@@ -10,7 +10,7 @@ use husky_token::IdentToken;
 use husky_vfs::error::VfsResult;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EntitySymbolTable(Vec<EntitySymbolEntry>);
 
 impl EntitySymbolTable {
@@ -36,7 +36,7 @@ impl EntitySymbolTable {
 }
 
 #[derive(Debug, Default, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
@@ -62,7 +62,7 @@ impl<'a> EntitySymbolTableRef<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntitySymbolEntry {
     ident: Ident,
@@ -186,7 +186,7 @@ impl EntitySymbolEntry {
 
 // module items and submodules
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct MajorEntityNodeTable {
     entries: Vec<ItemNodeEntry>,
 }
@@ -235,7 +235,7 @@ impl MajorEntityNodeTable {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ItemNodeEntry {
     node: ItemSynNode,

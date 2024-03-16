@@ -9,7 +9,7 @@ pub struct TraitForTypeImplBlockDecTemplate {
     // todo: where clause
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
     Path(DecTerm),

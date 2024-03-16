@@ -2,7 +2,7 @@ use super::*;
 use either::*;
 use husky_token_data::delimiter::Delimiter;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ParenateParameterSyndicate {
     Simple {
@@ -33,7 +33,7 @@ pub enum ParenateParameterSyndicate {
     },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SynVariadicParameterVariant {
     Default,

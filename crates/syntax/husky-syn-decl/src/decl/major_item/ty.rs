@@ -20,7 +20,7 @@ use super::*;
 use husky_entity_kind::TypeKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeSynNodeDecl {
     Enum(EnumSynNodeDecl),
@@ -148,7 +148,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeSynDecl {
     Enum(EnumSynDecl),

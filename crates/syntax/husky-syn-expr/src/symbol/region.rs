@@ -30,7 +30,7 @@ impl AllowSelfType {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VariableRegionData {
     inherited_syn_symbol_arena: InheritedVariableArena,

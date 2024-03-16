@@ -35,7 +35,7 @@ where
     Ok(elements)
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct PunctuatedSmallList<
     Element,

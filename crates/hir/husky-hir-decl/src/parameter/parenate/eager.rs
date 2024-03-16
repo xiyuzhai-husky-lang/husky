@@ -3,7 +3,7 @@ use husky_hir_ty::ritchie::HirEagerContract;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum HirEagerParenateParameter {
     Simple {
         pattern_expr_idx: HirEagerPatternExprIdx,
@@ -56,7 +56,7 @@ impl HirEagerParenateParameter {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerParenateParameters(SmallVec<[HirEagerParenateParameter; 4]>);
 

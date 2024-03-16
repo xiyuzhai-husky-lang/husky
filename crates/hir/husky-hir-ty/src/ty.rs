@@ -14,7 +14,7 @@ use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_term_prelude::ItemPathTerm;
 
 /// this is much simpler than that in Term, right?
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirType {

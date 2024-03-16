@@ -63,7 +63,7 @@ impl PropsStructEthTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct PropsFieldEthTemplate {
     ident: Ident,
     ty: EthTerm,
@@ -108,7 +108,7 @@ impl PropsFieldEthTemplate {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PropsStructFieldEtherealSignature {
     ident: Ident,

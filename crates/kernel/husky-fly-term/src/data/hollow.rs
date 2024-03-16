@@ -2,7 +2,7 @@ use husky_vfs::Toolchain;
 
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HolTermData {
     TypeOntology {

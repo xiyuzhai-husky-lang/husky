@@ -11,7 +11,7 @@ pub struct Javelin {
     pub data: JavelinData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum JavelinData {
     PathLeading {

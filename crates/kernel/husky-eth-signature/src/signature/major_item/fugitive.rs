@@ -12,7 +12,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum FugitiveEthTemplate {
     FunctionFn(FunctionFnEthTemplate),
     FunctionGn(GnFugitiveEthTemplate),

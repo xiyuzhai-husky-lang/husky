@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerLetVariablesPattern {
     pub pattern_expr_idx: HirEagerPatternExprIdx,

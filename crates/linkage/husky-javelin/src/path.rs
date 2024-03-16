@@ -3,7 +3,7 @@ use husky_entity_kind::TypeKind;
 use husky_entity_path::*;
 use husky_hir_defn::HirDefn;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavPath {

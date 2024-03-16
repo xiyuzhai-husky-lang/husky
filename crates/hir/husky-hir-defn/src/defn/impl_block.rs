@@ -9,7 +9,7 @@ use husky_hir_decl::decl::ImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum ImplBlockHirDefn {
     Type(TypeImplBlockHirDefn),
     TraitForType(TraitForTypeImplBlockHirDefn),

@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaCommaListItem {
     pub sema_expr_idx: SemaExprIdx,
@@ -38,7 +38,7 @@ impl<'a> SemaExprBuilder<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaRegularCallListItem {
     pub argument_expr_idx: SemaExprIdx,
@@ -76,7 +76,7 @@ impl SemaRegularCallListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaVariadicCallListItem {
     argument_sema_expr_idx: SemaExprIdx,
@@ -106,7 +106,7 @@ impl SemaVariadicCallListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,

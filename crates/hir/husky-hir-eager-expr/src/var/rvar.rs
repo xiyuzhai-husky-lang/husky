@@ -5,14 +5,14 @@ use husky_syn_expr::{
 };
 use idx_arena::ArenaIdx;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerRuntimeSvarRegionData {
     arena: HirEagerRvarArena,
     self_value_variable: Option<HirEagerRvarIdx>,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerRuntimeSvarEntry {
     name: HirEagerRuntimeSvarName,
@@ -23,13 +23,13 @@ pub type HirEagerRvarArena = Arena<HirEagerRuntimeSvarEntry>;
 pub type HirEagerRvarIdx = ArenaIdx<HirEagerRuntimeSvarEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum HirEagerRuntimeSvarName {
     SelfValue,
     Ident(Ident),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum HirEagerRuntimeSvarData {
     SelfValue,

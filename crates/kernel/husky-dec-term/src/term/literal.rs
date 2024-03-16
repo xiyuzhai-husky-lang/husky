@@ -11,7 +11,7 @@ use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 use self::name::DecSvarNameMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum DecLiteral {
     Resolved(Literal),
@@ -19,7 +19,7 @@ pub enum DecLiteral {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum UnresolvedDecLiteral {
     RegularInteger(i128),
 }

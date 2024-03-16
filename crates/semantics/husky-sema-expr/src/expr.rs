@@ -55,7 +55,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 use vec_like::{AsVecMapEntry, VecMap};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaExprData {
     Literal(RegionalTokenIdx, LiteralTokenData),
@@ -299,7 +299,7 @@ pub enum SemaExprData {
     },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprEntry {
     data_result: SemaExprDataResult<SemaExprData>,
@@ -343,7 +343,7 @@ impl SemaExprEntry {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct SemaExprArena(Arena<SemaExprEntry>);
 
@@ -378,7 +378,7 @@ impl std::ops::Index<SemaExprIdx> for SemaExprArena {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy)]
 pub struct SemaExprArenaRef<'a>(ArenaRef<'a, SemaExprEntry>);
 
@@ -408,7 +408,7 @@ impl<'a> std::ops::Index<SemaExprIdx> for SemaExprArenaRef<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SemaExprIdx(ArenaIdx<SemaExprEntry>);
 
@@ -467,7 +467,7 @@ impl SemaExprIdx {
 
 pub type SemaExprIdxRange = ArenaIdxRange<SemaExprEntry>;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprMap<V>(ArenaMap<SemaExprEntry, V>);
 

@@ -18,7 +18,7 @@ use husky_token::IdentToken;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum ItemSynNodePath {
     Submodule(Room32, SubmoduleSynNodePath),
@@ -43,7 +43,7 @@ pub struct ItemSynNodePathId {
     data: ItemSynNodePathData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemSynNodePathData {
     Submodule(SubmoduleSynNodePathData),
@@ -206,7 +206,7 @@ impl ItemSynNodePathRegistry {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct MaybeAmbiguousPath<P> {
     path: P,
@@ -227,7 +227,7 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 /// this is pub(crate) because it contains AstIdx which affects incremental computation
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub(crate) enum ItemSynNode {

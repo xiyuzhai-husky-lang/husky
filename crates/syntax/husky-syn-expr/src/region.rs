@@ -8,7 +8,7 @@ pub struct SynExprRegion {
     pub data: SynExprRegionData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,

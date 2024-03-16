@@ -1,12 +1,12 @@
 use crate::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPath(ItemPathId);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPathData {
     pub parent_ty_path: TypePath,

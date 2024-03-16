@@ -1,5 +1,5 @@
 // in husky, there is no <> bracket like in Rust or C++ by design
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Delimiter {
     Par,

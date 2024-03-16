@@ -23,7 +23,7 @@ fn item_tree_crate_bundle_works() {
     )
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeSheet>,

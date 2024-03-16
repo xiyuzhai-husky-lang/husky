@@ -48,7 +48,7 @@ impl ModulePath {
 
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = VfsJar)]
 #[salsa::deref_id]
 pub struct SubmodulePath(ModulePath);
@@ -203,7 +203,7 @@ fn module_path_partial_ord_works() {
     )
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ModulePathData {
     Root(CratePath),

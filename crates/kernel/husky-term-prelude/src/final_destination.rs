@@ -8,7 +8,7 @@ use crate::ritchie::RitchieKind;
 ///
 /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum FinalDestination {
     Sort,
     TypeOntology,

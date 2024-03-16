@@ -6,13 +6,13 @@ use std::collections::BTreeMap;
 
 use crate::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlTable {
     data: BTreeMap<Coword, TomlTableValue>,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum TomlTableValue {
     Table(TomlTable),
