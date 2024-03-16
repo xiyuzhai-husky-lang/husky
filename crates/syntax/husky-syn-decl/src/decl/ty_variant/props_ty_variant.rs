@@ -1,5 +1,4 @@
 use super::*;
-use husky_regional_token::{CommaRegionalToken, InlineRcurlRegionalToken};
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
@@ -61,6 +60,7 @@ impl TypePropsVariantSynDecl {
         syn_node_decl: TypePropsVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
+        syn_node_decl.rcurl(db).as_ref()?;
         Ok(Self::new(
             db,
             path,
