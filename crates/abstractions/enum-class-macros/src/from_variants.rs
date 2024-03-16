@@ -1,4 +1,4 @@
-use husky_macro_utils::self_ty;
+use husky_proc_macro_utils::self_ty;
 use proc_macro2::Ident;
 use syn::{FieldsUnnamed, Generics, Item, ItemEnum, Type};
 

@@ -45,7 +45,7 @@ dependencies = [
 name = "enum-class-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -100,7 +100,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-macro-utils"
+name = "husky-proc-macro-utils"
 version = "0.1.0"
 dependencies = [
  "proc-macro2",
@@ -125,7 +125,7 @@ dependencies = [
 name = "husky-ml-task-interface-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -157,7 +157,7 @@ dependencies = [
 name = "husky-standard-value-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -182,7 +182,7 @@ dependencies = [
 name = "husky-task-interface-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",

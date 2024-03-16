@@ -1,5 +1,5 @@
 [package]
-name = "husky-macro-utils"
+name = "husky-proc-macro-utils"
 version.workspace = true
 edition = "2021"
 

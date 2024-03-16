@@ -6,6 +6,7 @@ use husky_linkage::linkage::Linkage;
 use husky_task_interface::IsLinkageImpl;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Literal,

@@ -12,27 +12,7 @@ pub(super) fn struct_debug_with_db_impl(item: &mut ItemStruct) -> proc_macro2::T
     // todo: refactor this as a function
     let generics = &item.generics;
     let generics_without_trais = generics_with_debug_with_db(generics);
-    let self_ty = if item.generics.params.is_empty() {
-        quote! { #ident }
-    } else {
-        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
-            item.generics.params.iter().map(|param| match param {
-                syn::GenericParam::Type(param) => {
-                    let ident = &param.ident;
-                    quote! { #ident }
-                }
-                syn::GenericParam::Lifetime(param) => {
-                    let lifetime = &param.lifetime;
-                    quote! { #lifetime }
-                }
-                syn::GenericParam::Const(param) => {
-                    let ident = &param.ident;
-                    quote! { #ident }
-                }
-            }),
-        );
-        quote! { #ident<#arguments> }
-    };
+    let self_ty = self_ty(ident, generics);
     let where_clause = &item.generics.where_clause;
     quote! {
         impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {

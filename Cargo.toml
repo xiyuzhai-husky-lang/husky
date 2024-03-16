@@ -291,7 +291,7 @@ husky-error-utils = { path = "crates/utils/husky-error-utils" }
 husky-git-utils = { path = "crates/utils/husky-git-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-iter-utils = { path = "crates/utils/husky-iter-utils" }
-husky-macro-utils = { path = "crates/utils/husky-macro-utils" }
+husky-proc-macro-utils = { path = "crates/utils/husky-proc-macro-utils" }
 husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
