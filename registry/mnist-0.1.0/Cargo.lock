@@ -62,7 +62,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-macro-utils"
+name = "husky-proc-macro-utils"
 version = "0.1.0"
 dependencies = [
  "proc-macro2",
@@ -86,7 +86,7 @@ dependencies = [
 name = "husky-ml-task-prelude-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -112,7 +112,7 @@ dependencies = [
 name = "husky-standard-value-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",
@@ -133,7 +133,7 @@ dependencies = [
 name = "husky-task-prelude-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn",

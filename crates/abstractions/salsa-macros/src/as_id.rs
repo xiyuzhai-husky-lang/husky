@@ -1,5 +1,5 @@
 use crate::options::Options;
-use husky_macro_utils::self_ty;
+use husky_proc_macro_utils::self_ty;
 use syn::Item;
 
 type Args = Options<WrapId>;

@@ -2145,7 +2145,7 @@ dependencies = [
 name = "enum-class-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.50",
@@ -5252,15 +5252,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-macro-utils"
-version = "0.1.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.50",
-]
-
-[[package]]
 name = "husky-manifest"
 version = "0.1.0"
 dependencies = [
@@ -5357,7 +5348,7 @@ dependencies = [
 name = "husky-ml-task-interface-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.50",
@@ -5515,6 +5506,15 @@ version = "0.1.0"
 [[package]]
 name = "husky-print-utils"
 version = "0.0.0"
+
+[[package]]
+name = "husky-proc-macro-utils"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.50",
+]
 
 [[package]]
 name = "husky-profile-utils"
@@ -5824,7 +5824,7 @@ dependencies = [
 name = "husky-standard-value-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.50",
@@ -6000,7 +6000,7 @@ dependencies = [
 name = "husky-task-interface-macros"
 version = "0.1.0"
 dependencies = [
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.50",
@@ -8830,7 +8830,7 @@ name = "salsa-macros"
 version = "0.1.0"
 dependencies = [
  "heck",
- "husky-macro-utils",
+ "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
  "syn 2.0.50",
