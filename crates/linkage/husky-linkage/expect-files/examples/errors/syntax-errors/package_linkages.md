@@ -1,3 +1,4 @@
+```rust
 [
     Linkage {
         data: LinkageData::StructConstructor {
@@ -9,3 +10,4 @@
         },
     },
 ]
+```

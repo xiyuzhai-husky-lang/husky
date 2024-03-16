@@ -1,3 +1,5 @@
+```rust
 [
     `quick_sort`,
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 [
     SemaPlaceContractRegion {
         expr_sites: SemaExprMap(
@@ -765,3 +766,4 @@
         ),
     },
 ]
+```

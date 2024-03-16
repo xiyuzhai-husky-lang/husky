@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `core::prelude`,
     major_item_node_table: MajorEntityNodeTable {
@@ -891,3 +892,4 @@ EntityTreePresheet {
         ],
     },
 }
+```

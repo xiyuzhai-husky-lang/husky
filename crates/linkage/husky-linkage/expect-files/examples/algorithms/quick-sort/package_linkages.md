@@ -1,3 +1,4 @@
+```rust
 [
     Linkage {
         data: LinkageData::MajorRitchieEager {
@@ -56,3 +57,4 @@
         },
     },
 ]
+```

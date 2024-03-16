@@ -1,3 +1,4 @@
+```rust
 [
     SemaExprRangeRegion {
         data: SemaExprRangeRegionData {
@@ -1121,3 +1122,4 @@
         },
     },
 ]
+```

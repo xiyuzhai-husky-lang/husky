@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `mnist_classifier::fermi`,
     major_item_node_table: MajorEntityNodeTable {
@@ -161,3 +162,4 @@ EntityTreePresheet {
         ],
     },
 }
+```

@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
     major_item_node_table: MajorEntityNodeTable {
@@ -3492,3 +3493,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

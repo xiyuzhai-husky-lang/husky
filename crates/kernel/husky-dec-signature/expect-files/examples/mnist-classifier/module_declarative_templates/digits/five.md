@@ -1,3 +1,4 @@
+```rust
 [
     (
         ItemPath::MajorItem(
@@ -24,3 +25,4 @@
         ),
     ),
 ]
+```

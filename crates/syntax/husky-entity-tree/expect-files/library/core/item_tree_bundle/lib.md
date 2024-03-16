@@ -1,3 +1,4 @@
+```rust
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
@@ -58092,3 +58093,4 @@ EntityTreeCrateBundle {
         ],
     },
 }
+```

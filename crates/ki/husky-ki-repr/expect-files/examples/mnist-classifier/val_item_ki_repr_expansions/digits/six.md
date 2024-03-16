@@ -1,3 +1,4 @@
+```rust
 [
     (
         FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -6169,3 +6170,4 @@
         ),
     ),
 ]
+```

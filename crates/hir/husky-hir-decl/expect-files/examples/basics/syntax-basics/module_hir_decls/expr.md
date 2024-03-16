@@ -1,3 +1,4 @@
+```rust
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Fugitive(
@@ -165,3 +166,4 @@
         ),
     ),
 ]
+```

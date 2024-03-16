@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::num::i8`, `Extern`),
@@ -84,3 +85,4 @@
         ),
     ),
 ]
+```

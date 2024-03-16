@@ -1,3 +1,4 @@
+```rust
 [
     ItemPath::MajorItem(
         MajorItemPath::Fugitive(
@@ -35,3 +36,4 @@
         ),
     ),
 ]
+```

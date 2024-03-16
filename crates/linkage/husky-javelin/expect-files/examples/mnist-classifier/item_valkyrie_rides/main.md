@@ -1,3 +1,4 @@
+```rust
 [
     (
         ItemPath::Submodule(
@@ -771,3 +772,4 @@
         ),
     ),
 ]
+```

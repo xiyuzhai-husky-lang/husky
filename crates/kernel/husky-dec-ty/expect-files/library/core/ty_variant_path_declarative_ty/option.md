@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::option::Option`, `Enum`),
@@ -29,3 +30,4 @@
         ],
     ),
 ]
+```

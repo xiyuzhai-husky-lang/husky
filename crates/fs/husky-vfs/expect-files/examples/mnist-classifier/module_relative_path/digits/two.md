@@ -1,1 +1,3 @@
+```rust
 "digits/two.rs"
+```

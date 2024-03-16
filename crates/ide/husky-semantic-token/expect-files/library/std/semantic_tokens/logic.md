@@ -1,3 +1,4 @@
+```rust
 Ok(
     [
         SemanticToken {
@@ -51,3 +52,4 @@ Ok(
         },
     ],
 )
+```

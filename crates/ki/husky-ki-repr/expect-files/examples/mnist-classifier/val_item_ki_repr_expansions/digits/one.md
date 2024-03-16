@@ -1,3 +1,4 @@
+```rust
 [
     (
         FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -11993,3 +11994,4 @@
         ),
     ),
 ]
+```

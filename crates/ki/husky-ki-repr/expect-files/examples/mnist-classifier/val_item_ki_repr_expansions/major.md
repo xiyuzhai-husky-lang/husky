@@ -1,3 +1,4 @@
+```rust
 [
     (
         FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -28,3 +29,4 @@
         None,
     ),
 ]
+```

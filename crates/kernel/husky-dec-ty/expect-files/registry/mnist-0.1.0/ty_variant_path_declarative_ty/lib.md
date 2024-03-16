@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`mnist::MnistLabel`, `Enum`),
@@ -133,3 +134,4 @@
         [],
     ),
 ]
+```

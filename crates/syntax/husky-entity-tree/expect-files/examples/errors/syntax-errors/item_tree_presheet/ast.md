@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `syntax_errors::ast`,
     major_item_node_table: MajorEntityNodeTable {
@@ -72,3 +73,4 @@ EntityTreePresheet {
         data: [],
     },
 }
+```

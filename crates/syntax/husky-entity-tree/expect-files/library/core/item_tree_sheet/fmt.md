@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `core::fmt`,
     major_item_node_table: MajorEntityNodeTable {
@@ -2738,3 +2739,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

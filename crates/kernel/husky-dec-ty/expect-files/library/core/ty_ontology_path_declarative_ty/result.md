@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::result::Result`, `Enum`),
@@ -6,3 +7,4 @@
         ),
     ),
 ]
+```

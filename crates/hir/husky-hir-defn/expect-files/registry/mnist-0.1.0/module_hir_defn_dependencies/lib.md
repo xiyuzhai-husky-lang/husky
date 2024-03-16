@@ -1,3 +1,4 @@
+```rust
 [
     HirDefnDependencies(
         Id {
@@ -80,3 +81,4 @@
         },
     ),
 ]
+```

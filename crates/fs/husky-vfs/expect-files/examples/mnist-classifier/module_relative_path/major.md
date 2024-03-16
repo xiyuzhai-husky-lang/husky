@@ -1,1 +1,3 @@
+```rust
 "major.rs"
+```

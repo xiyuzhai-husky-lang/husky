@@ -1,3 +1,4 @@
+```rust
 AstTokenIdxRangeSheet {
     ast_token_idx_ranges: [
         3..5,
@@ -29,3 +30,4 @@ AstTokenIdxRangeSheet {
         112..118,
     ],
 }
+```

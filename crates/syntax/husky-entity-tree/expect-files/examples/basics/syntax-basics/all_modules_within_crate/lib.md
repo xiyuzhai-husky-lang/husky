@@ -1,3 +1,4 @@
+```rust
 [
     `syntax_basics`,
     `syntax_basics::ast`,
@@ -9,3 +10,4 @@
     `syntax_basics::defn::major_item::ty::enum_ty`,
     `syntax_basics::expr`,
 ]
+```

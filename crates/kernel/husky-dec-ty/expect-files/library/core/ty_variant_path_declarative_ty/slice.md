@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::slice::Slice`, `Extern`),
@@ -8,3 +9,4 @@
         [],
     ),
 ]
+```

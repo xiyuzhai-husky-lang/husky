@@ -1,3 +1,4 @@
+```rust
 DiagnosticSheet {
     item_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
@@ -24,3 +25,4 @@ DiagnosticSheet {
         ],
     },
 }
+```

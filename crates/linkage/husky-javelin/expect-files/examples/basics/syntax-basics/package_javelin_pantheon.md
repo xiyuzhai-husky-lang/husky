@@ -1,3 +1,4 @@
+```rust
 ValkyrieJavelinPantheon {
     package_path: PackagePath {
         toolchain: Toolchain {
@@ -21,3 +22,4 @@ ValkyrieJavelinPantheon {
     instantiation_map: {},
     package_valkyrie_javelins: [],
 }
+```

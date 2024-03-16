@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `mnist_classifier::digits::zero`,
@@ -30,3 +31,4 @@
         `mnist_classifier::digits::two`,
     ),
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Trait(
@@ -156,3 +157,4 @@
         ),
     ),
 ]
+```

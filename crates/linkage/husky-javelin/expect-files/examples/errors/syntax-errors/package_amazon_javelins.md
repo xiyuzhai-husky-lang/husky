@@ -1,3 +1,4 @@
+```rust
 [
     AmazonJavelin(
         Javelin {
@@ -13,3 +14,4 @@
         },
     ),
 ]
+```

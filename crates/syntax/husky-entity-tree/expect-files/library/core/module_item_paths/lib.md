@@ -1,3 +1,4 @@
+```rust
 [
     ItemPath::Submodule(
         Room32,
@@ -190,3 +191,4 @@
         ),
     ),
 ]
+```

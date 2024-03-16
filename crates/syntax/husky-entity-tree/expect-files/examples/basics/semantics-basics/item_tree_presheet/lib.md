@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `semantics_basics`,
     major_item_node_table: MajorEntityNodeTable {
@@ -13,3 +14,4 @@ EntityTreePresheet {
         data: [],
     },
 }
+```

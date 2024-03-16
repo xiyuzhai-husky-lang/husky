@@ -1,3 +1,4 @@
+```rust
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Trait(
@@ -146,3 +147,4 @@
         ),
     ),
 ]
+```

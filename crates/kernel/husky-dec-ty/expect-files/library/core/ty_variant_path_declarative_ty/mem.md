@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::mem::Ref`, `Extern`),
@@ -16,3 +17,4 @@
         [],
     ),
 ]
+```

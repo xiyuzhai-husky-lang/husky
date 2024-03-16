@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `syntax_basics::uses`,
     major_item_node_table: MajorEntityNodeTable {
@@ -66,3 +67,4 @@ EntityTreePresheet {
         ],
     },
 }
+```

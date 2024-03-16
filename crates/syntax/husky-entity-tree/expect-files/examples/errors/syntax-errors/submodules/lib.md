@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `syntax_errors::ast`,
@@ -6,3 +7,4 @@
         `syntax_errors::uses`,
     ),
 ]
+```

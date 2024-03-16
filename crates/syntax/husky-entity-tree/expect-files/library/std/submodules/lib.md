@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `std::prelude`,
@@ -9,3 +10,4 @@
         `std::ops`,
     ),
 ]
+```

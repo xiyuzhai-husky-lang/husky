@@ -1,3 +1,4 @@
+```rust
 [
     (
         FugitivePath(`mnist::input`, `Val`),
@@ -22,3 +23,4 @@
         },
     ),
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 ValkyrieJavelinPantheon {
     package_path: PackagePath {
         toolchain: Toolchain {
@@ -4820,3 +4821,4 @@ ValkyrieJavelinPantheon {
         ),
     ],
 }
+```

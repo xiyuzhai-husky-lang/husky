@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`malamute::Class`, `Enum`),
@@ -99,3 +100,4 @@
         ],
     ),
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 [
     Linkage {
         data: LinkageData::MajorVal {
@@ -5732,3 +5733,4 @@
         },
     },
 ]
+```

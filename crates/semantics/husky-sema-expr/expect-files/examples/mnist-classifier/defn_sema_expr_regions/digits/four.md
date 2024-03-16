@@ -1,3 +1,4 @@
+```rust
 [
     SemaExprRegion {
         path: RegionPath::Defn(
@@ -15872,3 +15873,4 @@
         },
     },
 ]
+```

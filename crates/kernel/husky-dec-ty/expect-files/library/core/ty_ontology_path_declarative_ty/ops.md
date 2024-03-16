@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`core::ops::ControlFlow`, `Enum`),
@@ -6,3 +7,4 @@
         ),
     ),
 ]
+```

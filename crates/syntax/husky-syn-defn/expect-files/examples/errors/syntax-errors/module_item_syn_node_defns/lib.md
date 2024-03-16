@@ -1,3 +1,4 @@
+```rust
 [
     (
         ItemSynNodePath::Submodule(
@@ -48,3 +49,4 @@
         None,
     ),
 ]
+```

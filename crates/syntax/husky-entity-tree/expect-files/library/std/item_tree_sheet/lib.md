@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `std`,
     major_item_node_table: MajorEntityNodeTable {
@@ -239,3 +240,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

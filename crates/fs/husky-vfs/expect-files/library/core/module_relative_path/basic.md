@@ -1,1 +1,3 @@
+```rust
 "basic.rs"
+```

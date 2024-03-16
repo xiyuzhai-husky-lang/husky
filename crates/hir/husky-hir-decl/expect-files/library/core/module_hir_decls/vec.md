@@ -1,3 +1,4 @@
+```rust
 [
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
@@ -1134,3 +1135,4 @@
         ),
     ),
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 Ok(
     TomlAstSheet {
         expr_arena: Arena {
@@ -198,3 +199,4 @@ Ok(
         },
     },
 )
+```

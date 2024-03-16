@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -12,3 +13,4 @@
         ),
     ),
 ]
+```

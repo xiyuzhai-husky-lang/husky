@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `malamute`,
     major_item_node_table: MajorEntityNodeTable {
@@ -480,3 +481,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -36,3 +37,4 @@
         ),
     ),
 ]
+```
