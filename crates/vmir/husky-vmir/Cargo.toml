@@ -35,6 +35,7 @@ husky-ast.workspace = true
 husky-opr.workspace = true
 # task
 husky-task-interface.workspace = true
+husky-task.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-check-utils.workspace = true

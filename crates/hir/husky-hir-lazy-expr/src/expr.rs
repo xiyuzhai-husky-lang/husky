@@ -323,14 +323,14 @@ impl ToHirLazy for SemaExprIdx {
                 return_ty_sema_expr_idx: _,
             } => todo!(),
             SemaExprData::Field {
-                owner: owner_sema_expr_idx,
+                owner,
                 owner_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FlyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
-                    owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                    owner: owner.to_hir_lazy(builder),
                     owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
                         .unwrap(),
                     ident: ident_token.ident(),
@@ -342,7 +342,7 @@ impl ToHirLazy for SemaExprIdx {
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirLazyExprData::MemoizedField {
-                        owner: owner_sema_expr_idx.to_hir_lazy(builder),
+                        owner: owner.to_hir_lazy(builder),
                         ident: ident_token.ident(),
                         path,
                         indirections: HirIndirections::from_fly(dispatch.indirections()),

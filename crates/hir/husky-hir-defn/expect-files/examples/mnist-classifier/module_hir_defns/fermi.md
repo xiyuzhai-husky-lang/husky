@@ -823,7 +823,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 32,
+                                                                        value: 33,
                                                                     },
                                                                 ),
                                                             ),
@@ -899,7 +899,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 33,
+                                                                        value: 34,
                                                                     },
                                                                 ),
                                                             ),
@@ -921,7 +921,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 36,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -997,7 +997,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 33,
+                                                                value: 34,
                                                             },
                                                         ),
                                                     ),
@@ -1281,6 +1281,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 2,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -1428,6 +1435,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 7,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -1821,6 +1835,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 2,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -1968,6 +1989,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 7,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -2361,6 +2389,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 2,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
@@ -2508,6 +2543,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 owner: 7,
+                                                owner_base_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 ident: `others`,
                                                 field_ty: HirType::PathLeading(
                                                     HirTypePathLeading {

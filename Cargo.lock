@@ -6502,6 +6502,7 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
+ "husky-task",
  "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
