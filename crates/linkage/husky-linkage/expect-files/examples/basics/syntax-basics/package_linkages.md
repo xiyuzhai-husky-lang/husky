@@ -1,3 +1,4 @@
+```rust
 [
     Linkage {
         data: LinkageData::EnumVariantConstructor {
@@ -425,3 +426,4 @@
         },
     },
 ]
+```

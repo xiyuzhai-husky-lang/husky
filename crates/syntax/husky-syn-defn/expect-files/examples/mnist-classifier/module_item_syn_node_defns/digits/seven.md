@@ -1,3 +1,4 @@
+```rust
 [
     (
         ItemSynNodePath::MajorItem(
@@ -4412,3 +4413,4 @@
         ),
     ),
 ]
+```

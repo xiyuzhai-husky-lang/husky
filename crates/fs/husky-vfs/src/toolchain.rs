@@ -9,7 +9,6 @@ pub use jar::*;
 use super::*;
 use date::*;
 use husky_platform::Platform;
-use std::path::PathBuf;
 
 #[salsa::interned(jar = VfsJar, db = VfsDb)]
 pub struct Toolchain {

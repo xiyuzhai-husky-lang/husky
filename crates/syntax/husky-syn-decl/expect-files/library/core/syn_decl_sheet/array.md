@@ -1,3 +1,4 @@
+```rust
 SynDeclSheet {
     decls: [
         (
@@ -226,3 +227,4 @@ SynDeclSheet {
         ),
     ],
 }
+```

@@ -1,3 +1,4 @@
+```rust
 [
     HirDefn::Submodule(
         SubmoduleHirDefn {
@@ -13,3 +14,4 @@
         },
     ),
 ]
+```

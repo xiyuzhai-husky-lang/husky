@@ -1,3 +1,4 @@
+```rust
 EntityTreePresheet {
     module_path: `mnist_classifier::connected_component`,
     major_item_node_table: MajorEntityNodeTable {
@@ -432,3 +433,4 @@ EntityTreePresheet {
         ],
     },
 }
+```

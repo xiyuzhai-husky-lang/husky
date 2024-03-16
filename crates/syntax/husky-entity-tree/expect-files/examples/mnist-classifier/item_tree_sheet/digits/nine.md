@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `mnist_classifier::digits::nine`,
     major_item_node_table: MajorEntityNodeTable {
@@ -3382,3 +3383,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

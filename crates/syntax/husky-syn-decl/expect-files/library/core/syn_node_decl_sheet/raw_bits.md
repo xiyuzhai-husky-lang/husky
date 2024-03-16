@@ -1,3 +1,4 @@
+```rust
 SynNodeDeclSheet {
     decls: [
         (
@@ -1841,3 +1842,4 @@ SynNodeDeclSheet {
         ),
     ],
 }
+```

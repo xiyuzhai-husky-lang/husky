@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `mnist_classifier::connected_component`,
@@ -21,3 +22,4 @@
         `mnist_classifier::major`,
     ),
 ]
+```

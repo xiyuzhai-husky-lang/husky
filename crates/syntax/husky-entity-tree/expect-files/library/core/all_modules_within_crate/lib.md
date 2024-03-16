@@ -1,3 +1,4 @@
+```rust
 [
     `core`,
     `core::array`,
@@ -20,3 +21,4 @@
     `core::str`,
     `core::visual`,
 ]
+```

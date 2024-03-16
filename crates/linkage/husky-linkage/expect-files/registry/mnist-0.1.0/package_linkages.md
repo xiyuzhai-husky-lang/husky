@@ -1,3 +1,4 @@
+```rust
 [
     Linkage {
         data: LinkageData::EnumU8ToJsonValue {
@@ -424,3 +425,4 @@
         },
     },
 ]
+```

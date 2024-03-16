@@ -1,3 +1,4 @@
+```rust
 [
     FoldingRange {
         start_line: 7,
@@ -532,3 +533,4 @@
         collapsed_text: None,
     },
 ]
+```

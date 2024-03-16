@@ -1,1 +1,3 @@
+```rust
 "option.rs"
+```

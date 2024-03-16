@@ -1,3 +1,4 @@
+```rust
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
@@ -110,3 +111,4 @@
         },
     ),
 ]
+```

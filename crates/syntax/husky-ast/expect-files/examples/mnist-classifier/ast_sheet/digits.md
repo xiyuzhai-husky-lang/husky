@@ -1,3 +1,4 @@
+```rust
 AstSheet {
     ast_arena: Arena {
         data: [
@@ -632,3 +633,4 @@ AstSheet {
         ),
     ],
 }
+```

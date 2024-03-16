@@ -23,6 +23,10 @@ where
                 );
                 std::fs::create_dir_all(expect_file_path.parent().unwrap()).unwrap();
                 let output = f(db, unit);
+                let output = match config.expect_file_extension() {
+                    FileExtensionConfig::Markdown => format!("```rust\n{output}\n```"),
+                    FileExtensionConfig::Rust => output,
+                };
                 match std::env::var("CARGO_MANIFEST_DIR") {
                     Ok(_) => ::expect_test::expect_file![expect_file_path].assert_eq(&output),
                     Err(_) => unsafe {

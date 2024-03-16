@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -18,3 +19,4 @@
         ),
     ),
 ]
+```

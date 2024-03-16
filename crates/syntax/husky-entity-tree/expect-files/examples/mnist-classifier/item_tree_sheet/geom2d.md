@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `mnist_classifier::geom2d`,
     major_item_node_table: MajorEntityNodeTable {
@@ -666,3 +667,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

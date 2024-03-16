@@ -1,3 +1,4 @@
+```rust
 [
     Trace {
         path: TracePath {
@@ -25,3 +26,4 @@
         ),
     },
 ]
+```

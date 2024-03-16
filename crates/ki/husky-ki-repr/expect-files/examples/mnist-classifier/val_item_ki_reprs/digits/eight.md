@@ -1,3 +1,4 @@
+```rust
 [
     (
         FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
@@ -44,3 +45,4 @@
         },
     ),
 ]
+```

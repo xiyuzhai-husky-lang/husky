@@ -1,1 +1,3 @@
+```rust
 "fermi.rs"
+```

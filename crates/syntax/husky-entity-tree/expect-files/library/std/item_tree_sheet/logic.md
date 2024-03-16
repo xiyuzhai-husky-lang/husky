@@ -1,3 +1,4 @@
+```rust
 EntityTreeSheet {
     module_path: `std::logic`,
     major_item_node_table: MajorEntityNodeTable {
@@ -94,3 +95,4 @@ EntityTreeSheet {
     ),
     errors: [],
 }
+```

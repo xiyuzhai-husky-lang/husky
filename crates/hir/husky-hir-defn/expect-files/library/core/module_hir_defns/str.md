@@ -1,3 +1,4 @@
+```rust
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
@@ -88,3 +89,4 @@
         ),
     ),
 ]
+```

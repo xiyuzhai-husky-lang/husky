@@ -1,3 +1,4 @@
+```rust
 [
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -90,3 +91,4 @@
         kind: Linkages,
     },
 ]
+```

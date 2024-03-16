@@ -1,3 +1,4 @@
+```rust
 [
     (
         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -18,3 +19,4 @@
         ),
     ),
 ]
+```

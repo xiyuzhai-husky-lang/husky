@@ -1,3 +1,5 @@
+```rust
 [
     `semantics_basics`,
 ]
+```

@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `syntax_basics::ast`,
@@ -12,3 +13,4 @@
         `syntax_basics::expr`,
     ),
 ]
+```

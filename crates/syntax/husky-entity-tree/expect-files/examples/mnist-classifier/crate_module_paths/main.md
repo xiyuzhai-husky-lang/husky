@@ -1,3 +1,4 @@
+```rust
 [
     `mnist_classifier`,
     `mnist_classifier::connected_component`,
@@ -22,3 +23,4 @@
     `mnist_classifier::digits::two`,
     `mnist_classifier::major`,
 ]
+```

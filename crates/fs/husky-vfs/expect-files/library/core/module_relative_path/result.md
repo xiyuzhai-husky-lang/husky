@@ -1,1 +1,3 @@
+```rust
 "result.rs"
+```

@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `mnist_classifier::line_segment_sketch::concave_component`,
@@ -12,3 +13,4 @@
         `mnist_classifier::line_segment_sketch::line_segment`,
     ),
 ]
+```

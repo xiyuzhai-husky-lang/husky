@@ -1,3 +1,4 @@
+```rust
 [
     SubmodulePath(
         `core::array`,
@@ -57,3 +58,4 @@
         `core::visual`,
     ),
 ]
+```
