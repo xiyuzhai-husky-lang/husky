@@ -1,5 +1,4 @@
 use super::*;
-use husky_syn_expr::SynExprIdx;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
@@ -76,6 +75,7 @@ impl TupleStructSynDecl {
             })
             .unwrap_or_default();
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
+        syn_node_decl.rpar(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(Self::new(
             db,

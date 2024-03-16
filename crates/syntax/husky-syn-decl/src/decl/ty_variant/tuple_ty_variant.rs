@@ -62,6 +62,7 @@ impl TypeTupleVariantSynDecl {
         syn_node_decl: TypeTupleVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
+        syn_node_decl.rpar(db).as_ref()?;
         Ok(Self::new(
             db,
             path,

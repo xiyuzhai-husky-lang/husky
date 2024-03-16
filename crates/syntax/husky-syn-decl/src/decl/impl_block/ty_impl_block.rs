@@ -1,5 +1,4 @@
 use super::*;
-use husky_regional_token::EolRegionalToken;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeImplBlockSynNodeDecl {
