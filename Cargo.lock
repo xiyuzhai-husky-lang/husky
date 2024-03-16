@@ -5210,13 +5210,16 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
+ "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
  "husky-token-data",
  "husky-toml-ast",
  "husky-toml-token",
+ "husky-value-protocol",
  "husky-vfs",
+ "husky-virtual-value",
  "is",
  "salsa",
  "smallvec",
@@ -6432,6 +6435,11 @@ dependencies = [
 [[package]]
 name = "husky-virtual-value"
 version = "0.1.0"
+dependencies = [
+ "husky-literal-value",
+ "husky-task-interface",
+ "husky-value-protocol",
+]
 
 [[package]]
 name = "husky-virtual-value-macros"

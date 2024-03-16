@@ -12,6 +12,12 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# protocols
+husky-value-protocol.workspace = true
+# tasks
+husky-task-interface.workspace = true
+# value
+husky-literal-value.workspace = true
 
 [lints]
 workspace = true

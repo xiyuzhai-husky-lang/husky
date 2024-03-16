@@ -13,12 +13,12 @@ mod variable;
 pub mod version_stamp;
 
 use self::builder::VmirExprBuilder;
-use self::jar::VmirJar as Jar;
 #[cfg(test)]
 use self::tests::*;
+use husky_task_interface::IsLinkageImpl;
 
-pub(crate) trait ToVmir: Copy {
+pub(crate) trait ToVmir<LinkageImpl: IsLinkageImpl>: Copy {
     type Output;
 
-    fn to_vmir(self, builder: &mut VmirExprBuilder) -> Self::Output;
+    fn to_vmir(self, builder: &mut VmirExprBuilder<LinkageImpl>) -> Self::Output;
 }

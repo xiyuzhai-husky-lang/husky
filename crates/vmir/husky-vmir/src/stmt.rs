@@ -4,13 +4,14 @@ mod r#match;
 
 use crate::{expr::VmirExprIdx, pattern::VmirPattern, ToVmir};
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
+use husky_linkage::linkage::Linkage;
+use husky_task_interface::IsLinkageImpl;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
-#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VmirStmtData {
+pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Let,
-    Return,
+    Return { expr: VmirExprIdx<LinkageImpl> },
     Require,
     Assert,
     Break,
@@ -24,14 +25,14 @@ pub enum VmirStmtData {
     Match,
 }
 
-pub type VmirStmtArena = Arena<VmirStmtData>;
-pub type VmirStmtIdx = ArenaIdx<VmirStmtData>;
-pub type VmirStmtIdxRange = ArenaIdxRange<VmirStmtData>;
+pub type VmirStmtArena<LinkageImpl> = Arena<VmirStmtData<LinkageImpl>>;
+pub type VmirStmtIdx<LinkageImpl> = ArenaIdx<VmirStmtData<LinkageImpl>>;
+pub type VmirStmtIdxRange<LinkageImpl> = ArenaIdxRange<VmirStmtData<LinkageImpl>>;
 
-impl ToVmir for HirEagerStmtIdxRange {
-    type Output = VmirStmtIdxRange;
+impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
+    type Output = VmirStmtIdxRange<LinkageImpl>;
 
-    fn to_vmir(self, builder: &mut crate::builder::VmirExprBuilder) -> Self::Output {
+    fn to_vmir(self, builder: &mut crate::builder::VmirExprBuilder<LinkageImpl>) -> Self::Output {
         let stmts = self
             .into_iter()
             .map(|stmt| match builder.hir_eager_stmt_arena()[stmt] {
@@ -41,7 +42,9 @@ impl ToVmir for HirEagerStmtIdxRange {
                     initial_value,
                     coersion,
                 } => VmirStmtData::Let,
-                HirEagerStmtData::Return { result, coersion } => VmirStmtData::Return,
+                HirEagerStmtData::Return { result, coersion } => {
+                    VmirStmtData::Return { expr: todo!() }
+                }
                 HirEagerStmtData::Require { ref condition } => VmirStmtData::Require,
                 HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
                 HirEagerStmtData::Break => VmirStmtData::Break,
@@ -85,17 +88,17 @@ impl ToVmir for HirEagerStmtIdxRange {
     }
 }
 
-pub enum VmirCondition {
+pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
-        src: VmirExprIdx,
+        src: VmirExprIdx<LinkageImpl>,
         target: VmirPattern,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
     Other {
-        expr: VmirExprIdx,
+        expr: VmirExprIdx<LinkageImpl>,
         conversion: VmirConditionConversion,
     },
 }
