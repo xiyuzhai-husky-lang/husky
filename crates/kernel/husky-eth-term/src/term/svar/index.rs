@@ -28,7 +28,7 @@ pub enum EthTemplateSymbolAttr {
 }
 
 /// wrapper so such the construction is private
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
 
@@ -178,7 +178,7 @@ impl Into<DecTermSymbolIndex> for EthTermSymbolIndex {
 // todo: write tests for conversion between declarative and ethereal term symbol index
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[repr(u8)]
 pub enum EthTermSymbolIndexImpl {
     ExplicitLifetime {

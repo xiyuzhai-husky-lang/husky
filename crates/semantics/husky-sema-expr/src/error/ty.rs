@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum SemaExprTypeError {
     #[error("original {0}")]
@@ -27,7 +27,7 @@ impl From<FlyTermError> for SemaExprTypeError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSemaExprTypeError {
     #[error("unresolved term")]
@@ -76,7 +76,7 @@ impl OriginalError for OriginalSemaExprTypeError {
     type Error = SemaExprTypeError;
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedSemaExprTypeError {
     #[error("field type error {0}")]

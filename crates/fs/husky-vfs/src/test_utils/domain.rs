@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub(super) struct TestDomain {
     src_base: PathBuf,
     expect_files_base: PathBuf,

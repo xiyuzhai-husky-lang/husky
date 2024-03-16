@@ -2,7 +2,7 @@ use super::*;
 use crate::syndicates::trais::TraitsSyndicate;
 use husky_token_data::delimiter::Delimiter;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TemplateSynParameterData {
     annotated_variance_token: Option<VarianceRegionalToken>,
@@ -24,7 +24,7 @@ impl TemplateSynParameterData {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TemplateParameterSyndicateVariant {
     Type {

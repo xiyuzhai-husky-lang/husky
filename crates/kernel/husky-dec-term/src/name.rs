@@ -2,7 +2,7 @@ use crate::*;
 use husky_term_prelude::symbol::SymbolName;
 use vec_like::VecPairMap;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct DecSvarNameMap {
     data: VecPairMap<DecSvar, SymbolName>,

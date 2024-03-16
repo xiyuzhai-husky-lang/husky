@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TupleFieldSyndicate {
     decorators: Vec<TupleFieldAttr>,
@@ -36,7 +36,7 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldS
 }
 
 // todo: merge this with PropsFieldAttr?
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TupleFieldAttr {}
 
@@ -55,7 +55,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFi
 
 // todo: repetitive
 // merge with struct field?
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FieldVisibilityExpr {
     Pub,

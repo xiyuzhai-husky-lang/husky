@@ -13,7 +13,7 @@ pub struct PropsStructDecTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct PropsStructFieldDecTemplate {
     ident: Ident,
     ty: DecTerm,
@@ -90,5 +90,5 @@ impl PropsStructFieldDecTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct PropsStructDecSignature {}

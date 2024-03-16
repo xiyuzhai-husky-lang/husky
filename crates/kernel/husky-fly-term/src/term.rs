@@ -19,7 +19,7 @@ use husky_eth_term::term::{
 };
 use husky_term_prelude::literal::Literal;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyTerm {
     place: Option<FlyQuary>,
@@ -42,7 +42,7 @@ impl FlyTerm {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum FlyTermBase {

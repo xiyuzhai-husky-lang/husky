@@ -2,7 +2,7 @@ use super::*;
 use husky_term_prelude::ritchie::RitchieTypeKind;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct ExpectEqsRitchieType {
     final_destination: FinalDestination,
 }

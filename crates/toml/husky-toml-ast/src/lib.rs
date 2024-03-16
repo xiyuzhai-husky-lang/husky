@@ -28,7 +28,7 @@ use parser::TomlAstParser;
 #[salsa::jar]
 pub struct TomlAstJar(toml_ast_sheet_aux);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,

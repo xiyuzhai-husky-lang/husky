@@ -2,7 +2,7 @@ use super::*;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = HirDefnJar)]
 pub struct TraitForTypeImplBlockHirDefn {
     hir_decl: TraitForTypeImplBlockHirDecl,

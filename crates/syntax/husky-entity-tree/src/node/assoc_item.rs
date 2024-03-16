@@ -13,7 +13,7 @@ use husky_coword::IdentPairMap;
 use husky_entity_kind::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum AssocItemSynNodePath {
     TypeItem(TypeItemSynNodePath),
@@ -22,7 +22,7 @@ pub enum AssocItemSynNodePath {
     IllFormedItem(IllFormedItemSynNodePath),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
 pub enum AssocItemSynNodePathData {

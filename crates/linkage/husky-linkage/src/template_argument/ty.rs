@@ -10,7 +10,7 @@ use husky_javelin::template_argument::ty::{
 
 use smallvec::SmallVec;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinType {

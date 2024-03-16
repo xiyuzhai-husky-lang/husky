@@ -2,11 +2,10 @@ use crate::{
     builder::VmirExprBuilder, destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, ToVmir,
 };
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx};
-use husky_linkage::linkage::Linkage;
 use husky_task_interface::IsLinkageImpl;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Literal,

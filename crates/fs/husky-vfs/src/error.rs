@@ -6,7 +6,7 @@ use thiserror::Error;
 
 // todo: make this copyable
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum VfsError {
     #[error("file {0:?} not found")]
     FileNotExists(VirtualPath),

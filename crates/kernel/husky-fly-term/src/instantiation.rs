@@ -12,7 +12,7 @@ use husky_eth_term::{
 use salsa::fmt::WithFmtContext;
 use vec_like::SmallVecPairMap;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FlyInstantiation {
     path: ItemPath,
@@ -43,7 +43,7 @@ impl std::ops::Index<EthSvar> for FlyInstantiation {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyTermSymbolResolution {
     Explicit(FlyTerm),

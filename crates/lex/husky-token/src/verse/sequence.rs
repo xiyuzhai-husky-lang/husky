@@ -1,7 +1,7 @@
 use self::iter::TokenVerseIter;
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct MainTokenVerseSequence {
     verses_data: Vec<TokenVerseData>,
@@ -39,7 +39,7 @@ impl MainTokenVerseSequence {
 ///     <nested_token_verse>
 /// }
 /// ```
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct NestedTokenVerseSequence {
     lcurl: TokenIdx,

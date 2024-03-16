@@ -8,7 +8,7 @@ use super::*;
 use husky_eth_term::term::svar::EthSvar;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTerms {
     solid_terms: SolTerms,

@@ -9,14 +9,14 @@ use husky_eth_term::term::{
 use super::*;
 
 // `Default` is derived because we never inherited hollow terms
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct HolTerms {
     entries: Vec<HolTermEntry>,
     first_unresolved_term_idx: usize,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HoleConstraint {
     CoercibleFrom { target: FlyTerm },
@@ -366,7 +366,7 @@ impl FlyTerm {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct HolTermEntry {
     data: HolTermData,
@@ -386,7 +386,7 @@ impl HolTermEntry {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermResolveProgress {
     UnresolvedHol,
@@ -410,7 +410,7 @@ impl HolTermResolveProgressBuf {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum HolTermResolveProgressBuf {
     Unresolved,
@@ -419,7 +419,7 @@ pub enum HolTermResolveProgressBuf {
     Err(HollowTermResolveError),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct HolTerm(u32);
 

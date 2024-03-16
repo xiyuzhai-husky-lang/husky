@@ -12,7 +12,7 @@ use super::*;
 use husky_syn_decl::decl::FugitiveSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
     FunctionFn(FunctionMajorFnHirDecl),

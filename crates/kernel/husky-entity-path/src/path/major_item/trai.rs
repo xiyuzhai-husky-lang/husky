@@ -100,7 +100,7 @@ impl salsa::DisplayWithDb for TraitPath {
 }
 
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum PreludeTraitPath {
     Add,
@@ -186,7 +186,7 @@ fn prelude_trai_path(db: &::salsa::Db, path: TraitPath) -> Option<PreludeTraitPa
     })
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct CustomTraitPath(TraitPath);

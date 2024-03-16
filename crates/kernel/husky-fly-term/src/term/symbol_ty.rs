@@ -1,7 +1,7 @@
 use super::*;
 use husky_place::PlaceInfo;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolType(FlyTerm);
 

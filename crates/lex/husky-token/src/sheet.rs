@@ -34,7 +34,7 @@ pub struct TokenSheet {
     pub(crate) data: TokenSheetData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenSheetData {
     tokens: Vec<TokenData>,

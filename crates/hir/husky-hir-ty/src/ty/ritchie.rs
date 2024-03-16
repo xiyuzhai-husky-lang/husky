@@ -33,7 +33,7 @@ fn hir_ty_from_eth_term_ritchie(db: &::salsa::Db, term_ritchie: EthRitchie) -> H
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct HirRitchieParameters {
     data: SmallVec<[HirRitchieParameter; 4]>,
 }
@@ -60,7 +60,7 @@ impl std::ops::Deref for HirRitchieParameters {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum HirRitchieParameter {
     Simple(HirRitchieSimpleParameter),
     Variadic(HirRitchieVariadicParameter),
@@ -85,7 +85,7 @@ impl HirRitchieParameter {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirRitchieSimpleParameter {

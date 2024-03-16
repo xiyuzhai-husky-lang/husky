@@ -32,7 +32,7 @@ use husky_term_prelude::ritchie::RitchieKind;
 use idx_arena::ArenaIdx;
 use thiserror::Error;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[non_exhaustive]
 #[enum_class::from_variants]
@@ -187,7 +187,7 @@ pub enum FlyTermDestination {
 
 pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
@@ -206,7 +206,7 @@ pub enum ExpectationOutcome {
     AnyDerived(ExpectAnyDerivedOutcome),
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum ExpectationProgress {
     Intact,
@@ -232,7 +232,7 @@ impl ExpectationProgress {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum FlyTermExpectationError {
     #[error("original {0}")]
@@ -249,7 +249,7 @@ impl From<FlyPlaceError> for FlyTermExpectationError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalFlyTermExpectationError {
     #[error("type path mismatch for subtyping")]
@@ -287,7 +287,7 @@ pub enum OriginalFlyTermExpectationError {
     Todo,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedFlyTermExpectationError {
     #[error("{term:?} {error}")]

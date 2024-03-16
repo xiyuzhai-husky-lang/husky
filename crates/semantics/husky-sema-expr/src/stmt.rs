@@ -20,7 +20,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 
 use crate::{obelisks::let_variable::LetVariableObelisk, *};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaStmtData {
     Let {
@@ -99,14 +99,14 @@ pub enum SemaStmtData {
     },
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtEntry {
     data_result: SemaExprDataResult<SemaStmtData>,
     ty_result: SemaExprTypeResult<FlyTerm>,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default)]
 pub(crate) struct SemaStmtBatch {
     entries: SmallVec<[SemaStmtEntry; 8]>,
@@ -127,7 +127,7 @@ impl SemaStmtBatch {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct SemaStmtArena(Arena<SemaStmtEntry>);
 
@@ -158,7 +158,7 @@ impl<'a> std::ops::Index<SemaStmtIdx> for SemaStmtArenaRef<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);
 
@@ -185,7 +185,7 @@ impl std::ops::Sub<usize> for SemaStmtIdx {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemaStmtIdxRange(ArenaIdxRange<SemaStmtEntry>);
 
@@ -234,7 +234,7 @@ impl IntoIterator for &SemaStmtIdxRange {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaStmtMap<V>(ArenaMap<SemaStmtEntry, V>);
 

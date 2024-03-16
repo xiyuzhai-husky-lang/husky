@@ -52,7 +52,7 @@ pub struct TracePath {
     data: TracePathData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum TracePathData {

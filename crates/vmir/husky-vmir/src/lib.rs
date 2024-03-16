@@ -1,4 +1,5 @@
 mod builder;
+mod coersion;
 pub mod destroyer;
 pub mod eval;
 pub mod expr;
@@ -13,6 +14,7 @@ mod variable;
 pub mod version_stamp;
 
 use self::builder::VmirExprBuilder;
+use self::jar::VmirJar as Jar;
 #[cfg(test)]
 use self::tests::*;
 use husky_task_interface::IsLinkageImpl;

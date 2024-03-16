@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-// #[salsa::debug_with_db]
+// #[salsa::derive_debug_with_db]
 pub struct SelfValueParameterSyndicate {
     ephem_symbol_modifier_token_verse: Option<EphemSymbolModifierRegionalTokens>,
     self_value_token: SelfValueRegionalToken,

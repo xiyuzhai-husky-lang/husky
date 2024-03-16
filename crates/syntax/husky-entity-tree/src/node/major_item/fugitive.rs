@@ -7,7 +7,7 @@ use super::*;
 #[salsa::deref_id]
 pub struct FugitiveSynNodePath(ItemSynNodePathId);
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FugitiveSynNodePathData {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,

@@ -54,7 +54,7 @@ pub fn jar(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
-pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
+pub fn derive_debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
     debug_with_db::debug_with_db(args, input)
 }
 

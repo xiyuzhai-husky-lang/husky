@@ -10,7 +10,7 @@ use husky_term_prelude::literal::{
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerPatternExpr {
     /// example: `1`

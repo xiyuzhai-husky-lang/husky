@@ -8,7 +8,7 @@ use super::*;
 use husky_coword::Ident;
 
 #[deprecated(note = "use FlyMemberDynamicDispatch instantiation instead")]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyFieldDyanmicDispatch {
     indirections: FlyIndirections,

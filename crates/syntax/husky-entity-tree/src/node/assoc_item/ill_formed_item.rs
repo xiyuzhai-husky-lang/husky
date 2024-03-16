@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct IllFormedItemSynNodePath(ItemSynNodePathId);
 
@@ -10,7 +10,7 @@ impl From<IllFormedItemSynNodePath> for ItemSynNodePath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct IllFormedItemSynNode {
     syn_node_path: IllFormedItemSynNodePath,

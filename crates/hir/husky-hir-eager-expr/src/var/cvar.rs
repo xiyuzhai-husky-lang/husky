@@ -8,13 +8,13 @@ use husky_syn_expr::{
     CurrentSynSymbolData, CurrentTemplateParameterSynSymbolVariant, VariableRegionData,
 };
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerComptimeSvarRegionData {
     arena: HirEagerComptimeSvarArena,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerComptimeSvarEntry {
     name: HirEagerComptimeSvarName,
@@ -26,7 +26,7 @@ pub type HirEagerComptimeSvarArena = Arena<HirEagerComptimeSvarEntry>;
 pub type HirEagerComptimeSvarIdx = ArenaIdx<HirEagerComptimeSvarEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum HirEagerComptimeSvarName {
     SelfType,
     Ident(Ident),

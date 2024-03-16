@@ -4,7 +4,7 @@ use super::*;
 use husky_dec_ty::variance::HasVariances;
 
 /// if terms aren't equal to `Type` i.e. `Sort 1`, this just menas terms are equal
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectSubtypeOrEqual {
     pub(crate) expected: FlyTerm,

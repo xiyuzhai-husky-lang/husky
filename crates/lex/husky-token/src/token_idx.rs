@@ -2,7 +2,7 @@ use std::num::NonZeroU32;
 
 /// is eof if raw is equal to the len of all tokens
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct TokenIdx(NonZeroU32);
 
 impl TokenIdx {

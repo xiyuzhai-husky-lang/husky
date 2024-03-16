@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum SemaExprTermError {
     #[error("original expr term error: {0}")]
@@ -27,14 +27,14 @@ impl From<&SemaExprDataError> for SemaExprTermError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSemaExprTermError {
     #[error("todo")]
     Todo,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedSemaExprTermError {
     #[error("expr error")]

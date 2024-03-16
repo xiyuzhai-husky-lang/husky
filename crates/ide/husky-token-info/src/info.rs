@@ -10,14 +10,14 @@ use husky_syn_expr::{
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenInfo {
     src: TokenInfoSource,
     data: TokenInfoData,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokenInfoSource {
@@ -47,7 +47,7 @@ impl TokenInfo {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum TokenInfoData {
     Entity(EntityPath),

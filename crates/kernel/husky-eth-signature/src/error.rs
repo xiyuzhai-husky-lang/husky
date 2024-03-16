@@ -3,7 +3,7 @@ use husky_dec_signature::DecSignatureError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum EtherealSignatureError {
     #[error("term error")]
     TermError(EthTermError),

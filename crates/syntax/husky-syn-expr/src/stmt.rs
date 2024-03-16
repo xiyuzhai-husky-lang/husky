@@ -12,7 +12,7 @@ use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::IsStreamParser;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SynStmtData {
     Let {

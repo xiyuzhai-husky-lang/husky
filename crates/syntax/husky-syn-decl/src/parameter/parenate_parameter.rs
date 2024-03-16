@@ -3,7 +3,7 @@ use parsec::parse_separated_small_list2;
 
 pub(crate) type ParenateSynParametersData = SmallVec<[ParenateParameterSyndicate; 2]>;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Getters)]
 pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LparRegionalToken,

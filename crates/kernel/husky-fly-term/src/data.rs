@@ -13,7 +13,7 @@ use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::Toolchain;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum FlyTermData<'a> {
     Literal(Literal),
@@ -126,7 +126,7 @@ impl<'a> FlyTermData<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum FlyBaseTypeData<'a> {
     TypeOntology {

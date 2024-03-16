@@ -23,7 +23,7 @@ use husky_entity_path::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum TypeEthTemplate {
     Enum(EnumEthTemplate),
     PropsStruct(PropsStructEthTemplate),
@@ -101,7 +101,7 @@ fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<
     })
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PropsFieldEtherealSignature {

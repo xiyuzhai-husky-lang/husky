@@ -7,7 +7,7 @@ use maybe_result::*;
 use salsa::fmt::WithFmtContext;
 use vec_like::{SmallVecPairMap, VecMap};
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EthInstantiation {
     path: ItemPath,
@@ -120,7 +120,7 @@ pub trait EthTermInstantiateRef {
     fn instantiate(&self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Target;
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
     path: ItemPath,

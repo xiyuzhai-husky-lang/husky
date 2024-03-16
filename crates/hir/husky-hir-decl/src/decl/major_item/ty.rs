@@ -16,7 +16,7 @@ use super::*;
 use husky_entity_path::TypePath;
 use husky_syn_decl::decl::TypeSynDecl;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeHirDecl {
@@ -93,7 +93,7 @@ fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PropsFieldEtherealSignature {

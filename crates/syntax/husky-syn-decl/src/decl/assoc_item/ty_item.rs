@@ -15,7 +15,7 @@ use super::*;
 use husky_entity_kind::TypeItemKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
     AssocFn(TypeAssocFnSynNodeDecl),
@@ -99,7 +99,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
     AssocFn(TypeAssocFnSynDecl),
@@ -164,7 +164,7 @@ impl TypeItemSynDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
     AssocFn(SmallVecImpl<TypeAssocFnSynDecl>),

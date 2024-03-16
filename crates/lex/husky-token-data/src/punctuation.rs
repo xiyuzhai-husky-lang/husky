@@ -8,7 +8,7 @@ use husky_syn_opr::{SynBinaryOpr, SynSuffixOpr};
 
 use self::delimiter::Delimiter;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Punctuation(PunctuationMapped);
 
@@ -210,7 +210,7 @@ impl std::fmt::Display for Punctuation {
 /// serve as cached
 /// for punctuation that unambiguously maps to an opr,
 /// we use that opr to represent it
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum PunctuationMapped {
     // predetermined

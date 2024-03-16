@@ -2,7 +2,7 @@ use super::*;
 use vec_like::VecSet;
 
 // `Default` is not implemented because we might need to initialize it from the parent
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SolTerms {
     entries: VecSet<SolidTermData>,
@@ -28,7 +28,7 @@ impl SolTerms {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SolTerm(u32);
 

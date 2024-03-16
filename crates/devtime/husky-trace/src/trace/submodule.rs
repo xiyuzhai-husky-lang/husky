@@ -5,7 +5,7 @@ use husky_entity_path::{ItemPath, MajorItemPath, SubmoduleItemPath};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::HasSynNodePath;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct SubmoduleTracePathData {
     submodule_item_path: SubmoduleItemPath,
@@ -33,7 +33,7 @@ impl Trace {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct SubmoduleTraceData {
     submodule_item_path: SubmoduleItemPath,
 }

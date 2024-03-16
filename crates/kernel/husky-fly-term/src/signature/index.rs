@@ -5,7 +5,7 @@ pub(crate) use self::ethereal::*;
 use self::quary::FlyQuary;
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyIndexSignature {
     Int { element_ty: FlyTerm },

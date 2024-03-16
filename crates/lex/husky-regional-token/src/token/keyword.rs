@@ -11,7 +11,7 @@ use super::*;
 
 // impl
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ImplRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -53,7 +53,7 @@ where
 
 // pub
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PubRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -95,7 +95,7 @@ where
 
 // use
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UseRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -152,7 +152,7 @@ fn use_token_works() {
 
 // self value
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfValueRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -208,7 +208,7 @@ fn self_value_token_works() {
 }
 
 /// `Self` self type token
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfTypeRegionalToken {
     regional_token_idx: RegionalTokenIdx,
@@ -264,7 +264,7 @@ fn self_type_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum VarianceRegionalToken {
     Covariant(CovariantRegionalToken),
@@ -336,7 +336,7 @@ fn variance_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct CovariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -348,7 +348,7 @@ impl CovariantRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct ContravariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
@@ -360,7 +360,7 @@ impl ContravariantRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct InvariantRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }

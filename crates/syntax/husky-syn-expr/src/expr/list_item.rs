@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynCommaListItem {
     syn_expr_idx: SynExprIdx,
@@ -27,7 +27,7 @@ impl SynCommaListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynCallListItem {
@@ -98,7 +98,7 @@ impl SynCallListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynRegularOrVariadicCallListItem {
     argument_expr_idx: SynExprIdx,
@@ -122,7 +122,7 @@ impl SynRegularOrVariadicCallListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SynKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
@@ -163,7 +163,7 @@ impl SynKeyedCallListItem {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CallListSeparator {
     None,

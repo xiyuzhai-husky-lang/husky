@@ -8,7 +8,7 @@ use thiserror::Error;
 
 /// major path expr is bottom-up
 /// only module item path is allowed
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum MajorItemPathExpr {
     Root {
@@ -26,7 +26,7 @@ pub type MajorItemPathExprIdx = ArenaIdx<MajorItemPathExpr>;
 pub type MajorPathExprIdxRange = ArenaIdxRange<MajorItemPathExpr>;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum MajorPathExprError {
     #[error("{0}")]
     Original(#[from] OriginalMajorItemPathExprError),
@@ -35,7 +35,7 @@ pub enum MajorPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum OriginalMajorItemPathExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent(IdentToken),
@@ -75,7 +75,7 @@ impl From<TokenDataError> for MajorPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DerivedMajorPathExprError {
     #[error("token error")]
     TokenData(#[from] TokenDataError),

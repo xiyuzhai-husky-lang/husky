@@ -112,7 +112,7 @@ impl SemaExprRegion {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprRegionData {
     path: RegionPath,
@@ -225,7 +225,7 @@ pub(crate) fn sema_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion)
     engine.finish()
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct PatternExprTypeInfo {
     ty: PatternSemaExprResult<FlyTerm>,

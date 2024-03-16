@@ -7,7 +7,7 @@ use original_error::OriginalError;
 
 use thiserror::Error;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum SynNodeDeclError {
     #[error("{0}")]
@@ -40,7 +40,7 @@ impl From<SynExprError> for SynNodeDeclError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
@@ -88,7 +88,7 @@ impl OriginalError for OriginalSynNodeDeclError {
     type Error = SynNodeDeclError;
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedSynNodeDeclError {
     #[error("{0}")]
@@ -98,7 +98,7 @@ pub enum DerivedSynNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DeclError {
     #[error("declaration expression error")]
     NodeDecl,

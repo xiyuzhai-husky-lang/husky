@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 use husky_syn_decl::decl::TypeItemSynDecl;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeItemHirDecl {

@@ -5,7 +5,7 @@ use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum EntityTreeError {
     #[error("original {0}")]
     Original(#[from] OriginalEntityTreeError),
@@ -19,7 +19,7 @@ impl From<PreludeError> for EntityTreeError {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalEntityTreeError {
     #[error("unresolved root identifier")]
@@ -53,7 +53,7 @@ pub enum OriginalEntityTreeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum DerivedEntityTreeError {
     // derived
     #[error("derived {0}")]

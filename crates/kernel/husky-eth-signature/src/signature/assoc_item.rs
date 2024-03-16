@@ -10,7 +10,7 @@ use super::*;
 
 type SmallVecImpl<T> = SmallVec<[T; 2]>;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum AssocItemEthTemplate {

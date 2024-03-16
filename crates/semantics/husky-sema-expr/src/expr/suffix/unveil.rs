@@ -144,7 +144,7 @@ impl<'a> SemaExprBuilder<'a> {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub(crate) enum Unveiler {
     Uninitialized,
     UniqueFullyInstantiated {

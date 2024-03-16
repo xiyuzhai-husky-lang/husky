@@ -11,7 +11,7 @@ pub use self::method::*;
 use self::quary::FlyQuary;
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyDynamicDispatch<S: MemberSignature> {
     indirections: FlyIndirections,

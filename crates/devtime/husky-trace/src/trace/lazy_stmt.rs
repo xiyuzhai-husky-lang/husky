@@ -22,7 +22,7 @@ use husky_sema_expr::{
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct LazyStmtTracePathData {
     biological_parent_path: TracePath,
@@ -43,7 +43,7 @@ pub enum LazyStmtEssence {
     ElseBranch,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LazyStmtTraceData {
     path: TracePath,

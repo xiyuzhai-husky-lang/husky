@@ -7,7 +7,7 @@ pub use self::terms::*;
 use crate::*;
 
 // `Default` is not implemented because we might need to initialize `terms` from the parent
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTermRegion {
     pub(crate) terms: FlyTerms,

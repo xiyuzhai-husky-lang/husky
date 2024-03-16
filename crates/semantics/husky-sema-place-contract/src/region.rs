@@ -9,7 +9,7 @@ use husky_syn_defn::module_item_syn_defns;
 #[cfg(test)]
 use husky_vfs::ModulePath;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaPlaceContractRegion {
     expr_sites: SemaExprMap<SemaPlaceContractSite>,

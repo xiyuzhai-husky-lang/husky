@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-// #[salsa::debug_with_db]
+// #[salsa::derive_debug_with_db]
 pub struct LetPatternSyndicate {
     syn_pattern_expr_root: LetPatternSynExprRoot,
     variables: CurrentSynSymbolIdxRange,

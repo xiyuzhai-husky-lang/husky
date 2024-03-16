@@ -11,7 +11,7 @@ pub use self::ty_item::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum AssocItemSynNodeDecl {
     TypeItem(TypeItemSynNodeDecl),
@@ -56,7 +56,7 @@ impl HasSynNodeDecl for AssocItemSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum AssocItemSynDecl {
     TypeItem(TypeItemSynDecl),

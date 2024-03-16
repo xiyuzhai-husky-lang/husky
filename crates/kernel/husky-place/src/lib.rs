@@ -11,7 +11,7 @@ pub struct PlaceRegistry {
     next: ShiftedU32,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum PlaceInfo {
     SelfValue,

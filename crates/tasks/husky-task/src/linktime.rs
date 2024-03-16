@@ -8,3 +8,18 @@ pub trait IsLinktime: Sized + Send {
     fn linkage_impl(&self, linkage: Linkage, db: &::salsa::Db) -> Self::LinkageImpl;
     fn new_linktime(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self;
 }
+
+pub struct VirtualLinktime;
+
+impl IsLinktime for VirtualLinktime {
+    type LinkageImpl = Linkage;
+
+    #[inline(always)]
+    fn linkage_impl(&self, linkage: Linkage, _db: &salsa::Db) -> Self::LinkageImpl {
+        linkage
+    }
+
+    fn new_linktime(_target_path: LinktimeTargetPath, _db: &salsa::Db) -> Self {
+        VirtualLinktime
+    }
+}

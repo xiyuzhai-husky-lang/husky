@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PathNameToken {
@@ -12,7 +12,7 @@ pub enum PathNameToken {
 
 // crate
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct CrateToken {
     pub(in crate::helpers) token_idx: TokenIdx,
@@ -30,14 +30,14 @@ impl CrateToken {
 
 // self mod
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SelfModToken {
     token_idx: TokenIdx,
 }
 
 /// `super` super token
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SuperToken {
     token_idx: TokenIdx,

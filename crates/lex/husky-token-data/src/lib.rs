@@ -20,7 +20,7 @@ use husky_coword::*;
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::TokenClass;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokenData {

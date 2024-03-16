@@ -6,7 +6,7 @@ use husky_hir_ty::{
 };
 use vec_like::SmallVecPairMap;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavInstantiation {
     pub symbol_resolutions: SmallVecPairMap<HirTemplateSvar, JavTermSymbolResolution, 4>,
@@ -83,7 +83,7 @@ impl JavInstantiation {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum JavTermSymbolResolution {
     Explicit(JavTemplateArgument),

@@ -132,7 +132,7 @@ impl salsa::DisplayWithDb for TypePath {
 }
 
 #[enum_class::from_variants]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum PreludeTypePath {
     Basic(PreludeBasicTypePath),
@@ -186,7 +186,7 @@ pub enum PreludeIndirectionTypePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum PreludeContainerTypePath {
     Vec,
     Array,
@@ -312,7 +312,7 @@ fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> 
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct CustomTypePath(TypePath);
 
 impl From<CustomTypePath> for TypePath {

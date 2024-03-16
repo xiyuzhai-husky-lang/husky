@@ -8,7 +8,7 @@ pub struct EagerCallInputTracePathData {
     biological_parent_path: TracePath,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerCallInputTraceData {
     path: TracePath,

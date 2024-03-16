@@ -40,7 +40,7 @@ pub enum EagerStmtEssence {
     ForBetween,
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerStmtTraceData {
     pub path: TracePath,

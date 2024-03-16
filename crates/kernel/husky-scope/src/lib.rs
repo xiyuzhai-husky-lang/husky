@@ -10,7 +10,7 @@ use std::cmp::Ordering;
 use with_db::PartialOrdWithDb;
 
 /// Visibility is greater if it can be accessed from more places
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Scope {
     Pub,                  // everyone can access it

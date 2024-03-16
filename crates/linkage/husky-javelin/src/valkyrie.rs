@@ -16,7 +16,7 @@ use husky_vfs::PackagePath;
 use vec_like::VecSet;
 
 /// a Valkyrie javelin is one with non empty instantiation
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct ValkyrieJavelin(Javelin);
@@ -36,7 +36,7 @@ impl ValkyrieJavelin {
 }
 
 /// can be instantiated to a path leading javelin given JavInstantiation
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum ValkyrieRide {
     PathLeading {
@@ -91,7 +91,7 @@ impl ValkyrieRide {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRides {
     hir_template_parameters: Option<HirTemplateParameters>,
@@ -401,7 +401,7 @@ pub(crate) fn javelin_generated_valkyrie_javelins(
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieJavelinPantheon {
     package_path: PackagePath,

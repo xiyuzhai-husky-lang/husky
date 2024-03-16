@@ -2,7 +2,7 @@
 use crate::{instantiation::*, term::svar::EthSvar, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EthTemplateParameters {
     data: SmallVec<[EthTemplateParameter; 2]>,
 }
@@ -58,7 +58,7 @@ impl std::ops::Deref for EthTemplateParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub struct EthTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: EthSvar,

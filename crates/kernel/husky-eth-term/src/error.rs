@@ -7,7 +7,7 @@ use maybe_result::MaybeResult;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum EthTermError {
     #[error("EthTerm Error: term is not reduced")]
     TermIsNotReduced,

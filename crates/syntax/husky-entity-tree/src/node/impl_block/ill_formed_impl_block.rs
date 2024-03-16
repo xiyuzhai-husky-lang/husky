@@ -2,7 +2,7 @@ use original_error::OriginalError;
 
 use super::*;
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
@@ -61,7 +61,7 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     }
 }
 
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct IllFormedImplBlockSynNode {
     syn_node_path: IllFormedImplBlockSynNodePath,
@@ -112,7 +112,7 @@ impl IllFormedImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-#[salsa::debug_with_db]
+#[salsa::derive_debug_with_db]
 pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
