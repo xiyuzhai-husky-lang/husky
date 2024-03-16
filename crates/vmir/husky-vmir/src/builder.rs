@@ -6,19 +6,20 @@ use crate::{
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerExprIdx, HirEagerStmtArena};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
+use husky_task_interface::IsLinkageImpl;
 
-pub(crate) struct VmirExprBuilder<'db> {
+pub(crate) struct VmirExprBuilder<'db, LinkageImpl: IsLinkageImpl> {
     db: &'db ::salsa::Db,
     hir_eager_expr_arena: &'db HirEagerExprArena,
     hir_eager_stmt_arena: &'db HirEagerStmtArena,
     instantiation: &'db LinInstantiation,
-    vmir_expr_arena: VmirExprArena,
-    vmir_stmt_arena: VmirStmtArena,
+    vmir_expr_arena: VmirExprArena<LinkageImpl>,
+    vmir_stmt_arena: VmirStmtArena<LinkageImpl>,
     vmir_destroyer_arena: VmirDestroyerArena,
 }
 
 /// # constructor
-impl<'db> VmirExprBuilder<'db> {
+impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
     pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(HirEagerExprIdx, Self)> {
         use husky_hir_defn::defn::HasHirDefn;
 
@@ -45,7 +46,7 @@ impl<'db> VmirExprBuilder<'db> {
 }
 
 /// # getters
-impl<'db> VmirExprBuilder<'db> {
+impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
     pub(crate) fn db(&self) -> &'db ::salsa::Db {
         self.db
     }
@@ -64,12 +65,18 @@ impl<'db> VmirExprBuilder<'db> {
 }
 
 /// # actions
-impl<'db> VmirExprBuilder<'db> {
-    pub(crate) fn alloc_expr(&mut self, expr_data: VmirExprData) -> VmirExprIdx {
+impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
+    pub(crate) fn alloc_expr(
+        &mut self,
+        expr_data: VmirExprData<LinkageImpl>,
+    ) -> VmirExprIdx<LinkageImpl> {
         self.vmir_expr_arena.alloc_one(expr_data)
     }
 
-    pub(crate) fn alloc_stmts(&mut self, stmts: Vec<VmirStmtData>) -> VmirStmtIdxRange {
+    pub(crate) fn alloc_stmts(
+        &mut self,
+        stmts: Vec<VmirStmtData<LinkageImpl>>,
+    ) -> VmirStmtIdxRange<LinkageImpl> {
         self.vmir_stmt_arena.alloc_batch(stmts)
     }
 
@@ -80,7 +87,7 @@ impl<'db> VmirExprBuilder<'db> {
         self.vmir_destroyer_arena.alloc_batch(destroyer_datas)
     }
 
-    pub(crate) fn finish(self) -> (VmirExprArena, VmirStmtArena) {
+    pub(crate) fn finish(self) -> (VmirExprArena<LinkageImpl>, VmirStmtArena<LinkageImpl>) {
         (self.vmir_expr_arena, self.vmir_stmt_arena)
     }
 }

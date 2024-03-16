@@ -305,6 +305,7 @@ husky-wild-utils = { path = "crates/utils/husky-wild-utils" }
 husky-literal-value = { path = "crates/value/husky-literal-value" }
 husky-standard-value = { path = "crates/value/husky-standard-value" }
 husky-standard-value-macros = { path = "crates/value/husky-standard-value-macros" }
+husky-virtual-value = { path = "crates/value/husky-virtual-value" }
 # vm
 husky-vm = { path = "crates/vm/husky-vm" }
 # vmir

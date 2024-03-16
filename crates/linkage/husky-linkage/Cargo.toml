@@ -29,10 +29,16 @@ husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
 # linkage
 husky-javelin.workspace = true
+# protocols
+husky-value-protocol.workspace = true
 # syntax
 husky-entity-tree.workspace = true
+# task
+husky-task-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
+# value
+husky-virtual-value.workspace = true
 
 [dev-dependencies]
 # hir
