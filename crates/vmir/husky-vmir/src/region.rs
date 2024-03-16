@@ -4,6 +4,7 @@ use crate::{
     *,
 };
 use husky_linkage::linkage::Linkage;
+use husky_task::linktime::VirtualLinktime;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -13,6 +14,8 @@ pub struct VmirRegion<LinkageImpl: IsLinkageImpl> {
     vmir_expr_arena: VmirExprArena<LinkageImpl>,
     vmir_stmt_arena: VmirStmtArena<LinkageImpl>,
 }
+
+pub type VirtualVmirRegion = VmirRegion<Linkage>;
 
 impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     pub fn new(
@@ -30,11 +33,12 @@ impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     }
 }
 
-pub fn linkage_linkage_impl_vmir_region<LinkageImpl: IsLinkageImpl>(
-    db: &::salsa::Db,
+pub fn linkage_vmir_region<'a, Linktime: IsLinktime>(
+    db: &'a ::salsa::Db,
     linkage: Linkage,
-) -> Option<VmirRegion<LinkageImpl>> {
-    let (root_hir_eager_expr_idx, mut builder) = VmirExprBuilder::new(linkage, db)?;
+    linktime: &'a Linktime,
+) -> Option<VmirRegion<Linktime::LinkageImpl>> {
+    let (root_hir_eager_expr_idx, mut builder) = VmirExprBuilder::new(linkage, db, linktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
     let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
     Some(VmirRegion::new(
@@ -45,19 +49,20 @@ pub fn linkage_linkage_impl_vmir_region<LinkageImpl: IsLinkageImpl>(
     ))
 }
 
-pub fn linkage_linkage_vmir_region(
+pub fn linkage_virtual_vmir_region(
     db: &::salsa::Db,
     linkage: Linkage,
 ) -> Option<&VmirRegion<Linkage>> {
-    linkage_linkage_vmir_region_aux(db, linkage).as_ref()
+    linkage_virtual_vmir_region_aux(db, linkage).as_ref()
 }
 
 #[salsa::tracked(return_ref)]
-pub fn linkage_linkage_vmir_region_aux(
+pub fn linkage_virtual_vmir_region_aux(
     db: &::salsa::Db,
     linkage: Linkage,
 ) -> Option<VmirRegion<Linkage>> {
-    let (root_hir_eager_expr_idx, mut builder) = VmirExprBuilder::new(linkage, db)?;
+    let (root_hir_eager_expr_idx, mut builder) =
+        VmirExprBuilder::new(linkage, db, &VirtualLinktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
     let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
     Some(VmirRegion::new(
@@ -77,7 +82,7 @@ fn package_linkage_linkage_vmir_regions(
 
     package_linkages(db, package)
         .iter()
-        .map(|&linkage| (linkage, linkage_linkage_vmir_region(db, linkage)))
+        .map(|&linkage| (linkage, linkage_virtual_vmir_region(db, linkage)))
         .collect()
 }
 

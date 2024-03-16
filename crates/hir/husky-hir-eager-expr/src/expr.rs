@@ -120,6 +120,7 @@ pub enum HirEagerExprData {
     },
     PropsStructField {
         owner: HirEagerExprIdx,
+        owner_base_ty: HirType,
         ident: Ident,
         field_ty: HirType,
     },
@@ -371,13 +372,16 @@ impl ToHirEager for SemaExprIdx {
             }
             SemaExprData::Ritchie { .. } => todo!(),
             SemaExprData::Field {
-                owner: owner_sema_expr_idx,
+                owner,
+                owner_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
-                    owner: owner_sema_expr_idx.to_hir_eager(builder),
+                    owner: owner.to_hir_eager(builder),
+                    owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
+                        .unwrap(),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },
@@ -388,7 +392,7 @@ impl ToHirEager for SemaExprIdx {
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirEagerExprData::MemoizedField {
-                        owner_hir_expr_idx: owner_sema_expr_idx.to_hir_eager(builder),
+                        owner_hir_expr_idx: owner.to_hir_eager(builder),
                         ident: ident_token.ident(),
                         path,
                     }

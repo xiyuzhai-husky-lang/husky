@@ -2,9 +2,8 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
-use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPattern, ToVmir};
+use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPattern, *};
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
-use husky_task_interface::IsLinkageImpl;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
@@ -35,7 +34,13 @@ pub type VmirStmtIdxRange<LinkageImpl> = ArenaIdxRange<VmirStmtData<LinkageImpl>
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
     type Output = VmirStmtIdxRange<LinkageImpl>;
 
-    fn to_vmir(self, builder: &mut crate::builder::VmirExprBuilder<LinkageImpl>) -> Self::Output {
+    fn to_vmir<Linktime>(
+        self,
+        builder: &mut crate::builder::VmirExprBuilder<Linktime>,
+    ) -> Self::Output
+    where
+        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+    {
         let stmts = self
             .into_iter()
             .map(|stmt| match builder.hir_eager_stmt_arena()[stmt] {

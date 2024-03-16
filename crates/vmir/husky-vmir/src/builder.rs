@@ -6,21 +6,26 @@ use crate::{
 use husky_hir_eager_expr::{HirEagerExprArena, HirEagerExprIdx, HirEagerStmtArena};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
-use husky_task_interface::IsLinkageImpl;
+use husky_task::linktime::IsLinktime;
 
-pub(crate) struct VmirExprBuilder<'db, LinkageImpl: IsLinkageImpl> {
+pub(crate) struct VmirExprBuilder<'db, Linktime: IsLinktime> {
     db: &'db ::salsa::Db,
     hir_eager_expr_arena: &'db HirEagerExprArena,
     hir_eager_stmt_arena: &'db HirEagerStmtArena,
     instantiation: &'db LinInstantiation,
-    vmir_expr_arena: VmirExprArena<LinkageImpl>,
-    vmir_stmt_arena: VmirStmtArena<LinkageImpl>,
+    linktime: &'db Linktime,
+    vmir_expr_arena: VmirExprArena<Linktime::LinkageImpl>,
+    vmir_stmt_arena: VmirStmtArena<Linktime::LinkageImpl>,
     vmir_destroyer_arena: VmirDestroyerArena,
 }
 
 /// # constructor
-impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
-    pub(crate) fn new(linkage: Linkage, db: &'db ::salsa::Db) -> Option<(HirEagerExprIdx, Self)> {
+impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
+    pub(crate) fn new(
+        linkage: Linkage,
+        db: &'db ::salsa::Db,
+        linktime: &'db Linktime,
+    ) -> Option<(HirEagerExprIdx, Self)> {
         use husky_hir_defn::defn::HasHirDefn;
 
         let (path, instantiation) = linkage.path_and_instantiation_for_definition(db)?;
@@ -37,6 +42,7 @@ impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
                 hir_eager_expr_arena: hir_eager_expr_region.expr_arena(db),
                 hir_eager_stmt_arena: hir_eager_expr_region.stmt_arena(db),
                 instantiation,
+                linktime,
                 vmir_expr_arena: Default::default(),
                 vmir_stmt_arena: Default::default(),
                 vmir_destroyer_arena: Default::default(),
@@ -46,7 +52,7 @@ impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
 }
 
 /// # getters
-impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
+impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
     pub(crate) fn db(&self) -> &'db ::salsa::Db {
         self.db
     }
@@ -59,24 +65,28 @@ impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
         self.hir_eager_stmt_arena
     }
 
-    pub(crate) fn instantiation(&self) -> &'db LinInstantiation {
+    pub(crate) fn lin_instantiation(&self) -> &'db LinInstantiation {
         self.instantiation
+    }
+
+    pub(crate) fn linkage_impl(&self, linkage: Linkage) -> Linktime::LinkageImpl {
+        self.linktime.linkage_impl(linkage, self.db)
     }
 }
 
 /// # actions
-impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
+impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
     pub(crate) fn alloc_expr(
         &mut self,
-        expr_data: VmirExprData<LinkageImpl>,
-    ) -> VmirExprIdx<LinkageImpl> {
+        expr_data: VmirExprData<Linktime::LinkageImpl>,
+    ) -> VmirExprIdx<Linktime::LinkageImpl> {
         self.vmir_expr_arena.alloc_one(expr_data)
     }
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        stmts: Vec<VmirStmtData<LinkageImpl>>,
-    ) -> VmirStmtIdxRange<LinkageImpl> {
+        stmts: Vec<VmirStmtData<Linktime::LinkageImpl>>,
+    ) -> VmirStmtIdxRange<Linktime::LinkageImpl> {
         self.vmir_stmt_arena.alloc_batch(stmts)
     }
 
@@ -87,7 +97,12 @@ impl<'db, LinkageImpl: IsLinkageImpl> VmirExprBuilder<'db, LinkageImpl> {
         self.vmir_destroyer_arena.alloc_batch(destroyer_datas)
     }
 
-    pub(crate) fn finish(self) -> (VmirExprArena<LinkageImpl>, VmirStmtArena<LinkageImpl>) {
+    pub(crate) fn finish(
+        self,
+    ) -> (
+        VmirExprArena<Linktime::LinkageImpl>,
+        VmirStmtArena<Linktime::LinkageImpl>,
+    ) {
         (self.vmir_expr_arena, self.vmir_stmt_arena)
     }
 }

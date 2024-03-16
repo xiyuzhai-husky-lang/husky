@@ -169,11 +169,7 @@ impl ValkyrieRides {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
-                HirEagerExprData::PropsStructField {
-                    owner: _,
-                    ident: _,
-                    field_ty: _,
-                } => (),
+                HirEagerExprData::PropsStructField { .. } => (),
                 HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx: _,
                     ident: _,
