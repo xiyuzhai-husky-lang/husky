@@ -17,7 +17,7 @@ use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffi
 use husky_hir_ty::{
     instantiation::HirInstantiation, quary::HirQuary, ritchie::HirEagerContract, HirType,
 };
-use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
+use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::{InheritedSynSymbolKind, InheritedTemplateParameterSynSymbol};
 use husky_term_prelude::literal::Literal;
@@ -101,22 +101,22 @@ pub enum HirEagerExprData {
     TypeConstructorFnCall {
         path: TypePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     TypeVariantConstructorCall {
         path: TypeVariantPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
+        arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     FunctionFnCall {
         path: FugitivePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     AssocFunctionFnCall {
         path: AssocItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     PropsStructField {
         owner: HirEagerExprIdx,
@@ -135,7 +135,7 @@ pub enum HirEagerExprData {
         ident: Ident,
         path: AssocItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]>,
+        item_groups: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
     NewTuple {
         /// guaranteed that items.len() > 0
@@ -309,7 +309,7 @@ impl ToHirEager for SemaExprIdx {
                 let db = builder.db();
                 let _template_arguments = template_arguments.as_ref().map(|_| todo!());
                 let item_groups =
-                    builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
+                    builder.new_call_list_arguments(ritchie_parameter_argument_matches);
                 match *builder.sema_expr_arena_ref()[function_sema_expr_idx].data() {
                     SemaExprData::PrincipalEntityPath {
                         path,
@@ -346,7 +346,7 @@ impl ToHirEager for SemaExprIdx {
                                     db,
                                     builder.fly_terms(),
                                 ),
-                                item_groups,
+                                arguments: item_groups,
                             }
                         }
                     },
@@ -422,7 +422,7 @@ impl ToHirEager for SemaExprIdx {
                         builder.fly_terms(),
                     ),
                     item_groups: builder
-                        .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                        .new_call_list_arguments(ritchie_parameter_argument_matches),
                 }
             }
             SemaExprData::MethodGnCall { .. } => {

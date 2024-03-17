@@ -10,6 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
+smallvec.workspace = true
 # abstractions
 idx-arena.workspace = true
 salsa.workspace = true

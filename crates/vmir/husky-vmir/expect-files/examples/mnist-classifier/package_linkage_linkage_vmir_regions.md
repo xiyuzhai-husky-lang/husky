@@ -487,9 +487,12 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..2,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -732,9 +735,24 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..5,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -1771,8 +1789,6 @@
                     data: [
                         VmirExprData::Variable,
                         VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -1783,10 +1799,19 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..3,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -1797,9 +1822,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                3..5,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -1811,9 +1843,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                5..7,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 6,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -4359,8 +4398,6 @@
                     data: [
                         VmirExprData::Variable,
                         VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -4371,10 +4408,19 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..3,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -4385,9 +4431,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                3..5,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -4399,9 +4452,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                5..7,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 6,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -4854,8 +4914,6 @@
                     data: [
                         VmirExprData::Variable,
                         VmirExprData::Variable,
-                        VmirExprData::Variable,
-                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -4866,10 +4924,19 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..3,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
+                        VmirExprData::Variable,
+                        VmirExprData::Variable,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
                                 data: LinkageData::StructConstructor {
@@ -4880,9 +4947,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                3..5,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 4,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 5,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
@@ -4894,9 +4968,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                5..7,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 3,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 6,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(
@@ -5688,9 +5769,16 @@
                                     },
                                 },
                             },
-                            opds: ArenaIdxRange(
-                                1..3,
-                            ),
+                            arguments: [
+                                VmirArgument::Simple {
+                                    expr: 1,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                                VmirArgument::Simple {
+                                    expr: 2,
+                                    coersion: VmirCoersion::Trivial,
+                                },
+                            ],
                         },
                         VmirExprData::Block {
                             stmts: ArenaIdxRange(

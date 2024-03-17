@@ -204,21 +204,18 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         HasControlFlow::False
     }
 
-    fn infer_new_item_groups(
-        &mut self,
-        item_groups: &[HirLazyCallListItemGroup],
-    ) -> HasControlFlow {
+    fn infer_new_item_groups(&mut self, item_groups: &[HirLazyCallListArgument]) -> HasControlFlow {
         for item_group in item_groups {
             match *item_group {
-                HirLazyCallListItemGroup::Regular(item_expr_idx) => {
+                HirLazyCallListArgument::Simple(item_expr_idx) => {
                     self.expr_has_control_flow(item_expr_idx)?
                 }
-                HirLazyCallListItemGroup::Variadic(ref item_expr_idxs) => {
+                HirLazyCallListArgument::Variadic(ref item_expr_idxs) => {
                     for &item_expr_idx in item_expr_idxs {
                         self.expr_has_control_flow(item_expr_idx)?
                     }
                 }
-                HirLazyCallListItemGroup::Keyed(_, item_expr_idx) => {
+                HirLazyCallListArgument::Keyed(_, item_expr_idx) => {
                     if let Some(item_expr_idx) = item_expr_idx {
                         self.expr_has_control_flow(item_expr_idx)?
                     }

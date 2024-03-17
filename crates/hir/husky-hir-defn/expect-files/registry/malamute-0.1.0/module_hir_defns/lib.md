@@ -1093,8 +1093,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: Svar(
@@ -1192,8 +1192,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
@@ -1301,8 +1301,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
@@ -1859,8 +1859,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
@@ -1962,8 +1962,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(
@@ -2059,8 +2059,8 @@
                                                     ],
                                                     separator: None,
                                                 },
-                                                item_groups: [
-                                                    Regular(
+                                                arguments: [
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
                                                             ty: PathLeading(

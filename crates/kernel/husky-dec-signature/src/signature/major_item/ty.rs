@@ -18,8 +18,8 @@ pub use self::unit_struct::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeDecSignature {
     Enum(EnumDecSignature),
     PropsStruct(PropsStructDecSignature),

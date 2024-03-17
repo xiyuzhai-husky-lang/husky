@@ -149,7 +149,7 @@ pub enum SemaExprData {
         ritchie_ty_kind: RitchieTypeKind,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+        ritchie_parameter_argument_matches: RitchieArgumentes,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// function type or trait
@@ -189,7 +189,7 @@ pub enum SemaExprData {
         dispatch: FlyMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+        ritchie_parameter_argument_matches: RitchieArgumentes,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodGnCall {
@@ -199,7 +199,7 @@ pub enum SemaExprData {
         method_dynamic_dispatch: FlyMethodDynamicDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieParameterArgumentMatches,
+        ritchie_parameter_argument_matches: RitchieArgumentes,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     TemplateInstantiation {

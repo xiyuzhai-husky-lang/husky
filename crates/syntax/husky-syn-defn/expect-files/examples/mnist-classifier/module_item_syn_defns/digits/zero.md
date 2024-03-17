@@ -1442,8 +1442,8 @@
                                         79,
                                     ),
                                     items: [
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 37,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1452,8 +1452,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 39,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1462,8 +1462,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 41,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(

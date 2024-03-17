@@ -31,13 +31,13 @@ impl SynCommaListItem {
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynCallListItem {
-    RegularOrVariadic(SynRegularOrVariadicCallListItem),
+    SimpleOrVariadic(SynSimpleOrVariadicCallListItem),
     Keyed(SynKeyedCallListItem),
 }
 
 impl From<SynCommaListItem> for SynCallListItem {
     fn from(item: SynCommaListItem) -> Self {
-        SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
+        SynCallListItem::SimpleOrVariadic(SynSimpleOrVariadicCallListItem {
             argument_expr_idx: item.syn_expr_idx,
             separator: match item.comma_regional_token_idx {
                 Some(comma_regional_token_idx) => {
@@ -51,7 +51,7 @@ impl From<SynCommaListItem> for SynCallListItem {
 
 impl SynCallListItem {
     pub fn new_regular(argument_expr_idx: SynExprIdx, comma: Option<RegionalTokenIdx>) -> Self {
-        SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
+        SynCallListItem::SimpleOrVariadic(SynSimpleOrVariadicCallListItem {
             separator: match comma {
                 Some(comma_regional_token_idx) => {
                     CallListSeparator::Comma(comma_regional_token_idx)
@@ -64,7 +64,7 @@ impl SynCallListItem {
 
     pub fn separator(&self) -> CallListSeparator {
         match self {
-            SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
+            SynCallListItem::SimpleOrVariadic(SynSimpleOrVariadicCallListItem {
                 separator,
                 ..
             })
@@ -74,7 +74,7 @@ impl SynCallListItem {
 
     pub(crate) fn set_separator(&mut self, new_separator: CallListSeparator) {
         match self {
-            SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
+            SynCallListItem::SimpleOrVariadic(SynSimpleOrVariadicCallListItem {
                 separator,
                 ..
             })
@@ -87,7 +87,7 @@ impl SynCallListItem {
 
     pub fn argument_expr_idx(&self) -> SynExprIdx {
         match self {
-            SynCallListItem::RegularOrVariadic(SynRegularOrVariadicCallListItem {
+            SynCallListItem::SimpleOrVariadic(SynSimpleOrVariadicCallListItem {
                 argument_expr_idx,
                 ..
             })
@@ -100,12 +100,12 @@ impl SynCallListItem {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SynRegularOrVariadicCallListItem {
+pub struct SynSimpleOrVariadicCallListItem {
     argument_expr_idx: SynExprIdx,
     separator: CallListSeparator,
 }
 
-impl SynRegularOrVariadicCallListItem {
+impl SynSimpleOrVariadicCallListItem {
     pub(crate) fn new(argument_expr_idx: SynExprIdx, separator: CallListSeparator) -> Self {
         Self {
             argument_expr_idx,

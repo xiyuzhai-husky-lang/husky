@@ -22,7 +22,7 @@ pub struct EagerCallInputTraceData {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EagerCallInputSketch {
-    Regular {
+    Simple {
         // parameter_syn_pattern_expr_idx: SynPatternExprIdx,
         argument_sema_expr_idx: SemaExprIdx,
         argument_hir_eager_expr_idx: Option<HirEagerExprIdx>,
@@ -68,7 +68,7 @@ impl EagerCallInputTraceData {
         let caller_sema_expr_range_region_data = caller_sema_expr_range_region.data(db);
         let caller_region_path = caller_sema_expr_region.path(db);
         match self.input_sketch {
-            EagerCallInputSketch::Regular {
+            EagerCallInputSketch::Simple {
                 argument_sema_expr_idx,
                 argument_hir_eager_expr_idx: _,
             } => {

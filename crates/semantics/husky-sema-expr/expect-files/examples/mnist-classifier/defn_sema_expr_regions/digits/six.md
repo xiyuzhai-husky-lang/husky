@@ -220,7 +220,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                     template_arguments: None,
@@ -228,7 +228,7 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -238,7 +238,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
@@ -258,7 +258,7 @@
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -268,7 +268,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     4,
                                                 ),
@@ -444,11 +444,11 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_ty_kind: Item(
+                                                        ritchie_ty_kind: RitchieTypeKind::Item(
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FlyRitchieParameter::Regular(
+                                                            FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
@@ -459,7 +459,7 @@
                                                                     },
                                                                 },
                                                             ),
-                                                            FlyRitchieParameter::Regular(
+                                                            FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
@@ -964,7 +964,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         1,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                     template_arguments: None,
@@ -972,7 +972,7 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -982,7 +982,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
@@ -1002,7 +1002,7 @@
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -1012,7 +1012,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     5,
                                                 ),
@@ -1188,11 +1188,11 @@
                                                         ),
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
-                                                        ritchie_ty_kind: Item(
+                                                        ritchie_ty_kind: RitchieTypeKind::Item(
                                                             Fn,
                                                         ),
                                                         parameter_contracted_tys: [
-                                                            FlyRitchieParameter::Regular(
+                                                            FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
@@ -1203,7 +1203,7 @@
                                                                     },
                                                                 },
                                                             ),
-                                                            FlyRitchieParameter::Regular(
+                                                            FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Pure,
                                                                     ty: FlyTerm {
@@ -2920,7 +2920,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         19,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Gn,
                                     ),
                                     template_arguments: None,
@@ -2928,7 +2928,7 @@
                                         44,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Variadic(
+                                        SemaRitchieArgument::Variadic(
                                             FlyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -2979,7 +2979,7 @@
                                                 },
                                             ],
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Keyed(
+                                        SemaRitchieArgument::Keyed(
                                             FlyRitchieKeyedParameter {
                                                 key: `skip`,
                                                 contract: Pure,
@@ -4760,7 +4760,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         55,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Gn,
                                     ),
                                     template_arguments: None,
@@ -4768,7 +4768,7 @@
                                         123,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Variadic(
+                                        SemaRitchieArgument::Variadic(
                                             FlyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -4804,7 +4804,7 @@
                                                 },
                                             ],
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Keyed(
+                                        SemaRitchieArgument::Keyed(
                                             FlyRitchieKeyedParameter {
                                                 key: `skip`,
                                                 contract: Pure,
@@ -5371,7 +5371,7 @@
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FlyRitchieParameter::Regular(
+                                                    FlyRitchieParameter::Simple(
                                                         FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
@@ -5413,7 +5413,7 @@
                                         143,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -5423,7 +5423,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     65,
                                                 ),
@@ -5808,7 +5808,7 @@
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FlyRitchieParameter::Regular(
+                                                    FlyRitchieParameter::Simple(
                                                         FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
@@ -5850,7 +5850,7 @@
                                         162,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -5860,7 +5860,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     72,
                                                 ),
@@ -5945,7 +5945,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         67,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Gn,
                                     ),
                                     template_arguments: None,
@@ -5953,7 +5953,7 @@
                                         152,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Variadic(
+                                        SemaRitchieArgument::Variadic(
                                             FlyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -6050,7 +6050,7 @@
                                                 },
                                             ],
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Keyed(
+                                        SemaRitchieArgument::Keyed(
                                             FlyRitchieKeyedParameter {
                                                 key: `skip`,
                                                 contract: Pure,
@@ -6826,7 +6826,7 @@
                                     function_sema_expr_idx: SemaExprIdx(
                                         83,
                                     ),
-                                    ritchie_ty_kind: Item(
+                                    ritchie_ty_kind: RitchieTypeKind::Item(
                                         Gn,
                                     ),
                                     template_arguments: None,
@@ -6834,7 +6834,7 @@
                                         187,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Variadic(
+                                        SemaRitchieArgument::Variadic(
                                             FlyRitchieVariadicParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -6866,7 +6866,7 @@
                                                 },
                                             ],
                                         ),
-                                        SemaRitchieParameterArgumentMatch::Keyed(
+                                        SemaRitchieArgument::Keyed(
                                             FlyRitchieKeyedParameter {
                                                 key: `skip`,
                                                 contract: Pure,
@@ -10984,8 +10984,8 @@
                             },
                             HolTermEntry {
                                 data: HolTermData::Ritchie {
-                                    ritchie_kind: Type(
-                                        Item(
+                                    ritchie_kind: RitchieKind::Type(
+                                        RitchieTypeKind::Item(
                                             Gn,
                                         ),
                                     ),
@@ -11189,8 +11189,8 @@
                             },
                             HolTermEntry {
                                 data: HolTermData::Ritchie {
-                                    ritchie_kind: Type(
-                                        Item(
+                                    ritchie_kind: RitchieKind::Type(
+                                        RitchieTypeKind::Item(
                                             Gn,
                                         ),
                                     ),
@@ -11413,8 +11413,8 @@
                             },
                             HolTermEntry {
                                 data: HolTermData::Ritchie {
-                                    ritchie_kind: Type(
-                                        Item(
+                                    ritchie_kind: RitchieKind::Type(
+                                        RitchieTypeKind::Item(
                                             Gn,
                                         ),
                                     ),
@@ -11726,8 +11726,8 @@
                             },
                             HolTermEntry {
                                 data: HolTermData::Ritchie {
-                                    ritchie_kind: Type(
-                                        Item(
+                                    ritchie_kind: RitchieKind::Type(
+                                        RitchieTypeKind::Item(
                                             Gn,
                                         ),
                                     ),
@@ -19799,7 +19799,7 @@
                                                     },
                                                 },
                                                 parenate_parameters: [
-                                                    FlyRitchieParameter::Regular(
+                                                    FlyRitchieParameter::Simple(
                                                         FlyRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: FlyTerm {
@@ -19841,7 +19841,7 @@
                                         53,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieParameterArgumentMatch::Simple(
+                                        SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Pure,
                                                 ty: FlyTerm {
@@ -19851,7 +19851,7 @@
                                                     ),
                                                 },
                                             },
-                                            SemaRegularCallListItem {
+                                            SemaSimpleArgument {
                                                 argument_expr_idx: SemaExprIdx(
                                                     26,
                                                 ),

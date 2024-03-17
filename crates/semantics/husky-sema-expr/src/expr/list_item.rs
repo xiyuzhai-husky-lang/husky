@@ -40,14 +40,14 @@ impl<'a> SemaExprBuilder<'a> {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct SemaRegularCallListItem {
+pub struct SemaSimpleArgument {
     pub argument_expr_idx: SemaExprIdx,
     pub coersion_outcome: Option<ExpectCoersionOutcome>,
     separator: CallListSeparator,
 }
 
 /// # constructor
-impl SemaRegularCallListItem {
+impl SemaSimpleArgument {
     pub(crate) fn new(
         argument_expr_idx: SemaExprIdx,
         coersion_outcome: Option<ExpectCoersionOutcome>,
@@ -62,7 +62,7 @@ impl SemaRegularCallListItem {
 }
 
 /// # getters
-impl SemaRegularCallListItem {
+impl SemaSimpleArgument {
     pub fn argument_sema_expr_idx(&self) -> SemaExprIdx {
         self.argument_expr_idx
     }

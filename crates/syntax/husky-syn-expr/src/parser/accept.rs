@@ -375,7 +375,7 @@ where
                             items.push(SynCommaListItem::new(item, Some(comma_regional_token_idx)))
                         }
                         IncompleteSynExprData::CallList { items, .. } => items.push(
-                            SynRegularOrVariadicCallListItem::new(
+                            SynSimpleOrVariadicCallListItem::new(
                                 item,
                                 CallListSeparator::Comma(comma_regional_token_idx),
                             )

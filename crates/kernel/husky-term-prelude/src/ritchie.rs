@@ -1,6 +1,7 @@
 use crate::Contract;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RitchieKind {
@@ -8,6 +9,7 @@ pub enum RitchieKind {
     Trait(RitchieTraitKind),
 }
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RitchieTypeKind {
@@ -106,6 +108,7 @@ impl RitchieKind {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum RitchieTraitKind {
     Fn,

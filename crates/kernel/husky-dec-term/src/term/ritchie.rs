@@ -41,11 +41,11 @@ impl DecRitchie {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum DeclarativeRitchieParameter {
-    Regular(DeclarativeRitchieSimpleParameter),
+    Simple(DeclarativeRitchieSimpleParameter),
     Variadic(DeclarativeRitchieVariadicParameter),
     Keyed(DeclarativeRitchieKeyedParameter),
 }
@@ -53,7 +53,7 @@ pub enum DeclarativeRitchieParameter {
 impl DeclarativeRitchieParameter {
     pub fn ty(&self) -> DecTerm {
         match self {
-            DeclarativeRitchieParameter::Regular(param) => param.ty(),
+            DeclarativeRitchieParameter::Simple(param) => param.ty(),
             DeclarativeRitchieParameter::Variadic(param) => param.ty(),
             DeclarativeRitchieParameter::Keyed(param) => param.ty(),
         }
@@ -61,7 +61,7 @@ impl DeclarativeRitchieParameter {
 
     pub(crate) fn substitute_ty(self, f: impl Fn(DecTerm) -> DecTerm) -> Self {
         match self {
-            DeclarativeRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
+            DeclarativeRitchieParameter::Simple(param) => param.substitute_ty(f).into(),
             DeclarativeRitchieParameter::Variadic(param) => param.substitute_ty(f).into(),
             DeclarativeRitchieParameter::Keyed(param) => param.substitute_ty(f).into(),
         }
@@ -74,7 +74,7 @@ impl DeclarativeRitchieParameter {
         ctx: &DecSvarNameMap,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeRitchieParameter::Regular(param) => {
+            DeclarativeRitchieParameter::Simple(param) => {
                 param.display_fmt_with_db_and_ctx(f, db, ctx)
             }
             DeclarativeRitchieParameter::Variadic(param) => {

@@ -15,8 +15,8 @@ use husky_hir_eager_expr::{
     emit_note_on_hir_eager_expr_codespan, place_contract::HirEagerPlaceContractSite,
     HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry,
     HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerPatternExpr,
-    HirEagerPatternExprIdx, HirEagerRitchieParameterArgumentMatch, HirEagerStmtData,
-    HirEagerStmtIdx, HirEagerStmtIdxRange,
+    HirEagerPatternExprIdx, HirEagerRitchieArgument, HirEagerStmtData, HirEagerStmtIdx,
+    HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -227,7 +227,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::TypeVariantConstructorCall {
             path,
             instantiation: _,
-            ref item_groups,
+            arguments: ref item_groups,
         } => {
             path.transpile_to_rust(builder);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
@@ -430,18 +430,16 @@ impl HirEagerExprSite {
         }
     }
 }
-impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerRitchieParameterArgumentMatch {
+impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerRitchieArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
-            HirEagerRitchieParameterArgumentMatch::Regular(param, hir_eager_expr_idx, coersion) => {
-                (
-                    hir_eager_expr_idx,
-                    HirEagerExprSite::regular_call_item(param, coersion, builder.db()),
-                )
-                    .transpile_to_rust(builder)
-            }
-            HirEagerRitchieParameterArgumentMatch::Variadic => todo!(),
-            HirEagerRitchieParameterArgumentMatch::Keyed => todo!(),
+            HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coersion) => (
+                hir_eager_expr_idx,
+                HirEagerExprSite::regular_call_item(param, coersion, builder.db()),
+            )
+                .transpile_to_rust(builder),
+            HirEagerRitchieArgument::Variadic => todo!(),
+            HirEagerRitchieArgument::Keyed => todo!(),
         }
     }
 }

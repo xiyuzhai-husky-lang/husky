@@ -3473,8 +3473,8 @@
                                     ritchie_kind_regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    ritchie_kind: Type(
-                                        Item(
+                                    ritchie_kind: RitchieKind::Type(
+                                        RitchieTypeKind::Item(
                                             Fn,
                                         ),
                                     ),

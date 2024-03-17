@@ -3,8 +3,8 @@ use thiserror::Error;
 
 use crate::*;
 
-#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum DecSignatureError {
     #[error("todo")]
     DecTermError,
