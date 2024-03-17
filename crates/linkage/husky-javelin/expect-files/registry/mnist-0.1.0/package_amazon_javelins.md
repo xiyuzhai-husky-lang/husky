@@ -47,7 +47,10 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -79,7 +82,10 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

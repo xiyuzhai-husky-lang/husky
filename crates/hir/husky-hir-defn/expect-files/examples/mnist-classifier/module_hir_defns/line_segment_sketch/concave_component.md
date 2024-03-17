@@ -1903,13 +1903,19 @@
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    path: TraitForTypeItemPath(
+                        `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
-                        )`),
+                        ),
+                    ),
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath(
+                            `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
+                            TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1937,9 +1943,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        )`),
+                                        TraitForTypeItemPath(
+                                            `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1979,9 +1988,12 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            )`),
+                                            TraitForTypeItemPath(
+                                                `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
+                                                TraitItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2070,9 +2082,12 @@
                                                 self_contract: Pure,
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -6967,9 +6982,12 @@
                                                 self_contract: Pure,
                                                 ident: `clone`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -7177,9 +7195,12 @@
                                                 self_contract: Pure,
                                                 ident: `clone`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -7584,9 +7605,12 @@
                                                 self_contract: Pure,
                                                 ident: `clone`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -7939,9 +7963,12 @@
                                                 self_contract: Pure,
                                                 ident: `clone`,
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    TraitForTypeItemPath(
+                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [

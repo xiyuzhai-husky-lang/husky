@@ -2656,9 +2656,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2693,9 +2696,12 @@
     },
     Linkage {
         data: LinkageData::UnveilAssocFn {
-            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                RitchieItemKind::Fn,
-            )`),
+            path: TraitForTypeItemPath(
+                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                TraitItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -2740,9 +2746,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<#derive _ as core::clone::Clone(0)>::clone`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3328,9 +3337,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<#derive _ as core::clone::Clone(0)>::clone`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [

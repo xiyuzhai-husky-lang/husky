@@ -398,9 +398,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            )`),
+                                            path: TraitForTypeItemPath(
+                                                `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                TraitItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -420,9 +423,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                        RitchieItemKind::Fn,
-                                                    )`),
+                                                    path: TraitForTypeItemPath(
+                                                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                        TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -583,9 +589,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                                            RitchieItemKind::Fn,
-                                                                        )`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                                            TraitItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

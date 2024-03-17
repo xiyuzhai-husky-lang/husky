@@ -500,18 +500,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            )`),
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -656,9 +662,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                                            RitchieItemKind::Fn,
-                                                                        )`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                                                                            TraitItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1275,14 +1284,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -1463,7 +1478,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                                                                            TraitItemKind::AssocType,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1702,18 +1720,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    )`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            )`),
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1858,9 +1882,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
-                                                                            RitchieItemKind::Fn,
-                                                                        )`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                                                                            TraitItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2477,14 +2504,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                    TraitForTypeItemPath(
+                        `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                        TraitItemKind::AssocType,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
                         TraitForTypeAssocTypeSynDecl {
-                            path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -2665,7 +2698,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`, `TraitItemKind::AssocType`),
+                                                                        path: TraitForTypeItemPath(
+                                                                            `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                                                                            TraitItemKind::AssocType,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

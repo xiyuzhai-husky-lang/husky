@@ -275,9 +275,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<malamute::OneVsAll as core::default::Default(0)>::default`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -367,7 +370,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                TraitForTypeItemPath(
+                    `<malamute::Class as core::ops::Unveil(0)>::Output`,
+                    TraitItemKind::AssocType,
+                ),
             ),
         ),
         Ok(
@@ -375,7 +381,10 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<malamute::Class as core::ops::Unveil(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -399,9 +408,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -504,7 +516,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                TraitForTypeItemPath(
+                    `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                    TraitItemKind::AssocType,
+                ),
             ),
         ),
         Ok(
@@ -512,7 +527,10 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
+                            path: TraitForTypeItemPath(
+                                `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -536,9 +554,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
-                    RitchieItemKind::Fn,
-                )`),
+                TraitForTypeItemPath(
+                    `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                    TraitItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
