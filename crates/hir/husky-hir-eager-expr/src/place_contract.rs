@@ -1,4 +1,4 @@
-use husky_hir_ty::ritchie::HirEagerContract;
+use husky_hir_ty::ritchie::HirContract;
 use husky_place::place::EthPlace;
 use husky_sema_place_contract::site::SemaPlaceContractSite;
 use husky_term_prelude::Contract;
@@ -7,7 +7,7 @@ use vec_like::SmallVecPairMap;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerPlaceContractSite {
-    place_contracts: SmallVecPairMap<EthPlace, HirEagerContract, 2>,
+    place_contracts: SmallVecPairMap<EthPlace, HirContract, 2>,
 }
 
 impl HirEagerPlaceContractSite {
@@ -20,7 +20,7 @@ impl HirEagerPlaceContractSite {
                     .copied()
                     .filter_map(|(place, contract)| {
                         (contract != Contract::At)
-                            .then_some((place, HirEagerContract::from_contract(contract)))
+                            .then_some((place, HirContract::from_contract(contract)))
                     }),
             ),
         }
@@ -28,13 +28,13 @@ impl HirEagerPlaceContractSite {
 }
 
 impl HirEagerPlaceContractSite {
-    pub fn place_contracts(&self) -> &[(EthPlace, HirEagerContract)] {
+    pub fn place_contracts(&self) -> &[(EthPlace, HirContract)] {
         &self.place_contracts
     }
 }
 
 impl std::ops::Index<EthPlace> for HirEagerPlaceContractSite {
-    type Output = HirEagerContract;
+    type Output = HirContract;
 
     fn index(&self, place: EthPlace) -> &Self::Output {
         &self.place_contracts[place].1

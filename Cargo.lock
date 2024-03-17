@@ -6474,6 +6474,7 @@ dependencies = [
  "enum-class",
  "husky-ast",
  "husky-check-utils",
+ "husky-control-flow-utils",
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",

@@ -7,7 +7,7 @@ use crate::{
 };
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
-use husky_hir_ty::HirType;
+use husky_hir_ty::{ritchie::HirContract, HirType};
 use husky_sema_expr::{
     SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
@@ -147,7 +147,10 @@ impl<'a> HirEagerExprBuilder<'a> {
         pattern: HirEagerPatternData,
         syn_pattern: SynPatternIdx,
     ) -> HirEagerPatternIdx {
-        let pattern = self.hir_eager_pattern_arena.alloc_one(pattern);
+        let contract =
+            HirContract::from_contract(self.syn_expr_region_data.pattern_contract(syn_pattern));
+        let entry = HirEagerPatternEntry::new(pattern, contract);
+        let pattern = self.hir_eager_pattern_arena.alloc_one(entry);
         self.syn_to_hir_eager_pattern_idx_map
             .insert_new(syn_pattern, pattern);
         pattern
@@ -156,9 +159,16 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn alloc_pattern_exprs(
         &mut self,
         patterns: Vec<HirEagerPatternData>,
-        syn_patterns: impl Iterator<Item = SynPatternIdx>,
+        syn_patterns: impl Iterator<Item = SynPatternIdx> + Clone,
     ) -> HirEagerPatternIdxRange {
-        let patterns = self.hir_eager_pattern_arena.alloc_batch(patterns);
+        let entries =
+            std::iter::zip(patterns, syn_patterns.clone()).map(|(pattern, syn_pattern)| {
+                let contract = HirContract::from_contract(
+                    self.syn_expr_region_data.pattern_contract(syn_pattern),
+                );
+                HirEagerPatternEntry::new(pattern, contract)
+            });
+        let patterns = self.hir_eager_pattern_arena.alloc_batch(entries);
         for (pattern, syn_pattern) in std::iter::zip(patterns, syn_patterns) {
             self.syn_to_hir_eager_pattern_idx_map
                 .insert_new(syn_pattern, pattern);

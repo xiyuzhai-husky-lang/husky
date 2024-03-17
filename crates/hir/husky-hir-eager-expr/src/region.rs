@@ -14,7 +14,7 @@ pub struct HirEagerExprRegion {
     #[return_ref]
     pub stmt_arena: HirEagerStmtArena,
     #[return_ref]
-    pub pattern_expr_arena: HirEagerPatternArena,
+    pub pattern_arena: HirEagerPatternArena,
     #[return_ref]
     pub comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
     #[return_ref]

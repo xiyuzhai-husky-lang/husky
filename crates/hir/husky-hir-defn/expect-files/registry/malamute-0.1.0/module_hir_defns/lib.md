@@ -40,7 +40,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -100,7 +100,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -144,7 +144,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -344,7 +344,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -412,7 +412,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -500,7 +500,7 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                pattern_arena: Arena {
                                     data: [],
                                 },
                                 comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -625,7 +625,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -725,7 +725,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -878,11 +878,14 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [
-                                    HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `one_vs_all`,
+                                    HirEagerPatternEntry {
+                                        data: HirEagerPatternData::Ident {
+                                            symbol_modifier: None,
+                                            ident: `one_vs_all`,
+                                        },
+                                        contract: Pure,
                                     },
                                 ],
                             },
@@ -1332,30 +1335,36 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                pattern_arena: Arena {
                                     data: [
-                                        HirEagerPatternData::Unit(
-                                            PatternPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                        HirEagerPatternEntry {
+                                            data: HirEagerPatternData::Unit(
+                                                PatternPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
-                                        HirEagerPatternData::Unit(
-                                            PatternPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 6,
-                                                        },
+                                            contract: Pure,
+                                        },
+                                        HirEagerPatternEntry {
+                                            data: HirEagerPatternData::Unit(
+                                                PatternPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 6,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            contract: Pure,
+                                        },
                                     ],
                                 },
                                 comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1467,7 +1476,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1526,7 +1535,7 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [],
                             },
                             comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1626,11 +1635,14 @@
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_arena: Arena {
+                            pattern_arena: Arena {
                                 data: [
-                                    HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `one_vs_all_result`,
+                                    HirEagerPatternEntry {
+                                        data: HirEagerPatternData::Ident {
+                                            symbol_modifier: None,
+                                            ident: `one_vs_all_result`,
+                                        },
+                                        contract: Pure,
                                     },
                                 ],
                             },
@@ -2076,41 +2088,50 @@
                                         },
                                     ],
                                 },
-                                pattern_expr_arena: Arena {
+                                pattern_arena: Arena {
                                     data: [
-                                        HirEagerPatternData::Unit(
-                                            PatternPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
+                                        HirEagerPatternEntry {
+                                            data: HirEagerPatternData::Unit(
+                                                PatternPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
-                                        HirEagerPatternData::Unit(
-                                            PatternPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 9,
-                                                        },
+                                            contract: Pure,
+                                        },
+                                        HirEagerPatternEntry {
+                                            data: HirEagerPatternData::Unit(
+                                                PatternPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 9,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
-                                        HirEagerPatternData::Unit(
-                                            PatternPath::TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 10,
-                                                        },
+                                            contract: Pure,
+                                        },
+                                        HirEagerPatternEntry {
+                                            data: HirEagerPatternData::Unit(
+                                                PatternPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 10,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
+                                            contract: Pure,
+                                        },
                                     ],
                                 },
                                 comptime_symbol_region_data: HirEagerComptimeSvarRegionData {

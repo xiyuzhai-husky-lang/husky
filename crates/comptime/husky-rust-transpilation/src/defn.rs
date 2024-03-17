@@ -16,7 +16,7 @@ use husky_hir_decl::parameter::{
 };
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
-use husky_hir_ty::ritchie::{HirEagerContract, HirRitchieParameter, HirRitchieSimpleParameter};
+use husky_hir_ty::ritchie::{HirContract, HirRitchieParameter, HirRitchieSimpleParameter};
 use husky_manifest::HasPackageManifest;
 use husky_vfs::ModulePathData;
 
@@ -160,20 +160,20 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerSelfValueParameter {
         let db = builder.db();
         let HirEagerSelfValueParameter { contract, self_ty } = self;
         match contract {
-            HirEagerContract::Pure => {
+            HirContract::Pure => {
                 if !self_ty.always_copyable(db) {
                     builder.punctuation(RustPunctuation::Ambersand)
                 }
             }
-            HirEagerContract::Move => (),
-            HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
-            HirEagerContract::BorrowMut => {
+            HirContract::Move => (),
+            HirContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+            HirContract::BorrowMut => {
                 builder.punctuation(RustPunctuation::Ambersand);
                 builder.keyword(RustKeyword::Mut)
             }
-            HirEagerContract::Const => todo!(),
-            HirEagerContract::Leash => todo!(),
-            HirEagerContract::At => todo!(),
+            HirContract::Const => todo!(),
+            HirContract::Leash => todo!(),
+            HirContract::At => todo!(),
         }
         builder.self_value()
     }
@@ -191,19 +191,19 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
                 pattern_expr_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Colon);
                 match contract {
-                    HirEagerContract::Pure => match ty.always_copyable(db) {
+                    HirContract::Pure => match ty.always_copyable(db) {
                         true => (),
                         false => builder.punctuation(RustPunctuation::Ambersand),
                     },
-                    HirEagerContract::Move => (),
-                    HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
-                    HirEagerContract::BorrowMut => {
+                    HirContract::Move => (),
+                    HirContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+                    HirContract::BorrowMut => {
                         builder.punctuation(RustPunctuation::Ambersand);
                         builder.keyword(RustKeyword::Mut)
                     }
-                    HirEagerContract::Const => todo!(),
-                    HirEagerContract::Leash => todo!(),
-                    HirEagerContract::At => todo!(),
+                    HirContract::Const => todo!(),
+                    HirContract::Leash => todo!(),
+                    HirContract::At => todo!(),
                 }
                 ty.transpile_to_rust(builder)
             }

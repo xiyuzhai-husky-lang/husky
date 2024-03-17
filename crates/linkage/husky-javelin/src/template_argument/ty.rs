@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::{
-    ritchie::{HirEagerContract, HirRitchieParameter},
+    ritchie::{HirContract, HirRitchieParameter},
     HirType,
 };
 use smallvec::SmallVec;
@@ -30,7 +30,7 @@ pub struct JavelinRitchieType {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct JavelinRitchieParameter {
-    contract: HirEagerContract,
+    contract: HirContract,
     parameter_ty: JavelinType,
 }
 
@@ -50,7 +50,7 @@ impl JavelinRitchieParameter {
         }
     }
 
-    pub fn contract(&self) -> HirEagerContract {
+    pub fn contract(&self) -> HirContract {
         self.contract
     }
 

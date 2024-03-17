@@ -59,15 +59,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `line_segment_sketch`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `line_segment_sketch`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `index`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `index`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },

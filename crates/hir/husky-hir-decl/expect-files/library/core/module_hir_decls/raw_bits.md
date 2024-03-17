@@ -22,7 +22,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -81,7 +81,7 @@
                     stmt_arena: Arena {
                         data: [],
                     },
-                    pattern_expr_arena: Arena {
+                    pattern_arena: Arena {
                         data: [],
                     },
                     comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -157,11 +157,14 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `k`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `k`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -240,7 +243,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -312,7 +315,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -384,7 +387,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -456,7 +459,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {

@@ -7,7 +7,7 @@ use husky_entity_path::{
 };
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl, TypeVariantHirDecl};
-use husky_hir_ty::{ritchie::HirEagerContract, trai::HirTrait, HirType};
+use husky_hir_ty::{ritchie::HirContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
     instantiation::{LinInstantiation, LinTermSymbolResolution, LinkageInstantiate},
@@ -455,14 +455,14 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self.contract() {
             // ad hoc
-            HirEagerContract::Pure => (),
+            HirContract::Pure => (),
             // builder.punctuation(RustPunctuation::Ambersand),
-            HirEagerContract::Move => (),
-            HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
-            HirEagerContract::BorrowMut => todo!(),
-            HirEagerContract::Const => todo!(),
-            HirEagerContract::Leash => todo!(),
-            HirEagerContract::At => todo!(),
+            HirContract::Move => (),
+            HirContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+            HirContract::BorrowMut => todo!(),
+            HirContract::Const => todo!(),
+            HirContract::Leash => todo!(),
+            HirContract::At => todo!(),
         }
         self.parameter_ty().transpile_to_rust(builder)
     }

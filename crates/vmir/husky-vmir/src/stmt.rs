@@ -41,10 +41,7 @@ pub type VmirStmtIdxRange<LinkageImpl> = ArenaIdxRange<VmirStmtData<LinkageImpl>
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
     type Output = VmirStmtIdxRange<LinkageImpl>;
 
-    fn to_vmir<Linktime>(
-        self,
-        builder: &mut crate::builder::VmirExprBuilder<Linktime>,
-    ) -> Self::Output
+    fn to_vmir<Linktime>(self, builder: &mut crate::builder::VmirBuilder<Linktime>) -> Self::Output
     where
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {
@@ -138,7 +135,7 @@ pub enum VmirConditionConversion<LinkageImpl> {
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCondition {
     type Output = VmirCondition<LinkageImpl>;
 
-    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {
@@ -158,7 +155,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCondition {
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
     type Output = VmirConditionConversion<LinkageImpl>;
 
-    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {

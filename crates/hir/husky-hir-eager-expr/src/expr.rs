@@ -15,7 +15,7 @@ use husky_fly_term::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, quary::HirQuary, ritchie::HirEagerContract, HirType,
+    instantiation::HirInstantiation, quary::HirQuary, ritchie::HirContract, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
@@ -133,7 +133,7 @@ pub enum HirEagerExprData {
     },
     MethodFnCall {
         self_argument: HirEagerExprIdx,
-        self_contract: HirEagerContract,
+        self_contract: HirContract,
         ident: Ident,
         path: AssocItemPath,
         instantiation: HirInstantiation,
@@ -422,7 +422,7 @@ impl ToHirEager for SemaExprIdx {
                 };
                 HirEagerExprData::MethodFnCall {
                     self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
-                    self_contract: HirEagerContract::from_contract(self_contract),
+                    self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
                     instantiation: HirInstantiation::from_fly(

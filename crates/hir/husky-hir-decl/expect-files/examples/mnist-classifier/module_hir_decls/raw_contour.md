@@ -66,7 +66,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -120,7 +120,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -198,15 +198,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `j`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `j`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -298,15 +304,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `j`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `j`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -398,15 +410,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `j`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `j`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -509,19 +527,28 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row_above`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row_above`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row_below`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row_below`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `j`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `j`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -619,15 +646,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `inward`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `inward`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `outward`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `outward`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -741,23 +774,35 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row_above`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row_above`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `row_below`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `row_below`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `j`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `j`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `inward_direction`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `inward_direction`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -848,7 +893,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -938,11 +983,14 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `points`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `points`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -1037,11 +1085,14 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `cc`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `cc`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },
@@ -1100,7 +1151,7 @@
                     stmt_arena: Arena {
                         data: [],
                     },
-                    pattern_expr_arena: Arena {
+                    pattern_arena: Arena {
                         data: [],
                     },
                     comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1170,7 +1221,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1236,7 +1287,7 @@
                     stmt_arena: Arena {
                         data: [],
                     },
-                    pattern_expr_arena: Arena {
+                    pattern_arena: Arena {
                         data: [],
                     },
                     comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1280,7 +1331,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1332,7 +1383,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1384,7 +1435,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1436,7 +1487,7 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [],
                         },
                         comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
@@ -1531,15 +1582,21 @@
                         stmt_arena: Arena {
                             data: [],
                         },
-                        pattern_expr_arena: Arena {
+                        pattern_arena: Arena {
                             data: [
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `start`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `start`,
+                                    },
+                                    contract: Pure,
                                 },
-                                HirEagerPatternData::Ident {
-                                    symbol_modifier: None,
-                                    ident: `end`,
+                                HirEagerPatternEntry {
+                                    data: HirEagerPatternData::Ident {
+                                        symbol_modifier: None,
+                                        ident: `end`,
+                                    },
+                                    contract: Pure,
                                 },
                             ],
                         },

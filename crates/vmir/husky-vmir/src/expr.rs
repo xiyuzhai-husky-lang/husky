@@ -79,14 +79,14 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
 
     fn to_vmir<Linktime: IsLinktime<LinkageImpl = LinkageImpl>>(
         self,
-        builder: &mut VmirExprBuilder<Linktime>,
+        builder: &mut VmirBuilder<Linktime>,
     ) -> Self::Output {
         let expr_data = builder.build_vmir_expr(self);
         builder.alloc_expr(expr_data)
     }
 }
 
-impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
+impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
         match *self.hir_eager_expr_arena()[expr].data() {
             HirEagerExprData::Literal(_) => VmirExprData::Literal,

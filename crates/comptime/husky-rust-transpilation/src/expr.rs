@@ -19,8 +19,8 @@ use husky_hir_eager_expr::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSvarResolution, quary::HirQuary, ritchie::HirEagerContract,
-    HirTemplateSvar, HirTemplateSvarClass,
+    instantiation::HirTermSvarResolution, quary::HirQuary, ritchie::HirContract, HirTemplateSvar,
+    HirTemplateSvarClass,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -285,13 +285,13 @@ fn transpile_hir_eager_expr_to_rust(
                 0 => ident.transpile_to_rust(builder),
                 1 => match places[0].place() {
                     Some(place) => match place_contract_site[place] {
-                        HirEagerContract::Pure => ident.transpile_to_rust(builder),
-                        HirEagerContract::Move => todo!(),
-                        HirEagerContract::Borrow => todo!(),
-                        HirEagerContract::BorrowMut => builder.method_fn_ident_mut(ident),
-                        HirEagerContract::Const => todo!(),
-                        HirEagerContract::Leash => todo!(),
-                        HirEagerContract::At => todo!(),
+                        HirContract::Pure => ident.transpile_to_rust(builder),
+                        HirContract::Move => todo!(),
+                        HirContract::Borrow => todo!(),
+                        HirContract::BorrowMut => builder.method_fn_ident_mut(ident),
+                        HirContract::Const => todo!(),
+                        HirContract::Leash => todo!(),
+                        HirContract::At => todo!(),
                     },
                     None => ident.transpile_to_rust(builder),
                 },
@@ -415,14 +415,12 @@ impl HirEagerExprSite {
                 HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
                 quary => match quary.place() {
                     Some(place) => match entry.place_contract_site()[place] {
-                        HirEagerContract::Pure | HirEagerContract::Const => {
-                            !entry.is_always_copyable()
-                        }
-                        HirEagerContract::Move => false,
-                        HirEagerContract::Borrow => true,
-                        HirEagerContract::BorrowMut => true,
-                        HirEagerContract::Leash => todo!(),
-                        HirEagerContract::At => todo!(),
+                        HirContract::Pure | HirContract::Const => !entry.is_always_copyable(),
+                        HirContract::Move => false,
+                        HirContract::Borrow => true,
+                        HirContract::BorrowMut => true,
+                        HirContract::Leash => todo!(),
+                        HirContract::At => todo!(),
                     },
                     None => false,
                 },

@@ -38,7 +38,7 @@ pub fn linkage_vmir_region<'a, Linktime: IsLinktime>(
     linkage: Linkage,
     linktime: &'a Linktime,
 ) -> Option<VmirRegion<Linktime::LinkageImpl>> {
-    let (root_hir_eager_expr_idx, mut builder) = VmirExprBuilder::new(linkage, db, linktime)?;
+    let (root_hir_eager_expr_idx, mut builder) = VmirBuilder::new(linkage, db, linktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
     let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
     Some(VmirRegion::new(
@@ -61,8 +61,7 @@ pub fn linkage_virtual_vmir_region_aux(
     db: &::salsa::Db,
     linkage: Linkage,
 ) -> Option<VmirRegion<Linkage>> {
-    let (root_hir_eager_expr_idx, mut builder) =
-        VmirExprBuilder::new(linkage, db, &VirtualLinktime)?;
+    let (root_hir_eager_expr_idx, mut builder) = VmirBuilder::new(linkage, db, &VirtualLinktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
     let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
     Some(VmirRegion::new(

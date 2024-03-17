@@ -1,4 +1,4 @@
-use husky_hir_ty::ritchie::HirEagerContract;
+use husky_hir_ty::ritchie::HirContract;
 
 use super::*;
 
@@ -7,7 +7,7 @@ use super::*;
 pub enum HirEagerParenateParameter {
     Simple {
         pattern_expr_idx: HirEagerPatternIdx,
-        contract: HirEagerContract,
+        contract: HirContract,
         ty: HirType,
     },
     Keyed,
@@ -26,7 +26,7 @@ impl HirEagerParenateParameter {
                 ..
             } => HirEagerParenateParameter::Simple {
                 pattern_expr_idx: builder.hir_eager_pattern_expr_idx(syn_pattern_root),
-                contract: HirEagerContract::from_contract(
+                contract: HirContract::from_contract(
                     builder
                         .syn_expr_region_data()
                         .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),

@@ -78,7 +78,7 @@ impl HirRitchieParameter {
 
     pub fn from_eth_regular(param: EthRitchieSimpleParameter, db: &::salsa::Db) -> Self {
         HirRitchieSimpleParameter {
-            contract: HirEagerContract::from_contract(param.contract()),
+            contract: HirContract::from_contract(param.contract()),
             ty: HirType::from_eth(param.ty(), db).unwrap(),
         }
         .into()
@@ -89,12 +89,12 @@ impl HirRitchieParameter {
 #[non_exhaustive]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirRitchieSimpleParameter {
-    pub contract: HirEagerContract,
+    pub contract: HirContract,
     pub ty: HirType,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirEagerContract {
+pub enum HirContract {
     Pure,
     Move,
     Borrow,
@@ -104,22 +104,34 @@ pub enum HirEagerContract {
     At,
 }
 
-impl HirEagerContract {
+impl HirContract {
     pub fn from_contract(contract: Contract) -> Self {
         match contract {
-            Contract::Pure => HirEagerContract::Pure,
-            Contract::Move => HirEagerContract::Move,
-            Contract::Borrow => HirEagerContract::Borrow,
-            Contract::BorrowMut => HirEagerContract::BorrowMut,
-            Contract::Const => HirEagerContract::Const,
-            Contract::Leash => HirEagerContract::Leash,
-            Contract::At => HirEagerContract::At,
+            Contract::Pure => HirContract::Pure,
+            Contract::Move => HirContract::Move,
+            Contract::Borrow => HirContract::Borrow,
+            Contract::BorrowMut => HirContract::BorrowMut,
+            Contract::Const => HirContract::Const,
+            Contract::Leash => HirContract::Leash,
+            Contract::At => HirContract::At,
+        }
+    }
+
+    pub fn is_destructive(self) -> bool {
+        match self {
+            HirContract::Move => true,
+            HirContract::Pure
+            | HirContract::Borrow
+            | HirContract::BorrowMut
+            | HirContract::Const
+            | HirContract::Leash
+            | HirContract::At => false,
         }
     }
 }
 
 impl HirRitchieSimpleParameter {
-    pub fn contract(&self) -> HirEagerContract {
+    pub fn contract(&self) -> HirContract {
         self.contract
     }
 
@@ -133,7 +145,7 @@ impl HirRitchieSimpleParameter {
         fly_terms: &FlyTerms,
     ) -> Self {
         Self {
-            contract: HirEagerContract::from_contract(param.contract),
+            contract: HirContract::from_contract(param.contract),
             ty: HirType::from_fly(param.ty, db, fly_terms).unwrap(),
         }
     }
