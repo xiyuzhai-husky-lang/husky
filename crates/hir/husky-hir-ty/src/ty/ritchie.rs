@@ -70,7 +70,7 @@ pub enum HirRitchieParameter {
 impl HirRitchieParameter {
     pub fn from_eth(param: EtherealRitchieParameter, db: &::salsa::Db) -> Self {
         match param {
-            EtherealRitchieParameter::Regular(param) => Self::from_eth_regular(param, db),
+            EtherealRitchieParameter::Simple(param) => Self::from_eth_regular(param, db),
             EtherealRitchieParameter::Variadic(_) => todo!(),
             EtherealRitchieParameter::Keyed(_) => todo!(),
         }

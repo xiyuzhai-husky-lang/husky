@@ -10,7 +10,7 @@ use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
     variable::HirLazyVariableMap,
-    HirLazyBeVariablesPattern, HirLazyCallListItemGroup, HirLazyCondition, HirLazyExprData,
+    HirLazyBeVariablesPattern, HirLazyCallListArgument, HirLazyCondition, HirLazyExprData,
     HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr,
     HirLazyStmtData, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
@@ -667,24 +667,24 @@ impl<'a> KiReprExpansionBuilder<'a> {
     fn build_item_groups(
         &mut self,
         instantiation: &HirInstantiation,
-        item_groups: &[HirLazyCallListItemGroup],
+        item_groups: &[HirLazyCallListArgument],
         val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
         arguments: &mut SmallVec<[KiArgumentRepr; 4]>,
     ) {
         let db = self.db;
         for item_group in item_groups {
             match *item_group {
-                HirLazyCallListItemGroup::Regular(item) => arguments.push(KiArgumentRepr::Simple(
+                HirLazyCallListArgument::Simple(item) => arguments.push(KiArgumentRepr::Simple(
                     self.build_expr(val_domain_repr_guard, item),
                 )),
-                HirLazyCallListItemGroup::Variadic(ref items) => {
+                HirLazyCallListArgument::Variadic(ref items) => {
                     let items: SmallVec<_> = items
                         .iter()
                         .map(|&item| self.build_expr(val_domain_repr_guard, item))
                         .collect();
                     arguments.push(KiArgumentRepr::Variadic(items))
                 }
-                HirLazyCallListItemGroup::Keyed(_, item) => arguments.push(KiArgumentRepr::Keyed(
+                HirLazyCallListArgument::Keyed(_, item) => arguments.push(KiArgumentRepr::Keyed(
                     item.map(|item| self.build_expr(val_domain_repr_guard, item)),
                 )),
             }

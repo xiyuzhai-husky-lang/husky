@@ -116,7 +116,7 @@ pub(crate) fn ethereal_term_ritchie_from_dec_term_ritchie(
 impl EtherealRitchieParameter {
     pub fn from_dec(param: DeclarativeRitchieParameter, db: &::salsa::Db) -> EthTermResult<Self> {
         Ok(match param {
-            DeclarativeRitchieParameter::Regular(param) => {
+            DeclarativeRitchieParameter::Simple(param) => {
                 EthRitchieSimpleParameter::from_dec(db, param)?.into()
             }
             DeclarativeRitchieParameter::Variadic(param) => {
@@ -160,7 +160,7 @@ impl salsa::DisplayWithDb for EthRitchie {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum EtherealRitchieParameter {
-    Regular(EthRitchieSimpleParameter),
+    Simple(EthRitchieSimpleParameter),
     Variadic(EtherealRitchieVariadicParameter),
     Keyed(EtherealRitchieKeyedParameter),
 }
@@ -168,7 +168,7 @@ pub enum EtherealRitchieParameter {
 impl EtherealRitchieParameter {
     fn reduce(self, db: &::salsa::Db) -> Self {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.reduce(db).into(),
+            EtherealRitchieParameter::Simple(param) => param.reduce(db).into(),
             EtherealRitchieParameter::Variadic(param) => param.reduce(db).into(),
             EtherealRitchieParameter::Keyed(param) => param.reduce(db).into(),
         }
@@ -182,7 +182,7 @@ impl salsa::DisplayWithDb for EtherealRitchieParameter {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.display_fmt_with_db(f, db),
+            EtherealRitchieParameter::Simple(param) => param.display_fmt_with_db(f, db),
             EtherealRitchieParameter::Variadic(param) => param.display_fmt_with_db(f, db),
             EtherealRitchieParameter::Keyed(param) => param.display_fmt_with_db(f, db),
         }
@@ -192,7 +192,7 @@ impl salsa::DisplayWithDb for EtherealRitchieParameter {
 impl EtherealRitchieParameter {
     pub fn ty(&self) -> EthTerm {
         match self {
-            EtherealRitchieParameter::Regular(param) => param.ty(),
+            EtherealRitchieParameter::Simple(param) => param.ty(),
             EtherealRitchieParameter::Variadic(param) => param.ty(),
             EtherealRitchieParameter::Keyed(param) => param.ty(),
         }

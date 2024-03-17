@@ -3108,8 +3108,8 @@ SynDeclSheet {
                                                 opd: 2,
                                             },
                                             SynExprData::Ritchie {
-                                                ritchie_kind: Type(
-                                                    Item(
+                                                ritchie_kind: RitchieKind::Type(
+                                                    RitchieTypeKind::Item(
                                                         Fn,
                                                     ),
                                                 ),

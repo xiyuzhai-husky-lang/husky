@@ -14,7 +14,7 @@ pub enum SemaExprDataError {
 pub enum OriginalSemaExprDataError {
     #[error("RitchieParameterArgumentMismatch")]
     RitchieParameterArgumentMismatch {
-        match_error: RitchieParameterArgumentMatchError,
+        match_error: RitchieArgumentError,
         ritchie_arguments: Vec<SemaExprIdx>,
     },
     #[error("no such field")]

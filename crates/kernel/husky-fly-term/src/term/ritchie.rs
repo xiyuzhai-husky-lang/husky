@@ -65,7 +65,7 @@ impl FlyTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum FlyRitchieParameter {
-    Regular(FlyRitchieSimpleParameter),
+    Simple(FlyRitchieSimpleParameter),
     Variadic(FlyRitchieVariadicParameter),
     Keyed(FlyRitchieKeyedParameter),
 }
@@ -76,7 +76,7 @@ impl FlyRitchieParameter {
         terms: &impl std::borrow::Borrow<HolTerms>,
     ) -> Option<EtherealRitchieParameter> {
         Some(match self {
-            FlyRitchieParameter::Regular(param) => param.resolve_as_ethereal(terms)?.into(),
+            FlyRitchieParameter::Simple(param) => param.resolve_as_ethereal(terms)?.into(),
             FlyRitchieParameter::Variadic(param) => todo!(),
             FlyRitchieParameter::Keyed(param) => todo!(),
         })
@@ -86,7 +86,7 @@ impl FlyRitchieParameter {
 impl From<EtherealRitchieParameter> for FlyRitchieParameter {
     fn from(param: EtherealRitchieParameter) -> Self {
         match param {
-            EtherealRitchieParameter::Regular(param) => FlyRitchieParameter::Regular(param.into()),
+            EtherealRitchieParameter::Simple(param) => FlyRitchieParameter::Simple(param.into()),
             EtherealRitchieParameter::Variadic(param) => {
                 FlyRitchieParameter::Variadic(param.into())
             }
@@ -105,7 +105,7 @@ impl FlyInstantiate for EtherealRitchieParameter {
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
         match self {
-            EtherealRitchieParameter::Regular(param) => {
+            EtherealRitchieParameter::Simple(param) => {
                 param.instantiate(engine, expr_idx, instantiation).into()
             }
             EtherealRitchieParameter::Variadic(param) => {
@@ -121,7 +121,7 @@ impl FlyInstantiate for EtherealRitchieParameter {
 impl FlyRitchieParameter {
     pub fn ty(&self) -> FlyTerm {
         match self {
-            FlyRitchieParameter::Regular(param) => param.ty(),
+            FlyRitchieParameter::Simple(param) => param.ty(),
             FlyRitchieParameter::Variadic(param) => param.ty(),
             FlyRitchieParameter::Keyed(param) => param.ty(),
         }
@@ -129,7 +129,7 @@ impl FlyRitchieParameter {
 
     pub(crate) fn ty_mut(&mut self) -> &mut FlyTerm {
         match self {
-            FlyRitchieParameter::Regular(param) => param.ty_mut(),
+            FlyRitchieParameter::Simple(param) => param.ty_mut(),
             FlyRitchieParameter::Variadic(param) => param.ty_mut(),
             FlyRitchieParameter::Keyed(param) => param.ty_mut(),
         }

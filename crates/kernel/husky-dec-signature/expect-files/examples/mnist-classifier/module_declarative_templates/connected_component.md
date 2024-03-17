@@ -88,13 +88,13 @@
                                 },
                             ],
                             instance_constructor_ritchie_ty: DecRitchie {
-                                ritchie_kind: Type(
-                                    Item(
+                                ritchie_kind: RitchieKind::Type(
+                                    RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                 ),
                                 params: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: EntityPath(
@@ -110,7 +110,7 @@
                                             ),
                                         },
                                     ),
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: EntityPath(
@@ -126,7 +126,7 @@
                                             ),
                                         },
                                     ),
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: EntityPath(
@@ -142,7 +142,7 @@
                                             ),
                                         },
                                     ),
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: EntityPath(
@@ -216,13 +216,13 @@
                                 },
                             ],
                             instance_constructor_ritchie_ty: DecRitchie {
-                                ritchie_kind: Type(
-                                    Item(
+                                ritchie_kind: RitchieKind::Type(
+                                    RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                 ),
                                 params: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: Application(
@@ -271,7 +271,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: Application(
@@ -341,13 +341,13 @@
                                 },
                             ],
                             instance_constructor_ritchie_ty: DecRitchie {
-                                ritchie_kind: Type(
-                                    Item(
+                                ritchie_kind: RitchieKind::Type(
+                                    RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                 ),
                                 params: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
                                             ty: EntityPath(
@@ -400,7 +400,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
@@ -416,7 +416,7 @@
                                             ),
                                         },
                                     ),
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
@@ -469,7 +469,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
@@ -1069,7 +1069,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
@@ -1166,7 +1166,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(

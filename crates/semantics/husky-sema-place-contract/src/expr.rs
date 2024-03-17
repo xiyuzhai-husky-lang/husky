@@ -2,7 +2,7 @@ use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
 use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoersion};
 #[allow(unused_imports)]
 use husky_sema_expr::emit_note_on_sema_expr_codespan;
-use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
+use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sema_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::SynExprRootKind;
 use husky_term_prelude::Contract;
@@ -208,14 +208,14 @@ impl<'a> PlaceContractEngine<'a> {
 
     fn infer_ritchie_parameter_argument_matches(
         &mut self,
-        ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
+        ritchie_parameter_argument_matches: &[SemaRitchieArgument],
     ) {
         for m in ritchie_parameter_argument_matches {
             match m {
-                SemaRitchieParameterArgumentMatch::Simple(param, arg) => {
+                SemaRitchieArgument::Simple(param, arg) => {
                     self.infer_expr(arg.argument_expr_idx, param.contract, Default::default())
                 }
-                SemaRitchieParameterArgumentMatch::Variadic(param, args) => {
+                SemaRitchieArgument::Variadic(param, args) => {
                     for arg in args {
                         self.infer_expr(
                             arg.argument_expr_idx(),
@@ -224,7 +224,7 @@ impl<'a> PlaceContractEngine<'a> {
                         )
                     }
                 }
-                SemaRitchieParameterArgumentMatch::Keyed(param, arg) => {
+                SemaRitchieArgument::Keyed(param, arg) => {
                     if let Some(arg) = arg {
                         self.infer_expr(
                             arg.argument_expr_idx(),

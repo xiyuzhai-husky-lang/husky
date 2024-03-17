@@ -32244,7 +32244,7 @@
                             value: 494,
                         },
                     ),
-                    input_sketch: Regular {
+                    input_sketch: Simple {
                         argument_sema_expr_idx: SemaExprIdx(
                             2,
                         ),
@@ -32453,7 +32453,7 @@
                             value: 494,
                         },
                     ),
-                    input_sketch: Regular {
+                    input_sketch: Simple {
                         argument_sema_expr_idx: SemaExprIdx(
                             2,
                         ),

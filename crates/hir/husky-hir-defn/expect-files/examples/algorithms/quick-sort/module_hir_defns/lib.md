@@ -354,7 +354,7 @@
                                                     separator: None,
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
                                                             ty: PathLeading(
@@ -377,7 +377,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -395,7 +395,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -851,7 +851,7 @@
                                                     separator: None,
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
                                                             ty: PathLeading(
@@ -874,7 +874,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -896,7 +896,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -1053,7 +1053,7 @@
                                                     separator: None,
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
                                                             ty: PathLeading(
@@ -1076,7 +1076,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -1098,7 +1098,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -1251,7 +1251,7 @@
                                                     separator: None,
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: BorrowMut,
                                                             ty: PathLeading(
@@ -1274,7 +1274,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -1292,7 +1292,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -2548,7 +2548,7 @@
                                                     ),
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -2566,7 +2566,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -2738,7 +2738,7 @@
                                                     ),
                                                 },
                                                 item_groups: [
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(
@@ -2756,7 +2756,7 @@
                                                             },
                                                         ),
                                                     ),
-                                                    Regular(
+                                                    Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Pure,
                                                             ty: PathLeading(

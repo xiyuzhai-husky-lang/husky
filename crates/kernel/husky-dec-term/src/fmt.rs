@@ -3,6 +3,7 @@ use crate::*;
 use salsa::DisplayWithDb;
 
 impl DecTerm {
+    #[deprecated(note = "see eth term")]
     pub(crate) fn display_fmt_with_db_and_ctx(
         self,
         f: &mut std::fmt::Formatter<'_>,

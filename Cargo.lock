@@ -6519,6 +6519,7 @@ dependencies = [
  "idx-arena",
  "salsa",
  "shifted-unsigned-int",
+ "smallvec",
 ]
 
 [[package]]

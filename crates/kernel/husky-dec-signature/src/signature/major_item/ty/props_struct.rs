@@ -12,8 +12,8 @@ pub struct PropsStructDecTemplate {
     pub instance_constructor_ritchie_ty: DecRitchie,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct PropsStructFieldDecTemplate {
     ident: Ident,
     ty: DecTerm,

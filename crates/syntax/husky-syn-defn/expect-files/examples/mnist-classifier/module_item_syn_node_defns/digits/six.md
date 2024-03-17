@@ -1103,8 +1103,8 @@
                                         44,
                                     ),
                                     items: [
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 21,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1113,8 +1113,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 23,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1508,8 +1508,8 @@
                                         123,
                                     ),
                                     items: [
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 56,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1742,8 +1742,8 @@
                                         152,
                                     ),
                                     items: [
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 68,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1752,8 +1752,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 69,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1762,8 +1762,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 70,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1772,8 +1772,8 @@
                                                 ),
                                             },
                                         ),
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 73,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
@@ -1929,8 +1929,8 @@
                                         187,
                                     ),
                                     items: [
-                                        SynCallListItem::RegularOrVariadic(
-                                            SynRegularOrVariadicCallListItem {
+                                        SynCallListItem::SimpleOrVariadic(
+                                            SynSimpleOrVariadicCallListItem {
                                                 argument_expr_idx: 85,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(

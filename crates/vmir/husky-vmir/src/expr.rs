@@ -1,10 +1,11 @@
 use crate::{destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, *};
-use husky_hir_eager_expr::{
-    HirEagerExprData, HirEagerExprIdx, HirEagerRitchieParameterArgumentMatch,
-};
+use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_lifetime_utils::capture::Captures;
 use husky_linkage::linkage::Linkage;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use smallvec::SmallVec;
+
+use self::coersion::VmirCoersion;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -18,7 +19,7 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Unveil,
     Linkage {
         linkage_impl: LinkageImpl,
-        opds: VmirExprIdxRange<LinkageImpl>,
+        arguments: VmirArguments<LinkageImpl>,
     },
     Block {
         stmts: VmirStmtIdxRange<LinkageImpl>,
@@ -34,6 +35,16 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
 pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
 pub type VmirExprIdx<LinkageImpl> = ArenaIdx<VmirExprData<LinkageImpl>>;
 pub type VmirExprIdxRange<LinkageImpl> = ArenaIdxRange<VmirExprData<LinkageImpl>>;
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub enum VmirArgument<LinkageImpl: IsLinkageImpl> {
+    Simple {
+        expr: VmirExprIdx<LinkageImpl>,
+        coersion: VmirCoersion,
+    },
+}
+pub type VmirArguments<LinkageImpl> = SmallVec<[VmirArgument<LinkageImpl>; 4]>;
 
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
     type Output = VmirExprIdx<LinkageImpl>;
@@ -79,14 +90,16 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                     self.db(),
                 );
                 let linkage_impl = self.linkage_impl(linkage);
-                let opds = self.build_item_groups(item_groups).collect();
-                let opds = self.alloc_exprs(opds);
-                VmirExprData::Linkage { linkage_impl, opds }
+                let arguments = self.build_arguments(item_groups).collect();
+                VmirExprData::Linkage {
+                    linkage_impl,
+                    arguments,
+                }
             }
             HirEagerExprData::TypeVariantConstructorCall {
                 path,
                 ref instantiation,
-                ref item_groups,
+                ref arguments,
             } => {
                 let linkage = Linkage::new_ty_variant_constructor_fn(
                     path,
@@ -95,9 +108,11 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                     self.db(),
                 );
                 let linkage_impl = self.linkage_impl(linkage);
-                let opds = self.build_item_groups(item_groups).collect();
-                let opds = self.alloc_exprs(opds);
-                VmirExprData::Linkage { linkage_impl, opds }
+                let arguments = self.build_arguments(arguments).collect();
+                VmirExprData::Linkage {
+                    linkage_impl,
+                    arguments,
+                }
             }
             HirEagerExprData::FunctionFnCall {
                 path,
@@ -112,7 +127,7 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 );
                 VmirExprData::Linkage {
                     linkage_impl: self.linkage_impl(linkage),
-                    opds: todo!(),
+                    arguments: todo!(),
                 }
             }
             HirEagerExprData::AssocFunctionFnCall {
@@ -128,7 +143,7 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 );
                 VmirExprData::Linkage {
                     linkage_impl: self.linkage_impl(linkage),
-                    opds: todo!(),
+                    arguments: todo!(),
                 }
             }
             HirEagerExprData::PropsStructField {
@@ -144,7 +159,7 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 );
                 VmirExprData::Linkage {
                     linkage_impl: self.linkage_impl(linkage),
-                    opds: todo!(),
+                    arguments: todo!(),
                 }
             }
             HirEagerExprData::MemoizedField {
@@ -153,7 +168,7 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 path,
             } => VmirExprData::Linkage {
                 linkage_impl: todo!(),
-                opds: todo!(),
+                arguments: todo!(),
             },
             HirEagerExprData::MethodFnCall {
                 self_argument,
@@ -164,11 +179,11 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 ref item_groups,
             } => VmirExprData::Linkage {
                 linkage_impl: todo!(),
-                opds: todo!(),
+                arguments: todo!(),
             },
             HirEagerExprData::NewTuple { .. } => VmirExprData::Linkage {
                 linkage_impl: todo!(),
-                opds: todo!(),
+                arguments: todo!(),
             },
             HirEagerExprData::Index { owner, ref items } => VmirExprData::Index,
             HirEagerExprData::NewList {
@@ -176,7 +191,7 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 element_ty,
             } => VmirExprData::Linkage {
                 linkage_impl: todo!(),
-                opds: todo!(),
+                arguments: todo!(),
             },
             HirEagerExprData::Block { stmts } => {
                 VmirExprData::Block {
@@ -194,10 +209,10 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
                 function_ident,
                 ref arguments,
             } => {
-                let opds = todo!();
+                let arguments = todo!();
                 VmirExprData::Linkage {
                     linkage_impl: todo!(),
-                    opds,
+                    arguments,
                 }
             }
             HirEagerExprData::Todo => VmirExprData::Todo,
@@ -205,16 +220,19 @@ impl<'db, Linktime: IsLinktime> VmirExprBuilder<'db, Linktime> {
         }
     }
 
-    fn build_item_groups<'a>(
+    fn build_arguments<'a>(
         &'a mut self,
-        item_groups: &'db [HirEagerRitchieParameterArgumentMatch],
-    ) -> impl Iterator<Item = VmirExprData<Linktime::LinkageImpl>> + Captures<&'db ()> + 'a {
+        item_groups: &'db [HirEagerRitchieArgument],
+    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<&'db ()> + 'a {
         item_groups.iter().map(move |m| match m {
-            HirEagerRitchieParameterArgumentMatch::Regular(_, arg, _) => self.build_vmir_expr(*arg),
-            HirEagerRitchieParameterArgumentMatch::Variadic => {
+            HirEagerRitchieArgument::Simple(_, arg, coersion) => VmirArgument::Simple {
+                expr: arg.to_vmir(self),
+                coersion: coersion.to_vmir(self),
+            },
+            HirEagerRitchieArgument::Variadic => {
                 todo!()
             }
-            HirEagerRitchieParameterArgumentMatch::Keyed => todo!(),
+            HirEagerRitchieArgument::Keyed => todo!(),
         })
     }
 }

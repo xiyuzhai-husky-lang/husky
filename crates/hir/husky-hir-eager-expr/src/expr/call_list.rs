@@ -4,40 +4,35 @@ use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum HirEagerRitchieParameterArgumentMatch {
-    Regular(HirRitchieSimpleParameter, HirEagerExprIdx, HirEagerCoersion),
+pub enum HirEagerRitchieArgument {
+    Simple(HirRitchieSimpleParameter, HirEagerExprIdx, HirEagerCoersion),
     Variadic,
     Keyed,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
-    pub(super) fn new_call_list_item_groups(
+    pub(super) fn new_call_list_arguments(
         &mut self,
-        pams: &[SemaRitchieParameterArgumentMatch],
-    ) -> SmallVec<[HirEagerRitchieParameterArgumentMatch; 4]> {
+        pams: &[SemaRitchieArgument],
+    ) -> SmallVec<[HirEagerRitchieArgument; 4]> {
         pams.iter()
             .map(|pam| self.new_call_list_item_group(pam))
             .collect()
     }
 
-    fn new_call_list_item_group(
-        &mut self,
-        pam: &SemaRitchieParameterArgumentMatch,
-    ) -> HirEagerRitchieParameterArgumentMatch {
+    fn new_call_list_item_group(&mut self, pam: &SemaRitchieArgument) -> HirEagerRitchieArgument {
         match pam {
-            SemaRitchieParameterArgumentMatch::Simple(param, item) => {
-                HirEagerRitchieParameterArgumentMatch::Regular(
-                    HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
-                    item.argument_sema_expr_idx().to_hir_eager(self),
-                    item.coersion_outcome
-                        .as_ref()
-                        .unwrap()
-                        .coersion()
-                        .to_hir_eager(self),
-                )
-            }
-            SemaRitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
-            SemaRitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
+            SemaRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
+                HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
+                item.argument_sema_expr_idx().to_hir_eager(self),
+                item.coersion_outcome
+                    .as_ref()
+                    .unwrap()
+                    .coersion()
+                    .to_hir_eager(self),
+            ),
+            SemaRitchieArgument::Variadic(_, _) => todo!(),
+            SemaRitchieArgument::Keyed(_, _) => todo!(),
         }
     }
 }

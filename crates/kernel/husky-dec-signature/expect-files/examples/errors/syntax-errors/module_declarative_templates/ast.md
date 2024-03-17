@@ -27,8 +27,8 @@
                             ),
                             fields: [],
                             instance_constructor_ritchie_ty: DecRitchie {
-                                ritchie_kind: Type(
-                                    Item(
+                                ritchie_kind: RitchieKind::Type(
+                                    RitchieTypeKind::Item(
                                         Fn,
                                     ),
                                 ),

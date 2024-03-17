@@ -57,27 +57,27 @@ pub enum HirLazyExprData {
     TypeConstructorFnCall {
         path: TypePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     TypeVariantConstructorFnCall {
         path: TypeVariantPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     FunctionFnItemCall {
         path: FugitivePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     FunctionGnItemCall {
         path: FugitivePath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     AssocFunctionFnCall {
         path: AssocItemPath,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     PropsStructField {
         owner: HirLazyExprIdx,
@@ -97,7 +97,7 @@ pub enum HirLazyExprData {
         path: AssocItemPath,
         indirections: HirIndirections,
         instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListItemGroup; 4]>,
+        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     NewTuple {
         /// guaranteed that items.len() > 0

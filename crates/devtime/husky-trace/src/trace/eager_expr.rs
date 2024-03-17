@@ -5,8 +5,7 @@ use husky_hir_eager_expr::{
     HirEagerExprSourceMapData,
 };
 use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion,
-    SemaRitchieParameterArgumentMatch,
+    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
 };
 use husky_syn_decl::decl::HasSynDecl;
 
@@ -217,7 +216,7 @@ impl EagerExprTraceData {
 fn fn_call_eager_expr_trace_input_traces(
     trace_path: TracePath,
     trace: Trace,
-    ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
+    ritchie_parameter_argument_matches: &[SemaRitchieArgument],
     caller_sema_expr_region: SemaExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
@@ -227,18 +226,18 @@ fn fn_call_eager_expr_trace_input_traces(
         .iter()
         .map(|m| {
             let data = match m {
-                SemaRitchieParameterArgumentMatch::Simple(_, list_item) => {
+                SemaRitchieArgument::Simple(_, list_item) => {
                     let sema_expr_idx = list_item.argument_sema_expr_idx();
-                    EagerCallInputSketch::Regular {
+                    EagerCallInputSketch::Simple {
                         argument_sema_expr_idx: sema_expr_idx,
                         argument_hir_eager_expr_idx: caller_hir_eager_expr_source_map_data
                             .sema_to_hir_eager_expr_idx(sema_expr_idx),
                     }
                 }
-                SemaRitchieParameterArgumentMatch::Variadic(_, _) => {
+                SemaRitchieArgument::Variadic(_, _) => {
                     todo!()
                 }
-                SemaRitchieParameterArgumentMatch::Keyed(_, _) => {
+                SemaRitchieArgument::Keyed(_, _) => {
                     todo!()
                 }
             };

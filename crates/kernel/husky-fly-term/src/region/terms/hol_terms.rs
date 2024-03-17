@@ -236,7 +236,7 @@ impl HolTerms {
                             unreachable!()
                         };
                         match param {
-                            FlyRitchieParameter::Regular(param) => {
+                            FlyRitchieParameter::Simple(param) => {
                                 EthRitchieSimpleParameter::new(param.contract(), ty).into()
                             }
                             FlyRitchieParameter::Variadic(param) => {

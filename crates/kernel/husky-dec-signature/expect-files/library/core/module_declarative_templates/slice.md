@@ -253,7 +253,7 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
@@ -269,7 +269,7 @@
                                             ),
                                         },
                                     ),
-                                    DeclarativeRitchieParameter::Regular(
+                                    DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
                                             ty: EntityPath(
