@@ -204,7 +204,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -297,7 +297,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -356,7 +356,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -415,7 +415,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -474,7 +474,7 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,

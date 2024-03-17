@@ -103,13 +103,9 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -177,13 +173,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -251,13 +243,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -325,13 +313,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -399,13 +383,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -473,13 +453,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -547,13 +523,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -621,13 +593,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -695,13 +663,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 305,
-                                    },
-                                ),
-                            ),
+                            TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                Fn,
+                            )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

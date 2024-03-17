@@ -1487,16 +1487,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::default::Default`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::OneVsAll`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    malamute::OneVsAll as core::default::Default(0),
                 ),
             ),
         ),
@@ -1504,16 +1495,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::default::Default`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        malamute::OneVsAll as core::default::Default(0),
                     ),
                 ),
             ),
@@ -2250,13 +2232,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -2264,13 +2242,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 147,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -2450,16 +2424,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    malamute::Class as core::ops::Unveil(0),
                 ),
             ),
         ),
@@ -2467,16 +2432,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::Class`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        malamute::Class as core::ops::Unveil(0),
                     ),
                 ),
             ),
@@ -3543,13 +3499,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 148,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                 ),
             ),
         ),
@@ -3557,13 +3507,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 148,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
                     ),
                 ),
             ),
@@ -3746,13 +3690,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -3760,13 +3700,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),
@@ -4759,16 +4695,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::OneVsAll`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
+                    malamute::OneVsAll as core::ops::Unveil(0),
                 ),
             ),
         ),
@@ -4776,16 +4703,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                                disambiguator: 0,
-                            },
-                        },
+                        malamute::OneVsAll as core::ops::Unveil(0),
                     ),
                 ),
             ),
@@ -6046,13 +5964,7 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                 ),
             ),
         ),
@@ -6060,13 +5972,7 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 150,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
                     ),
                 ),
             ),
@@ -6249,13 +6155,9 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
-                    ),
+                    TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                 ),
             ),
         ),
@@ -6263,13 +6165,9 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 151,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                     ),
                 ),
             ),

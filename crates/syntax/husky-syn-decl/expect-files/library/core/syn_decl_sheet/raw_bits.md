@@ -216,7 +216,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                    TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -225,7 +225,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -364,7 +364,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -547,7 +547,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                    TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -556,7 +556,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -680,7 +680,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -775,7 +775,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                    TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -784,7 +784,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -908,7 +908,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1003,7 +1003,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                    TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1012,7 +1012,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -1136,7 +1136,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -1231,7 +1231,7 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                    TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                         Fn,
                     )`),
                 ),
@@ -1240,7 +1240,7 @@ SynDeclSheet {
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                            path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                 Fn,
                             )`),
                             template_parameters: [],
@@ -1364,7 +1364,7 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodRitchie(
+                                                                        path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,

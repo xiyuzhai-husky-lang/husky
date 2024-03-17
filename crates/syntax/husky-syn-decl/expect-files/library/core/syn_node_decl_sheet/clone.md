@@ -117,14 +117,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::clone`,
-                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: #derive _ as core::clone::Clone(0),
                                     },
                                 ),
                             ),
@@ -140,14 +133,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `core::clone`,
-                                                    trai_path: TraitPath(`core::clone::Clone`),
-                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: #derive _ as core::clone::Clone(0),
                                         },
                                     ),
                                 ),
@@ -206,14 +192,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::clone`,
-                                                                        trai_path: TraitPath(`core::clone::Clone`),
-                                                                        ty_sketch: TypeSketch::DeriveAny,
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: #derive _ as core::clone::Clone(0),
                                                             },
                                                         ),
                                                     ),
@@ -309,13 +288,9 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 128,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                                Fn,
+                                            )`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -335,13 +310,9 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 128,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                                        Fn,
+                                                    )`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -409,14 +380,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                                path: TraitForTypeImplBlock {
-                                                                                    data: TraitForTypeImplBlockPathData {
-                                                                                        module_path: `core::clone`,
-                                                                                        trai_path: TraitPath(`core::clone::Clone`),
-                                                                                        ty_sketch: TypeSketch::DeriveAny,
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                },
+                                                                                path: #derive _ as core::clone::Clone(0),
                                                                             },
                                                                         ),
                                                                     ),
@@ -509,13 +473,9 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 128,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                        path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                                                                            Fn,
+                                                                        )`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

@@ -49,16 +49,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::result`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::result::Result`, `Enum`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
             ),
         ),
         Ok(
@@ -129,13 +120,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 179,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
             ),
         ),
         Ok(
@@ -143,13 +128,7 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 179,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -169,13 +148,9 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 180,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                    Fn,
+                )`),
             ),
         ),
         Ok(

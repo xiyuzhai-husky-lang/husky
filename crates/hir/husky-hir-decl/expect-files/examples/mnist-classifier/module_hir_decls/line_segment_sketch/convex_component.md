@@ -111,16 +111,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                path: TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -139,16 +130,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
                             ),
                         ),
                     ),
@@ -180,13 +162,9 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
                 TraitForTypeMethodFnHirDecl {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 366,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -214,13 +192,9 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 366,
-                                            },
-                                        ),
-                                    ),
+                                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),

@@ -29,16 +29,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::result`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::result::Result`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: core::result::Result as core::ops::Unveil(0),
                                 },
                             ),
                         ),
@@ -57,13 +48,7 @@
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 193,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -84,13 +69,9 @@
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 194,
-                                                },
-                                            ),
-                                        ),
+                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                            Fn,
+                                        )`),
                                         disambiguator: 0,
                                     },
                                 },

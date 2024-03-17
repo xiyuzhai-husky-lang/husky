@@ -259,13 +259,9 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 414,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
                                                         disambiguator: 0,
                                                     },
                                                 },

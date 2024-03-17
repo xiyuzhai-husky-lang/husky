@@ -225,14 +225,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::marker`,
-                                                trai_path: TraitPath(`core::marker::Copy`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: #derive _ as core::marker::Copy(0),
                                     },
                                 ),
                             ),
@@ -248,14 +241,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                         TraitForTypeImplBlockSynNodePathData {
-                                            path: TraitForTypeImplBlock {
-                                                data: TraitForTypeImplBlockPathData {
-                                                    module_path: `core::marker`,
-                                                    trai_path: TraitPath(`core::marker::Copy`),
-                                                    ty_sketch: TypeSketch::DeriveAny,
-                                                    disambiguator: 0,
-                                                },
-                                            },
+                                            path: #derive _ as core::marker::Copy(0),
                                         },
                                     ),
                                 ),
@@ -314,14 +300,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePathData {
-                                                                path: TraitForTypeImplBlock {
-                                                                    data: TraitForTypeImplBlockPathData {
-                                                                        module_path: `core::marker`,
-                                                                        trai_path: TraitPath(`core::marker::Copy`),
-                                                                        ty_sketch: TypeSketch::DeriveAny,
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
+                                                                path: #derive _ as core::marker::Copy(0),
                                                             },
                                                         ),
                                                     ),

@@ -24,7 +24,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -81,7 +81,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -138,7 +138,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -201,7 +201,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -258,7 +258,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -321,7 +321,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -384,7 +384,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -441,7 +441,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -513,7 +513,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -576,13 +576,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -637,7 +633,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -802,7 +798,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -868,7 +864,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -950,7 +946,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1007,7 +1003,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1094,7 +1090,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1157,7 +1153,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1244,7 +1240,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1301,7 +1297,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1394,7 +1390,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1475,7 +1471,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1700,7 +1696,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1772,7 +1768,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1829,7 +1825,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1886,7 +1882,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -1943,7 +1939,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2006,7 +2002,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2069,7 +2065,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2126,13 +2122,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 428,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -2181,7 +2173,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2274,7 +2266,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2379,13 +2371,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 428,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -2517,7 +2505,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2574,7 +2562,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2631,7 +2619,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2841,7 +2829,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -2906,13 +2894,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -2961,13 +2945,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 428,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -2998,7 +2978,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3043,7 +3023,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3112,7 +3092,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3166,7 +3146,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3229,7 +3209,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3268,7 +3248,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3331,7 +3311,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3376,7 +3356,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3421,7 +3401,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3466,7 +3446,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3511,7 +3491,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3550,13 +3530,9 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            ItemPathId(
-                                Id {
-                                    value: 428,
-                                },
-                            ),
-                        ),
+                        TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
+                            Fn,
+                        )`),
                     ),
                     instantiation: JavInstantiation {
                         symbol_resolutions: [
@@ -3587,7 +3563,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3638,7 +3614,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3677,220 +3653,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::last`, `MethodRitchie(
-                            Fn,
-                        )`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
-                                            class: Comptime,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::SelfPlace,
-                                ),
-                                JavTermSymbolResolution::SelfPlace,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
-                            Fn,
-                        )`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
-                                            class: Comptime,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodRitchie(
-                            Fn,
-                        )`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
-                                            class: Comptime,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
-                            Fn,
-                        )`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
-                                            class: Comptime,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
-                            Fn,
-                        )`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
-                                            class: Comptime,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateSvar::Type(
-                                    HirTypeSvar::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ),
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3935,7 +3698,220 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
+                            Fn,
+                        )`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateSvarAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
+                            Fn,
+                        )`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateSvarAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
+                            Fn,
+                        )`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateSvarAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                            Fn,
+                        )`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateSvarAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
+                            Fn,
+                        )`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::Type {
+                                        attrs: HirTemplateSvarAttrs {
+                                            class: Comptime,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateSvar::Type(
+                                    HirTypeSvar::SelfPlace,
+                                ),
+                                JavTermSymbolResolution::SelfPlace,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -3986,7 +3962,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4025,7 +4001,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4070,7 +4046,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4109,7 +4085,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4148,7 +4124,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4187,7 +4163,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                        TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4226,7 +4202,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4295,7 +4271,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4359,7 +4335,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4413,7 +4389,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::push`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4476,7 +4452,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4561,7 +4537,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),
@@ -4649,7 +4625,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
-                        TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodRitchie(
+                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                             Fn,
                         )`),
                     ),

@@ -122,7 +122,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -145,7 +145,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -7308,7 +7308,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7354,7 +7354,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),
@@ -7802,7 +7802,7 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -7848,7 +7848,7 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                                                 Fn,
                                                             )`),
                                                         ),

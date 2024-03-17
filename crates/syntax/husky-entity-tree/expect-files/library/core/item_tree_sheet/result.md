@@ -2761,16 +2761,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::result`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::result::Result`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                                 },
                             ),
                         ),
@@ -2784,16 +2775,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::result`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::result::Result`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                                     },
                                 ),
                             ),

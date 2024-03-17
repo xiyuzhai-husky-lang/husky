@@ -3595,16 +3595,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -3618,16 +3609,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i8`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -3719,16 +3701,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -3742,16 +3715,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i16`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -3843,16 +3807,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -3866,16 +3821,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -3967,16 +3913,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -3990,16 +3927,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4091,16 +4019,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4114,16 +4033,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i128`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4215,16 +4125,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::isize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4238,16 +4139,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::isize`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4339,16 +4231,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4362,16 +4245,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u8`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4463,16 +4337,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4486,16 +4351,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u16`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4587,16 +4443,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4610,16 +4457,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4711,16 +4549,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4734,16 +4563,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4835,16 +4655,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4858,16 +4669,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u128`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -4959,16 +4761,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::usize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -4982,16 +4775,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::usize`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -5083,16 +4867,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -5106,16 +4881,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f32`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),
@@ -5207,16 +4973,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockSynNodePathData {
-                                    path: TraitForTypeImplBlock {
-                                        data: TraitForTypeImplBlockPathData {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                    },
+                                    path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                 },
                             ),
                         ),
@@ -5230,16 +4987,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockSynNodePathData {
-                                        path: TraitForTypeImplBlock {
-                                            data: TraitForTypeImplBlockPathData {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f64`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                        },
+                                        path: TraitForTypeImplBlockPath(`core::num::f64 as core::ops::Add(0)`),
                                     },
                                 ),
                             ),

@@ -44,6 +44,7 @@ impl LinInstantiation {
         }
     }
 
+    #[track_caller]
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,

@@ -108,7 +108,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -118,7 +118,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::Slice(0)::len`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -186,7 +186,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -196,7 +196,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -307,16 +307,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::slice`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
             ),
         ),
         Ok(
@@ -364,13 +355,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 183,
-                        },
-                    ),
-                ),
+                TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
             ),
         ),
         Ok(
@@ -378,13 +363,7 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::AssocType(
                         TraitForTypeAssocTypeDecTemplate {
-                            path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 183,
-                                    },
-                                ),
-                            ),
+                            path: TraitForTypeItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`, `AssocType`),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -445,7 +424,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -455,7 +434,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -523,7 +502,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -533,7 +512,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -601,7 +580,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -611,7 +590,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -679,7 +658,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -689,7 +668,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -753,7 +732,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -763,7 +742,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
                         TypeMethodFnDecTemplate {
-                            path: TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodRitchie(
+                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {

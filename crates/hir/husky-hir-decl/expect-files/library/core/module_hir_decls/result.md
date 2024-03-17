@@ -106,16 +106,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlock {
-                    data: TraitForTypeImplBlockPathData {
-                        module_path: `core::result`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::result::Result`, `Enum`),
-                        ),
-                        disambiguator: 0,
-                    },
-                },
+                path: TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
@@ -251,16 +242,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlock {
-                                    data: TraitForTypeImplBlockPathData {
-                                        module_path: `core::result`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`core::result::Result`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
+                                TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
                             ),
                         ),
                     ),
@@ -353,13 +335,7 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocType(
                 TraitForTypeAssocTypeHirDecl {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 225,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -376,13 +352,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 225,
-                                            },
-                                        ),
-                                    ),
+                                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
                                 ),
                             ),
                         ),
@@ -476,13 +446,9 @@
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocFn(
                 TraitForTypeAssocFnHirDecl {
-                    path: TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 226,
-                            },
-                        ),
-                    ),
+                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                        Fn,
+                    )`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -558,13 +524,9 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 226,
-                                            },
-                                        ),
-                                    ),
+                                    TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
+                                        Fn,
+                                    )`),
                                 ),
                             ),
                         ),
