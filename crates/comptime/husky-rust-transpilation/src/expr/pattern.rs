@@ -7,7 +7,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         use salsa::DebugWithDb;
-        match self.entry(builder.hir_eager_pattern_expr_arena()) {
+        match *self.entry(builder.hir_eager_pattern_expr_arena()).data() {
             HirEagerPatternData::Literal(lit) => lit.transpile_to_rust(builder),
             HirEagerPatternData::Ident {
                 symbol_modifier,

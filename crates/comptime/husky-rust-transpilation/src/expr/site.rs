@@ -54,16 +54,16 @@ impl HirEagerExprSite {
         db: &::salsa::Db,
     ) -> Self {
         let mut rust_bindings: RustBindings = match param.contract {
-            HirEagerContract::Pure => match param.ty.always_copyable(db) {
+            HirContract::Pure => match param.ty.always_copyable(db) {
                 true => Default::default(),
                 false => RustBinding::Reref.into(),
             },
-            HirEagerContract::Move => Default::default(),
-            HirEagerContract::Borrow => RustBinding::Reref.into(),
-            HirEagerContract::BorrowMut => RustBinding::RerefMut.into(),
-            HirEagerContract::Const => todo!(),
-            HirEagerContract::Leash => todo!(),
-            HirEagerContract::At => todo!(),
+            HirContract::Move => Default::default(),
+            HirContract::Borrow => RustBinding::Reref.into(),
+            HirContract::BorrowMut => RustBinding::RerefMut.into(),
+            HirContract::Const => todo!(),
+            HirContract::Leash => todo!(),
+            HirContract::At => todo!(),
         };
         match coersion {
             HirEagerCoersion::Trivial(_) => (),
@@ -96,20 +96,20 @@ impl HirEagerExprSite {
 
     #[deprecated(note = "change coersion type to HirEagerCoersion")]
     pub(crate) fn new_let_initial_value(
-        contract: HirEagerContract,
+        contract: HirContract,
         initial_value_entry: &HirEagerExprEntry,
         coersion: Option<HirEagerCoersion>,
     ) -> Self {
         let rust_bindings: RustBindings = match initial_value_entry.quary() {
             HirQuary::Transient => Default::default(),
             _ => match contract {
-                HirEagerContract::Pure | HirEagerContract::Const | HirEagerContract::Leash
+                HirContract::Pure | HirContract::Const | HirContract::Leash
                     if !initial_value_entry.is_always_copyable() =>
                 {
                     RustBinding::Reref.into()
                 }
-                HirEagerContract::Borrow => RustBinding::Reref.into(),
-                HirEagerContract::BorrowMut => RustBinding::RerefMut.into(),
+                HirContract::Borrow => RustBinding::Reref.into(),
+                HirContract::BorrowMut => RustBinding::RerefMut.into(),
                 _ => Default::default(),
             },
         };

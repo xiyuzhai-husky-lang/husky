@@ -14,7 +14,7 @@ pub enum VmirCoersion {
 impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerCoersion {
     type Output = VmirCoersion;
 
-    fn to_vmir<Linktime>(self, builder: &mut VmirExprBuilder<Linktime>) -> Self::Output
+    fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
         Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
     {

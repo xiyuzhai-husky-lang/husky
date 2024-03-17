@@ -8,7 +8,7 @@ use self::{be_variable::HirEagerBeVariablesPattern, let_variable::HirEagerLetVar
 use crate::{coersion::HirEagerCoersion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
-use husky_hir_ty::ritchie::HirEagerContract;
+use husky_hir_ty::ritchie::HirContract;
 use husky_sema_expr::{
     stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
 };
@@ -17,7 +17,7 @@ use husky_sema_expr::{
 pub enum HirEagerStmtData {
     Let {
         pattern: HirEagerLetVariablesPattern,
-        contract: HirEagerContract,
+        contract: HirContract,
         initial_value: HirEagerExprIdx,
         coersion: Option<HirEagerCoersion>,
     },
@@ -87,7 +87,7 @@ impl ToHirEager for SemaStmtIdx {
                 ..
             } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
-                contract: HirEagerContract::from_contract(contract),
+                contract: HirContract::from_contract(contract),
                 initial_value: initial_value_sema_expr_idx.to_hir_eager(builder),
                 coersion: coersion_outcome
                     .as_ref()

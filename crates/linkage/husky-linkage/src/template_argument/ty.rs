@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::TypePath;
 use husky_hir_ty::{
-    ritchie::{HirEagerContract, HirRitchieParameter},
+    ritchie::{HirContract, HirRitchieParameter},
     HirType,
 };
 use husky_javelin::template_argument::ty::{
@@ -91,7 +91,7 @@ pub struct LinkageRitchieType {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct LinkageRitchieParameter {
-    contract: HirEagerContract,
+    contract: HirContract,
     parameter_ty: LinType,
 }
 impl LinkageRitchieParameter {
@@ -121,7 +121,7 @@ impl LinkageRitchieParameter {
         }
     }
 
-    pub fn contract(&self) -> HirEagerContract {
+    pub fn contract(&self) -> HirContract {
         self.contract
     }
 

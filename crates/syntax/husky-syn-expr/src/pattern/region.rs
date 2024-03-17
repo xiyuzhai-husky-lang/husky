@@ -113,14 +113,13 @@ impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
 }
 
 impl SynExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternIdx) -> Contract {
-        self.pattern_expr_region()
-            .pattern_contract(pattern_expr_idx)
+    pub fn pattern_contract(&self, syn_pattern: SynPatternIdx) -> Contract {
+        self.pattern_expr_region().pattern_contract(syn_pattern)
     }
 
-    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: SynPatternSymbolIdx) -> SvarModifier {
+    pub fn pattern_symbol_modifier(&self, pattern_symbol: SynPatternSymbolIdx) -> SvarModifier {
         self.pattern_expr_region()
-            .pattern_symbol_modifier(pattern_symbol_idx)
+            .pattern_symbol_modifier(pattern_symbol)
     }
 }
 

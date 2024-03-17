@@ -1,5 +1,6 @@
 use crate::*;
 use husky_eth_term::term::EthTerm;
+use husky_hir_ty::ritchie::HirContract;
 use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};
 use husky_term_prelude::literal::{
     int::{
@@ -51,11 +52,40 @@ pub enum HirEagerPatternData {
     Some,
 }
 
-pub type HirEagerPatternArena = Arena<HirEagerPatternData>;
-pub type HirEagerPatternIdx = ArenaIdx<HirEagerPatternData>;
-pub type HirEagerPatternIdxRange = ArenaIdxRange<HirEagerPatternData>;
-pub type HirEagerPatternMap<V> = ArenaMap<HirEagerPatternData, V>;
-pub type HirEagerPatternOrderedMap<V> = ArenaOrderedMap<HirEagerPatternData, V>;
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+pub struct HirEagerPatternEntry {
+    data: HirEagerPatternData,
+    contract: HirContract,
+}
+
+/// # constructor
+impl HirEagerPatternEntry {
+    pub fn new(data: HirEagerPatternData, contract: HirContract) -> Self {
+        Self { data, contract }
+    }
+}
+
+/// # getters
+impl HirEagerPatternEntry {
+    pub fn data(&self) -> &HirEagerPatternData {
+        &self.data
+    }
+
+    pub fn contract(&self) -> HirContract {
+        self.contract
+    }
+
+    pub fn is_destructive(&self) -> bool {
+        self.contract.is_destructive()
+    }
+}
+
+pub type HirEagerPatternArena = Arena<HirEagerPatternEntry>;
+pub type HirEagerPatternIdx = ArenaIdx<HirEagerPatternEntry>;
+pub type HirEagerPatternIdxRange = ArenaIdxRange<HirEagerPatternEntry>;
+pub type HirEagerPatternMap<V> = ArenaMap<HirEagerPatternEntry, V>;
+pub type HirEagerPatternOrderedMap<V> = ArenaOrderedMap<HirEagerPatternEntry, V>;
 
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_pattern(
