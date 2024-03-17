@@ -183,7 +183,7 @@ impl TranspileToRustWith<()> for Linkage {
                     instantiation.iter().map(|(_, res)| match res {
                         LinTermSymbolResolution::Explicit(arg) => arg,
                         LinTermSymbolResolution::SelfLifetime
-                        | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
+                        | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
                     }),
                 );
                 builder.punctuation(RustPunctuation::CommaSpaced);
@@ -307,7 +307,7 @@ fn turbo_fish_instantiation<E>(
             instantiation.iter().map(|&(_, res)| match res {
                 LinTermSymbolResolution::Explicit(arg) => arg,
                 LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfQuary(_) => todo!(),
+                LinTermSymbolResolution::SelfQual(_) => todo!(),
             }),
         )
     }
@@ -371,7 +371,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_)) => {
                         todo!()
                     }
-                    LinTermSymbolResolution::SelfQuary(place) => match place {
+                    LinTermSymbolResolution::SelfQual(place) => match place {
                         qual::LinQual::Ref => ident.transpile_to_rust(builder),
                         qual::LinQual::RefMut => builder.method_fn_ident_mut(ident),
                         qual::LinQual::Transient => todo!(),

@@ -92,7 +92,7 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_target: SemaExprIdx,
+        match_opd: SemaExprIdx,
         match_contract: Contract,
         eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemaCaseBranch>,

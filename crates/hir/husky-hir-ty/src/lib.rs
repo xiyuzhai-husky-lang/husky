@@ -4,6 +4,7 @@ pub mod indirections;
 pub mod instantiation;
 pub mod lifetime;
 pub mod menu;
+pub mod place_contract_site;
 pub mod quary;
 pub mod svar;
 pub mod template_argument;

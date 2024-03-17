@@ -46,8 +46,8 @@ impl LinTemplateArgument {
                 LinTemplateArgument::Constant(LinConstant::from_hir(hir_constant, instantiation))
             }
             HirTemplateArgument::Lifetime(_) => LinTemplateArgument::Lifetime,
-            HirTemplateArgument::Quary(quary) => {
-                LinTemplateArgument::Qual(LinQual::from_hir(quary))
+            HirTemplateArgument::ContractedQuary(contracted_quary) => {
+                LinTemplateArgument::Qual(LinQual::from_hir(contracted_quary))
             }
         }
     }

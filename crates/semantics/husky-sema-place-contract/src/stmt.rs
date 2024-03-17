@@ -99,7 +99,7 @@ impl<'a> PlaceContractEngine<'a> {
                 }
             }
             SemaStmtData::Match {
-                match_target,
+                match_opd: match_target,
                 ref case_branches,
                 ..
             } => {

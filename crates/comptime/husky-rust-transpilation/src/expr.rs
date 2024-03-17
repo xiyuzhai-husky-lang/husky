@@ -12,15 +12,15 @@ use crate::{binding::RustBinding, *};
 use husky_entity_kind::MajorFugitiveKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
-    emit_note_on_hir_eager_expr_codespan, place_contract::HirEagerPlaceContractSite,
-    HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry,
-    HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerPatternData, HirEagerPatternIdx,
-    HirEagerRitchieArgument, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
+    emit_note_on_hir_eager_expr_codespan, HirEagerCondition, HirEagerElifBranch,
+    HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry, HirEagerExprIdx, HirEagerExprRegion,
+    HirEagerIfBranch, HirEagerPatternData, HirEagerPatternIdx, HirEagerRitchieArgument,
+    HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirTermSvarResolution, quary::HirQuary, ritchie::HirContract, HirTemplateSvar,
-    HirTemplateSvarClass,
+    instantiation::HirTermSvarResolution, place_contract_site::HirPlaceContractSite,
+    quary::HirQuary, ritchie::HirContract, HirTemplateSvar, HirTemplateSvarClass,
 };
 use husky_opr::BinaryClosedOpr;
 use smallvec::SmallVec;
@@ -100,7 +100,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
 // passed to avoid recomputing it
 fn transpile_hir_eager_expr_to_rust(
     data: &HirEagerExprData,
-    place_contract_site: &HirEagerPlaceContractSite,
+    place_contract_site: &HirPlaceContractSite,
     precedence: RustPrecedence,
     builder: &mut RustTranspilationBuilder<HirEagerExprRegion>,
 ) {
@@ -280,10 +280,10 @@ fn transpile_hir_eager_expr_to_rust(
         } => {
             (self_argument, HirEagerExprSite::self_expr_on_site(true)).transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
-            let places = instantiation.places();
-            match places.len() {
+            let contracted_quaries = instantiation.contracted_quaries();
+            match contracted_quaries.len() {
                 0 => ident.transpile_to_rust(builder),
-                1 => match places[0].place() {
+                1 => match contracted_quaries[0].quary().place() {
                     Some(place) => match place_contract_site[place] {
                         HirContract::Pure => ident.transpile_to_rust(builder),
                         HirContract::Move => todo!(),

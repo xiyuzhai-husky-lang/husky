@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
-    place_contract::HirEagerPlaceContractSite, var::rvar::HirEagerRvarIdx, *,
+    var::rvar::HirEagerRvarIdx, *,
 };
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
@@ -15,7 +15,8 @@ use husky_fly_term::{
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    instantiation::HirInstantiation, quary::HirQuary, ritchie::HirContract, HirType,
+    instantiation::HirInstantiation, place_contract_site::HirPlaceContractSite, quary::HirQuary,
+    ritchie::HirContract, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
 use husky_sema_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
@@ -34,7 +35,7 @@ pub struct HirEagerExprEntry {
     data: HirEagerExprData,
     quary: HirQuary,
     is_always_copyable: bool,
-    place_contract_site: HirEagerPlaceContractSite,
+    place_contract_site: HirPlaceContractSite,
 }
 
 /// # getters
@@ -51,7 +52,7 @@ impl HirEagerExprEntry {
         self.is_always_copyable
     }
 
-    pub fn place_contract_site(&self) -> &HirEagerPlaceContractSite {
+    pub fn place_contract_site(&self) -> &HirPlaceContractSite {
         &self.place_contract_site
     }
 }
@@ -174,6 +175,8 @@ impl ToHirEager for SemaExprIdx {
     type Output = HirEagerExprIdx;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        let place_contract_site =
+            HirPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let data = match *self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 HirEagerExprData::Literal(match builder.expr_term(*self) {
@@ -325,6 +328,7 @@ impl ToHirEager for SemaExprIdx {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
+                                    &place_contract_site,
                                     db,
                                     builder.fly_terms(),
                                 ),
@@ -335,6 +339,7 @@ impl ToHirEager for SemaExprIdx {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
+                                    &place_contract_site,
                                     db,
                                     builder.fly_terms(),
                                 ),
@@ -346,6 +351,7 @@ impl ToHirEager for SemaExprIdx {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
+                                    &place_contract_site,
                                     db,
                                     builder.fly_terms(),
                                 ),
@@ -362,6 +368,7 @@ impl ToHirEager for SemaExprIdx {
                                 path: signature.path(),
                                 instantiation: HirInstantiation::from_fly(
                                     signature.instantiation(),
+                                    &place_contract_site,
                                     db,
                                     builder.fly_terms(),
                                 ),
@@ -401,6 +408,7 @@ impl ToHirEager for SemaExprIdx {
                         path,
                         instantiation: HirInstantiation::from_fly(
                             instantiation,
+                            &place_contract_site,
                             builder.db(),
                             builder.fly_terms(),
                         ),
@@ -427,6 +435,7 @@ impl ToHirEager for SemaExprIdx {
                     path: signature.path(),
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
+                        &place_contract_site,
                         builder.db(),
                         builder.fly_terms(),
                     ),
@@ -515,15 +524,13 @@ impl ToHirEager for SemaExprIdx {
             },
         };
         let ty = self.ty(builder.sema_expr_arena_ref2());
-        let ty_place = ty
+        let quary = ty
             .quary()
             .map(|place| HirQuary::from_fly(place))
             .unwrap_or(HirQuary::Transient);
-        let place_contract_site =
-            HirEagerPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let entry = HirEagerExprEntry {
             data,
-            quary: ty_place,
+            quary,
             is_always_copyable: ty
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()

@@ -336,7 +336,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -390,7 +390,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -427,7 +427,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -441,7 +441,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -538,7 +538,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -552,7 +552,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -573,7 +573,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -597,7 +597,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -618,7 +618,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -639,7 +639,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -660,7 +660,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -741,7 +741,7 @@
                                                         11,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: ImmutableOnStack {
+                                                                expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
                                                                     ),
@@ -753,7 +753,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -837,7 +837,7 @@
                                                         12,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
+                                                                expectee_quary: Transient,
                                                             },
                                                         ),
                                                     ),
@@ -845,7 +845,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -859,7 +859,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -880,7 +880,7 @@
                                                 ),
                                             },
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -913,7 +913,7 @@
                                                         14,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableOnStack {
+                                                                expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
                                                                     ),
@@ -935,7 +935,7 @@
                                                         15,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: MutableOnStack {
+                                                                expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
                                                                     ),
@@ -947,7 +947,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -959,7 +959,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -981,7 +981,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -1014,7 +1014,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -1044,7 +1044,7 @@
                                                     ),
                                                 },
                                             },
-                                            block: ArenaIdxRange(
+                                            stmts: ArenaIdxRange(
                                                 1..3,
                                             ),
                                         },
@@ -1052,7 +1052,7 @@
                                             result: 16,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: Transient,
+                                                    expectee_quary: Transient,
                                                 },
                                             ),
                                         },
@@ -1279,7 +1279,7 @@
                                             ),
                                             quary: Const,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1289,7 +1289,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1334,7 +1334,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1391,7 +1391,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1405,7 +1405,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -1426,7 +1426,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -1443,7 +1443,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1488,7 +1488,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1502,7 +1502,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -1522,7 +1522,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1559,7 +1559,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1594,7 +1594,7 @@
                                                         11,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Leashed,
+                                                                expectee_quary: Leashed,
                                                             },
                                                         ),
                                                     ),
@@ -1602,7 +1602,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1614,7 +1614,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1628,7 +1628,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -1647,7 +1647,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1660,7 +1660,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -1684,7 +1684,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Const,
+                                                        expectee_quary: Const,
                                                     },
                                                 ),
                                             ),
@@ -1714,7 +1714,7 @@
                                                     ),
                                                 },
                                             },
-                                            block: ArenaIdxRange(
+                                            stmts: ArenaIdxRange(
                                                 1..2,
                                             ),
                                         },
@@ -1722,7 +1722,7 @@
                                             result: 14,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: MutableOnStack {
+                                                    expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
                                                         ),
@@ -1859,7 +1859,7 @@
                                             ),
                                             quary: Const,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1869,7 +1869,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1914,7 +1914,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1971,7 +1971,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -1985,7 +1985,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2006,7 +2006,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2023,7 +2023,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2068,7 +2068,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2082,7 +2082,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2102,7 +2102,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2139,7 +2139,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2174,7 +2174,7 @@
                                                         11,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Leashed,
+                                                                expectee_quary: Leashed,
                                                             },
                                                         ),
                                                     ),
@@ -2182,7 +2182,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2194,7 +2194,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2208,7 +2208,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2227,7 +2227,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2240,7 +2240,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -2264,7 +2264,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Const,
+                                                        expectee_quary: Const,
                                                     },
                                                 ),
                                             ),
@@ -2294,7 +2294,7 @@
                                                     ),
                                                 },
                                             },
-                                            block: ArenaIdxRange(
+                                            stmts: ArenaIdxRange(
                                                 1..2,
                                             ),
                                         },
@@ -2302,7 +2302,7 @@
                                             result: 14,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: MutableOnStack {
+                                                    expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
                                                         ),
@@ -2439,7 +2439,7 @@
                                             ),
                                             quary: Const,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2449,7 +2449,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2494,7 +2494,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2551,7 +2551,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2565,7 +2565,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2586,7 +2586,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2603,7 +2603,7 @@
                                             ),
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2648,7 +2648,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: false,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2662,7 +2662,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2682,7 +2682,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2719,7 +2719,7 @@
                                             },
                                             quary: Leashed,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2743,7 +2743,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2778,7 +2778,7 @@
                                                         12,
                                                         Trivial(
                                                             TrivialHirEagerCoersion {
-                                                                expectee_place: Transient,
+                                                                expectee_quary: Transient,
                                                             },
                                                         ),
                                                     ),
@@ -2786,7 +2786,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2798,7 +2798,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2812,7 +2812,7 @@
                                                 ),
                                             },
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
                                                         Idx(
@@ -2831,7 +2831,7 @@
                                             },
                                             quary: Transient,
                                             is_always_copyable: true,
-                                            place_contract_site: HirEagerPlaceContractSite {
+                                            place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                         },
@@ -2844,7 +2844,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Transient,
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -2868,7 +2868,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoersion {
-                                                        expectee_place: Const,
+                                                        expectee_quary: Const,
                                                     },
                                                 ),
                                             ),
@@ -2898,7 +2898,7 @@
                                                     ),
                                                 },
                                             },
-                                            block: ArenaIdxRange(
+                                            stmts: ArenaIdxRange(
                                                 1..2,
                                             ),
                                         },
@@ -2906,7 +2906,7 @@
                                             result: 15,
                                             coersion: Trivial(
                                                 TrivialHirEagerCoersion {
-                                                    expectee_place: MutableOnStack {
+                                                    expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
                                                         ),

@@ -15,7 +15,7 @@ pub enum HirEagerCoersion {
 
 impl HirEagerCoersion {
     pub const TRIVIAL_TRANSIENT: Self = HirEagerCoersion::Trivial(TrivialHirEagerCoersion {
-        expectee_place: HirQuary::Transient,
+        expectee_quary: HirQuary::Transient,
     });
 
     pub fn quary_after_coersion(self) -> HirQuary {
@@ -31,11 +31,11 @@ impl HirEagerCoersion {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TrivialHirEagerCoersion {
-    expectee_place: HirQuary,
+    expectee_quary: HirQuary,
 }
 impl TrivialHirEagerCoersion {
     fn place_after_coersion(self) -> HirQuary {
-        self.expectee_place
+        self.expectee_quary
     }
 }
 
@@ -74,7 +74,7 @@ impl ToHirEager for TrivialFlyCoersion {
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         TrivialHirEagerCoersion {
-            expectee_place: HirQuary::from_fly(self.expectee_place),
+            expectee_quary: HirQuary::from_fly(self.expectee_quary),
         }
     }
 }

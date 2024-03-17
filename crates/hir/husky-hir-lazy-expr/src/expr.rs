@@ -13,7 +13,8 @@ use husky_entity_path::{
 use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    indirections::HirIndirections, instantiation::HirInstantiation, HirConstSvar, HirType,
+    indirections::HirIndirections, instantiation::HirInstantiation,
+    place_contract_site::HirPlaceContractSite, HirConstSvar, HirType,
 };
 use husky_sema_expr::{SemaExprData, SemaExprIdx};
 use husky_sema_opr::binary::SemaBinaryOpr;
@@ -140,6 +141,8 @@ impl ToHirLazy for SemaExprIdx {
     type Output = HirLazyExprIdx;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
+        let place_contract_site =
+            HirPlaceContractSite::from_sema(&builder.sema_place_contract_region()[*self]);
         let hir_lazy_expr = match *self.data(builder.sema_expr_arena_ref()) {
             SemaExprData::Literal(_, _) => {
                 let EthTerm::Literal(lit) = builder.expr_term(*self) else {
@@ -262,6 +265,7 @@ impl ToHirLazy for SemaExprIdx {
                     } => {
                         let instantiation = HirInstantiation::from_fly(
                             instantiation,
+                            &place_contract_site,
                             builder.db(),
                             builder.fly_terms(),
                         );
@@ -348,6 +352,7 @@ impl ToHirLazy for SemaExprIdx {
                         indirections: HirIndirections::from_fly(dispatch.indirections()),
                         instantiation: HirInstantiation::from_fly(
                             instantiation,
+                            &place_contract_site,
                             builder.db(),
                             builder.fly_terms(),
                         ),
@@ -383,6 +388,7 @@ impl ToHirLazy for SemaExprIdx {
                         .new_call_list_item_groups(ritchie_parameter_argument_matches),
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
+                        &place_contract_site,
                         builder.db(),
                         builder.fly_terms(),
                     ),

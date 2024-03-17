@@ -33,7 +33,7 @@ impl std::ops::Deref for LinInstantiation {
 pub enum LinTermSymbolResolution {
     Explicit(LinTemplateArgument),
     SelfLifetime,
-    SelfQuary(LinQual),
+    SelfQual(LinQual),
 }
 
 impl LinInstantiation {
@@ -84,7 +84,7 @@ impl LinInstantiation {
             .iter()
             .filter_map(|&(symbol, resolution)| match resolution {
                 LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_))
-                | LinTermSymbolResolution::SelfQuary(_) => Some((symbol, resolution)),
+                | LinTermSymbolResolution::SelfQual(_) => Some((symbol, resolution)),
                 LinTermSymbolResolution::Explicit(_) | LinTermSymbolResolution::SelfLifetime => {
                     None
                 }
@@ -177,8 +177,8 @@ impl LinTermSymbolResolution {
             }
             JavTermSymbolResolution::SelfPlace => {
                 smallvec![
-                    LinTermSymbolResolution::SelfQuary(LinQual::Ref),
-                    LinTermSymbolResolution::SelfQuary(LinQual::RefMut),
+                    LinTermSymbolResolution::SelfQual(LinQual::Ref),
+                    LinTermSymbolResolution::SelfQual(LinQual::RefMut),
                 ]
             }
         }
@@ -194,7 +194,9 @@ impl LinTermSymbolResolution {
                 LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db),
             ),
             HirTermSvarResolution::SelfLifetime => LinTermSymbolResolution::SelfLifetime,
-            HirTermSvarResolution::SelfPlace(_) => todo!(),
+            HirTermSvarResolution::SelfContractedQuary(contracted_quary) => {
+                LinTermSymbolResolution::SelfQual(LinQual::from_hir(contracted_quary))
+            }
         }
     }
 }

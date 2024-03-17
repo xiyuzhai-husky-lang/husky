@@ -289,11 +289,16 @@
                                     HirTemplateSvar::Type(
                                         HirTypeSvar::SelfPlace,
                                     ),
-                                    HirTermSvarResolution::SelfPlace(
-                                        MutableOnStack {
-                                            place: Idx(
-                                                PlaceIdx(8),
+                                    HirTermSvarResolution::SelfContractedQuary(
+                                        HirContractedQuary {
+                                            contract: Some(
+                                                BorrowMut,
                                             ),
+                                            quary: MutableOnStack {
+                                                place: Idx(
+                                                    PlaceIdx(8),
+                                                ),
+                                            },
                                         },
                                     ),
                                 ),

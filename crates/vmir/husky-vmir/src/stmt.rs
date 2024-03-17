@@ -2,7 +2,16 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
-use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPatternIdx, *};
+use crate::{
+    coersion::VmirCoersion,
+    expr::VmirExprIdx,
+    pattern::VmirPatternIdx,
+    stmt::{
+        ifelse::{VmirElifBranchs, VmirElseBranch, VmirIfBranch},
+        r#match::VmirCaseBranches,
+    },
+    *,
+};
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
@@ -25,13 +34,30 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
         coersion: Option<VmirCoersion>,
         discarded: bool,
     },
-    ForBetween,
-    Forext,
-    ForIn,
-    While,
-    DoWhile,
-    IfElse,
-    Match,
+    ForBetween {
+        stmts: VmirStmtIdxRange<LinkageImpl>,
+    },
+    Forext {
+        stmts: VmirStmtIdxRange<LinkageImpl>,
+    },
+    ForIn {
+        stmts: VmirStmtIdxRange<LinkageImpl>,
+    },
+    While {
+        stmts: VmirStmtIdxRange<LinkageImpl>,
+    },
+    DoWhile {
+        stmts: VmirStmtIdxRange<LinkageImpl>,
+    },
+    IfElse {
+        if_branch: VmirIfBranch<LinkageImpl>,
+        elif_branches: VmirElifBranchs<LinkageImpl>,
+        else_branch: Option<VmirElseBranch<LinkageImpl>>,
+    },
+    Match {
+        opd: VmirExprIdx<LinkageImpl>,
+        case_branches: VmirCaseBranches<LinkageImpl>,
+    },
 }
 
 pub type VmirStmtArena<LinkageImpl> = Arena<VmirStmtData<LinkageImpl>>;
@@ -74,33 +100,50 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                 },
                 HirEagerStmtData::ForBetween {
                     ref particulars,
-                    block,
-                } => VmirStmtData::ForBetween,
+                    stmts,
+                } => VmirStmtData::ForBetween {
+                    stmts: stmts.to_vmir(builder),
+                },
                 HirEagerStmtData::Forext {
                     ref particulars,
-                    block,
-                } => VmirStmtData::Forext,
+                    stmts,
+                } => VmirStmtData::Forext {
+                    stmts: stmts.to_vmir(builder),
+                },
                 HirEagerStmtData::ForIn {
                     ref condition,
-                    block,
-                } => VmirStmtData::ForIn,
+                    stmts,
+                } => VmirStmtData::ForIn {
+                    stmts: stmts.to_vmir(builder),
+                },
                 HirEagerStmtData::While {
                     ref condition,
                     stmts,
-                } => VmirStmtData::While,
+                } => VmirStmtData::While {
+                    stmts: stmts.to_vmir(builder),
+                },
                 HirEagerStmtData::DoWhile {
                     ref condition,
-                    block,
-                } => VmirStmtData::DoWhile,
+                    stmts,
+                } => VmirStmtData::DoWhile {
+                    stmts: stmts.to_vmir(builder),
+                },
                 HirEagerStmtData::IfElse {
                     ref if_branch,
                     ref elif_branches,
                     ref else_branch,
-                } => VmirStmtData::IfElse,
+                } => VmirStmtData::IfElse {
+                    if_branch: if_branch.to_vmir(builder),
+                    elif_branches: elif_branches.to_vmir(builder),
+                    else_branch: else_branch.to_vmir(builder),
+                },
                 HirEagerStmtData::Match {
+                    ref opd,
                     ref case_branches,
-                    ref match_target,
-                } => VmirStmtData::Match,
+                } => VmirStmtData::Match {
+                    opd: opd.to_vmir(builder),
+                    case_branches: case_branches.to_vmir(builder),
+                },
             })
             .collect();
         builder.alloc_stmts(stmts)

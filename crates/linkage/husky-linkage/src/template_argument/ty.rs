@@ -44,7 +44,7 @@ impl LinkageInstantiate for HirType {
                     LinTemplateArgument::Qual(_) => todo!(),
                 },
                 LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfQuary(_) => todo!(),
+                LinTermSymbolResolution::SelfQual(_) => todo!(),
             },
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
@@ -76,7 +76,7 @@ impl LinTypePathLeading {
                 .map(|(_, res)| match *res {
                     LinTermSymbolResolution::Explicit(arg) => arg,
                     LinTermSymbolResolution::SelfLifetime
-                    | LinTermSymbolResolution::SelfQuary(_) => unreachable!(),
+                    | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
                 })
                 .collect(),
         )
@@ -157,7 +157,7 @@ impl LinType {
                         LinTemplateArgument::Qual(_) => todo!(),
                     },
                     LinTermSymbolResolution::SelfLifetime => todo!(),
-                    LinTermSymbolResolution::SelfQuary(_) => todo!(),
+                    LinTermSymbolResolution::SelfQual(_) => todo!(),
                 },
                 None => todo!(),
             },

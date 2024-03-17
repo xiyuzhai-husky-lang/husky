@@ -52,6 +52,7 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Unwrap {
         opd: VmirExprIdx<LinkageImpl>,
     },
+    ConstSvar,
 }
 
 pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
@@ -92,7 +93,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerExprData::Literal(_) => VmirExprData::Literal,
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
-            HirEagerExprData::ConstSvar { ident } => todo!(),
+            HirEagerExprData::ConstSvar { ident } => VmirExprData::ConstSvar,
             HirEagerExprData::Variable(_) => VmirExprData::Variable,
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {
                 lopd: lopd.to_vmir(self),

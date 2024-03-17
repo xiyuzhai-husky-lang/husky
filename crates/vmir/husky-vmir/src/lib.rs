@@ -41,3 +41,17 @@ where
         self.map(|slf| slf.to_vmir(builder))
     }
 }
+
+impl<'a, T, LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &'a [T]
+where
+    &'a T: ToVmir<LinkageImpl>,
+{
+    type Output = Vec<<&'a T as ToVmir<LinkageImpl>>::Output>;
+
+    fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
+    where
+        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+    {
+        self.iter().map(|elem| elem.to_vmir(builder)).collect()
+    }
+}
