@@ -4,9 +4,11 @@ use crate::{
     pattern::{
         destructive::{
             VmirDestructivePatternArena, VmirDestructivePatternData, VmirDestructivePatternIdx,
+            VmirDestructivePatternIdxRange,
         },
         restructive::{
             VmirRestructivePatternArena, VmirRestructivePatternData, VmirRestructivePatternIdx,
+            VmirRestructivePatternIdxRange,
         },
     },
     stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdxRange},
@@ -124,11 +126,25 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
         self.vmir_restructive_pattern_arena.alloc_one(pattern)
     }
 
+    pub(crate) fn alloc_restructive_patterns(
+        &mut self,
+        patterns: Vec<VmirRestructivePatternData<Linktime::LinkageImpl>>,
+    ) -> VmirRestructivePatternIdxRange<Linktime::LinkageImpl> {
+        self.vmir_restructive_pattern_arena.alloc_batch(patterns)
+    }
+
     pub(crate) fn alloc_destructive_pattern(
         &mut self,
         pattern: VmirDestructivePatternData<Linktime::LinkageImpl>,
     ) -> VmirDestructivePatternIdx<Linktime::LinkageImpl> {
         self.vmir_destructive_pattern_arena.alloc_one(pattern)
+    }
+
+    pub(crate) fn alloc_destructive_patterns(
+        &mut self,
+        patterns: Vec<VmirDestructivePatternData<Linktime::LinkageImpl>>,
+    ) -> VmirDestructivePatternIdxRange<Linktime::LinkageImpl> {
+        self.vmir_destructive_pattern_arena.alloc_batch(patterns)
     }
 
     pub(crate) fn alloc_destroyers(

@@ -27,7 +27,9 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Require {
         condition: VmirCondition<LinkageImpl>,
     },
-    Assert,
+    Assert {
+        condition: VmirCondition<LinkageImpl>,
+    },
     Break,
     Eval {
         expr: VmirExprIdx<LinkageImpl>,
@@ -44,9 +46,11 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
         stmts: VmirStmtIdxRange<LinkageImpl>,
     },
     While {
+        condition: VmirCondition<LinkageImpl>,
         stmts: VmirStmtIdxRange<LinkageImpl>,
     },
     DoWhile {
+        condition: VmirCondition<LinkageImpl>,
         stmts: VmirStmtIdxRange<LinkageImpl>,
     },
     IfElse {
@@ -87,7 +91,9 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                 HirEagerStmtData::Require { ref condition } => VmirStmtData::Require {
                     condition: condition.to_vmir(builder),
                 },
-                HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert,
+                HirEagerStmtData::Assert { ref condition } => VmirStmtData::Assert {
+                    condition: condition.to_vmir(builder),
+                },
                 HirEagerStmtData::Break => VmirStmtData::Break,
                 HirEagerStmtData::Eval {
                     expr,
@@ -120,12 +126,14 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     ref condition,
                     stmts,
                 } => VmirStmtData::While {
+                    condition: condition.to_vmir(builder),
                     stmts: stmts.to_vmir(builder),
                 },
                 HirEagerStmtData::DoWhile {
                     ref condition,
                     stmts,
                 } => VmirStmtData::DoWhile {
+                    condition: condition.to_vmir(builder),
                     stmts: stmts.to_vmir(builder),
                 },
                 HirEagerStmtData::IfElse {
@@ -151,7 +159,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
@@ -168,7 +176,7 @@ pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
 }
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum VmirConditionConversion<LinkageImpl> {
     None,
     IntToBool,
