@@ -131,7 +131,7 @@
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: RitchieKind::Type(
                                     RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                 ),
                                 params: [
@@ -218,7 +218,7 @@
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: RitchieKind::Type(
                                     RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                 ),
                                 params: [
@@ -687,8 +687,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),
@@ -1000,8 +1000,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),

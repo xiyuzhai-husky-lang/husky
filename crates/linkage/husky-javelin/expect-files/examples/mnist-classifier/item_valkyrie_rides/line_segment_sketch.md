@@ -104,8 +104,8 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                Fn,
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -712,8 +712,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),
@@ -846,8 +846,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),

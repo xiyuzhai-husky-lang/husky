@@ -102,8 +102,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -117,7 +117,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },

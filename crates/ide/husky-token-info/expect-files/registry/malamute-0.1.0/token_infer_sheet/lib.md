@@ -477,8 +477,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `AssocRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`, `TraitItemKind::AssocRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -492,7 +492,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::AssocRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -807,7 +807,7 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -860,8 +860,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -875,7 +875,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::AssocRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -1908,7 +1908,7 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `AssocType`),
+                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`, `TraitItemKind::AssocType`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1961,8 +1961,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -1976,7 +1976,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::AssocRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -2738,7 +2738,7 @@ Ok(
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Fugitive(
                                 MajorFugitiveKind::Ritchie(
-                                    Gn,
+                                    RitchieItemKind::Gn,
                                 ),
                             ),
                             connection: MajorItemConnectionKind::Connected,

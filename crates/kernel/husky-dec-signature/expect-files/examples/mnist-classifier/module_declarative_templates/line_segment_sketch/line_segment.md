@@ -60,7 +60,7 @@
                             instance_constructor_ritchie_ty: DecRitchie {
                                 ritchie_kind: RitchieKind::Type(
                                     RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                 ),
                                 params: [

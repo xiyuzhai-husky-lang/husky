@@ -765,7 +765,7 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -785,7 +785,7 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                                                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1204,7 +1204,7 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1334,8 +1334,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -1356,8 +1356,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -1827,8 +1827,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },

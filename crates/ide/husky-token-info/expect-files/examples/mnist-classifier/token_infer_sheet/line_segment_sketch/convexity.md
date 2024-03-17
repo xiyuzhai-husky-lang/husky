@@ -168,7 +168,7 @@ Ok(
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Fugitive(
                                 MajorFugitiveKind::Ritchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                             connection: MajorItemConnectionKind::Connected,

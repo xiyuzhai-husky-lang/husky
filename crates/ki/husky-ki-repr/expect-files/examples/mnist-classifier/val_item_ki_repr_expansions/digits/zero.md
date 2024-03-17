@@ -1884,8 +1884,8 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
-                                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                        Fn,
+                                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                        RitchieItemKind::Fn,
                                     )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
@@ -4357,8 +4357,8 @@
                         opn: ValOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
-                                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                        Fn,
+                                    path: TraitForTypeItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                        RitchieItemKind::Fn,
                                     )`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],

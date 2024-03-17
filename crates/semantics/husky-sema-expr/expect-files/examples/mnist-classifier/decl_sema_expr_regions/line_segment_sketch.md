@@ -438,8 +438,8 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                                        Fn,
+                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
@@ -770,8 +770,8 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TraitForTypeItem(
-                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                                        Fn,
+                                                    TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
@@ -4950,8 +4950,8 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -4960,8 +4960,8 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                 ),
@@ -6260,8 +6260,8 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -6270,8 +6270,8 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                            Fn,
+                        TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
                         )`),
                     ),
                 ),

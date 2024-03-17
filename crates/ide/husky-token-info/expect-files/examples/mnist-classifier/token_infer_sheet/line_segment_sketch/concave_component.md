@@ -487,8 +487,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -502,7 +502,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -2794,7 +2794,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3010,7 +3010,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3127,7 +3127,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3244,7 +3244,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3338,7 +3338,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3444,7 +3444,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TypeItem(
                                 TypeItemKind::MethodRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },
@@ -3538,7 +3538,7 @@ Ok(
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Fugitive(
                                 MajorFugitiveKind::Ritchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                             connection: MajorItemConnectionKind::Connected,

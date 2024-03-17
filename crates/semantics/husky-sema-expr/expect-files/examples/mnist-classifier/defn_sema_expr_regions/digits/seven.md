@@ -221,7 +221,7 @@
                                         1,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -445,7 +445,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
@@ -2158,7 +2158,7 @@
                                         1,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
-                                        Fn,
+                                        RitchieItemKind::Fn,
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
@@ -2382,7 +2382,7 @@
                                                     },
                                                     variant: ExpectEqsFunctionTypeOutcomeData::TypeRitchie {
                                                         ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            Fn,
+                                                            RitchieItemKind::Fn,
                                                         ),
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(

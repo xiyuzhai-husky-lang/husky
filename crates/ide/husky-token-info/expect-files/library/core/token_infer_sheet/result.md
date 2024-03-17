@@ -432,7 +432,7 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `AssocType`),
+                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`, `TraitItemKind::AssocType`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -483,8 +483,8 @@ Ok(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `AssocRitchie(
-                                                            Fn,
+                                                        path: TraitForTypeItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`, `TraitItemKind::AssocRitchie(
+                                                            RitchieItemKind::Fn,
                                                         )`),
                                                         disambiguator: 0,
                                                     },
@@ -498,7 +498,7 @@ Ok(
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitForTypeItem(
                                 TraitItemKind::AssocRitchie(
-                                    Fn,
+                                    RitchieItemKind::Fn,
                                 ),
                             ),
                         },

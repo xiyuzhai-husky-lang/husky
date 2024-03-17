@@ -295,8 +295,8 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                        Fn,
+                    TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     )`),
                 ),
             ),
@@ -304,8 +304,8 @@ SynDeclSheet {
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                                Fn,
+                            path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -422,8 +422,8 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },

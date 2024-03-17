@@ -2619,8 +2619,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -2641,8 +2641,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -2877,8 +2877,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::i8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -4135,8 +4135,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -4157,8 +4157,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -4393,8 +4393,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::i16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -6046,8 +6046,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -6068,8 +6068,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -6304,8 +6304,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::i32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -7167,8 +7167,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -7189,8 +7189,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -7425,8 +7425,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::i64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -8288,8 +8288,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -8310,8 +8310,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -8546,8 +8546,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::i128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -9409,8 +9409,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -9431,8 +9431,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -9667,8 +9667,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::isize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -10530,8 +10530,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -10552,8 +10552,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -10788,8 +10788,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::u8 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -11651,8 +11651,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -11673,8 +11673,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -11909,8 +11909,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::u16 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -12772,8 +12772,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -12794,8 +12794,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -13030,8 +13030,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::u32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -13893,8 +13893,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -13915,8 +13915,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -14151,8 +14151,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::u64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -15014,8 +15014,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -15036,8 +15036,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -15272,8 +15272,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::u128 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -16135,8 +16135,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -16157,8 +16157,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -16393,8 +16393,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::usize as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -19506,8 +19506,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -19528,8 +19528,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -19764,8 +19764,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::f32 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },
@@ -20919,8 +20919,8 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                Fn,
+                                            path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
                                             )`),
                                             disambiguator: 0,
                                         },
@@ -20941,8 +20941,8 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                        Fn,
+                                                    path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     )`),
                                                     disambiguator: 0,
                                                 },
@@ -21177,8 +21177,8 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `MethodRitchie(
-                                                                            Fn,
+                                                                        path: TraitForTypeItemPath(`<core::num::f64 as core::ops::Add(0)>::add`, `TraitItemKind::MethodRitchie(
+                                                                            RitchieItemKind::Fn,
                                                                         )`),
                                                                         disambiguator: 0,
                                                                     },

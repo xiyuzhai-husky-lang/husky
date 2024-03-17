@@ -180,8 +180,8 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `MethodRitchie(
-                    Fn,
+                TraitForTypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`, `TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 )`),
             ),
         ),
@@ -642,8 +642,8 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                Fn,
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -764,8 +764,8 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                Fn,
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -850,8 +850,8 @@
                     },
                     ValkyrieRide::PathLeading {
                         javelin_item_path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `MethodRitchie(
-                                Fn,
+                            TraitForTypeItemPath(`<#derive _ as core::clone::Clone(0)>::clone`, `TraitItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
