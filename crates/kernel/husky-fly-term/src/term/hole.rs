@@ -9,7 +9,7 @@ use idx_arena::ArenaIdx;
 pub enum HoleSource {
     Expr(SynExprIdx),
     SemaExpr(ArenaIdx<()>),
-    Pattern(PatternSynExprIdx),
+    Pattern(SynPatternIdx),
     Expectation(FlyTermExpectationIdx),
 }
 

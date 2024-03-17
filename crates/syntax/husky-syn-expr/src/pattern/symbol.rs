@@ -3,7 +3,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SynPatternSymbol {
-    Atom(PatternSynExprIdx),
+    Atom(SynPatternIdx),
 }
 
 impl SynPatternSymbol {

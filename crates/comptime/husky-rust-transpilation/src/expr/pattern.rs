@@ -3,13 +3,13 @@ use husky_term_prelude::SvarModifier;
 
 use super::*;
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         use salsa::DebugWithDb;
         match self.entry(builder.hir_eager_pattern_expr_arena()) {
-            HirEagerPatternExpr::Literal(lit) => lit.transpile_to_rust(builder),
-            HirEagerPatternExpr::Ident {
+            HirEagerPatternData::Literal(lit) => lit.transpile_to_rust(builder),
+            HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
             } => {
@@ -36,10 +36,10 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
                 }
                 ident.transpile_to_rust(builder)
             }
-            HirEagerPatternExpr::Unit(path) => path.transpile_to_rust(builder),
-            HirEagerPatternExpr::Tuple { path: _, fields: _ } => todo!(),
-            HirEagerPatternExpr::Props { path: _, fields: _ } => todo!(),
-            HirEagerPatternExpr::OneOf { options } => {
+            HirEagerPatternData::Unit(path) => path.transpile_to_rust(builder),
+            HirEagerPatternData::Tuple { path: _, fields: _ } => todo!(),
+            HirEagerPatternData::Props { path: _, fields: _ } => todo!(),
+            HirEagerPatternData::OneOf { options } => {
                 let mut start = true;
                 for option in options {
                     if start {
@@ -50,9 +50,9 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternExprIdx {
                     option.transpile_to_rust(builder)
                 }
             }
-            HirEagerPatternExpr::Binding { ident: _, src: _ } => todo!(),
-            HirEagerPatternExpr::Range { start: _, end: _ } => todo!(),
-            HirEagerPatternExpr::Some => builder.some_pattern(),
+            HirEagerPatternData::Binding { ident: _, src: _ } => todo!(),
+            HirEagerPatternData::Range { start: _, end: _ } => todo!(),
+            HirEagerPatternData::Some => builder.some_pattern(),
         }
     }
 }

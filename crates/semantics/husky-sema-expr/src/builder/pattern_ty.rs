@@ -6,7 +6,7 @@ impl<'a> SemaExprBuilder<'a> {
     /// used for defn body variables
     pub(crate) fn infer_variable_pattern_root_and_symbols_ty(
         &mut self,
-        syn_pattern_root: impl Into<SynPatternExprRoot>,
+        syn_pattern_root: impl Into<SynPatternRoot>,
         ty: FlyTerm,
         symbols: CurrentSynSymbolIdxRange,
     ) {
@@ -17,14 +17,14 @@ impl<'a> SemaExprBuilder<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: PatternSynExprIdx, ty: FlyTerm) {
+    fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: FlyTerm) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
             SynPatternExprData::Literal { .. } => (), // there is no subpattern to infer
             SynPatternExprData::Ident { .. } => (),   // there is no subpattern to infer
@@ -146,7 +146,7 @@ impl<'a> SemaExprBuilder<'a> {
         }
     }
 
-    fn get_pattern_expr_ty(&self, pattern_expr_idx: PatternSynExprIdx) -> Option<FlyTerm> {
+    fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternIdx) -> Option<FlyTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty().ok().copied())

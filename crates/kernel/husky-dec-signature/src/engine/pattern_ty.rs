@@ -10,7 +10,7 @@ impl<'a> DecTermEngine<'a> {
     /// only use this for explicit parameters
     pub(super) fn infer_pattern_tys_in_parenate_parameter(
         &mut self,
-        syn_pattern_expr_root: impl Into<SynPatternExprRoot> + Copy,
+        syn_pattern_expr_root: impl Into<SynPatternRoot> + Copy,
         ty: DecTerm,
     ) {
         let syn_pattern_expr_idx = syn_pattern_expr_root.into().syn_pattern_expr_idx();

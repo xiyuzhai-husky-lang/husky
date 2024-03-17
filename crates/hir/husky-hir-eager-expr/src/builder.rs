@@ -14,8 +14,8 @@ use husky_sema_expr::{
 };
 use husky_sema_place_contract::region::{sema_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, InheritedSynSymbolIdx, PatternSynExprIdx, SynExprRegionData,
-    SynExprRootKind, SynPatternExprMap, SynPatternExprRootKind, SynSymbolMap,
+    CurrentSynSymbolIdx, InheritedSynSymbolIdx, SynExprRegionData, SynExprRootKind,
+    SynPatternExprMap, SynPatternExprRootKind, SynPatternIdx, SynSymbolMap,
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -26,7 +26,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
     hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
-    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternExprIdx>,
+    syn_to_hir_eager_pattern_expr_idx_map: SynPatternExprMap<HirEagerPatternIdx>,
     sema_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
     sema_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeSvarRegionData,
@@ -103,7 +103,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
             match syn_pattern_expr_root.kind() {
                 SynPatternExprRootKind::Parenate => {
-                    self.new_pattern_expr(syn_pattern_expr_root);
+                    self.new_pattern(syn_pattern_expr_root);
                 }
                 // already covered when building expr roots
                 SynPatternExprRootKind::Let
@@ -142,21 +142,21 @@ impl<'a> HirEagerExprBuilder<'a> {
         hir_eager_expr_idx
     }
 
-    pub(crate) fn alloc_pattern_expr(
+    pub(crate) fn alloc_pattern(
         &mut self,
-        pattern_expr: HirEagerPatternExpr,
-        syn_pattern_expr_idx: PatternSynExprIdx,
-    ) -> HirEagerPatternExprIdx {
-        let pattern_expr_idx = self.hir_eager_pattern_expr_arena.alloc_one(pattern_expr);
+        pattern: HirEagerPatternData,
+        syn_pattern: SynPatternIdx,
+    ) -> HirEagerPatternIdx {
+        let pattern = self.hir_eager_pattern_expr_arena.alloc_one(pattern);
         self.syn_to_hir_eager_pattern_expr_idx_map
-            .insert_new(syn_pattern_expr_idx, pattern_expr_idx);
-        pattern_expr_idx
+            .insert_new(syn_pattern, pattern);
+        pattern
     }
 
     pub(crate) fn alloc_pattern_exprs(
         &mut self,
-        pattern_exprs: Vec<HirEagerPatternExpr>,
-        syn_pattern_expr_idxs: impl Iterator<Item = PatternSynExprIdx>,
+        pattern_exprs: Vec<HirEagerPatternData>,
+        syn_pattern_expr_idxs: impl Iterator<Item = SynPatternIdx>,
     ) -> HirEagerPatternExprIdxRange {
         let pattern_expr_idx_range = self.hir_eager_pattern_expr_arena.alloc_batch(pattern_exprs);
         for (pattern_expr_idx, syn_pattern_expr_idx) in

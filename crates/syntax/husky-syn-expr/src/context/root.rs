@@ -48,50 +48,50 @@ pub enum SynExprRootKind {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct SynPatternExprRoot {
+pub struct SynPatternRoot {
     kind: SynPatternExprRootKind,
-    syn_pattern_expr_idx: PatternSynExprIdx,
+    syn_pattern_expr_idx: SynPatternIdx,
 }
 
-impl From<ParenateParameterSynPatternExprRoot> for SynPatternExprRoot {
+impl From<ParenateParameterSynPatternExprRoot> for SynPatternRoot {
     fn from(root: ParenateParameterSynPatternExprRoot) -> Self {
-        SynPatternExprRoot {
+        SynPatternRoot {
             kind: SynPatternExprRootKind::Parenate,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }
     }
 }
 
-impl From<ClosureSynPatternExprRoot> for SynPatternExprRoot {
+impl From<ClosureSynPatternExprRoot> for SynPatternRoot {
     fn from(root: ClosureSynPatternExprRoot) -> Self {
-        SynPatternExprRoot {
+        SynPatternRoot {
             kind: SynPatternExprRootKind::Parenate,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }
     }
 }
 
-impl From<LetPatternSynExprRoot> for SynPatternExprRoot {
+impl From<LetPatternSynExprRoot> for SynPatternRoot {
     fn from(root: LetPatternSynExprRoot) -> Self {
-        SynPatternExprRoot {
+        SynPatternRoot {
             kind: SynPatternExprRootKind::Let,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }
     }
 }
 
-impl From<BeSynPatternExprRoot> for SynPatternExprRoot {
+impl From<BeSynPatternExprRoot> for SynPatternRoot {
     fn from(root: BeSynPatternExprRoot) -> Self {
-        SynPatternExprRoot {
+        SynPatternRoot {
             kind: SynPatternExprRootKind::Be,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }
     }
 }
 
-impl From<CaseSynPatternExprRoot> for SynPatternExprRoot {
+impl From<CaseSynPatternExprRoot> for SynPatternRoot {
     fn from(root: CaseSynPatternExprRoot) -> Self {
-        SynPatternExprRoot {
+        SynPatternRoot {
             kind: SynPatternExprRootKind::Case,
             syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
         }
@@ -108,10 +108,10 @@ pub enum SynPatternExprRootKind {
     Closure,
 }
 
-impl SynPatternExprRoot {
+impl SynPatternRoot {
     pub(crate) fn new(
         kind: SynPatternExprRootKind,
-        syn_pattern_expr_idx: PatternSynExprIdx,
+        syn_pattern_expr_idx: SynPatternIdx,
         ctx: &mut SynExprContext,
     ) -> Self {
         let slf = Self {
@@ -122,7 +122,7 @@ impl SynPatternExprRoot {
         slf
     }
 
-    pub fn syn_pattern_expr_idx(self) -> PatternSynExprIdx {
+    pub fn syn_pattern_expr_idx(self) -> SynPatternIdx {
         self.syn_pattern_expr_idx
     }
 
@@ -137,7 +137,7 @@ impl<'a> SynExprContext<'a> {
     }
 
     // move to somewhere else?
-    pub(crate) fn add_pattern_expr_root(&mut self, syn_pattern_expr_root: SynPatternExprRoot) {
+    pub(crate) fn add_pattern_expr_root(&mut self, syn_pattern_expr_root: SynPatternRoot) {
         self.syn_pattern_expr_roots.push(syn_pattern_expr_root)
     }
 }

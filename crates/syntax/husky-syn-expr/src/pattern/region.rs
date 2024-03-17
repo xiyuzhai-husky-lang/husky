@@ -12,7 +12,7 @@ pub struct SynPatternExprRegion {
 }
 
 impl SynPatternExprRegion {
-    pub fn alloc_one_pattern_expr(&mut self, expr: SynPatternExprData) -> PatternSynExprIdx {
+    pub fn alloc_one_pattern_expr(&mut self, expr: SynPatternExprData) -> SynPatternIdx {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
@@ -26,7 +26,7 @@ impl SynPatternExprRegion {
     // expr must be allocated already
     fn calc_symbols(
         &mut self,
-        pattern_expr_idx: PatternSynExprIdx,
+        pattern_expr_idx: SynPatternIdx,
     ) -> IdentPairMap<SynPatternSymbolIdx> {
         let symbols: IdentPairMap<SynPatternSymbolIdx> = match self.pattern_expr_arena
             [pattern_expr_idx]
@@ -69,13 +69,13 @@ impl SynPatternExprRegion {
 
     pub fn pattern_exprs<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (PatternSynExprIdx, &'a SynPatternExprData)> + 'a {
+    ) -> impl Iterator<Item = (SynPatternIdx, &'a SynPatternExprData)> + 'a {
         self.pattern_expr_arena.indexed_iter()
     }
 
     pub fn pattern_expr_symbols(
         &self,
-        syn_pattern_expr_idx: PatternSynExprIdx,
+        syn_pattern_expr_idx: SynPatternIdx,
     ) -> &[(Ident, SynPatternSymbolIdx)] {
         &self.pattern_symbol_maps[syn_pattern_expr_idx]
     }
@@ -89,10 +89,10 @@ impl SynPatternExprRegion {
     }
 }
 
-impl std::ops::Index<PatternSynExprIdx> for SynPatternExprRegion {
+impl std::ops::Index<SynPatternIdx> for SynPatternExprRegion {
     type Output = SynPatternExprData;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_arena[index]
     }
 }
@@ -114,7 +114,7 @@ impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
 }
 
 impl SynExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
+    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternIdx) -> Contract {
         self.pattern_expr_region()
             .pattern_contract(pattern_expr_idx)
     }
@@ -126,7 +126,7 @@ impl SynExprRegionData {
 }
 
 impl SynPatternExprRegion {
-    fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
+    fn pattern_contract(&self, pattern_expr_idx: SynPatternIdx) -> Contract {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 

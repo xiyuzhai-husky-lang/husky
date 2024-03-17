@@ -4,7 +4,7 @@ use husky_syn_expr::BePatternSyndicate;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerBeVariablesPattern {
-    pub pattern_expr_idx: HirEagerPatternExprIdx,
+    pub pattern: HirEagerPatternIdx,
 }
 
 impl ToHirEager for BePatternSyndicate {
@@ -12,7 +12,7 @@ impl ToHirEager for BePatternSyndicate {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerBeVariablesPattern {
-            pattern_expr_idx: builder.new_pattern_expr(self.syn_pattern_root()),
+            pattern: builder.new_pattern(self.syn_pattern_root()),
         }
     }
 }

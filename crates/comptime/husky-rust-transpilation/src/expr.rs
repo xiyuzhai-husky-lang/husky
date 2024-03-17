@@ -14,9 +14,8 @@ use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     emit_note_on_hir_eager_expr_codespan, place_contract::HirEagerPlaceContractSite,
     HirEagerCondition, HirEagerElifBranch, HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry,
-    HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerPatternExpr,
-    HirEagerPatternExprIdx, HirEagerRitchieArgument, HirEagerStmtData, HirEagerStmtIdx,
-    HirEagerStmtIdxRange,
+    HirEagerExprIdx, HirEagerExprRegion, HirEagerIfBranch, HirEagerPatternData, HirEagerPatternIdx,
+    HirEagerRitchieArgument, HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -155,7 +154,7 @@ fn transpile_hir_eager_expr_to_rust(
                 (ropd, subexpr_greater()).transpile_to_rust(builder)
             }
         },
-        HirEagerExprData::Be { src: _, target: _ } => builder.macro_name(RustMacroName::Matches),
+        HirEagerExprData::Be { src: _, pattern: _ } => builder.macro_name(RustMacroName::Matches),
         HirEagerExprData::Prefix {
             opr,
             opd: opd_hir_expr_idx,

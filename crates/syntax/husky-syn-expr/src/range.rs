@@ -25,10 +25,10 @@ impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
     }
 }
 
-impl std::ops::Index<PatternSynExprIdx> for SynExprRangeRegion {
+impl std::ops::Index<SynPatternIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -65,10 +65,10 @@ impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SynExprRangeCalcula
     }
 }
 
-impl<'a> std::ops::Index<PatternSynExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPatternIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }

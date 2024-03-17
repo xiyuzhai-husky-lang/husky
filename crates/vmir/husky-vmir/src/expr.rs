@@ -1,4 +1,4 @@
-use crate::{destroyer::VmirDestroyerIdxRange, stmt::VmirStmtIdxRange, *};
+use crate::{destroyer::VmirDestroyerIdxRange, pattern::VmirPatternIdx, stmt::VmirStmtIdxRange, *};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
@@ -14,7 +14,9 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
     Literal,
     Variable,
     Binary,
-    Be,
+    Be {
+        pattern: VmirPatternIdx,
+    },
     Prefix {
         opr: HirPrefixOpr,
         opd: VmirExprIdx<LinkageImpl>,
@@ -85,7 +87,9 @@ impl<'comptime, Linktime: IsLinktime> VmirExprBuilder<'comptime, Linktime> {
             HirEagerExprData::ConstSvar { ident } => todo!(),
             HirEagerExprData::Variable(_) => VmirExprData::Variable,
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary,
-            HirEagerExprData::Be { src, ref target } => VmirExprData::Be,
+            HirEagerExprData::Be { src, ref pattern } => VmirExprData::Be {
+                pattern: pattern.pattern.to_vmir(self),
+            },
             HirEagerExprData::Prefix { opr, opd } => VmirExprData::Prefix {
                 opr,
                 opd: opd.to_vmir(self),

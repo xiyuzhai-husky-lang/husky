@@ -13,6 +13,7 @@ doctest = false
 smallvec.workspace = true
 # abstractions
 idx-arena.workspace = true
+enum-class.workspace = true
 salsa.workspace = true
 shifted-unsigned-int.workspace = true
 # hir

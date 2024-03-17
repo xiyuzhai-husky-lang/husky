@@ -2,7 +2,7 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
-use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPattern, *};
+use crate::{coersion::VmirCoersion, expr::VmirExprIdx, pattern::VmirPatternIdx, *};
 use husky_hir_eager_expr::{HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
@@ -110,7 +110,7 @@ pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
     /// This requires special handling for many cases.
     Be {
         src: VmirExprIdx<LinkageImpl>,
-        target: VmirPattern,
+        target: VmirPatternIdx,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there

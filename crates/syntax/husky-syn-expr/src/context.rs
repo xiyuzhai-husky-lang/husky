@@ -18,7 +18,7 @@ pub struct SynExprContext<'a> {
     syn_principal_entity_path_expr_arena: SynPrincipalEntityPathExprArena,
     syn_pattern_expr_region: SynPatternExprRegion,
     syn_stmt_arena: SynStmtArena,
-    syn_pattern_expr_roots: Vec<SynPatternExprRoot>,
+    syn_pattern_expr_roots: Vec<SynPatternRoot>,
     syn_expr_roots: Vec<SynExprRoot>,
     has_self_lifetime: bool,
     has_self_place: bool,
@@ -181,7 +181,7 @@ impl<'a> SynExprContext<'a> {
         self.syn_stmt_arena.alloc_batch(syn_stmts)
     }
 
-    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternExprData) -> PatternSynExprIdx {
+    pub(crate) fn alloc_pattern_expr(&mut self, expr: SynPatternExprData) -> SynPatternIdx {
         self.syn_pattern_expr_region.alloc_one_pattern_expr(expr)
     }
 

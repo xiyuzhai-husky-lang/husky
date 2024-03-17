@@ -105,10 +105,10 @@ impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SemaExprRangeRegionData 
     }
 }
 
-impl std::ops::Index<PatternSynExprIdx> for SemaExprRangeRegionData {
+impl std::ops::Index<SynPatternIdx> for SemaExprRangeRegionData {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
@@ -154,10 +154,10 @@ impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SemaExprRangeCalcul
     }
 }
 
-impl<'a> std::ops::Index<PatternSynExprIdx> for SemaExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPatternIdx> for SemaExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPatternIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.index()]
     }
 }
